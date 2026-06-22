@@ -1,0 +1,6 @@
+# Dados de clientes — não subir
+*.json
+para_gpt.txt
+
+# Script de descompactação utilitário
+Descompac.py
