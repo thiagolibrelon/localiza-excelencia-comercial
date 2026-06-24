@@ -1,0 +1,178 @@
+PROMPT 13 — SURPRESAS E PADRÕES EMERGENTES
+O que estamos deixando de enxergar?
+
+Você é um pesquisador de comportamento comercial B2B.
+
+Seu trabalho NÃO é validar hipóteses existentes.
+
+Seu trabalho é encontrar padrões relevantes que aparecem repetidamente nas transcrições mas que NÃO estão explicitamente capturados pelos prompts atuais.
+
+Contexto
+Empresa: Localiza (locação mensal PJ)
+Vendedor = "A"
+Cliente = "C"
+STT fragmentado — junte turns consecutivos do mesmo speaker.
+Ignore <unk>.
+Objetivo
+
+Analise todas as transcrições procurando:
+
+Categoria S1 — Comportamentos inesperados
+
+Algo que vendedores fazem repetidamente e que não está nas taxonomias atuais.
+
+Exemplos:
+
+linguagem específica
+forma de encerrar ligação
+forma de pedir informação
+forma de construir relacionamento
+Categoria S2 — Comportamentos dos clientes
+
+Algo que clientes fazem ou dizem repetidamente.
+
+Exemplos:
+
+padrão de reclamação
+padrão de compra
+padrão de adiamento
+padrão de linguagem
+Categoria S3 — Assuntos recorrentes sem categoria
+
+Temas frequentes que não se encaixam nos prompts atuais.
+
+Categoria S4 — Sinais fracos
+
+Eventos raros mas potencialmente importantes.
+
+Exemplos:
+
+ameaça de churn
+expansão da empresa
+troca de fornecedor
+mudança societária
+aquisição
+redução de operação
+Formato de saída
+categoria,codigo,descricao,frequencia_estimada,impacto_potencial,evidencias
+
+Onde:
+
+impacto_potencial = alto / medio / baixo
+evidencias = clientes ou situações onde apareceu
+Após a tabela responda:
+Qual foi a descoberta mais surpreendente desta base?
+Que comportamento relevante não é medido por nenhum prompt atual?
+Se pudesse criar apenas UM novo prompt baseado nos achados, qual seria?
+Quais padrões parecem ter potencial de impactar receita?
+Quais padrões parecem ter potencial de impactar retenção?
+PROMPT 14 — DIFERENÇAS ENTRE OS MELHORES VENDEDORES
+O que os top performers fazem diferente?
+
+Você é um analista de performance comercial.
+
+Seu objetivo NÃO é classificar comportamentos pré-definidos.
+
+Seu objetivo é comparar vendedores e descobrir diferenças observáveis entre os mais eficazes e os menos eficazes.
+
+Contexto
+Empresa: Localiza
+Vendedor = "A"
+Cliente = "C"
+STT fragmentado — junte turns consecutivos.
+Tarefa
+
+Compare os vendedores da base.
+
+Procure diferenças em:
+
+D1 — Estrutura da conversa
+ordem dos assuntos
+duração
+profundidade de investigação
+D2 — Linguagem
+palavras mais usadas
+tom
+objetividade
+assertividade
+D3 — Construção de relacionamento
+uso do nome
+referências a histórico
+conversas pessoais
+D4 — Comportamento comercial
+frequência de oferta
+frequência de perguntas
+frequência de exploração
+D5 — Gestão de objeções
+como respondem
+quanto exploram antes de responder
+Formato de saída
+tema,top_performers,demais_vendedores,diferenca_observada,impacto_estimado
+Após a tabela responda:
+O que os melhores vendedores fazem que os demais raramente fazem?
+O que os vendedores medianos fazem em excesso?
+Existe algum comportamento exclusivo dos top performers?
+Se todo o time copiasse apenas 3 comportamentos dos melhores vendedores, quais seriam?
+Qual vendedor deveria servir de benchmark para treinamento?
+PROMPT 15 — EVENTOS RAROS DE ALTO IMPACTO
+O que aconteceu poucas vezes mas merece atenção?
+
+Você é um analista de Revenue Intelligence.
+
+Seu trabalho é ignorar o que é comum.
+
+Procure apenas eventos raros que podem ter impacto desproporcional em receita, churn ou expansão.
+
+Contexto
+Empresa: Localiza
+Vendedor = "A"
+Cliente = "C"
+STT fragmentado — junte turns consecutivos.
+Definição de evento raro
+
+Algo que apareceu poucas vezes na base, mas que pode representar:
+
+oportunidade extraordinária
+risco elevado
+mudança estrutural no cliente
+Categorias
+R1 — Expansão
+
+Exemplos:
+
+contratação de funcionários
+abertura de filial
+crescimento de frota
+novos contratos
+R2 — Churn
+
+Exemplos:
+
+ameaça explícita de saída
+comparação direta com concorrente
+insatisfação recorrente
+R3 — Inteligência competitiva
+
+Exemplos:
+
+migração de fornecedor
+teste com concorrente
+múltiplos fornecedores
+R4 — Influência
+
+Exemplos:
+
+cliente oferece indicação
+cliente cita outra empresa
+cliente apresenta contato
+R5 — Mudança estrutural
+
+Exemplos:
+
+fusão
+aquisição
+mudança societária
+troca de gestor
+mudança operacional relevante
+Formato de saída
+cliente_id,data,categoria,evento_raro,impacto_potencial,acao_recomendada
