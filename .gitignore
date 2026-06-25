@@ -1,6 +1,22 @@
 # Dados de clientes — não subir
+dados/
 *.json
 para_gpt.txt
 
 # Script de descompactação utilitário
-Descompac.py
+scripts/Descompac.py
+
+# Credenciais locais
+.env
+
+# Resultados de análise (gerados localmente)
+resultados/gemini/
+resultados/gemini_v2/
+resultados/erros/
+resultados_analise/
+
+# Amostras geradas localmente
+amostras/
+
+# Imagens de referência
+auxiliares/
