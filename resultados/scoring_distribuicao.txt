@@ -1,0 +1,183 @@
+
+====================================================================
+SCORING DE POTENCIAL COMERCIAL — LOCALIZA FROTA PJ
+Rodado em: 25/06/2026 16:39   |   Tempo: 3.0s
+Base: 1275 ligações  |  1109 clientes
+====================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. DISTRIBUIÇÃO DE POTENCIAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ALTO          :    84 ligações (6.6%)   Score >= 20
+  MEDIO         :   298 ligações (23.4%)   Score 13-19
+  BAIXO         :   508 ligações (39.8%)   Score  7-12
+  SEM POTENCIAL :   385 ligações (30.2%)   Score  0- 6
+
+  Score medio geral : 10.0
+  Score medio ALTO  : 21.8
+  Duracao media ALTO: 907.7s
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. TALK/LISTEN RATIO — quem dominou a conversa (P12)
+   Referencia: vendedor ideal fala entre 40% e 60% das palavras.
+   Abaixo de 35% = cliente dominou. Acima de 70% = vendedor monologou.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Word ratio medio — ALTO          : 60.0% vendedor
+  Word ratio medio — MEDIO         : 60.0% vendedor
+  Word ratio medio — SEM POTENCIAL : 60.0% vendedor
+
+  Perguntas medias (ALTO)          : 36.9 por ligacao
+  Perguntas medias (SEM POTENCIAL) : 6.2 por ligacao
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. TIPOS DE ABERTURA — como o vendedor chegou na ligacao (P9-AB)
+   AB1 contextual e AB2 relacional sao as mais eficazes.
+   AB5 (protecao) e AB3 (generica) tem menor taxa de avanco comercial.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  AB1 Contextualizada  :    47 (3.7%)
+  AB2 Relacional       :    97 (7.6%)
+  AB3 Generica         :    10 (0.8%)
+  AB4 Reativa          :  1115 (87.5%)
+  AB5 De protecao      :     6 (0.5%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. TIPOS DE FECHAMENTO — como a ligacao terminou (P9-FC)
+   FC1 (compromisso duplo) e FC5 (diretivo) sao os mais eficazes.
+   FC3 (vago) e FC4 (aberto) vao para o arquivo morto.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FC1 Compromisso duplo  :    14 (1.1%)
+  FC2 So do vendedor     :    97 (7.6%)
+  FC3 Vago               :   229 (18.0%)
+  FC4 Aberto             :   935 (73.3%)
+  FC5 Diretivo           :     0 (0.0%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. FLUXO COMERCIAL — quando na ligacao o vendedor tentou vender
+   "meio" e' o ideal: resolveu primeiro, depois tentou.
+   "nao_detectado" = suporte puro sem tentativa comercial.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  No inicio   :   643 (50.4%)
+  No meio     :   233 (18.3%)
+  No fim      :    73 (5.7%)
+  Nao tentou  :   326 (25.6%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. OBJECOES DE PRECO — detectadas e respondidas (P8)
+   Taxa de rebuttal = quantas objecoes foram respondidas com dado real.
+   Abaixo de 50% = o time capitula mais do que argumenta.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Objecoes detectadas          :    77
+  Respondidas com argumento    :    13 (16.9% taxa de rebuttal)
+  Sem resposta / capitulacao   :    64
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. CONCORRENTES — mencao do cliente e resposta do vendedor (P11)
+   Taxa de exploracao = quando o cliente citou outro fornecedor,
+   o vendedor aproveitou para diferenciar a Localiza?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Ligacoes com mencao de concorrente (cliente) : 144
+  Vendedor explorou com argumento              : 11 (7.6%)
+  Vendedor ignorou a mencao                    : 133
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. PROMESSAS SEM PRAZO — risco de nao cumprimento (P10)
+   Promessa sem prazo = cliente nao sabe quando esperar = confianca cai.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Ligacoes com ao menos 1 promessa sem prazo: 409 (32.1%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+9. PRODUTOS MENCIONADOS — portfolio explorado (P7)
+   Quantas vezes cada produto apareceu nas ligacoes.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  eletrico            :   776 (60.9%)
+  diario              :   379 (29.7%)
+  webcorp             :   373 (29.3%)
+  pesados             :   201 (15.8%)
+  mensal_fixo         :   146 (11.5%)
+  protecao_total      :   115 (9.0%)
+  mensal_flex         :    95 (7.5%)
+  telemetria          :    75 (5.9%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10. COMPORTAMENTOS NAS LIGACOES DE ALTO POTENCIAL (n=84)
+    Referencia: o que os melhores 6.6% fazem diferente.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  B1  Diagnostico antes do produto   :   71 (84.5%)
+  B6  Urgencia com fato real         :   78 (92.9%)
+  B10 Sondagem de concorrente        :   17 (20.2%)
+  B5  Upsell conectado a dor         :   68 (81.0%)
+  B3  Usou historico do cliente      :   63 (75.0%)
+  B4  Alertou risco ao cliente       :   20 (23.8%)
+  CH1 Revelou custo oculto           :   17 (20.2%)
+  CH6 Antecipou problema             :    2 (2.4%)
+  P15 Expansao detectada             :   29 (34.5%)
+  P15 Churn detectado                :   15 (17.9%)
+  P9  Proximo passo concreto         :    0 (0.0%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+11. TOP 10 LIGACOES — MAIOR POTENCIAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Cliente        Data         Score  Nivel             Durs  Destaques
+08208057       2026-06-01      29  ALTO             1307s  EXPANSAO | CHURN | URGENCIA | DIAGNOSTICO
+27247224       2026-06-01      29  ALTO             1136s  EXPANSAO | CONCORRENTE | URGENCIA | DIAGNOSTICO
+20271903       2026-06-03      27  ALTO             2524s  EXPANSAO | CHURN | URGENCIA | DIAGNOSTICO
+27166870       2026-06-02      26  ALTO             1224s  EXPANSAO | CONCORRENTE | URGENCIA | DIAGNOSTICO
+20870804       2026-06-02      26  ALTO             1720s  CONCORRENTE | URGENCIA | DIAGNOSTICO | CH1
+07118469       2026-06-03      26  ALTO             2266s  EXPANSAO | CHURN | URGENCIA | DIAGNOSTICO
+17768970       2026-06-01      25  ALTO              395s  CHURN | URGENCIA | DIAGNOSTICO
+27220268       2026-06-02      25  ALTO             1796s  EXPANSAO | URGENCIA | DIAGNOSTICO | CH1
+27220729       2026-06-05      25  ALTO              195s  CHURN | CONCORRENTE | URGENCIA | DIAGNOSTICO
+27243618       2026-06-01      25  ALTO             1077s  URGENCIA | DIAGNOSTICO | CH1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+12. TOP 10 CLIENTES — MAIOR SCORE ACUMULADO (todas as ligacoes)
+    Clientes com maior engajamento comercial total.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Cliente          Score total acumulado
+26961828                            64
+24043504                            58
+23006894                            57
+26836118                            54
+17973551                            50
+27250396                            46
+20091145                            44
+25152545                            43
+08208057                            42
+13152548                            42
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+13. ACAO IMEDIATA — CHURN + EXPANSAO DETECTADOS (85 ligacoes)
+    Estas ligacoes tem sinais de cancelamento ou crescimento.
+    Sao prioridade maxima de retorno.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Cliente 08208057       | 2026-06-01 | Score 29 | CHURN + EXPANSAO
+  Cliente 27247224       | 2026-06-01 | Score 29 | EXPANSAO
+  Cliente 20271903       | 2026-06-03 | Score 27 | CHURN + EXPANSAO
+  Cliente 27166870       | 2026-06-02 | Score 26 | EXPANSAO
+  Cliente 07118469       | 2026-06-03 | Score 26 | CHURN + EXPANSAO
+  Cliente 17768970       | 2026-06-01 | Score 25 | CHURN
+  Cliente 27220268       | 2026-06-02 | Score 25 | EXPANSAO
+  Cliente 27220729       | 2026-06-05 | Score 25 | CHURN
+  Cliente 26961828       | 2026-06-05 | Score 24 | EXPANSAO
+  Cliente 27251609       | 2026-06-02 | Score 24 | CHURN
+  Cliente 06926832       | 2026-06-02 | Score 24 | CHURN + EXPANSAO
+  Cliente 09760707       | 2026-06-01 | Score 23 | EXPANSAO
+  Cliente 25141965       | 2026-06-03 | Score 23 | EXPANSAO
+  Cliente 24495818       | 2026-06-03 | Score 23 | EXPANSAO
+  Cliente 05878806       | 2026-06-02 | Score 23 | EXPANSAO
+  Cliente 25152545       | 2026-06-01 | Score 22 | EXPANSAO
+  Cliente 10358305       | 2026-06-01 | Score 22 | EXPANSAO
+  Cliente 25797019       | 2026-06-01 | Score 22 | EXPANSAO
+  Cliente 05511229       | 2026-06-03 | Score 22 | EXPANSAO
+  Cliente 15315840       | 2026-06-02 | Score 22 | CHURN + EXPANSAO
+  Cliente 26509162       | 2026-06-02 | Score 22 | EXPANSAO
+  Cliente 23006894       | 2026-06-01 | Score 22 | EXPANSAO
+  Cliente 27066253       | 2026-06-05 | Score 22 | EXPANSAO
+  Cliente 13382090       | 2026-06-01 | Score 22 | EXPANSAO
+  Cliente 21649994       | 2026-06-03 | Score 21 | EXPANSAO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARQUIVOS GERADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  scoring_potencial.csv       linha por ligacao com todos os campos
+  scoring_distribuicao.txt    este relatorio executivo
