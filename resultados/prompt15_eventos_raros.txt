@@ -1,0 +1,70 @@
+====================================================================
+PROMPT 15 — EVENTOS RAROS DE ALTO IMPACTO
+Análise de amostra: 35 ligações | 21 vendedores | Localiza Empresas
+Data da análise: 2026-06-24
+====================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EVENTOS IDENTIFICADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cliente_id,data,categoria,evento_raro,impacto_potencial,acao_recomendada
+
+03096291,2026-06-05,R2-CHURN,Cliente histórico (Arnaldo/Ricardo) ameaçou explicitamente encerrar uso da Localiza após cobrança de R$493 de diária para carro popular. Frases exatas: 'vou excluir a localiza daqui' / 'não posso mais fazer com vocês'. Tem contratos mensais + diárias recorrentes. Pagará mas declarou que não renovará.,ALTO,"1) Escalada IMEDIATA para supervisor. 2) Revisar se houve erro de categoria do veículo alugado (cliente afirma que pediu carro popular e não Corolla). 3) Oferecer crédito ou desconto simbólico mesmo sem 'erro formal' — o custo de retenção é menor que o churn. 4) Ligar pro Arnaldo (gestor principal) e não só para o Ricardo. 5) Criar alerta de risco de churn no CRM."
+
+27226042,2026-06-01,R1-EXPANSÃO,Eduardo (atendido por Rodrigo) fechou contrato piloto de 5 meses com mineradora em Paragominas/PA. Potencial explícito de extensão para 2 anos. Também tem contrato correndo em Uberaba (Mosaic) e mencionou outra empresa (Hidro) no Norte. Perfil: consultor técnico com múltiplos contratos simultâneos em estados diferentes.,ALTO,"1) Rodrigo deve fazer follow-up ativo nos próximos 7 dias com proposta de 12+ meses para Belém/Paragominas. 2) Registrar que cliente tem outros contratos em Uberaba — potencial para centralização na Localiza. 3) Verificar se contrato da Mosaic em Uberaba está ativo — oportunidade de capturar. 4) Criar account plan para Eduardo como cliente estratégico multirregional."
+
+27233552,2026-06-01,R3-INTEL COMPETITIVA,Kleber (Guilherme) mencionou necessidade de 3 carros nos EUA e foi redirecionado para 'Localiza Internacional'. Não ficou claro se a Localiza tem esse produto ou se é parceria — vendedor não soube responder com confiança. Há risco de cliente buscar outro fornecedor internacional.,MÉDIO,"1) Verificar processo e disponibilidade do produto 'Localiza Internacional'. 2) Guilherme deve ligar para Kleber nos próximos 2 dias com informação concreta sobre o canal internacional. 3) Capacitar time sobre produtos internacionais — não é primeiro cliente pedindo isso."
+
+24961959,2026-06-03,R3-INTEL COMPETITIVA,Cláudio afirmou explicitamente que usa Localiza + Unidas + Móvel e decide por preço em cada demanda. Sem fidelização. Frota de carros está sendo dividida entre 3 locadoras. Potencial de consolidar toda a demanda na Localiza com condição comercial específica.,ALTO,"1) Carla deve fazer proposta de condição exclusiva para quem consolidar demanda na Localiza (ex: desconto progressivo por volume). 2) Registrar Unidas e Móvel como concorrentes ativos nesse cliente. 3) Pedir próxima cotação para Carla fazer junto e mostrar diferencial de preço."
+
+27121320,2026-06-02,R5-MUDANÇA ESTRUTURAL,Calel (Carla) revelou que empresa perdeu um veículo por ROUBO e está alugando como solução temporária. Não percebe que está em situação de locação de longo prazo. Também revelou necessidade de funcionários em São Paulo retirando carros em diferentes cidades — estrutura multirregional.,ALTO,"1) Carla deve oferecer produto de substituição de frota de longo prazo (não mensal simples). 2) Converter locação avulsa em contrato corporativo com múltiplos condutores e locais. 3) Se empresa tem frota própria + precisa de cobertura para roubo, apresentar modelo de gestão de frota Localiza."
+
+27220729,2026-06-05,R2-RISCO CHURN (produto assinatura),William queria CANCELAR assinatura de carro (produto Localiza). Foi redirecionado para locação sem que ninguém capturasse o motivo do cancelamento. Pode representar insatisfação com produto de assinatura que se repetirá.,MÉDIO,"1) Identificar e ligar para área de assinatura para capturar motivo de cancelamento. 2) Juliana deveria ter perguntado 'por que vai cancelar?' antes de redirecionar. 3) Criar processo de offboarding que capture motivo de cancelamento e tente retenção ou cross-sell."
+
+05218056,2026-06-05,R3-INTEL COMPETITIVA,Michele (Gabriel) revelou que empresa NUNCA usa Localiza direto — toda locação vai por agência de viagem. Empresa tem CNPJs em múltiplas regiões (Florianópolis + Nordeste). Volume estimado não foi capturado.,MÉDIO,"1) Gabriel deve qualificar volume de locações por agência para calcular potencial de captura direta. 2) Apresentar proposta de WebCorp vs agência mostrando economia e controle. 3) Pedir contato do gestor de viagens que decide o canal."
+
+14977732,2026-06-01,R3-INTEL COMPETITIVA,José (Sheila) está buscando mensal fixo de 6 meses mas o sistema não está mostrando a opção — só mensal sem fixo. Vendedora tenta resolver via agência Campinas. Indica possível gap no produto ou disponibilidade de frota em regiões específicas.,MÉDIO,"1) Verificar se é bug de sistema ou gap real de disponibilidade de mensal fixo em Campinas. 2) Caso seja gap de produto, escalar para operações. 3) Garantir que o José não fechou com concorrente enquanto aguardava resolução."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANÁLISE ESTRATÉGICA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TOP 5 CLIENTES PARA AÇÃO IMEDIATA:
+
+1. 🔴 Cliente 03096291 (Arnaldo/Ricardo) — CHURN ATIVO
+   Ameaça explícita. Cliente histórico com mensais + diárias. A cada dia sem ação aumenta o risco de perda permanente.
+   Responsável sugerido: Supervisor direto da vendedora que atendeu.
+
+2. 🟠 Cliente 27226042 (Eduardo) — EXPANSÃO ALTA
+   Contrato piloto de 5 meses com potencial de 2 anos em mineradora. Se Rodrigo não fizer proposta de longo prazo nos próximos 7 dias, o cliente abrirá concorrência.
+   Responsável: Rodrigo + gerente de grandes contas.
+
+3. 🟠 Cliente 24961959 (Cláudio) — INTEL COMPETITIVA + CONSOLIDAÇÃO
+   Divide frota entre Localiza, Unidas e Móvel. Uma proposta de volume exclusivo pode triplicar a receita desse cliente.
+   Responsável: Carla.
+
+4. 🟡 Cliente 27121320 (Calel) — MUDANÇA ESTRUTURAL
+   Empresa perdeu veículo para roubo e está em locação temporária sem saber que poderia ter contrato corporativo. Ainda há janela antes de comprar outro carro.
+   Responsável: Carla.
+
+5. 🟡 Cliente 27233552 (Kleber) — EXPANSÃO INTERNACIONAL
+   3 carros nos EUA. Se Localiza não fechar, o cliente vai para Hertz/Avis. Ação rápida de Guilherme com produto concreto pode capturar.
+   Responsável: Guilherme + área internacional.
+
+PRINCIPAL RISCO DE CHURN:
+→ Precificação opaca da diária flutuante. Clientes não entendem que o preço muda como passagem aérea. Quando percebem, sentem abuso. O caso do cliente 03096291 (R$493 de diária de popular) vai se repetir.
+→ Recomendação: criar comunicação proativa ao fechar reserva diária mostrando que o preço confirmado é o preço que será cobrado — reduz susto na fatura.
+
+PRINCIPAL OPORTUNIDADE DE EXPANSÃO:
+→ Clientes com múltiplos CNPJs ou operações em várias cidades que não sabem que podem centralizar tudo no WebCorp com um único executivo. O caso do Eduardo (Rodrigo) é o exemplo mais claro: consultor com contratos em PA, MG e SP — tudo fragmentado.
+
+PRINCIPAL RISCO COMPETITIVO:
+→ Agências de viagem como canal intermediário. Ao menos 4 clientes nesta amostra fazem locações via agência, o que significa que a Localiza tem relacionamento B2B com as agências mas não com a empresa final. A empresa final pode trocar de agência e levar o volume para um concorrente sem a Localiza saber.
+
+AÇÕES RECOMENDADAS PARA A LIDERANÇA COMERCIAL:
+1. Criar alerta automático de churn no CRM quando cliente usa frase de ameaça de saída — hoje isso se perde na ligação
+2. Criar protocolo de escalada para quando vendedor identifica expansão de alto valor (não pode depender do vendedor para decidir se escala ou não)
+3. Mapear clientes que usam agências de viagem como canal e criar campanha de conversão para WebCorp direto
+4. Investigar por que o modelo de mensal fixo de 6 meses não aparece em algumas regiões (gap operacional ou de sistema)
+5. Capacitar todo o time sobre o produto internacional — múltiplos clientes estão sendo redirecionados sem info concreta

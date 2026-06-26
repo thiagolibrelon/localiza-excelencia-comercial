@@ -33,6 +33,7 @@ ENV_FILE         = Path(__file__).parent.parent / ".env"
 MODEL            = "gemini-2.5-flash"
 BATCH_SIZE       = 50    # ligacoes por batch — cabe no limite de output do free tier
 MAX_CALLS        = 20    # cota diaria do free tier
+MAX_LIG_PER_CALL = 60    # batches com mais ligacoes sao divididos em 2 chamadas
 MIN_OUTPUT_BYTES = 4000  # abaixo disso = arquivo truncado, sera re-rodado
 
 # Grupos de prompts prioritarios para a analise de fechamento
@@ -63,6 +64,11 @@ def salvar(nome, texto):
 def ja_existe(b_idx, grupo):
     for f in OUTPUT_DIR.glob(f"batch{b_idx:02d}_{grupo}_*.txt"):
         if f.stat().st_size >= MIN_OUTPUT_BYTES:
+            content = f.read_text(encoding="utf-8")
+            if "[TRUNCADO: MAX_TOKENS]" in content:
+                log(f"  Arquivo {f.name} truncado — removendo para re-processar")
+                f.unlink()
+                return None
             return f
     return None
 
@@ -76,10 +82,17 @@ def chamar_gemini(prompt, max_tokens=8192):
                 config=types.GenerateContentConfig(
                     max_output_tokens=max_tokens,
                     temperature=0.1,
+                    thinking_config=types.ThinkingConfig(thinking_budget=0),
                 ),
             )
             calls_made += 1
-            return resp.text
+            texto = resp.text
+            finish = resp.candidates[0].finish_reason if resp.candidates else "?"
+            usage = resp.usage_metadata
+            log(f"    finish={finish} | out={usage.candidates_token_count}tk | think={usage.thoughts_token_count}tk")
+            if str(finish) in ("FinishReason.MAX_TOKENS", "MAX_TOKENS"):
+                texto += "\n\n[TRUNCADO: MAX_TOKENS]"
+            return texto
         except Exception as e:
             wait = 60 * (tentativa + 1)
             log(f"  Erro (tentativa {tentativa+1}): {e} - aguardando {wait}s")
@@ -289,9 +302,22 @@ def main():
                 continue
 
             n_lig = sum(len(v) for v in batch_data.values())
-            log(f"  Batch {b_idx:02d}/{n_bat} [{grupo}] - {n_lig} ligacoes | chamada {calls_made+1}/{MAX_CALLS}")
-            trans = formatar_ligacoes(batch_data)
-            resultado = chamar_gemini(fn(trans), max_tokens=8192)
+            if n_lig > MAX_LIG_PER_CALL:
+                log(f"  Batch {b_idx:02d}/{n_bat} [{grupo}] - {n_lig} ligacoes (grande) | chamadas {calls_made+1}-{calls_made+2}/{MAX_CALLS}")
+                items_list = list(batch_data.items())
+                mid = len(items_list) // 2
+                half1 = dict(items_list[:mid])
+                half2 = dict(items_list[mid:])
+                r1 = chamar_gemini(fn(formatar_ligacoes(half1)), max_tokens=8192)
+                if calls_made >= MAX_CALLS:
+                    log(f"Limite de {MAX_CALLS} chamadas atingido. Rode novamente amanha.")
+                    todos_prontos = False
+                    return
+                r2 = chamar_gemini(fn(formatar_ligacoes(half2)), max_tokens=8192)
+                resultado = r1 + "\n\n" + r2
+            else:
+                log(f"  Batch {b_idx:02d}/{n_bat} [{grupo}] - {n_lig} ligacoes | chamada {calls_made+1}/{MAX_CALLS}")
+                resultado = chamar_gemini(fn(formatar_ligacoes(batch_data)), max_tokens=8192)
 
             nome_arquivo = f"batch{b_idx:02d}_{grupo}_{ts}.txt"
             salvar(nome_arquivo, resultado)

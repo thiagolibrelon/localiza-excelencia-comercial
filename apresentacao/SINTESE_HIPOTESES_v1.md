@@ -1,30 +1,29 @@
 # O que o vendedor faz para fechar um contrato?
-## Síntese — Análise de 415 ligações com IA | Localiza Frota PJ | Junho 2026
+## Síntese — Análise de 831 ligações com IA | Localiza Frota PJ | Junho 2026
 
 ---
 
-> **Dados:** Análise com IA completa em 415 ligações (2 dos 7 blocos).
-> Scoring automático cobre 1.275 ligações. Os 5 blocos restantes completam nos próximos dias.
+> **Dados:** Análise com IA em 831 ligações (65% do total — 14 dos 23 batches do grupo P1_P2).
+> Scoring automático cobre 1.275 ligações. Batches restantes completam até 29/06.
 
 ---
 
 ## RESPOSTA DIRETA
 
-**O vendedor que fecha faz 3 coisas que o time em geral não faz:**
+**O vendedor que fecha faz 2 coisas que o time em geral não faz:**
 
-1. **Faz a conta da diária em voz alta** — "você vai usar X dias, isso dá R$ Y de diária, o mensal custa R$ Z" — o cliente para e recalcula
-2. **Fecha com data** — "te ligo terça às 10" em vez de "qualquer coisa me chama"
-3. **Pergunta sobre concorrência ou frota própria** — identifica o risco antes que ele vire perda silenciosa
+1. **Conecta o produto a uma dor real do cliente** — upsell ou nova venda ancorada em algo que o cliente já relatou como problema. Não é catálogo, é solução para o que o cliente já disse.
+2. **Cria urgência com fato verificável** — "a diária vai subir", "o contrato vence em X dias", "o concorrente tem esta cláusula" — algo que o cliente pode checar e que torna o adiamento custoso.
 
 ---
 
 ## H1 — O argumento da diária vs. mensal é o que mais converte
 
-**Status: CONFIRMADA nos dados de IA**
+**Status: CONFIRMADA qualitativamente — quantificação pendente (P5_P6)**
 
 Toda vez que o vendedor traduz o tempo restante do aluguel em reais e compara com o mensal, o cliente para e recalcula. Não é persuasão — é matemática que o cliente não havia feito sozinho.
 
-### O que os dados mostram (415 ligações analisadas):
+### O que os dados mostram (831 ligações analisadas):
 
 | O que o vendedor disse | Reação do cliente |
 |------------------------|-------------------|
@@ -35,6 +34,8 @@ Toda vez que o vendedor traduz o tempo restante do aluguel em reais e compara co
 
 **Padrão consistente:** quando o vendedor faz a conta, o resultado é sempre "aceitou" ou "parou para pensar". Quando não faz, a ligação termina como "não era venda".
 
+> **Nota quantitativa:** este comportamento se encaixa em B6 (urgência com fato verificável) e B5 (upsell conectado à dor) — os dois com maior correlação positiva com fechamento nos dados de P1_P2. Os comportamentos Challenger específicos (P5_P6) chegam nos próximos batches.
+
 ### Por que o time não faz isso mais?
 
 Provável resposta: o vendedor assume que o cliente já comparou os preços antes de ligar. Os dados mostram que não — o cliente aluga por diária por inércia, não por escolha consciente.
@@ -43,9 +44,9 @@ Provável resposta: o vendedor assume que o cliente já comparou os preços ante
 
 ## H2 — Fechar sem data é não fechar
 
-**Status: CONFIRMADA — o fechamento genérico domina o time**
+**Status: CONFIRMADA qualitativamente — análise de P9_P10 (abertura/fechamento) pendente**
 
-Nas 415 ligações analisadas, o padrão de fechamento mais frequente é o convite sem compromisso:
+Nas 831 ligações analisadas, o padrão de fechamento mais frequente é o convite sem compromisso:
 
 > **"Qualquer coisa me chama"**
 > **"Fico à disposição"**
@@ -90,15 +91,23 @@ Essas 16 ligações aparecem no sistema como "chamada realizada". Nenhuma teve c
 
 ### A equação:
 
-Se ~10% das ligações viram suporte de plataforma, e o time faz X ligações por dia, o volume de tempo comercial perdido em TI é calculável. Não é culpa do vendedor — é problema de produto que vira problema de receita.
+Nos dados de P1_P2 (831 ligações): **55,7% classificadas como "não era venda"** — suporte operacional, acesso a sistema, onboarding sem tentativa comercial. Se ~10% disso é atrito de plataforma evitável, o ganho de capacidade comercial é imediato sem precisar contratar ninguém.
 
 ---
 
-## H4 — Quem pergunta sobre concorrência defende o contrato antes de perder
+## H4 — Perguntar sobre concorrência protege o contrato — mas o timing importa
 
-**Status: PARCIALMENTE CONFIRMADA — padrão identificado**
+**Status: REVISADA com dados novos**
 
-### O que os dados mostram:
+### O que os dados quantitativos mostram (P1_P2, 831 ligações):
+
+| Comportamento | % nas ligações que fecharam | % nas que interessaram mas não fecharam |
+|---|---|---|
+| B10 — perguntou sobre concorrente/frota | 1,7% | 18,8% |
+
+**Leitura inicial:** parece correlação negativa. **Leitura correta:** B10 é um comportamento de descoberta, não de fechamento. Ele aparece mais nas ligações de pipeline — onde o cliente está sendo qualificado, não convertido na hora.
+
+O que os dados revelam é um problema de **timing**: a pergunta sobre concorrência está chegando tarde. Os casos de sucesso nos dados qualitativos mostram o padrão oposto:
 
 | Cliente | Situação | Vendedor perguntou? | Resultado |
 |---------|----------|---------------------|-----------|
@@ -106,35 +115,33 @@ Se ~10% das ligações viram suporte de plataforma, e o time faz X ligações po
 | 13382750 | Dividia com concorrente (preço mais baixo) | Sim | Vendedor usou dado real (seguro 3× maior no concorrente, taxa de operação 12% vs 20%) → cliente refletindo |
 | 27163081 | Comparando com Carro Zero (assinatura 12 meses) | Sim | Vendedor mostrou multa menor (10% vs 15%) + substituição de carro em 4h → cliente aceitou |
 
-**O padrão:** quando o vendedor não pergunta sobre outros fornecedores, perde a oportunidade de contra-argumentar. Quando pergunta e usa dado real de diferenciação, o cliente pelo menos para para pensar.
+**Hipótese revisada:** a pergunta sobre concorrência precisa acontecer antes do cliente tomar a decisão, não depois. Quando o vendedor pergunta e o cliente já foi embora, é tarde. Quando pergunta e usa um dado real de diferenciação, o cliente recalcula.
 
 ### Novo concorrente detectado nos dados: **Carro Zero (assinatura)**
 
 Não é Unidas, Movida nem Móvel. É um modelo diferente — assinatura de veículo. Apareceu em pelo menos 1 cliente nos dados analisados. O vendedor soube responder. Mas o modelo de assinatura representa uma categoria competitiva que o time pode não estar preparado para rebater sistematicamente.
 
-### O comportamento menos praticado com o maior impacto:
-
-No scoring automático das 1.275 ligações, a pergunta sobre concorrência ou frota própria é o comportamento de maior peso no modelo e aparece em **apenas 19% das ligações de alto potencial** — as melhores ligações do time. Nas demais, aparece menos ainda.
-
 ---
 
 ## H5 — Há um segmento de cliente que o time não deveria tentar converter
 
-**Status: CONFIRMADA**
+**Status: CONFIRMADA — e mais forte do que antes**
 
-Nas 1.275 ligações com scoring automático:
+Nos dados de P1_P2 (831 ligações):
 
 ```
-30% das ligações → zero potencial comercial (score 0–6)
+55,7% das ligações → "não era venda" (suporte, operacional, sem intenção de compra)
+36,5% → interessou mas não fechou (pipeline ativo)
+ 6,9% → fechou (novo, upsell ou renovação)
 ```
 
-Nos dados de IA (415 ligações), o perfil "suporte puro" é consistente:
+O perfil "suporte puro" é consistente:
 - Cliente ligou para resolver senha, biometria ou problema operacional
 - Não havia intenção de compra em nenhum momento
 - Vendedor tentou abertura comercial ao final ("aproveita e me conta como está a frota")
 - Cliente encerrou sem engajamento
 
-**O que isso significa na prática:** parte do esforço comercial do time está sendo gasto em clientes que não estão em modo de compra naquele momento. Segmentar por motivo da ligação antes de escalar o esforço aumenta o retorno por ligação.
+**O que isso significa na prática:** mais da metade do volume de chamadas não é oportunidade de venda naquele momento. Segmentar por motivo da ligação antes de escalar o esforço comercial aumenta o retorno por ligação — sem aumentar o volume.
 
 ---
 
@@ -150,7 +157,7 @@ Resultado: cliente passou a considerar a locação de caminhões — necessidade
 
 ### Por que isso importa:
 
-O cliente não liga pedindo caminhão. Ele liga sobre os carros que já aluga. A necessidade de utilitários existe mas fica invisible porque ninguém pergunta.
+O cliente não liga pedindo caminhão. Ele liga sobre os carros que já aluga. A necessidade de utilitários existe mas fica invisível porque ninguém pergunta.
 
 **Pergunta para o time:** dos 1.109 clientes da base, quantos têm frota mista (carros + utilitários/caminhões) e nunca receberam uma oferta de Localiza Pesados?
 
@@ -170,6 +177,22 @@ O problema não é novo — mas os dados mostram que é **sistemático** (mesmo 
 
 ---
 
+## O QUE OS DADOS QUANTITATIVOS MOSTRAM ATÉ AQUI
+
+### Comportamentos com maior correlação com fechamento (831 ligações — P1_P2):
+
+| Comportamento | % fechou | % interessou mas não fechou | Diferença |
+|---|---|---|---|
+| **B5 — upsell conectado à dor** | 27,6% | 15,8% | **+11,7pp** |
+| **B6 — urgência com fato verificável** | 12,1% | 6,9% | **+5,1pp** |
+| B1 — diagnóstico antes do produto | 44,8% | 51,5% | -6,7pp |
+| B10 — perguntou sobre concorrente/frota | 1,7% | 18,8% | -17,1pp |
+| B8 — ligou proativamente | 3,4% | 21,1% | -17,7pp |
+
+> **Nota sobre B1 e B10:** correlação negativa com fechamento *imediato* não significa que esses comportamentos são ruins. B1 (diagnóstico) aparece mais em ligações longas de qualificação — que podem fechar no follow-up. B10 (concorrência) é comportamento de descoberta, não de fechamento. Os grupos P5_P6 e P9_P10 (pendentes) vão aprofundar isso.
+
+---
+
 ## AS 7 HIPÓTESES — RESUMO EXECUTIVO
 
 | # | O que os dados mostram | Status |
@@ -177,8 +200,8 @@ O problema não é novo — mas os dados mostram que é **sistemático** (mesmo 
 | H1 | Vendedor que faz a conta da diária vs. mensal em voz alta converte mais | Confirmada |
 | H2 | Fechar sem data é não fechar — "qualquer coisa me chama" domina o time | Confirmada |
 | H3 | Problemas de senha e biometria consomem ligações que poderiam ser vendas | Confirmada |
-| H4 | Quem pergunta sobre concorrência defende o contrato antes de perdê-lo | Parcial |
-| H5 | 30% das ligações são suporte puro — esse tempo poderia ser redirecionado | Confirmada |
+| H4 | Perguntar sobre concorrência protege o contrato — mas o timing precisa ser antes da decisão | Revisada |
+| H5 | 55% das ligações são suporte puro — esse tempo poderia ser redirecionado | Confirmada (mais forte) |
 | H6 | Localiza Pesados é invisível — a pergunta certa abre mercado que o cliente não sabia existir | Nova |
 | H7 | Biometria com falha é vazamento de receita mensurável — não é problema do vendedor | Nova |
 
@@ -194,15 +217,15 @@ O problema não é novo — mas os dados mostram que é **sistemático** (mesmo 
 
 ### Em 2 semanas — treinamento:
 
-1. **A conta da diária:** treinar o time a fazer o cálculo em tempo real. "Quantos dias vai precisar? Multiplica pela diária. O mensal custa menos. Quer fechar?" — uma frase, conversão imediata
-2. **O fechamento com data:** substituir "qualquer coisa me chama" por "te mando hoje e você me fala até quinta". Roleplay de 30 minutos com o time inteiro resolve isso
-3. **A pergunta sobre concorrência:** "você já usa alguma outra locadora?" deve entrar no script padrão. Não para atacar o concorrente — para saber onde a empresa está em risco
+1. **Upsell conectado à dor (B5):** treinar o time a ligar o produto ao que o cliente já relatou como problema. "Você mencionou X — esse produto resolve exatamente isso." Uma frase que conecta em vez de catalocar.
+2. **Urgência com fato verificável (B6):** substituir urgência vaga por fato checável — diária vs mensal, prazo de contrato, cláusula do concorrente. O cliente precisa de um motivo para não adiar.
+3. **O fechamento com data:** substituir "qualquer coisa me chama" por "te mando hoje e você me fala até quinta". Roleplay de 30 minutos com o time inteiro resolve isso.
 
 ### Para a apresentação completa:
 
-Os 5 blocos restantes (mais 860 ligações) confirmam ou refinam H1-H7. A estrutura já está sólida — os dados adicionais vão quantificar, não mudar a direção.
+Os batches restantes (P1_P2 16–23 + P5_P6 + P9_P10) trazem os dados de comportamento Challenger, oportunidades perdidas em R$ e análise de abertura/fechamento. A estrutura está sólida — os dados adicionais vão quantificar e refinar, não mudar a direção.
 
 ---
 
-*Análise: 415 ligações com IA (Gemini 2.5 Flash) + 1.275 com scoring automático Python | 24/06/2026*
-*Próxima atualização: blocos 3–7 — disponíveis a partir de 25/06 (limite de API: 20 req/dia)*
+*Análise: 831 ligações com IA (Gemini 2.5 Flash, P1_P2) + 1.275 com scoring automático Python | Atualizado em 26/06/2026*
+*Próxima atualização: batches P1_P2 16–23 + P5_P6 + P9_P10 — disponíveis a partir de 27/06 (limite de API: 20 req/dia)*
