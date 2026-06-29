@@ -62,15 +62,24 @@ def salvar(nome, texto):
     log(f"  -> Salvo: {p.name} ({len(texto)} chars)")
 
 def ja_existe(b_idx, grupo):
-    for f in OUTPUT_DIR.glob(f"batch{b_idx:02d}_{grupo}_*.txt"):
+    best = None
+    for f in sorted(OUTPUT_DIR.glob(f"batch{b_idx:02d}_{grupo}_*.txt"), key=lambda x: x.stat().st_size, reverse=True):
+        if f.stat().st_size < 200:
+            continue
+        content = f.read_text(encoding="utf-8")
+        if "[TRUNCADO: MAX_TOKENS]" in content:
+            log(f"  Arquivo {f.name} truncado — removendo para re-processar")
+            f.unlink()
+            continue
+        if "[ERRO:" in content:
+            continue
+        # arquivo valido — prefere o maior; para batches grandes exige MIN_OUTPUT_BYTES
         if f.stat().st_size >= MIN_OUTPUT_BYTES:
-            content = f.read_text(encoding="utf-8")
-            if "[TRUNCADO: MAX_TOKENS]" in content:
-                log(f"  Arquivo {f.name} truncado — removendo para re-processar")
-                f.unlink()
-                return None
             return f
-    return None
+        best = best or f  # guarda menor valido (ex: ultimo batch com poucos clientes)
+    if best:
+        log(f"  Arquivo {best.name} pequeno ({best.stat().st_size} bytes) mas valido — assumindo completo")
+    return best
 
 def chamar_gemini(prompt, max_tokens=8192):
     global calls_made
