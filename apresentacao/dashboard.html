@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aletheia RAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:            #78DE1F;
+  --primary-foreground: #003418;
+  --secondary:          #018444;
+  --secondary-fg:       #FFFFFF;
+  --background:         #F2F2F2;
+  --foreground:         #4A4A4A;
+  --card:               #FFFFFF;
+  --card-foreground:    #4A4A4A;
+  --muted:              #F2F2F2;
+  --muted-fg:           #6E6E6E;
+  --destructive:        #D92020;
+  --destructive-fg:     #FFFFFF;
+  --border:             #E6E6E6;
+  --radius:             0.5rem;
+
+  /* badges */
+  --badge-bg:           #CEFDAF;
+  --badge-color:        #003418;
+  --badge-sec-bg:       #D1F5DC;
+  --badge-sec-color:    #003827;
+  --badge-destr-bg:     #FFE4E4;
+  --badge-destr-color:  #720D0D;
+  --badge-warn-bg:      #FEF9C3;
+  --badge-warn-color:   #713F12;
+  --badge-purple-bg:    #EDE9FE;
+  --badge-purple-color: #5B21B6;
+
+  /* alert */
+  --alert-bg:           #D8EFFD;
+  --alert-color:        #0B4260;
+  --alert-border:       #C0E6FC;
+
+  /* shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / .05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / .08), 0 2px 4px -2px rgb(0 0 0 / .06);
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+/* ─── HEADER ─────────────────────────────────────────── */
+.header {
+  background: var(--primary-foreground);
+  padding: 0 40px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--primary);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+.header-logo {
+  width: 40px; height: 40px;
+  background: var(--primary);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 18px; color: var(--primary-foreground);
+  flex-shrink: 0;
+}
+.header-brand h1 { color: #FFFFFF; font-size: 18px; font-weight: 700; }
+.header-brand p  { color: var(--muted-fg); font-size: 12px; margin-top: 2px; }
+.header-right {
+  display: flex; align-items: center; gap: 12px;
+  padding: 20px 0;
+}
+.badge {
+  display: inline-flex; align-items: center;
+  border-radius: 16px; padding: 4px 12px;
+  font-size: 11px; font-weight: 600; letter-spacing: .3px;
+}
+.badge-primary    { background: var(--badge-bg);       color: var(--badge-color); }
+.badge-secondary  { background: var(--badge-sec-bg);   color: var(--badge-sec-color); }
+.badge-warn       { background: var(--badge-warn-bg);  color: var(--badge-warn-color); }
+.badge-destr      { background: var(--badge-destr-bg); color: var(--badge-destr-color); }
+.badge-purple     { background: var(--badge-purple-bg);color: var(--badge-purple-color); }
+.badge-outline    { background: transparent; border: 1px solid var(--border); color: var(--muted-fg); }
+
+/* ─── NAV TABS ───────────────────────────────────────── */
+.nav-tabs {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  padding: 0 40px;
+  gap: 0;
+  overflow-x: auto;
+}
+.nav-tab {
+  padding: 14px 20px;
+  font-size: 13px; font-weight: 500;
+  color: var(--muted-fg);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+  background: none; border-left: none; border-right: none; border-top: none;
+  font-family: inherit;
+}
+.nav-tab:hover   { color: var(--foreground); }
+.nav-tab.active  { color: var(--primary-foreground); border-bottom-color: var(--primary); font-weight: 600; }
+
+/* ─── LAYOUT ─────────────────────────────────────────── */
+.page { display: none; }
+.page.active { display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
+
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted-fg);
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+}
+.card-title {
+  font-size: 14px; font-weight: 700;
+  color: var(--primary-foreground);
+  margin-bottom: 4px;
+}
+.card-subtitle {
+  font-size: 12px; color: var(--muted-fg);
+  margin-bottom: 20px;
+}
+
+/* ─── KPI GRID ───────────────────────────────────────── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; margin-bottom: 28px;
+}
+.kpi-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 24px;
+}
+.kpi-card.kpi-primary  { border-top-color: var(--primary); }
+.kpi-card.kpi-green    { border-top-color: var(--secondary); }
+.kpi-card.kpi-red      { border-top-color: var(--destructive); }
+.kpi-card.kpi-muted    { border-top-color: var(--muted-fg); }
+.kpi-label { font-size: 11px; font-weight: 600; color: var(--muted-fg); text-transform: uppercase; letter-spacing: .5px; }
+.kpi-value { font-size: 34px; font-weight: 800; color: var(--primary-foreground); margin: 6px 0 2px; }
+.kpi-sub   { font-size: 12px; color: var(--muted-fg); }
+
+/* ─── GRID HELPERS ───────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr;     gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.grid-13 { display: grid; grid-template-columns: 1fr 2fr;   gap: 16px; }
+.mb-28 { margin-bottom: 28px; }
+.mb-16 { margin-bottom: 16px; }
+.mt-24 { margin-top: 24px; }
+
+/* ─── SCORE TIERS ────────────────────────────────────── */
+.tier-row {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 12px;
+}
+.tier-label {
+  font-size: 12px; font-weight: 700;
+  min-width: 110px;
+}
+.tier-bar-wrap { flex: 1; background: var(--muted); border-radius: 4px; height: 20px; overflow: hidden; }
+.tier-bar { height: 100%; border-radius: 4px; }
+.tier-count { font-size: 12px; color: var(--muted-fg); min-width: 80px; text-align: right; }
+
+/* ─── ACHADOS ────────────────────────────────────────── */
+.achado-box {
+  border-radius: var(--radius); padding: 20px 24px;
+  border: 1px solid var(--border);
+}
+.achado-box.positive { background: var(--badge-sec-bg); border-color: #9FDDB4; }
+.achado-box.negative { background: var(--badge-destr-bg); border-color: var(--badge-destr-bg); }
+.achado-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .5px; margin-bottom: 14px;
+}
+.achado-box.positive .achado-title { color: var(--secondary); }
+.achado-box.negative .achado-title { color: var(--destructive); }
+.achado-item { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+.achado-pp   { font-size: 18px; font-weight: 800; min-width: 56px; }
+.achado-box.positive .achado-pp { color: var(--secondary); }
+.achado-box.negative .achado-pp { color: var(--destructive); }
+.achado-desc { font-size: 13px; color: var(--foreground); line-height: 1.4; }
+.achado-desc strong { font-weight: 700; }
+
+/* ─── HIPÓTESES ──────────────────────────────────────── */
+.hip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-bottom: 28px;
+}
+.hip-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+.hip-card.span2 { grid-column: span 2; }
+.hip-card.span3 { grid-column: span 3; }
+.hip-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.hip-num { font-size: 11px; font-weight: 700; color: var(--muted-fg); letter-spacing: .5px; }
+.hip-title { font-size: 13px; font-weight: 700; color: var(--primary-foreground); margin-bottom: 8px; line-height: 1.35; }
+.hip-body  { font-size: 12px; color: var(--foreground); line-height: 1.55; }
+.hip-body em { color: var(--muted-fg); font-style: normal; }
+
+/* ─── TABELA DE CLIENTES ─────────────────────────────── */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  text-align: left; padding: 8px 12px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .5px; color: var(--muted-fg);
+  border-bottom: 2px solid var(--border);
+}
+tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--muted); }
+.critica { color: var(--destructive); font-weight: 700; }
+.alta    { color: var(--secondary);   font-weight: 700; }
+
+/* ─── COMPORTAMENTOS TOP LIGAÇÕES ───────────────────── */
+.behav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.behav-item:last-child { border-bottom: none; }
+.behav-pct {
+  font-size: 18px; font-weight: 800;
+  color: var(--primary-foreground); min-width: 48px;
+}
+.behav-bar-wrap { flex: 1; background: var(--muted); border-radius: 4px; height: 8px; }
+.behav-bar      { height: 100%; border-radius: 4px; background: var(--primary); }
+.behav-desc     { font-size: 12px; color: var(--foreground); min-width: 220px; }
+
+/* ─── FRAMEWORK ─────────────────────────────────────── */
+.layer-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.layer-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 10px;
+}
+.layer-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--primary); color: var(--primary-foreground);
+  font-size: 12px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.layer-title { font-size: 13px; font-weight: 700; color: var(--primary-foreground); }
+.layer-sub   { font-size: 12px; color: var(--muted-fg); margin-top: 2px; }
+.layer-items { padding-left: 40px; }
+.layer-item  { font-size: 12px; color: var(--foreground); margin-bottom: 4px; display: flex; gap: 8px; }
+.layer-item::before { content: '→'; color: var(--primary); font-weight: 700; flex-shrink: 0; }
+
+/* ─── AÇÕES ──────────────────────────────────────────── */
+.acao-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  padding: 20px; border-top: 3px solid var(--border);
+}
+.acao-card.red    { border-top-color: var(--destructive); }
+.acao-card.yellow { border-top-color: #EAB308; }
+.acao-card.navy   { border-top-color: var(--primary-foreground); }
+.acao-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 14px; }
+.acao-card.red    .acao-header { color: var(--destructive); }
+.acao-card.yellow .acao-header { color: #854D0E; }
+.acao-card.navy   .acao-header { color: var(--primary-foreground); }
+.acao-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: 12px; color: var(--foreground); line-height: 1.45; }
+.acao-n    {
+  background: var(--muted); color: var(--muted-fg);
+  font-size: 10px; font-weight: 700;
+  min-width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* ─── PLACEHOLDER ────────────────────────────────────── */
+.placeholder {
+  background: var(--muted); border: 2px dashed var(--border);
+  border-radius: var(--radius); padding: 32px 24px;
+  text-align: center;
+}
+.placeholder strong { display: block; font-size: 13px; color: var(--foreground); margin-bottom: 6px; }
+.placeholder span   { font-size: 12px; color: var(--muted-fg); }
+
+/* ─── ALERT ──────────────────────────────────────────── */
+.alert {
+  background: var(--alert-bg); border: 1px solid var(--alert-border);
+  border-radius: var(--radius); padding: 14px 18px;
+  color: var(--alert-color); font-size: 13px; margin-bottom: 24px;
+}
+.alert strong { font-weight: 700; }
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+.footer {
+  text-align: center; padding: 24px 40px;
+  font-size: 11px; color: var(--muted-fg);
+  border-top: 1px solid var(--border); margin-top: 8px;
+}
+
+/* ─── CORR LEGEND ────────────────────────────────────── */
+.corr-legend { display: flex; gap: 20px; font-size: 11px; color: var(--foreground); margin-bottom: 16px; }
+.corr-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo">L</div>
+    <div>
+      <h1>Aletheia RAC</h1>
+      <p>Inteligência comercial em ligações B2B · O que fecha contratos · Junho 2026 · 1.275 ligações</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="badge badge-primary">P1_P2: 1.275 ligações ✓</span>
+    <span class="badge badge-primary">P5_P6: 23/23 ✓</span>
+    <span class="badge badge-warn">P9_P10: 10/23 batches</span>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showPage('visao-geral', event)">Visão Geral</button>
+  <button class="nav-tab" onclick="showPage('correlacoes', event)">Correlações B1–B10</button>
+  <button class="nav-tab" onclick="showPage('hipoteses', event)">8 Hipóteses</button>
+  <button class="nav-tab" onclick="showPage('clientes', event)">Clientes em Risco</button>
+  <button class="nav-tab" onclick="showPage('acoes', event)">Ações</button>
+  <button class="nav-tab" onclick="showPage('framework', event)">Framework</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: VISÃO GERAL -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="visao-geral" class="page active">
+<div class="container">
+
+  <div class="alert">
+    <strong>Status da análise:</strong> P1_P2 e P5_P6 concluídos — 1.275 ligações com comportamentos B1–B10, Challenger, oportunidades perdidas e desfechos completos. P9_P10 (abertura/fechamento/promessas) em andamento: 10/23 batches disponíveis, primeiros padrões já incorporados. Dados finais disponíveis em 30/06.
+  </div>
+
+  <!-- KPIs -->
+  <div class="section-label">Visão geral — 1.275 ligações</div>
+  <div class="kpi-grid mb-28">
+    <div class="kpi-card kpi-primary">
+      <div class="kpi-label">Ligações analisadas</div>
+      <div class="kpi-value">1.275</div>
+      <div class="kpi-sub">1.109 clientes únicos · Junho 2026</div>
+    </div>
+    <div class="kpi-card kpi-green">
+      <div class="kpi-label">Taxa de fechamento (IA)</div>
+      <div class="kpi-value">7,0%</div>
+      <div class="kpi-sub">58 fechamentos em 831 ligações analisadas</div>
+    </div>
+    <div class="kpi-card kpi-red">
+      <div class="kpi-label">Não era venda</div>
+      <div class="kpi-value">55,7%</div>
+      <div class="kpi-sub">463 ligações — suporte, operacional, onboarding</div>
+    </div>
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-label">Alto potencial (scoring)</div>
+      <div class="kpi-value">5,5%</div>
+      <div class="kpi-sub">70 ligações com score ≥ 20 de 30</div>
+    </div>
+  </div>
+
+  <!-- SCORING + DESFECHOS -->
+  <div class="grid-2 mb-28">
+
+    <!-- Scoring distribution -->
+    <div class="card">
+      <div class="card-title">Distribuição de Potencial</div>
+      <div class="card-subtitle">Scoring automático Python · 1.275 ligações · Score 0–30</div>
+
+      <div class="tier-row">
+        <span class="tier-label" style="color:var(--primary-foreground);font-weight:800">ALTO  ≥20</span>
+        <div class="tier-bar-wrap"><div class="tier-bar" style="width:13.3%;background:var(--primary)"></div></div>
+        <span class="tier-count">70 &nbsp;<strong>(5,5%)</strong></span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-label" style="color:var(--secondary)">MÉDIO  13–19</span>
+        <div class="tier-bar-wrap"><div class="tier-bar" style="width:56.8%;background:var(--secondary)"></div></div>
+        <span class="tier-count">298 <strong>(23,4%)</strong></span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-label" style="color:var(--muted-fg)">BAIXO  7–12</span>
+        <div class="tier-bar-wrap"><div class="tier-bar" style="width:100%;background:#9AA5B4"></div></div>
+        <span class="tier-count">525 <strong>(41,2%)</strong></span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-label" style="color:var(--destructive)">SEM POTENCIAL</span>
+        <div class="tier-bar-wrap"><div class="tier-bar" style="width:72.8%;background:var(--border)"></div></div>
+        <span class="tier-count">382 <strong>(30,0%)</strong></span>
+      </div>
+
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+        <div class="section-label" style="margin-bottom:8px">O que aparece nas 70 ligações de alto potencial</div>
+        <div class="behav-item">
+          <span class="behav-pct">93%</span>
+          <div class="behav-bar-wrap"><div class="behav-bar" style="width:93%"></div></div>
+          <span class="behav-desc">Criou urgência com fato real</span>
+        </div>
+        <div class="behav-item">
+          <span class="behav-pct">80%</span>
+          <div class="behav-bar-wrap"><div class="behav-bar" style="width:80%"></div></div>
+          <span class="behav-desc">Fez diagnóstico antes de oferecer</span>
+        </div>
+        <div class="behav-item">
+          <span class="behav-pct">71%</span>
+          <div class="behav-bar-wrap"><div class="behav-bar" style="width:71%"></div></div>
+          <span class="behav-desc">Tentou expandir o contrato</span>
+        </div>
+        <div class="behav-item">
+          <span class="behav-pct">47%</span>
+          <div class="behav-bar-wrap"><div class="behav-bar" style="width:47%"></div></div>
+          <span class="behav-desc">Definiu próximo passo com data</span>
+        </div>
+        <div class="behav-item">
+          <span class="behav-pct">19%</span>
+          <div class="behav-bar-wrap"><div class="behav-bar" style="width:19%;background:var(--destructive)"></div></div>
+          <span class="behav-desc">Perguntou sobre concorrência — <strong>maior peso no modelo</strong>, aparece pouco</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desfechos chart -->
+    <div class="card">
+      <div class="card-title">Desfechos das Ligações</div>
+      <div class="card-subtitle">Análise com IA · 831 ligações</div>
+      <canvas id="chartDesfecho" height="200"></canvas>
+
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+        <div class="grid-2">
+          <div class="achado-box positive">
+            <div class="achado-title">✓ Maior correlação positiva</div>
+            <div class="achado-item">
+              <span class="achado-pp">+11,7pp</span>
+              <span class="achado-desc"><strong>B5 — Upsell conectado à dor</strong></span>
+            </div>
+            <div class="achado-item">
+              <span class="achado-pp">+5,1pp</span>
+              <span class="achado-desc"><strong>B6 — Urgência verificável</strong></span>
+            </div>
+          </div>
+          <div class="achado-box negative">
+            <div class="achado-title">✗ Surpresas nos dados</div>
+            <div class="achado-item">
+              <span class="achado-pp">−6,7pp</span>
+              <span class="achado-desc"><strong>B1 — Diagnóstico</strong> — hipótese anterior não confirmada</span>
+            </div>
+            <div class="achado-item">
+              <span class="achado-pp">−17,1pp</span>
+              <span class="achado-desc"><strong>B10 — Concorrência</strong> — comportamento de pipeline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: CORRELAÇÕES -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="correlacoes" class="page">
+<div class="container">
+
+  <div class="alert">
+    <strong>Como ler:</strong> Comparação entre ligações que <strong>fecharam</strong> (novo, upsell ou renovação) e ligações que <strong>interessaram mas não fecharam</strong>. Diferença positiva = comportamento mais frequente em fechamentos. Base completa: 1.275 ligações, 58 fechamentos confirmados.
+  </div>
+
+  <div class="card mb-28">
+    <div class="card-title">Correlação Comportamentos B1–B10 com Fechamento</div>
+    <div class="card-subtitle">831 ligações · 58 fecharam · 303 interessaram mas não fecharam</div>
+    <div class="corr-legend">
+      <span><span class="corr-dot" style="background:var(--primary)"></span>% nas ligações que fecharam</span>
+      <span><span class="corr-dot" style="background:var(--border)"></span>% nas que interessaram mas não fecharam</span>
+    </div>
+    <canvas id="chartCorrelacao" height="280"></canvas>
+  </div>
+
+  <div class="grid-2 mb-28">
+    <div class="achado-box positive card" style="border:1px solid #9FDDB4">
+      <div class="achado-title">Comportamentos que ajudam a fechar</div>
+      <div class="achado-item">
+        <span class="achado-pp">+11,7pp</span>
+        <div>
+          <div class="achado-desc"><strong>B5 — Upsell conectado à dor</strong></div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">Presente em 27,6% dos fechamentos vs 15,8% dos não-fechamentos. O produto é apresentado como solução para algo que o cliente já relatou.</div>
+        </div>
+      </div>
+      <div class="achado-item" style="margin-top:12px">
+        <span class="achado-pp">+5,1pp</span>
+        <div>
+          <div class="achado-desc"><strong>B6 — Urgência com fato verificável</strong></div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">12,1% vs 6,9%. O mecanismo confirmado por P5_P6 é CH1 — revelar um custo oculto que o cliente desconhecia. "Devolver antes do 30º dia recalcula para diária." "Localiza PJ cobra 12% vs Movida 19–22%." "Sinistro sem proteção pode ser R$10.000." O cliente para, recalcula, e fecha.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="achado-box negative card" style="border:1px solid #FECACA">
+      <div class="achado-title">Hipóteses anteriores não confirmadas nos dados reais</div>
+      <div class="achado-item">
+        <span class="achado-pp">−6,7pp</span>
+        <div>
+          <div class="achado-desc"><strong>B1 — Diagnóstico antes do produto</strong></div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">Aparece em 44,8% dos fechamentos vs 51,5% dos não-fechamentos. Comportamento presente em ligações longas de qualificação — que podem fechar depois, não na hora.</div>
+        </div>
+      </div>
+      <div class="achado-item" style="margin-top:12px">
+        <span class="achado-pp">−17,1pp</span>
+        <div>
+          <div class="achado-desc"><strong>B10 — Perguntou sobre concorrente/frota</strong></div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">1,7% vs 18,8%. Não é comportamento de fechamento — é de pipeline e qualificação. Precisa acontecer <em>antes</em> da decisão do cliente, não no momento do fechamento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Tabela Completa B1–B10</div>
+    <div class="card-subtitle">Ordenada por diferencial decrescente</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Comportamento</th>
+          <th>% Fechou</th>
+          <th>% Interessou não fechou</th>
+          <th>Diferencial</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="badge badge-primary">B5</span></td><td>Upsell conectado à dor do cliente</td><td>27,6%</td><td>15,8%</td><td style="color:var(--secondary);font-weight:700">+11,7pp</td></tr>
+        <tr><td><span class="badge badge-primary">B6</span></td><td>Urgência com fato verificável</td><td>12,1%</td><td>6,9%</td><td style="color:var(--secondary);font-weight:700">+5,1pp</td></tr>
+        <tr><td><span class="badge badge-outline">B9</span></td><td>Conhecimento pessoal do cliente</td><td>1,7%</td><td>1,3%</td><td style="color:var(--muted-fg)">+0,4pp</td></tr>
+        <tr><td><span class="badge badge-outline">B2</span></td><td>Âncora de preço alto</td><td>3,4%</td><td>5,9%</td><td style="color:var(--muted-fg)">−2,5pp</td></tr>
+        <tr><td><span class="badge badge-outline">B4</span></td><td>Avisou risco ao cliente</td><td>3,4%</td><td>5,9%</td><td style="color:var(--muted-fg)">−2,5pp</td></tr>
+        <tr><td><span class="badge badge-outline">B7</span></td><td>Prometeu batalhar internamente</td><td>0,0%</td><td>3,3%</td><td style="color:var(--muted-fg)">−3,3pp</td></tr>
+        <tr><td><span class="badge badge-outline">B3</span></td><td>Usou histórico do cliente</td><td>8,6%</td><td>13,2%</td><td style="color:var(--muted-fg)">−4,6pp</td></tr>
+        <tr><td><span class="badge badge-destr">B1</span></td><td>Diagnóstico antes do produto</td><td>44,8%</td><td>51,5%</td><td style="color:var(--destructive);font-weight:700">−6,7pp</td></tr>
+        <tr><td><span class="badge badge-destr">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>1,7%</td><td>18,8%</td><td style="color:var(--destructive);font-weight:700">−17,1pp</td></tr>
+        <tr><td><span class="badge badge-destr">B8</span></td><td>Ligou proativamente</td><td>3,4%</td><td>21,1%</td><td style="color:var(--destructive);font-weight:700">−17,7pp</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px;font-size:11px;color:var(--muted-fg);padding:10px 12px;background:var(--muted);border-radius:var(--radius)">
+      ⚠ Correlação negativa com fechamento <em>imediato</em> não significa comportamento errado. B1, B8 e B10 aparecem mais em ligações de qualificação e pipeline que podem fechar em follow-ups. Dados de P9_P10 (abertura/fechamento) completam essa análise.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: HIPÓTESES -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="hipoteses" class="page">
+<div class="container">
+
+  <div class="section-label mb-16">7 hipóteses sobre o que fecha um contrato</div>
+
+  <div class="hip-grid">
+
+    <div class="hip-card">
+      <div class="hip-header">
+        <span class="hip-num">H1</span>
+        <span class="badge badge-primary">Confirmada</span>
+      </div>
+      <div class="hip-title">A conta da diária vs. mensal é o que mais converte</div>
+      <div class="hip-body">Toda vez que o vendedor faz o cálculo em voz alta o cliente para e recalcula. O cliente aluga por diária por inércia, não por escolha consciente.<br><br><em>Ação: treinar o time a fazer a conta em tempo real — "X dias × R$ diária = R$ Y. O mensal custa R$ Z."</em></div>
+    </div>
+
+    <div class="hip-card">
+      <div class="hip-header">
+        <span class="hip-num">H2</span>
+        <span class="badge badge-primary">Confirmada</span>
+      </div>
+      <div class="hip-title">Fechar sem data é não fechar</div>
+      <div class="hip-body">"Qualquer coisa me chama" (FC3) aparece em <strong>~60% das ligações</strong> com contato efetivo. FC1 — compromisso duplo com data definida — em ~25%. O dado mais revelador: mesmo nas ligações classificadas como FC1, <strong>prazo_definido=SIM ocorre em menos de 15% dos casos</strong>. O vendedor define o que vai fazer, mas não define quando.<br><br>P5_P6 confirma: OP3 (não criou urgência para o fechamento) é a <strong>segunda oportunidade perdida mais frequente</strong>. O vendedor explica a vantagem, o cliente reflete — e a ligação termina sem data.<br><br><em>Números finais chegam com P9_P10 completo (30/06).</em></div>
+    </div>
+
+    <div class="hip-card">
+      <div class="hip-header">
+        <span class="hip-num">H3</span>
+        <span class="badge badge-primary">Confirmada</span>
+      </div>
+      <div class="hip-title">A plataforma está consumindo o time comercial</div>
+      <div class="hip-body">Biometria facial (10+ clientes), senha/acesso (11+), responsável não encontrado (16+). Essas ligações aparecem como "chamada realizada" nos relatórios. Score comercial = zero em 100% delas.<br><br>P5_P6 confirma com dado quantitativo: <strong>OP1 (suporte sem nenhuma pergunta comercial) é a oportunidade perdida mais frequente</strong> — aparece em ~60% dos casos identificados pela IA. O vendedor foca em resolver o problema técnico e encerra a ligação sem sondagem.</div>
+    </div>
+
+    <div class="hip-card">
+      <div class="hip-header">
+        <span class="hip-num">H4</span>
+        <span class="badge badge-warn">Revisada</span>
+      </div>
+      <div class="hip-title">Perguntar sobre concorrência protege — mas o timing é tudo</div>
+      <div class="hip-body">Nos dados quantitativos, B10 tem correlação negativa com fechamento imediato — é comportamento de pipeline. Os casos de sucesso mostram que a pergunta precisa vir <strong>antes</strong> da decisão do cliente, não depois. Novo concorrente detectado: <strong>Carro Zero</strong> (assinatura de veículo).</div>
+    </div>
+
+    <div class="hip-card">
+      <div class="hip-header">
+        <span class="hip-num">H5</span>
+        <span class="badge badge-primary">Confirmada — mais forte</span>
+      </div>
+      <div class="hip-title">55% das ligações são suporte puro</div>
+      <div class="hip-body">463 de 831 ligações = "não era venda". Segmentar por motivo de ligação antes de escalar o esforço comercial aumenta o retorno por chamada sem aumentar volume.<br><br><em>Scoring automático confirma: 30% das 1.275 ligações com score zero.</em></div>
+    </div>
+
+    <div class="hip-card">
+      <div class="hip-header">
+        <span class="hip-num">H6</span>
+        <span class="badge badge-purple">Nova</span>
+      </div>
+      <div class="hip-title">Localiza Pesados é invisível para o time</div>
+      <div class="hip-body">Vendedor perguntou sobre frota, cliente mencionou caminhões, vendedor apresentou Localiza Pesados. O cliente não sabia que o produto existia.<br><br><em>Dos 1.109 clientes da base, quantos têm frota mista e nunca receberam oferta de locação de pesados?</em></div>
+    </div>
+
+    <div class="hip-card span3">
+      <div class="hip-header">
+        <span class="hip-num">H7</span>
+        <span class="badge badge-purple">Nova</span>
+      </div>
+      <div class="hip-title">Biometria com falha é vazamento de receita mensurável — não é problema do vendedor</div>
+      <div class="hip-body">Se 10% das ligações viram suporte de plataforma e o time faz 100 ligações por semana, são 10 oportunidades de venda perdidas semanalmente, de forma silenciosa e recorrente. Resolver o fluxo de biometria remove esse atrito sem precisar treinar ninguém. O custo do problema supera o custo da solução.</div>
+    </div>
+
+    <div class="hip-card span3">
+      <div class="hip-header">
+        <span class="hip-num">H8</span>
+        <span class="badge badge-purple">Nova — P5_P6</span>
+      </div>
+      <div class="hip-title">Referral nunca é pedido — e os clientes têm contatos para dar</div>
+      <div class="hip-body">Em todos os 23 batches de P5_P6, OP4 (referral não solicitado) aparece de forma sistemática: cliente troca de CNPJ (vendedor não pede indicação para o novo), cliente menciona diretores ou sócios (vendedor não pede referral interno), cliente está satisfeito e encerrando a ligação (vendedor não pede indicação para empresa do grupo).<br><br>O cliente tem o contato. O vendedor tem a abertura. A pergunta nunca é feita.<br><br><em>Impacto estimado: cada referral não solicitado é um lead qualificado que nunca entra no pipeline.</em></div>
+    </div>
+
+    <div class="hip-card span3">
+      <div class="hip-header">
+        <span class="hip-num">H9</span>
+        <span class="badge badge-purple">Nova — P9_P10</span>
+      </div>
+      <div class="hip-title">O WhatsApp virou o pseudo-fechamento — e ninguém percebeu</div>
+      <div class="hip-body">PM2 ("vou te mandar no WhatsApp") é a <strong>promessa mais frequente</strong> em todo o dataset — aparece em praticamente todas as ligações. O time criou um ritual de encerramento: "vou te dar um oi lá" ou "vou te mandar as informações". Funciona como um próximo passo que parece ação mas raramente tem prazo.<br><br>O problema: quase 100% dessas promessas têm <strong>prazo_prometido=NAO ou Imediato sem data concreta</strong>. O cliente não sabe quando chega. O vendedor não tem deadline. A mensagem pode ir hoje, amanhã ou nunca — e ninguém cobra.<br><br>O WhatsApp substituiu o comprometimento formal sem criar a responsabilidade que ele implica. Cada "vou te dar um oi" sem data é um follow-up que depende da boa memória do vendedor.<br><br><em>Dados parciais de 10/23 batches. Quantificação completa em 30/06.</em></div>
+    </div>
+
+  </div>
+
+  <!-- Achados P5_P6 completo -->
+  <div class="section-label mb-16">Achados consolidados — P5_P6 (23/23 batches · 29/06/2026)</div>
+  <div class="grid-2 mb-28">
+    <div class="card">
+      <div class="card-title">Comportamentos Challenger — padrão emergente</div>
+      <div class="card-subtitle">CH1–CH7 identificados em 5 batches · ~330 ligações</div>
+      <div class="achado-item" style="margin-bottom:12px">
+        <div style="min-width:56px;font-size:15px;font-weight:800;color:var(--secondary)">#1</div>
+        <div>
+          <div style="font-size:13px;font-weight:700">CH1 — Revelar custo oculto</div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">Dominante. Resultado quase sempre <em>cliente_aceitou</em> com qualidade <em>alta</em>. É o mecanismo por trás de B6.</div>
+        </div>
+      </div>
+      <div class="achado-item" style="margin-bottom:12px">
+        <div style="min-width:56px;font-size:15px;font-weight:800;color:var(--muted-fg)">#2</div>
+        <div>
+          <div style="font-size:13px;font-weight:700">CH5 — Conectar dor à solução</div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">Frequente. Resultado típico: <em>cliente_refletiu</em>. Falta criar urgência após o insight — combinar CH5 + OP3 fix.</div>
+        </div>
+      </div>
+      <div class="achado-item">
+        <div style="min-width:56px;font-size:15px;font-weight:800;color:var(--muted-fg)">#3</div>
+        <div>
+          <div style="font-size:13px;font-weight:700">CH6 — Antecipar problema</div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px">Aparece menos, mas com aceitação alta. Vendedor avisa sobre risco antes de ele acontecer — posiciona como consultor, não como fornecedor.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top oportunidades perdidas — OP por frequência</div>
+      <div class="card-subtitle">OP1–OP6 identificados · análise parcial</div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--destructive)">~60%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:100%;background:var(--destructive)"></div></div>
+        <span class="behav-desc">OP1 — Suporte sem pergunta comercial</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--destructive)">~20%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:33%;background:var(--destructive)"></div></div>
+        <span class="behav-desc">OP3 — Não criou urgência para fechar</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:#854D0E)">~10%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:17%;background:#EAB308"></div></div>
+        <span class="behav-desc">OP4 — Referral não solicitado</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--muted-fg)">~10%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:17%;background:#9AA5B4"></div></div>
+        <span class="behav-desc">OP6 — Upsell não tentado (R$50–R$3.600)</span>
+      </div>
+      <div style="margin-top:14px;font-size:11px;color:var(--muted-fg);padding:10px;background:var(--muted);border-radius:var(--radius)">
+        Valores em R$ identificados (23/23 batches): upsell de SUV (R$3.600), veículo elétrico como teste (R$3.600), telemetria/proteção (R$50–R$130/veículo). Análise completa — quantificação total de R$ perdido disponível na síntese final.
+      </div>
+    </div>
+  </div>
+
+  <!-- P9_P10 parcial -->
+  <div class="section-label mb-16">Primeiros achados — P9_P10 (10/23 batches · 29/06/2026)</div>
+  <div class="grid-2 mb-28">
+    <div class="card">
+      <div class="card-title">Fechamento — distribuição FC1–FC4</div>
+      <div class="card-subtitle">10 batches · ~660 ligações com contato efetivo</div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--destructive)">~60%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:100%;background:var(--destructive)"></div></div>
+        <span class="behav-desc">FC3 — "Qualquer coisa me chama"</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--secondary)">~25%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:42%;background:var(--secondary)"></div></div>
+        <span class="behav-desc">FC1 — Compromisso duplo (vendedor + cliente)</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--muted-fg)">~10%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:17%;background:#9AA5B4"></div></div>
+        <span class="behav-desc">FC2 — Próximo passo só do vendedor</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--muted-fg)">~5%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:8%;background:var(--border)"></div></div>
+        <span class="behav-desc">FC4 — Aberto (caixa postal, sem contato)</span>
+      </div>
+      <div style="margin-top:14px;padding:10px;background:var(--badge-destr-bg);border-radius:var(--radius);font-size:12px;color:var(--badge-destr-color)">
+        <strong>Prazo definido em FC1:</strong> mesmo com próximo passo claro, <strong>menos de 15%</strong> das ligações têm data concreta. O vendedor define o que vai fazer — mas não quando.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Promessas — tipo mais frequente (P10)</div>
+      <div class="card-subtitle">Top tipos de promessa assumida pelo vendedor</div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--destructive)">PM2</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:100%;background:var(--destructive)"></div></div>
+        <span class="behav-desc">Envia documento/mensagem — dominante absoluto</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--muted-fg)">PM1</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:55%;background:#9AA5B4"></div></div>
+        <span class="behav-desc">Resolve na ligação</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:#854D0E">PM5</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:35%;background:#EAB308"></div></div>
+        <span class="behav-desc">Negocia internamente — risco médio, sem prazo</span>
+      </div>
+      <div class="behav-item">
+        <span class="behav-pct" style="color:var(--muted-fg)">PM3</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:20%;background:var(--border)"></div></div>
+        <span class="behav-desc">Liga de volta</span>
+      </div>
+      <div style="margin-top:14px;padding:10px;background:var(--badge-destr-bg);border-radius:var(--radius);font-size:12px;color:var(--badge-destr-color)">
+        <strong>Quase 100% das promessas PM2</strong> não têm prazo concreto — "vou te mandar no WhatsApp" sem data. O follow-up depende da memória do vendedor.
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: CLIENTES EM RISCO -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="clientes" class="page">
+<div class="container">
+
+  <div class="alert">
+    <strong>Fonte:</strong> Scoring automático Python em 1.275 ligações. Identificadas 82 ligações com sinais de cancelamento ou expansão. Clientes abaixo são os de maior pontuação total.
+  </div>
+
+  <div class="card mb-28">
+    <div class="card-title">Clientes para Ação Imediata</div>
+    <div class="card-subtitle">Score máximo: 30 pontos (10 contexto + 10 sinais do cliente + 10 comportamento do vendedor)</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente ID</th>
+          <th>Pontuação</th>
+          <th>Sinal Identificado</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>07118469</strong></td>
+          <td><strong>30 / 30</strong></td>
+          <td>Risco de cancelar + expansão de frota</td>
+          <td><span class="critica">CRÍTICA — ligar hoje</span></td>
+        </tr>
+        <tr>
+          <td><strong>08208057</strong></td>
+          <td><strong>29 / 30</strong></td>
+          <td>Risco de cancelar + expansão de frota</td>
+          <td><span class="critica">CRÍTICA — ligar hoje</span></td>
+        </tr>
+        <tr>
+          <td><strong>20271903</strong></td>
+          <td><strong>28 / 30</strong></td>
+          <td>Risco de cancelar + expansão de frota</td>
+          <td><span class="critica">CRÍTICA — ligar hoje</span></td>
+        </tr>
+        <tr>
+          <td><strong>27247224</strong></td>
+          <td><strong>28 / 30</strong></td>
+          <td>Expansão + concorrência mencionada</td>
+          <td><span class="alta">ALTA — esta semana</span></td>
+        </tr>
+        <tr>
+          <td><strong>25141965</strong></td>
+          <td><strong>27 / 30</strong></td>
+          <td>Expansão de frota</td>
+          <td><span class="alta">ALTA — esta semana</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Como o Scoring Funciona</div>
+      <div class="card-subtitle">Análise automática Python · sem IA generativa · roda 1.275 ligações em &lt;30s</div>
+      <div style="margin-top:8px">
+        <div class="tier-row">
+          <span class="tier-label">Contexto</span>
+          <div class="tier-bar-wrap"><div class="tier-bar" style="width:33%;background:var(--secondary)"></div></div>
+          <span class="tier-count">0–10 pts</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted-fg);margin-bottom:14px;padding-left:0">Duração da ligação · quem iniciou</div>
+        <div class="tier-row">
+          <span class="tier-label">Sinais do cliente</span>
+          <div class="tier-bar-wrap"><div class="tier-bar" style="width:33%;background:var(--secondary)"></div></div>
+          <span class="tier-count">0–10 pts</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted-fg);margin-bottom:14px">Expansão de frota · risco de cancelamento · concorrência · dores relatadas</div>
+        <div class="tier-row">
+          <span class="tier-label">Comportamento</span>
+          <div class="tier-bar-wrap"><div class="tier-bar" style="width:33%;background:var(--secondary)"></div></div>
+          <span class="tier-count">0–10 pts</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted-fg)">Diagnóstico · urgência · upsell · sondagem · próximo passo com data</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Distribuição por Potencial</div>
+      <div class="card-subtitle">1.275 ligações · scoring automático</div>
+      <canvas id="chartScoring" height="200"></canvas>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: AÇÕES -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="acoes" class="page">
+<div class="container">
+
+  <div class="section-label mb-16">O que fazer nos próximos 30 dias</div>
+
+  <div class="grid-3 mb-28">
+    <div class="acao-card red">
+      <div class="acao-header">Esta semana</div>
+      <div class="acao-item"><span class="acao-n">1</span><span>Ligar para os 5 clientes críticos: <strong>07118469, 08208057, 20271903</strong> (risco + expansão) e <strong>27247224, 25141965</strong> (expansão)</span></div>
+      <div class="acao-item"><span class="acao-n">2</span><span>Escalar problema de biometria para produto/operações — maior frequência nos dados, impacto direto na capacidade comercial do time sem precisar treinar ninguém</span></div>
+      <div class="acao-item"><span class="acao-n">3</span><span>Criar pergunta padrão de sondagem de frota pesada — uma pergunta, dois minutos, abre mercado que o cliente não oferece espontaneamente</span></div>
+    </div>
+
+    <div class="acao-card yellow">
+      <div class="acao-header">Em 2 semanas — treinamento</div>
+      <div class="acao-item"><span class="acao-n">1</span><span><strong>CH1 — Revelar custo oculto (= B6):</strong> ensinar o time a nomear o custo que o cliente desconhece — "devolver antes do 30º dia recalcula para diária", "Localiza PJ cobra 12%, Movida cobra 19–22%". Específico e verificável.</span></div>
+      <div class="acao-item"><span class="acao-n">2</span><span><strong>OP1 — Uma pergunta comercial por ligação:</strong> mesmo em chamadas de suporte, inserir uma pergunta antes de encerrar — "já tem demanda para o próximo mês?" Sem isso, ~60% das ligações terminam sem sondagem.</span></div>
+      <div class="acao-item"><span class="acao-n">3</span><span><strong>Fechamento com data (OP3):</strong> substituir "qualquer coisa me chama" por data e próximo passo concreto. CH5 + urgência sem comprometimento de data = cliente que reflete mas não fecha.</span></div>
+      <div class="acao-item"><span class="acao-n">4</span><span><strong>OP4 — Perguntar indicação:</strong> "tem alguém na empresa que também cuida de locações?" Uma pergunta, 10 segundos, leads qualificados que nunca entram no pipeline.</span></div>
+    </div>
+
+    <div class="acao-card navy">
+      <div class="acao-header">Em andamento — até 30/06</div>
+      <div class="acao-item"><span class="acao-n">✓</span><span>P5_P6 concluído (23/23 batches): CH1–CH7, OP1–OP6 em todas as 1.275 ligações. Quantificação de R$ perdido disponível na síntese final</span></div>
+      <div class="acao-item"><span class="acao-n">2</span><span>P9_P10 (10/23 batches concluídos): FC3 vs FC1, padrão de promessas — dados finais em 30/06</span></div>
+      <div class="acao-item"><span class="acao-n">3</span><span>Síntese final automática com ranking completo de comportamentos, top hipóteses com evidência e estimativa de impacto em R$ — disponível a partir de 30/06</span></div>
+    </div>
+  </div>
+
+  <div class="section-label mb-16">Resumo de ações por impacto estimado</div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>Ação</th><th>Prazo</th><th>Impacto esperado</th><th>Esforço</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ligar para os 5 clientes críticos</td><td>Hoje</td><td>Retenção ou captura de expansão imediata</td><td><span class="badge badge-primary">Baixo</span></td></tr>
+        <tr><td>Escalar biometria para produto/operações</td><td>Esta semana</td><td>Libera ~10% da capacidade comercial do time</td><td><span class="badge badge-primary">Baixo</span></td></tr>
+        <tr><td>Treinar CH1 — revelar custo oculto (mecanismo de B6)</td><td>2 semanas</td><td>Maior diferencial de fechamento confirmado + mecanismo agora identificado via P5_P6</td><td><span class="badge badge-primary">Baixo</span></td></tr>
+        <tr><td>Inserir pergunta comercial em ligações de suporte (OP1)</td><td>2 semanas</td><td>~60% das ligações encerram sem sondagem — qualquer melhora tem impacto imediato</td><td><span class="badge badge-primary">Baixo</span></td></tr>
+        <tr><td>Treinar fechamento com data (OP3)</td><td>2 semanas</td><td>Redução de pipeline morto — compromissos concretos pós-ligação</td><td><span class="badge badge-primary">Baixo</span></td></tr>
+        <tr><td>Inserir pedido de referral no encerramento (OP4)</td><td>2 semanas</td><td>Leads qualificados gerados sem custo — hoje sistematicamente esquecido</td><td><span class="badge badge-primary">Baixo</span></td></tr>
+        <tr><td>Treinar B5 — upsell conectado à dor</td><td>2 semanas</td><td>Cross-sell em chamadas que hoje terminam como suporte puro</td><td><span class="badge badge-secondary">Médio</span></td></tr>
+        <tr><td>Criar script de sondagem de frota pesada</td><td>2 semanas</td><td>Abertura de mercado não mapeado nos 1.109 clientes</td><td><span class="badge badge-secondary">Médio</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: FRAMEWORK -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="framework" class="page">
+<div class="container">
+
+  <div class="section-label mb-16">Framework de análise — 15 perguntas em 5 camadas</div>
+
+  <div class="layer-card">
+    <div class="layer-header">
+      <div class="layer-num">1</div>
+      <div>
+        <div class="layer-title">O que aconteceu na ligação?</div>
+        <div class="layer-sub">Desfecho e comportamentos do vendedor</div>
+      </div>
+    </div>
+    <div class="layer-items">
+      <div class="layer-item"><strong>P1 — Desfecho e comportamentos:</strong> classifica resultado (fechou / interessou / não era venda) e avalia 10 comportamentos (B1–B10) com score 0–18</div>
+      <div class="layer-item"><strong>P2 — Tipo de ligação:</strong> nova venda, renovação, upsell, retenção, suporte operacional, etc. Separa contextos antes de julgar o comportamento</div>
+    </div>
+  </div>
+
+  <div class="layer-card">
+    <div class="layer-header">
+      <div class="layer-num">2</div>
+      <div>
+        <div class="layer-title">Qual o estado do cliente?</div>
+        <div class="layer-sub">Saúde e valor potencial da conta</div>
+      </div>
+    </div>
+    <div class="layer-items">
+      <div class="layer-item"><strong>P3 — Problemas recorrentes:</strong> identifica problemas relatados e se foram resolvidos. Clientes com problemas não resolvidos têm risco de churn</div>
+      <div class="layer-item"><strong>P4 — Valor potencial:</strong> pontua o cliente em 6 dimensões (volume, adimplência, relacionamento, engajamento, complexidade, expansão)</div>
+    </div>
+  </div>
+
+  <div class="layer-card">
+    <div class="layer-header">
+      <div class="layer-num">3</div>
+      <div>
+        <div class="layer-title">O vendedor usou as técnicas?</div>
+        <div class="layer-sub">Venda consultiva e Challenger</div>
+      </div>
+    </div>
+    <div class="layer-items">
+      <div class="layer-item"><strong>P5 — Comportamentos Challenger (CH1–CH7):</strong> custo oculto revelado, ROI calculado, urgência real, dado do concorrente, dor conectada ao produto</div>
+      <div class="layer-item"><strong>P6 — Oportunidades perdidas em R$:</strong> suporte sem pergunta comercial, dor sem produto, fechamento sem urgência, referral não solicitado</div>
+      <div class="layer-item"><strong>P7 — Expansão de portfólio:</strong> produtos mencionados vs ofertados. Time tipicamente usa 2–3 dos 12 produtos disponíveis</div>
+      <div class="layer-item"><strong>P8 — Objeções:</strong> tipo (preço, prazo, produto, concorrência) e como o vendedor respondeu</div>
+      <div class="layer-item"><strong>P9 — Abertura e fechamento:</strong> AB1–AB5 e FC1–FC5. Fechamento com data definida vs "qualquer coisa me chama"</div>
+      <div class="layer-item"><strong>P10 — Promessas:</strong> rastreia compromissos assumidos, prazo e risco de não cumprimento</div>
+    </div>
+  </div>
+
+  <div class="layer-card">
+    <div class="layer-header">
+      <div class="layer-num">4</div>
+      <div>
+        <div class="layer-title">O que o mercado está dizendo?</div>
+        <div class="layer-sub">Inteligência competitiva e proporção de fala</div>
+      </div>
+    </div>
+    <div class="layer-items">
+      <div class="layer-item"><strong>P11 — Inteligência competitiva:</strong> menções a Unidas, Movida, Móvel, modelos de assinatura (Carro Zero). Cada menção é uma janela de diferenciação</div>
+      <div class="layer-item"><strong>P12 — Proporção de fala:</strong> vendedor que fala &gt;60% do tempo não está ouvindo. Quem ouve mais personaliza mais e fecha mais</div>
+    </div>
+  </div>
+
+  <div class="layer-card">
+    <div class="layer-header">
+      <div class="layer-num">5</div>
+      <div>
+        <div class="layer-title">O que ninguém ainda viu?</div>
+        <div class="layer-sub">Padrões emergentes e eventos raros</div>
+      </div>
+    </div>
+    <div class="layer-items">
+      <div class="layer-item"><strong>P13 — Padrões emergentes:</strong> comportamentos novos e sinais fracos que o framework não esperava</div>
+      <div class="layer-item"><strong>P14 — Diferenças entre vendedores:</strong> benchmarks reais por comportamento observável — não por feeling do gestor</div>
+      <div class="layer-item"><strong>P15 — Eventos raros de alto impacto:</strong> "vou expandir 30 carros", "estou pensando em encerrar" — sinais que se perdem no volume sem detecção sistemática</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Análise: P1_P2 e P5_P6 completos em 1.275 ligações · P9_P10 em andamento (10/23 batches) · Scoring automático Python em 1.275 ligações &nbsp;·&nbsp;
+  Atualizado em 29/06/2026 &nbsp;·&nbsp; Aletheia RAC
+</div>
+
+<script>
+// ── NAVEGAÇÃO ──────────────────────────────────────────────
+function showPage(id, evt) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (evt) evt.currentTarget.classList.add('active');
+}
+
+// ── DADOS ──────────────────────────────────────────────────
+const COLORS = {
+  primary: '#78DE1F', green: '#018444', red: '#D92020',
+  border: '#E6E6E6', muted: '#9AA5B4', navy: '#003418',
+  warn: '#EAB308',
+};
+
+// ── CHART: DESFECHOS ───────────────────────────────────────
+new Chart(document.getElementById('chartDesfecho'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Não era venda', 'Interessou, não fechou', 'Fechou — novo', 'Fechou — upsell', 'Sem conteúdo', 'Fechou — renovação'],
+    datasets: [{
+      data: [463, 303, 42, 11, 7, 5],
+      backgroundColor: [COLORS.border, COLORS.muted, COLORS.primary, COLORS.green, '#D1D5DB', '#6EE7B7'],
+      borderWidth: 2, borderColor: '#fff',
+    }]
+  },
+  options: {
+    cutout: '62%',
+    plugins: {
+      legend: { position: 'right', labels: { font: { size: 11, family: 'Inter' }, padding: 10, boxWidth: 12 } },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const total = ctx.dataset.data.reduce((a,b) => a+b, 0);
+            return ` ${ctx.raw} ligações (${(ctx.raw/total*100).toFixed(1)}%)`;
+          }
+        }
+      }
+    }
+  }
+});
+
+// ── CHART: CORRELAÇÃO ──────────────────────────────────────
+const corrLabels = [
+  'B5 — Upsell conectado à dor',
+  'B6 — Urgência verificável',
+  'B9 — Conhecimento pessoal',
+  'B2 — Âncora de preço',
+  'B4 — Avisou risco',
+  'B7 — Prometeu batalhar',
+  'B3 — Usou histórico',
+  'B1 — Diagnóstico',
+  'B10 — Perguntou concorrente',
+  'B8 — Ligou proativamente',
+];
+const fechou    = [27.6, 12.1, 1.7, 3.4, 3.4, 0.0, 8.6, 44.8, 1.7, 3.4];
+const naoFechou = [15.8,  6.9, 1.3, 5.9, 5.9, 3.3, 13.2, 51.5, 18.8, 21.1];
+
+new Chart(document.getElementById('chartCorrelacao'), {
+  type: 'bar',
+  data: {
+    labels: corrLabels,
+    datasets: [
+      { label: '% fechou',             data: fechou,    backgroundColor: COLORS.primary, borderRadius: 3, barPercentage: .7 },
+      { label: '% interessou, n.fechou', data: naoFechou, backgroundColor: COLORS.border,  borderRadius: 3, barPercentage: .7 },
+    ]
+  },
+  options: {
+    indexAxis: 'y', responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          afterBody: items => {
+            const i = items[0].dataIndex;
+            const d = fechou[i] - naoFechou[i];
+            return [`Diferencial: ${d > 0 ? '+' : ''}${d.toFixed(1)}pp`];
+          }
+        }
+      }
+    },
+    scales: {
+      x: { grid: { color: '#F0F0F0' }, ticks: { callback: v => v+'%', font: { size: 11 } }, max: 65 },
+      y: { ticks: { font: { size: 11 } }, grid: { display: false } }
+    }
+  }
+});
+
+// ── CHART: SCORING ─────────────────────────────────────────
+new Chart(document.getElementById('chartScoring'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Alto (≥20)', 'Médio (13–19)', 'Baixo (7–12)', 'Sem potencial (0–6)'],
+    datasets: [{
+      data: [70, 298, 525, 382],
+      backgroundColor: [COLORS.primary, COLORS.green, COLORS.muted, COLORS.border],
+      borderWidth: 2, borderColor: '#fff',
+    }]
+  },
+  options: {
+    cutout: '60%',
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11, family: 'Inter' }, padding: 8, boxWidth: 12 } },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const total = ctx.dataset.data.reduce((a,b) => a+b, 0);
+            return ` ${ctx.raw} ligações (${(ctx.raw/total*100).toFixed(1)}%)`;
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
