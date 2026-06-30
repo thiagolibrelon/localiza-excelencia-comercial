@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aletheia — Inteligência Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ══════════════════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════════════════ */
+:root {
+  --brand:       #78DE1F;
+  --brand-fg:    #003418;
+  --brand-2:     #018444;
+
+  --bg:          #F4F5F7;
+  --bg-up:       #FFFFFF;
+  --bg-dn:       #ECEEF1;
+  --fg:          #1A1F2E;
+  --fg-2:        #6B7280;
+  --fg-3:        #9CA3AF;
+  --border:      #E5E7EB;
+  --border-2:    #D1D5DB;
+
+  --ok:          #018444;
+  --ok-bg:       #D1FAE5;
+  --ok-fg:       #065F46;
+  --warn:        #D97706;
+  --warn-bg:     #FEF3C7;
+  --warn-fg:     #92400E;
+  --err:         #DC2626;
+  --err-bg:      #FEE2E2;
+  --err-fg:      #991B1B;
+  --info:        #2563EB;
+  --info-bg:     #DBEAFE;
+  --info-fg:     #1E40AF;
+  --purple:      #7C3AED;
+  --purple-bg:   #EDE9FE;
+  --purple-fg:   #5B21B6;
+
+  --sh-xs: 0 1px 2px rgb(0 0 0/.05);
+  --sh-sm: 0 1px 3px rgb(0 0 0/.08),0 1px 2px rgb(0 0 0/.04);
+  --sh-md: 0 4px 6px -1px rgb(0 0 0/.07),0 2px 4px -1px rgb(0 0 0/.05);
+  --sh-lg: 0 10px 15px -3px rgb(0 0 0/.08),0 4px 6px -2px rgb(0 0 0/.04);
+
+  --sw: 240px;
+  --th: 60px;
+  --r:  8px;
+  --rl: 12px;
+}
+[data-theme="dark"] {
+  --bg:       #0F1117;
+  --bg-up:    #1A1F2E;
+  --bg-dn:    #0A0D14;
+  --fg:       #F9FAFB;
+  --fg-2:     #9CA3AF;
+  --fg-3:     #6B7280;
+  --border:   #2D3748;
+  --border-2: #374151;
+  --sh-xs: 0 1px 2px rgb(0 0 0/.3);
+  --sh-sm: 0 1px 3px rgb(0 0 0/.4),0 1px 2px rgb(0 0 0/.2);
+  --sh-md: 0 4px 6px -1px rgb(0 0 0/.3),0 2px 4px -1px rgb(0 0 0/.2);
+}
+
+/* ══════════════════════════════════════════════════════
+   RESET
+══════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;font-size:14px;background:var(--bg);color:var(--fg);line-height:1.5;display:flex;min-height:100vh;transition:background .2s,color .2s}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px}
+
+/* ══════════════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════════════ */
+.sidebar{
+  width:var(--sw);min-height:100vh;background:var(--brand-fg);
+  display:flex;flex-direction:column;flex-shrink:0;
+  position:fixed;top:0;left:0;bottom:0;z-index:100;
+  transition:width .2s ease;
+}
+.sidebar.col{width:64px}
+.sidebar.col .nl,.sidebar.col .st,.sidebar.col .ss,.sidebar.col .nsl,.sidebar.col .sft{display:none}
+.sidebar.col .ni{justify-content:center;padding:10px}
+.sidebar.col .sb{justify-content:center;padding:20px 12px}
+
+.sb{display:flex;align-items:center;gap:12px;padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sl{width:36px;height:36px;background:var(--brand);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:var(--brand-fg);flex-shrink:0}
+.st{color:#fff;font-size:15px;font-weight:700;line-height:1.2}
+.ss{color:rgba(255,255,255,.45);font-size:10px;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+
+.snav{flex:1;padding:12px 8px;overflow-y:auto}
+.nsl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);padding:12px 12px 6px;display:block}
+
+.ni{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:6px;cursor:pointer;color:rgba(255,255,255,.6);font-size:13px;font-weight:500;transition:background .15s,color .15s;border:none;background:none;width:100%;text-align:left;margin-bottom:1px}
+.ni:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.9)}
+.ni.active{background:rgba(120,222,31,.15);color:var(--brand)}
+.nicon{width:18px;height:18px;flex-shrink:0}
+.nicon path,.nicon circle,.nicon rect,.nicon polyline,.nicon line,.nicon polygon{stroke:rgba(255,255,255,.5);stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s}
+.ni:hover .nicon path,.ni:hover .nicon circle,.ni:hover .nicon rect,.ni:hover .nicon polyline{stroke:rgba(255,255,255,.9)}
+.ni.active .nicon path,.ni.active .nicon circle,.ni.active .nicon rect,.ni.active .nicon polyline{stroke:var(--brand)}
+.nbadge{margin-left:auto;background:var(--err);color:#fff;font-size:10px;font-weight:700;border-radius:10px;padding:1px 6px}
+
+.sfoot{padding:12px 8px;border-top:1px solid rgba(255,255,255,.08)}
+.sft{font-size:11px;color:rgba(255,255,255,.3);padding:8px 12px}
+
+.stoggle{position:absolute;top:24px;right:-12px;width:24px;height:24px;background:var(--bg-up);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh-sm);z-index:101;transition:background .15s;font-size:10px;color:var(--fg-2)}
+.stoggle:hover{background:var(--bg-dn)}
+.sidebar.col .stoggle{transform:none}
+
+/* ══════════════════════════════════════════════════════
+   MAIN
+══════════════════════════════════════════════════════ */
+.main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;min-height:100vh;transition:margin-left .2s ease}
+.main.exp{margin-left:64px}
+
+/* ══════════════════════════════════════════════════════
+   TOPBAR
+══════════════════════════════════════════════════════ */
+.topbar{height:var(--th);background:var(--bg-up);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 32px;gap:16px;position:sticky;top:0;z-index:50;box-shadow:var(--sh-xs)}
+.bc{flex:1;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--fg-2)}
+.bc-sep{color:var(--fg-3)}
+.bc-cur{color:var(--fg);font-weight:600}
+.top-badge{display:inline-flex;align-items:center;gap:6px;background:var(--ok-bg);color:var(--ok-fg);font-size:11px;font-weight:600;border-radius:20px;padding:4px 10px}
+.top-dot{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.tdiv{width:1px;height:24px;background:var(--border)}
+.bicon{width:36px;height:36px;border-radius:6px;border:1px solid var(--border);background:var(--bg-up);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg-2);transition:background .15s;font-size:16px}
+.bicon:hover{background:var(--bg-dn)}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--brand-fg);color:var(--brand);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ══════════════════════════════════════════════════════
+   CONTENT
+══════════════════════════════════════════════════════ */
+.content{flex:1;overflow-x:hidden}
+.page{display:none}
+.page.active{display:block}
+.wrap{max-width:1280px;margin:0 auto;padding:32px}
+
+/* ══════════════════════════════════════════════════════
+   STORY BANNER
+══════════════════════════════════════════════════════ */
+.story{background:var(--brand-fg);border-radius:var(--rl);padding:28px 32px;margin-bottom:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;position:relative;overflow:hidden}
+.story::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(120,222,31,.08)}
+.story::after{content:'';position:absolute;bottom:-60px;right:120px;width:160px;height:160px;border-radius:50%;background:rgba(120,222,31,.05)}
+.story-eye{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.story-h{font-size:22px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:10px}
+.story-sub{font-size:13px;color:rgba(255,255,255,.6);line-height:1.55}
+.story-cta{background:var(--brand);color:var(--brand-fg);font-size:12px;font-weight:700;border-radius:6px;padding:10px 18px;cursor:pointer;border:none;white-space:nowrap;transition:opacity .15s;font-family:inherit;position:relative;z-index:1}
+.story-cta:hover{opacity:.9}
+.story-stats{display:flex;gap:24px;margin-top:16px}
+.story-sv{font-size:24px;font-weight:800;color:var(--brand)}
+.story-sl{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+
+/* ══════════════════════════════════════════════════════
+   KPI CARDS
+══════════════════════════════════════════════════════ */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.kpi{background:var(--bg-up);border-radius:var(--rl);border:1px solid var(--border);box-shadow:var(--sh-sm);padding:20px 24px;position:relative;overflow:hidden;transition:box-shadow .15s}
+.kpi:hover{box-shadow:var(--sh-md)}
+.kpi-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--rl) var(--rl) 0 0}
+.kpi-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.kpi-lbl{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--fg-2)}
+.kpi-ico{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.kpi-val{font-size:32px;font-weight:800;color:var(--fg);line-height:1;margin-bottom:4px}
+.kpi-sub{font-size:12px;color:var(--fg-2)}
+.kpi-trend{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;border-radius:20px;padding:2px 8px;margin-top:8px}
+.kpi-trend.up{background:var(--ok-bg);color:var(--ok-fg)}
+.kpi-trend.dn{background:var(--err-bg);color:var(--err-fg)}
+.kpi-trend.nu{background:var(--bg-dn);color:var(--fg-2)}
+.kpi-hint{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--fg-2);line-height:1.45}
+
+/* ══════════════════════════════════════════════════════
+   SECTION HEADERS
+══════════════════════════════════════════════════════ */
+.sec-lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--fg-2)}
+.sec-h{font-size:16px;font-weight:700;color:var(--fg);margin-bottom:2px}
+.sec-d{font-size:13px;color:var(--fg-2)}
+.sec-hdr{margin-bottom:16px}
+
+/* ══════════════════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════════════════ */
+.card{background:var(--bg-up);border-radius:var(--rl);border:1px solid var(--border);box-shadow:var(--sh-sm);padding:24px;transition:box-shadow .15s}
+.card:hover{box-shadow:var(--sh-md)}
+.card-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
+.card-t{font-size:14px;font-weight:700;color:var(--fg)}
+.card-st{font-size:12px;color:var(--fg-2);margin-bottom:20px}
+.card-bdg{font-size:10px;font-weight:600;border-radius:20px;padding:3px 8px;background:var(--bg-dn);color:var(--fg-2);white-space:nowrap}
+
+/* ══════════════════════════════════════════════════════
+   INSIGHT CARDS (Contexto → Evidência → Ação)
+══════════════════════════════════════════════════════ */
+.ic{background:var(--bg-up);border-radius:var(--rl);border:1px solid var(--border);box-shadow:var(--sh-sm);overflow:hidden;display:flex;flex-direction:column}
+.ic-hdr{padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.ic-num{width:24px;height:24px;border-radius:50%;background:var(--brand-fg);color:var(--brand);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ic-t{font-size:13px;font-weight:700;color:var(--fg);flex:1}
+.ic-body{padding:14px 20px;flex:1}
+.ic-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.ic-row:last-child{margin-bottom:0}
+.ic-rl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--fg-3);min-width:72px;padding-top:1px}
+.ic-rt{font-size:12px;color:var(--fg);line-height:1.5;flex:1}
+.ic-act{margin:0 20px 16px;padding:10px 14px;background:var(--brand-fg);border-radius:6px;font-size:12px;color:rgba(255,255,255,.85);display:flex;gap:8px;align-items:flex-start}
+.ic-arr{color:var(--brand);font-weight:700;flex-shrink:0}
+
+/* ══════════════════════════════════════════════════════
+   BARS
+══════════════════════════════════════════════════════ */
+.blist{display:flex;flex-direction:column}
+.bitem{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}
+.bitem:last-child{border-bottom:none}
+.bpct{font-size:16px;font-weight:800;color:var(--fg);min-width:44px}
+.bwrap{flex:1;background:var(--bg-dn);border-radius:4px;height:6px}
+.bbar{height:100%;border-radius:4px;background:var(--brand)}
+.bdesc{font-size:12px;color:var(--fg-2);min-width:190px}
+
+.trow{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.tlbl{font-size:12px;font-weight:600;min-width:120px}
+.twrap{flex:1;background:var(--bg-dn);border-radius:4px;height:18px;overflow:hidden}
+.tbar{height:100%;border-radius:4px}
+.tcnt{font-size:12px;color:var(--fg-2);min-width:90px;text-align:right}
+
+/* ══════════════════════════════════════════════════════
+   BADGES
+══════════════════════════════════════════════════════ */
+.badge{display:inline-flex;align-items:center;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:600;letter-spacing:.2px}
+.b-ok{background:var(--ok-bg);color:var(--ok-fg)}
+.b-err{background:var(--err-bg);color:var(--err-fg)}
+.b-warn{background:var(--warn-bg);color:var(--warn-fg)}
+.b-info{background:var(--info-bg);color:var(--info-fg)}
+.b-pur{background:var(--purple-bg);color:var(--purple-fg)}
+.b-mu{background:var(--bg-dn);color:var(--fg-2)}
+.b-br{background:rgba(120,222,31,.15);color:var(--brand-fg)}
+[data-theme="dark"] .b-br{color:var(--brand)}
+
+/* ══════════════════════════════════════════════════════
+   ALERTS
+══════════════════════════════════════════════════════ */
+.alert{border-radius:var(--r);padding:14px 18px;font-size:13px;line-height:1.5;display:flex;gap:10px;align-items:flex-start;margin-bottom:24px}
+.alert.info{background:var(--info-bg);color:var(--info-fg);border:1px solid #BFDBFE}
+.alert.warn{background:var(--warn-bg);color:var(--warn-fg);border:1px solid #FDE68A}
+.alert.ok{background:var(--ok-bg);color:var(--ok-fg);border:1px solid #A7F3D0}
+.a-ico{font-size:15px;flex-shrink:0;margin-top:1px}
+
+/* ══════════════════════════════════════════════════════
+   TABLES
+══════════════════════════════════════════════════════ */
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;padding:8px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--fg-2);border-bottom:2px solid var(--border)}
+tbody td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--fg)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg-dn)}
+.tc{color:var(--err);font-weight:700}
+.th{color:var(--ok);font-weight:700}
+
+/* ══════════════════════════════════════════════════════
+   ACHADO BOXES
+══════════════════════════════════════════════════════ */
+.abox{border-radius:var(--r);padding:16px 20px;border:1px solid var(--border)}
+.abox.pos{background:var(--ok-bg);border-color:#A7F3D0}
+.abox.neg{background:var(--err-bg);border-color:#FCA5A5}
+.at{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.abox.pos .at{color:var(--ok)}
+.abox.neg .at{color:var(--err)}
+.ai{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.app{font-size:16px;font-weight:800;min-width:56px}
+.abox.pos .app{color:var(--ok)}
+.abox.neg .app{color:var(--err)}
+.ad{font-size:12px;color:var(--fg);line-height:1.4}
+
+/* ══════════════════════════════════════════════════════
+   HYPOTHESIS CARDS
+══════════════════════════════════════════════════════ */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.hcard{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:20px;transition:box-shadow .15s}
+.hcard:hover{box-shadow:var(--sh-md)}
+.hcard.s2{grid-column:span 2}
+.hcard.s3{grid-column:span 3}
+.hhdr{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+.hnum{font-size:11px;font-weight:700;color:var(--fg-2);letter-spacing:.5px}
+.ht{font-size:13px;font-weight:700;color:var(--fg);margin-bottom:6px;line-height:1.35}
+.hb{font-size:12px;color:var(--fg-2);line-height:1.55}
+
+/* ══════════════════════════════════════════════════════
+   LAYER CARDS (Framework)
+══════════════════════════════════════════════════════ */
+.lcard{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);padding:16px 20px;margin-bottom:12px}
+.lhdr{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.lnum{width:28px;height:28px;border-radius:50%;background:var(--brand);color:var(--brand-fg);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lt{font-size:13px;font-weight:700;color:var(--fg)}
+.ls{font-size:12px;color:var(--fg-2);margin-top:2px}
+.litems{padding-left:40px}
+.litem{font-size:12px;color:var(--fg);margin-bottom:4px;display:flex;gap:8px}
+.litem::before{content:'→';color:var(--brand);font-weight:700;flex-shrink:0}
+
+/* ══════════════════════════════════════════════════════
+   ACTION CARDS
+══════════════════════════════════════════════════════ */
+.acard{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:20px;border-top:3px solid var(--border)}
+.acard.red{border-top-color:var(--err)}
+.acard.yel{border-top-color:var(--warn)}
+.acard.nvy{border-top-color:var(--brand-fg)}
+.achdr{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.acard.red .achdr{color:var(--err)}
+.acard.yel .achdr{color:var(--warn-fg)}
+.acard.nvy .achdr{color:var(--fg-2)}
+.acitem{display:flex;gap:10px;margin-bottom:10px;font-size:12px;color:var(--fg);line-height:1.45}
+.acn{background:var(--bg-dn);color:var(--fg-2);font-size:10px;font-weight:700;min-width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* ══════════════════════════════════════════════════════
+   CORR LEGEND
+══════════════════════════════════════════════════════ */
+.cleg{display:flex;gap:20px;font-size:11px;color:var(--fg-2);margin-bottom:16px}
+.cdot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle}
+
+/* ══════════════════════════════════════════════════════
+   PLACEHOLDER PAGES
+══════════════════════════════════════════════════════ */
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:14px}
+.ph-ico{width:64px;height:64px;border-radius:var(--rl);background:var(--bg-dn);display:flex;align-items:center;justify-content:center;font-size:28px}
+.ph-t{font-size:18px;font-weight:700;color:var(--fg)}
+.ph-d{font-size:14px;color:var(--fg-2);max-width:320px;line-height:1.55}
+.ph-b{background:var(--warn-bg);color:var(--warn-fg);font-size:11px;font-weight:600;border-radius:20px;padding:4px 12px}
+
+/* ══════════════════════════════════════════════════════
+   GRIDS + SPACING
+══════════════════════════════════════════════════════ */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.g12{display:grid;grid-template-columns:1fr 1.5fr;gap:16px}
+.mb8{margin-bottom:8px}
+.mb16{margin-bottom:16px}
+.mb24{margin-bottom:24px}
+.mb32{margin-bottom:32px}
+.mt16{margin-top:16px}
+.mt24{margin-top:24px}
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════ */
+.footer{text-align:center;padding:24px 32px;font-size:11px;color:var(--fg-3);border-top:1px solid var(--border)}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  :root{--sw:64px}
+  .sidebar .nl,.sidebar .st,.sidebar .ss,.sidebar .nsl,.sidebar .sft{display:none}
+  .sidebar .ni{justify-content:center;padding:10px}
+  .sidebar .sb{justify-content:center;padding:20px 12px}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .main{margin-left:0}
+  .sidebar{transform:translateX(-100%)}
+  .kpi-grid,.g2,.g3,.hgrid{grid-template-columns:1fr}
+  .hcard.s2,.hcard.s3{grid-column:span 1}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="stoggle" onclick="toggleSidebar()">◀</div>
+
+  <div class="sb">
+    <div class="sl">A</div>
+    <div>
+      <div class="st">Aletheia</div>
+      <div class="ss">RAC · Inteligência Comercial</div>
+    </div>
+  </div>
+
+  <nav class="snav">
+    <span class="nsl">Principal</span>
+
+    <button class="ni active" onclick="nav('dashboard',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span class="nl">Dashboard</span>
+    </button>
+
+    <button class="ni" onclick="nav('comercial',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      <span class="nl">Comercial</span>
+    </button>
+
+    <button class="ni" onclick="nav('clientes',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="nl">Clientes</span>
+      <span class="nbadge">5</span>
+    </button>
+
+    <button class="ni" onclick="nav('vendedores',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span class="nl">Vendedores</span>
+    </button>
+
+    <button class="ni" onclick="nav('acoes',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <span class="nl">Plano de Ação</span>
+    </button>
+
+    <span class="nsl">Inteligência</span>
+
+    <button class="ni" onclick="nav('ia',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="nl">IA &amp; Insights</span>
+    </button>
+
+    <button class="ni" onclick="nav('framework',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <span class="nl">Framework</span>
+    </button>
+
+    <span class="nsl">Sistema</span>
+
+    <button class="ni" onclick="nav('docs',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span class="nl">Documentação</span>
+    </button>
+
+    <button class="ni" onclick="nav('admin',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="nl">Administração</span>
+    </button>
+  </nav>
+
+  <div class="sfoot">
+    <div class="sft">Análise completa · 1.275 ligações<br>Junho 2026</div>
+  </div>
+</aside>
+
+<!-- ════════════════════════════════════════════
+     MAIN
+════════════════════════════════════════════ -->
+<div class="main" id="main">
+
+  <header class="topbar">
+    <div class="bc">
+      <span>Aletheia</span>
+      <span class="bc-sep">›</span>
+      <span class="bc-cur" id="bc">Dashboard Executivo</span>
+    </div>
+    <div class="top-badge">
+      <span class="top-dot"></span>
+      Análise completa · 30/06/2026
+    </div>
+    <div class="tdiv"></div>
+    <button class="bicon" onclick="toggleTheme()" id="tbtn" title="Alternar tema">🌙</button>
+    <div class="avatar">LA</div>
+  </header>
+
+  <div class="content">
+
+    <!-- ══════ PAGE: DASHBOARD ══════ -->
+    <section id="page-dashboard" class="page active">
+    <div class="wrap">
+
+      <div class="story">
+        <div>
+          <div class="story-eye">Diagnóstico · Junho 2026</div>
+          <div class="story-h">O time liga. O cliente reflete.<br>O WhatsApp vira o fechamento.</div>
+          <div class="story-sub">Em 44,8% das ligações, o encerramento foi "qualquer coisa me chama" — sem data, sem próximo passo, sem comprometimento. O pipeline está sendo gerenciado pela memória do vendedor.</div>
+          <div class="story-stats">
+            <div><div class="story-sv">1.275</div><div class="story-sl">Ligações analisadas</div></div>
+            <div><div class="story-sv">R$28,5k</div><div class="story-sl">Oportunidades perdidas/mês</div></div>
+            <div><div class="story-sv">9%</div><div class="story-sl">Ligações com prazo definido</div></div>
+          </div>
+        </div>
+        <button class="story-cta" onclick="nav('acoes',null)">Ver plano de ação →</button>
+      </div>
+
+      <div class="sec-lbl mb16">Visão geral — 1.275 ligações · Junho 2026</div>
+      <div class="kpi-grid">
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--brand)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Ligações analisadas</span>
+            <div class="kpi-ico" style="background:rgba(120,222,31,.1)">📞</div>
+          </div>
+          <div class="kpi-val">1.275</div>
+          <div class="kpi-sub">1.109 clientes únicos</div>
+          <span class="kpi-trend nu">Junho 2026 · 23 batches</span>
+          <div class="kpi-hint">Análise completa com IA + scoring automático Python</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--ok)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Taxa de fechamento</span>
+            <div class="kpi-ico" style="background:var(--ok-bg)">✅</div>
+          </div>
+          <div class="kpi-val">7,0%</div>
+          <div class="kpi-sub">58 fechamentos em 831 ligações</div>
+          <span class="kpi-trend up">↑ Confirmado por IA</span>
+          <div class="kpi-hint">B5 (upsell conectado à dor) eleva em +11,7pp quando aplicado</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--err)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Sem pergunta comercial</span>
+            <div class="kpi-ico" style="background:var(--err-bg)">⚠️</div>
+          </div>
+          <div class="kpi-val">55,7%</div>
+          <div class="kpi-sub">463 de 831 — suporte, operacional</div>
+          <span class="kpi-trend dn">↓ Capacidade desperdiçada</span>
+          <div class="kpi-hint">OP1: ~60% encerram sem nenhuma sondagem comercial</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--warn)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Alto potencial</span>
+            <div class="kpi-ico" style="background:var(--warn-bg)">🎯</div>
+          </div>
+          <div class="kpi-val">5,5%</div>
+          <div class="kpi-sub">70 ligações com score ≥ 20/30</div>
+          <span class="kpi-trend nu">Identificadas · scoring Python</span>
+          <div class="kpi-hint">93% dessas 70 ligações criaram urgência com fato real</div>
+        </div>
+
+      </div>
+
+      <div class="g2 mb24">
+
+        <div class="card">
+          <div class="card-hdr">
+            <div><div class="card-t">Desfechos das Ligações</div><div class="card-st">IA · 831 ligações · P1_P2</div></div>
+            <span class="card-bdg">P1_P2 ✓</span>
+          </div>
+          <canvas id="cDesfecho" height="220"></canvas>
+          <div class="mt16" style="padding-top:14px;border-top:1px solid var(--border)">
+            <div class="g2">
+              <div class="abox pos">
+                <div class="at">✓ Maior diferencial positivo</div>
+                <div class="ai"><span class="app">+11,7pp</span><span class="ad"><strong>B5 — Upsell conectado à dor</strong></span></div>
+                <div class="ai"><span class="app">+5,1pp</span><span class="ad"><strong>B6 — Urgência verificável</strong></span></div>
+              </div>
+              <div class="abox neg">
+                <div class="at">✗ Hipóteses revisadas</div>
+                <div class="ai"><span class="app">−6,7pp</span><span class="ad"><strong>B1</strong> — diagnóstico ≠ fechamento imediato</span></div>
+                <div class="ai"><span class="app">−17,1pp</span><span class="ad"><strong>B10</strong> — concorrência é pipeline, não fechamento</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div><div class="card-t">Distribuição de Potencial</div><div class="card-st">Scoring automático Python · 1.275 ligações · Score 0–30</div></div>
+            <span class="card-bdg">Scoring ✓</span>
+          </div>
+          <canvas id="cScoring" height="160"></canvas>
+          <div class="mt16">
+            <div class="trow"><span class="tlbl" style="color:var(--brand-fg);font-weight:800">ALTO ≥20</span><div class="twrap"><div class="tbar" style="width:13.3%;background:var(--brand)"></div></div><span class="tcnt">70 <strong>(5,5%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--ok)">MÉDIO 13–19</span><div class="twrap"><div class="tbar" style="width:56.8%;background:var(--ok)"></div></div><span class="tcnt">298 <strong>(23,4%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--fg-2)">BAIXO 7–12</span><div class="twrap"><div class="tbar" style="width:100%;background:#9AA5B4"></div></div><span class="tcnt">525 <strong>(41,2%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--err)">SEM POTENCIAL</span><div class="twrap"><div class="tbar" style="width:72.8%;background:var(--border-2)"></div></div><span class="tcnt">382 <strong>(30,0%)</strong></span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sec-hdr mb16">
+        <div class="sec-lbl">Insights críticos</div>
+        <div class="sec-h">O que os dados dizem — com evidência e próxima ação</div>
+      </div>
+      <div class="g3 mb24">
+
+        <div class="ic">
+          <div class="ic-hdr">
+            <div class="ic-num">1</div>
+            <div class="ic-t">O WhatsApp virou o pseudo-fechamento</div>
+            <span class="badge b-err">Crítico</span>
+          </div>
+          <div class="ic-body">
+            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">PM2 "vou te mandar no WhatsApp" representa 56,2% (684/1.216) de todas as promessas feitas</span></div>
+            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">O vendedor encerra sem data concreta. Prazo definido: apenas 9% das ligações (116/1.296)</span></div>
+            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">FC3 "qualquer coisa me chama": 44,8% (580/1.296). FC1 compromisso duplo: apenas 31,9%</span></div>
+          </div>
+          <div class="ic-act">
+            <span class="ic-arr">→</span>
+            <span>Substituir FC3 por data + próximo passo concreto. Treinar fechamento com comprometimento duplo (vendedor + cliente)</span>
+          </div>
+        </div>
+
+        <div class="ic">
+          <div class="ic-hdr">
+            <div class="ic-num">2</div>
+            <div class="ic-t">Suporte consome a capacidade comercial</div>
+            <span class="badge b-warn">Alta</span>
+          </div>
+          <div class="ic-body">
+            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">55,7% das ligações são suporte puro — biometria, senha, onboarding. Score comercial = 0</span></div>
+            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">OP1: ~60% dessas ligações encerram sem nenhuma pergunta comercial</span></div>
+            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">463 de 831 ligações = "não era venda". Biometria com falha: recorrente em 10+ clientes</span></div>
+          </div>
+          <div class="ic-act">
+            <span class="ic-arr">→</span>
+            <span>Escalar biometria para produto/ops. Inserir 1 pergunta comercial antes de encerrar ligação de suporte</span>
+          </div>
+        </div>
+
+        <div class="ic">
+          <div class="ic-hdr">
+            <div class="ic-num">3</div>
+            <div class="ic-t">R$28.490/mês em oportunidades perdidas</div>
+            <span class="badge b-info">Mensurável</span>
+          </div>
+          <div class="ic-body">
+            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">OP6: R$23.410/mês em upsell não tentado — SUV (R$3.600), elétrico (R$3.600), telemetria (R$50–130/veículo)</span></div>
+            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">Vendedor usa 2–3 dos 12 produtos disponíveis. Portfólio não é trabalhado de forma sistemática</span></div>
+            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">Confirmado nos 23 batches de P5_P6. OP4 (referral): cliente tem o contato, pergunta nunca é feita</span></div>
+          </div>
+          <div class="ic-act">
+            <span class="ic-arr">→</span>
+            <span>Treinar B5 (upsell conectado à dor) + CH1 (revelar custo oculto). Checklist de portfólio por perfil de cliente</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="g12">
+
+        <div class="card">
+          <div class="card-hdr">
+            <div><div class="card-t">Fechamento — P9_P10</div><div class="card-st">23/23 batches · 1.296 ligações</div></div>
+          </div>
+          <div class="blist">
+            <div class="bitem">
+              <span class="bpct" style="color:var(--err)">44,8%</span>
+              <div class="bwrap"><div class="bbar" style="width:100%;background:var(--err)"></div></div>
+              <span class="bdesc">FC3 — "Qualquer coisa me chama" (580)</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct" style="color:var(--ok)">31,9%</span>
+              <div class="bwrap"><div class="bbar" style="width:71%"></div></div>
+              <span class="bdesc">FC1 — Compromisso duplo com data (413)</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct" style="color:var(--fg-2)">14,7%</span>
+              <div class="bwrap"><div class="bbar" style="width:33%;background:#9AA5B4"></div></div>
+              <span class="bdesc">FC2 — Próximo passo só do vendedor (190)</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct" style="color:var(--err)">56,2%</span>
+              <div class="bwrap"><div class="bbar" style="width:100%;background:var(--err)"></div></div>
+              <span class="bdesc">PM2 — WhatsApp sem prazo definido (684)</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct" style="color:var(--warn)">9%</span>
+              <div class="bwrap"><div class="bbar" style="width:20%;background:var(--warn)"></div></div>
+              <span class="bdesc">Prazo definido — apenas 116/1.296 ligações</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div><div class="card-t">Nas 70 ligações de alto potencial (score ≥ 20)</div><div class="card-st">Comportamentos diferenciadores vs. demais</div></div>
+          </div>
+          <div class="blist">
+            <div class="bitem">
+              <span class="bpct">93%</span>
+              <div class="bwrap"><div class="bbar" style="width:93%"></div></div>
+              <span class="bdesc">Criou urgência com fato real</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct">80%</span>
+              <div class="bwrap"><div class="bbar" style="width:80%"></div></div>
+              <span class="bdesc">Fez diagnóstico antes de oferecer</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct">71%</span>
+              <div class="bwrap"><div class="bbar" style="width:71%"></div></div>
+              <span class="bdesc">Tentou expandir o contrato</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct">47%</span>
+              <div class="bwrap"><div class="bbar" style="width:47%"></div></div>
+              <span class="bdesc">Definiu próximo passo com data</span>
+            </div>
+            <div class="bitem">
+              <span class="bpct" style="color:var(--err)">19%</span>
+              <div class="bwrap"><div class="bbar" style="width:19%;background:var(--err)"></div></div>
+              <span class="bdesc">Perguntou sobre concorrência — maior peso no modelo</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: COMERCIAL ══════ -->
+    <section id="page-comercial" class="page">
+    <div class="wrap">
+
+      <div class="alert info">
+        <span class="a-ico">ℹ️</span>
+        <span><strong>Como ler:</strong> Diferença positiva = comportamento mais frequente em ligações que fecharam. Base: 831 ligações, 58 fechamentos confirmados.</span>
+      </div>
+
+      <div class="card mb24">
+        <div class="card-hdr">
+          <div><div class="card-t">Correlação Comportamentos B1–B10 com Fechamento</div><div class="card-st">831 ligações · 58 fecharam · 303 interessaram mas não fecharam</div></div>
+          <span class="card-bdg">P1_P2 ✓</span>
+        </div>
+        <div class="cleg">
+          <span><span class="cdot" style="background:var(--brand)"></span>% nas que fecharam</span>
+          <span><span class="cdot" style="background:var(--border-2)"></span>% nas que interessaram mas não fecharam</span>
+        </div>
+        <canvas id="cCorr" height="280"></canvas>
+      </div>
+
+      <div class="g2 mb24">
+        <div class="abox pos card" style="border:1px solid #A7F3D0">
+          <div class="at">Comportamentos que ajudam a fechar</div>
+          <div class="ai">
+            <span class="app">+11,7pp</span>
+            <div><div class="ad"><strong>B5 — Upsell conectado à dor</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">27,6% dos fechamentos vs 15,8% dos não-fechamentos. O produto é apresentado como solução para algo que o cliente já relatou.</div></div>
+          </div>
+          <div class="ai" style="margin-top:10px">
+            <span class="app">+5,1pp</span>
+            <div><div class="ad"><strong>B6 — Urgência com fato verificável</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">12,1% vs 6,9%. Mecanismo CH1: revelar custo oculto. "Devolver antes do 30º dia recalcula para diária."</div></div>
+          </div>
+        </div>
+        <div class="abox neg card" style="border:1px solid #FCA5A5">
+          <div class="at">Hipóteses não confirmadas — timing é a chave</div>
+          <div class="ai">
+            <span class="app">−6,7pp</span>
+            <div><div class="ad"><strong>B1 — Diagnóstico antes do produto</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">44,8% dos fechamentos vs 51,5%. Aparece em ligações de qualificação — fechamentos vêm em follow-ups, não na mesma ligação.</div></div>
+          </div>
+          <div class="ai" style="margin-top:10px">
+            <span class="app">−17,1pp</span>
+            <div><div class="ad"><strong>B10 — Perguntou sobre concorrente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">1,7% vs 18,8%. Comportamento de pipeline — precisa acontecer antes da decisão, não no momento do fechamento.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb24">
+        <div class="card-t">Tabela Completa B1–B10</div>
+        <div class="card-st">Ordenada por diferencial decrescente</div>
+        <table>
+          <thead><tr><th>Código</th><th>Comportamento</th><th>% Fechou</th><th>% Interessou, não fechou</th><th>Diferencial</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor do cliente</td><td>27,6%</td><td>15,8%</td><td style="color:var(--ok);font-weight:700">+11,7pp</td></tr>
+            <tr><td><span class="badge b-br">B6</span></td><td>Urgência com fato verificável</td><td>12,1%</td><td>6,9%</td><td style="color:var(--ok);font-weight:700">+5,1pp</td></tr>
+            <tr><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>1,7%</td><td>1,3%</td><td style="color:var(--fg-2)">+0,4pp</td></tr>
+            <tr><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>3,4%</td><td>5,9%</td><td style="color:var(--fg-2)">−2,5pp</td></tr>
+            <tr><td><span class="badge b-mu">B4</span></td><td>Avisou risco ao cliente</td><td>3,4%</td><td>5,9%</td><td style="color:var(--fg-2)">−2,5pp</td></tr>
+            <tr><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>0,0%</td><td>3,3%</td><td style="color:var(--fg-2)">−3,3pp</td></tr>
+            <tr><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>8,6%</td><td>13,2%</td><td style="color:var(--fg-2)">−4,6pp</td></tr>
+            <tr><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>44,8%</td><td>51,5%</td><td style="color:var(--err);font-weight:700">−6,7pp</td></tr>
+            <tr><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>1,7%</td><td>18,8%</td><td style="color:var(--err);font-weight:700">−17,1pp</td></tr>
+            <tr><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>3,4%</td><td>21,1%</td><td style="color:var(--err);font-weight:700">−17,7pp</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:11px;color:var(--fg-2);padding:10px 12px;background:var(--bg-dn);border-radius:6px">
+          ⚠ Correlação negativa com fechamento <em>imediato</em> não significa comportamento errado. B1, B8 e B10 aparecem mais em ligações de qualificação que podem fechar em follow-ups.
+        </div>
+      </div>
+
+      <div class="sec-hdr mb16">
+        <div class="sec-lbl">Hipóteses</div>
+        <div class="sec-h">9 hipóteses sobre o que fecha um contrato</div>
+      </div>
+      <div class="hgrid">
+        <div class="hcard"><div class="hhdr"><span class="hnum">H1</span><span class="badge b-ok">Confirmada</span></div><div class="ht">A conta da diária vs. mensal é o que mais converte</div><div class="hb">Toda vez que o vendedor faz o cálculo em voz alta o cliente para e recalcula. Aluga por diária por inércia, não por escolha consciente.<br><br><em>Treinar o time a fazer a conta em tempo real — "X dias × R$ diária = R$ Y. O mensal custa R$ Z."</em></div></div>
+        <div class="hcard"><div class="hhdr"><span class="hnum">H2</span><span class="badge b-ok">Confirmada</span></div><div class="ht">Fechar sem data é não fechar</div><div class="hb">FC3 "qualquer coisa me chama" em 44,8% das ligações. FC1 compromisso duplo: 31,9%. Prazo definido: apenas 9%.<br><br>OP3 (não criou urgência para o fechamento) é a segunda oportunidade perdida mais frequente.</div></div>
+        <div class="hcard"><div class="hhdr"><span class="hnum">H3</span><span class="badge b-ok">Confirmada</span></div><div class="ht">A plataforma está consumindo o time comercial</div><div class="hb">Biometria facial (10+), senha/acesso (11+), responsável não encontrado (16+). OP1 (suporte sem pergunta comercial) = oportunidade perdida mais frequente em ~60% dos casos.</div></div>
+        <div class="hcard"><div class="hhdr"><span class="hnum">H4</span><span class="badge b-warn">Revisada</span></div><div class="ht">Perguntar sobre concorrência protege — mas o timing é tudo</div><div class="hb">B10 tem correlação negativa com fechamento imediato. A pergunta precisa vir <strong>antes</strong> da decisão do cliente. Novo concorrente detectado: <strong>Carro Zero</strong> (assinatura de veículo).</div></div>
+        <div class="hcard"><div class="hhdr"><span class="hnum">H5</span><span class="badge b-ok">Confirmada</span></div><div class="ht">55% das ligações são suporte puro</div><div class="hb">463 de 831 ligações = "não era venda". 30% das 1.275 com score zero.<br><br><em>Segmentar antes de escalar o esforço comercial aumenta o retorno por chamada sem aumentar volume.</em></div></div>
+        <div class="hcard"><div class="hhdr"><span class="hnum">H6</span><span class="badge b-pur">Nova</span></div><div class="ht">Localiza Pesados é invisível para o time</div><div class="hb">Vendedor perguntou sobre frota, cliente mencionou caminhões, vendedor apresentou Localiza Pesados. O cliente não sabia que o produto existia.<br><br><em>Quantos dos 1.109 clientes têm frota mista e nunca receberam oferta?</em></div></div>
+        <div class="hcard s2"><div class="hhdr"><span class="hnum">H7</span><span class="badge b-pur">Nova</span></div><div class="ht">Biometria com falha é vazamento de receita mensurável — não é problema do vendedor</div><div class="hb">Se 10% das ligações viram suporte de plataforma e o time faz 100 ligações/semana, são 10 oportunidades de venda perdidas semanalmente, de forma silenciosa e recorrente. Resolver o fluxo de biometria remove esse atrito sem precisar treinar ninguém.</div></div>
+        <div class="hcard s3"><div class="hhdr"><span class="hnum">H8</span><span class="badge b-pur">Nova</span></div><div class="ht">Referral nunca é pedido — e os clientes têm contatos para dar</div><div class="hb">OP4 aparece sistematicamente nos 23 batches: cliente troca de CNPJ (vendedor não pede indicação), cliente menciona diretores/sócios (vendedor não pede referral interno), cliente satisfeito encerrando (vendedor não pede indicação). O cliente tem o contato. O vendedor tem a abertura. A pergunta nunca é feita.</div></div>
+        <div class="hcard s3"><div class="hhdr"><span class="hnum">H9</span><span class="badge b-pur">Nova — P9_P10</span></div><div class="ht">O WhatsApp virou o pseudo-fechamento — e ninguém percebeu</div><div class="hb">PM2 ("vou te mandar no WhatsApp") = 56,2% (684/1.216) de todas as promessas. Quase 100% sem prazo concreto. O WhatsApp substituiu o comprometimento formal sem criar a responsabilidade que ele implica. O pipeline é gerenciado pela memória do vendedor, não por processo.</div></div>
+      </div>
+
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: CLIENTES ══════ -->
+    <section id="page-clientes" class="page">
+    <div class="wrap">
+
+      <div class="alert warn">
+        <span class="a-ico">⚠️</span>
+        <span><strong>Fonte:</strong> Scoring automático Python · 1.275 ligações · 82 com sinais de cancelamento ou expansão. Clientes abaixo têm maior pontuação total.</span>
+      </div>
+
+      <div class="card mb24">
+        <div class="card-hdr">
+          <div><div class="card-t">Clientes para Ação Imediata</div><div class="card-st">Score máximo: 30 pontos (10 contexto + 10 sinais do cliente + 10 comportamento)</div></div>
+          <span class="badge b-err">5 críticos</span>
+        </div>
+        <table>
+          <thead><tr><th>Cliente ID</th><th>Pontuação</th><th>Sinal Identificado</th><th>Prioridade</th></tr></thead>
+          <tbody>
+            <tr><td><strong>07118469</strong></td><td><strong>30 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>08208057</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>20271903</strong></td><td><strong>28 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>27247224</strong></td><td><strong>28 / 30</strong></td><td>Expansão + concorrência mencionada</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td><strong>25141965</strong></td><td><strong>27 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="card-t">Como o Scoring Funciona</div>
+          <div class="card-st">Análise automática Python · sem IA generativa · 1.275 ligações em &lt;30s</div>
+          <div style="margin-top:12px">
+            <div class="trow"><span class="tlbl">Contexto</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
+            <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Duração da ligação · quem iniciou</div>
+            <div class="trow"><span class="tlbl">Sinais do cliente</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
+            <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Expansão de frota · risco de cancelamento · concorrência · dores</div>
+            <div class="trow"><span class="tlbl">Comportamento</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
+            <div style="font-size:12px;color:var(--fg-2)">Diagnóstico · urgência · upsell · sondagem · próximo passo com data</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-t">Distribuição por Potencial</div>
+          <div class="card-st">1.275 ligações · scoring automático</div>
+          <canvas id="cScoringC" height="200"></canvas>
+        </div>
+      </div>
+
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: VENDEDORES ══════ -->
+    <section id="page-vendedores" class="page">
+    <div class="wrap">
+      <div class="ph">
+        <div class="ph-ico">👤</div>
+        <span class="ph-b">Etapa 5 — Em construção</span>
+        <div class="ph-t">Módulo Vendedores</div>
+        <div class="ph-d">Benchmark por comportamento observável, ranking de performance, análise individual e oportunidades de coaching.</div>
+      </div>
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: AÇÕES ══════ -->
+    <section id="page-acoes" class="page">
+    <div class="wrap">
+
+      <div class="sec-lbl mb16">Plano de ação — próximos 30 dias</div>
+      <div class="g3 mb24">
+        <div class="acard red">
+          <div class="achdr">Esta semana</div>
+          <div class="acitem"><span class="acn">1</span><span>Ligar para os 5 clientes críticos: <strong>07118469, 08208057, 20271903</strong> (risco + expansão) e <strong>27247224, 25141965</strong> (expansão)</span></div>
+          <div class="acitem"><span class="acn">2</span><span>Escalar biometria para produto/operações — impacto direto na capacidade comercial sem precisar treinar ninguém</span></div>
+          <div class="acitem"><span class="acn">3</span><span>Criar pergunta padrão de sondagem de frota pesada — uma pergunta, dois minutos, abre mercado não mapeado</span></div>
+        </div>
+        <div class="acard yel">
+          <div class="achdr">Em 2 semanas — treinamento</div>
+          <div class="acitem"><span class="acn">1</span><span><strong>CH1 — Revelar custo oculto:</strong> "devolver antes do 30º dia recalcula para diária", "Localiza PJ 12% vs Movida 19–22%". Específico e verificável.</span></div>
+          <div class="acitem"><span class="acn">2</span><span><strong>OP1 — Uma pergunta comercial por ligação:</strong> mesmo em suporte, inserir uma pergunta antes de encerrar.</span></div>
+          <div class="acitem"><span class="acn">3</span><span><strong>Fechamento com data (OP3):</strong> substituir FC3 por data e próximo passo concreto.</span></div>
+          <div class="acitem"><span class="acn">4</span><span><strong>OP4 — Pedir indicação:</strong> "tem alguém na empresa que também cuida de locações?" Uma pergunta, 10 segundos.</span></div>
+        </div>
+        <div class="acard nvy">
+          <div class="achdr">Concluído — 30/06</div>
+          <div class="acitem"><span class="acn">✓</span><span>P5_P6 (23/23 batches): CH1–CH7, OP1–OP6. OP6 = R$23.410/mês identificado</span></div>
+          <div class="acitem"><span class="acn">✓</span><span>P9_P10 (23/23 batches): FC3=44,8%, FC1=31,9%, PM2=56,2%, prazo=9%</span></div>
+          <div class="acitem"><span class="acn">✓</span><span>Síntese final: R$28.490/mês em oportunidades perdidas · 5 ações priorizadas</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-t">Resumo por impacto estimado</div>
+        <div class="card-st">Ordenado por impacto × esforço</div>
+        <table>
+          <thead><tr><th>Ação</th><th>Prazo</th><th>Impacto esperado</th><th>Esforço</th></tr></thead>
+          <tbody>
+            <tr><td>Ligar para os 5 clientes críticos</td><td>Hoje</td><td>Retenção ou captura de expansão imediata</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Escalar biometria para produto/ops</td><td>Esta semana</td><td>Libera ~10% da capacidade comercial</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Treinar CH1 — revelar custo oculto</td><td>2 semanas</td><td>+5,1pp em B6 — maior diferencial de fechamento confirmado</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Inserir pergunta comercial em suporte (OP1)</td><td>2 semanas</td><td>~60% das ligações sem sondagem — qualquer melhora tem impacto imediato</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Treinar fechamento com data (OP3)</td><td>2 semanas</td><td>FC3 de 44,8% para meta abaixo de 20%</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Inserir pedido de referral (OP4)</td><td>2 semanas</td><td>Leads qualificados sem custo — hoje sistematicamente esquecido</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Treinar B5 — upsell conectado à dor</td><td>2 semanas</td><td>+11,7pp — maior diferencial nos dados</td><td><span class="badge b-warn">Médio</span></td></tr>
+            <tr><td>Script de sondagem frota pesada</td><td>2 semanas</td><td>Abertura de mercado nos 1.109 clientes</td><td><span class="badge b-warn">Médio</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: IA ══════ -->
+    <section id="page-ia" class="page">
+    <div class="wrap">
+      <div class="ph">
+        <div class="ph-ico">⭐</div>
+        <span class="ph-b">Etapa 6 — Em construção</span>
+        <div class="ph-t">IA &amp; Insights</div>
+        <div class="ph-d">Insights gerados pela IA com nível de confiança, evidência rastreável e ação sugerida. Hipóteses emergentes e padrões não mapeados.</div>
+      </div>
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: FRAMEWORK ══════ -->
+    <section id="page-framework" class="page">
+    <div class="wrap">
+
+      <div class="sec-hdr mb24">
+        <div class="sec-lbl">Metodologia</div>
+        <div class="sec-h">Framework de análise — 15 perguntas em 5 camadas</div>
+        <div class="sec-d">Estrutura que transforma ligações brutas em inteligência acionável</div>
+      </div>
+
+      <div class="lcard"><div class="lhdr"><div class="lnum">1</div><div><div class="lt">O que aconteceu na ligação?</div><div class="ls">Desfecho e comportamentos do vendedor</div></div></div><div class="litems"><div class="litem"><strong>P1 — Desfecho e comportamentos:</strong> classifica resultado (fechou / interessou / não era venda) e avalia 10 comportamentos (B1–B10)</div><div class="litem"><strong>P2 — Tipo de ligação:</strong> nova venda, renovação, upsell, retenção, suporte operacional</div></div></div>
+      <div class="lcard"><div class="lhdr"><div class="lnum">2</div><div><div class="lt">Qual o estado do cliente?</div><div class="ls">Saúde e valor potencial da conta</div></div></div><div class="litems"><div class="litem"><strong>P3 — Problemas recorrentes:</strong> identifica problemas relatados e se foram resolvidos. Risco de churn</div><div class="litem"><strong>P4 — Valor potencial:</strong> pontua o cliente em 6 dimensões (volume, adimplência, relacionamento, engajamento, complexidade, expansão)</div></div></div>
+      <div class="lcard"><div class="lhdr"><div class="lnum">3</div><div><div class="lt">O vendedor usou as técnicas?</div><div class="ls">Venda consultiva e Challenger</div></div></div><div class="litems"><div class="litem"><strong>P5 — Comportamentos Challenger (CH1–CH7):</strong> custo oculto revelado, ROI calculado, urgência real, dado do concorrente, dor conectada ao produto</div><div class="litem"><strong>P6 — Oportunidades perdidas em R$:</strong> suporte sem pergunta, dor sem produto, fechamento sem urgência, referral não solicitado</div><div class="litem"><strong>P7 — Expansão de portfólio:</strong> produtos mencionados vs ofertados. Time usa 2–3 dos 12 disponíveis</div><div class="litem"><strong>P8 — Objeções:</strong> tipo (preço, prazo, produto, concorrência) e como o vendedor respondeu</div><div class="litem"><strong>P9 — Abertura e fechamento:</strong> AB1–AB5 e FC1–FC5. Fechamento com data vs "qualquer coisa me chama"</div><div class="litem"><strong>P10 — Promessas:</strong> rastreia compromissos assumidos, prazo e risco de não cumprimento</div></div></div>
+      <div class="lcard"><div class="lhdr"><div class="lnum">4</div><div><div class="lt">O que o mercado está dizendo?</div><div class="ls">Inteligência competitiva e proporção de fala</div></div></div><div class="litems"><div class="litem"><strong>P11 — Inteligência competitiva:</strong> menções a Unidas, Movida, Móvel, Carro Zero. Cada menção é uma janela de diferenciação</div><div class="litem"><strong>P12 — Proporção de fala:</strong> vendedor que fala &gt;60% do tempo não está ouvindo. Quem ouve mais personaliza mais e fecha mais</div></div></div>
+      <div class="lcard"><div class="lhdr"><div class="lnum">5</div><div><div class="lt">O que ninguém ainda viu?</div><div class="ls">Padrões emergentes e eventos raros</div></div></div><div class="litems"><div class="litem"><strong>P13 — Padrões emergentes:</strong> comportamentos novos e sinais fracos que o framework não esperava</div><div class="litem"><strong>P14 — Diferenças entre vendedores:</strong> benchmarks reais por comportamento observável — não por feeling do gestor</div><div class="litem"><strong>P15 — Eventos raros de alto impacto:</strong> "vou expandir 30 carros", "estou pensando em encerrar" — sinais que se perdem no volume</div></div></div>
+
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: DOCS ══════ -->
+    <section id="page-docs" class="page">
+    <div class="wrap">
+      <div class="ph">
+        <div class="ph-ico">📚</div>
+        <span class="ph-b">Etapa 6 — Em construção</span>
+        <div class="ph-t">Documentação Técnica</div>
+        <div class="ph-d">Dicionário técnico, lógica do scoring, premissas metodológicas, arquitetura, roadmap, glossário e versionamento.</div>
+      </div>
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: ADMIN ══════ -->
+    <section id="page-admin" class="page">
+    <div class="wrap">
+      <div class="ph">
+        <div class="ph-ico">⚙️</div>
+        <span class="ph-b">Etapa 6 — Em construção</span>
+        <div class="ph-t">Administração</div>
+        <div class="ph-d">Gerenciamento de usuários, permissões RBAC, logs de auditoria e configurações do sistema.</div>
+      </div>
+    </div>
+    </section>
+
+    <div class="footer">
+      Análise completa: P1_P2, P5_P6 e P9_P10 em 1.275 ligações · Síntese final gerada · Scoring automático Python · 30/06/2026 · Aletheia RAC v2
+    </div>
+
+  </div>
+</div>
+
+<script>
+const html = document.documentElement;
+const LABELS = {
+  dashboard:'Dashboard Executivo', comercial:'Comercial', clientes:'Clientes em Risco',
+  vendedores:'Vendedores', acoes:'Plano de Ação', ia:'IA & Insights',
+  framework:'Framework', docs:'Documentação', admin:'Administração'
+};
+
+// ── THEME ──────────────────────────────────────────
+function toggleTheme() {
+  const dark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', dark ? 'light' : 'dark');
+  document.getElementById('tbtn').textContent = dark ? '🌙' : '☀️';
+  rebuildCharts();
+}
+
+// ── SIDEBAR ───────────────────────────────────────
+let collapsed = false;
+function toggleSidebar() {
+  collapsed = !collapsed;
+  document.getElementById('sidebar').classList.toggle('col', collapsed);
+  document.getElementById('main').classList.toggle('exp', collapsed);
+}
+
+// ── NAVIGATION ────────────────────────────────────
+function nav(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(t => t.classList.remove('active'));
+  const p = document.getElementById('page-' + id);
+  if (p) p.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.getElementById('bc').textContent = LABELS[id] || id;
+  if (id === 'comercial') drawCorr();
+  if (id === 'clientes')  drawScoringC();
+}
+
+// ── CHARTS ────────────────────────────────────────
+const charts = {};
+function C() {
+  const dark = html.getAttribute('data-theme') === 'dark';
+  return {
+    primary:'#78DE1F', green:'#018444', red:'#DC2626',
+    border: dark ? '#374151' : '#E5E7EB',
+    muted:  dark ? '#6B7280' : '#9CA3AF',
+    navy:   '#003418', warn:'#D97706',
+    bg:     dark ? '#1A1F2E' : '#FFFFFF',
+    text:   dark ? '#9CA3AF' : '#6B7280',
+    grid:   dark ? '#2D3748' : '#F3F4F6',
+  };
+}
+
+function rebuildCharts() {
+  Object.values(charts).forEach(c => c.destroy());
+  for (const k in charts) delete charts[k];
+  drawDesfecho(); drawScoring();
+  const cur = document.querySelector('.page.active')?.id?.replace('page-','');
+  if (cur === 'comercial') drawCorr();
+  if (cur === 'clientes')  drawScoringC();
+}
+
+function drawDesfecho() {
+  const c = C();
+  if (charts.d) { charts.d.destroy(); delete charts.d; }
+  charts.d = new Chart(document.getElementById('cDesfecho'), {
+    type:'doughnut',
+    data:{
+      labels:['Não era venda','Interessou, não fechou','Fechou — novo','Fechou — upsell','Sem conteúdo','Fechou — renovação'],
+      datasets:[{data:[463,303,42,11,7,5],backgroundColor:[c.border,c.muted,c.primary,c.green,'#D1D5DB','#6EE7B7'],borderWidth:2,borderColor:c.bg}]
+    },
+    options:{cutout:'62%',plugins:{legend:{position:'right',labels:{font:{size:11,family:'Inter'},padding:8,boxWidth:12,color:c.text}},tooltip:{callbacks:{label:ctx=>{const t=ctx.dataset.data.reduce((a,b)=>a+b,0);return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`}}}}}
+  });
+}
+
+function drawScoring() {
+  const c = C();
+  if (charts.s) { charts.s.destroy(); delete charts.s; }
+  charts.s = new Chart(document.getElementById('cScoring'), {
+    type:'doughnut',
+    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[70,298,525,382],backgroundColor:[c.primary,c.green,c.muted,c.border],borderWidth:2,borderColor:c.bg}]},
+    options:{cutout:'60%',plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Inter'},padding:8,boxWidth:12,color:c.text}},tooltip:{callbacks:{label:ctx=>{const t=ctx.dataset.data.reduce((a,b)=>a+b,0);return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`}}}}}
+  });
+}
+
+function drawCorr() {
+  const c = C();
+  if (charts.corr) { charts.corr.destroy(); delete charts.corr; }
+  const lbls=['B5 — Upsell conectado à dor','B6 — Urgência verificável','B9 — Conhecimento pessoal','B2 — Âncora de preço','B4 — Avisou risco','B7 — Prometeu batalhar','B3 — Usou histórico','B1 — Diagnóstico','B10 — Perguntou concorrente','B8 — Ligou proativamente'];
+  const f=[27.6,12.1,1.7,3.4,3.4,0,8.6,44.8,1.7,3.4];
+  const n=[15.8,6.9,1.3,5.9,5.9,3.3,13.2,51.5,18.8,21.1];
+  charts.corr = new Chart(document.getElementById('cCorr'), {
+    type:'bar',
+    data:{labels:lbls,datasets:[{label:'% fechou',data:f,backgroundColor:c.primary,borderRadius:3,barPercentage:.7},{label:'% interessou, n.fechou',data:n,backgroundColor:c.border,borderRadius:3,barPercentage:.7}]},
+    options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{afterBody:items=>{const i=items[0].dataIndex;const d=f[i]-n[i];return[`Diferencial: ${d>0?'+':''}${d.toFixed(1)}pp`]}}}},scales:{x:{grid:{color:c.grid},ticks:{callback:v=>v+'%',font:{size:11},color:c.text},max:65},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}}
+  });
+}
+
+function drawScoringC() {
+  const c = C();
+  if (charts.sc) { charts.sc.destroy(); delete charts.sc; }
+  charts.sc = new Chart(document.getElementById('cScoringC'), {
+    type:'doughnut',
+    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[70,298,525,382],backgroundColor:[c.primary,c.green,c.muted,c.border],borderWidth:2,borderColor:c.bg}]},
+    options:{cutout:'60%',plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Inter'},padding:8,boxWidth:12,color:c.text}},tooltip:{callbacks:{label:ctx=>{const t=ctx.dataset.data.reduce((a,b)=>a+b,0);return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`}}}}}
+  });
+}
+
+drawDesfecho();
+drawScoring();
+</script>
+</body>
+</html>
