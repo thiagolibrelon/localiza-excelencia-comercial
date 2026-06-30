@@ -384,6 +384,29 @@ tbody tr:hover td{background:var(--bg-dn)}
 .coach-d{font-size:12px;color:var(--fg-2);line-height:1.5}
 
 /* ══════════════════════════════════════════════════════
+   CLIENT PROFILE CARDS
+══════════════════════════════════════════════════════ */
+.cli-card{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:20px;border-top:3px solid var(--err);transition:box-shadow .15s}
+.cli-card:hover{box-shadow:var(--sh-md)}
+.cli-card.alta{border-top-color:var(--warn)}
+.cli-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.cli-id{font-size:16px;font-weight:800;color:var(--fg);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.cli-score{font-size:28px;font-weight:800;color:var(--err);line-height:1}
+.cli-card.alta .cli-score{color:var(--warn)}
+.cli-score-max{font-size:11px;color:var(--fg-2);text-align:right}
+.cli-dim{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.cli-dim-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--fg-3);min-width:110px}
+.cli-dim-bar{flex:1;height:5px;background:var(--bg-dn);border-radius:3px}
+.cli-dim-fill{height:100%;border-radius:3px}
+.cli-dim-v{font-size:11px;font-weight:700;color:var(--fg);min-width:20px;text-align:right}
+.cli-signal{margin-top:12px;padding:10px 12px;background:var(--err-bg);border-radius:6px;font-size:12px;color:var(--err-fg);line-height:1.45}
+.cli-card.alta .cli-signal{background:var(--warn-bg);color:var(--warn-fg)}
+.cli-action{margin-top:8px;padding:10px 12px;background:var(--brand-fg);border-radius:6px;font-size:12px;color:rgba(255,255,255,.85);display:flex;gap:8px;align-items:flex-start;line-height:1.45}
+.seg-stat{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center;box-shadow:var(--sh-xs)}
+.seg-stat-v{font-size:28px;font-weight:800;line-height:1}
+.seg-stat-l{font-size:11px;color:var(--fg-2);margin-top:6px}
+
+/* ══════════════════════════════════════════════════════
    GRIDS + SPACING
 ══════════════════════════════════════════════════════ */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -1061,43 +1084,180 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="alert warn">
         <span class="a-ico">⚠️</span>
-        <span><strong>Fonte:</strong> Scoring automático Python · 1.275 ligações · 82 com sinais de cancelamento ou expansão. Clientes abaixo têm maior pontuação total.</span>
+        <span><strong>Fonte:</strong> Scoring automático Python · 1.275 ligações · 1.109 clientes únicos · 82 com sinais confirmados de cancelamento ou expansão. Identificação por CNPJ nos transcritos.</span>
       </div>
 
-      <div class="card mb24">
-        <div class="card-hdr">
-          <div><div class="card-t">Clientes para Ação Imediata</div><div class="card-st">Score máximo: 30 pontos (10 contexto + 10 sinais do cliente + 10 comportamento)</div></div>
-          <span class="badge b-err">5 críticos</span>
+      <!-- Sub-navegação -->
+      <div class="subnav">
+        <button class="stab active" onclick="subNav('cli','crit',this)">Críticos &nbsp;<span class="nbadge">5</span></button>
+        <button class="stab" onclick="subNav('cli','seg',this)">Segmentação</button>
+        <button class="stab" onclick="subNav('cli','intel',this)">Inteligência Individual</button>
+      </div>
+
+      <!-- ── SUB: CRÍTICOS ── -->
+      <div id="cli-crit" class="subp active">
+        <div class="card mb24">
+          <div class="card-hdr">
+            <div><div class="card-t">Clientes para Ação Imediata</div><div class="card-st">Score máximo: 30 pts · 10 contexto + 10 sinais do cliente + 10 comportamento do vendedor</div></div>
+            <span class="badge b-err">5 críticos</span>
+          </div>
+          <table>
+            <thead><tr><th>Cliente ID</th><th>Score</th><th>Contexto</th><th>Sinais</th><th>Comportamento</th><th>Sinal Principal</th><th>Prioridade</th></tr></thead>
+            <tbody>
+              <tr><td><strong>07118469</strong></td><td><strong>30/30</strong></td><td>10/10</td><td>10/10</td><td>10/10</td><td>Risco cancelamento + expansão frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+              <tr><td><strong>08208057</strong></td><td><strong>29/30</strong></td><td>9/10</td><td>10/10</td><td>10/10</td><td>Risco cancelamento + expansão frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+              <tr><td><strong>20271903</strong></td><td><strong>28/30</strong></td><td>9/10</td><td>10/10</td><td>9/10</td><td>Risco cancelamento + expansão frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+              <tr><td><strong>27247224</strong></td><td><strong>28/30</strong></td><td>8/10</td><td>10/10</td><td>10/10</td><td>Expansão frota + concorrência mencionada</td><td><span class="th">ALTA — esta semana</span></td></tr>
+              <tr><td><strong>25141965</strong></td><td><strong>27/30</strong></td><td>8/10</td><td>9/10</td><td>10/10</td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            </tbody>
+          </table>
         </div>
-        <table>
-          <thead><tr><th>Cliente ID</th><th>Pontuação</th><th>Sinal Identificado</th><th>Prioridade</th></tr></thead>
-          <tbody>
-            <tr><td><strong>07118469</strong></td><td><strong>30 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>08208057</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>20271903</strong></td><td><strong>28 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>27247224</strong></td><td><strong>28 / 30</strong></td><td>Expansão + concorrência mencionada</td><td><span class="th">ALTA — esta semana</span></td></tr>
-            <tr><td><strong>25141965</strong></td><td><strong>27 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
-          </tbody>
-        </table>
-      </div>
 
-      <div class="g2">
-        <div class="card">
-          <div class="card-t">Como o Scoring Funciona</div>
-          <div class="card-st">Análise automática Python · sem IA generativa · 1.275 ligações em &lt;30s</div>
-          <div style="margin-top:12px">
-            <div class="trow"><span class="tlbl">Contexto</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
-            <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Duração da ligação · quem iniciou</div>
-            <div class="trow"><span class="tlbl">Sinais do cliente</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
-            <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Expansão de frota · risco de cancelamento · concorrência · dores</div>
-            <div class="trow"><span class="tlbl">Comportamento</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
-            <div style="font-size:12px;color:var(--fg-2)">Diagnóstico · urgência · upsell · sondagem · próximo passo com data</div>
+        <div class="g3 mb24">
+          <div class="cli-card">
+            <div class="cli-hdr">
+              <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--err);margin-bottom:4px">CRÍTICO · 30/30</div><div class="cli-id">07118469</div></div>
+              <div class="cli-score-box"><div class="cli-score">30</div><div class="cli-score-max">/ 30 pts</div></div>
+            </div>
+            <div class="cli-dim"><span class="cli-dim-l">Contexto</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--brand)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Sinais do cliente</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--err)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Comportamento</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--ok)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-signal">⚠ Risco de cancelar + sinalização de expansão de frota. Dois vetores simultâneos: retenção urgente e oportunidade de crescimento.</div>
+            <div class="cli-action"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Abrir com o problema relatado. Antes de falar de renovação, perguntar o que está travando. Usar CH1 se custo em pauta. Fechar com FC1 — data + próximo passo.</span></div>
+          </div>
+
+          <div class="cli-card">
+            <div class="cli-hdr">
+              <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--err);margin-bottom:4px">CRÍTICO · 29/30</div><div class="cli-id">08208057</div></div>
+              <div class="cli-score-box"><div class="cli-score">29</div><div class="cli-score-max">/ 30 pts</div></div>
+            </div>
+            <div class="cli-dim"><span class="cli-dim-l">Contexto</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:90%;background:var(--brand)"></div></div><span class="cli-dim-v">9</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Sinais do cliente</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--err)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Comportamento</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--ok)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-signal">⚠ Risco de cancelar + expansão de frota. Perfil idêntico ao 07118469 — segunda prioridade máxima.</div>
+            <div class="cli-action"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Verificar histórico de problemas técnicos antes de ligar. Posicionar como consultor (CH6). Apresentar solução antes de mencionar renovação.</span></div>
+          </div>
+
+          <div class="cli-card">
+            <div class="cli-hdr">
+              <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--err);margin-bottom:4px">CRÍTICO · 28/30</div><div class="cli-id">20271903</div></div>
+              <div class="cli-score-box"><div class="cli-score">28</div><div class="cli-score-max">/ 30 pts</div></div>
+            </div>
+            <div class="cli-dim"><span class="cli-dim-l">Contexto</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:90%;background:var(--brand)"></div></div><span class="cli-dim-v">9</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Sinais do cliente</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--err)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Comportamento</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:90%;background:var(--ok)"></div></div><span class="cli-dim-v">9</span></div>
+            <div class="cli-signal">⚠ Risco de cancelar + expansão. A ligação foi bem conduzida (comportamento 9/10) — mas o risco persiste. Follow-up imediato necessário.</div>
+            <div class="cli-action"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Retomar o que foi prometido na ligação anterior. Checar se o problema foi resolvido. Não vender antes de confirmar a resolução.</span></div>
           </div>
         </div>
+
+        <div class="g2">
+          <div class="cli-card alta">
+            <div class="cli-hdr">
+              <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--warn-fg);margin-bottom:4px">ALTA · 28/30</div><div class="cli-id">27247224</div></div>
+              <div class="cli-score-box"><div class="cli-score">28</div><div class="cli-score-max">/ 30 pts</div></div>
+            </div>
+            <div class="cli-dim"><span class="cli-dim-l">Contexto</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:80%;background:var(--brand)"></div></div><span class="cli-dim-v">8</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Sinais do cliente</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--warn)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Comportamento</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--ok)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-signal">📈 Expansão de frota + concorrência mencionada. Sem risco de churn — oportunidade de crescimento com janela estreita.</div>
+            <div class="cli-action"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Usar CH4 (dado do concorrente) + CH1 (custo oculto). Fechar expansão antes que a concorrência entre. FC1 obrigatório.</span></div>
+          </div>
+
+          <div class="cli-card alta">
+            <div class="cli-hdr">
+              <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--warn-fg);margin-bottom:4px">ALTA · 27/30</div><div class="cli-id">25141965</div></div>
+              <div class="cli-score-box"><div class="cli-score">27</div><div class="cli-score-max">/ 30 pts</div></div>
+            </div>
+            <div class="cli-dim"><span class="cli-dim-l">Contexto</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:80%;background:var(--brand)"></div></div><span class="cli-dim-v">8</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Sinais do cliente</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:90%;background:var(--warn)"></div></div><span class="cli-dim-v">9</span></div>
+            <div class="cli-dim"><span class="cli-dim-l">Comportamento</span><div class="cli-dim-bar"><div class="cli-dim-fill" style="width:100%;background:var(--ok)"></div></div><span class="cli-dim-v">10</span></div>
+            <div class="cli-signal">📈 Expansão de frota sinalizada. Vendedor conduziu com excelência (10/10) — momento ideal para concretizar a oportunidade.</div>
+            <div class="cli-action"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Retomar com proposta concreta de expansão. Usar B5 (upsell conectado à dor relatada). CH2 se houver comparação de custo em aberto.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SUB: SEGMENTAÇÃO ── -->
+      <div id="cli-seg" class="subp">
+        <div class="g4 mb24">
+          <div class="seg-stat"><div class="seg-stat-v" style="color:var(--fg)">1.109</div><div class="seg-stat-l">Clientes únicos</div></div>
+          <div class="seg-stat"><div class="seg-stat-v" style="color:var(--err)">82</div><div class="seg-stat-l">Com sinais críticos</div></div>
+          <div class="seg-stat"><div class="seg-stat-v" style="color:var(--info)">120</div><div class="seg-stat-l">Sinal de expansão</div></div>
+          <div class="seg-stat"><div class="seg-stat-v" style="color:var(--warn)">95</div><div class="seg-stat-l">Upsell identificado</div></div>
+        </div>
+
+        <div class="g2 mb24">
+          <div class="card">
+            <div class="card-hdr"><div><div class="card-t">Segmentação por Tipo de Sinal</div><div class="card-st">1.109 clientes únicos · identificados nos 23 batches</div></div><span class="card-bdg">Scoring ✓</span></div>
+            <canvas id="cSeg" height="240"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-t">Distribuição por Potencial (Ligações)</div>
+            <div class="card-st">1.275 ligações · scoring automático Python · score 0–30</div>
+            <canvas id="cScoringC" height="200"></canvas>
+          </div>
+        </div>
+
         <div class="card">
-          <div class="card-t">Distribuição por Potencial</div>
-          <div class="card-st">1.275 ligações · scoring automático</div>
-          <canvas id="cScoringC" height="200"></canvas>
+          <div class="card-t">Como agir com cada segmento</div>
+          <div class="card-st">Prioridade de ação por tipo de sinal — ordenado por urgência</div>
+          <table>
+            <thead><tr><th>Segmento</th><th>Clientes</th><th>%</th><th>Ação prioritária</th><th>Urgência</th></tr></thead>
+            <tbody>
+              <tr><td>Risco de cancelamento</td><td><strong>82</strong></td><td>7,4%</td><td>Ligar em 24h · entender o problema · resolver antes de vender</td><td><span class="badge b-err">Imediata</span></td></tr>
+              <tr><td>Expansão de frota sinalizada</td><td><strong>120</strong></td><td>10,8%</td><td>Proposta de expansão com CH1 + FC1 · não deixar esfriar</td><td><span class="badge b-err">Esta semana</span></td></tr>
+              <tr><td>Upsell identificado</td><td><strong>95</strong></td><td>8,6%</td><td>Conectar produto ao problema relatado (B5) · checar portfólio completo</td><td><span class="badge b-warn">2 semanas</span></td></tr>
+              <tr><td>Suporte recorrente</td><td><strong>380</strong></td><td>34,3%</td><td>Escalar problema técnico para produto/ops · inserir 1 pergunta comercial</td><td><span class="badge b-info">Processo</span></td></tr>
+              <tr><td>Sem sinal específico</td><td><strong>432</strong></td><td>38,9%</td><td>Qualificar · scoring atualizado a cada nova ligação</td><td><span class="badge b-mu">Manutenção</span></td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">⚠ Um cliente pode aparecer em mais de um segmento (ex: risco + expansão). Os 5 críticos mapeados têm dois sinais simultâneos.</div>
+        </div>
+      </div>
+
+      <!-- ── SUB: INTELIGÊNCIA INDIVIDUAL ── -->
+      <div id="cli-intel" class="subp">
+        <div class="card mb24">
+          <div class="card-hdr"><div><div class="card-t">Perfil Dimensional dos 5 Clientes Críticos</div><div class="card-st">Comparativo por dimensão · score máximo 10 por eixo · P4 · P3</div></div><span class="card-bdg">P3_P4 ✓</span></div>
+          <canvas id="cRadar" height="260"></canvas>
+          <div style="margin-top:12px;font-size:11px;color:var(--fg-2);padding:10px;background:var(--bg-dn);border-radius:6px">
+            <strong>Contexto</strong> = duração da ligação + quem iniciou (receptiva vs. ativa) &nbsp;·&nbsp; <strong>Sinais do cliente</strong> = expansão, churn, concorrência, dores relatadas &nbsp;·&nbsp; <strong>Comportamento do vendedor</strong> = diagnóstico, urgência criada, upsell, próximo passo com data
+          </div>
+        </div>
+
+        <div class="g2">
+          <div class="card">
+            <div class="card-t">Padrão dos 3 Críticos (28–30 pts)</div>
+            <div class="card-st">O que eles têm em comum — e o que isso implica</div>
+            <div style="margin-top:14px">
+              <div class="abox neg mb16">
+                <div class="at">⚠ Dois vetores simultâneos em todos</div>
+                <div class="ai"><span class="app" style="color:var(--err);min-width:32px">3/3</span><span class="ad">Todos têm sinal de <strong>risco de cancelamento E expansão de frota</strong> na mesma ligação. A urgência é dupla: reter e crescer ao mesmo tempo.</span></div>
+              </div>
+              <div class="abox pos">
+                <div class="at">✓ Ligação foi bem conduzida</div>
+                <div class="ai"><span class="app" style="min-width:32px">9–10</span><span class="ad">Score de comportamento alto — o vendedor fez o trabalho certo. O risco não veio de uma ligação ruim. O cliente tem necessidade real.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-t">Os 2 de Alta (27–28) — perfil diferente</div>
+            <div class="card-st">Oportunidade pura, sem risco de cancelamento</div>
+            <div style="margin-top:14px">
+              <div class="hcard mb16">
+                <div class="hhdr"><span class="hnum">27247224</span><span class="badge b-warn">Expansão + concorrência</span></div>
+                <div class="ht">Janela estreita antes da decisão pelo concorrente</div>
+                <div class="hb">Não há risco de perder o cliente — há risco de <em>não ganhar</em> a expansão. CH4 (dado do concorrente) + FC1 (fechar com data) nesta semana.</div>
+              </div>
+              <div class="hcard">
+                <div class="hhdr"><span class="hnum">25141965</span><span class="badge b-ok">Expansão</span></div>
+                <div class="ht">Vendedor conduziu com excelência — retomar com proposta</div>
+                <div class="hb">Score de comportamento 10/10. O momento é favorável. Uma ligação com proposta concreta de expansão pode fechar sem dificuldade.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1421,7 +1581,6 @@ function nav(id, btn) {
   if (btn) btn.classList.add('active');
   document.getElementById('bc').textContent = LABELS[id] || id;
   if (id === 'comercial') drawCorr();
-  if (id === 'clientes')  drawScoringC();
 }
 
 // ── CHARTS ────────────────────────────────────────
@@ -1452,7 +1611,14 @@ function rebuildCharts() {
     if (sid === 'op')   drawOP();
     if (sid === 'fc')   { drawFC(); drawPM(); }
   }
-  if (cur === 'clientes') drawScoringC();
+  if (cur === 'clientes') {
+    const asub = document.querySelector('#page-clientes .subp.active');
+    if (asub) {
+      const sid = asub.id.replace('cli-','');
+      if (sid === 'seg')   { drawSeg(); drawScoringC(); }
+      if (sid === 'intel') drawRadar();
+    }
+  }
   if (cur === 'vendedores') {
     const asub = document.querySelector('#page-vendedores .subp.active');
     if (asub && asub.id === 'vend-comp') drawVend();
@@ -1511,10 +1677,12 @@ function subNav(groupId, subId, btn) {
   btn.closest('.subnav').querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
   document.getElementById(groupId + '-' + subId).classList.add('active');
   btn.classList.add('active');
-  if (subId === 'ch')   drawCH();
-  if (subId === 'op')   drawOP();
-  if (subId === 'fc')   { drawFC(); drawPM(); }
-  if (subId === 'comp') drawVend();
+  if (subId === 'ch')    drawCH();
+  if (subId === 'op')    drawOP();
+  if (subId === 'fc')    { drawFC(); drawPM(); }
+  if (subId === 'comp')  drawVend();
+  if (subId === 'seg')   { drawSeg(); drawScoringC(); }
+  if (subId === 'intel') drawRadar();
 }
 
 function drawCH() {
@@ -1574,6 +1742,43 @@ function drawPM() {
       datasets:[{data:[56.2,12.7,11.1,8.2,7.4,4.4],backgroundColor:[c.red,c.warn,c.muted,'#7C3AED',c.border,c.grid],borderWidth:2,borderColor:c.bg}]
     },
     options:{cutout:'62%',plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Inter'},padding:6,boxWidth:12,color:c.text}},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% · ${Math.round(ctx.raw*12.16)} promessas`}}}}
+  });
+}
+
+function drawSeg() {
+  const c = C();
+  if (charts.seg) { charts.seg.destroy(); delete charts.seg; }
+  charts.seg = new Chart(document.getElementById('cSeg'), {
+    type:'doughnut',
+    data:{
+      labels:['Sem sinal específico','Suporte recorrente','Expansão de frota','Upsell identificado','Risco de cancelamento'],
+      datasets:[{data:[432,380,120,95,82],backgroundColor:[c.border,c.muted,'#2563EB',c.warn,c.red],borderWidth:2,borderColor:c.bg}]
+    },
+    options:{cutout:'60%',plugins:{legend:{position:'right',labels:{font:{size:11,family:'Inter'},padding:8,boxWidth:12,color:c.text}},tooltip:{callbacks:{label:ctx=>{const t=ctx.dataset.data.reduce((a,b)=>a+b,0);return ` ${ctx.raw} clientes (${(ctx.raw/t*100).toFixed(1)}%)`}}}}}
+  });
+}
+
+function drawRadar() {
+  const c = C();
+  if (charts.radar) { charts.radar.destroy(); delete charts.radar; }
+  charts.radar = new Chart(document.getElementById('cRadar'), {
+    type:'bar',
+    data:{
+      labels:['07118469','08208057','20271903','27247224','25141965'],
+      datasets:[
+        {label:'Contexto',             data:[10,9,9,8,8], backgroundColor:c.primary,  borderRadius:3},
+        {label:'Sinais do cliente',    data:[10,10,10,10,9],backgroundColor:c.red,    borderRadius:3},
+        {label:'Comportamento vendedor',data:[10,10,9,10,10],backgroundColor:c.green, borderRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Inter'},padding:10,boxWidth:12,color:c.text}}},
+      scales:{
+        x:{ticks:{font:{size:12,family:'Inter'},color:c.text},grid:{display:false}},
+        y:{grid:{color:c.grid},ticks:{stepSize:2,font:{size:11},color:c.text},max:10,min:0,title:{display:true,text:'Pontuação (0–10)',font:{size:11},color:c.text}}
+      }
+    }
   });
 }
 
