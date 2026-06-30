@@ -348,7 +348,8 @@ tbody tr:hover td { background: var(--muted); }
   <div class="header-right">
     <span class="badge badge-primary">P1_P2: 1.275 ligações ✓</span>
     <span class="badge badge-primary">P5_P6: 23/23 ✓</span>
-    <span class="badge badge-warn">P9_P10: 10/23 batches</span>
+    <span class="badge badge-primary">P9_P10: 23/23 ✓</span>
+    <span class="badge badge-primary">SÍNTESE ✓</span>
   </div>
 </div>
 
@@ -369,7 +370,7 @@ tbody tr:hover td { background: var(--muted); }
 <div class="container">
 
   <div class="alert">
-    <strong>Status da análise:</strong> P1_P2 e P5_P6 concluídos — 1.275 ligações com comportamentos B1–B10, Challenger, oportunidades perdidas e desfechos completos. P9_P10 (abertura/fechamento/promessas) em andamento: 10/23 batches disponíveis, primeiros padrões já incorporados. Dados finais disponíveis em 30/06.
+    <strong>Status da análise:</strong> Análise completa — P1_P2, P5_P6 e P9_P10 concluídos em todos os 23 batches (1.275 ligações). Síntese final gerada com ranking de comportamentos, 10 hipóteses com evidência e estimativa de R$ perdido. Dados disponíveis neste dashboard.
   </div>
 
   <!-- KPIs -->
@@ -685,7 +686,7 @@ tbody tr:hover td { background: var(--muted); }
   <div class="grid-2 mb-28">
     <div class="card">
       <div class="card-title">Comportamentos Challenger — padrão emergente</div>
-      <div class="card-subtitle">CH1–CH7 identificados em 5 batches · ~330 ligações</div>
+      <div class="card-subtitle">CH1–CH7 identificados em 23 batches · 1.262 ligações (dados completos)</div>
       <div class="achado-item" style="margin-bottom:12px">
         <div style="min-width:56px;font-size:15px;font-weight:800;color:var(--secondary)">#1</div>
         <div>
@@ -737,61 +738,61 @@ tbody tr:hover td { background: var(--muted); }
     </div>
   </div>
 
-  <!-- P9_P10 parcial -->
-  <div class="section-label mb-16">Primeiros achados — P9_P10 (10/23 batches · 29/06/2026)</div>
+  <!-- P9_P10 completo -->
+  <div class="section-label mb-16">Achados consolidados — P9_P10 (23/23 batches · 30/06/2026)</div>
   <div class="grid-2 mb-28">
     <div class="card">
       <div class="card-title">Fechamento — distribuição FC1–FC4</div>
-      <div class="card-subtitle">10 batches · ~660 ligações com contato efetivo</div>
+      <div class="card-subtitle">23 batches · 1.296 ligações analisadas (dados completos)</div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--destructive)">~60%</span>
+        <span class="behav-pct" style="color:var(--destructive)">44,8%</span>
         <div class="behav-bar-wrap"><div class="behav-bar" style="width:100%;background:var(--destructive)"></div></div>
-        <span class="behav-desc">FC3 — "Qualquer coisa me chama"</span>
+        <span class="behav-desc">FC3 — "Qualquer coisa me chama" (580/1.296)</span>
       </div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--secondary)">~25%</span>
-        <div class="behav-bar-wrap"><div class="behav-bar" style="width:42%;background:var(--secondary)"></div></div>
-        <span class="behav-desc">FC1 — Compromisso duplo (vendedor + cliente)</span>
+        <span class="behav-pct" style="color:var(--secondary)">31,9%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:71%;background:var(--secondary)"></div></div>
+        <span class="behav-desc">FC1 — Compromisso duplo vendedor + cliente (413/1.296)</span>
       </div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--muted-fg)">~10%</span>
-        <div class="behav-bar-wrap"><div class="behav-bar" style="width:17%;background:#9AA5B4"></div></div>
-        <span class="behav-desc">FC2 — Próximo passo só do vendedor</span>
+        <span class="behav-pct" style="color:var(--muted-fg)">14,7%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:33%;background:#9AA5B4"></div></div>
+        <span class="behav-desc">FC2 — Próximo passo só do vendedor (190/1.296)</span>
       </div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--muted-fg)">~5%</span>
-        <div class="behav-bar-wrap"><div class="behav-bar" style="width:8%;background:var(--border)"></div></div>
-        <span class="behav-desc">FC4 — Aberto (caixa postal, sem contato)</span>
+        <span class="behav-pct" style="color:var(--muted-fg)">7,8%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:17%;background:var(--border)"></div></div>
+        <span class="behav-desc">FC4 — Aberto / sem contato real (101/1.296)</span>
       </div>
       <div style="margin-top:14px;padding:10px;background:var(--badge-destr-bg);border-radius:var(--radius);font-size:12px;color:var(--badge-destr-color)">
-        <strong>Prazo definido em FC1:</strong> mesmo com próximo passo claro, <strong>menos de 15%</strong> das ligações têm data concreta. O vendedor define o que vai fazer — mas não quando.
+        <strong>Prazo definido:</strong> apenas <strong>9% das ligações</strong> (116/1.296) têm data concreta comprometida. O vendedor define o que vai fazer — mas quase nunca define quando.
       </div>
     </div>
     <div class="card">
-      <div class="card-title">Promessas — tipo mais frequente (P10)</div>
-      <div class="card-subtitle">Top tipos de promessa assumida pelo vendedor</div>
+      <div class="card-title">Promessas — distribuição PM1–PM6 (P10)</div>
+      <div class="card-subtitle">1.216 promessas com código estruturado · 23 batches</div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--destructive)">PM2</span>
+        <span class="behav-pct" style="color:var(--destructive)">56,2%</span>
         <div class="behav-bar-wrap"><div class="behav-bar" style="width:100%;background:var(--destructive)"></div></div>
-        <span class="behav-desc">Envia documento/mensagem — dominante absoluto</span>
+        <span class="behav-desc">PM2 — Envia documento/mensagem via WhatsApp (684/1.216)</span>
       </div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--muted-fg)">PM1</span>
-        <div class="behav-bar-wrap"><div class="behav-bar" style="width:55%;background:#9AA5B4"></div></div>
-        <span class="behav-desc">Resolve na ligação</span>
+        <span class="behav-pct" style="color:#854D0E">12,7%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:23%;background:#EAB308"></div></div>
+        <span class="behav-desc">PM5 — Negocia internamente (154/1.216)</span>
       </div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:#854D0E">PM5</span>
-        <div class="behav-bar-wrap"><div class="behav-bar" style="width:35%;background:#EAB308"></div></div>
-        <span class="behav-desc">Negocia internamente — risco médio, sem prazo</span>
+        <span class="behav-pct" style="color:var(--muted-fg)">11,1%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:20%;background:#9AA5B4"></div></div>
+        <span class="behav-desc">PM3 — Liga de volta (135/1.216)</span>
       </div>
       <div class="behav-item">
-        <span class="behav-pct" style="color:var(--muted-fg)">PM3</span>
-        <div class="behav-bar-wrap"><div class="behav-bar" style="width:20%;background:var(--border)"></div></div>
-        <span class="behav-desc">Liga de volta</span>
+        <span class="behav-pct" style="color:var(--muted-fg)">8,2%</span>
+        <div class="behav-bar-wrap"><div class="behav-bar" style="width:15%;background:var(--border)"></div></div>
+        <span class="behav-desc">PM1 — Resolve na ligação (100/1.216)</span>
       </div>
       <div style="margin-top:14px;padding:10px;background:var(--badge-destr-bg);border-radius:var(--radius);font-size:12px;color:var(--badge-destr-color)">
-        <strong>Quase 100% das promessas PM2</strong> não têm prazo concreto — "vou te mandar no WhatsApp" sem data. O follow-up depende da memória do vendedor.
+        <strong>PM2 domina:</strong> 1 em cada 2 promessas é "vou te mandar no WhatsApp" — quase sempre sem prazo. Pipeline gerenciado pela memória do vendedor, não por processo.
       </div>
     </div>
   </div>
@@ -918,9 +919,9 @@ tbody tr:hover td { background: var(--muted); }
 
     <div class="acao-card navy">
       <div class="acao-header">Em andamento — até 30/06</div>
-      <div class="acao-item"><span class="acao-n">✓</span><span>P5_P6 concluído (23/23 batches): CH1–CH7, OP1–OP6 em todas as 1.275 ligações. Quantificação de R$ perdido disponível na síntese final</span></div>
-      <div class="acao-item"><span class="acao-n">2</span><span>P9_P10 (10/23 batches concluídos): FC3 vs FC1, padrão de promessas — dados finais em 30/06</span></div>
-      <div class="acao-item"><span class="acao-n">3</span><span>Síntese final automática com ranking completo de comportamentos, top hipóteses com evidência e estimativa de impacto em R$ — disponível a partir de 30/06</span></div>
+      <div class="acao-item"><span class="acao-n">✓</span><span>P5_P6 concluído (23/23 batches): CH1–CH7, OP1–OP6 em todas as 1.275 ligações. OP6 = R$23.410/mês identificado</span></div>
+      <div class="acao-item"><span class="acao-n">✓</span><span>P9_P10 concluído (23/23 batches): FC3=44,8%, FC1=31,9%, PM2=56,2%, prazo definido=9%. Análise completa</span></div>
+      <div class="acao-item"><span class="acao-n">✓</span><span>Síntese final gerada (30/06): ranking B1–B10, 10 hipóteses com evidência, R$28.490/mês em oportunidades perdidas, 5 ações priorizadas</span></div>
     </div>
   </div>
 
@@ -1034,8 +1035,8 @@ tbody tr:hover td { background: var(--muted); }
 
 <!-- FOOTER -->
 <div class="footer">
-  Análise: P1_P2 e P5_P6 completos em 1.275 ligações · P9_P10 em andamento (10/23 batches) · Scoring automático Python em 1.275 ligações &nbsp;·&nbsp;
-  Atualizado em 29/06/2026 &nbsp;·&nbsp; Aletheia RAC
+  Análise completa: P1_P2, P5_P6 e P9_P10 em 1.275 ligações · Síntese final gerada · Scoring automático Python &nbsp;·&nbsp;
+  Atualizado em 30/06/2026 &nbsp;·&nbsp; Aletheia RAC
 </div>
 
 <script>

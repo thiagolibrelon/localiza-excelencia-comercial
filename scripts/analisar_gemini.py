@@ -220,44 +220,313 @@ IMPORTANTE: processe TODAS as {len(trans.split('=== LIGACAO'))-1} ligacoes. Reto
 LIGACOES:
 {trans}"""
 
-def prompt_sintese_final(todos_outputs, n_ligacoes, n_batches):
+B_DESC = {
+    "B1": "diagnostico antes do produto",
+    "B2": "ancora de preco alto",
+    "B3": "usou historico do cliente",
+    "B4": "avisou risco ao cliente",
+    "B5": "upsell conectado a dor",
+    "B6": "urgencia com fato verificavel",
+    "B7": "prometeu batalhar internamente",
+    "B8": "ligou proativamente",
+    "B9": "conhecimento pessoal",
+    "B10": "perguntou sobre concorrente/frota",
+}
+
+def agregar_p1_p2(output_files):
+    """Agrega CSVs de P1_P2 em stats compactas (sem chamada de API)."""
+    from collections import defaultdict
+    desfechos = defaultdict(int)
+    b_por_desfecho = defaultdict(lambda: defaultdict(int))
+    total = 0
+
+    for f in output_files:
+        content = f.read_text(encoding="utf-8")
+        in_p1 = False
+        for line in content.splitlines():
+            s = line.strip()
+            if s.startswith("cliente_id,data,duracao"):
+                in_p1 = True
+                continue
+            if s.startswith("cliente_id,data,tipo,"):
+                in_p1 = False
+                continue
+            if not in_p1 or not s or s.startswith("#") or s.startswith("```"):
+                continue
+            parts = s.split(",")
+            if len(parts) < 16:
+                continue
+            try:
+                # normaliza linhas com 16 campos (sem tentativa_comercial)
+                if len(parts) == 16:
+                    parts.insert(5, "desconhecido")
+                desfecho = parts[3].strip()
+                desfechos[desfecho] += 1
+                total += 1
+                for i in range(10):
+                    if parts[6 + i].strip().upper() == "SIM":
+                        b_por_desfecho[f"B{i+1}"][desfecho] += 1
+            except Exception:
+                pass
+
+    fechou = sum(desfechos.get(d, 0) for d in ["fechou_novo", "fechou_renovacao", "fechou_upsell"])
+    int_nao = desfechos.get("interessou_nao_fechou", 0)
+    nao_venda = desfechos.get("nao_era_venda", 0)
+
+    linhas = [f"## DADOS P1_P2 — {total} ligacoes processadas (todos os batches)"]
+    linhas.append(f"\n### Distribuicao de desfechos")
+    linhas.append(f"- Fechou (novo+renovacao+upsell): {fechou} ({100*fechou/total:.1f}%)" if total else "- sem dados")
+    linhas.append(f"- Interessou, nao fechou: {int_nao} ({100*int_nao/total:.1f}%)" if total else "")
+    linhas.append(f"- Nao era venda (suporte/ops): {nao_venda} ({100*nao_venda/total:.1f}%)" if total else "")
+    for d, n in desfechos.items():
+        if d not in ("fechou_novo","fechou_renovacao","fechou_upsell","interessou_nao_fechou","nao_era_venda"):
+            linhas.append(f"- {d}: {n}")
+
+    linhas.append(f"\n### Comportamentos B1-B10 — freq em fechou vs interessou_nao_fechou")
+    linhas.append("| Comp | Descricao | Freq fechou | Freq int_nao_fechou | Delta |")
+    linhas.append("|---|---|---|---|---|")
+    for b in [f"B{i}" for i in range(1, 11)]:
+        fc = sum(b_por_desfecho[b].get(d, 0) for d in ["fechou_novo","fechou_renovacao","fechou_upsell"])
+        nf = b_por_desfecho[b].get("interessou_nao_fechou", 0)
+        fp = 100*fc/fechou if fechou else 0
+        np_ = 100*nf/int_nao if int_nao else 0
+        linhas.append(f"| {b} | {B_DESC.get(b,'')} | {fp:.1f}% ({fc}/{fechou}) | {np_:.1f}% ({nf}/{int_nao}) | {fp-np_:+.1f}pp |")
+
+    return "\n".join(linhas)
+
+
+_AB_VALIDOS = {"AB1","AB2","AB3","AB4","AB5"}
+_FC_VALIDOS = {"FC1","FC2","FC3","FC4","FC5"}
+_PM_VALIDOS = {"PM1","PM2","PM3","PM4","PM5","PM6"}
+_SN_VALIDOS = {"SIM","NAO"}
+
+def agregar_p9_p10(output_files):
+    """Agrega CSVs de P9_P10 em distribuicoes compactas (sem chamada de API)."""
+    import re
+    from collections import defaultdict
+    ab = defaultdict(int)
+    fc = defaultdict(int)
+    pm = defaultdict(int)
+    prazo = defaultdict(int)
+    nome = defaultdict(int)
+    total_lig = 0
+    total_pm = 0
+
+    for f in output_files:
+        content = f.read_text(encoding="utf-8")
+        in_p9 = in_p10 = False
+        for line in content.splitlines():
+            s = line.strip()
+            if s.startswith("cliente_id,data,tipo_abertura"):
+                in_p9, in_p10 = True, False
+                continue
+            if s.startswith("promise_id,"):
+                in_p9, in_p10 = False, True
+                continue
+            if s.startswith("```") or s.startswith("==="):
+                in_p9 = in_p10 = False
+                continue
+            if in_p9 and s and not s.startswith("#"):
+                parts = s.split(",")
+                if len(parts) >= 7:
+                    try:
+                        ab_v  = parts[2].strip().upper()
+                        nom_v = parts[3].strip().upper()
+                        fc_v  = parts[4].strip().upper()
+                        prz_v = parts[6].strip().upper()
+                        if ab_v in _AB_VALIDOS and fc_v in _FC_VALIDOS:
+                            ab[ab_v] += 1
+                            fc[fc_v] += 1
+                            if nom_v in _SN_VALIDOS:
+                                nome[nom_v] += 1
+                            if prz_v in _SN_VALIDOS:
+                                prazo[prz_v] += 1
+                            total_lig += 1
+                    except Exception:
+                        pass
+            if in_p10 and s and not s.startswith("#"):
+                parts = s.split(",")
+                if len(parts) >= 4:
+                    try:
+                        pm_v = parts[3].strip().upper()
+                        if pm_v in _PM_VALIDOS:
+                            pm[pm_v] += 1
+                            total_pm += 1
+                    except Exception:
+                        pass
+
+    linhas = [f"## DADOS P9_P10 — {total_lig} ligacoes | {total_pm} promessas com codigo PM (todos os batches)"]
+
+    linhas.append("\n### Tipo de Abertura (AB1-AB5)")
+    for k in sorted(ab):
+        linhas.append(f"- {k}: {ab[k]} ({100*ab[k]/total_lig:.1f}%)" if total_lig else f"- {k}: {ab[k]}")
+
+    linhas.append("\n### Tipo de Fechamento (FC1-FC5)")
+    for k in sorted(fc):
+        linhas.append(f"- {k}: {fc[k]} ({100*fc[k]/total_lig:.1f}%)" if total_lig else f"- {k}: {fc[k]}")
+
+    linhas.append(f"\n### Prazo definido: SIM={prazo.get('SIM',0)} ({100*prazo.get('SIM',0)/total_lig:.1f}%) | NAO={prazo.get('NAO',0)}" if total_lig else "")
+    linhas.append(f"### Usou nome do cliente: SIM={nome.get('SIM',0)} ({100*nome.get('SIM',0)/total_lig:.1f}%)" if total_lig else "")
+
+    linhas.append("\n### Tipos de Promessa (PM1-PM6) — apenas registros com codigo estruturado")
+    for k in sorted(pm):
+        linhas.append(f"- {k}: {pm[k]} ({100*pm[k]/total_pm:.1f}%)" if total_pm else f"- {k}: {pm[k]}")
+
+    return "\n".join(linhas)
+
+
+def agregar_p5_p6(output_files):
+    """Agrega CSVs de P5_P6 em stats compactas (sem chamada de API)."""
+    from collections import defaultdict
+    ch_sim = 0
+    ch_nao = 0
+    ch_codigos = defaultdict(int)
+    ch_qualidade = defaultdict(int)
+    ch_resultado = defaultdict(int)
+    ch_exemplos = []
+
+    op_tipos = defaultdict(int)
+    op_valor = defaultdict(float)
+    total_p6 = 0
+
+    for f in output_files:
+        content = f.read_text(encoding="utf-8")
+        in_p5 = in_p6 = False
+        for line in content.splitlines():
+            s = line.strip()
+            if s.startswith("cliente_id,data,teve_challenger"):
+                in_p5, in_p6 = True, False
+                continue
+            if s.startswith("cliente_id,data,oportunidades_perdidas"):
+                in_p5, in_p6 = False, True
+                continue
+            if s.startswith("```") or s.startswith("###"):
+                in_p5 = in_p6 = False
+                continue
+
+            if in_p5 and s and not s.startswith("#"):
+                parts = s.split(",")
+                if len(parts) >= 4:
+                    try:
+                        teve = parts[2].strip().upper()
+                        if teve == "SIM":
+                            ch_sim += 1
+                            for cod in parts[3].strip().replace("|", ";").split(";"):
+                                cod = cod.strip()
+                                if cod and cod != "nenhum" and cod.startswith("CH"):
+                                    ch_codigos[cod] += 1
+                            resultado_v = parts[5].strip() if len(parts) >= 6 else ""
+                            if resultado_v in ("cliente_aceitou", "cliente_refletiu", "sem_reacao_visivel"):
+                                ch_resultado[resultado_v] += 1
+                            qual_v = parts[6].strip() if len(parts) >= 7 else ""
+                            if qual_v in ("alta", "media", "baixa"):
+                                ch_qualidade[qual_v] += 1
+                            if len(ch_exemplos) < 5 and len(parts) >= 5 and parts[4].strip() not in ("nenhum", ""):
+                                ch_exemplos.append(parts[4].strip()[:120])
+                        elif teve == "NAO":
+                            ch_nao += 1
+                    except Exception:
+                        pass
+
+            if in_p6 and s and not s.startswith("#"):
+                parts = s.split(",", 4)
+                if len(parts) >= 3:
+                    try:
+                        op = parts[2].strip()
+                        if op and op != "nenhuma":
+                            op_tipos[op] += 1
+                            if len(parts) >= 5:
+                                v = parts[4].strip()
+                                if v not in ("nenhum", "", "0"):
+                                    try:
+                                        op_valor[op] += float(v)
+                                    except ValueError:
+                                        pass
+                        total_p6 += 1
+                    except Exception:
+                        pass
+
+    total_ch = ch_sim + ch_nao
+    linhas = [f"## DADOS P5_P6 — {total_ch} ligacoes com Challenger | {total_p6} oportunidades avaliadas (todos os batches)"]
+
+    linhas.append(f"\n### Challenger Sale (P5)")
+    linhas.append(f"- Ligacoes COM Challenger: {ch_sim} ({100*ch_sim/total_ch:.1f}%)" if total_ch else "- sem dados")
+    linhas.append(f"- Ligacoes SEM Challenger: {ch_nao} ({100*ch_nao/total_ch:.1f}%)" if total_ch else "")
+    linhas.append(f"- Codigos mais frequentes (CH1-CH7):")
+    for k in sorted(ch_codigos, key=lambda x: ch_codigos[x], reverse=True):
+        linhas.append(f"  - {k}: {ch_codigos[k]}")
+    linhas.append(f"- Qualidade: {dict(ch_qualidade)}")
+    linhas.append(f"- Resultado imediato: {dict(ch_resultado)}")
+    if ch_exemplos:
+        linhas.append(f"- Exemplos de frases Challenger: " + " | ".join(ch_exemplos[:3]))
+
+    total_ops = sum(op_tipos.values())
+    linhas.append(f"\n### Oportunidades Perdidas (P6) — {total_ops} oportunidades identificadas em {total_p6} ligacoes")
+    for k in sorted(op_tipos, key=lambda x: op_tipos[x], reverse=True):
+        pct = 100*op_tipos[k]/total_ops if total_ops else 0
+        val = op_valor.get(k, 0)
+        linhas.append(f"- {k}: {op_tipos[k]} ({pct:.1f}%) | valor estimado R${val:.0f}/mes na amostra")
+    total_val = sum(op_valor.values())
+    escala = total_p6 / len(output_files) if output_files else 1
+    linhas.append(f"\n- Valor total identificado na amostra: R${total_val:.0f}/mes")
+    if total_ch > 0:
+        razao = total_p6 / total_ch
+        linhas.append(f"- Media de {razao:.1f} oportunidade/ligacao na amostra")
+
+    return "\n".join(linhas)
+
+
+def sintese_existe():
+    for f in sorted(OUTPUT_DIR.glob("SINTESE_FINAL_*.txt"), key=lambda x: x.stat().st_size, reverse=True):
+        content = f.read_text(encoding="utf-8")
+        if "[TRUNCADO: MAX_TOKENS]" in content:
+            log(f"  Sintese {f.name} truncada — removendo para re-processar")
+            f.unlink()
+            continue
+        if f.stat().st_size > 2000:
+            log(f"  Sintese valida encontrada: {f.name} ({f.stat().st_size} bytes)")
+            return f
+    return None
+
+
+def prompt_sintese_final(stats_p1p2, stats_p9p10, stats_p5p6, n_ligacoes, n_batches):
     return f"""Voce e analista senior de performance comercial da Localiza.
 
-Analise completa de {n_ligacoes} ligacoes reais de vendas B2B em {n_batches} batches.
-Dados: P1 (conversao + scores B1-B10), P5 (Challenger), P6 (oportunidades perdidas), P9 (abertura/fechamento), P10 (promessas).
+Analise de {n_ligacoes} ligacoes B2B (1.109 clientes, {n_batches} batches).
+Pergunta central: O que o vendedor faz para fechar um contrato?
 
-{todos_outputs}
+INSTRUCAO CRITICA: Use APENAS os numeros ja calculados abaixo. NAO some, NAO liste valores individuais, NAO recalcule nada. Escreva diretamente a analise usando os totais prontos.
 
-## HIPOTESES SOBRE "O QUE O VENDEDOR FAZ PARA FECHAR UM CONTRATO"
+## DADOS QUANTITATIVOS (todos os {n_batches} batches, pre-calculados)
 
-### 1. RANKING DE COMPORTAMENTOS (B1-B10) POR CORRELACAO COM FECHAMENTO
-Para cada comportamento, calcule:
-- frequencia em ligacoes com desfecho positivo (fechou_novo|fechou_renovacao|fechou_upsell)
-- frequencia em ligacoes sem fechamento
-- forca da correlacao
-Formato tabela: comportamento | descricao | freq_fechou | freq_nao_fechou | correlacao
+{stats_p1p2}
 
-### 2. TOP 10 HIPOTESES (rankeadas por forca de evidencia)
-Para cada hipotese:
+{stats_p9p10}
+
+{stats_p5p6}
+
+---
+
+Agora escreva a sintese completa nas 5 secoes abaixo, usando APENAS os numeros acima:
+
+### 1. RANKING DE COMPORTAMENTOS (B1-B10)
+Tabela: comportamento | freq_fechou | freq_int_nao_fechou | delta | interpretacao em 1 linha
+
+### 2. TOP 10 HIPOTESES
 HIPOTESE: [afirmacao direta]
-EVIDENCIA: [n ligacoes/vendedores]
-EXEMPLO: [frase real das transcricoes]
+EVIDENCIA: [cite os numeros exatos dos dados acima]
 CONFIANCA: alta|media|baixa
 
 ### 3. PADROES DE ABERTURA E FECHAMENTO
-- Qual tipo de abertura (AB1-AB5) correlaciona com fechamento?
-- Qual tipo de fechamento (FC1-FC5) e mais comum nos vendedores top?
-- FC3 ("qualquer coisa me chama") vs FC1 (compromisso duplo): diferenca nos resultados?
+AB1-AB5: qual domina e o que isso significa. FC1 vs FC3: diferenca de resultado. Prazo_definido: impacto.
 
-### 4. OPORTUNIDADES PERDIDAS EM R$ (total estimado)
-- Total de receita mensal nao capturada
-- Top 3 tipos de oportunidade perdida (OP1-OP8)
-- Estimativa de impacto anual
+### 4. OPORTUNIDADES PERDIDAS
+Use os totais ja calculados do P5_P6. Extrapole para 1.275 ligacoes com multiplicador simples. Top 3 tipos de OP com impacto em R$.
 
 ### 5. TOP 5 ACOES PARA OS PROXIMOS 30 DIAS
-Ordenadas por impacto estimado em receita. Especificas, acionaveis.
+Especificas, com metrica de sucesso. Ordene por impacto em receita.
 
-Use numeros reais dos dados. Seja direto e objetivo."""
+Use numeros reais dos dados. Seja conciso e direto."""
 
 # ---------------------------------------------------------------------------
 # Main
@@ -282,7 +551,6 @@ def main():
     log("")
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    todos_outputs = []
     todos_prontos = True
 
     grupos_funcs = {
@@ -306,8 +574,6 @@ def main():
             existente = ja_existe(b_idx, grupo)
             if existente:
                 log(f"  Batch {b_idx:02d}/{n_bat} [{grupo}] - ja existe ({existente.stat().st_size} bytes)")
-                resultado = existente.read_text(encoding="utf-8")
-                todos_outputs.append(f"=== BATCH {b_idx:02d} - {grupo} ===\n{resultado}")
                 continue
 
             n_lig = sum(len(v) for v in batch_data.values())
@@ -330,19 +596,32 @@ def main():
 
             nome_arquivo = f"batch{b_idx:02d}_{grupo}_{ts}.txt"
             salvar(nome_arquivo, resultado)
-            todos_outputs.append(f"=== BATCH {b_idx:02d} - {grupo} ===\n{resultado}")
             time.sleep(5)
 
     # Sintese final — so roda quando todos os batches de todos os grupos estiverem prontos
     if todos_prontos:
-        log("")
-        log("Todos os batches completos. Gerando sintese final...")
-        n_total = sum(len(v) for v in data.values())
-        sintese = chamar_gemini(
-            prompt_sintese_final("\n\n".join(todos_outputs), n_total, n_bat),
-            max_tokens=8192,
-        )
-        salvar(f"SINTESE_FINAL_{ts}.txt", sintese)
+        existente = sintese_existe()
+        if existente:
+            log(f"Sintese ja existe e e valida — pulando.")
+        elif calls_made >= MAX_CALLS:
+            log("Limite de chamadas atingido — sintese sera gerada na proxima execucao.")
+        else:
+            log("")
+            log("Todos os batches completos. Gerando sintese final (prompt compacto)...")
+            p1p2_files  = sorted(OUTPUT_DIR.glob("batch*_P1_P2_*.txt"))
+            p9p10_files = sorted(OUTPUT_DIR.glob("batch*_P9_P10_*.txt"))
+            p5p6_files  = sorted(OUTPUT_DIR.glob("batch*_P5_P6_*.txt"))
+
+            stats_p1p2  = agregar_p1_p2(p1p2_files)
+            stats_p9p10 = agregar_p9_p10(p9p10_files)
+            stats_p5p6  = agregar_p5_p6(p5p6_files)
+
+            n_total = sum(len(v) for v in data.values())
+            sintese = chamar_gemini(
+                prompt_sintese_final(stats_p1p2, stats_p9p10, stats_p5p6, n_total, n_bat),
+                max_tokens=8192,
+            )
+            salvar(f"SINTESE_FINAL_{ts}.txt", sintese)
 
     log("")
     log(f"Chamadas usadas hoje: {calls_made}/{MAX_CALLS}")
