@@ -241,8 +241,8 @@ body{font-family:'Inter',system-ui,sans-serif;font-size:14px;background:var(--bg
    SIGLA TOOLTIPS
 ══════════════════════════════════════════════════════ */
 .tip{position:relative;cursor:help;border-bottom:1px dotted var(--fg-3)}
-.tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg-up);font-size:11px;font-weight:500;padding:7px 12px;border-radius:6px;max-width:300px;min-width:180px;white-space:normal;text-align:left;line-height:1.5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:9999;box-shadow:var(--sh-md);word-break:normal;overflow-wrap:break-word}
-.tip:hover::after{opacity:1}
+.tip-popup{position:fixed;background:var(--fg);color:var(--bg-up);font-size:11px;font-weight:500;padding:7px 12px;border-radius:6px;max-width:300px;min-width:180px;white-space:normal;text-align:left;line-height:1.5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:9999;box-shadow:var(--sh-md);word-break:normal;overflow-wrap:break-word}
+.tip-popup.show{opacity:1}
 
 /* ══════════════════════════════════════════════════════
    ALERTS
@@ -637,6 +637,10 @@ tbody tr:hover td{background:var(--bg-dn)}
         <span class="a-ico">ℹ️</span>
         <span><strong>Base de análise:</strong> 1.275 ligações únicas · Junho 2026. Análises por módulo variam ligeiramente: P1_P2 processou 1.284 registros · P9_P10 processou 1.296 registros — diferenças por sobreposição de análise nos 23 batches. Percentuais por módulo referenciados na base do próprio módulo.</span>
       </div>
+      <div class="alert ok" style="margin-bottom:16px">
+        <span class="a-ico">🆕</span>
+        <span><strong>Lote novo em validação (01/07/2026):</strong> +5.348 ligações (4.434 clientes) processadas com scoring automático Python. Distribuição de potencial bateu com a base original — ALTO 5,3% (vs 5,5% nas 1.275 originais), validando que o modelo generaliza. <strong>Análise de IA (desfechos, Challenger, oportunidades em R$) ainda pendente</strong> para esse lote — cota gratuita do Gemini limita a 20 chamadas/dia. Os números de desfecho, B1–B10 e R$28.490/mês nesta página referem-se apenas às 1.275 ligações originais.</span>
+      </div>
       <div class="sec-lbl mb16">Visão geral — 1.275 ligações · Junho 2026</div>
       <div class="kpi-grid">
 
@@ -716,15 +720,15 @@ tbody tr:hover td{background:var(--bg-dn)}
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Distribuição de Potencial</div><div class="card-st">Scoring automático Python · 1.275 ligações · Score 0–30</div></div>
+            <div><div class="card-t">Distribuição de Potencial</div><div class="card-st">Scoring automático Python · 6.623 ligações (1.275 originais + 5.348 novo lote) · Score 0–30</div></div>
             <span class="card-bdg">Scoring ✓</span>
           </div>
           <canvas id="cScoring" height="160"></canvas>
           <div class="mt16">
-            <div class="trow"><span class="tlbl" style="color:var(--brand-fg);font-weight:800">ALTO ≥20</span><div class="twrap"><div class="tbar" style="width:16.5%;background:var(--brand)"></div></div><span class="tcnt">84 <strong>(6,6%)</strong></span></div>
-            <div class="trow"><span class="tlbl" style="color:var(--ok)">MÉDIO 13–19</span><div class="twrap"><div class="tbar" style="width:58.7%;background:var(--ok)"></div></div><span class="tcnt">298 <strong>(23,4%)</strong></span></div>
-            <div class="trow"><span class="tlbl" style="color:var(--fg-2)">BAIXO 7–12</span><div class="twrap"><div class="tbar" style="width:100%;background:#9AA5B4"></div></div><span class="tcnt">508 <strong>(39,8%)</strong></span></div>
-            <div class="trow"><span class="tlbl" style="color:var(--err)">SEM POTENCIAL</span><div class="twrap"><div class="tbar" style="width:75.8%;background:var(--border-2)"></div></div><span class="tcnt">385 <strong>(30,2%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--brand-fg);font-weight:800">ALTO ≥20</span><div class="twrap"><div class="tbar" style="width:14.8%;background:var(--brand)"></div></div><span class="tcnt">368 <strong>(5,6%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--ok)">MÉDIO 13–19</span><div class="twrap"><div class="tbar" style="width:60.6%;background:var(--ok)"></div></div><span class="tcnt">1.502 <strong>(22,7%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--fg-2)">BAIXO 7–12</span><div class="twrap"><div class="tbar" style="width:100%;background:#9AA5B4"></div></div><span class="tcnt">2.480 <strong>(37,4%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--err)">SEM POTENCIAL</span><div class="twrap"><div class="tbar" style="width:91.7%;background:var(--border-2)"></div></div><span class="tcnt">2.273 <strong>(34,3%)</strong></span></div>
           </div>
         </div>
 
@@ -1187,7 +1191,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="alert warn">
         <span class="a-ico">⚠️</span>
-        <span><strong>Fonte:</strong> Scoring automático Python · 1.275 ligações · 82 com sinais de cancelamento ou expansão. Clientes abaixo têm maior pontuação total.</span>
+        <span><strong>Fonte:</strong> Scoring automático Python · 6.623 ligações (1.275 originais + 5.348 novo lote, 01/07/2026) · 376 com sinais de cancelamento ou expansão. Clientes abaixo têm maior pontuação em uma única ligação.</span>
       </div>
 
       <div class="card mb24">
@@ -1199,10 +1203,10 @@ tbody tr:hover td{background:var(--bg-dn)}
           <thead><tr><th>Cliente ID</th><th>Pontuação</th><th>Sinal Identificado</th><th>Prioridade</th></tr></thead>
           <tbody>
             <tr><td><strong>08208057</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>27247224</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>20271903</strong></td><td><strong>27 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>27166870</strong></td><td><strong>26 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
-            <tr><td><strong>07118469</strong></td><td><strong>26 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td><strong>10845574</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>06821416</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>27247224</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td><strong>10508823</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1210,7 +1214,7 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div class="g2">
         <div class="card">
           <div class="card-t">Como o Scoring Funciona</div>
-          <div class="card-st">Análise automática Python · sem IA generativa · 1.275 ligações em &lt;30s</div>
+          <div class="card-st">Análise automática Python · sem IA generativa · 6.623 ligações processadas</div>
           <div style="margin-top:12px">
             <div class="trow"><span class="tlbl">Contexto</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
             <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Duração da ligação · quem iniciou</div>
@@ -1222,7 +1226,7 @@ tbody tr:hover td{background:var(--bg-dn)}
         </div>
         <div class="card">
           <div class="card-t">Distribuição por Potencial</div>
-          <div class="card-st">1.275 ligações · scoring automático</div>
+          <div class="card-st">6.623 ligações · scoring automático</div>
           <canvas id="cScoringC" height="200"></canvas>
         </div>
       </div>
@@ -2631,9 +2635,9 @@ function drawScoring() {
   if (charts.s) { charts.s.destroy(); delete charts.s; }
   charts.s = new Chart(document.getElementById('cScoring'), {
     type:'bar',
-    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[84,298,508,385],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
+    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[368,1502,2480,2273],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=1275;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6623;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2670,9 +2674,9 @@ function drawScoringC() {
   if (charts.sc) { charts.sc.destroy(); delete charts.sc; }
   charts.sc = new Chart(document.getElementById('cScoringC'), {
     type:'bar',
-    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[84,298,508,385],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
+    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[368,1502,2480,2273],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=1275;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6623;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2945,6 +2949,43 @@ function rmOpen(phaseId) {
   const el = card;
   setTimeout(() => el.scrollIntoView({ behavior:'smooth', block:'start' }), 50);
 }
+
+// ── TOOLTIPS (.tip) — posicionamento via JS para escapar de overflow:hidden dos cards ──
+(function () {
+  let popup = null;
+  function getPopup() {
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.className = 'tip-popup';
+      document.body.appendChild(popup);
+    }
+    return popup;
+  }
+  document.addEventListener('mouseover', e => {
+    const t = e.target.closest('.tip');
+    if (!t) return;
+    const txt = t.getAttribute('data-tip');
+    if (!txt) return;
+    const el = getPopup();
+    el.textContent = txt;
+    el.style.left = '0px';
+    el.style.top = '0px';
+    el.classList.add('show');
+    const r = t.getBoundingClientRect();
+    const pr = el.getBoundingClientRect();
+    let left = r.left + r.width / 2 - pr.width / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - pr.width - 8));
+    let top = r.top - pr.height - 7;
+    if (top < 8) top = r.bottom + 7; // sem espaço acima (ex: perto do cabeçalho) — abre para baixo
+    el.style.left = left + 'px';
+    el.style.top = top + 'px';
+  });
+  document.addEventListener('mouseout', e => {
+    const t = e.target.closest('.tip');
+    if (!t || !popup) return;
+    popup.classList.remove('show');
+  });
+})();
 
 rmLoad();
 </script>
