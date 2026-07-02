@@ -12,6 +12,7 @@ scripts/Descompac.py
 # Resultados de análise (gerados localmente)
 resultados/gemini/
 resultados/gemini_v2/
+resultados/gemini_novo_lote/
 resultados/erros/
 resultados_analise/
 

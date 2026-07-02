@@ -18,11 +18,13 @@ O problema até hoje: sem análise sistemática, a resposta dependia de percepç
 
 | Métrica | Valor |
 |--------|-------|
-| Total de ligações analisadas | **1.275** |
-| Clientes únicos | **1.109** |
+| Total de ligações analisadas (base original, análise completa) | **1.275** |
+| Clientes únicos (base original) | **1.109** |
 | Período | Junho 2026 |
 | Fonte | Gravações de chamadas — Localiza Empresas |
 | Formato | Transcrição por Speech-to-Text |
+
+> **Atualização 01/07/2026:** recebido um novo lote de **5.348 ligações** (4.434 clientes), ampliando a base combinada para **6.623 ligações**. Scoring automático já rodado nas duas bases (seção 5). Análise com IA do novo lote está em andamento — ver nota na seção 6.
 
 ---
 
@@ -187,20 +189,31 @@ Os sinais são detectados por **dicionários de palavras-chave** derivados dos 1
 | Cliente em risco de cancelar | "cancelar", "vou excluir", "encerrar contrato" no discurso do cliente |
 | Vendedor definiu próximo passo | "combinado", "te ligo na", "retorno amanhã", "deixa agendado" no discurso do vendedor |
 
-### Distribuição de potencial — 1.275 ligações
+### Distribuição de potencial — 1.275 ligações (base original)
 
 ```
-ALTO          :   70 ligações   ( 5,5%)   Pontuação ≥ 20
+ALTO          :   84 ligações   ( 6,6%)   Pontuação ≥ 20
 MÉDIO         :  298 ligações   (23,4%)   Pontuação 13–19
-BAIXO         :  525 ligações   (41,2%)   Pontuação  7–12
-SEM POTENCIAL :  382 ligações   (30,0%)   Pontuação  0– 6
+BAIXO         :  508 ligações   (39,8%)   Pontuação  7–12
+SEM POTENCIAL :  385 ligações   (30,2%)   Pontuação  0– 6
 ```
 
-**28,9% das ligações** (368 no total) tinham potencial comercial real — alto ou médio.
+**30,0% das ligações** (382 no total) tinham potencial comercial real — alto ou médio.
+
+### Validação com o novo lote — 6.623 ligações combinadas (01/07/2026)
+
+O scoring foi rodado também nas 5.348 ligações novas. A distribuição bateu com a base original — sinal de que o modelo generaliza, não é sobreajustado:
+
+```
+ALTO          :   368 ligações   ( 5,6%)   Pontuação ≥ 20
+MÉDIO         : 1.502 ligações   (22,7%)   Pontuação 13–19
+BAIXO         : 2.480 ligações   (37,4%)   Pontuação  7–12
+SEM POTENCIAL : 2.273 ligações   (34,3%)   Pontuação  0– 6
+```
 
 ### O que aparece nas ligações de alto potencial
 
-Das 70 ligações com maior pontuação:
+Das ligações com maior pontuação na base original (n=84):
 
 | Comportamento do vendedor | Frequência | O que isso indica |
 |--------------------------|-----------|-------------------|
@@ -220,107 +233,185 @@ Isso significa que mesmo os melhores vendedores raramente fazem essa pergunta. N
 
 ### Clientes para ação imediata
 
-O scoring identificou **82 ligações com sinais de cancelamento ou expansão** nas 1.275 chamadas.
+O scoring identificou **376 ligações com sinais de cancelamento ou expansão** na base combinada (6.623 ligações).
 
-**Prioridade mais alta:**
+**Prioridade mais alta (score máximo em uma única ligação):**
 
 | Cliente | Pontuação | Sinal | Ação |
 |---------|-----------|-------|------|
-| 07118469 | 30/30 | Risco de cancelar + expansão | CRÍTICA |
 | 08208057 | 29/30 | Risco de cancelar + expansão | CRÍTICA |
-| 20271903 | 28/30 | Risco de cancelar + expansão | CRÍTICA |
-| 27247224 | 28/30 | Expansão + concorrência mencionada | ALTA |
-| 25141965 | 27/30 | Expansão | ALTA |
+| 10845574 | 29/30 | Risco de cancelar + expansão | CRÍTICA |
+| 06821416 | 29/30 | Risco de cancelar + expansão | CRÍTICA |
+| 27247224 | 29/30 | Expansão de frota | ALTA |
+| 10508823 | 29/30 | Expansão de frota | ALTA |
 
 ---
 
-## 6. Resultados — Análise com IA (415 ligações — blocos 1 e 2 completos)
+## 6. Resultados — Análise com IA (1.275 ligações — ANÁLISE COMPLETA)
 
-> Os 5 blocos restantes completam nos próximos dias (limite de API gratuita: 20 req/dia).
-> Os padrões abaixo são consistentes e suficientes para as hipóteses.
+> Os 3 grupos de prompt prioritários (P1_P2, P5_P6, P9_P10) foram concluídos em 23/23 batches em 30/06/2026.
+> Síntese final gerada com dados quantitativos completos — não são mais achados parciais.
 
-### 7 hipóteses sobre o que fecha um contrato
+### O número mais importante: R$28.490/mês em oportunidades não tentadas
 
----
+44,8% das ligações encerram sem data ("qualquer coisa me chama"). A IA estimou o valor potencial de cada oportunidade perdida com base no contexto da ligação (frota, produto, contrato):
 
-**H1 — O argumento da diária vs. mensal é o que mais converte**
+| Composição | Valor/mês |
+|---|---|
+| OP6 — Upsell óbvio não tentado | R$23.410 |
+| OP7 — Churn não detectado | R$3.600 |
+| OP1 — Suporte sem pergunta comercial | R$800 |
+| Outros | resto |
+| **Total** | **R$28.490/mês** |
 
-Toda vez que o vendedor traduz o tempo restante do aluguel em reais e compara com o mensal, o cliente para e recalcula. Não é persuasão — é matemática que o cliente não havia feito sozinho.
+*(Estimativa da IA a partir do contexto de 1.149 oportunidades perdidas identificadas — não é receita confirmada/auditada.)*
 
-Nos dados: os casos com maior taxa de conversão imediata têm em comum exatamente esse momento — o vendedor faz a conta em voz alta e o cliente diz "faz sentido".
+### Desfecho das 1.275 ligações
 
-*Ação:* treinar o time a fazer o cálculo em tempo real. "Quantos dias você vai precisar? × R$ da diária = R$ X. O mensal custa R$ Y. A diferença é R$ Z."
+| Desfecho | Ligações | % |
+|---|---|---|
+| Não era venda (suporte) | 728 | 56,7% |
+| Interessou, não fechou | 460 | 35,8% |
+| Fechou — novo | 63 | 4,9% |
+| Fechou — renovação | 12 | 0,9% |
+| Fechou — upsell | 14 | 1,1% |
+| Sem conteúdo | 7 | 0,5% |
 
----
+**Total de fechamentos: 89 (7,0%)** de 1.275 ligações.
 
-**H2 — Fechar sem data é não fechar**
+### Comportamentos com maior correlação com fechamento (B1-B10)
 
-O fechamento com convite genérico ("qualquer coisa me chama", "fico à disposição") domina o time. Nos 415 ligações analisadas, menos de 15% terminam com um prazo definido dos dois lados.
+| Comportamento | % fechou | % interessou, não fechou | Diferencial |
+|---|---|---|---|
+| B5 — Upsell conectado à dor | 21,3% | 13,9% | **+7,4pp** |
+| B6 — Urgência com fato verificável | 9,0% | 6,5% | **+2,5pp** |
+| B9 — Conhecimento pessoal | 1,1% | 0,9% | +0,4pp |
+| B1 — Diagnóstico antes do produto | 37,1% | 49,6% | −6,7pp |
+| B10 — Perguntou sobre concorrente/frota | 4,5% | 17,6% | −13,1pp |
+| B8 — Ligou proativamente | 5,6% | 21,5% | −15,9pp |
 
-O fechamento com data — onde o vendedor propõe um momento concreto e o cliente confirma — é raro e aparece quase exclusivamente nas ligações com desfecho positivo.
-
-*Ação:* substituir "qualquer coisa me chama" por "te mando hoje e você me fala até quinta". Roleplay de 30 minutos com o time resolve isso.
-
----
-
-**H3 — A plataforma está consumindo o time comercial**
-
-Dois problemas aparecem com frequência alta nos dados:
-
-- **Biometria facial:** 10+ clientes no bloco 2 não conseguem completar o cadastro de condutor. O vendedor vira suporte de TI. Nenhuma pergunta comercial é feita.
-- **Senha e acesso:** 11+ clientes no bloco 1 ligaram para resetar senha. Mesma dinâmica.
-- **Responsável não encontrado:** 16+ clientes num único bloco ligaram e não conseguiram falar com a pessoa certa. Isso aparece no sistema como "chamada realizada" — mas nenhuma conversa comercial aconteceu.
-
-*Ação:* escalar o problema de biometria para produto/operações. Resolve 10% do atrito operacional do time sem precisar treinar ninguém.
-
----
-
-**H4 — Quem pergunta sobre concorrência defende o contrato antes de perdê-lo**
-
-Quando o vendedor pergunta sobre outros fornecedores e usa dado real de diferenciação, o cliente para para pensar — mesmo quando já tem proposta da concorrência. Quando não pergunta, perde a chance de contra-argumentar.
-
-Dado relevante dos dados de IA: um cliente que já havia fechado com a Unidas recebeu uma ligação onde o vendedor não perguntou sobre a situação competitiva. A ligação terminou com "te mando os contatos para futuras demandas". A conta estava perdida — e o vendedor não soube.
-
-Novo dado: o modelo de assinatura de veículo (Carro Zero) apareceu como concorrência nos dados. Não é Unidas nem Movida — é uma categoria diferente. O time precisa saber como rebater esse modelo específico.
+### 10 hipóteses sobre o que fecha um contrato
 
 ---
 
-**H5 — Há um segmento que o time não deveria tentar converter**
+**H1 — A conta da diária vs. mensal é o que mais converte** · `Em validação`
 
-30% das 1.275 ligações têm pontuação zero ou perto disso. Nos dados de IA, esses casos são consistentemente ligações onde o cliente ligou para resolver um problema operacional e não havia nenhuma intenção comercial.
+Nos casos observados, o vendedor faz o cálculo em voz alta e o cliente para para recalcular. Padrão recorrente nos dados, mas ainda sem amostra controlada suficiente para confirmar.
 
-Parte do esforço do time está sendo gasto em clientes que não estão em modo de compra naquele momento. Segmentar o motivo da ligação antes de escalar o esforço aumenta o retorno por chamada.
-
----
-
-**H6 — Localiza Pesados é um produto invisível**
-
-Um vendedor no bloco 2 perguntou sobre a frota própria do cliente. O cliente mencionou que tinha caminhões. O vendedor apresentou a locação de veículos pesados da Localiza. O cliente não sabia que esse produto existia.
-
-Necessidade que nunca apareceria se o vendedor não tivesse perguntado.
-
-Dos 1.109 clientes da base, quantos têm frota mista (carros + caminhões) e nunca receberam uma oferta de locação de pesados? Essa é uma oportunidade não mapeada.
+*Ação:* treinar o time a fazer o cálculo em tempo real. "X dias × R$ diária = R$ Y. O mensal custa R$ Z."
 
 ---
 
-**H7 — O problema de biometria é um vazamento de receita mensurável**
+**H2 — Fechar sem data é não fechar** · `Confirmada`
 
-Cada ligação consumida por problema de biometria ou senha é uma ligação que não gerou tentativa comercial. Se 10% das ligações viram suporte de plataforma, o volume de oportunidades perdidas é calculável — e o custo de resolver o fluxo de biometria provavelmente é menor do que o custo de manter o vazamento.
+FC3 ("qualquer coisa me chama") aparece em 44,8% das ligações. FC1 (compromisso duplo, o fechamento mais forte) só em 31,9%. Prazo definido: apenas 9%.
+
+OP3 (não criou urgência para o fechamento) é a segunda oportunidade perdida mais frequente.
+
+*Ação:* substituir "qualquer coisa me chama" por "te mando hoje e você me fala até quinta".
 
 ---
+
+**H3 — A plataforma está consumindo o time comercial** · `Confirmada`
+
+Biometria facial (10+ clientes), senha/acesso (11+), responsável não encontrado (16+). OP1 (suporte sem pergunta comercial) é a oportunidade perdida mais frequente — presente em ~60% dos casos.
+
+*Ação:* escalar biometria para produto/operações. Libera ~10% da capacidade comercial do time sem treinar ninguém.
+
+---
+
+**H4 — Perguntar sobre concorrência protege — mas o timing é tudo** · `Revisada`
+
+B10 tem correlação **negativa** com fechamento imediato (−13,1pp) — o oposto da hipótese original. A pergunta precisa vir *antes* da decisão do cliente, não depois. Novo concorrente identificado nos dados: **Carro Zero** (modelo de assinatura de veículo), categoria diferente de Unidas/Movida.
+
+---
+
+**H5 — 57% das ligações são suporte puro** · `Confirmada (mais forte que o esperado)`
+
+728 de 1.275 ligações (56,7%) = "não era venda". 30,2% da base com score zero. Segmentar o motivo da ligação antes de escalar esforço comercial aumenta o retorno por chamada.
+
+---
+
+**H6 — Localiza Pesados é um produto invisível** · `Nova`
+
+Vendedor perguntou sobre frota, cliente mencionou caminhões, vendedor apresentou Localiza Pesados — cliente não sabia que o produto existia. Quantos dos 1.109 clientes têm frota mista e nunca receberam essa oferta? Oportunidade não mapeada.
+
+---
+
+**H7 — Biometria com falha é vazamento de receita mensurável** · `Nova`
+
+Se 10% das ligações viram suporte de plataforma e o time faz 100 ligações/semana, são ~10 oportunidades de venda perdidas semanalmente, de forma silenciosa e recorrente.
+
+---
+
+**H8 — Referral nunca é pedido, mesmo quando o cliente tem contato pra dar** · `Nova`
+
+OP4 aparece sistematicamente nos 23 batches: cliente troca de CNPJ (sem indicação), menciona diretores/sócios (sem referral interno), encerra satisfeito (sem pedido para empresa do grupo). A abertura existe; a pergunta nunca é feita.
+
+---
+
+**H9 — O WhatsApp virou o pseudo-fechamento — e ninguém percebeu** · `Nova — P9_P10`
+
+PM2 (promessa via WhatsApp) = 56,2% (684/1.216) de todas as promessas registradas, quase 100% sem prazo concreto. O WhatsApp substituiu o comprometimento formal sem criar a responsabilidade que ele implica. O pipeline é gerenciado pela memória do vendedor, não por processo.
+
+---
+
+**H10 — Não é um comportamento isolado, é a combinação que multiplica o resultado** · `Nova — cruzamento`
+
+Cruzando Abertura × Challenger × Upsell (B5) por ligação (join de P1_P2+P5_P6+P9_P10, n=1.168), a taxa de fechamento varia de **0% a 28,6%** dependendo da combinação — não do fator isolado:
+
+- **Abertura contextualizada (AB1) sozinha, sem challenger nem upsell: 3,9% de fechamento** (n=483) — quase igual à taxa base (7,0%). A abertura certa por si só não move o número.
+- **Abertura contextualizada + Challenger forte (CH1/CH5/CH6) + upsell conectado à dor (B5): 28,6%** (n=28) — quase 4x a taxa base, e a melhor combinação identificada na base.
+- Isso explica uma aparente contradição encontrada no cruzamento isolado: AB4 (reativa) parecia fechar mais que AB1 (15,2% vs 6,3%) quando olhada sozinha. Na verdade, a maioria das ligações com AB1 não recebe o resto do tratamento comercial — quando recebe, dispara para o topo da tabela.
+
+*Ação:* parar de treinar comportamentos isolados. Treinar o **pacote completo**: abertura contextualizada → sondagem/challenger (CH1, CH5 ou CH6) → upsell conectado à dor identificada.
+
+#### Tabela cruzada completa — Abertura × Challenger × Upsell (n=1.168, todas as combinações)
+
+| Abertura | Challenger | Upsell (B5) | n | Fechou | Taxa | Confiabilidade |
+|---|---|---|---|---|---|---|
+| AB4 | sem CH bom | B5 sim | 1 | 1 | 100,0% | ❌ n=1, ruído puro |
+| AB4 | CH bom | B5 sim | 8 | 3 | 37,5% | ⚠️ amostra pequena |
+| **AB1** | **CH bom** | **B5 sim** | **28** | **8** | **28,6%** | ✅ **melhor combo confiável** |
+| AB1 | sem CH | B5 sim | 12 | 2 | 16,7% | ⚠️ amostra pequena |
+| AB2 | sem CH | B5 sim | 6 | 1 | 16,7% | ❌ amostra mínima |
+| AB2 | CH bom | B5 nao | 53 | 8 | 15,1% | ✅ confiável |
+| AB4 | CH bom | B5 nao | 47 | 7 | 14,9% | ✅ confiável |
+| AB4 | sem CH | B5 nao | 76 | 9 | 11,8% | ✅ confiável |
+| AB2 | CH bom | B5 sim | 17 | 2 | 11,8% | ⚠️ amostra pequena |
+| AB1 | CH bom | B5 nao | 143 | 13 | 9,1% | ✅ confiável, amostra grande |
+| AB2 | sem CH | B5 nao | 98 | 5 | 5,1% | ✅ confiável |
+| **AB1** | **sem CH** | **B5 nao** | **483** | **19** | **3,9%** | ✅ **"padrão" do time hoje** |
+| AB3 | sem CH | B5 nao | 180 | 3 | 1,7% | ✅ confiável, ruim de verdade |
+| AB3 | CH bom | B5 sim | 2 | 0 | 0,0% | ❌ amostra mínima |
+| AB3 | CH bom | B5 nao | 14 | 0 | 0,0% | ⚠️ amostra pequena |
+| AB5 | qualquer | qualquer | 0 | 0 | n/a | sem casos na base — abertura de proteção é rara demais |
+
+*Taxa base geral (todas as 1.168 ligações do cruzamento): 6,9%. Das 20 combinações possíveis, só 9 têm amostra grande o suficiente (n≥14) pra confiar sem ressalva — as demais são direcionais, não conclusivas.*
+
+CH_bom = teve pelo menos um dos códigos Challenger com evidência real de conversão (CH1, CH5 ou CH6 — ver seção Challenger acima).
+
+---
+
+### Novo lote (5.348 ligações, recebido 01/07/2026) — status da análise IA
+
+Scoring automático já rodado (validou a distribuição de potencial — ver seção 5). Análise via IA (desfecho, Challenger, oportunidades em R$) começou em 01/07/2026, rodando no free tier do Gemini (cota diária limitada). Prioridade: P1_P2 primeiro (desfecho + B1-B10), depois P5_P6, depois P9_P10. Previsão: P1_P2 completo por volta de 05-07/07; os demais grupos seguem depois, conforme a cota permitir. **Os números de desfecho/hipóteses acima ainda se referem só à base original de 1.275 — serão atualizados quando o novo lote terminar.**
 
 ## 7. Próximos Passos
 
 | Ação | Prazo | Impacto esperado |
 |------|-------|-----------------|
-| Ligar para os 5 clientes em risco máximo identificados | Hoje | Retenção ou captura de expansão |
-| Escalar problema de biometria para produto/operações | Esta semana | Libera 10% da capacidade comercial do time |
-| Treinar o time no argumento da diária vs. mensal | 2 semanas | Aumento imediato de conversão nas ligações com clientes em aluguel diário |
-| Treinar fechamento com data no lugar do convite genérico | 2 semanas | Aumento de compromissos concretos pós-ligação |
-| Criar pergunta padrão sobre concorrência e frota própria | 2 semanas | Redução de perdas silenciosas para outros fornecedores |
-| Confirmar H1-H7 com análise completa (1.275 ligações) | Esta semana | Hipóteses com evidência quantitativa completa |
+| Ligar para os 5 clientes críticos (08208057, 10845574, 06821416, 27247224, 10508823) | Hoje | Retenção ou captura de expansão imediata |
+| Escalar problema de biometria para produto/operações | Esta semana | Libera ~10% da capacidade comercial do time |
+| Treinar CH1 — revelar custo oculto | 2 semanas | +2,5pp em B6 (mecanismo de urgência com evidência) |
+| Inserir pergunta comercial em ligações de suporte (OP1) | 2 semanas | ~60% das ligações sem sondagem — qualquer melhora tem impacto imediato |
+| Treinar fechamento com data no lugar do convite genérico (OP3) | 2 semanas | FC3 de 44,8% para meta abaixo de 20% |
+| Inserir pedido de referral (OP4) | 2 semanas | Leads qualificados sem custo, hoje sistematicamente esquecido |
+| Treinar B5 — upsell conectado à dor | 2 semanas | +7,4pp — maior diferencial identificado nos dados |
+| Script de sondagem de frota pesada | 2 semanas | Abertura de mercado nos 1.109 clientes originais |
+| Concluir análise IA do novo lote (5.348 ligações) | Em andamento | Dobra o tamanho da amostra, valida hipóteses em escala maior |
 
 ---
 
-*Análise desenvolvida com framework de 15 prompts B2B — Localiza Frota PJ | Junho 2026*
-*Scoring automático: 1.275 ligações em menos de 30 segundos | Análise com IA: 415 ligações concluídas (blocos 1 e 2)*
+*Análise desenvolvida com framework de 15 prompts B2B — Localiza Frota PJ | Junho-Julho 2026*
+*Scoring automático: 6.623 ligações (1.275 originais + 5.348 novo lote) | Análise com IA: 1.275 ligações completas (23/23 batches) — novo lote em andamento*
