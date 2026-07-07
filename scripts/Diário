@@ -1,0 +1,11 @@
+cliente 
+segment_id,codigo_cliente,objeto_ligacao,call_object,data_inclusao_registro
+b35a09e2-89f1-4197-8d1d-6acdfed704ae,,710725696504,710725696504.0,2026-07-06T05:00:35.329462
+
+TRANSCRIÇÃO
+cd_contato_master,"cd_interacao","cd_segmento","data_hora_inicio","data_hora_fim","motivo_inicio_segmento","motivo_fim_segmento","direcao","tipo_canal","cd_usuario_agente_1","cd_acd_agente_1","numero_contato_agente_1","nome_agente_1","cd_time_agente_1","time_agente_1","habilidades_agente_1","gravacao_tela","status_gravacao_voz","status_gravacao_tela","alertas_gravacao","nome_politica","telefone_ani","telefone_dnis","segundos_acw","disposicao","cd_segmento_externo","cd_contato_externo","fonte","lista_numeros_contato_associados","data_ingestao_metadados","update_iceberg_ts_metadados","status_transcricao","transcricao_limpa","data_ingestao_transcricao","update_iceberg_ts_transcricao","update_iceberg_ts"
+710725695642,"04730239-c91f-4f88-862b-e630406be4cb","004a7809-5577-4772-8f78-461cfeae86a4","2026-07-03 13:50:41.000000 UTC","2026-07-03 13:51:18.000000 UTC","SEGMENT","SEGMENT","Outbound","Voice","11ee8d2f-66d4-6940-9070-0242ac110004","39579027","710725695642","430469_THAUANA.SILVA THAUANA REZENDE DE ARAUJO SILVA","829e0b38-4dcc-47de-8a2b-4da5b160f169","LL_GRVIN","GRVIN_OUTBOUND","YES","Success","Failed","ScreenAgent not connected","Default policy","1","+55054996678195","0","NaN","NaN","NaN","inContactACD","[   '710725695642' ]","2026-07-03 16:00:00.000000 UTC","2026-07-03 16:30:58.700938 UTC","success","CLIENTE: Ah, se vocÃª disser seu nome e o motivo da ligaÃ§Ã£o, poderei ver se esta pessoa estÃ¡ disponÃ­vel! | AGENTE: Tauana localiza | CLIENTE: PermaneÃ§a na linha!","2026-07-03 14:00:00.000000 UTC","2026-07-03 15:31:47.573571 UTC","2026-07-03 16:46:31.728624 UTC"
+
+CLIENTE_FIXO
+Código do cliente	Carteira	Data última locação	DISTRITAL	Divisão CNAE
+1053727	RJI04A	DVINT	DTIN5	SERVIÇOS DE ARQUITETURA E ENGENHARIA
