@@ -1,0 +1,20 @@
+Cruzamento ligacoes x diarias (AM/AD) x CNAE x carteira
+============================================================
+
+Total clientes na base de ligacoes (LIG): 1109
+Total ligacoes: 1275
+Clientes SEM registro na base de diarias: 298
+Clientes COM registro na base de diarias: 811
+
+Correlacao (qtd_ligacoes x volume_total AM+AD), clientes com registro: 0.130
+
+Interpretacao: correlacao proxima de 0 = esforco de ligacao NAO
+acompanha o volume de diarias do cliente (efeito nao proporcional).
+Correlacao alta positiva = clientes maiores recebem mais ligacoes
+(esperado). Negativa = clientes pequenos recebem mais atencao que
+clientes grandes (possivel ma alocacao de esforco comercial).
+
+Arquivos gerados em C:\Users\quase\Documents\Ligaçoes\resultados\cruzamento_ligacoes_diarias\:
+  - clientes.csv (1 linha por cliente/Cod)
+  - por_carteira.csv (agregado por carteira, sem nome de vendedor)
+  - por_cnae.csv (agregado por CNAE)

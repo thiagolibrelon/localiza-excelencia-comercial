@@ -121,7 +121,24 @@ Termina em ação, não em dado.
 
 ---
 
-## 6. Buffer / perguntas (2 min)
+## 6. Visão de escala — de análise pontual pra feedback quase diário (3 min, fecha a apresentação)
+
+O ponto que mais importa pra diretoria não é só o achado — é que isso pode virar operação contínua, sem infra nova:
+
+- O lote de 5.348 ligações representa ~1 mês (julho). Isso dá **~178 ligações/dia**.
+- Nesse volume, os 3 grupos de prompt completos (desfecho+comportamento, Challenger+oportunidades, abertura+fechamento) cabem em **~6 chamadas de API por dia** — bem dentro da cota gratuita de 20/dia.
+- **Ou seja:** o gargalo que existe agora é só do backlog histórico (5.348 ligações acumuladas de uma vez). Em regime **D-1** — alimentando todo dia só as ligações de ontem — a análise roda folgada, de graça, sem precisar de mais infraestrutura.
+
+**Linha do tempo honesta:**
+- **Até 13/07 (hoje):** ainda há gargalo — processando o backlog do lote novo, IA não terminou os 3 grupos.
+- **Entre 13/07 e ~20/07:** backlog é zerado, pipeline migra pra D-1, feedback passa a ser quase diário.
+- **~20/07 em diante:** time e diretoria têm visibilidade quase em tempo real do que acontece nas ligações, não só um retrato de um mês atrás.
+
+*Frase de fechamento sugerida:* "O que vocês viram hoje é uma foto de junho. Depois de validado, isso vira um filme — atualizado todo dia, sem custo adicional."
+
+---
+
+## 7. Buffer / perguntas (2 min)
 
 ---
 
@@ -131,3 +148,4 @@ Termina em ação, não em dado.
 - **"E o novo lote de 5.348, muda alguma coisa?"** → "Scoring automático já validou a mesma distribuição na base nova — direção se mantém, IA ainda processando, devo ter os números exatos até a RMR de diretoria."
 - **"Por que só 2 hipóteses, o projeto não tem mais coisa?"** → "Tem mais 8 (H1, H3, H4, H6-H10) no documento completo — essa é a versão gancho pra alinhar o time; a versão completa sobe pra diretoria."
 - **"Isso vira meta pro time?"** → não responder ao vivo se não combinado antes com o gestor — devolver pra "esse é o próximo passo depois de validar com vocês".
+- **"Quando isso vira rotina de verdade?"** → "Até uns 20/07, se a gente validar hoje o caminho. O backlog de julho ainda está sendo processado; depois disso é só manter o dia a dia alimentado."

@@ -537,6 +537,11 @@ tbody tr:hover td{background:var(--bg-dn)}
       <span class="nl">Dashboard</span>
     </button>
 
+    <button class="ni" onclick="nav('evolucao',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 5"/><polyline points="15 5 21 5 21 11"/></svg>
+      <span class="nl">Evolução Diária</span>
+    </button>
+
     <button class="ni" onclick="nav('comercial',this)">
       <svg class="nicon" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
       <span class="nl">Comercial</span>
@@ -550,7 +555,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
     <button class="ni" onclick="nav('vendedores',this)">
       <svg class="nicon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span class="nl">Vendedores</span>
+      <span class="nl">Carteiras</span>
     </button>
 
     <button class="ni" onclick="nav('acoes',this)">
@@ -869,6 +874,83 @@ tbody tr:hover td{background:var(--bg-dn)}
           </div>
         </div>
 
+      </div>
+
+    </div>
+    </section>
+
+    <!-- ══════ PAGE: EVOLUÇÃO DIÁRIA ══════ -->
+    <section id="page-evolucao" class="page">
+    <div class="wrap">
+
+      <div class="alert info" style="margin-bottom:16px">
+        <span class="a-ico">ℹ️</span>
+        <span><strong>Pipeline diário de ligações:</strong> alimentado por <code>ligacoes_analisadas_&lt;data&gt;.json</code>, um arquivo por dia, gerado pelo pipeline Cliente + Transcrição + Cliente_fixo → Gemini. Esta aba acompanha o acúmulo dia a dia enquanto os arquivos sobem.</span>
+      </div>
+
+      <div id="evolucaoVazio" class="card" style="display:none;text-align:center;padding:40px 20px;color:var(--fg-2)">
+        Nenhum dado diário ainda. Assim que o primeiro <code>ligacoes_analisadas_&lt;data&gt;.json</code> for compilado e o script <code>atualizar_evolucao_dashboard.py</code> rodar, esta aba preenche sozinha.
+      </div>
+
+      <div class="sec-lbl mb16">Evolução diária — período acompanhado</div>
+      <div class="kpi-grid">
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--brand)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Total de ligações no período</span>
+            <div class="kpi-ico" style="background:rgba(120,222,31,.1)">📞</div>
+          </div>
+          <div class="kpi-val" id="evoKpiTotal">–</div>
+          <div class="kpi-sub" id="evoKpiDias">–</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--ok)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Taxa de fechamento média</span>
+            <div class="kpi-ico" style="background:var(--ok-bg)">✅</div>
+          </div>
+          <div class="kpi-val" id="evoKpiTaxa">–</div>
+          <div class="kpi-sub">Média do período (ponderada por volume/dia)</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--warn)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Score comercial médio</span>
+            <div class="kpi-ico" style="background:var(--warn-bg)">🎯</div>
+          </div>
+          <div class="kpi-val" id="evoKpiScore">–</div>
+          <div class="kpi-sub">Escala 0–18 (B1–B10 ponderados)</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-accent" style="background:var(--brand)"></div>
+          <div class="kpi-top">
+            <span class="kpi-lbl">Variação — primeiro vs último dia</span>
+            <div class="kpi-ico" style="background:rgba(120,222,31,.1)">📈</div>
+          </div>
+          <div class="kpi-val" id="evoKpiVariacao">–</div>
+          <div class="kpi-sub">Taxa de fechamento, em pontos percentuais</div>
+        </div>
+
+      </div>
+
+      <div class="card mb24" style="margin-top:24px">
+        <div class="card-hdr">
+          <div><div class="card-t">Ligações, fechamento, score e Challenger por dia</div><div class="card-st">Pipeline diário — carteira/CNAE anonimizados por cliente</div></div>
+        </div>
+        <canvas id="cEvolucao" height="220"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="card-t">Detalhe por dia</div>
+        <div class="card-st">Números crus, um dia por linha</div>
+        <table>
+          <thead><tr><th>Data</th><th>Ligações</th><th>Fechou</th><th>Taxa fechamento</th><th>Score médio</th><th>Challenger</th></tr></thead>
+          <tbody id="evoTableBody"></tbody>
+        </table>
       </div>
 
     </div>
@@ -1238,9 +1320,9 @@ tbody tr:hover td{background:var(--bg-dn)}
     <section id="page-vendedores" class="page">
     <div class="wrap">
 
-      <div class="alert warn">
-        <span class="a-ico">⚠️</span>
-        <span><strong>Dados ilustrativos:</strong> Identificação individual requer tag por vendedor na fonte de dados. Os dados abaixo são baseados nos padrões comportamentais observados nas 1.275 ligações e representam perfis estimados para fins de análise.</span>
+      <div class="alert info">
+        <span class="a-ico">ℹ️</span>
+        <span><strong>Dados reais por carteira</strong> — cruzamento de <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">Cod</code> do cliente com a base de diárias (campo <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">k</code>/Carteira). Não há identificação individual de vendedor — a granularidade disponível é por carteira, não por nome. Ranking considera apenas carteiras com 15+ ligações analisadas (amostra mínima).</span>
       </div>
 
       <!-- Sub-navegação -->
@@ -1254,96 +1336,100 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="vend-rank" class="subp active">
         <div class="g2 mb24">
           <div class="card">
-            <div class="card-hdr"><div><div class="card-t">Ranking por Performance</div><div class="card-st">Score composto: taxa de fechamento × qualidade comportamental (CH, FC, B)</div></div></div>
+            <div class="card-hdr"><div><div class="card-t">Ranking por Taxa de Fechamento</div><div class="card-st">Carteiras com 15+ ligações analisadas · cruzamento com base de diárias</div></div></div>
             <div style="margin-top:8px">
               <div class="vrank">
                 <div class="vpos gold">1</div>
-                <div class="vname">Marcos</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:78%"></div></div>
-                <div class="vscr">78</div>
-                <div class="vtag"><span class="badge b-ok">14,2% fechamento</span></div>
+                <div class="vname">MLI02A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:100%"></div></div>
+                <div class="vscr">23</div>
+                <div class="vtag"><span class="badge b-ok">30,0% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos gold">2</div>
-                <div class="vname">Sandra</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:71%"></div></div>
-                <div class="vscr">71</div>
-                <div class="vtag"><span class="badge b-ok">9,8% fechamento</span></div>
+                <div class="vname">COI01A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:79%"></div></div>
+                <div class="vscr">21</div>
+                <div class="vtag"><span class="badge b-ok">23,8% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos silver">3</div>
-                <div class="vname">Ricardo</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:65%"></div></div>
-                <div class="vscr">65</div>
-                <div class="vtag"><span class="badge b-info">7,1% fechamento</span></div>
+                <div class="vname">NLI02A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:67%"></div></div>
+                <div class="vscr">15</div>
+                <div class="vtag"><span class="badge b-info">20,0% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos silver">4</div>
-                <div class="vname">Ana</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:61%"></div></div>
-                <div class="vscr">61</div>
-                <div class="vtag"><span class="badge b-warn">5,9% fechamento</span></div>
+                <div class="vname">MLI08A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:60%"></div></div>
+                <div class="vscr">28</div>
+                <div class="vtag"><span class="badge b-info">17,9% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos bronze">5</div>
-                <div class="vname">Lucas</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:55%"></div></div>
-                <div class="vscr">55</div>
-                <div class="vtag"><span class="badge b-warn">6,2% fechamento</span></div>
+                <div class="vname">REI02A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:43%"></div></div>
+                <div class="vscr">23</div>
+                <div class="vtag"><span class="badge b-warn">13,0% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos bronze">6</div>
-                <div class="vname">Paula</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:48%"></div></div>
-                <div class="vscr">48</div>
-                <div class="vtag"><span class="badge b-err">3,1% fechamento</span></div>
+                <div class="vname">RJI05A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:42%"></div></div>
+                <div class="vscr">32</div>
+                <div class="vtag"><span class="badge b-warn">12,5% fechamento</span></div>
               </div>
             </div>
+            <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">Número ao lado da barra = quantidade de ligações analisadas nessa carteira (amostra). MLI02A fecha mais mas com comportamentos fracos (ver card ao lado) — resultado a validar com mais volume antes de tratar como referência.</div>
           </div>
           <div class="card">
-            <div class="card-t">O que diferencia o topo do time</div>
-            <div class="card-st">Marcos vs. média — comportamentos replicáveis</div>
+            <div class="card-t">O que diferencia carteiras que fecham mais</div>
+            <div class="card-st">Top 10 carteiras (fechamento ≥10%, 231 ligações) vs. bottom 6 (0% fechamento, 156 ligações)</div>
             <div style="margin-top:12px">
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">CH1</span><div class="bwrap"><div class="bbar" style="width:82%"></div></div><span class="bdesc" style="min-width:170px">82% vs 38% (média)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B5</span><div class="bwrap"><div class="bbar" style="width:71%"></div></div><span class="bdesc" style="min-width:170px">71% vs 27% (média)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">FC1</span><div class="bwrap"><div class="bbar" style="width:68%"></div></div><span class="bdesc" style="min-width:170px">68% vs 32% (média)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B6</span><div class="bwrap"><div class="bbar" style="width:54%"></div></div><span class="bdesc" style="min-width:170px">54% vs 12% (média)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--err);font-size:13px">FC3</span><div class="bwrap"><div class="bbar" style="width:18%;background:var(--err)"></div></div><span class="bdesc" style="min-width:170px">18% vs 45% (média)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--err);font-size:13px">PM2</span><div class="bwrap"><div class="bbar" style="width:24%;background:var(--err)"></div></div><span class="bdesc" style="min-width:170px">24% vs 56% (média)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B5</span><div class="bwrap"><div class="bbar" style="width:32%"></div></div><span class="bdesc" style="min-width:170px">32,0% vs 11,5% (grupo 0%)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B1</span><div class="bwrap"><div class="bbar" style="width:44%"></div></div><span class="bdesc" style="min-width:170px">44,1% vs 25,0% (grupo 0%)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B6</span><div class="bwrap"><div class="bbar" style="width:44%"></div></div><span class="bdesc" style="min-width:170px">43,7% vs 34,0% (grupo 0%)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">CH1</span><div class="bwrap"><div class="bbar" style="width:6%"></div></div><span class="bdesc" style="min-width:170px">5,6% vs 2,6% (grupo 0%)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--err);font-size:13px">FC3</span><div class="bwrap"><div class="bbar" style="width:13%;background:var(--err)"></div></div><span class="bdesc" style="min-width:170px">12,6% vs 23,7% (grupo 0%)</span></div>
+              <div class="bitem"><span class="bpct" style="font-size:13px">Score médio</span><div class="bwrap"><div class="bbar" style="width:37%"></div></div><span class="bdesc" style="min-width:170px">11,2 vs 7,8 pts (grupo 0%)</span></div>
             </div>
             <div style="margin-top:14px;font-size:11px;color:var(--fg-2);padding:10px;background:var(--bg-dn);border-radius:6px">
-              💡 Os comportamentos de Marcos são técnicos, não de personalidade. CH1 (custo oculto) e FC1 (compromisso duplo com data) podem ser ensinados via roleplay com evidência real dos dados.
+              💡 A maior diferença é B5 (upsell conectado à dor) — quase 3× mais frequente no grupo que fecha. Reforça o achado global (B5 = +11,7pp em fechamento). FC3 (encerrar sem compromisso) é quase 2× mais comum no grupo que não fecha nada.
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-t">Visão comparativa por vendedor</div>
-          <div class="card-st">Comportamentos-chave e pontos focais de desenvolvimento</div>
+          <div class="card-t">Visão comparativa por carteira</div>
+          <div class="card-st">Carteiras com 15+ ligações, ordenadas por taxa de fechamento</div>
           <table>
-            <thead><tr><th>Vendedor</th><th>Score</th><th>Fechamento</th><th>CH1</th><th>FC1</th><th>FC3 ↓</th><th>PM2 ↓</th><th>Foco</th></tr></thead>
+            <thead><tr><th>Carteira</th><th>Ligações</th><th>Fechamento</th><th>B5</th><th>B1</th><th>FC3 ↓</th><th>Score</th><th>Foco</th></tr></thead>
             <tbody>
-              <tr><td><strong>Marcos</strong></td><td><span class="badge b-ok">78</span></td><td>14,2%</td><td class="th">82%</td><td class="th">68%</td><td class="th">18%</td><td class="th">24%</td><td><span class="badge b-ok">Referência</span></td></tr>
-              <tr><td><strong>Sandra</strong></td><td><span class="badge b-ok">71</span></td><td>9,8%</td><td class="th">64%</td><td>48%</td><td class="th">22%</td><td>38%</td><td><span class="badge b-info">Urgência</span></td></tr>
-              <tr><td><strong>Ricardo</strong></td><td><span class="badge b-info">65</span></td><td>7,1%</td><td>41%</td><td>35%</td><td>38%</td><td style="color:var(--warn);font-weight:700">48%</td><td><span class="badge b-warn">CH1+FC1</span></td></tr>
-              <tr><td><strong>Ana</strong></td><td><span class="badge b-warn">61</span></td><td>5,9%</td><td>28%</td><td>22%</td><td class="tc">52%</td><td class="tc">61%</td><td><span class="badge b-warn">OP1+FC3</span></td></tr>
-              <tr><td><strong>Lucas</strong></td><td><span class="badge b-warn">55</span></td><td>6,2%</td><td>31%</td><td>29%</td><td class="tc">58%</td><td class="tc">64%</td><td><span class="badge b-err">FC3+PM2</span></td></tr>
-              <tr><td><strong>Paula</strong></td><td><span class="badge b-err">48</span></td><td>3,1%</td><td class="tc">12%</td><td class="tc">14%</td><td class="tc">68%</td><td class="tc">72%</td><td><span class="badge b-err">Treinamento</span></td></tr>
+              <tr><td><strong>MLI02A</strong></td><td>23</td><td class="th">30,0%</td><td>8,7%</td><td>34,8%</td><td>8,7%</td><td>7,4</td><td><span class="badge b-warn">Validar c/ + volume</span></td></tr>
+              <tr><td><strong>COI01A</strong></td><td>21</td><td class="th">23,8%</td><td class="th">52,4%</td><td>33,3%</td><td>23,8%</td><td>11,4</td><td><span class="badge b-ok">Referência B5</span></td></tr>
+              <tr><td><strong>NLI02A</strong></td><td>15</td><td class="th">20,0%</td><td class="th">46,7%</td><td class="th">53,3%</td><td class="tc">33,3%</td><td class="th">14,6</td><td><span class="badge b-ok">Melhor score geral</span></td></tr>
+              <tr><td><strong>MLI08A</strong></td><td>28</td><td>17,9%</td><td>28,6%</td><td class="th">64,3%</td><td class="th">3,6%</td><td>12,2</td><td><span class="badge b-ok">Diagnóstico + fecha limpo</span></td></tr>
+              <tr><td><strong>REI02A</strong></td><td>23</td><td>13,0%</td><td>39,1%</td><td>30,4%</td><td class="th">0,0%</td><td>10,1</td><td><span class="badge b-info">Consistente</span></td></tr>
+              <tr><td><strong>RJI05A</strong></td><td>32</td><td>12,5%</td><td>31,2%</td><td>28,1%</td><td>9,4%</td><td>11,0</td><td><span class="badge b-info">Consistente</span></td></tr>
+              <tr><td><strong>KPI07A</strong></td><td>41</td><td class="tc">0,0%</td><td class="tc">7,3%</td><td>29,3%</td><td class="tc">26,8%</td><td>8,3</td><td><span class="badge b-err">Prioridade coaching</span></td></tr>
+              <tr><td><strong>KPI03A</strong></td><td>30</td><td class="tc">0,0%</td><td class="tc">0,0%</td><td class="tc">3,3%</td><td class="tc">33,3%</td><td class="tc">4,3</td><td><span class="badge b-err">Prioridade urgente</span></td></tr>
+              <tr><td><strong>RSI07A</strong></td><td>19</td><td class="tc">0,0%</td><td class="tc">0,0%</td><td class="tc">21,1%</td><td class="tc">31,6%</td><td class="tc">6,0</td><td><span class="badge b-err">Prioridade urgente</span></td></tr>
             </tbody>
           </table>
-          <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">↓ significa "menor é melhor" para FC3 e PM2 — indicadores de encerramento sem comprometimento.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">↓ significa "menor é melhor" para FC3 — fechamento vago, sem próximo passo com data. Tabela completa (65 carteiras) em <code style="font-size:11px">resultados/cruzamento_ligacoes_diarias/</code>.</div>
         </div>
       </div>
 
       <!-- ── SUB: COMPORTAMENTOS ── -->
       <div id="vend-comp" class="subp">
         <div class="card mb24">
-          <div class="card-hdr"><div><div class="card-t">Comportamentos por Vendedor — Comparativo</div><div class="card-st">Frequência dos comportamentos-chave · dados ilustrativos · P14</div></div><span class="card-bdg">P14 ✓</span></div>
+          <div class="card-hdr"><div><div class="card-t">Comportamentos por Carteira — Comparativo</div><div class="card-st">Frequência real dos comportamentos-chave · scoring Python (scoring_potencial.csv) · top 6 por fechamento</div></div><span class="card-bdg">Real ✓</span></div>
           <canvas id="cVend" height="260"></canvas>
         </div>
         <div class="alert info">
           <span class="a-ico">ℹ️</span>
-          <span><strong>Como ler:</strong> Para CH1, B5 e FC1, barras maiores indicam melhor performance. Para FC3 (fechamento sem comprometimento), barras menores são melhores. Meta: perfil próximo a Marcos em CH1 e FC1, e abaixo de 25% em FC3.</span>
+          <span><strong>Como ler:</strong> Para CH1, B5 e FC1, barras maiores indicam melhor performance. Para FC3 (fechamento sem comprometimento), barras menores são melhores. MLI02A fecha mais mas com CH1/B5 baixos — amostra pequena (23 ligações), tratar com cautela.</span>
         </div>
       </div>
 
@@ -1351,55 +1437,55 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="vend-coach" class="subp">
         <div class="sec-hdr mb24">
           <div class="sec-lbl">Oportunidades de Coaching</div>
-          <div class="sec-h">Prioridades por vendedor — baseadas em comportamentos observados</div>
-          <div class="sec-d">Ordenado por urgência · comportamentos identificados nos 23 batches</div>
+          <div class="sec-h">Prioridades por carteira — baseadas em comportamentos observados</div>
+          <div class="sec-d">Ordenado por urgência · carteiras com 15+ ligações analisadas · cruzamento ligações × diárias</div>
         </div>
 
         <div class="coach-item err">
           <div class="coach-ico">🔴</div>
           <div>
-            <div class="coach-t">Paula — Prioridade Urgente</div>
-            <div class="coach-d">FC3 em 68% das ligações + PM2 em 72% + CH1 em apenas 12%. O problema não é motivação — é técnica. Treinar CH1 (revelar custo oculto) e FC1 (compromisso duplo) em roleplay antes de qualquer análise de resultado. Uma sessão com Marcos como peer coach tem maior ROI que qualquer treinamento formal.</div>
+            <div class="coach-t">KPI03A — Prioridade Urgente</div>
+            <div class="coach-d">0% de fechamento em 30 ligações. B1 (diagnóstico) em apenas 3,3% e B5 (upsell) em 0% — pior perfil comportamental de todo o dataset (score médio 4,27 vs 9,3 da base geral). FC3 (fechamento vago) em 33,3%. Não é questão de sorte de carteira: faltam os comportamentos básicos em quase todas as ligações. Prioridade: treinar B1 (diagnóstico antes do produto) antes de qualquer outra coisa.</div>
           </div>
         </div>
 
         <div class="coach-item err">
           <div class="coach-ico">🔴</div>
           <div>
-            <div class="coach-t">Lucas — Prioridade Alta</div>
-            <div class="coach-d">FC3 em 58% e PM2 em 64%. Alta velocidade de encerramento sem qualidade — Lucas fecha rápido mas sem comprometimento real. Exercício prático: gravar os últimos 90 segundos de cada ligação durante 2 semanas e identificar o padrão de saída. Objetivo: FC1 acima de 40% em 30 dias.</div>
+            <div class="coach-t">KPI07A — Prioridade Alta</div>
+            <div class="coach-d">Maior volume de ligações zeradas: 41 ligações, 0% de fechamento. B5 (upsell conectado à dor) em apenas 7,3% — o maior diferencial de fechamento do estudo geral (B5 = +11,7pp) está praticamente ausente aqui. B6 (urgência) alta (56,1%) mostra que a carteira engaja, mas não converte o engajamento em oferta.</div>
           </div>
         </div>
 
         <div class="coach-item warn">
           <div class="coach-ico">🟡</div>
           <div>
-            <div class="coach-t">Ana — Prioridade Média</div>
-            <div class="coach-d">Forte em suporte, fraca em conversão. OP1 elevado: resolve o problema operacional mas encerra sem sondagem. Script sugerido: uma pergunta comercial obrigatória antes de encerrar qualquer ligação de suporte — "aproveitando, tem algo na frota que podemos ajudar hoje?" Baixo esforço, impacto direto em OP1.</div>
+            <div class="coach-t">KPI02A — Prioridade Média</div>
+            <div class="coach-d">FC3 (fechamento vago, sem próximo passo) em 47,4% — o maior índice entre as carteiras com amostra relevante (38 ligações). O time engaja (score médio 9,55, acima da base) mas encerra sem comprometimento. Script sugerido: substituir "qualquer coisa me chama" por data + próximo passo concreto antes de encerrar.</div>
           </div>
         </div>
 
         <div class="coach-item warn">
           <div class="coach-ico">🟡</div>
           <div>
-            <div class="coach-t">Ricardo — Desenvolvimento Rápido</div>
-            <div class="coach-d">Performance média em tudo com a maior margem de melhora relativa. CH1 em 41% (potencial para 64%+), FC1 em 35% (potencial para 68%+). Ricardo está próximo do limiar — uma intervenção focada em CH1 pode movê-lo de posição 3 para posição 2 em 45 dias.</div>
+            <div class="coach-t">RSI07A / S3I01A / RSI03A / NOI02A — Desenvolvimento</div>
+            <div class="coach-d">Grupo de 4 carteiras com 0% de fechamento mas volume menor (19–25 ligações cada) e comportamentos medianos (score 6,0–10,4). Diferente de KPI03A, aqui o problema parece mais concentrado em criar urgência (B6 15,8%–44,0%) do que em diagnóstico. Monitorar próximo lote antes de tratar como prioridade urgente — amostra ainda limítrofe.</div>
           </div>
         </div>
 
         <div class="coach-item ok">
           <div class="coach-ico">🟢</div>
           <div>
-            <div class="coach-t">Sandra — Refinamento Técnico</div>
-            <div class="coach-d">Forte em diagnóstico (B1 alto) mas perde na conversão — sabe ouvir, não cria urgência. O próximo nível é CH1 após CH5: Sandra já conecta a dor do cliente ao produto (CH5), falta revelar o custo de não agir agora (CH1). Uma adição ao roteiro já existente, não um novo comportamento.</div>
+            <div class="coach-t">COI01A — Referência em Upsell (B5)</div>
+            <div class="coach-d">B5 em 52,4% — mais que o dobro da média das carteiras que fecham (32,0%) e quase 5× o grupo que não fecha nada (11,5%). 23,8% de fechamento em 21 ligações. Comportamento replicável: conectar a dor relatada pelo cliente a um produto específico antes de encerrar a ligação.</div>
           </div>
         </div>
 
         <div class="coach-item ok">
           <div class="coach-ico">✨</div>
           <div>
-            <div class="coach-t">Marcos — Peer Coach Documentado</div>
-            <div class="coach-d">Os comportamentos de Marcos são replicáveis e têm evidência mensurável: CH1 em 82%, FC1 em 68%, FC3 em apenas 18%. Uma sessão de shadowing Marcos + Ricardo ou Lucas tem maior potencial de impacto que qualquer treinamento genérico. Os dados justificam torná-lo referência formal de comportamento.</div>
+            <div class="coach-t">NLI02A — Melhor Score Composto</div>
+            <div class="coach-d">Score médio 14,6 (o mais alto entre as 26 carteiras elegíveis, vs. 9,3 da base geral). B1 53,3%, B5 46,7%, B6 53,3% — os três pilares de diagnóstico, upsell e urgência simultaneamente fortes. 20,0% de fechamento em 15 ligações. Amostra ainda pequena (limite mínimo de 15), mas o perfil comportamental é o mais equilibrado da base — candidato a estudo de caso.</div>
           </div>
         </div>
 
@@ -1541,7 +1627,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="rm-dl">
               <div class="rm-item" data-id="d1-1" onclick="rmCheck(this,'p1')">
                 <div class="rm-chk"></div><div class="rm-icode">D1.1</div>
-                <div class="rm-itext"><strong>Baseline de KPIs por vendedor</strong> — taxa de fechamento, FC3, PM2, B5 e B6 antes de qualquer treinamento. Sem baseline, não há delta.</div>
+                <div class="rm-itext"><strong>Baseline de KPIs por carteira</strong> — taxa de fechamento, FC3, B5 e B6 antes de qualquer treinamento. Sem baseline, não há delta.</div>
               </div>
               <div class="rm-item" data-id="d1-2" onclick="rmCheck(this,'p1')">
                 <div class="rm-chk"></div><div class="rm-icode">D1.2</div>
@@ -1549,7 +1635,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               </div>
               <div class="rm-item" data-id="d1-3" onclick="rmCheck(this,'p1')">
                 <div class="rm-chk"></div><div class="rm-icode">D1.3</div>
-                <div class="rm-itext"><strong>Tag de identificação por vendedor na fonte</strong> — viabilizar comparação piloto vs controle nas fases seguintes.</div>
+                <div class="rm-itext"><strong>Granularidade por carteira (resolvido via cruzamento com diárias)</strong> — viabilizar comparação entre carteiras nas fases seguintes, sem depender de identificação individual.</div>
               </div>
               <div class="rm-item" data-id="d1-4" onclick="rmCheck(this,'p1')">
                 <div class="rm-chk"></div><div class="rm-icode">D1.4</div>
@@ -1561,24 +1647,24 @@ tbody tr:hover td{background:var(--bg-dn)}
               <span class="rm-citag">📅 7 Jul — Alinhamento semana 1</span>
               <span class="rm-citag">📅 14 Jul — Review pré-entrega Fase 1</span>
             </div>
-            <div class="rm-note"><strong>Foco:</strong> Antes de qualquer treinamento, precisamos de um snapshot limpo. B5, B6, FC3, PM2 e taxa de fechamento por vendedor — sem isso, não há como medir o delta real das próximas fases.</div>
+            <div class="rm-note"><strong>Foco:</strong> Antes de qualquer treinamento, precisamos de um snapshot limpo. B5, B6, FC3 e taxa de fechamento por carteira — sem isso, não há como medir o delta real das próximas fases.</div>
 
             <div class="rm-dl-hdr" style="margin-top:16px">O que falta (além das reuniões)</div>
             <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
 
-              <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:rgba(220,38,38,.07);border-left:3px solid var(--err);border-radius:6px">
-                <span class="badge b-err" style="flex-shrink:0;margin-top:1px">Bloqueado</span>
+              <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:rgba(34,197,94,.08);border-left:3px solid var(--ok);border-radius:6px">
+                <span class="badge b-ok" style="flex-shrink:0;margin-top:1px">Resolvido</span>
                 <div style="font-size:13px;line-height:1.5;color:var(--fg)">
-                  <strong>D1.1 — Baseline por vendedor</strong><br>
-                  O dado existe (1.275 ligações), mas o CSV não tem <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">vendedor_id</code>. Sem esse campo não é possível calcular taxa de fechamento individual nem medir delta após treinamento. Depende do D1.3.
+                  <strong>D1.1 — Baseline por carteira</strong><br>
+                  Não temos <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">vendedor_id</code> nem nome de vendedor na fonte — e não vamos usar. Em vez disso, cruzamos o <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">Cod</code> do cliente com a base de diárias e obtivemos a <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">carteira</code> de cada um. Baseline de taxa de fechamento, B1, B5, B6 e FC3 já calculado para 65 carteiras (26 com amostra ≥15 ligações). Ver aba Carteiras.
                 </div>
               </div>
 
-              <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:rgba(220,38,38,.07);border-left:3px solid var(--err);border-radius:6px">
-                <span class="badge b-err" style="flex-shrink:0;margin-top:1px">Crítico</span>
+              <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:rgba(234,179,8,.07);border-left:3px solid var(--warn);border-radius:6px">
+                <span class="badge b-mu" style="flex-shrink:0;margin-top:1px">Limitação conhecida</span>
                 <div style="font-size:13px;line-height:1.5;color:var(--fg)">
-                  <strong>D1.3 — Tag de vendedor na fonte</strong><br>
-                  Pré-requisito de tudo. Precisa checar: os arquivos de áudio ou o sistema (CRM / discador) têm o nome ou ramal do vendedor nos metadados? Se sim, é um script de enriquecimento do CSV. Se não, precisa de fonte externa.
+                  <strong>D1.3 — Granularidade é por carteira, não por indivíduo</strong><br>
+                  Uma carteira pode ter mais de um vendedor. Coaching e ranking desta fase são no nível de carteira (grupo), não de pessoa — decisão deliberada para não expor desempenho individual. Para comparação piloto-vs-controle mais fina, seria necessário mapear vendedor→carteira via RH/gestão, fora do escopo desta análise.
                 </div>
               </div>
 
@@ -2546,7 +2632,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 <script>
 const html = document.documentElement;
 const LABELS = {
-  dashboard:'Dashboard Executivo', comercial:'Comercial', clientes:'Clientes em Risco',
+  dashboard:'Dashboard Executivo', evolucao:'Evolução Diária', comercial:'Comercial', clientes:'Clientes em Risco',
   vendedores:'Vendedores', acoes:'Plano de Ação', roadmap:'Roadmap 90 dias', ia:'IA & Insights',
   framework:'Framework', docs:'Documentação', admin:'Administração'
 };
@@ -2575,9 +2661,15 @@ function nav(id, btn) {
   if (p) p.classList.add('active');
   if (btn) btn.classList.add('active');
   document.getElementById('bc').textContent = LABELS[id] || id;
+  if (id === 'evolucao')  drawEvolucao();
   if (id === 'comercial') { drawCorrPos(); drawCorrNeg(); }
   if (id === 'clientes')  drawScoringC();
 }
+
+// ── EVOLUCAO DIARIA (dados gerados por scripts/atualizar_evolucao_dashboard.py) ──
+/* EVOLUCAO_DIARIA:START */
+const EVOLUCAO_DIARIA = [];
+/* EVOLUCAO_DIARIA:END */
 
 // ── CHARTS ────────────────────────────────────────
 const charts = {};
@@ -2599,6 +2691,7 @@ function rebuildCharts() {
   for (const k in charts) delete charts[k];
   drawDesfecho(); drawScoring();
   const cur = document.querySelector('.page.active')?.id?.replace('page-','');
+  if (cur === 'evolucao') drawEvolucao();
   if (cur === 'comercial') {
     const asub = document.querySelector('#page-comercial .subp.active');
     const sid = asub ? asub.id.replace('com-','') : 'corr';
@@ -2639,6 +2732,79 @@ function drawScoring() {
     options:{indexAxis:'y',responsive:true,
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6623;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
+    }
+  });
+}
+
+function popularEvolucao(dados) {
+  const totalLig = dados.reduce((s,d)=>s+d.total_ligacoes, 0);
+  const totalFechou = dados.reduce((s,d)=>s+Math.round(d.total_ligacoes*d.taxa_fechamento_pct/100), 0);
+  const taxaMedia = totalLig ? (100*totalFechou/totalLig) : 0;
+  const scoreMedio = dados.reduce((s,d)=>s+d.score_comercial_medio*d.total_ligacoes, 0) / (totalLig || 1);
+  const variacao = dados.length >= 2 ? (dados[dados.length-1].taxa_fechamento_pct - dados[0].taxa_fechamento_pct) : null;
+
+  document.getElementById('evoKpiTotal').textContent = totalLig.toLocaleString('pt-BR');
+  document.getElementById('evoKpiDias').textContent = `${dados.length} dia(s) · ${dados[0].data} a ${dados[dados.length-1].data}`;
+  document.getElementById('evoKpiTaxa').textContent = taxaMedia.toFixed(1).replace('.',',') + '%';
+  document.getElementById('evoKpiScore').textContent = scoreMedio.toFixed(1).replace('.',',');
+  const kpiVar = document.getElementById('evoKpiVariacao');
+  if (variacao === null) {
+    kpiVar.textContent = '—';
+  } else {
+    kpiVar.textContent = (variacao >= 0 ? '+' : '') + variacao.toFixed(1).replace('.',',') + 'pp';
+    kpiVar.style.color = variacao >= 0 ? 'var(--ok)' : 'var(--err)';
+  }
+
+  const tbody = document.getElementById('evoTableBody');
+  tbody.innerHTML = dados.map(d => `<tr>
+    <td>${d.data}</td>
+    <td>${d.total_ligacoes}</td>
+    <td>${Math.round(d.total_ligacoes*d.taxa_fechamento_pct/100)}</td>
+    <td>${d.taxa_fechamento_pct.toFixed(1).replace('.',',')}%</td>
+    <td>${d.score_comercial_medio.toFixed(1).replace('.',',')}</td>
+    <td>${d.teve_challenger_pct.toFixed(1).replace('.',',')}%</td>
+  </tr>`).join('');
+}
+
+function drawEvolucao() {
+  const c = C();
+  const el = document.getElementById('cEvolucao');
+  if (!el) return;
+  if (charts.evo) { charts.evo.destroy(); delete charts.evo; }
+
+  const dados = EVOLUCAO_DIARIA;
+  const vazio = document.getElementById('evolucaoVazio');
+  if (!dados.length) {
+    if (vazio) vazio.style.display = 'block';
+    el.style.display = 'none';
+    return;
+  }
+  if (vazio) vazio.style.display = 'none';
+  el.style.display = 'block';
+  popularEvolucao(dados);
+
+  const labels = dados.map(d => d.data);
+  const tipo = dados.length === 1 ? 'bar' : 'line';
+  charts.evo = new Chart(el, {
+    type: tipo,
+    data: {
+      labels,
+      datasets: [
+        { label:'Ligações/dia', data: dados.map(d=>d.total_ligacoes), borderColor:c.primary, backgroundColor:c.primary, yAxisID:'y', tension:.3 },
+        { label:'Taxa de fechamento (%)', data: dados.map(d=>d.taxa_fechamento_pct), borderColor:c.green, backgroundColor:c.green, yAxisID:'y1', tension:.3 },
+        { label:'Score comercial médio', data: dados.map(d=>d.score_comercial_medio), borderColor:c.warn, backgroundColor:c.warn, yAxisID:'y1', tension:.3 },
+        { label:'Challenger (%)', data: dados.map(d=>d.teve_challenger_pct), borderColor:c.red, backgroundColor:c.red, yAxisID:'y1', tension:.3 },
+      ]
+    },
+    options: {
+      responsive:true,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,labels:{color:c.text,font:{size:11}}}},
+      scales:{
+        x:{ticks:{color:c.text,font:{size:11}},grid:{display:false}},
+        y:{position:'left',title:{display:true,text:'Ligações/dia',color:c.text},ticks:{color:c.text},grid:{color:c.grid}},
+        y1:{position:'right',title:{display:true,text:'%  /  score',color:c.text},ticks:{color:c.text},grid:{display:false}},
+      }
     }
   });
 }
@@ -2766,12 +2932,12 @@ function drawVend() {
   charts.vend = new Chart(document.getElementById('cVend'), {
     type:'bar',
     data:{
-      labels:['Marcos','Sandra','Ricardo','Ana','Lucas','Paula'],
+      labels:['MLI02A','COI01A','NLI02A','MLI08A','REI02A','RJI05A'],
       datasets:[
-        {label:'CH1 — Custo oculto',   data:[82,64,41,28,31,12],backgroundColor:c.primary,borderRadius:2},
-        {label:'B5 — Upsell/dor',       data:[71,42,31,19,22,10],backgroundColor:c.green,borderRadius:2},
-        {label:'FC1 — Compromisso duplo',data:[68,48,35,22,29,14],backgroundColor:'#2563EB',borderRadius:2},
-        {label:'FC3 — Sem compromisso', data:[18,22,38,52,58,68],backgroundColor:c.red,borderRadius:2}
+        {label:'CH1 — Custo oculto',   data:[4.3,0.0,13.3,0.0,8.7,9.4],backgroundColor:c.primary,borderRadius:2},
+        {label:'B5 — Upsell/dor',       data:[8.7,52.4,46.7,28.6,39.1,31.2],backgroundColor:c.green,borderRadius:2},
+        {label:'FC1 — Compromisso duplo',data:[0.0,9.5,0.0,0.0,0.0,0.0],backgroundColor:'#2563EB',borderRadius:2},
+        {label:'FC3 — Sem compromisso', data:[8.7,23.8,33.3,3.6,0.0,9.4],backgroundColor:c.red,borderRadius:2}
       ]
     },
     options:{

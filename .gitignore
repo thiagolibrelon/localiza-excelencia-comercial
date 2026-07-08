@@ -13,8 +13,14 @@ scripts/Descompac.py
 resultados/gemini/
 resultados/gemini_v2/
 resultados/gemini_novo_lote/
+resultados/gemini_ligacoes_diarias/
 resultados/erros/
 resultados_analise/
+
+# Pipeline diario de ligacoes: os JSONs de entrada/analisado sao subidos pro
+# Git (excecao pontual a regra "*.json" acima), so os brutos com PII ficam
+# fora (cobertos pela regra "dados/" acima)
+!dados_ligacoes_diarias/**/*.json
 
 # Amostras geradas localmente
 amostras/
