@@ -344,8 +344,8 @@ Você é um especialista em expansão de receita em contas B2B de locação de f
 ## Portfólio disponível
 | Código | Produto | Tipo |
 |--------|---------|------|
-| PR1 | Aluguel mensal leve | Core |
-| PR2 | Aluguel pesado | Cross-sell |
+| PR1 | Aluguel mensal leve (inclui picape, caminhonete, fiorino/furgão leve — negócio RAC) | Core |
+| PR2 | Aluguel pesado (caminhão, cavalo mecânico, carreta — negócio Pesados; NÃO inclui picape/caminhonete/fiorino, que são PR1) | Cross-sell |
 | PR3 | Telemetria | Upsell |
 | PR4 | Proteção total | Upsell |
 | PR5 | Upgrade de categoria | Upsell |

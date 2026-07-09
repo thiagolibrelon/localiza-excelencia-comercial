@@ -626,7 +626,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="story">
         <div>
-          <div class="story-eye">Diagnóstico · Junho 2026</div>
+          <div class="story-eye">Diagnóstico · Base piloto, Junho 2026 (R$ ainda não recalculado na base combinada)</div>
           <div class="story-h">44,8% das ligações encerram sem data.<br><span class="tip" data-tip="IA estimou valor potencial de cada OP com base no contexto da ligação (frota, produto, contrato). Composição: OP6 R$23.410 + OP7 R$3.600 + OP1 R$800 + outros = R$28.490. Estimativa — não é receita confirmada.">R$28.490/mês</span> em oportunidades não tentadas.</div>
           <div class="story-sub">Em 44,8% das ligações, o encerramento foi "qualquer coisa me chama" — sem data, sem próximo passo, sem comprometimento. O pipeline está sendo gerenciado pela memória do vendedor.</div>
           <div class="story-stats">
@@ -638,15 +638,15 @@ tbody tr:hover td{background:var(--bg-dn)}
         <button class="story-cta" onclick="nav('acoes',null)">Ver plano de ação →</button>
       </div>
 
-      <div class="alert info" style="margin-bottom:16px">
-        <span class="a-ico">ℹ️</span>
-        <span><strong>Base de análise:</strong> 1.275 ligações únicas · Junho 2026. Análises por módulo variam ligeiramente: P1_P2 processou 1.284 registros · P9_P10 processou 1.296 registros — diferenças por sobreposição de análise nos 23 batches. Percentuais por módulo referenciados na base do próprio módulo.</span>
-      </div>
       <div class="alert ok" style="margin-bottom:16px">
         <span class="a-ico">🆕</span>
-        <span><strong>Lote novo em validação (01/07/2026):</strong> +5.348 ligações (4.434 clientes) processadas com scoring automático Python. Distribuição de potencial bateu com a base original — ALTO 5,3% (vs 5,5% nas 1.275 originais), validando que o modelo generaliza. <strong>Análise de IA (desfechos, Challenger, oportunidades em R$) ainda pendente</strong> para esse lote — cota gratuita do Gemini limita a 20 chamadas/dia. Os números de desfecho, B1–B10 e R$28.490/mês nesta página referem-se apenas às 1.275 ligações originais.</span>
+        <span><strong>Atualizado em 09/07/2026:</strong> P1_P2 e P5_P6 (desfecho, B1-B10, Challenger, oportunidades) agora cobrem 99,6%/96,5% das <strong>6.623 ligações combinadas</strong> (1.275 da base piloto + 5.348 do lote seguinte) — deixou de ser análise só da base piloto. P9_P10 (abertura/fechamento, promessas) ainda cobre 33,8% do total, em processamento — números que dependem dele continuam refletindo só a base piloto. Ver <code>analises/analise_recalculo_base_combinada_6623.md</code>.</span>
       </div>
-      <div class="sec-lbl mb16">Visão geral — 1.275 ligações · Junho 2026</div>
+      <div class="alert info" style="margin-bottom:16px">
+        <span class="a-ico">ℹ️</span>
+        <span><strong>Base de análise:</strong> 6.623 ligações combinadas, junho–julho de 2026 (1.275 base piloto + 5.348 novo lote). A taxa de fechamento caiu de 7,0% (só base piloto) para 5,1% na base combinada — o novo lote fecha proporcionalmente 33% menos. Causa ainda em investigação (sazonalidade, mix de carteiras ou política comercial).</span>
+      </div>
+      <div class="sec-lbl mb16">Visão geral — 6.623 ligações · junho–julho de 2026</div>
       <div class="kpi-grid">
 
         <div class="kpi">
@@ -655,10 +655,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Ligações analisadas</span>
             <div class="kpi-ico" style="background:rgba(120,222,31,.1)">📞</div>
           </div>
-          <div class="kpi-val">1.275</div>
-          <div class="kpi-sub">1.109 clientes únicos</div>
-          <span class="kpi-trend nu">Junho 2026 · 23 batches</span>
-          <div class="kpi-hint">Análise completa com IA + scoring automático Python</div>
+          <div class="kpi-val">6.623</div>
+          <div class="kpi-sub">1.275 base piloto + 5.348 novo lote</div>
+          <span class="kpi-trend nu">Junho–julho 2026 · P1/P2/P5/P6 completos</span>
+          <div class="kpi-hint">Análise com IA (99,6%/96,5%) + scoring automático Python (100%)</div>
         </div>
 
         <div class="kpi">
@@ -667,10 +667,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Taxa de fechamento</span>
             <div class="kpi-ico" style="background:var(--ok-bg)">✅</div>
           </div>
-          <div class="kpi-val">7,0%</div>
-          <div class="kpi-sub">89 fechamentos em 1.275 ligações</div>
-          <span class="kpi-trend up">↑ Confirmado por IA · 23 batches</span>
-          <div class="kpi-hint">B5 (upsell conectado à dor) eleva em +7,4pp quando aplicado</div>
+          <div class="kpi-val">5,1%</div>
+          <div class="kpi-sub">337 fechamentos em 6.594 ligações (era 7,0% na base piloto)</div>
+          <span class="kpi-trend up">↑ Confirmado por IA · base combinada</span>
+          <div class="kpi-hint">B5 (upsell conectado à dor) eleva em +7,1pp quando aplicado</div>
         </div>
 
         <div class="kpi">
@@ -679,10 +679,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Sem pergunta comercial</span>
             <div class="kpi-ico" style="background:var(--err-bg)">⚠️</div>
           </div>
-          <div class="kpi-val">57,1%</div>
-          <div class="kpi-sub">728 de 1.275 — suporte, operacional</div>
+          <div class="kpi-val">57,4%</div>
+          <div class="kpi-sub">3.785 de 6.594 — suporte, operacional, prospecção sem tração</div>
           <span class="kpi-trend dn">↓ Capacidade desperdiçada</span>
-          <div class="kpi-hint">OP1: 375 oportunidades — ligação encerra sem nenhuma sondagem</div>
+          <div class="kpi-hint">OP1: 2.551 oportunidades — ligação encerra sem nenhuma sondagem (39,9% de todas as ligações com P6 mapeado)</div>
         </div>
 
         <div class="kpi">
@@ -691,10 +691,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Alto potencial</span>
             <div class="kpi-ico" style="background:var(--warn-bg)">🎯</div>
           </div>
-          <div class="kpi-val">6,6%</div>
-          <div class="kpi-sub">84 ligações com score ≥ 20/30</div>
+          <div class="kpi-val">5,6%</div>
+          <div class="kpi-sub">368 ligações com score ≥ 20/30 (base combinada)</div>
           <span class="kpi-trend nu">Identificadas · scoring Python</span>
-          <div class="kpi-hint">92,9% dessas 84 ligações criaram urgência com fato real (B6)</div>
+          <div class="kpi-hint">Na base piloto (84 ligações desse perfil), 92,9% criaram urgência com fato real (B6)</div>
         </div>
 
       </div>
@@ -703,7 +703,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Desfechos das Ligações</div><div class="card-st">IA · 1.275 ligações · P1_P2 · 23 batches</div></div>
+            <div><div class="card-t">Desfechos das Ligações</div><div class="card-st">IA · 6.594 ligações (base combinada) · P1_P2 · 99,6% cobertura</div></div>
             <span class="card-bdg">P1_P2 ✓</span>
           </div>
           <canvas id="cDesfecho" height="220"></canvas>
@@ -711,13 +711,13 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="g2">
               <div class="abox pos">
                 <div class="at">✓ Maior diferencial positivo</div>
-                <div class="ai"><span class="app">+7,4pp</span><span class="ad"><strong>B5 — Upsell conectado à dor</strong> (21,3% vs 13,9%)</span></div>
-                <div class="ai"><span class="app">+2,5pp</span><span class="ad"><strong>B6 — Urgência verificável</strong> (9,0% vs 6,5%)</span></div>
+                <div class="ai"><span class="app">+7,1pp</span><span class="ad"><strong>B5 — Upsell conectado à dor</strong> (16,6% vs 9,6%)</span></div>
+                <div class="ai"><span class="app">+2,9pp</span><span class="ad"><strong>B3 — Usou histórico do cliente</strong> (11,9% vs 9,0%)</span></div>
               </div>
               <div class="abox neg">
                 <div class="at">✗ Hipóteses revisadas — timing é a chave</div>
-                <div class="ai"><span class="app">−12,5pp</span><span class="ad"><strong>B1</strong> — diagnóstico aparece mais em qualificação (37,1% vs 49,6%)</span></div>
-                <div class="ai"><span class="app">−15,9pp</span><span class="ad"><strong>B8</strong> — ligação proativa é pipeline, não fechamento imediato</span></div>
+                <div class="ai"><span class="app">−10,5pp</span><span class="ad"><strong>B10</strong> — perguntar sobre concorrente/frota é negativo pra fechamento imediato (5,3% vs 15,9%)</span></div>
+                <div class="ai"><span class="app">−6,5pp</span><span class="ad"><strong>B8</strong> — ligação proativa é pipeline, não fechamento imediato (4,2% vs 10,7%)</span></div>
               </div>
             </div>
           </div>
@@ -973,7 +973,7 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-corr" class="subp active">
         <div class="alert info">
           <span class="a-ico">ℹ️</span>
-          <span><strong>Como ler:</strong> Diferença positiva = comportamento mais frequente em ligações que fecharam. Base: 1.275 ligações · 89 fechamentos · 460 interessaram mas não fecharam · 23 batches.</span>
+          <span><strong>Como ler:</strong> Diferença positiva = comportamento mais frequente em ligações que fecharam. Base combinada: 6.594 ligações · 337 fechamentos · 2.458 interessaram mas não fecharam (atualizado 09/07/2026).</span>
         </div>
         <div class="g2 mb24">
           <div class="card">
@@ -1002,13 +1002,13 @@ tbody tr:hover td{background:var(--bg-dn)}
         <div class="g2 mb24">
           <div class="abox pos card" style="border:1px solid #A7F3D0">
             <div class="at">✓ Comportamentos que ajudam a fechar</div>
-            <div class="ai"><span class="app">+7,4pp</span><div><div class="ad"><strong>B5 — Upsell conectado à dor</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">21,3% dos fechamentos (19/89) vs 13,9% dos interessou_não_fechou. O produto é apresentado como solução para algo que o cliente já relatou.</div></div></div>
-            <div class="ai" style="margin-top:10px"><span class="app">+2,5pp</span><div><div class="ad"><strong>B6 — Urgência com fato verificável</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">9,0% vs 6,5%. Mecanismo: CH1 — revelar custo oculto que o cliente desconhecia.</div></div></div>
+            <div class="ai"><span class="app">+7,1pp</span><div><div class="ad"><strong>B5 — Upsell conectado à dor</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">16,6% dos fechamentos vs 9,6% dos interessou_não_fechou (base combinada, 337 fechamentos). O produto é apresentado como solução para algo que o cliente já relatou.</div></div></div>
+            <div class="ai" style="margin-top:10px"><span class="app">+2,9pp</span><div><div class="ad"><strong>B3 — Usou histórico do cliente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">11,9% vs 9,0%. Na base piloto (n pequeno) esse comportamento parecia negativo — com 5x mais dados, o sinal se resolveu como levemente positivo.</div></div></div>
           </div>
           <div class="abox neg card" style="border:1px solid #FCA5A5">
             <div class="at">✗ Hipóteses revisadas — timing é a chave</div>
-            <div class="ai"><span class="app">−12,5pp</span><div><div class="ad"><strong>B1 — Diagnóstico antes do produto</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">37,1% dos fechamentos vs 49,6%. Presente em ligações de qualificação — o fechamento vem no follow-up, não na mesma ligação.</div></div></div>
-            <div class="ai" style="margin-top:10px"><span class="app">−15,9pp</span><div><div class="ad"><strong>B8 — Ligou proativamente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">5,6% vs 21,5%. Comportamento de pipeline — precisa acontecer antes da decisão, não no momento do fechamento.</div></div></div>
+            <div class="ai"><span class="app">−10,5pp</span><div><div class="ad"><strong>B10 — Perguntou sobre concorrente/frota</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">5,3% dos fechamentos vs 15,9%. Comportamento de pipeline — protege a conta, mas correlaciona negativo com fechamento na mesma ligação.</div></div></div>
+            <div class="ai" style="margin-top:10px"><span class="app">−6,5pp</span><div><div class="ad"><strong>B8 — Ligou proativamente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">4,2% vs 10,7%. Comportamento de pipeline — precisa acontecer antes da decisão, não no momento do fechamento.</div></div></div>
           </div>
         </div>
         <div class="card">
@@ -1017,16 +1017,16 @@ tbody tr:hover td{background:var(--bg-dn)}
           <table>
             <thead><tr><th>Código</th><th>Comportamento</th><th>% Fechou</th><th>% Interessou, não fechou</th><th>Diferencial</th></tr></thead>
             <tbody>
-              <tr><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor</td><td>21,3%</td><td>13,9%</td><td style="color:var(--ok);font-weight:700">+7,4pp</td></tr>
-              <tr><td><span class="badge b-br">B6</span></td><td>Urgência com fato verificável</td><td>9,0%</td><td>6,5%</td><td style="color:var(--ok);font-weight:700">+2,5pp</td></tr>
-              <tr><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>1,1%</td><td>0,9%</td><td style="color:var(--fg-2)">+0,3pp</td></tr>
-              <tr><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>3,4%</td><td>6,1%</td><td style="color:var(--fg-2)">−2,7pp</td></tr>
-              <tr><td><span class="badge b-mu">B4</span></td><td>Avisou risco ao cliente</td><td>2,2%</td><td>4,1%</td><td style="color:var(--fg-2)">−1,9pp</td></tr>
-              <tr><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>0,0%</td><td>3,0%</td><td style="color:var(--fg-2)">−3,0pp</td></tr>
-              <tr><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>12,4%</td><td>15,7%</td><td style="color:var(--fg-2)">−3,3pp</td></tr>
-              <tr><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>37,1%</td><td>49,6%</td><td style="color:var(--err);font-weight:700">−12,5pp</td></tr>
-              <tr><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>4,5%</td><td>17,6%</td><td style="color:var(--err);font-weight:700">−13,1pp</td></tr>
-              <tr><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>5,6%</td><td>21,5%</td><td style="color:var(--err);font-weight:700">−15,9pp</td></tr>
+              <tr><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor</td><td>16,6%</td><td>9,6%</td><td style="color:var(--ok);font-weight:700">+7,1pp</td></tr>
+              <tr><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>11,9%</td><td>9,0%</td><td style="color:var(--ok);font-weight:700">+2,9pp</td></tr>
+              <tr><td><span class="badge b-mu">B4</span></td><td>Avisou risco ao cliente</td><td>5,6%</td><td>4,3%</td><td style="color:var(--fg-2)">+1,4pp</td></tr>
+              <tr><td><span class="badge b-mu">B6</span></td><td>Urgência com fato verificável</td><td>4,5%</td><td>3,3%</td><td style="color:var(--fg-2)">+1,1pp</td></tr>
+              <tr><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>0,6%</td><td>1,1%</td><td style="color:var(--fg-2)">−0,5pp</td></tr>
+              <tr><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>3,0%</td><td>5,0%</td><td style="color:var(--fg-2)">−2,0pp</td></tr>
+              <tr><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>1,2%</td><td>3,5%</td><td style="color:var(--fg-2)">−2,3pp</td></tr>
+              <tr><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>37,4%</td><td>42,1%</td><td style="color:var(--err);font-weight:700">−4,8pp</td></tr>
+              <tr><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>4,2%</td><td>10,7%</td><td style="color:var(--err);font-weight:700">−6,5pp</td></tr>
+              <tr><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>5,3%</td><td>15,9%</td><td style="color:var(--err);font-weight:700">−10,5pp</td></tr>
             </tbody>
           </table>
           <div style="margin-top:12px;font-size:11px;color:var(--fg-2);padding:10px 12px;background:var(--bg-dn);border-radius:6px">
@@ -1039,7 +1039,7 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-ch" class="subp">
         <div class="alert ok">
           <span class="a-ico">⭐</span>
-          <span><strong>P5 — Comportamentos Challenger:</strong> Identificados em 23 batches · 1.275 ligações. CH1 é o comportamento mais correlacionado com fechamento imediato — é o mecanismo por trás de B6.</span>
+          <span><strong>P5 — Comportamentos Challenger:</strong> 6.406 ligações (96,5% da base combinada). Achado atualizado 09/07: <strong>ter Challenger (SIM/NAO) não discrimina fechamento</strong> (51,1% vs 50,8% — praticamente igual). O que discrimina é a <strong>qualidade</strong>: Challenger de qualidade alta correlaciona com 10,8% de fechamento, qualidade média com só 2,1% (pior que a média geral da base). Combinado com B5 (upsell), a taxa de fechamento chega a 20,0% — 6,25x a taxa de quem não tem nenhum dos dois (3,2%).</span>
         </div>
 
         <div class="g2 mb24">
@@ -1253,10 +1253,11 @@ tbody tr:hover td{background:var(--bg-dn)}
         </div>
         <div class="hgrid">
           <div class="hcard"><div class="hhdr"><span class="hnum">H1</span><span class="badge b-warn">Em validação</span></div><div class="ht">A conta da diária vs. mensal é o que mais converte</div><div class="hb">Nos casos observados, o vendedor faz o cálculo em voz alta e o cliente para para recalcular. Padrão recorrente nos dados: cliente aluga por diária por inércia — hipótese ainda sem amostra controlada.<br><br><em>"X dias × R$ diária = R$ Y. O mensal custa R$ Z."</em></div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H2</span><span class="badge b-ok">Confirmada</span></div><div class="ht">Fechar sem data é não fechar</div><div class="hb">FC3 "qualquer coisa me chama" em 44,8% das ligações. FC1 compromisso duplo: 31,9%. Prazo definido: apenas 9%.<br><br>OP3 (não criou urgência para o fechamento) é a segunda oportunidade perdida mais frequente.</div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H3</span><span class="badge b-ok">Confirmada</span></div><div class="ht">A plataforma está consumindo o time comercial</div><div class="hb">Biometria facial (10+), senha/acesso (11+), responsável não encontrado (16+). OP1 = oportunidade perdida mais frequente em ~60% dos casos.</div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H4</span><span class="badge b-warn">Revisada</span></div><div class="ht">Perguntar sobre concorrência protege — mas o timing é tudo</div><div class="hb">B10 tem correlação negativa com fechamento imediato. A pergunta precisa vir <strong>antes</strong> da decisão do cliente. Novo concorrente: <strong>Carro Zero</strong> (assinatura).</div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H5</span><span class="badge b-ok">Confirmada</span></div><div class="ht">57% das ligações são suporte puro</div><div class="hb">728 de 1.275 ligações = "não era venda" (56,7%). 30,2% das 1.275 com score zero.<br><br><em>Segmentar antes de escalar o esforço comercial.</em></div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H2</span><span class="badge b-ok">Confirmada</span></div><div class="ht">Fechar sem data é não fechar</div><div class="hb">FC3 "qualquer coisa me chama" em 44,8% das ligações. FC1 compromisso duplo: 31,9%. Prazo definido: apenas 9%.<br><br>OP3 (não criou urgência para o fechamento) é a segunda oportunidade perdida mais frequente.<br><br><em>⚠ Números ainda só da base piloto (1.275) — P9_P10 do novo lote está em 33,8%, será recalculado quando completar.</em></div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H3</span><span class="badge b-ok">Confirmada — reforçada 09/07</span></div><div class="ht">A plataforma está consumindo o time comercial</div><div class="hb">Exploração em amostra de 456 ligações (base combinada): problemas de <strong>acesso/sistema + faturamento + cadastro + reserva/sistema somam 65,6%</strong> de tudo que é reportado como problema numa ligação. OP1 (suporte sem pergunta comercial) continua a oportunidade perdida mais frequente da base inteira: <strong>39,9%</strong> de todas as ligações com P6 mapeado (2.551 ocorrências, 6.406 ligações).</div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H4</span><span class="badge b-warn">Revisada</span></div><div class="ht">Perguntar sobre concorrência protege — mas o timing é tudo</div><div class="hb">B10 tem correlação negativa com fechamento imediato (−10,5pp na base combinada, era −13,1pp na base piloto). A pergunta precisa vir <strong>antes</strong> da decisão do cliente. Novo concorrente: <strong>Carro Zero</strong> (assinatura).</div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H5</span><span class="badge b-ok">Confirmada — base combinada</span></div><div class="ht">57% das ligações são suporte puro (ou prospecção sem tração)</div><div class="hb">3.785 de 6.594 ligações = "não era venda" (57,4%, base combinada de 09/07/2026 — era 56,7% só na base piloto). <strong>Achado novo:</strong> dentro desse grupo, 26,5% (1.002 ligações) eram na verdade tentativas de prospecção nova que não geraram tração nenhuma — 90% iniciadas pelo próprio vendedor. Não é só suporte consumindo tempo comercial.<br><br><em>Segmentar antes de escalar o esforço comercial.</em></div></div>
+          <div class="hcard s2"><div class="hhdr"><span class="hnum">H10</span><span class="badge b-ok">Confirmada — base combinada</span></div><div class="ht">Comportamentos bons se somam — a combinação fecha 6,25x mais</div><div class="hb">B5 (upsell conectado à dor) + Challenger de qualidade alta na mesma ligação: <strong>20,0%</strong> de fechamento (n=225). Nenhum dos dois: <strong>3,2%</strong> (n=4.885). Confirmado nas duas bases separadamente (piloto: 25,8% vs 4,4% · novo lote: 17,6% vs 2,9%). <strong>Não é sinergia mágica</strong> — é a soma de dois efeitos que já ajudam sozinhos (B5 sozinho: 13,2% · Challenger bom sozinho: 9,1%). A lição pra treinamento: cada comportamento bom vale a pena por si só, e fazer os dois soma os ganhos.</div></div>
           <div class="hcard"><div class="hhdr"><span class="hnum">H6</span><span class="badge b-pur">Nova</span></div><div class="ht">Localiza Pesados é invisível para o time</div><div class="hb">Vendedor perguntou sobre frota, cliente mencionou caminhões, vendedor apresentou Localiza Pesados. O cliente não sabia que o produto existia.<br><br><em>Quantos dos 1.109 clientes têm frota mista e nunca receberam oferta?</em></div></div>
           <div class="hcard s2"><div class="hhdr"><span class="hnum">H7</span><span class="badge b-pur">Nova</span></div><div class="ht">Biometria com falha é vazamento de receita mensurável — não é problema do vendedor</div><div class="hb">Se 10% das ligações viram suporte de plataforma e o time faz 100 ligações/semana, são 10 oportunidades de venda perdidas semanalmente, de forma silenciosa e recorrente. Resolver o fluxo de biometria remove esse atrito sem precisar treinar ninguém.</div></div>
           <div class="hcard s3"><div class="hhdr"><span class="hnum">H8</span><span class="badge b-pur">Nova</span></div><div class="ht">Referral nunca é pedido — e os clientes têm contatos para dar</div><div class="hb">OP4 aparece sistematicamente nos 23 batches: cliente troca de CNPJ (sem indicação), menciona diretores/sócios (sem referral interno), está satisfeito encerrando (sem pedido para empresa do grupo). O cliente tem o contato. O vendedor tem a abertura. A pergunta nunca é feita.</div></div>
@@ -2583,9 +2584,9 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="card">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
               <span class="badge b-ok">H5</span>
-              <strong style="font-size:14px">57% das ligações são suporte puro</strong>
+              <strong style="font-size:14px">57% das ligações são suporte puro (ou prospecção sem tração)</strong>
             </div>
-            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">728 de 1.275 ligações classificadas como "não era venda". O perfil é consistente: cliente ligou para resolver problema operacional, sem intenção de compra em nenhum momento. Segmentar por motivo da ligação antes de escalar esforço comercial aumenta o retorno por ligação sem aumentar volume.</div>
+            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">3.785 de 6.594 ligações da base combinada classificadas como "não era venda" (57,4%, atualizado 09/07/2026). Achado novo: 26,5% desse grupo (1.002 ligações) eram prospecção fria sem tração — 90% iniciadas pelo próprio vendedor, não é só suporte operacional. Segmentar por motivo da ligação antes de escalar esforço comercial aumenta o retorno por ligação sem aumentar volume.</div>
           </div>
 
           <div class="card">
@@ -2714,10 +2715,10 @@ function drawDesfecho() {
     type:'bar',
     data:{
       labels:['Não era venda (suporte)','Interessou, não fechou','Fechou — novo','Fechou — renovação','Fechou — upsell','Sem conteúdo'],
-      datasets:[{data:[728,460,63,12,14,7],backgroundColor:[c.border,c.muted,c.primary,'#6EE7B7',c.green,'#D1D5DB'],borderRadius:4,barPercentage:.7}]
+      datasets:[{data:[3785,2458,226,76,35,8],backgroundColor:[c.border,c.muted,c.primary,'#6EE7B7',c.green,'#D1D5DB'],borderRadius:4,barPercentage:.7}]
     },
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=1275;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6588;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2812,9 +2813,9 @@ function drawEvolucao() {
 function drawCorrPos() {
   const c = C();
   if (charts.corrP) { charts.corrP.destroy(); delete charts.corrP; }
-  const lbls=['B5 — Upsell/dor','B6 — Urgência verificável','B9 — Conhecimento pessoal'];
-  const f=[21.3,9.0,1.1];
-  const n=[13.9,6.5,0.9];
+  const lbls=['B5 — Upsell/dor','B3 — Histórico cliente','B4 — Avisou risco','B6 — Urgência verificável'];
+  const f=[16.6,11.9,5.6,4.5];
+  const n=[9.6,9.0,4.3,3.3];
   charts.corrP = new Chart(document.getElementById('cCorrPos'), {
     type:'bar',
     data:{labels:lbls,datasets:[{label:'% fechou',data:f,backgroundColor:c.primary,borderRadius:3,barPercentage:.7},{label:'% interessou, n.fechou',data:n,backgroundColor:c.border,borderRadius:3,barPercentage:.7}]},
@@ -2825,9 +2826,9 @@ function drawCorrPos() {
 function drawCorrNeg() {
   const c = C();
   if (charts.corrN) { charts.corrN.destroy(); delete charts.corrN; }
-  const lbls=['B8 — Ligou proativamente','B10 — Concorrente/frota','B1 — Diagnóstico','B3 — Histórico cliente','B7 — Batalhar interno','B2 — Âncora preço','B4 — Avisou risco'];
-  const f=[5.6,4.5,37.1,12.4,0.0,3.4,2.2];
-  const n=[21.5,17.6,49.6,15.7,3.0,6.1,4.1];
+  const lbls=['B10 — Concorrente/frota','B8 — Ligou proativamente','B1 — Diagnóstico','B7 — Batalhar interno','B2 — Âncora preço','B9 — Conhecimento pessoal'];
+  const f=[5.3,4.2,37.4,1.2,3.0,0.6];
+  const n=[15.9,10.7,42.1,3.5,5.0,1.1];
   charts.corrN = new Chart(document.getElementById('cCorrNeg'), {
     type:'bar',
     data:{labels:lbls,datasets:[{label:'% fechou',data:f,backgroundColor:c.red,borderRadius:3,barPercentage:.7},{label:'% interessou, n.fechou',data:n,backgroundColor:c.border,borderRadius:3,barPercentage:.7}]},

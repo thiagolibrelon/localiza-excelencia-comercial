@@ -160,6 +160,9 @@ Identifique CADA problema mencionado ou vivenciado em cada ligação. Um problem
 | P9 | Sinistro | Acidente, franquia de dano, mudança de oficina |
 | P10 | Reserva/sistema | Reserva caindo em "sob consulta", status incorreto |
 | P11 | Outro | Descrever |
+| P12 | Manipulação de pesquisa/NPS | Vendedor pede/dita a nota da pesquisa de satisfação (ex: "as notas boas são 9 e 10", "só ajuda dar nota 9 ou mais") — problema não do cliente, mas de integridade do indicador |
+
+**Nota sobre P12:** diferente das demais categorias, aqui quem "relata" o problema é o próprio comportamento do vendedor, não o cliente — marque `quem_relatou = vendedor_detectou` e `foi_resolvido_na_ligacao = NAO` (não é resolvível na ligação, é um padrão a corrigir em treinamento/gestão). Adicionado em 09/07/2026 após dois casos de coaching explícito de nota encontrados em explorações independentes (ver `analises/AUDITORIA_manipulacao_nps.md`).
 
 ## Formato de saída — Parte 1 (por ligação)
 ```
@@ -372,8 +375,8 @@ Você é um especialista em expansão de receita em contas B2B de locação de f
 ## Portfólio de produtos disponíveis
 | Código | Produto | Tipo |
 |--------|---------|------|
-| PR1 | Aluguel mensal leve (carros de passeio/utilitários) | Core |
-| PR2 | Aluguel pesado (caminhões, pickups, utilitários pesados) | Cross-sell |
+| PR1 | Aluguel mensal leve (carros de passeio, picape, caminhonete, fiorino/furgão leve — negócio RAC) | Core |
+| PR2 | Aluguel pesado (caminhão, cavalo mecânico, carreta — negócio Pesados; NÃO inclui picape/caminhonete/fiorino, que são PR1) | Cross-sell |
 | PR3 | Telemetria (rastreamento em tempo real, ~R$50/mês/veículo) | Upsell |
 | PR4 | Proteção total / cobertura de avarias | Upsell |
 | PR5 | Upgrade de categoria de veículo | Upsell |
