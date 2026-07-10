@@ -61,13 +61,24 @@ Em outro caso, o cliente relatou que **deixou de alugar** por não conseguir ace
 
 ## Slide 4 — Hipótese 3: os bons comportamentos se somam
 
-**Título:** Não basta tentar — o que separa quem fecha é fazer bem feito, e fazer mais de um
+**Título:** Duas coisas separam quem fecha: conectar o produto certo à dor do cliente, e mostrar por que a Localiza é melhor que a concorrência — com dado real, não papo genérico
 
-**Dados:**
-- **3,2%** fecha quando nenhum dos 2 comportamentos-chave aparece (n=4.885 — o padrão do time hoje)
-- **20,0%** fecha quando upsell ligado à dor do cliente **e** uma boa comparação com o concorrente aparecem juntos na mesma ligação (n=225)
-- **6,25x** mais fechamento na combinação vs. nenhum dos 2 — e cada comportamento sozinho já ajuda por conta própria (não é mágica de combinação, é soma de dois ganhos reais)
-- **O detalhe que mais importa:** "tentar" uma boa argumentação não é suficiente — quando é malfeita (dado genérico, sem conexão com o que o cliente disse), o resultado fica **abaixo da média geral da base**. Só quando é bem executada (dado real, específico, que o cliente reage) é que o efeito aparece.
+**Os 2 comportamentos-chave (nomear os dois explicitamente na tela, não deixar implícito):**
+1. **Upsell conectado à dor** — o vendedor liga o produto a algo específico que o cliente acabou de dizer, não a um catálogo genérico
+2. **Boa comparação com o concorrente** — usa um dado real e verificável pra mostrar a vantagem da Localiza, não uma afirmação vaga de "vale a pena"
+
+**A conta, passo a passo (como chegamos no 6,25x):**
+
+| Combinação | N | Taxa de fechamento |
+|---|---|---|
+| Nenhum dos dois (padrão do time hoje) | 4.885 | 3,2% |
+| Upsell na dor, sozinho | 68 | 13,2% |
+| Boa comparação com concorrente, sozinha | 1.228 | 9,1% |
+| **Os dois juntos** | **225** | **20,0%** |
+
+**3,2% → 20,0% = 6,25x mais fechamento.** Não é mágica de combinação — cada comportamento sozinho já ajuda por conta própria (13,2% e 9,1%, ambos acima do 3,2% base), e juntos o efeito soma.
+
+**O detalhe que mais importa:** "tentar" uma boa comparação não é suficiente — quando é malfeita (dado genérico, sem conexão com o que o cliente disse), o resultado fica **abaixo da média geral da base**. Só quando é bem executada (dado real, específico, que o cliente reage) é que o efeito aparece.
 
 **Exemplo real:**
 > Cliente: "Eu posso fazer o pagamento pelo cartão da empresa? [...] eu precisaria que ele retirasse se eu fizesse o pagamento por aqui ou faturado."

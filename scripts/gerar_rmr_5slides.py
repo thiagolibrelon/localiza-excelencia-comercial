@@ -181,6 +181,47 @@ def add_separator(slide, y, x0=MARGEM_X, x1=None, color=LINHA, weight=6350):
     line.line.width = Emu(weight)
 
 
+def add_section_label(slide, left, top, width, text):
+    tbox = slide.shapes.add_textbox(left, top, width, Emu(320040))
+    tf = tbox.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    set_run(p.add_run(), text, 12, bold=True, color=PRETO)
+    add_separator(slide, top + 320040, x0=left, x1=Emu(left + width), color=LINHA, weight=9525)
+    return Emu(top + 320040 + 91440)
+
+
+def add_bullet_list(slide, left, top, width, items, font_size=12, gap=Pt(10)):
+    """items: lista de strings simples, com marcador de destaque em azul."""
+    tbox = slide.shapes.add_textbox(left, top, width, Emu(4000000))
+    tf = tbox.text_frame
+    tf.word_wrap = True
+    first = True
+    for texto in items:
+        p = tf.paragraphs[0] if first else tf.add_paragraph()
+        first = False
+        p.space_after = gap
+        set_run(p.add_run(), "●  ", font_size, bold=False, color=AZUL)
+        set_run(p.add_run(), texto, font_size, bold=False, color=CINZA_TXT)
+
+
+def add_next_steps(slide, left, top, width, items, font_size=12, gap=Pt(10)):
+    """items: lista de tuplas (texto, prazo)."""
+    tbox = slide.shapes.add_textbox(left, top, width, Emu(4000000))
+    tf = tbox.text_frame
+    tf.word_wrap = True
+    first = True
+    for i, (texto, prazo) in enumerate(items, start=1):
+        p = tf.paragraphs[0] if first else tf.add_paragraph()
+        first = False
+        p.space_after = Pt(2)
+        set_run(p.add_run(), f"{i}. ", font_size, bold=True, color=AZUL)
+        set_run(p.add_run(), texto, font_size, bold=False, color=PRETO)
+        p2 = tf.add_paragraph()
+        p2.space_after = gap
+        set_run(p2.add_run(), f"     {prazo}", font_size - 1.5, bold=False, italic=True, color=CINZA_CLARO)
+
+
 def build():
     prs = Presentation()
     prs.slide_width = SLIDE_W
@@ -290,19 +331,77 @@ def build():
     s = new_slide(prs)
     add_header(
         s,
-        "HIPÓTESE 3 DE 3",
-        "Não basta tentar — o que separa quem fecha é fazer bem feito, e fazer mais de um. ",
-        ("3,2% fecha quando nenhum dos 2 comportamentos-chave aparece (padrão do time hoje). 20,0% fecha quando "
-         "upsell ligado à dor do cliente e uma boa comparação com o concorrente aparecem juntos — 6,25x mais "
-         "fechamento. Tentativa malfeita fica abaixo da média da base; só a bem executada funciona."),
+        "HIPÓTESE 3 DE 3 — A COMBINAÇÃO QUE MULTIPLICA O FECHAMENTO",
+        "Duas coisas separam quem fecha: conectar o produto certo à dor do cliente, e mostrar por que a "
+        "Localiza é melhor que a concorrência — com dado real, não papo genérico. ",
+        ("Feitas juntas e bem executadas, multiplicam o fechamento por 6,25x sobre quem não faz nenhuma das "
+         "duas. Uma tentativa malfeita de comparação com o concorrente fica abaixo da média da base — só a "
+         "bem executada funciona."),
     )
-    quote_h = Inches(2.9)
-    note_h = Emu(548640)
-    gap_note = Emu(137160)
-    block_h = Emu(quote_h + gap_note + note_h)
-    block_top = centered_top(block_h)
+
+    half_w = Emu((11183112 - 228600) // 2)
+    left_x = MARGEM_X
+    right_x = Emu(MARGEM_X + half_w + Emu(228600))
+
+    label_top = Emu(body_top + Emu(320040))
+    content_top = add_section_label(s, left_x, label_top, half_w, "A CONTA: DE 3,2% A 20,0%")
+
+    col_combo_x = left_x
+    col_combo_w = Emu(half_w * 62 // 100)
+    col_n_x = Emu(left_x + col_combo_w)
+    col_n_w = Emu(half_w * 16 // 100)
+    col_taxa_x = Emu(col_n_x + col_n_w)
+    col_taxa_w = Emu(half_w - col_combo_w - col_n_w)
+
+    add_table_row(
+        s, content_top,
+        [
+            ("COMBINAÇÃO DE COMPORTAMENTOS", col_combo_x, col_combo_w, PP_ALIGN.LEFT),
+            ("N", col_n_x, col_n_w, PP_ALIGN.RIGHT),
+            ("FECHOU", col_taxa_x, col_taxa_w, PP_ALIGN.RIGHT),
+        ],
+        bold=True, color=CINZA_CLARO, size=9,
+    )
+    add_separator(s, content_top + 320040, x0=left_x, x1=Emu(left_x + half_w), weight=12700, color=PRETO)
+
+    linhas_combo = [
+        ("Nenhum dos dois", "4.885", "3,2%", False),
+        ("Upsell na dor, sozinho", "68", "13,2%", False),
+        ("Boa comparação, sozinha", "1.228", "9,1%", False),
+        ("Os dois juntos", "225", "20,0%", True),
+    ]
+    y = content_top + 320040 + 91440
+    row_h = 448056
+    for combo, n, taxa, destaque in linhas_combo:
+        cor = AZUL if destaque else PRETO
+        add_table_row(
+            s, y,
+            [
+                (combo, col_combo_x, col_combo_w, PP_ALIGN.LEFT),
+                (n, col_n_x, col_n_w, PP_ALIGN.RIGHT),
+            ],
+            bold=destaque, color=cor, size=12,
+        )
+        add_table_row(
+            s, y, [(taxa, col_taxa_x, col_taxa_w, PP_ALIGN.RIGHT)],
+            bold=True, color=cor, size=12,
+        )
+        add_separator(s, y + row_h - 45720, x0=left_x, x1=Emu(left_x + half_w), weight=6350)
+        y += row_h
+
+    result_top = Emu(y + 137160)
+    add_rounded_card(s, left_x, result_top, half_w, Inches(0.8), fill=CARD_BG)
+    rbox = s.shapes.add_textbox(Emu(left_x + 182880), Emu(result_top + 91440), Emu(half_w - 365760), Inches(0.62))
+    tf = rbox.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    set_run(p.add_run(), "3,2% → 20,0% = ", 14, bold=False, color=CINZA_TXT)
+    set_run(p.add_run(), "6,25x", 16, bold=True, color=AZUL)
+    set_run(p.add_run(), " mais fechamento fazendo os dois, bem feitos", 12, bold=False, color=CINZA_TXT)
+
+    quote_h = Emu(Emu(result_top + Inches(0.8)) - content_top)
     add_quote_card(
-        s, MARGEM_X, block_top, Emu(11183112), quote_h,
+        s, right_x, content_top, half_w, quote_h,
         turns=[
             ("Cliente", "Eu posso fazer o pagamento pelo cartão da empresa? [...] eu precisaria que ele retirasse "
                         "se eu fizesse o pagamento por aqui ou faturado."),
@@ -312,18 +411,19 @@ def build():
         ],
         attribution_bold="Cliente 14683216",
         attribution_rest="· 1.180s · fechou novo contrato",
-        insight=("Conectou a dúvida específica do cliente a uma vantagem concreta e verificável — não uma "
-                  "afirmação genérica de que “vale a pena”."),
+        insight=("Isso é comparação bem feita: conectou a dúvida específica do cliente a uma vantagem concreta "
+                  "e verificável — não uma afirmação genérica de que “vale a pena”."),
     )
-    note_top = Emu(block_top + quote_h + gap_note)
-    nbox = s.shapes.add_textbox(MARGEM_X, note_top, Emu(11183112), note_h)
+
+    note_top = Emu(result_top + Inches(0.8) + Emu(137160))
+    nbox = s.shapes.add_textbox(MARGEM_X, note_top, Emu(11183112), Emu(320040))
     tf = nbox.text_frame
     tf.word_wrap = True
     p = tf.paragraphs[0]
     p.alignment = PP_ALIGN.CENTER
-    set_run(p.add_run(), "Já existe um guia de treinamento pronto sobre como executar bem esse tipo de "
-                          "argumentação (critério objetivo de 3 pontos, com exemplos reais bons e ruins da "
-                          "própria base) — a análise já virou ação.", 11, bold=False, italic=True, color=CINZA_TXT)
+    set_run(p.add_run(), "Já existe um guia de treinamento pronto sobre como executar bem essa comparação "
+                          "(critério objetivo de 3 pontos, com exemplos reais bons e ruins da própria base) — "
+                          "a análise já virou ação.", 10.5, bold=False, italic=True, color=CINZA_TXT)
     add_footer(s)
 
     # ---------------- SLIDE 5 — Portfólio ----------------
@@ -401,6 +501,51 @@ def build():
         attribution_rest="· 7-8 carros leves + 2 caminhões próprios fora da Localiza",
         insight=("Descoberto por acidente, numa pergunta de curiosidade — não por script. A consistência entre "
                   "amostras independentes já justifica testar um script de sondagem."),
+    )
+    add_footer(s)
+
+    # ---------------- SLIDE 6 — Sumário executivo ----------------
+    s = new_slide(prs)
+    add_header(
+        s,
+        "SUMÁRIO EXECUTIVO",
+        "Resumo do mês e próximos passos. ",
+        ("6.623 ligações analisadas em junho–julho de 2026, taxa de fechamento de 5,1% — três hipóteses "
+         "confirmadas sobre o que separa quem fecha de quem não fecha."),
+    )
+    col_gap = Emu(457200)
+    col_w = Emu((11183112 - 457200) // 2)
+    col_left_x = MARGEM_X
+    col_right_x = Emu(MARGEM_X + col_w + col_gap)
+    section_top = Emu(body_top + Emu(320040))
+
+    content_top_l = add_section_label(s, col_left_x, section_top, col_w, "RESUMO DO MÊS")
+    add_bullet_list(
+        s, col_left_x, content_top_l, col_w,
+        [
+            "6.623 ligações analisadas por IA (jun–jul/2026) — 1.275 da base piloto + 5.348 do novo lote",
+            "5,1% de taxa de fechamento — 57,4% das ligações nem era venda, o que exige medir o esforço "
+            "sobre a base certa",
+            "39,9% de toda oportunidade perdida é ligação que encerra sem nenhuma pergunta comercial — "
+            "vendedor virando suporte de sistema",
+            "Upsell ligado à dor do cliente + boa comparação com o concorrente, juntos, multiplicam o "
+            "fechamento por 6,25x",
+        ],
+        font_size=12,
+    )
+
+    content_top_r = add_section_label(s, col_right_x, section_top, col_w, "PRIORIDADES E PRÓXIMOS PASSOS")
+    add_next_steps(
+        s, col_right_x, content_top_r, col_w,
+        [
+            ("Treinar upsell conectado à dor do cliente — guia já pronto", "2 semanas"),
+            ("Tirar do vendedor os problemas de acesso/sistema e faturamento, hoje resolvidos na ligação "
+             "comercial", "2 semanas"),
+            ("Testar script de sondagem de portfólio (frota pesada, elétrico, telemetria, gestão de frota)",
+             "2 semanas"),
+            ("Concluir aprofundamento da análise na base combinada de 6.623 ligações", "Em andamento"),
+        ],
+        font_size=12,
     )
     add_footer(s)
 
