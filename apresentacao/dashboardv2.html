@@ -511,6 +511,14 @@ tbody tr:hover td{background:var(--bg-dn)}
 .dtable tr:last-child td{border-bottom:none}
 .dtable tr:hover td{background:var(--bg-dn)}
 .doc-ci-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--fg-2)}
+.tr-block{background:var(--bg-dn);border-radius:8px;padding:14px 16px;font-size:12.5px;line-height:1.65;color:var(--fg)}
+.tr-line{margin-bottom:10px}
+.tr-line:last-child{margin-bottom:0}
+.tr-a{color:var(--brand-2);font-weight:700;margin-right:4px}
+[data-theme="dark"] .tr-a{color:var(--brand)}
+.tr-c{color:var(--fg-2);font-weight:700;margin-right:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -578,6 +586,11 @@ tbody tr:hover td{background:var(--bg-dn)}
     <button class="ni" onclick="nav('framework',this)">
       <svg class="nicon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
       <span class="nl">Framework</span>
+    </button>
+
+    <button class="ni" onclick="nav('evidencias',this)">
+      <svg class="nicon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span class="nl">Ligações Modelo</span>
     </button>
 
     <span class="nsl">Sistema</span>
@@ -823,7 +836,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="bitem">
               <span class="bpct" style="color:var(--err)">56,2%</span>
               <div class="bwrap"><div class="bbar" style="width:100%;background:var(--err)"></div></div>
-              <span class="bdesc">PM2 — WhatsApp sem prazo definido (684)</span>
+              <span class="bdesc">PM2 — Envia documento/proposta (684)</span>
             </div>
             <div class="bitem">
               <span class="bpct" style="color:var(--warn)">9%</span>
@@ -1104,8 +1117,8 @@ tbody tr:hover td{background:var(--bg-dn)}
           </div>
           <div class="ch-card c7" style="grid-column:span 1">
             <div class="ch-num">CH7 · Raro</div>
-            <div class="ch-t">Propor teste ou piloto</div>
-            <div class="ch-d">Reduz a barreira de entrada propondo uso limitado antes do compromisso total. Aparece pouco mas pode destravar contas maiores com ciclo longo de decisão.</div>
+            <div class="ch-t">Necessidade não declarada</div>
+            <div class="ch-d">Vendedor pergunta e descobre uma necessidade que o cliente não tinha declarado (frota própria, caminhões, expansão) e que o produto resolve. Aparece pouco mas pode destravar contas maiores.</div>
             <span class="ch-tag" style="background:var(--err-bg);color:var(--err-fg)">Subutilizado em contas grandes</span>
           </div>
         </div>
@@ -2166,6 +2179,59 @@ tbody tr:hover td{background:var(--bg-dn)}
     </div>
     </section>
 
+    <!-- ══════ PAGE: EVIDÊNCIAS / LIGAÇÕES MODELO ══════ -->
+    <section id="page-evidencias" class="page">
+    <div class="wrap">
+
+      <div class="sec-hdr mb24">
+        <div class="sec-lbl">Comportamento em ação · P5 — Challenger</div>
+        <div class="sec-h">CH1 — Revelar custo oculto</div>
+        <div class="sec-d">O comportamento Challenger mais frequente na amostra (14 ocorrências). O vendedor mostra um custo que o cliente não havia calculado — e o cliente reage. Dois exemplos reais, mesma técnica, contextos diferentes.</div>
+      </div>
+
+      <div class="grid2">
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-t">Ligação 1</div>
+            <span class="badge b-info">CH1</span>
+          </div>
+          <div class="card-st">Cliente 13382750 · 342s · Resultado: interessou, não fechou</div>
+          <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Contexto: cliente comparou o preço com uma cotação que um colega fez em outra locadora.</div>
+          <div class="tr-block">
+            <div class="tr-line"><span class="tr-a">A:</span>"A operação da Localiza é muito diferente da deles. A gente tem cliente oculto que aluga nas concorrentes para ver como é o serviço... Se tem sinistro, o preço da indenização deles é três vezes maior que o da Localiza — eles dão um desconto na diária, mas você não está com a cobertura total. Eles não têm essa cobertura. Aí cobram tudo de você na indenização."</div>
+            <div class="tr-line"><span class="tr-a">A:</span>"A taxa de operação nossa é 12 e a deles é 20%."</div>
+            <div class="tr-line"><span class="tr-c">C:</span>"Com vocês eu nem fiz cotação, eu fui direto... desde aquela vez que a gente conversou, eu fui direto e já fechei com você. Não fiz nenhuma cotação não."</div>
+          </div>
+          <div class="rm-note"><strong>Resultado:</strong> o cliente confirma fidelidade sem cotar a concorrência — a ligação em si não fechou uma venda nova, mas o custo oculto revelado neutralizou o gatilho de preço que tinha motivado a comparação.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-t">Ligação 2</div>
+            <span class="badge b-info">CH1</span>
+          </div>
+          <div class="card-st">Cliente 00033938 · 546s · Resultado: pós-venda (sinistro), cliente refletiu</div>
+          <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Contexto: ligação de abertura de sinistro. A vendedora aproveita o atendimento para revelar um custo que o cliente não tinha calculado.</div>
+          <div class="tr-block">
+            <div class="tr-line"><span class="tr-a">A:</span>"Eu vi aqui que você contratou a proteção básica do carro da Localiza."</div>
+            <div class="tr-line"><span class="tr-a">A:</span>"Como vocês contrataram a proteção básica, essa cobrança vai vir para a empresa — a cobrança de franquia. Você tem uma franquia de X, que é seu teto. Se passar disso, a Localiza paga inteira. Se não passar, vocês pagam."</div>
+            <div class="tr-line"><span class="tr-a">A:</span>"O que eu te oriento: sempre que você fizer, coloca a proteção total de avarias. Porque se você tivesse colocado, a Localiza não ia te cobrar isso."</div>
+            <div class="tr-line"><span class="tr-c">C:</span>"Entendi."</div>
+          </div>
+          <div class="rm-note"><strong>Resultado:</strong> o cliente para e revisa, um a um, os contratos dos outros veículos da frota para confirmar se estão todos em proteção total — reflexo direto do custo oculto revelado.</div>
+        </div>
+
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="rm-dl-hdr">Por que isso importa</div>
+        <div class="rm-itext">CH1 aparece em apenas 14 das 1.275 ligações analisadas, mas com altíssima qualidade nos dois exemplos acima. É uma técnica replicável em qualquer ligação — inclusive suporte e sinistro: identificar um custo que o cliente não calculou (franquia, indenização, taxa de operação) e nomear o número. Tabela completa de comportamentos Challenger (CH1–CH7) em <strong>Framework</strong> e <strong>Documentação → Glossário</strong>.</div>
+      </div>
+
+    </div>
+    </section>
+
     <!-- ══════ PAGE: DOCS ══════ -->
     <section id="page-docs" class="page">
     <div class="wrap">
@@ -2225,29 +2291,31 @@ tbody tr:hover td{background:var(--bg-dn)}
                 <tr data-g="CH4 dado concorrente challenger"><td><span class="badge b-info">CH4</span></td><td>Usar dado do concorrente</td><td>Vendedor usa dado comparativo real para se diferenciar da concorrência</td></tr>
                 <tr data-g="CH5 dor produto challenger"><td><span class="badge b-info">CH5</span></td><td>Conectar dor à solução</td><td>Vendedor liga uma dor declarada pelo cliente diretamente a uma funcionalidade do produto</td></tr>
                 <tr data-g="CH6 antecipação problema challenger"><td><span class="badge b-info">CH6</span></td><td>Antecipar problema futuro</td><td>Vendedor alerta sobre um problema que o cliente ainda não percebeu</td></tr>
-                <tr data-g="CH7 necessidade não declarada challenger"><td><span class="badge b-info">CH7</span></td><td>Propor teste ou piloto</td><td>Vendedor descobre uma necessidade que o cliente não sabia que tinha e que o produto resolve</td></tr>
+                <tr data-g="CH7 necessidade não declarada challenger"><td><span class="badge b-info">CH7</span></td><td>Necessidade não declarada</td><td>Vendedor descobre uma necessidade que o cliente não sabia que tinha e que o produto resolve</td></tr>
               </tbody>
             </table>
           </div>
 
           <div class="card mb12">
-            <div class="rm-dl-hdr">Oportunidades Perdidas — OP1 a OP7 <span class="badge b-mu" style="margin-left:8px">P6</span></div>
+            <div class="rm-dl-hdr">Oportunidades Perdidas — OP1 a OP8 <span class="badge b-mu" style="margin-left:8px">P6</span></div>
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Valor est.</th></tr></thead>
               <tbody>
                 <tr data-g="OP1 suporte sem pergunta comercial oportunidade"><td><span class="badge b-err">OP1</span></td><td>Suporte sem pergunta comercial</td><td>Ligação de suporte encerrada sem nenhuma sondagem comercial — a janela existia e não foi aberta</td><td>R$800/mês</td></tr>
                 <tr data-g="OP2 dor relatada sem produto oportunidade"><td><span class="badge b-mu">OP2</span></td><td>Dor relatada, produto não oferecido</td><td>Cliente revelou uma dor explícita mas o vendedor não conectou a nenhum produto disponível</td><td>—</td></tr>
-                <tr data-g="OP3 urgência não criada oportunidade"><td><span class="badge b-mu">OP3</span></td><td>Não criou urgência para fechar</td><td>Havia contexto para criar pressão de tempo mas o vendedor não usou nenhum fato concreto</td><td>—</td></tr>
+                <tr data-g="OP3 urgência não criada oportunidade"><td><span class="badge b-mu">OP3</span></td><td>Fechamento sem urgência</td><td>Havia contexto para criar pressão de tempo mas o vendedor não usou nenhum fato concreto</td><td>—</td></tr>
                 <tr data-g="OP4 referral não solicitado oportunidade"><td><span class="badge b-mu">OP4</span></td><td>Referral não solicitado</td><td>Cliente satisfeito com potencial de indicação — vendedor não pediu indicação de outro contato</td><td>—</td></tr>
-                <tr data-g="OP5 objeção adiamento oportunidade"><td><span class="badge b-mu">OP5</span></td><td>Objeção respondida com adiamento</td><td>Cliente fez objeção e o vendedor não rebateu com dado — adiou a decisão sem argumento</td><td>—</td></tr>
-                <tr data-g="OP6 upsell não tentado oportunidade"><td><span class="badge b-err">OP6</span></td><td>Upsell não tentado</td><td>Havia contexto para oferecer produto adicional (SUV, elétrico, telemetria) e o vendedor não tentou</td><td style="font-weight:700;color:var(--err)">R$23.410/mês</td></tr>
-                <tr data-g="OP7 expansão mercado oportunidade"><td><span class="badge b-mu">OP7</span></td><td>Expansão de mercado não explorada</td><td>Cliente mencionou novo negócio, nova filial ou crescimento e o vendedor não explorou a oportunidade</td><td>R$3.600/mês</td></tr>
+                <tr data-g="OP5 dado estratégico não explorado oportunidade"><td><span class="badge b-mu">OP5</span></td><td>Dado estratégico não explorado</td><td>Cliente revelou frota própria, expansão de empresa ou outra locadora — vendedor não aproveitou o dado</td><td>—</td></tr>
+                <tr data-g="OP6 upsell não tentado oportunidade"><td><span class="badge b-err">OP6</span></td><td>Upsell óbvio não tentado</td><td>Havia contexto para oferecer produto adicional (SUV, elétrico, telemetria) e o vendedor não tentou</td><td style="font-weight:700;color:var(--err)">R$23.410/mês</td></tr>
+                <tr data-g="OP7 churn não detectado oportunidade"><td><span class="badge b-mu">OP7</span></td><td>Churn não detectado</td><td>Sinais de queda de volume ou insatisfação do cliente foram ignorados pelo vendedor</td><td>—</td></tr>
+                <tr data-g="OP8 escalada desnecessária oportunidade"><td><span class="badge b-mu">OP8</span></td><td>Escalada desnecessária</td><td>Vendedor transferiu para 0800 um problema que poderia ter resolvido</td><td>—</td></tr>
               </tbody>
             </table>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: OP5 e OP7 tinham nome/descrição trocados (não correspondiam ao Prompt 6 real) e faltava OP8. Os valores estimados de OP6 (R$23.410/mês) e o antigo OP7 (R$3.600/mês, ligado à narrativa de Localiza Pesados/H6) foram calculados sob a definição antiga — revalidar a origem desses números antes de reapresentar.</div>
           </div>
 
           <div class="card mb12">
-            <div class="rm-dl-hdr">Tipos de Fechamento — FC1 a FC4 <span class="badge b-mu" style="margin-left:8px">P9</span></div>
+            <div class="rm-dl-hdr">Tipos de Fechamento — FC1 a FC5 <span class="badge b-mu" style="margin-left:8px">P9</span></div>
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Eficácia</th><th>Base</th></tr></thead>
               <tbody>
@@ -2255,6 +2323,7 @@ tbody tr:hover td{background:var(--bg-dn)}
                 <tr data-g="FC2 próximo passo vendedor fechamento"><td><span class="badge b-br">FC2</span></td><td>Próximo passo só do vendedor</td><td>Vendedor assume ação ("vou te mandar") sem compromisso do cliente</td><td>Média</td><td>—</td></tr>
                 <tr data-g="FC3 qualquer coisa me chama vago fechamento"><td><span class="badge b-err">FC3</span></td><td>"Qualquer coisa me chama"</td><td>Encerramento vago — sem data, sem próximo passo, sem comprometimento de nenhum lado</td><td style="color:var(--err)">Baixíssima</td><td>44,8%</td></tr>
                 <tr data-g="FC4 sem fechamento explícito fechamento"><td><span class="badge b-mu">FC4</span></td><td>Sem fechamento explícito</td><td>Ligação termina sem qualquer definição de continuidade — inclassificável</td><td style="color:var(--fg-2)">Nula</td><td>—</td></tr>
+                <tr data-g="FC5 diretivo instrução clara fechamento"><td><span class="badge b-mu">FC5</span></td><td>Diretivo</td><td>Vendedor dá instrução clara ao cliente (ex: "não paga essa fatura ainda")</td><td>Variável</td><td>—</td></tr>
               </tbody>
             </table>
           </div>
@@ -2264,14 +2333,15 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>Risco</th></tr></thead>
               <tbody>
-                <tr data-g="PM1 próxima ligação data promessa"><td><span class="badge b-ok">PM1</span></td><td>Próxima ligação com data definida</td><td style="color:var(--ok)">Baixo</td></tr>
-                <tr data-g="PM2 WhatsApp sem prazo promessa"><td><span class="badge b-err">PM2</span></td><td>WhatsApp sem prazo definido</td><td style="color:var(--err)">Alto — 56,2% das promessas</td></tr>
-                <tr data-g="PM3 enviar proposta promessa"><td><span class="badge b-br">PM3</span></td><td>Enviar proposta</td><td>Médio — depende de prazo</td></tr>
-                <tr data-g="PM4 outros tipos promessa"><td><span class="badge b-mu">PM4</span></td><td>Outros tipos de promessa</td><td>Variável</td></tr>
-                <tr data-g="PM5 negociar internamente promessa"><td><span class="badge b-mu">PM5</span></td><td>Negociar internamente</td><td>Alto — sem controle do vendedor</td></tr>
-                <tr data-g="PM6 sem promessa promessa"><td><span class="badge b-mu">PM6</span></td><td>Sem promessa registrada</td><td style="color:var(--fg-2)">—</td></tr>
+                <tr data-g="PM1 resolve mesma ligação promessa"><td><span class="badge b-ok">PM1</span></td><td>Resolve na mesma ligação</td><td style="color:var(--ok)">Baixo — está feito antes de desligar</td></tr>
+                <tr data-g="PM2 envia documento proposta promessa"><td><span class="badge b-br">PM2</span></td><td>Envia documento/proposta</td><td>Médio — depende de prioridade</td></tr>
+                <tr data-g="PM3 liga de volta resultado promessa"><td><span class="badge b-err">PM3</span></td><td>Liga de volta com resultado</td><td style="color:var(--err)">Médio-alto — 56,2% das promessas</td></tr>
+                <tr data-g="PM4 encaminha terceiro promessa"><td><span class="badge b-mu">PM4</span></td><td>Encaminha para terceiro</td><td>Alto — sem visibilidade do que o terceiro fez</td></tr>
+                <tr data-g="PM5 negocia internamente promessa"><td><span class="badge b-mu">PM5</span></td><td>Negocia internamente</td><td>Alto — processo longo, cliente aguarda sem prazo</td></tr>
+                <tr data-g="PM6 promessa implícita cobertura promessa"><td><span class="badge b-mu">PM6</span></td><td>Promessa implícita de cobertura</td><td style="color:var(--fg-2)">Muito alto — nunca formalizada</td></tr>
               </tbody>
             </table>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: os nomes de PM1-PM4 estavam trocados/incorretos em relação ao Prompt 10 real. O "56,2% das promessas" que estava em PM2 foi mantido em PM3 (mesma métrica, código correto) — revalidar a origem exata desse número.</div>
           </div>
 
           <div class="card mb12">
@@ -2279,13 +2349,14 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Base</th></tr></thead>
               <tbody>
-                <tr data-g="AB1 abertura padrão identificação motivo"><td><span class="badge b-br">AB1</span></td><td>Abertura padrão — identificação + motivo</td><td>Vendedor se identifica e declara o motivo da ligação de forma clara</td><td>55,7%</td></tr>
-                <tr data-g="AB2 abertura sondagem"><td><span class="badge b-br">AB2</span></td><td>Abertura por sondagem</td><td>Vendedor abre com pergunta diagnóstica antes de qualquer oferta</td><td>—</td></tr>
-                <tr data-g="AB3 abertura direta oferta imediata"><td><span class="badge b-mu">AB3</span></td><td>Abertura direta — oferta imediata</td><td>Vendedor vai direto ao produto sem diagnóstico prévio</td><td>—</td></tr>
-                <tr data-g="AB4 abertura retomada contato"><td><span class="badge b-mu">AB4</span></td><td>Abertura por retomada de contato</td><td>Vendedor faz referência a uma conversa ou compromisso anterior</td><td>—</td></tr>
-                <tr data-g="AB5 abertura institucional"><td><span class="badge b-mu">AB5</span></td><td>Abertura institucional</td><td>Abertura genérica — "central de atendimento, em que posso ajudar?"</td><td>—</td></tr>
+                <tr data-g="AB1 contextualizada motivo histórico"><td><span class="badge b-br">AB1</span></td><td>Contextualizada</td><td>Vendedor diz por que está ligando antes de pedir atenção / referencia o histórico do cliente</td><td>55,7%</td></tr>
+                <tr data-g="AB2 relacional vínculo pessoal"><td><span class="badge b-br">AB2</span></td><td>Relacional</td><td>Vendedor abre com interesse genuíno na pessoa antes de falar de negócio</td><td>—</td></tr>
+                <tr data-g="AB3 genérica sem personalização"><td><span class="badge b-mu">AB3</span></td><td>Genérica</td><td>Abertura padrão sem personalização ("Bom dia, tudo bem? Em que posso ajudar?")</td><td>—</td></tr>
+                <tr data-g="AB4 reativa responde cliente"><td><span class="badge b-mu">AB4</span></td><td>Reativa</td><td>Vendedor só responde ao que o cliente traz — cliente tomou a iniciativa</td><td>—</td></tr>
+                <tr data-g="AB5 proteção antecipa problema"><td><span class="badge b-mu">AB5</span></td><td>De proteção</td><td>Vendedor abre antecipando um problema que o cliente ainda não percebeu</td><td>—</td></tr>
               </tbody>
             </table>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: AB2-AB5 estavam com nome/descrição incompatíveis com o Prompt 9 real (ex: AB3 antigo "oferta imediata" não existe na taxonomia real, que é "Genérica").</div>
           </div>
 
           <div class="card mb12">
@@ -2298,21 +2369,22 @@ tbody tr:hover td{background:var(--bg-dn)}
                 <tr data-g="IC3 migrou concorrente localiza"><td><span class="badge b-ok">IC3</span></td><td>Cliente migrou de outro fornecedor para a Localiza</td></tr>
                 <tr data-g="IC4 frota própria veículo próprio"><td><span class="badge b-mu">IC4</span></td><td>Cliente tem ou considera ter frota própria</td></tr>
                 <tr data-g="IC5 comparação preço concorrente"><td><span class="badge b-mu">IC5</span></td><td>Cliente compara preço da Localiza com concorrente</td></tr>
-                <tr data-g="IC6 vendedor explorou sinal competitivo"><td><span class="badge b-ok">IC6</span></td><td>Vendedor explorou o sinal competitivo ativamente</td></tr>
-                <tr data-g="IC7 vendedor não explorou janela perdida"><td><span class="badge b-err">IC7</span></td><td>Vendedor não explorou o sinal competitivo (perdeu a janela)</td></tr>
+                <tr data-g="IC6 sonda do vendedor"><td><span class="badge b-ok">IC6</span></td><td>Sonda do vendedor — vendedor perguntou diretamente sobre uso de concorrentes</td></tr>
+                <tr data-g="IC7 risco competitivo detectado"><td><span class="badge b-err">IC7</span></td><td>Risco competitivo detectado — cliente demonstrou abertura para avaliar alternativas</td></tr>
               </tbody>
             </table>
           </div>
 
           <div class="card mb12">
-            <div class="rm-dl-hdr">Eventos Raros de Alto Impacto — R1 a R4 <span class="badge b-mu" style="margin-left:8px">P15</span></div>
+            <div class="rm-dl-hdr">Eventos Raros de Alto Impacto — R1 a R5 <span class="badge b-mu" style="margin-left:8px">P15</span></div>
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Evento</th></tr></thead>
               <tbody>
-                <tr data-g="R1 expansão frota oportunidade imediata"><td><span class="badge b-ok">R1</span></td><td>Cliente anuncia expansão significativa de frota — oportunidade imediata de venda</td></tr>
-                <tr data-g="R2 churn cancelamento exclusão"><td><span class="badge b-err">R2</span></td><td>Cliente anuncia risco de cancelamento ou exclusão da Localiza</td></tr>
-                <tr data-g="R3 inteligência competitiva crítica mudança fornecedor"><td><span class="badge b-mu">R3</span></td><td>Inteligência competitiva crítica: mudança de fornecedor, novo concorrente, preço agressivo</td></tr>
-                <tr data-g="R4 mudança estrutural fusão venda empresa"><td><span class="badge b-mu">R4</span></td><td>Mudança estrutural no negócio do cliente: fusão, venda da empresa, mudança de política de frota</td></tr>
+                <tr data-g="R1 expansão frota oportunidade imediata"><td><span class="badge b-ok">R1</span></td><td>Expansão — cliente anuncia crescimento de frota, contratação, abertura de filial, novos contratos</td></tr>
+                <tr data-g="R2 churn cancelamento exclusão"><td><span class="badge b-err">R2</span></td><td>Churn — ameaça explícita de saída, comparação direta com concorrente, insatisfação recorrente</td></tr>
+                <tr data-g="R3 inteligência competitiva crítica mudança fornecedor"><td><span class="badge b-mu">R3</span></td><td>Inteligência competitiva crítica: migração de fornecedor, teste com concorrente, múltiplos fornecedores</td></tr>
+                <tr data-g="R4 influência indicação contato"><td><span class="badge b-mu">R4</span></td><td>Influência — cliente oferece indicação, cita outra empresa, apresenta contato</td></tr>
+                <tr data-g="R5 mudança estrutural fusão venda empresa"><td><span class="badge b-mu">R5</span></td><td>Mudança estrutural: fusão, aquisição, mudança societária, troca de gestor, mudança operacional relevante</td></tr>
               </tbody>
             </table>
           </div>
@@ -2356,25 +2428,31 @@ tbody tr:hover td{background:var(--bg-dn)}
               <tr><td><span class="badge b-info">P12</span></td><td>Talk Ratio</td><td>Proporção de fala: vendedor vs. cliente (turn ratio + word ratio)</td></tr>
               <tr><td><span class="badge b-info">P13</span></td><td>Padrões Emergentes</td><td>Comportamentos novos não mapeados no framework original (S1–S4)</td></tr>
               <tr><td><span class="badge b-info">P14</span></td><td>Diferenças entre Vendedores</td><td>Comparação de 5 dimensões de performance entre vendedores</td></tr>
-              <tr><td><span class="badge b-info">P15</span></td><td>Eventos Raros de Alto Impacto</td><td>Sinais de baixa frequência e alto impacto (R1–R4)</td></tr>
+              <tr><td><span class="badge b-info">P15</span></td><td>Eventos Raros de Alto Impacto</td><td>Sinais de baixa frequência e alto impacto (R1–R5)</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="card mb12">
-          <div class="rm-dl-hdr">Portfólio de Produtos Localiza — PR1 a PR7</div>
+          <div class="rm-dl-hdr">Portfólio de Produtos Localiza — PR1 a PR12</div>
           <table class="dtable" style="margin-top:8px">
-            <thead><tr><th>Código</th><th>Produto</th></tr></thead>
+            <thead><tr><th>Código</th><th>Produto</th><th>Tipo</th></tr></thead>
             <tbody>
-              <tr><td><span class="badge b-mu">PR1</span></td><td>Locação mensal de veículos leves (produto principal)</td></tr>
-              <tr><td><span class="badge b-mu">PR2</span></td><td>Localiza Pesados — locação de caminhões e utilitários pesados</td></tr>
-              <tr><td><span class="badge b-mu">PR3</span></td><td>TAG / gestão de pedágio</td></tr>
-              <tr><td><span class="badge b-mu">PR4</span></td><td>Seguro e proteção de frota</td></tr>
-              <tr><td><span class="badge b-mu">PR5</span></td><td>Gestão de frota (telemetria, relatórios)</td></tr>
-              <tr><td><span class="badge b-mu">PR6</span></td><td>Locação diária / avulsa</td></tr>
-              <tr><td><span class="badge b-mu">PR7</span></td><td>Outros produtos não mapeados individualmente</td></tr>
+              <tr><td><span class="badge b-mu">PR1</span></td><td>Locação mensal de veículos leves (passeio, picape, caminhonete, fiorino/furgão leve — produto principal RAC)</td><td>Core</td></tr>
+              <tr><td><span class="badge b-mu">PR2</span></td><td>Localiza Pesados — locação de caminhão, cavalo mecânico, carreta</td><td>Cross-sell</td></tr>
+              <tr><td><span class="badge b-mu">PR3</span></td><td>Telemetria — rastreamento em tempo real (~R$50–130/mês/veículo)</td><td>Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR4</span></td><td>Proteção total / cobertura de avarias</td><td>Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR5</span></td><td>Upgrade de categoria de veículo</td><td>Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR6</span></td><td>Km adicional / plano de km maior</td><td>Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR7</span></td><td>Contrato anual (trava preço por 12 meses)</td><td>Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR8</span></td><td>Veículos elétricos</td><td>Cross-sell/Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR9</span></td><td>ZARP</td><td>Cross-sell</td></tr>
+              <tr><td><span class="badge b-mu">PR10</span></td><td>Meoo</td><td>Cross-sell</td></tr>
+              <tr><td><span class="badge b-mu">PR11</span></td><td>Venda de Seminovos</td><td>Cross-sell</td></tr>
+              <tr><td><span class="badge b-mu">PR12</span></td><td>Gestão de frotas — contrato de 36 meses em que o cliente adquire o(s) veículo(s) podendo personalizar (plotagem, cor), tendo uma frota própria administrada pela Localiza</td><td>Cross-sell</td></tr>
             </tbody>
           </table>
+          <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Tabela corrigida em 10/07/2026 — a versão anterior (PR1–PR7) tinha PR3, PR6 e PR7 com definições desatualizadas e conflitava com a numeração usada na exploração qualitativa (Fable/Sonnet/Opus). PR5 antigo ("Gestão de frota — telemetria, relatórios") conflava dois produtos hoje separados: PR3 (Telemetria) e PR12 (Gestão de frotas, 36 meses).</div>
         </div>
 
         <div class="card mb12">
@@ -2635,7 +2713,7 @@ const html = document.documentElement;
 const LABELS = {
   dashboard:'Dashboard Executivo', evolucao:'Evolução Diária', comercial:'Comercial', clientes:'Clientes em Risco',
   vendedores:'Vendedores', acoes:'Plano de Ação', roadmap:'Roadmap 90 dias', ia:'IA & Insights',
-  framework:'Framework', docs:'Documentação', admin:'Administração'
+  framework:'Framework', evidencias:'Ligações Modelo', docs:'Documentação', admin:'Administração'
 };
 
 // ── THEME ──────────────────────────────────────────
@@ -2917,7 +2995,7 @@ function drawPM() {
   charts.pm = new Chart(document.getElementById('cPM'), {
     type:'bar',
     data:{
-      labels:['PM2 — WhatsApp sem prazo','PM5 — Negociar internamente','PM3 — Enviar proposta','PM1 — Próxima ligação c/ data','PM4 — Outros','PM6 — Sem promessa'],
+      labels:['PM2 — Envia documento/proposta','PM5 — Negocia internamente','PM3 — Liga de volta c/ resultado','PM1 — Resolve na mesma ligação','PM4 — Encaminha p/ terceiro','PM6 — Promessa implícita'],
       datasets:[{data:[56.2,12.7,11.1,8.2,7.4,4.4],backgroundColor:[c.red,c.warn,c.muted,'#7C3AED',c.border,c.grid],borderRadius:4,barPercentage:.7}]
     },
     options:{indexAxis:'y',responsive:true,
@@ -2965,23 +3043,24 @@ const SIGLAS = {
   CH1:'Revelar custo oculto ao cliente',CH2:'Calcular ROI em tempo real',
   CH3:'Criar urgência com fato real',CH4:'Usar dado do concorrente',
   CH5:'Conectar dor à solução',CH6:'Antecipar problema futuro',
-  CH7:'Propor teste ou piloto',
+  CH7:'Descobriu necessidade não declarada pelo cliente',
   OP1:'Suporte sem pergunta comercial',OP2:'Dor relatada sem produto oferecido',
   OP3:'Não criou urgência para fechar',OP4:'Referral não solicitado',
-  OP5:'Objeção respondida com adiamento',OP6:'Upsell não tentado',
-  OP7:'Expansão de mercado não explorada',
+  OP5:'Dado estratégico não explorado (frota própria, expansão, outra locadora)',OP6:'Upsell não tentado',
+  OP7:'Churn não detectado',OP8:'Escalada desnecessária ao 0800',
   FC1:'Compromisso duplo com data',FC2:'Próximo passo só do vendedor',
   FC3:'"Qualquer coisa me chama" — sem data',FC4:'Sem fechamento explícito',
-  PM1:'Próxima ligação com data',PM2:'WhatsApp sem prazo definido',
-  PM3:'Enviar proposta',PM4:'Outros tipos de promessa',
-  PM5:'Negociar internamente',PM6:'Sem promessa registrada',
-  AB1:'Abertura padrão — identificação + motivo',AB2:'Abertura por sondagem',
-  AB3:'Abertura direta — oferta imediata',AB4:'Abertura por retomada de contato',
-  AB5:'Abertura institucional',P15:'Sinal de expansão de frota detectado'
+  FC5:'Diretivo — instrução clara ao cliente',
+  PM1:'Resolve na mesma ligação',PM2:'Envia documento/proposta',
+  PM3:'Liga de volta com resultado',PM4:'Encaminha para terceiro',
+  PM5:'Negocia internamente',PM6:'Promessa implícita de cobertura',
+  AB1:'Contextualizada — diz o motivo antes de pedir atenção',AB2:'Relacional — vínculo pessoal antes do negócio',
+  AB3:'Genérica — sem personalização',AB4:'Reativa — só responde ao que o cliente traz',
+  AB5:'De proteção — antecipa problema que o cliente não percebeu',P15:'Sinal de expansão de frota detectado'
 };
 
 function initSiglaTooltips() {
-  const pat = /\b(B10|B[1-9]|CH[1-7]|OP[1-7]|FC[1-4]|PM[1-6]|AB[1-5]|P15)\b/g;
+  const pat = /\b(B10|B[1-9]|CH[1-7]|OP[1-8]|FC[1-5]|PM[1-6]|AB[1-5]|P15)\b/g;
   const SKIP = new Set(['SCRIPT','STYLE','CANVAS','INPUT','TEXTAREA']);
   function walk(node) {
     if (node.nodeType === 3) {
