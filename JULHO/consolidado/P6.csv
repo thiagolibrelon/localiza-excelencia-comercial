@@ -1,0 +1,1011 @@
+cliente_id,data,oportunidades_perdidas,descricao_curta,valor_potencial_R$
+14788035,2026-07-01,OP5,Não explorou telemetria para a nova empresa.,50
+24145064,2026-07-01,OP2,Não questionou custos de manutenção do carro próprio.,200
+27407246,2026-07-07,OP6,Não ofereceu proteção total durante o suporte de reserva.,80
+08655282,2026-07-01,OP6,Não tentou converter o fixo de 3 meses para anual.,200
+19856943,2026-07-01,OP2,Não conectou a falha do carro com a idade da frota atual.,200
+19856943,2026-07-01,OP3,Não usou o bloqueio para forçar renovação de frota mais nova.,200
+19856943,2026-07-01,OP6,Não ofereceu proteção total para evitar custos de multas/sinistros.,80
+07377132,2026-07-01,OP6,"Cliente quer ficar ""anos"" com o carro; não ofereceu Assinatura/Longo Prazo.",200
+27405384,2026-07-01,OP2,Não explorou o custo de capital imobilizado na compra do carro.,2000
+15830329,2026-07-01,OP5,Não explorou telemetria para controle de KM alto (4k/mês).,50
+09808309,2026-07-15,OP2,Não comparou custo por KM do carro próprio vs alugado.,200
+13355821,2026-07-01,OP2,Não ofereceu solução para viagens ao Amapá (logística complexa).,200
+00166161,2026-07-01,OP6,Não ofereceu telemetria após relato de acidente com moto.,50
+18703558,2026-07-01,OP5,Não explorou centralização de faturamento das 27 unidades.,500
+09937125,2026-07-01,OP6,Não ofereceu carro para o período de reforma da loja.,200
+12101322,2026-07-01,OP2,Não questionou custo de manutenção da frota de caminhões/carros.,500
+27415234,2026-07-01,OP6,Não ofereceu proteção total para viagens de expansão.,80
+02026671,2026-07-01,OP5,Não ofereceu telemetria para evitar multas recorrentes do condutor.,50
+04828753,2026-07-14,OP6,Não ofereceu proteção total na cotação do SUV.,80
+10351289,2026-07-15,OP3,"Não questionou o motivo do ""sequestro"" do carro para vender mensal.",200
+23865136,2026-07-03,OP6,Não ofereceu locação de elétricos para teste de carregadores.,3600
+25398250,2026-07-01,OP5,Nao explorou o motivo da inadimplencia do socio para oferecer gestao,0
+26800250,2026-07-01,OP1,Suporte tecnico sem investigar novas demandas de julho,200
+00361167,2026-07-01,OP2,Cliente usa agencia de viagens; nao tentou conversao para direto,200
+19955346,2026-07-01,OP7,Nao questionou custos do carro proprio para tentar manter aluguel,2400
+26740530,2026-07-01,OP6,Cliente pediu Montana; nao ofereceu telemetria para carga,50
+27408163,2026-07-01,OP5,Nao aprofundou na operacao da distribuidora para dimensionar frota,4800
+22698105,2026-07-01,OP6,Nao ofereceu protecao premium para veiculo de alto valor (BYD),80
+27418000,2026-07-01,OP2,Nao ofereceu telemetria para controle de uso em fazenda,50
+07917890,2026-07-01,OP5,Nao explorou o uso dos 19 carros proprios para terceirizacao,3800
+12619186,2026-07-01,OP5,Nao investigou por que os funcionarios preferem alugar no CPF,600
+10556147,2026-07-01,OP2,Aceitou negativa de protecao sem reforcar custo do sinistro no Mob,80
+11739036,2026-07-01,OP1,Ligacao de rotina sem nenhuma pergunta de descoberta,200
+14457783,2026-07-01,OP2,Nao explicou beneficios do mensal vs anual para demandas sazonais,200
+03757527,2026-07-01,OP1,Suporte de faturas sem investigar novas obras ou projetos,200
+23978539,2026-07-01,OP2,Nao ofereceu carro de categoria inferior para bater preco do Civic,2400
+27415691,2026-07-01,OP2,Nao ofereceu telemetria para operacao em area rural/ferrovia,50
+10525541,2026-07-01,OP6,Nao agendou o treinamento de telemetria no ato; deixou para o cliente,50
+13441560,2026-07-21,OP1,Nao aproveitou o erro do Sem Parar para vender facilidade Localiza,200
+10524321,2026-07-01,OP5,Nao questionou custos do transporte proprio para comparativo,2400
+25932223,2026-07-01,OP3,Nao ofereceu pagamento imediato do sinistro para liberar limite,0
+27418217,2026-07-01,OP5,Nao tentou entender a necessidade da Igreja para oferecer vans,3600
+16820738,2026-07-01,OP2,"Nao desafiou o ""orcamento trancado"" com ROI de terceirizacao",2400
+23423716,2026-07-01,OP2,Nao ofereceu entrega do carro em Chapecó para evitar voo,200
+26482262,2026-07-01,OP7,Nao detectou insatisfacao com a cobranca do Localiza Meu,0
+07476724,2026-07-03,OP2,"Cliente comprou carro zero; vendedor não ofereceu o ""Localiza Meoo"" como alternativa financeira.",3600
+27300971,2026-07-01,OP5,Cliente não tem frota própria; vendedor não explorou o potencial de terceirização total.,2000
+22608361,2026-07-01,OP6,Cliente vai abrir nova obra; vendedor não tentou fechar o pacote de frotas antecipadamente.,4000
+23613983,2026-07-01,OP5,Cliente tem frota própria e vai precisar de mais um para o verão; oportunidade de conversão total.,3600
+12532570,2026-07-01,OP2,Cliente usa furgões próprios; vendedor não apresentou dados de depreciação para desafiar a posse.,5000
+22480711,2026-07-01,OP6,Cliente pediu telemetria para carro de assinatura; vendedor apenas encaminhou em vez de vender o benefício.,50
+23808417,2026-07-01,OP7,Cliente ameaçou cancelar por reajuste; vendedor não ofereceu downgrade de categoria ou plano de fidelidade imediato.,3800
+27142386,2026-07-02,OP1,Cliente relatou avaria leve; vendedor não aproveitou para vender a Proteção Total para o próximo contrato.,80
+27142386,2026-07-17,OP6,Cliente reclamou que o carro atual (Montana) gasta muito; vendedor não ofereceu um modelo 1.0 econômico.,200
+20646892,2026-07-02,OP6,Cliente retirou telemetria e proteção para baixar preço; vendedor não insistiu no risco de segurança.,130
+10058584,2026-07-01,OP5,Cliente mencionou contrato de 4 carros com concorrente; vendedora não explorou dados para contraproposta.,800
+17954445,2026-07-01,OP6,Cliente mencionou aumento de funcionários viajando; vendedor não ofereceu telemetria ou proteção total.,130
+10277586,2026-07-01,OP2,Cliente relatou avaria; vendedor não aproveitou para converter o próximo contrato para proteção total.,80
+10277586,2026-07-08,OP6,Vendedor focou apenas no suporte técnico do condutor adicional; não tentou upsell de proteção.,80
+24101733,2026-07-01,OP2,Cliente extremamente insatisfeito com manutenção; vendedor não ofereceu carro reserva imediato ou troca de grupo.,200
+03509968,2026-07-01,OP6,Cliente reclamou de falta de tempo para controlar manutenção; vendedora não ofereceu telemetria.,50
+16633231,2026-07-01,OP5,Cliente mencionou cotação na Movida por insatisfação; vendedora não apresentou dados comparativos de imediato.,200
+24053405,2026-07-01,OP3,"Vendedor aceitou ""falar com gestor"" sem criar urgência real sobre o risco de 10k de cobertura.",80
+27381372,2026-07-01,OP6,Vendedora converteu para mensal mas não ofereceu proteção total ou telemetria no novo pacote.,130
+01024252,2026-07-01,OP5,Empresa com 40 carros próprios; vendedora não agendou reunião de diagnóstico de custos ocultos.,8000
+15012712,2026-07-01,OP1,Vendedor focou apenas em atualização de cadastro; não perguntou sobre volume de viagens da agência.,200
+03091431,2026-07-21,OP3,Vendedor aceitou recusa de proteção ampliada sem reforçar risco de custos em visitas comerciais.,80
+27412512,2026-07-01,OP6,Cliente queria carro para final de semana; vendedora não ofereceu proteção total para uso lazer/negócio.,80
+13179311,2026-07-01,OP7,Cliente comprou carro próprio; vendedora não questionou custos de manutenção/depreciação para evitar o churn.,200
+24039351,2026-07-01,OP1,Vendedora focou no erro do sistema; não explorou se a reserva era para projeto novo.,200
+15319539,2026-07-01,OP6,Demanda para 2 carros sedãs; vendedora não ofereceu proteção total ou telemetria para os vendedores.,260
+13496852,2026-07-01,OP6,Cliente precisava de mais KM; vendedor não ofereceu upgrade para grupo com telemetria inclusa.,130
+27412101,2026-07-01,OP6,Cliente viaja com 5 pessoas e carga; vendedora não forçou upgrade para SUV maior com proteção total.,160
+17057946,2026-07-01,OP6,Cliente usa Uber em viagens; vendedora não calculou ROI comparativo vs locação com tag de pedágio.,130
+10344244,2026-07-01,OP2,Funcionários usam carro próprio; vendedora não explorou risco jurídico e custo de reembolso vs locação.,200
+17088106,2026-07-01,OP3,Cliente analisando pesados; vendedora não criou urgência sobre fim de vigência do contrato atual no mês 9.,3600
+15001272,2026-07-01,OP6,Vendedor não insistiu na proteção total após cliente reclamar de diferença de R$ 200 no site.,80
+04201506,2026-07-01,OP5,Não explorou motivo do atraso das faturas para vender débito direto.,0
+05809062,2026-07-14,OP6,Cliente pediu SUV Especial; vendedor não ofereceu proteção premium.,80
+21555674,2026-07-01,OP2,Cliente comprou frota; vendedor não ofereceu Gestão de Frota Própria.,2000
+26858561,2026-07-01,OP6,Vendedor mencionou telemetria mas não fechou o upsell na hora.,52
+14735754,2026-07-02,OP5,Não questionou por que o concorrente está mais barato para contra-argumentar.,3200
+20566676,2026-07-01,OP6,Cliente com 35k KM; oportunidade de upgrade para carro novo ignorada.,200
+14010572,2026-07-01,OP2,"Reserva cancelada por ""não viagem""; não ofereceu alternativa mensal.",1500
+22715225,2026-07-09,OP6,Não ofereceu telemetria para a Fiorino/Cango de carga.,50
+26395215,2026-07-01,OP3,Cliente reclamou de preço de diária; vendedor demorou a fechar o mensal.,2500
+19095115,2026-07-01,OP1,Suporte de cadastro sem perguntar volume de carga da Ordemilk.,0
+02699606,2026-07-01,OP5,Não explorou o tamanho da frota atual que está na FlyTour.,0
+27393911,2026-07-01,OP2,Cliente alugou PF por erro no PJ; não ofereceu desconto pela falha.,0
+15385931,2026-07-01,OP6,Cliente tem 4 carros; não tentou converter o 5º carro (próprio) para aluguel.,2000
+27420135,2026-07-01,OP6,Cliente vai comprar carro; vendedor não enviou comparativo de TCO.,3500
+10652417,2026-07-01,OP1,"Vendedor aceitou ""sem projeção"" sem investigar planos de expansão.",0
+SEMINFO_64c0a5be,2026-07-01,OP6,Demanda de 60 carros; vendedor não forçou fechamento de lote.,150000
+17774441,2026-07-01,OP1,Suporte de fatura sem investigar novas demandas de safra.,0
+22227061,2026-07-01,OP6,Cliente perguntou para terceiro (neto); vendedor não pediu contato direto.,1500
+27421579,2026-07-01,OP5,Não explorou o motivo da viagem para Mato Grosso/Pará para oferecer proteção ou categoria superior,0
+00886191,2026-07-06,OP6,Cliente mencionou gasto de 18k; vendedor não tentou upsell de telemetria ou proteção ampliada em todos os carros,1560
+SEMINFO_0d7dda48-54b3-45e4-9b64-8258a2b10984,2026-07-01,OP6,Cliente aumentou KM; vendedor não ofereceu proteção ampliada (apenas 200 reais a mais),80
+22408470,2026-07-01,OP5,Cliente vai carregar ferramentas e malas; vendedor não ofereceu proteção de vidros/pneus ou acessórios,80
+00123873,2026-07-01,OP2,Cliente tem 90 veículos próprios; vendedora não questionou idade da frota ou custo de manutenção para oferecer anual,18000
+17351885,2026-07-01,OP2,Cliente vai devolver carro; vendedor não tentou entender a próxima demanda para manter o contrato,200
+25106467,2026-07-01,OP4,Cliente está no concorrente por preço; vendedora não pediu a cotação para tentar cobrir ou oferecer valor agregado,0
+23932638,2026-07-01,OP6,Cliente é empresa de transporte; vendedora mencionou vans/caminhões mas não agendou reunião específica,3600
+27418471,2026-07-01,OP6,Cliente pediu T-Cross (SUV); vendedora não ofereceu proteção ampliada de imediato,80
+25199930,2026-07-01,OP5,Cliente comprou carro na Localiza Seminovos; vendedora não explorou recompra ou troca por assinatura,200
+22990275,2026-07-01,OP2,Cliente reclamou de preço alto em diárias longas; vendedora não propôs contrato mensal fixo preventivo,200
+03351242,2026-07-01,OP1,"Cliente disse que ""não vai fazer"" aluguel mensal; vendedora aceitou passivamente sem investigar o porquê",0
+27408634,2026-07-01,OP6,Cliente roda muito (9 mil km em 2 meses); vendedora não ofereceu telemetria para gestão de frotas,50
+SEMINFO_e7ba4080-554c-43f5-a1a5-6f77e7e6fd0e,2026-07-01,OP5,Problema de telemetria/odômetro; vendedor não usou o erro para oferecer um check-up gratuito ou upgrade,0
+25830251,2026-07-02,OP6,Holding com 4 empresas; vendedora focou só no cadastro e não em um pacote de volume para todos os CNPJs,0
+27424917,2026-07-02,OP6,Cliente achou caro (2.5k); vendedora não ofereceu grupo inferior ou plano de 12 meses para baixar parcela,200
+26931794,2026-07-08,OP2,Cliente precisa de caminhonete para carga; vendedor não ofereceu proteção de carga ou acessórios de amarração,80
+26931794,2026-07-10,OP6,Cliente reclamou de carro trepidando e sem carregar celular; vendedor não ofereceu troca imediata por categoria superior com desconto,0
+27109711,2026-07-02,OP1,Suporte de faturamento; vendedora não perguntou sobre novas demandas de viagem,0
+22713853,2026-07-02,OP6,Cliente tem frota própria (2 carros); vendedora não ofereceu Localiza Gestão de Frotas para esses veículos,400
+00584308,2026-07-02,OP6,Cliente elogiou carro zero (8km); vendedor não aproveitou o entusiasmo para oferecer contrato de longo prazo (assinatura),200
+23579595,2026-07-02,OP6,Dúvida sobre pneus e vidros; vendedora não forçou a inclusão da proteção completa no fechamento,80
+25256650,2026-07-02,OP6,Cliente perdeu prazo de pagamento; vendedora não ofereceu débito direto ou centralização de faturas,0
+17049137,2026-07-02,OP6,Demanda de 30 carros; vendedora não ofereceu telemetria inclusa como diferencial de gestão,1500
+25822884,2026-07-02,OP3,Cliente tem 12 carros no concorrente; vendedora não ofereceu carência ou bônus para migração imediata,2400
+26783125,2026-07-02,OP4,Cliente usa pessoa física por ser mais barato; vendedora não ofereceu cupom de primeira locação PJ para teste,0
+17068526,2026-07-02,OP5,"Cliente mencionou que Paracatu é o centro da atividade,mas aluga em Brasília por preço. Não foi explorada entrega/logística.",200
+00643978,2026-07-02,OP1,Suporte sobre multa sem tentativa de nova reserva ou upsell de proteção.,80
+05511229,2026-07-03,OP6,Cliente retirou proteção de avarias por preço; vendedor não reforçou risco financeiro do grupo GH (T-Cross).,80
+27021562,2026-07-02,OP6,"Cliente pediu ""carro mais novo"" para viagem longa; vendedor não ofereceu upgrade para categoria superior.",300
+27245346,2026-07-02,OP2,Cliente fechou 5 carros com a Unidas; vendedor não tentou cobrir oferta ou oferecer diferencial imediato.,1000
+27394506,2026-07-02,OP6,"Cliente interessado em Strada e SUV,mas recuou pelo preço; vendedor não ofereceu proteção básica para fechar.",200
+27421657,2026-07-02,OP3,Cliente vai ficar 3 meses; vendedor aceitou mensal flexível em vez de fechar trimestral fixo com desconto.,200
+19034529,2026-07-02,OP1,Suporte de TI (acesso ao portal) sem converter para necessidade de frota futura.,200
+26167271,2026-07-02,OP6,Cliente em pós-operatório e com família; vendedor não ofereceu motorista adicional ou telemetria para segurança.,130
+06286390,2026-07-02,OP1,Apenas pegou contato sem qualificar a demanda de e-mail mencionada.,200
+17497232,2026-07-02,OP5,"Aceitou ""sem demanda"" sem perguntar sobre frota própria ou renovação futura.",200
+27371619,2026-07-02,OP2,"Cliente comprou carro próprio; vendedor não ofereceu o ""Mensal"" como alternativa ao custo de aquisição/depreciação.",200
+18985872,2026-07-02,OP2,"Cliente reclamou de ""facada"" no conserto; vendedor não ofereceu proteção total para a próxima locação.",80
+18985872,2026-07-09,OP6,Cliente pediu assinatura (Localiza Meoo); vendedor não tentou converter para o Anual do RAC.,200
+04655469,2026-07-02,OP3,Cliente quer trocar Unidas pela Localiza; vendedor agendou para dezembro em vez de tentar antecipar.,400
+24702721,2026-07-02,OP1,Suporte sobre farol queimado sem oferecer troca de veículo ou upgrade.,50
+10056145,2026-07-02,OP2,Cliente vai deixar carro parado 10 dias; vendedor não ofereceu suspensão de contrato ou substituição.,200
+07488431,2026-07-02,OP2,Motorista furou lanterna; vendedor não aproveitou para vender proteção total no novo contrato mensal.,80
+26677673,2026-07-02,OP5,"Aceitou ""sem demanda"" sem investigar o contrato de distribuição que falhou.",200
+08213601,2026-07-07,OP6,Cliente tem carro fixo por 3 anos; vendedor não ofereceu carros para demandas sazonais ou executivas.,200
+04249752,2026-07-02,OP6,Cadastro inativo há 2 anos; vendedor focou em burocracia e não em gerar nova demanda.,200
+25848880,2026-07-02,OP7,Faturas vencidas desde janeiro não detectadas proativamente antes da ligação.,200
+27425514,2026-07-02,OP6,"Cliente pediu caminhão baú; vendedor apenas disse que ""não faz"" e encaminhou,sem cross-sell de utilitários leves.",3600
+10373987,2026-07-02,OP1,Suporte sobre cobrança de lavagem sem tentativa de nova venda.,50
+27417970,2026-07-02,OP6,Cliente alugando BYD Song Pro; vendedor não ofereceu carregador portátil ou telemetria avançada.,3600
+13160997,2026-07-07,OP6,Demanda de 21 carros; vendedor não ofereceu sistema de gestão de frotas completo (telemetria).,1050
+27418506,2026-07-02,OP2,Cliente já resolveu com outro; vendedor não perguntou com quem ou por qual preço para contra-atacar.,200
+23654955,2026-07-02,OP1,Foco excessivo em reset de senha; perdeu tempo de qualificação comercial.,200
+11570130,2026-07-02,OP6,Cliente premium PF; vendedor não ofereceu upgrade de categoria para garantir a migração para o PJ.,300
+17155904,2026-07-02,OP7,Sinistro com colaborador desligado; vendedor não investigou se haverá reposição da vaga/carro.,200
+07243152,2026-07-02,OP1,Problema técnico no portal impedindo reserva; vendedor não fez a reserva manualmente para garantir.,200
+24818776,2026-07-02,OP6,Cliente perguntou sobre pontos/fidelidade; vendedor não usou isso para vender proteção total (que gera mais pontos).,80
+27112646,2026-07-02,OP6,Cliente usa Strada/Montana própria; vendedor não ofereceu terceirização total da frota (5 carros).,1000
+15119941,2026-07-02,OP7,Empresa fechou e vendedor não buscou referral ou novo destino da contatada.,0
+27300817,2026-07-02,OP6,Cliente já aluga PF; vendedor não tentou upsell de proteção total ou telemetria.,130
+14183194,2026-07-02,OP5,Cliente tem 4 carros próprios; vendedor não explorou custos de desmobilização/venda.,800
+27425335,2026-07-02,OP3,Cliente com carro batido (urgência real); vendedor não fechou a reserva na linha.,2400
+24625140,2026-07-08,OP6,Cliente vai rodar 5 mil KM; vendedor não ofereceu telemetria para gestão de fadiga.,50
+03107600,2026-07-02,OP6,Demanda para 7 lugares (Spin/Commander); vendedor não ofereceu proteção ampliada.,80
+27233551,2026-07-02,OP1,Suporte sobre faturas sem perguntar sobre novas demandas de expansão da tecnologia.,0
+17240506,2026-07-02,OP6,Reserva feita hoje; vendedor não tentou adicionar proteção total ou condutor adicional.,80
+10870001,2026-07-02,OP6,Cliente alugando para família; vendedor não ofereceu telemetria para segurança do filho.,50
+10654233,2026-07-02,OP2,Cliente quer reduzir custos; vendedor não ofereceu carro elétrico para economia de combustível.,3600
+08057492,2026-07-02,OP6,Vendedor focou só no acesso; não ofereceu telemetria para os 5 mil KM previstos.,50
+27416565,2026-07-02,OP3,"Cliente tem pressa (""o mais rápido possível""); vendedor não forçou o fechamento imediato.",2400
+25554050,2026-07-02,OP6,Cliente com duas empresas; vendedor não ofereceu telemetria para unificar gestão.,100
+26998137,2026-07-02,OP2,Cliente reclamando de manutenção da gestão de frotas; vendedor não ofereceu troca para mensal.,2400
+17810455,2026-07-02,OP6,"Após furto,cliente substituiu carro; vendedor não ofereceu telemetria para evitar novos furtos.",50
+27245780,2026-07-02,OP6,Banda em turnê; vendedor não ofereceu proteção total para evitar rateio de danos entre músicos.,80
+06949921,2026-07-02,OP6,Cliente comprou carro próprio; vendedor não ofereceu telemetria para frota própria.,50
+22522435,2026-07-02,OP6,Vendedor ofereceu telemetria mas não fechou; cliente demonstrou interesse claro.,50
+13594299,2026-07-02,OP2,Cliente quer reduzir custo drasticamente; vendedor não ofereceu carro elétrico/híbrido.,3600
+23662415,2026-07-02,OP5,Cliente fugiu para a Movida por preço; vendedor não tinha tabela comparativa em mãos.,2400
+08894801,2026-07-02,OP5,Não explorou o motivo do aumento de demanda para oferecer frota fixa adicional.,2000
+08894801,2026-07-02,OP6,Cliente precisava de Spin/Doblò; vendedor não tentou upgrade para SUV maior disponível.,1500
+08894801,2026-07-03,OP1,Suporte técnico de telemetria sem cross-sell de proteção adicional.,80
+08894801,2026-07-03,OP1,Atendimento operacional sem validar novas reservas para a semana.,1000
+08894801,2026-07-15,OP6,Cliente pediu Spin e Strada; vendedor não ofereceu telemetria avançada ou proteção total.,130
+08894801,2026-07-21,OP8,Escalada para financeiro sem tentar fechar a reserva pendente com pré-pagamento.,500
+21507037,2026-07-02,OP6,Cliente gasta muito com frete; oportunidade de oferecer utilitário maior (anual).,2400
+12398802,2026-07-02,OP1,Ligação encerrada sem tentar identificar outro decisor ou dor de transporte.,500
+19305808,2026-07-02,OP1,Caixa postal; não houve tentativa de contato por outro canal (WhatsApp).,0
+27255103,2026-07-02,OP5,Cliente disse que não precisa agora; vendedor não perguntou quando será o próximo projeto.,1000
+02654519,2026-07-02,OP1,Suporte de cadastro sem perguntar sobre volume de viagens da Claranet.,2000
+13407122,2026-07-02,OP6,Cliente roda 5 mil km/mês; oportunidade óbvia de telemetria para controle de custos.,50
+13407122,2026-07-02,OP6,Vendedor permitiu que cliente retirasse proteções (vidros/pneus) para baixar preço.,80
+24577502,2026-07-02,OP5,"Vendedor aceitou """"sem necessidade"""" sem investigar frota atual ou concorrente.",1500
+25399548,2026-07-02,OP5,Cliente usa frota própria; vendedor não explorou custo de manutenção vs locação.,3000
+06280738,2026-07-02,OP1,Conversa social excessiva (17 min) sem focar na dor de logística do cliente.,2000
+25018985,2026-07-02,OP7,Cliente mencionou contrato com a Movida; vendedor não pediu para comparar taxas.,2500
+27426326,2026-07-02,OP3,Cliente com pressa para almoço; vendedor não agendou horário firme para fechamento.,1000
+27426326,2026-07-02,OP6,Não ofereceu telemetria para o SUV de luxo.,50
+27426326,2026-07-03,OP1,Foco apenas no operacional da reserva.,0
+27426326,2026-07-03,OP6,"Cliente retirou """"neutraliza""""; vendedor não defendeu valor agregado de ESG.",50
+07075024,2026-07-02,OP1,Não buscou entender o volume de viagens do Diogo.,500
+07075024,2026-07-03,OP1,Não solicitou o WhatsApp do decisor para envio de portfólio.,0
+27426921,2026-07-02,OP2,Cliente reclamou de preço vs concorrente; vendedor não enfatizou capilaridade/assistência.,1000
+27074232,2026-07-02,OP1,Suporte de boleto sem perguntar sobre novas obras ou expansão da MR Limpeza.,1500
+SEMINFO_9f662e10-4dd0-44f1-af41-dc957e9edaa4,2026-07-02,OP2,Cliente focado em preço baixo; vendedor não vendeu valor de gestão de frota PJ.,800
+14143746,2026-07-02,OP6,Cliente com dor de cabeça operacional; oportunidade de oferecer gestão completa (GF).,500
+17896108,2026-07-02,OP8,Vendedor apenas negou crédito sem propor solução de pagamento antecipado via cartão.,2000
+SEMINFO_75acec59-2555-47be-8913-80ff858078cb,2026-07-02,OP6,Cliente excedeu KM; oportunidade de vender pacote de KM maior ou telemetria.,150
+23140957,2026-07-02,OP8,Erro sistêmico travou venda; vendedor não ofereceu fazer a reserva manual via central.,600
+01494639,2026-07-02,OP1,Ura funerária; vendedor não tentou ramal administrativo.,0
+26984279,2026-07-02,OP1,Suporte de substituição sem validar se o novo carro precisava de proteção extra.,80
+19173600,2026-07-02,OP1,Não explicou benefícios do PJ para a secretária transferir.,0
+11156154,2026-07-02,OP7,Vendedor aceitou descadastro sem questionar como os funcionários se deslocam.,1000
+22294429,2026-07-02,OP1,Não ofereceu migrar a locação do funcionário para o faturamento da empresa.,500
+27412980,2026-07-02,OP1,Caixa postal.,0
+19664367,2026-07-02,OP1,Não buscou o celular dos diretores para abordagem direta.,0
+27427892,2026-07-02,OP6,Cliente na loja para retirar; vendedor não ofereceu upgrade de categoria no balcão.,300
+20292454,2026-07-02,OP1,Não explorou o motivo da ampliação de crédito (expansão?).,2000
+14026074,2026-07-02,OP6,Cliente achou Montana apertada; oportunidade de upgrade para SUV LE (Compass).,1200
+27418550,2026-07-02,OP1,Número errado.,0
+17483733,2026-07-02,OP7,Cliente insatisfeito; vendedor não tentou reverter a dor no momento.,2000
+27270549,2026-07-02,OP1,Não perguntou o nome do funcionário responsável para adiantar o contato.,0
+23922276,2026-07-02,OP1,Caixa postal.,0
+20460411,2026-07-02,OP6,Cliente retirou proteção total por erro de sistema; vendedor não insistiu na segurança.,150
+22838943,2026-07-02,OP1,Cliente fora do país; não perguntou quem substitui na gestão.,0
+24166568,2026-07-02,OP6,Oportunidade de oferecer proteção de carga para o utilitário.,100
+07043939,2026-07-02,OP1,Não investigou se a Nubus usa Uber/Taxi para oferecer Localiza Business.,1500
+22801208,2026-07-02,OP6,Cliente preocupado com malas; vendedor não ofereceu Spin (7 lugares) com bancos rebatidos.,400
+22801208,2026-07-02,OP6,Vendedor não ofereceu telemetria para o contrato anual da Strada.,50
+22801208,2026-07-02,OP6,Cliente questionou seguro; vendedor não ofereceu proteção de vidros/pneus separada.,80
+22801208,2026-07-02,OP8,Vendedor encerrou para atender outro cliente em momento crítico de confirmação.,0
+22801208,2026-07-03,OP2,Cliente perdeu viagem por falta de carro; vendedor não ofereceu levar o carro de outra cidade.,2000
+22801208,2026-07-03,OP1,Foco apenas em resolver o problema do porta-malas.,0
+02276517,2026-07-02,OP5,Cliente tem assinatura; vendedor não ofereceu carro reserva imediato no RAC.,500
+26937619,2026-07-02,OP6,Cliente faz visita em obra; oportunidade de oferecer proteção contra furos de pneus.,80
+26937619,2026-07-09,OP3,Vendedor não pressionou para fechamento do mensal na hora da crise do condutor.,1000
+26937619,2026-07-10,OP2,Cliente em dúvida sobre permanência; vendedor não enviou a proposta comparativa.,1000
+02087325,2026-07-02,OP8,Vendedor não resolveu a prorrogação e mandou cliente ligar no 0800.,0
+24121822,2026-07-02,OP1,Suporte de cancelamento sem perguntar sobre o próximo evento da Ciseng.,1000
+19835437,2026-07-02,OP1,Suporte de login.,0
+19835437,2026-07-02,OP6,Cliente com KM excedente; oportunidade de vender upgrade de franquia mensal.,200
+21355699,2026-07-02,OP1,Não buscou entender o ramo da empresa para gerar valor.,0
+25859901,2026-07-02,OP6,Cliente alugou na física; vendedor não ofereceu migração imediata com estorno.,500
+27421734,2026-07-02,OP4,Não solicitou indicação do amigo que já usa assinatura.,0
+15890804,2026-07-02,OP6,Novo CNPJ; oportunidade de oferecer pacote de abertura com desconto em telemetria.,100
+27427372,2026-07-02,OP2,Cliente achou caro; vendedor não ofereceu categoria intermediária (sedan) com mala grande.,800
+03341368,2026-07-02,OP1,Suporte de sinistro sem validar se a empresa precisa de mais carros para a frota.,1000
+02763794,2026-07-02,OP6,Grupo de empresas; oportunidade de oferecer contrato guarda-chuva para todas as SPEs.,5000
+14677577,2026-07-02,OP1,Suporte de reembolso sem pergunta comercial.,0
+20844814,2026-07-02,OP3,Ligação caiu/cortada; vendedor não retornou imediatamente para fechar.,1500
+09078391,2026-07-02,OP1,Não buscou o celular do Jonathan.,0
+07323080,2026-07-02,OP6,Cliente roda pouco; oportunidade de oferecer plano por KM menor com valor fixo reduzido.,300
+00231243,2026-07-02,OP1,Caixa postal.,0
+22028835,2026-07-02,OP5,"Cliente disse """"tudo certo""""; vendedor não explorou planos de expansão.",1000
+11392352,2026-07-02,OP1,Confusão de nomes; vendedor não aproveitou para mapear todos os decisores da frota.,2000
+04367493,2026-07-02,OP1,Suporte de multa em carro reserva.,0
+24849529,2026-07-02,OP1,Suporte de ativação de usuário.,0
+24849529,2026-07-02,OP6,Cliente previu demanda em Campos (RJ); vendedor não enviou proposta antecipada.,2000
+24988257,2026-07-02,OP2,Cliente comprou carro próprio; vendedor não explorou custo de manutenção vs locação,200
+27427089,2026-07-02,OP6,Cliente pediu 4 furgões; vendedor não ofereceu telemetria ou proteção premium inicialmente,200
+SEMINFO_59129a04-5d00-4eb5-8afb-01a7efeb4645,2026-07-02,OP6,Cliente quer economizar; vendedor não ofereceu carro elétrico como redução de combustível,3600
+25346198,2026-07-02,OP5,Cliente tem frota própria de caminhões; vendedor não explorou terceirização da frota pesada,5000
+11678832,2026-07-02,OP2,Cliente usa frota própria (2 carros); vendedora não comparou TCO,200
+13720396,2026-07-02,OP6,Upgrade de categoria não oferecido para quem roda 5.600km/mês,300
+10271116,2026-07-02,OP6,Não insistiu no upgrade de proteção após negativa inicial do gerente,80
+26983698,2026-07-02,OP5,Corretor de seguros usa para clientes; não solicitado referral de outros clientes,100
+06593590,2026-07-02,OP2,Cliente tem 9 veículos próprios (pesados e leves); não ofertado gestão de frota,2000
+07299661,2026-07-02,OP6,Cliente já tem 3 carros por assinatura; não tentado upsell para telemetria,150
+06366419,2026-07-02,OP1,Suporte de fatura sem tentativa de nova venda ou upgrade,100
+00038323,2026-07-02,OP7,"Cliente diz que Localiza ""fechou as portas"" para diárias; perda de conta por rigidez",1500
+02916446,2026-07-02,OP6,Upgrade de proteção aceito para apenas 1 de 2 carros,80
+27306944,2026-07-02,OP6,Cliente viaja muito e tem dor na coluna; oportunidade de SUV premium ou elétrico,3600
+27426702,2026-07-02,OP6,Demanda de 10 carros; não ofertado telemetria para controle de tÃ©cnicos,500
+06508695,2026-07-02,OP6,Cliente roda muito; não ofertado proteção de pneus/vidros explicitamente no novo contrato,80
+09492407,2026-07-02,OP4,Referral não solicitado para Patrícia,nenhum
+20673462,2026-07-02,OP7,Churn não detectado,nenhum
+27380812,2026-07-02,nenhuma,nenhum,nenhum
+27380812,2026-07-03,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+27380812,2026-07-06,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+27380812,2026-07-07,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+27380812,2026-07-08,OP1,Suporte sem pergunta comercial (sobre avarias),nenhum
+27380812,2026-07-09,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+27380812,2026-07-09,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+27380812,2026-07-14,OP1,Suporte sem pergunta comercial (sobre checklist),nenhum
+27380812,2026-07-14,OP1,Suporte sem pergunta comercial (sobre checklist),nenhum
+27380812,2026-07-14,nenhuma,nenhum,nenhum
+27227104,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+26961714,2026-07-02,OP2,Dor sem produto conectado (cliente alugou na PF por correria),nenhum
+01841274,2026-07-02,nenhuma,nenhum,nenhum
+27426063,2026-07-02,nenhuma,nenhum,nenhum
+27306848,2026-07-02,OP3,Fechamento sem urgência,nenhum
+SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b,2026-07-02,nenhuma,nenhum,nenhum
+24997901,2026-07-02,nenhuma,nenhum,nenhum
+00915783,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+01543872,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+15327529,2026-07-02,nenhuma,nenhum,nenhum
+21723911,2026-07-02,nenhuma,nenhum,nenhum
+26838597,2026-07-02,nenhuma,nenhum,nenhum
+26838597,2026-07-03,OP3,Fechamento sem urgência,nenhum
+26838597,2026-07-06,OP3,Fechamento sem urgência,nenhum
+26838597,2026-07-08,OP3,Fechamento sem urgência,nenhum
+26838597,2026-07-08,OP3,Fechamento sem urgência,nenhum
+26838597,2026-07-13,OP3,Fechamento sem urgência,nenhum
+26838597,2026-07-16,nenhuma,nenhum,nenhum
+26838597,2026-07-17,OP3,Fechamento sem urgência,nenhum
+26838597,2026-07-20,OP1,Suporte sem pergunta comercial,nenhum
+16524371,2026-07-02,OP6,"Upsell óbvio não tentado (proteção total de avarias,limpeza garantida)",80/v
+16524371,2026-07-06,nenhuma,nenhum,nenhum
+13863650,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+20245670,2026-07-02,OP3,Fechamento sem urgência,nenhum
+26932908,2026-07-02,nenhuma,nenhum,nenhum
+26932908,2026-07-03,nenhuma,nenhum,nenhum
+18642312,2026-07-02,nenhuma,nenhum,nenhum
+18642312,2026-07-02,OP6,Upsell óbvio não tentado (upgrade para GH),nenhum
+22217579,2026-07-02,OP4,Referral não solicitado para Ademir,nenhum
+22217579,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+22217579,2026-07-06,OP4,Referral não solicitado para Ademir,nenhum
+22217579,2026-07-21,OP4,Referral não solicitado para Ademir,nenhum
+SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898,2026-07-02,nenhuma,nenhum,nenhum
+12936013,2026-07-02,OP3,Fechamento sem urgência,nenhum
+12936013,2026-07-13,OP3,Fechamento sem urgência,nenhum
+25361644,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+25361644,2026-07-03,OP4,Referral não solicitado para Connect Logística,nenhum
+17952396,2026-07-02,nenhuma,nenhum,nenhum
+15426023,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+25997030,2026-07-02,OP3,Fechamento sem urgência,nenhum
+27409516,2026-07-02,nenhuma,nenhum,nenhum
+24909341,2026-07-02,OP1,Suporte sem pergunta comercial,nenhum
+16490670,2026-07-03,nenhuma,nenhum,nenhum
+08863911,2026-07-03,OP4,Referral não solicitado para Miguel Fonseca,nenhum
+08863911,2026-07-14,OP4,Referral não solicitado para Miguel Fonseca,nenhum
+09351051,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+02731137,2026-07-03,OP6,"Upsell óbvio não tentado (proteção total de avarias,limpeza garantida)",80/v
+02731137,2026-07-14,OP6,"Upsell óbvio não tentado (proteção total de avarias,limpeza garantida)",80/v
+22960689,2026-07-03,nenhuma,nenhum,nenhum
+23587708,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+01784697,2026-07-03,OP4,Referral não solicitado,nenhum
+27022491,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+27022491,2026-07-09,nenhuma,nenhum,nenhum
+27022491,2026-07-10,nenhuma,nenhum,nenhum
+02649118,2026-07-03,nenhuma,nenhum,nenhum
+18500297,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+02132913,2026-07-03,nenhuma,nenhum,nenhum
+23633999,2026-07-03,OP4,Referral não solicitado,nenhum
+27413612,2026-07-03,nenhuma,nenhum,nenhum
+13152548,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+13152548,2026-07-07,nenhuma,nenhum,nenhum
+13152548,2026-07-10,nenhuma,nenhum,nenhum
+11720469,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+12300795,2026-07-03,OP4,Referral não solicitado,nenhum
+12300795,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+12300795,2026-07-03,OP4,Referral não solicitado,nenhum
+24234409,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+23639909,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+25006372,2026-07-03,OP4,Referral não solicitado,nenhum
+SEMINFO_f7acc8bd-686f-41b9-a10f-2a8666df79c5,2026-07-03,OP4,Referral não solicitado,nenhum
+06257220,2026-07-03,OP4,Referral não solicitado para Vitor,nenhum
+SEMINFO_e091f240-a755-452e-b6d6-674676c84f03,2026-07-03,OP2,Dor sem produto conectado (preço de concorrentes),nenhum
+24285909,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+27379121,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+23249829,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+26671477,2026-07-03,nenhuma,nenhum,nenhum
+19449680,2026-07-03,nenhuma,nenhum,nenhum
+19449680,2026-07-07,nenhuma,nenhum,nenhum
+16230160,2026-07-03,nenhuma,nenhum,nenhum
+27394380,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+03275250,2026-07-03,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+03275250,2026-07-09,OP6,Upsell óbvio não tentado (proteção total de avarias),80/v
+12922975,2026-07-03,OP1,Suporte sem pergunta comercial,nenhum
+27411480,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+03318724,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+27404454,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+27404454,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+24324649,2026-07-03,OP6,"O vendedor não tenta um upsell óbvio para o carro elétrico,mesmo o cliente demonstrando interesse e mencionando a economia de combustível.",3600
+SEMINFO_29db3ac1-c699-4874-b56e-21efdd1609ea,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+19364412,2026-07-03,OP6,"O vendedor não tenta um upsell óbvio para o plano anual,mesmo o cliente perguntando se seria mais barato.",200
+19364412,2026-07-03,OP6,"O vendedor não tenta um upsell óbvio para a proteção total de avarias,mesmo o cliente demonstrando interesse e perguntando sobre o valor.",300
+16439905,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+23991041,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25861287,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+26958632,2026-07-03,OP7,"O vendedor não detecta o churn do cliente,que afirma não ter mais necessidade de alugar carros,e não tenta reverter a situação ou entender o motivo real.",0
+SEMINFO_33b1f1bc-af8e-4af4-800f-11976de26178,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+15488823,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+10318695,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+11184556,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+11184556,2026-07-10,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+23970328,2026-07-03,OP7,"O vendedor não detecta o churn do cliente,que afirma estar alocando na conta pessoal por ser mais interessante,e não tenta reverter a situação ou entender o motivo real.",0
+04305774,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00160377,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+SEMINFO_53df619e-02a5-4263-a229-044fefa61cb2,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25352790,2026-07-03,OP6,"O vendedor não tenta um upsell óbvio para a proteção total de avarias,mesmo o cliente demonstrando interesse e perguntando sobre o valor.",300
+24941301,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+24941301,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+24941301,2026-07-16,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+26002190,2026-07-03,OP7,"O vendedor não detecta o churn do cliente,que afirma estar alocando na pessoa física por ser mais em conta,e não tenta reverter a situação ou entender o motivo real.",0
+24376005,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+07866450,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+18950505,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+06495068,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25217991,2026-07-03,OP7,"O vendedor não detecta o churn do cliente,que afirma ter comprado um veículo,e não tenta reverter a situação ou entender o motivo real.",0
+02765526,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25419280,2026-07-03,OP7,"O vendedor não detecta o churn do cliente,que afirma que o aluguel está ficando inviável,e não tenta reverter a situação ou entender o motivo real.",0
+08498786,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+07334536,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+02324147,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+02324147,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+02324147,2026-07-06,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+02324147,2026-07-06,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+02324147,2026-07-06,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+22539737,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+SEMINFO_7827cb82-8f90-432d-9878-274f388fdbfe,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+23181528,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+23181528,2026-07-06,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+27285684,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25394274,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+26367373,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+24703707,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00711816,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00711816,2026-07-15,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00711816,2026-07-16,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+21241094,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+20459114,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+SEMINFO_82d9fade-77cb-46f8-a7f5-398fb81d3f4b,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14085176,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+22184235,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+24778992,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25198651,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+12023257,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+12023257,2026-07-07,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+12023257,2026-07-07,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+12023257,2026-07-07,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+12023257,2026-07-07,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14606190,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14606190,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14606190,2026-07-13,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14606190,2026-07-13,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14606190,2026-07-14,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+14606190,2026-07-21,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+19829364,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+10433088,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00886254,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00886254,2026-07-03,OP7,"O vendedor não detecta o churn do cliente,que afirma que o preço da pessoa física era mais barato,e não tenta reverter a situação ou entender o motivo real.",0
+12712908,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+25019160,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+23076751,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+22094601,2026-07-03,OP4,"O vendedor não solicita um referral,mesmo o cliente mencionando que está com uma previsão de obra para mais três ou quatro carros.",0
+22528457,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+00673571,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+01735715,2026-07-03,OP1,O vendedor não faz nenhuma pergunta comercial para entender a necessidade do cliente.,0
+27429203,2026-07-03,OP4,"O vendedor não solicita um referral,mesmo o cliente mencionando que tem sete veículos na frota e utiliza para transporte empresarial.",0
+23260412,2026-07-03,OP4,"O vendedor não solicita um referral,mesmo o cliente mencionando que tem um projeto no Rio de Janeiro e quer alugar um ou dois carros.",0
+26913204,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas perguntou sobre demanda programada.",0
+25021721,2026-07-03,nenhuma,nenhuma,0
+27124288,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em ajudar com a reserva.",0
+27429324,2026-07-03,OP2,"Cliente expressou necessidade de entender custos para decidir sobre carro locado,mas o vendedor não conectou diretamente com os benefícios do produto Localiza.",0
+24127418,2026-07-03,OP3,"Vendedor não criou urgência para o cliente fazer a reserva PJ,mesmo após explicar as vantagens.",0
+20247300,2026-07-03,OP4,Vendedor não solicitou referências de outras empresas do grupo que poderiam ter demanda de locação.,0
+14476309,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em suporte sobre limite de crédito.",0
+25455515,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+25455515,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+25455515,2026-07-10,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em saber sobre acessos e demandas futuras.",0
+23772040,2026-07-03,OP5,"Vendedor não explorou o dado estratégico de que o cliente estava buscando um valor mais barato,para oferecer outras soluções ou benefícios da Localiza.",0
+22698040,2026-07-03,OP7,"Vendedor não detectou o churn do cliente,que deixou de alugar devido a um problema anterior com a Localiza.",0
+21705935,2026-07-03,nenhuma,nenhuma,0
+25266374,2026-07-03,nenhuma,nenhuma,0
+27432325,2026-07-03,nenhuma,nenhuma,0
+27432325,2026-07-15,OP2,"Cliente expressou insatisfação com multas e problemas anteriores,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para evitar esses problemas.",0
+22992929,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+SEMINFO_1ca25ea1-ed40-4f71-aa55-e585e1ce9a8a,2026-07-03,nenhuma,nenhuma,0
+06746153,2026-07-03,nenhuma,nenhuma,0
+05395715,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+05395715,2026-07-15,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+25371795,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+27429133,2026-07-03,nenhuma,nenhuma,0
+12471802,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em ajudar com a contestação.",0
+08045541,2026-07-03,nenhuma,nenhuma,0
+08045541,2026-07-09,OP2,"Cliente expressou insatisfação com a forma como as multas foram tratadas,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para evitar esses problemas.",0
+SEMINFO_8041d550-5ce7-4824-9acf-1350d76c8f20,2026-07-03,nenhuma,nenhuma,0
+23787717,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em ajudar com a reserva.",0
+23787717,2026-07-14,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em confirmar a reserva.",0
+01708058,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+01708058,2026-07-06,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em saber sobre acessos e demandas.",0
+24051657,2026-07-03,OP2,"Cliente expressou insatisfação com a cobrança de um grupo de veículo superior ao reservado,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para evitar esses problemas.",0
+24051657,2026-07-13,OP2,"Cliente expressou necessidade de veículos mais novos,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para atender essa demanda.",0
+01370272,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+10544008,2026-07-03,nenhuma,nenhuma,0
+20436346,2026-07-03,nenhuma,nenhuma,0
+01198827,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+27433432,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em reagendar a ligação.",0
+27433432,2026-07-03,nenhuma,nenhuma,0
+08613716,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em tentar falar com a pessoa responsável.",0
+08613716,2026-07-08,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+19937066,2026-07-03,OP2,"Cliente expressou dificuldade em fazer reservas e problemas com e-mail,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para resolver esses problemas.",0
+04274030,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em deixar o contato.",0
+22814612,2026-07-03,nenhuma,nenhuma,0
+25713247,2026-07-03,OP2,"Cliente expressou insatisfação com a demora na confirmação da reserva,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para evitar esses problemas.",0
+24497815,2026-07-03,OP2,"Cliente expressou insatisfação com faturas em atraso e risco de bloqueio,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para resolver esses problemas.",0
+24497815,2026-07-10,nenhuma,nenhuma,0
+24497815,2026-07-21,OP2,"Cliente expressou insatisfação com o reajuste de tarifa,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para mitigar o impacto.",0
+22182573,2026-07-03,nenhuma,nenhuma,0
+06969212,2026-07-03,OP2,"Cliente expressou insatisfação com a questão do furto e a falta de cobertura,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para resolver esses problemas.",0
+27229021,2026-07-03,nenhuma,nenhuma,0
+16786792,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+26763028,2026-07-03,OP2,"Cliente expressou dificuldade em acessar a plataforma e recuperar a senha,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para resolver esses problemas.",0
+20301719,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+08521828,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+02244160,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em ajudar com a inclusão de motoristas.",0
+27436049,2026-07-03,nenhuma,nenhuma,0
+27436049,2026-07-13,OP2,"Cliente expressou insatisfação com o limite de crédito estourado na empresa anterior,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para resolver esse problema.",0
+18724938,2026-07-03,nenhuma,nenhuma,0
+10743913,2026-07-03,nenhuma,nenhuma,0
+10743913,2026-07-10,nenhuma,nenhuma,0
+10743913,2026-07-15,OP2,"Cliente expressou insatisfação com faturas em processamento e a falta de acesso ao sistema,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para resolver esses problemas.",0
+21392662,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em transferir a ligação.",0
+21392662,2026-07-03,nenhuma,nenhuma,0
+08049432,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em saber sobre demandas futuras.",0
+02474373,2026-07-03,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em ajudar com o login.",0
+27433786,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+25867391,2026-07-03,nenhuma,nenhuma,0
+02752293,2026-07-03,nenhuma,nenhuma,0
+27383585,2026-07-03,OP2,"Cliente expressou necessidade de alugar uma van,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para atender essa demanda.",0
+24597186,2026-07-03,OP2,"Cliente expressou insatisfação com problemas no carro e cobrança de multa,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para evitar esses problemas.",0
+27433691,2026-07-03,nenhuma,nenhuma,0
+27394887,2026-07-03,OP2,"Cliente expressou necessidade de um carro compacto automático mensal,mas o vendedor não conectou diretamente com soluções ou benefícios da Localiza para atender essa demanda.",0
+23285700,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+00575098,2026-07-03,nenhuma,nenhuma,0
+00575098,2026-07-03,nenhuma,nenhuma,0
+02399859,2026-07-03,OP1,"Vendedor não conseguiu contato com o cliente,perdendo a oportunidade de fazer perguntas comerciais.",0
+02399859,2026-07-13,OP1,"Vendedor não fez perguntas comerciais para entender a demanda do cliente,apenas focou em confirmar as reservas futuras.",0
+24664600,2026-07-03,OP1,Suporte técnico no WebCorp sem sondagem de novas demandas.,0
+24664600,2026-07-13,OP8,Transferência para 0800 em caso de sinistro sem tentativa de retenção ou auxílio comercial.,0
+25456534,2026-07-03,OP1,Vendedor atua como suporte de TI para reserva de 1 dia.,0
+25456534,2026-07-07,OP2,Cliente cancelou viagem por doença; vendedor não ofereceu proteção ou alternativa.,0
+SEMINFO_d9ac85b2,2026-07-03,OP5,Sinistro de motor fundido (R$ 4.400) não explorado para vender proteção total.,80
+11858392,2026-07-03,OP7,Cliente comprou carros próprios e reduziu frota; vendedor não contra-argumentou com TCO.,2400
+04393447,2026-07-03,OP2,"Cliente pede orçamento de ""intermediário""; vendedor não qualifica a dor.",500
+24826348,2026-07-03,OP2,Cliente usa frota própria para caminhão; vendedor não ofereceu Localiza Pesados.,3600
+27334172,2026-07-03,OP6,Cliente quer fechar 4 picapes; vendedor não ofereceu telemetria ou proteção premium.,200
+23824563,2026-07-06,OP2,"Cliente inativo há 1 ano; vendedor aceitou ""sem necessidade"" sem investigar mudanças na empresa.",1000
+27434692,2026-07-03,OP1,Suporte de bloqueio de CPF sem investigar o tamanho da frota da empresa.,0
+04575865,2026-07-03,OP6,Cliente tem 5 carros (3 locados em concorrente); vendedor não tentou agressividade comercial.,3000
+14008562,2026-07-03,OP5,Cliente reclama de preço da Unidas; vendedor não usou dados de valor agregado.,1000
+12481386,2026-07-03,OP6,Cliente reclama de reajuste; vendedor não ofereceu telemetria para controle de custos.,250
+02295143,2026-07-03,OP2,Cliente em licença maternidade; vendedor não buscou o substituto para novos projetos.,500
+20004013,2026-07-09,OP8,Vendedor gasta 25 min tentando achar carro específico (Nivus) sem oferecer upgrade pago.,0
+21182209,2026-07-03,OP2,Cliente com frota própria; vendedor não questionou custos de manutenção.,1000
+13178976,2026-07-03,OP6,Cliente pede carro melhor para viagem longa; vendedor não ofereceu upgrade para SUV premium.,300
+21895910,2026-07-03,OP1,Suporte de senha sem nenhuma pergunta comercial.,0
+25300648,2026-07-03,OP2,Aluguel para funcionário em outro estado; vendedor não ofereceu gestão de multas/telemetria.,130
+26121784,2026-07-14,OP2,Posto de gasolina aluga para clientes em emergência; vendedor não ofereceu estoque local.,1000
+18091366,2026-07-03,OP1,Suporte passivo sem tentativa de agendamento.,0
+18091366,2026-07-03,OP1,Não buscou alternativa de contato.,0
+23725488,2026-07-03,OP6,Cliente pediu Fiorino; vendedor não ofereceu proteção total ou telemetria.,130
+19781879,2026-07-03,OP2,Cliente usa frota própria que quebra; não ofereceu substituição total por aluguel.,3000
+25099558,2026-07-03,OP5,Cliente diz que não usa o serviço; vendedor não explorou o motivo ou frota própria.,2000
+23601008,2026-07-03,OP6,Não ofereceu telemetria para controle de KM ilimitado.,50
+SEMINFO_2ae6b92c-978d-48ea-9a1a-5036e11c49a8,2026-07-03,OP1,Apenas suporte de agenda.,0
+07459088,2026-07-03,OP1,Suporte sobre multas sem gancho comercial.,0
+SEMINFO_682f73fb-4751-4f9a-9207-10d6508c043d,2026-07-03,OP1,Transferência simples.,0
+SEMINFO_905ca134-43b6-479f-94a1-bfaeafd52839,2026-07-03,OP6,Não ofereceu upgrade de categoria na prorrogação.,150
+27421537,2026-07-03,OP2,Cliente tem frota própria; não ofereceu estudo de TCO.,2500
+16832564,2026-07-03,OP6,Não ofereceu proteção total no novo tier de desconto.,80
+24079683,2026-07-03,OP6,Cliente hesitou no seguro ampliado; vendedor não insistiu no risco de 10k vs 100k.,80
+24079683,2026-07-07,OP5,Não sugeriu pagamento antecipado ou caução para liberar crédito.,0
+24079683,2026-07-14,OP6,Não ofereceu telemetria para os 3 carros mensais.,150
+03483490,2026-07-03,OP1,Suporte técnico de cadastro sem pergunta sobre volume de locação.,0
+03483490,2026-07-10,OP1,Apenas suporte de biometria.,0
+03483490,2026-07-14,OP1,Apenas suporte de link expirado.,0
+08316723,2026-07-03,OP8,Vendedor não resolveu internamente e mandou cliente ligar no 0800.,0
+27421629,2026-07-03,OP1,Suporte de senha.,0
+27421629,2026-07-15,OP6,Cliente na agência; vendedor não tentou upgrade para SUV.,300
+08009681,2026-07-03,OP6,Não ofereceu telemetria para contrato de 12 meses.,50
+17157057,2026-07-03,OP1,Suporte financeiro puro.,0
+17157057,2026-07-06,OP1,Suporte financeiro puro.,0
+17157057,2026-07-09,OP1,Pedido de NPS sem gancho comercial.,0
+17157057,2026-07-14,OP6,Cliente tem 15 carros na concorrência; vendedor não ofereceu plano de migração agressivo.,15000
+14217841,2026-07-03,OP6,Não ofereceu proteção total na diária.,80
+14217841,2026-07-06,OP1,Suporte de saldo.,0
+14217841,2026-07-06,OP1,Suporte de saldo.,0
+14217841,2026-07-06,OP1,Suporte de saldo.,0
+14217841,2026-07-10,OP6,Não ofereceu telemetria ao explicar proteções.,50
+14217841,2026-07-13,OP1,Suporte de multa.,0
+14217841,2026-07-13,OP1,Suporte de boleto.,0
+14217841,2026-07-14,OP6,Não ofereceu telemetria.,50
+14217841,2026-07-17,OP1,Suporte de tag.,0
+14217841,2026-07-20,OP1,Suporte de rastreador.,0
+22118883,2026-07-03,OP1,Mandou cliente para o site sem qualificar a demanda.,500
+12692238,2026-07-03,OP6,Não ofereceu proteção total no fechamento urgente.,80
+05796430,2026-07-03,OP1,Não buscou outro contato comercial.,0
+25599928,2026-07-03,OP1,Suporte de cadastro passivo.,0
+07681531,2026-07-03,OP1,Suporte de senha.,0
+07681531,2026-07-03,OP1,Transferência.,0
+07681531,2026-07-03,OP6,Não ofereceu upgrade para o sócio que está com o carro.,200
+27045962,2026-07-03,OP6,Não ofereceu proteção total para os 3 meses.,80
+27045962,2026-07-06,OP1,Suporte de desconto.,0
+27045962,2026-07-06,OP1,Suporte de senha.,0
+27045962,2026-07-06,OP6,Não ofereceu telemetria para o carro da empresa.,50
+SEMINFO_b0f29948-0fe9-4912-bfc8-d87a7e4c98d3,2026-07-03,OP1,Suporte de faturamento.,0
+27436184,2026-07-03,OP1,Não qualificou a viagem para Goiânia.,500
+20261711,2026-07-03,OP6,Não ofereceu telemetria para os carros que estão na rua desde Janeiro.,100
+02034786,2026-07-03,OP6,Não ofereceu telemetria para o grupo U (Fiorino).,50
+02034786,2026-07-20,OP6,Não ofereceu proteção total no contrato de 6 meses.,80
+26663713,2026-07-03,OP1,Suporte de agência.,0
+26663713,2026-07-03,OP1,Suporte de horário.,0
+09808276,2026-07-03,OP6,Substituição de carro; não ofereceu upgrade de categoria.,150
+26755028,2026-07-03,OP2,Cliente alugou PF por erro no sistema; vendedor não ofereceu estorno/migração imediata.,0
+26755028,2026-07-06,OP6,Não ofereceu proteção total.,80
+19102339,2026-07-03,OP6,Não ofereceu proteção total para a viagem.,80
+07051654,2026-07-03,OP1,Caixa de voz.,0
+07051654,2026-07-06,OP1,Suporte de aprovação.,0
+17372341,2026-07-03,OP1,Suporte de cadastro.,0
+17372341,2026-07-03,OP6,Não ofereceu proteção total para a reserva de domingo.,80
+17372341,2026-07-15,OP1,Suporte de TI.,0
+27406143,2026-07-03,OP1,Caixa de voz.,0
+27433058,2026-07-03,OP1,Cliente com dificuldade no site; vendedor não fez a reserva por ele.,1000
+27433058,2026-07-06,OP6,Não ofereceu telemetria.,50
+SEMINFO_e043e552-b9e1-40ee-b656-848bb7fa5eb4,2026-07-03,OP5,Não sugeriu migração de OBT para portal direto Localiza.,0
+26777261,2026-07-03,OP1,Suporte de pagamento.,0
+26777261,2026-07-09,OP6,Não ofereceu telemetria para o período acumulado.,50
+14373465,2026-07-03,OP1,Suporte de condutor divergente.,0
+24556147,2026-07-06,OP6,Não ofereceu telemetria.,50
+24556147,2026-07-13,OP6,Não ofereceu plano anual para os 3 carros de vez.,600
+24556147,2026-07-14,OP6,"Não ofereceu upgrade para SUV já que o cliente quer ""status"" para reuniões.",400
+21803613,2026-07-06,OP2,Cliente diz que PF é mais barato; vendedor não usou o argumento do mensal PJ.,1000
+21152984,2026-07-06,OP1,Caixa de voz.,0
+25296726,2026-07-06,OP6,Não ofereceu telemetria para a Estrada.,50
+25296726,2026-07-06,OP6,Não ofereceu proteção total.,80
+25296726,2026-07-13,OP1,Suporte de manutenção.,0
+02447092,2026-07-06,OP1,Suporte de reserva cancelada.,0
+27129002,2026-07-06,OP6,Não ofereceu telemetria.,50
+01826248,2026-07-06,OP1,Suporte de documentos.,0
+01826248,2026-07-06,OP6,Não ofereceu proteção total.,80
+08191148,2026-07-06,OP1,Número errado.,0
+24989814,2026-07-06,OP1,Suporte de carro provisório.,0
+25062174,2026-07-06,OP6,Não ofereceu telemetria para o upgrade de SUV.,50
+25062174,2026-07-16,OP1,Suporte emocional/pessoal.,0
+27098497,2026-07-06,OP1,Suporte de retirada.,0
+17263856,2026-07-06,OP5,Cliente de Gestão de Frota; não explorou locação para picos de demanda.,1000
+24465618,2026-07-06,OP1,Suporte financeiro.,0
+25658911,2026-07-06,OP2,Cliente comprou carro; não ofereceu desmobilização de frota.,5000
+11406220,2026-07-06,OP1,Não conseguiu contato com o decisor.,0
+11406220,2026-07-16,OP1,Ligação caiu.,0
+23832415,2026-07-06,OP1,Caixa de voz.,0
+09987149,2026-07-06,OP6,Não ofereceu proteção total para o diretor em Boa Vista.,80
+09043733,2026-07-06,OP1,Suporte de ramal.,0
+09043733,2026-07-06,OP2,Não ofereceu estudo de TCO para frota própria.,2000
+23694755,2026-07-06,OP6,Não ofereceu proteção total para o novo funcionário.,80
+02118334,2026-07-06,OP6,Não ofereceu proteção total para a semana em Goiânia.,80
+15863378,2026-07-06,OP6,Não ofereceu telemetria para o limite de 5 mil.,50
+08653640,2026-07-06,OP5,Não explorou o motivo da reserva ter falhado para oferecer upgrade.,200
+12060361,2026-07-06,OP6,Cliente pediu SUV; vendedor não ofereceu proteção total ou telemetria.,130
+21213399,2026-07-06,OP2,Cliente reclamou de quebra de frota própria; vendedor não quantificou custo de downtime.,3600
+27331949,2026-07-06,OP6,Cliente prevê 20 carros; vendedor não iniciou conversa de Gestão de Frota (Long Term).,4000
+00534997,2026-07-06,OP2,Cliente comprou Van própria; vendedor não ofereceu aluguel para picos de demanda.,200
+05391027,2026-07-06,OP5,Vendedor não investigou tamanho da frota própria ao saber do contrato anual.,200
+16887897,2026-07-06,OP1,Suporte de acesso sem perguntar sobre novas demandas de viagem.,200
+21288766,2026-07-06,OP5,Cliente usa conta de outra empresa; vendedor não tentou unificar ou entender volume.,200
+SEMINFO_41d87d00,2026-07-06,OP8,Escalada de limite de crédito demorada; risco de perda da reserva de R$ 5800.,5800
+10650996,2026-07-06,OP5,Cliente mencionou ter 3 empresas; vendedor não pediu os outros CNPJs.,600
+24921977,2026-07-06,OP2,Cliente optou por carro próprio; vendedor não ofereceu comparativo de TCO.,3600
+17086288,2026-07-06,OP2,Cliente usa frota própria; vendedor não questionou idade ou custo de manutenção.,200
+27436516,2026-07-06,OP6,Demanda de 6 meses para transporte cirúrgico; vendedor não ofereceu proteção premium.,80
+23007544,2026-07-06,OP5,Cliente quer picape por assinatura; vendedor não qualificou o uso para oferecer telemetria.,50
+21296593,2026-07-06,OP7,Cliente devolveu 2 carros de assinatura; vendedor não investigou motivo do churn.,7200
+10140309,2026-07-06,OP5,"Frota própria adquirida recentemente; vendedor não ofereceu ""Sale & Leaseback"".",3600
+16428620,2026-07-06,OP1,Falou com secretária mas não agendou call com o gestor Flávio.,200
+10400088,2026-07-21,OP2,Cliente reclamou de suporte da concorrente LM; vendedor não detalhou SLAs da Localiza.,1000
+07088093,2026-07-06,OP6,Aluguel de 6 meses; vendedor não ofereceu proteção de vidros/pneus.,80
+19648395,2026-07-06,OP1,Apenas pegou e-mail; não tentou descobrir volume de leite transportado para sugerir utilitários.,200
+25607210,2026-07-06,OP7,Cliente ameaçou parar de locar por erro de entendimento; vendedor foi burocrático.,5000
+19881463,2026-07-06,OP6,Upgrade de KM solicitado; vendedor não ofereceu telemetria para controle de excessos.,50
+12293303,2026-07-06,OP2,Cliente usa sedã próprio para eventos; vendedor não ofereceu categoria superior para imagem corporativa.,200
+SEMINFO_e1ac5b29,2026-07-06,OP6,Ativação de telemetria; vendedor não ofereceu treinamento no portal para o cliente.,50
+24627761,2026-07-06,OP6,Cliente viaja para áreas de risco (favelas); vendedor não insistiu na Proteção Total.,80
+18816499,2026-07-06,OP1,Suporte de biometria sem investigar o motivo da locação de hoje.,200
+16966691,2026-07-06,OP2,Empresa pequena usa frota própria; não foi ofertado plano anual para substituição.,2400
+27447539,2026-07-06,OP6,Cliente vai viajar; não ofertado upgrade de categoria ou proteção premium.,80
+12095983,2026-07-06,OP5,Cotação de 15 dias; não explorado se há recorrência para virar mensal.,200
+09671480,2026-07-06,OP6,Cliente compra carros usados; não ofertado Localiza Seminovos ativamente.,50000
+09671480,2026-07-07,OP2,"Cliente cita uso em ""fábrica de avião""; não explorado telemetria para segurança.",50
+07070826,2026-07-06,OP6,Cliente alugava vans; não verificado se a frota própria atual inclui pesados.,3600
+24351717,2026-07-06,OP2,"Empresa pequena com frota própria; vendedor aceitou o ""está tudo bem"" rápido demais.",2400
+24948895,2026-07-06,OP2,Patrão viaja de moto e aluga quando está na cidade; não ofertado plano mini-mensal.,200
+20823166,2026-07-06,OP2,Cliente usa para manutenção de veículo próprio; não ofertado carro reserva fixo.,200
+16436846,2026-07-06,OP6,Cliente com criança pequena e pressa; não ofertado upgrade para SUV mais seguro.,150
+24900647,2026-07-06,OP2,Cliente acha PF mais barato que PJ; vendedor não provou valor do faturamento/seguro PJ.,200
+18382770,2026-07-06,OP5,Problemas graves de telemetria relatados; vendedor apenas passou telefone de suporte.,50
+18382770,2026-07-13,OP6,Roubo de estepe relatado; oportunidade para vender proteção de acessórios/premium.,80
+13555327,2026-07-06,OP3,Cotação para aeroporto franqueado; não tentado contornar preço alto com plano mensal.,200
+21703937,2026-07-06,OP5,Empresa antiga baixada; nova empresa CNCTEC não cadastrada no ato.,2400
+12439651,2026-07-06,OP1,Dúvida sobre lavagem no OnFly; suporte técnico sem gancho comercial.,40
+27435863,2026-07-06,OP2,Cliente usa CPF por causa de cartão Black; não explicado ganho contábil do faturamento PJ.,200
+27436603,2026-07-06,OP2,Carro próprio estragado; não ofertado plano mensal enquanto o carro está na oficina.,2400
+06253264,2026-07-06,OP6,Dono da empresa usando 4x4; não ofertado upgrade para categoria Premium/Luxo.,300
+23573403,2026-07-06,OP6,Carro de substituição Onix; oportunidade de upgrade para categoria superior no mensal.,200
+24313482,2026-07-06,OP2,Reclamação de pneu/vidro; oportunidade para vender proteção total em todos os contratos.,80
+08781433,2026-07-06,OP5,Vendedores no Sul; não solicitado lista de cidades para estudo logístico.,2400
+11883011,2026-07-06,OP2,Vendedores compraram carros próprios; não ofertado recompra de frota + aluguel.,2400
+27439344,2026-07-06,OP6,Cliente gosta de T-Cross; oportunidade de fechar assinatura de longo prazo no ato.,3600
+01190718,2026-07-06,OP6,Uso baixo (500km); oportunidade para plano de quilometragem reduzida ou carro por assinatura.,2400
+17473352,2026-07-06,OP5,Contrato de 24 meses ativo; não explorado upsell para outras áreas da empresa.,2400
+25304188,2026-07-06,OP2,Comprou veículo novo para agenciado; não comparado custo de aquisição vs locação.,2400
+24271697,2026-07-06,OP6,Viagem para o Piauí; não ofertado proteção de vidros/pneus para estradas ruins.,80
+24997572,2026-07-06,OP2,Usa particular por preço; não explorado benefício de dedução fiscal do PJ.,200
+27289515,2026-07-06,OP5,"Cadastro para ""motivo específico""; não investigado qual o projeto para dimensionar frota.",2400
+08546884,2026-07-13,OP2,Frota própria para técnicos; não ofertado gestão de manutenção ou telemetria.,50
+02425243,2026-07-06,OP6,Diretores viajando; não ofertado motorista ou categoria Prime.,500
+23608061,2026-07-06,OP5,"Não explorou o motivo da ""tranquilidade"" ou planos de expansão no semestre.",0
+27449020,2026-07-06,OP6,Cliente com carro próprio vendido; vendedora não tentou upgrade para categoria superior ou telemetria.,130
+21907332,2026-07-06,OP2,Cliente diz que aloca pouco; vendedora não tentou entender o custo da frota própria mencionada.,0
+07037825,2026-07-06,OP3,Cliente aguardando obra em 3 meses; vendedora não tentou reserva antecipada com trava de preço.,0
+09957418,2026-07-06,OP6,"Após provar valor da proteção,não tentou vender telemetria para evitar novos acidentes.",50
+10339210,2026-07-06,OP5,"Vendedora aceitou passivamente que ""não estão precisando"" sem falar com os gerentes indicados.",0
+17949713,2026-07-06,OP1,Suporte técnico longo sobre multas sem nenhuma pergunta sobre novas demandas ou upgrade.,0
+08317544,2026-07-06,OP6,Cliente rodando muito; vendedora não ofereceu telemetria para controle de custos de combustível/KM.,50
+18565492,2026-07-06,OP2,Cliente diz que PF é mais barato que PJ; vendedora não contestou com benefícios fiscais do PJ.,0
+26117137,2026-07-06,OP6,Cliente com carro batido; vendedora não ofereceu proteção total ou telemetria no fechamento.,130
+27434691,2026-07-06,OP6,Cliente quer 48 meses; vendedora não tentou vender o plano de 12 meses como transição imediata.,200
+21906943,2026-07-06,OP6,Cliente tem 8 carros próprios; vendedora não ofereceu proteção total para todos os novos alugados.,640
+27371721,2026-07-06,OP6,Suporte operacional para reserva sem oferecer proteção total ou upgrade de categoria.,80
+27347349,2026-07-06,OP2,Cliente reclamou de preço; vendedora não ofereceu plano anual para reduzir a diária.,200
+24923677,2026-07-06,OP4,Vendedor tentou vender para terceiros do cliente mas não pediu indicação formal (referral).,0
+23895143,2026-07-06,OP6,Aviso de alta temporada sem tentativa de upsell para proteção total contra imprevistos em julho.,80
+25612644,2026-07-06,OP6,Cliente devolvendo carro; vendedora não ofereceu telemetria para o próximo contrato.,50
+04158615,2026-07-06,OP6,Troca de frota por alta KM; vendedora não ofereceu telemetria para monitorar uso severo.,50
+11599912,2026-07-06,OP6,Cliente usa carro por assinatura; vendedora não tentou vender proteção total para o carro atual.,80
+21248616,2026-07-13,OP1,Suporte sobre erro de reserva sem tentativa de vender proteção adicional ou telemetria.,130
+22943928,2026-07-06,OP6,Cliente com 5 carros próprios; vendedora não ofereceu telemetria para a frota atual como serviço.,250
+27449780,2026-07-06,OP6,Cliente de rota curta; vendedora não ofereceu proteção total para pequenos danos urbanos.,80
+02518251,2026-07-06,OP6,Cotação de Nivus/Pulse; vendedora não ofereceu telemetria para gestão de motoristas.,50
+06822142,2026-07-06,OP6,Cliente alugando Commander (luxo); vendedora não ofereceu proteção total e telemetria.,130
+23666151,2026-07-06,OP6,Empresa com 13 carros próprios; vendedora não ofereceu telemetria para gestão da frota interna.,650
+08852475,2026-07-06,OP6,Cliente querendo Montana/Saveiro para trabalho; vendedora não ofereceu telemetria.,50
+17991449,2026-07-06,OP5,Vendedor informou limite de 30k mas não perguntou sobre viagens futuras,200
+05869170,2026-07-06,OP2,Cliente tem 2 carros próprios; não foi ofertado substituição por assinatura,400
+17606003,2026-07-06,OP5,Problema técnico recorrente; oportunidade de sugerir troca por modelo mais confiável,200
+27451303,2026-07-06,OP6,Cliente pede elétrico/híbrido; vendedor não enfatizou telemetria inclusa,3600
+00760239,2026-07-07,OP5,Mudança de comprador; oportunidade de reapresentar todo o portfólio,200
+17758992,2026-07-06,OP2,Cliente comprou usado por custo; vendedor não detalhou TCO (custo total),200
+27023339,2026-07-08,OP6,Cliente pensa em comprar Amarok/S10; oportunidade clara de Assinatura (Meoo),3600
+SEMINFO_a6d5203d-6444-43be-a40f-376feebc95db,2026-07-06,OP4,Agência perdeu conta; vendedor não pediu indicação da empresa que saiu,200
+11598611,2026-07-06,OP6,Reserva de 2 veículos mensais; não ofertado proteção premium de imediato,160
+01659277,2026-07-06,OP2,Cliente quer modelo específico; oportunidade de converter para contrato de 12 meses,200
+27435514,2026-07-06,OP2,Cliente vai vender frota própria (5 Fiorinos); oportunidade de 10k+/mês,1000
+12072867,2026-07-15,OP7,Cliente já renovou com a Movida; falha na detecção precoce de churn,600
+15799774,2026-07-06,OP2,Dúvida sobre 15k de excedente; oportunidade de ajustar franquia retroativa,500
+12654893,2026-07-06,OP5,Cliente parou por regra de KM; vendedor não ofereceu plano customizado,200
+19577345,2026-07-15,OP7,Perda de contrato de 2 anos de Fiorino para concorrente pequeno,1000
+24627512,2026-07-06,OP6,Empresa com 6 unidades; oportunidade de centralização de frota pesada,1200
+17263650,2026-07-06,OP1,Suporte passivo sem tentar identificar volume de frota ou dor do financeiro.,0
+25267952,2026-07-06,OP6,Cliente mencionou 10-15 dias; vendedor não tentou vender o Mensal Flex como solução de custo fixo.,2000
+01238695,2026-07-06,OP5,Cliente mencionou agenda cheia e sazonalidade; vendedor não explorou reserva antecipada para garantir frota.,1500
+12660146,2026-07-06,OP2,"Aceitou o ""não temos demanda"" sem investigar se usam frota própria ou concorrente.",1200
+25242963,2026-07-06,OP6,Cliente confirmou viagens pontuais; vendedor não ofereceu proteção total para evitar burocracia de sinistro.,80
+27448921,2026-07-06,OP2,Cliente vai precisar de carros para outros estados; vendedor não ofereceu centralizar faturamento para reduzir impostos.,3000
+02330597,2026-07-06,OP5,Cliente usa frota própria e aluga só para viagens; vendedor não ofereceu telemetria para a frota atual ou substituição.,500
+13388896,2026-07-06,OP7,"Cliente parou de locar por ""emprego de frota própria""; vendedor não tentou comparar custo de manutenção vs locação.",2500
+07594802,2026-07-06,OP4,Cliente satisfeito com agência; vendedor não pediu indicação de outras filiais ou parceiros.,0
+18907151,2026-07-06,OP6,Cliente cotando 4x4 para Manaus; vendedor não ofereceu telemetria para controle em zona remota.,50
+13179545,2026-07-06,OP1,"Ligação focada apenas em cobrança; perdeu chance de oferecer upgrade de frota já que o cliente ""entra todo dia no site"".",0
+16311976,2026-07-06,OP3,Cliente reclamando de preço; vendedor se perdeu na explicação técnica da franquia em vez de focar no valor da proteção total.,200
+13867118,2026-07-13,OP1,Atendimento de manutenção puro; não questionou se o baixo uso do KM (400/mês) justifica troca por categoria inferior ou upgrade.,0
+14325916,2026-07-06,OP2,"Cliente faz cotações mas não fecha; vendedor não ofereceu uma ""tarifa balcão garantida"" para converter.",1500
+04200491,2026-07-06,OP5,Cliente traumatizado com conta de 5k; vendedor não explicou que o erro foi a falta de migração para mensal (upsell reverso).,3500
+09412099,2026-07-06,OP6,Cliente espera projetos novos; vendedor não ofereceu reserva de frota garantida para evitar indisponibilidade.,2000
+26460516,2026-07-06,OP2,"Cliente disse que ""pessoal entra em contato"",vendedor não buscou quem decide.",2200
+20768928,2026-07-06,OP6,"Cliente mencionou viagem em agosto,vendedora não tentou upgrade para SUV.",300
+25546895,2026-07-06,OP2,"Cliente usando ""carro de serviço"" (Uber),oportunidade de terceirização não explorada.",2200
+27014911,2026-07-06,OP5,Problema de disponibilidade em Juazeiro poderia ser gancho para contrato fixo.,2200
+08624601,2026-07-14,OP2,"Cliente disse que o ano está ruim,vendedora não ofereceu redução de custos via aluguel.",2200
+04023231,2026-07-06,OP3,"Fim de obra em agosto,vendedora não buscou próxima obra para manter o carro.",2200
+27435552,2026-07-06,OP6,"Cliente usa PF para economizar,vendedora não comparou TCO real.",500
+22915749,2026-07-06,OP5,Bloqueio de diário é chance de converter para mensal fixo com desconto.,2200
+14170518,2026-07-06,OP2,"Demanda fraca de assistência técnica,oportunidade de telemetria para reduzir custos.",50
+27425882,2026-07-06,OP6,Cliente recusou proteção total em locação de 3 meses; alto risco de churn por avaria.,80
+16129308,2026-07-06,OP5,"Cliente tem frota própria,vendedora não pediu dados para estudo de terceirização.",11000
+23536923,2026-07-06,OP7,"Cliente comprou carro próprio,vendedora não questionou custos de manutenção.",2200
+20759975,2026-07-08,OP6,"Cliente com km estourado,oportunidade de upgrade de franquia não fechada na hora.",400
+23434988,2026-07-06,OP5,Cliente fechou 3 anos com concorrente por preço; faltou comparar valor agregado.,2200
+10174518,2026-07-06,OP5,Empresa com 15 carros próprios; vendedora não ofereceu gestão de frota.,33000
+27393696,2026-07-06,OP6,Cliente querendo vender carro próprio; oportunidade de assinatura de longo prazo.,2200
+27452750,2026-07-06,OP6,Cliente gasta R$300 com rastreador externo; oportunidade de Upsell de Telemetria.,50
+25405751,2026-07-06,OP5,Cliente com 5 carros próprios; vendedora não aprofundou na planilha de custos.,11000
+21329792,2026-07-06,OP6,Cliente usa esporádico; vendedora não tentou pacote de diárias pré-pagas.,500
+03251714,2026-07-06,OP5,Cliente usa Booking por preço; vendedora não explicou benefícios fiscais do PJ.,200
+13716867,2026-07-06,OP6,Cliente tem 3 carros em assinatura; oportunidade de cross-sell para diárias.,500
+19400789,2026-07-06,OP2,Cliente usa picape para obra; oportunidade de oferecer proteção de carga/utilitário.,80
+14160071,2026-07-06,OP7,Cliente insatisfeito com reajuste IPCA; risco de churn para compra de carro.,2200
+SEMINFO_72f606c5,2026-07-06,OP5,Perda para Unidas por preço; vendedora não questionou nível de serviço/disponibilidade.,2200
+13016653,2026-07-07,OP7,Cliente devolvendo carro porque chegou o próprio; vendedora não tentou retenção.,2200
+21821896,2026-07-07,OP5,Não explorou por que precisam de 7 lugares (expansão de equipe?),200
+27373385,2026-07-07,OP6,Cliente pediu telemetria; vendedor não ofereceu proteção total no novo carro.,130
+27263642,2026-07-07,OP2,Engenheiro em campo; oportunidade de oferecer telemetria para gestão.,50
+27154894,2026-07-07,OP1,Aceitou pagamento em cartão sem questionar perda de controle financeiro.,0
+19031278,2026-07-16,OP6,Cliente preocupado com KM; não ofereceu telemetria para controle real.,50
+25665440,2026-07-07,OP6,Cliente interessado em elétrico; potencial de venda de infra de carregamento.,3600
+24848163,2026-07-07,OP7,Risco de churn por inadimplência; não ofereceu renegociação proativa.,3000
+15262345,2026-07-07,OP1,Apenas transferiu; não perguntou sobre o tamanho da obra para novos carros.,2000
+16602174,2026-07-07,OP5,Não investigou o que mudou no negócio para estarem sem demanda.,500
+SEMINFO,2026-07-07,OP6,Unificação de códigos; oportunidade de oferecer plano anual para frota fixa.,200
+06583561,2026-07-07,OP6,Gestor de duas empresas; não ofereceu cross-sell entre as operações.,1500
+27455103,2026-07-07,OP2,Cliente comparando com PF; não enfatizou proteção total inclusa no PJ.,80
+26446723,2026-07-07,OP3,Fechamento de contrato com avaria; não tentou reter com novo carro.,1500
+11065947,2026-07-07,OP6,Diretores exigentes; oportunidade de upgrade para categoria Premium.,400
+10599452,2026-07-07,OP6,Troca de 4 carros; não ofereceu telemetria para a nova frota.,200
+25406189,2026-07-07,OP6,Mencionou caminhões; vendedor não fez o referral interno imediato.,5000
+11008981,2026-07-07,OP5,Multas recorrentes; não ofereceu telemetria para educar motoristas.,50
+20594067,2026-07-07,OP7,"Cliente alega que ""não vale a pena""; não houve defesa do ROI do aluguel.",2000
+27102041,2026-07-07,OP2,"Reajuste de preço; não ofereceu telemetria como ""moeda de troca"" por eficiência.",50
+19786667,2026-07-07,OP5,Não questionou quando os novos projetos da Prisma iniciam.,1000
+05911833,2026-07-07,OP7,Frota própria; não ofereceu estudo de terceirização (Total Cost of Ownership).,5000
+17327011,2026-07-07,OP6,Migração de CNPJ; oportunidade de revisar e aumentar a frota.,1500
+27452626,2026-07-07,OP2,Entrega de tintas; oportunidade óbvia de Fiorino/Furgão mensal.,1500
+23943703,2026-07-07,OP7,Cliente insatisfeito com manutenção; risco alto de churn para concorrência.,2500
+27452254,2026-07-07,OP1,Suporte passivo sem investigar frota atual.,200
+17768929,2026-07-07,nenhuma,nenhuma,0
+09305470,2026-07-07,OP2;OP5,Cliente tem frota própria; vendedor não explorou terceirização.,200
+02631643,2026-07-07,nenhuma,nenhuma,0
+17773247,2026-07-07,OP7,Churn por problema financeiro não escalado para retenção.,200
+27081738,2026-07-07,OP6,Não ofertou proteção superior em reserva de urgência.,80
+27081738,2026-07-07,nenhuma,nenhuma,0
+27081738,2026-07-07,OP6,Cliente não sabia das proteções; vendedor não vendeu o valor.,80
+27081738,2026-07-13,nenhuma,nenhuma,0
+07966038,2026-07-07,OP5,Não investigou o tamanho da frota dos clientes esporádicos.,200
+24177072,2026-07-07,OP2,Perdeu alocação de 28 dias para concorrente por preço.,200
+24177072,2026-07-20,OP6,Não tentou upgrade de categoria para viagem de lazer/BH.,80
+27112250,2026-07-07,OP6,"Poderia ter ofertado o ""Localiza Meoo"" para os carros zero.",200
+13074018,2026-07-07,nenhuma,nenhuma,0
+26501084,2026-07-07,OP1,Foco excessivo em suporte técnico sem gancho comercial.,200
+15522772,2026-07-07,nenhuma,nenhuma,0
+15522772,2026-07-08,nenhuma,nenhuma,0
+24619757,2026-07-07,OP1,Ligação de rotina sem perguntas de descoberta.,200
+04739947,2026-07-07,OP6,Não aproveitou o restabelecimento do acesso para fechar reserva.,200
+20137026,2026-07-07,OP5,Não explorou o que a empresa faz para prever demanda.,200
+10755948,2026-07-07,nenhuma,nenhuma,0
+11172998,2026-07-07,OP1,Suporte de faturamento sem tentativa de upsell ou novos carros.,200
+13705090,2026-07-07,nenhuma,nenhuma,0
+15639997,2026-07-07,nenhuma,nenhuma,0
+18248178,2026-07-07,nenhuma,nenhuma,0
+07454666,2026-07-07,OP2,Cliente reclamou de preço; vendedor não defendeu valor antes de desligar.,200
+07454666,2026-07-17,OP6,Não ofertou telemetria para controle do condutor Glauro.,50
+07454666,2026-07-17,nenhuma,nenhuma,0
+27374799,2026-07-07,OP1,"Vendedor se limitou a dizer que ""não era com ele"" o carro zero.",200
+03673845,2026-07-07,nenhuma,nenhuma,0
+26101073,2026-07-07,OP6,Não ofertou proteção total ou assistência 24h na proposta.,80
+22767576,2026-07-07,OP6,"Não tentou vender proteção para evitar ""dor de cabeça"" mencionada.",80
+22767576,2026-07-07,nenhuma,nenhuma,0
+22767576,2026-07-08,nenhuma,nenhuma,0
+22767576,2026-07-14,nenhuma,nenhuma,0
+22767576,2026-07-15,OP6,Cliente viaja para a Bahia; não ofertou upgrade para carro mais seguro.,80
+04639627,2026-07-07,OP7,Risco de churn alto por falha na substituição de 5h.,200
+20924945,2026-07-07,OP1,Suporte passivo; não questionou por que parou de alugar.,200
+04733087,2026-07-07,OP1,"Vendedor focado em resolver erro de agência,sem cross-sell.",200
+15119093,2026-07-07,nenhuma,nenhuma,0
+27213526,2026-07-07,OP5,"Não explorou quais são os ""projetos"" futuros do cliente.",200
+23090953,2026-07-07,OP7,Inativou cadastro sem tentar entender se o restaurante entrega.,200
+20199778,2026-07-07,nenhuma,nenhuma,0
+23771878,2026-07-07,nenhuma,nenhuma,0
+17376005,2026-07-07,nenhuma,nenhuma,0
+02354463,2026-07-07,nenhuma,nenhuma,0
+02354463,2026-07-21,nenhuma,nenhuma,0
+27443313,2026-07-07,OP5,Não perguntou o volume de viagens do cliente.,200
+14632596,2026-07-07,OP3,Urgência de obra; vendedor não garantiu a solução imediata.,200
+15608060,2026-07-07,nenhuma,nenhuma,0
+10578600,2026-07-07,nenhuma,nenhuma,0
+10578600,2026-07-14,nenhuma,nenhuma,0
+10578600,2026-07-15,nenhuma,nenhuma,0
+10578600,2026-07-15,nenhuma,nenhuma,0
+14827106,2026-07-07,OP2,Cliente alugou PF; vendedor não tentou migrar o contrato atual.,200
+02649108,2026-07-07,OP1,"Aceitou o ""momento não"" sem investigar a frota atual.",200
+06491342,2026-07-07,nenhuma,nenhuma,0
+06491342,2026-07-14,nenhuma,nenhuma,0
+06491342,2026-07-15,nenhuma,nenhuma,0
+06491342,2026-07-21,nenhuma,nenhuma,0
+03719678,2026-07-07,nenhuma,nenhuma,0
+15277633,2026-07-07,OP6,"Não ofertou utilitário para ""trabalho em campo"" (mais caro).",200
+22702255,2026-07-07,nenhuma,nenhuma,0
+10215389,2026-07-07,OP2,Cliente tem frota própria; não houve tentativa de conversão.,200
+23211312,2026-07-07,nenhuma,nenhuma,0
+24758007,2026-07-07,nenhuma,nenhuma,0
+01067647,2026-07-07,OP6,Poderia ter vendido proteção de vidros/pneus na troca.,80
+SEMINFO,2026-07-07,nenhuma,nenhuma,0
+24794557,2026-07-07,OP1,Ligação de rotina sem valor agregado.,200
+14508338,2026-07-07,nenhuma,nenhuma,0
+14508338,2026-07-07,nenhuma,nenhuma,0
+27456801,2026-07-07,OP6,Não ofertou proteção total no faturamento de 10k.,80
+09342320,2026-07-07,OP1,Suporte de multas sem gancho para novos aluguéis.,200
+09342320,2026-07-07,nenhuma,nenhuma,0
+23891988,2026-07-07,OP5,Não perguntou qual locadora o cliente usa atualmente.,200
+27349739,2026-07-07,nenhuma,nenhuma,0
+24796982,2026-07-07,OP5,Não perguntou o tamanho da demanda da semana que vem.,200
+27451262,2026-07-07,OP6,"Não ofertou proteção de vidros para quem ""roda o Brasil"".",80
+24127865,2026-07-07,OP1,Ligação de rotina sem profundidade.,200
+13391916,2026-07-07,OP3,Carro parado na rua; vendedor não priorizou a substituição.,200
+24797305,2026-07-07,OP5,"Não explorou por que o cliente reduziu volume para ""eventos maiores""",2000
+24577653,2026-07-07,OP2,"Cliente usa apenas ""pontual""; não ofertado benefício do mensal para projetos",1500
+08213401,2026-07-07,OP6,Cliente de frotas com uso diário; não investigado gargalos da frota atual,3000
+07840555,2026-07-07,OP4,Cliente com 6 carros na Movida; vendedor não pediu fatura para cobrir preço,12000
+23902774,2026-07-07,OP2,Cliente usa picape própria; não ofertado custo de manutenção vs locação,2500
+01196235,2026-07-07,OP5,Cliente usa carros particulares; não calculado risco jurídico/reembolso KM,4000
+27014555,2026-07-07,OP6,Cliente quer trocar Estrada por Montana; não tentado upsell de telemetria,100
+22256475,2026-07-07,OP6,Interesse em Seminovos; vendedor não vinculou à renovação da frota atual,5000
+21914206,2026-07-07,OP5,Não questionado sobre planos de expansão da igreja/eventos,1200
+23576774,2026-07-07,OP3,Cliente alugou PF há 10 dias; não explicado ganho de fluxo de caixa no PJ,1800
+18473725,2026-07-08,OP2,Cliente tem 2 carros próprios; não ofertado substituição por mensal,4000
+23671768,2026-07-07,OP3,Cliente retira carro PF amanhã; não tentado migração imediata para PJ,1500
+SEMINFO_14e68a80-5c32-4d0b-b5af-195586f953a8,2026-07-07,OP1,Focou apenas no problema de cobrança; não investigou novas locações.,0
+23631386,2026-07-07,OP5,Não buscou influenciador alternativo enquanto a decisora está de férias.,2000
+02656468,2026-07-07,OP2,Não ofereceu comparativo de custo direto vs agência de viagens.,1500
+10162525,2026-07-07,OP6,Cliente elogiou o carro novo; vendedor não tentou estender para mensal.,200
+23730014,2026-07-07,OP2,Cliente usa CPF por hábito; vendedor não insistiu nas vantagens fiscais do PJ.,800
+23693067,2026-07-07,OP5,Não explorou a dor de visitas técnicas distantes para oferecer proteção/telemetria.,50
+01361690,2026-07-08,OP6,Cliente tem 3 carros em Gestão de Frotas; vendedor não ofereceu RAC para substituição em manutenções.,400
+24216268,2026-07-07,OP2,"Cliente devolveu carro por ""problemas"" em outra locadora; vendedor não explorou a falha do concorrente.",1200
+05300583,2026-07-07,OP6,Cliente tem frota antiga (Currier); vendedor não ofereceu Assinatura (Meoo) para renovação.,3600
+00166459,2026-07-07,OP5,"Aceitou passivamente que ""está tudo bem"" sem investigar expansão de frota.",1000
+16089471,2026-07-07,OP2,Não apresentou cálculo de depreciação de carros usados vs locação.,2000
+14849818,2026-07-07,OP3,Não tentou antecipar a reserva de agosto para garantir disponibilidade.,1500
+21288774,2026-07-07,OP6,Cliente quer comprar Spin/Doblo; vendedor não ofereceu o Localiza Meoo como alternativa à compra.,3600
+17666201,2026-07-07,OP6,13 carros sendo migrados; vendedor não ofereceu telemetria para gestão da nova frota.,650
+26800363,2026-07-07,OP2,Cliente vai iniciar obras; vendedor não ofereceu utilitários pesados ou frotas específicas.,2500
+18622481,2026-07-21,OP6,Cliente questionou KM excedente; vendedor não ofereceu upgrade de plano de KM para a próxima.,100
+14600391,2026-07-15,OP2,Cliente usa assinatura para viagens longas; vendedor não ofereceu proteção premium.,80
+26786265,2026-07-07,OP2,"Vendedor admitiu ""limitação do sistema"" em vez de focar no valor agregado do faturamento PJ.",500
+19301708,2026-07-07,OP6,"Cliente pediu ""negocinho bom"" para 35 diárias; vendedor não ofereceu proteção de pneus/vidros.",80
+07589091,2026-07-07,OP2,Perdeu 5 carros para a Movida por demora na resposta de faturamento.,4000
+17087013,2026-07-07,OP7,"Cliente migrou para frota própria; vendedor não tentou ""Buy and Lease Back"".",3600
+26776843,2026-07-07,OP7,Inativou cadastro sem tentar entender por que a viagem particular não foi feita via PJ.,500
+21903106,2026-07-07,OP7,Cliente cancelando assinatura por má experiência em oficina.,3600
+17085605,2026-07-07,OP2,Cliente demanda picape 4x4 por 4 meses; vendedor não fechou reserva.,2400
+26451859,2026-07-07,OP5,Cliente comprou carros por pressa; vendedor não explorou pronta entrega.,400
+05208007,2026-07-07,OP5,Vendedor focou em pesquisa mas não tentou upsell de frota.,0
+01716727,2026-07-07,OP6,Cliente com 5 carros na Unidas; vendedor não ofereceu plano anual agressivo.,1000
+14991873,2026-07-07,OP2,Cliente usa agência de viagens; vendedor não converteu para gestão direta.,200
+19612346,2026-07-07,OP4,Cliente quer parceria com Ubers; vendedor não solicitou indicações (referral).,0
+SEMINFO_f2516d47,2026-07-07,OP2,Cliente com 3 carros na concorrência por burocracia no cadastro.,600
+SEMINFO_bf7f649a,2026-07-07,OP2,Cliente locando na Movida por falta de limite de crédito na Localiza.,200
+SEMINFO_312a8786,2026-07-07,OP6,Cliente tem eventos recorrentes; oportunidade de pátio fixo não explorada.,200
+SEMINFO_a41ba297,2026-07-07,OP2,Engenharia precisa de carro; vendedor não ofereceu proteção premium.,80
+SEMINFO_567efa81,2026-07-07,OP5,Vendedor não mapeou data de término do contrato na concorrência.,0
+23855347,2026-07-21,OP1,Problema na telemetria; vendedor não aproveitou para vender proteção adicional.,80
+21723273,2026-07-07,OP5,Não explorou o motivo da locação atual para oferecer upgrade.,0
+11037824,2026-07-09,OP6,Não ofereceu proteção ampliada ou telemetria ao tratar de condutores.,130
+04775372,2026-07-07,OP2,Suporte em sinistro sem conectar com proteção total para próxima locação.,80
+26986540,2026-07-07,OP6,Cliente retirou limpeza e neutralização; vendedor não defendeu valor.,50
+26053833,2026-07-07,OP2,Cliente usa seguro; vendedor não ofereceu plano reserva PJ.,200
+27343296,2026-07-07,OP1,Foco excessivo em suporte de estorno sem reverter para nova venda.,0
+26487591,2026-07-07,OP5,Diferença de tarifa no site não explicada como valor agregado.,0
+21418599,2026-07-07,OP7,Cliente não loca há um ano; vendedor aceitou passivamente.,200
+27458666,2026-07-07,OP6,Cliente reclama de preço; vendedor não ofereceu plano mensal flexível.,300
+17656565,2026-07-07,OP6,Não ofereceu telemetria para gestão dos novos colaboradores.,50
+10529644,2026-07-07,OP3,Fechamento confuso sobre mensalidade; risco de churn por falta de clareza.,4199
+11304832,2026-07-07,OP5,Visita de rotina sem pergunta sobre novos projetos ou expansão.,0
+18503506,2026-07-07,OP6,Mencionou pesados/caminhões mas não aprofundou na dor do cliente.,1000
+27301192,2026-07-07,OP5,Cliente tem 8 carros próprios; não ofereceu terceirização de frota.,1600
+15177168,2026-07-07,OP6,Não ofereceu proteção total para uso em Passo Fundo.,80
+25651311,2026-07-07,OP2,Perda para concorrência por preço; não enfatizou telemetria/gestão.,50
+23205822,2026-07-07,OP7,Cliente migrou para assinatura; vendedor não tentou cross-sell.,0
+27135177,2026-07-07,OP2,Cliente usa PF; vendedor não quantificou economia real do PJ.,200
+SEMINFO_ed6b9baf,2026-07-07,OP6,Não ofereceu proteção total para transporte de carga (chopp).,80
+SEMINFO_e7911f63,2026-07-07,OP5,Risco crítico de perda de 60 veículos para concorrência.,12000
+07724719,2026-07-08,OP1,Suporte de login sem perguntar sobre novas demandas.,0
+20632339,2026-07-08,OP6,Cliente pediu 2000km; vendedor não ofereceu telemetria para controle.,50
+17263648,2026-07-13,OP6,Cliente com família e crianças; não oferecido upgrade para SUV maior.,300
+26961828,2026-07-08,OP5,Cliente com dúvida sobre KM sobrando; não explorado upgrade de plano.,200
+13030363,2026-07-08,OP2,Cliente mencionou uso em mina; vendedor não fechou proposta de 4x4.,3600
+17263812,2026-07-08,OP2,Cliente tem 1 carro para ronda; não oferecido backup ou telemetria.,50
+04382610,2026-07-08,OP8,Vendedor não resolveu bloqueio e apenas transferiu.,0
+22024511,2026-07-08,OP2,Cliente pediu carro automático; não oferecido proteção total.,80
+22999223,2026-07-10,OP6,Vendedor ofereceu telemetria mas não fechou o pacote de proteção total.,80
+27120755,2026-07-08,OP5,Cliente vai rodar 5000km/mês; não oferecido cartão combustível.,100
+19896241,2026-07-08,OP6,Cliente tem 2 caminhões próprios; oportunidade clara de terceirização total.,7200
+27215405,2026-07-08,OP1,Ligação de boas-vindas sem sondagem de dor.,0
+27463218,2026-07-08,OP2,Cliente migrando da Unidas por preço; não oferecido plano fidelidade.,200
+10363272,2026-07-08,OP6,Cliente recusou telemetria; vendedor não insistiu no ROI de segurança.,50
+11045263,2026-07-10,OP6,Cliente vai alugar 6 picapes; não oferecido pacote de telemetria avançada.,300
+06731892,2026-07-08,OP1,Suporte de senha sem gancho comercial.,0
+15598804,2026-07-16,OP2,Dúvida sobre TAG; não oferecido plano de gestão de frotas.,0
+05420325,2026-07-08,OP1,Suporte sobre rodízio sem cross-sell de proteção.,80
+27414912,2026-07-08,OP5,Cliente usa PF e migrou para PJ; não explorado potencial de outros sócios.,0
+13705241,2026-07-08,OP2,Não questionou o custo da frota própria parada.,200
+06297542,2026-07-08,OP5,"Não explorou o motivo da ""falta de demanda"".",200
+23604926,2026-07-08,OP6,Cliente já tem assinatura; poderia oferecer telemetria.,50
+01187924,2026-07-08,OP3,Não tentou antecipar a reserva para garantir disponibilidade.,200
+16787166,2026-07-08,OP2,Cliente insatisfeito com grupo; poderia oferecer upgrade cortesia.,200
+SEMINFO_9fa519fd,2026-07-08,OP8,Vendedor não escalou internamente para resolver problema de imagem.,0
+SEMINFO_7c3c047b,2026-07-08,OP6,Cliente vai antecipar faturas; poderia oferecer upgrade de grupo.,200
+SEMINFO_82828290,2026-07-08,OP6,Poderia oferecer proteção total para aumentar ticket.,80
+14345787,2026-07-08,OP2,Cliente reclamou de preço; vendedor não ofereceu plano anual.,200
+04516136,2026-07-08,OP6,Cliente roda 12k km; telemetria era essencial e foi pouco enfatizada.,52
+24148664,2026-07-08,OP2,Cliente vai pegar obra em SP; vendedor não pegou detalhes para proposta.,600
+13787653,2026-07-08,OP5,"Cliente mencionou renovações de frota; vendedor ignorou por ser ""RAC"".",3600
+25542571,2026-07-08,OP2,Não ofereceu comparativo de custo para a Estrada da frota própria.,200
+26923185,2026-07-08,OP3,Não ofereceu reserva assistida imediata para compensar burocracia.,200
+24710426,2026-07-09,OP6,Cliente preocupado com roubo no RJ; telemetria era upsell óbvio.,50
+19004675,2026-07-08,OP5,Diretor alugando como PF; não explorou migração para PJ.,200
+23765394,2026-07-08,OP1,Suporte sobre multas sem oferta de proteção total para evitar taxas.,80
+22969671,2026-07-08,OP2,Cliente com bloqueio no CPF; não ofereceu solução via CNPJ imediata.,200
+27464565,2026-07-08,OP6,Cliente ia pagar 3.600 por 14 dias; não fechou o mensal de 3.200.,400
+15454356,2026-07-08,OP5,Ligação de rotina sem pergunta sobre volume de viagens no semestre.,200
+22873358,2026-07-08,OP6,Não ofereceu telemetria para controle do novo condutor.,50
+26795754,2026-07-08,OP2,Cliente na Movida por preço; não usou ROI para justificar valor.,200
+24237111,2026-07-08,OP2,Oficina mecânica; não ofereceu carro reserva para os clientes deles.,200
+23992051,2026-07-08,OP5,Mercado parado; não ofereceu redução de frota própria por locação.,200
+26938490,2026-07-08,OP1,"Confusão entre ""Localiza Meu"" e ""Rent a Car"" sem cross-sell.",200
+23150511,2026-07-08,OP6,Cliente interessado em SUV Premium; não tentou upgrade para elétrico.,3600
+24614056,2026-07-08,OP5,Cliente usa frota própria para outros estados; não explorou custo/km.,200
+27459495,2026-07-08,OP1,Cliente já tem assinatura; não ofereceu esporádico para equipe.,200
+26492357,2026-07-08,OP7,Bloqueio por falta de pagamento; não investigou saúde financeira.,200
+23670703,2026-07-08,OP6,Frota administrativa própria (3 carros); não ofereceu substituição.,600
+27364396,2026-07-08,OP2,Problema mecânico (pneu); não ofereceu troca por categoria superior.,200
+13659907,2026-07-08,OP2,Cliente trocou locação por Uber; não apresentou cálculo de conveniência.,200
+12363608,2026-07-08,OP1,Suporte de CNH sem oferta de upgrade de categoria.,200
+27063462,2026-07-08,OP7,Cliente fechou anual com concorrente; churn de oportunidade detectado.,200
+22065243,2026-07-08,OP2,Cliente buscava picape Strada; não verificou urgência de projeto.,200
