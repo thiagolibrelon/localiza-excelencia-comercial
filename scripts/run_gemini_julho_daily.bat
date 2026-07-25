@@ -6,7 +6,7 @@ echo ===== Execucao agendada: %date% %time% ===== >> JULHO\log_execucao.txt
 "C:\Users\quase\AppData\Local\Microsoft\WindowsApps\python.exe" scripts\analisar_gemini_julho.py >> JULHO\log_execucao.txt 2>&1
 "C:\Users\quase\AppData\Local\Microsoft\WindowsApps\python.exe" scripts\consolidar_julho.py >> JULHO\log_execucao.txt 2>&1
 echo -- Git commit/push do consolidado -- >> JULHO\log_execucao.txt
-git add JULHO\consolidado >> JULHO\log_execucao.txt 2>&1
+git add JULHO >> JULHO\log_execucao.txt 2>&1
 git commit -m "Atualiza JULHO/consolidado (execucao automatica %date% %time%)" >> JULHO\log_execucao.txt 2>&1
 git push >> JULHO\log_execucao.txt 2>&1
 "C:\Users\quase\AppData\Local\Microsoft\WindowsApps\python.exe" scripts\notificar_ntfy.py JULHO\log_execucao.txt "Gemini Julho" >> JULHO\log_execucao.txt 2>&1

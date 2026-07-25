@@ -22,6 +22,14 @@ resultados_analise/
 # fora (cobertos pela regra "dados/" acima)
 !dados_ligacoes_diarias/**/*.json
 
+# Pasta JULHO: brutos com PII (transcricoes reais) + convertidos + saida Gemini —
+# mesma logica de "dados/" acima, so o plano/log ficam versionados
+JULHO/*.2
+JULHO/arq*.txt
+JULHO/dados_convertidos/
+JULHO/resultados_gemini/
+JULHO/log_execucao.txt
+
 # Amostras geradas localmente
 amostras/
 
