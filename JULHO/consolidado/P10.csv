@@ -1,0 +1,30 @@
+promise_id,cliente_id,data,tipo_promessa,frase_resumo,prazo_prometido,risco_nao_cumprimento
+14788035-PM-001,14788035,2026-07-01,PM2,Enviar relação de documentos e simulações via WhatsApp,Imediato,baixo
+SEMINFO_02b24857-c4e2-4823-9fbc-468c6258d592-PM-001,SEMINFO_02b24857-c4e2-4823-9fbc-468c6258d592,2026-07-01,PM2,Enviar link de validação facial e WhatsApp,Imediato,baixo
+09919401-PM-001,09919401,2026-07-01,PM2,Enviar link do WebCorp e login via WhatsApp,Imediato,baixo
+13940127-PM-001,13940127,2026-07-01,PM2,Enviar passo a passo de prorrogação via WhatsApp,Imediato,baixo
+12611385-PM-001,12611385,2026-07-01,PM5,Verificar com filial e agência Santos Dumont sobre troca de carro,Hoje,medio
+14711640-PM-001,14711640,2026-07-01,PM4,Indicar gerente regional da Bahia para contato,Hoje,medio
+11304115-PM-001,11304115,2026-07-01,PM4,Passar contato para Eduardo Rossini,Imediato,baixo
+27407246-PM-001,27407246,2026-07-01,PM3,Ligar para Juliana para primeiro acesso,Imediato,baixo
+08655282-PM-001,08655282,2026-07-01,PM1,Auxiliar na redefinição de senha e prorrogação em linha,Imediato,baixo
+19856943-PM-001,19856943,2026-07-01,PM2,Enviar faturas para pagamento via WhatsApp,Imediato,baixo
+19856943-PM-002,19856943,2026-07-01,PM2,Enviar comparativo de categorias automáticas e manuais,Imediato,baixo
+19856943-PM-003,19856943,2026-07-02,PM5,Verificar disponibilidade do Nivus em Ouro Branco,Hoje,medio
+07377132-PM-001,07377132,2026-07-01,PM5,Buscar disponibilidade do grupo SS (Onix) para amanhã,Amanhã,medio
+04458349-PM-001,04458349,2026-07-01,PM5,Verificar permissões de faturamento no cadastro,15 minutos,baixo
+SEMINFO_1034878a-3314-40fe-bf6e-1a17ca83e6f6-PM-001,SEMINFO_1034878a-3314-40fe-bf6e-1a17ca83e6f6,2026-07-01,PM5,Verificar possibilidade de parcelamento de faturas,Hoje,medio
+15830329-PM-001,15830329,2026-07-01,PM2,Enviar proposta de 12 meses com e sem proteção total,Hoje,baixo
+15830329-PM-002,15830329,2026-07-16,PM2,Enviar simulação de 12 meses com 3 mil KM,Imediato,baixo
+06646212-PM-001,06646212,2026-07-01,PM2,Enviar boleto de multa via WhatsApp,Imediato,baixo
+SEMINFO_01385bf2-6433-4dd7-9e08-c9dc79736d6a-PM-001,SEMINFO_01385bf2-6433-4dd7-9e08-c9dc79736d6a,2026-07-01,PM5,Verificar com agência Indaiatuba sobre pneus e cobrança,Hoje,medio
+18306101-PM-001,18306101,2026-07-01,PM2,Enviar link de validação de sócio via WhatsApp,Imediato,baixo
+02437381-PM-001,02437381,2026-07-01,PM2,Enviar e-mail para Arthur finalizar validação,Imediato,baixo
+19804092-PM-001,19804092,2026-07-01,PM2,Enviar contato via WhatsApp,Imediato,baixo
+SEMINFO_0b780cb1-1af6-448d-af08-f74553b87b95-PM-001,SEMINFO_0b780cb1-1af6-448d-af08-f74553b87b95,2026-07-01,PM3,Retornar ligação às 11 horas,Hoje,baixo
+27415234-PM-001,27415234,2026-07-01,PM2,Enviar link da WebCorp e agendar tour,Hoje,baixo
+SEMINFO_5e712924-89f5-4c40-8a39-22b3980c1cbd-PM-001,SEMINFO_5e712924-89f5-4c40-8a39-22b3980c1cbd,2026-07-01,PM2,Enviar link com material explicativo sobre proteções,Imediato,baixo
+02026671-PM-001,02026671,2026-07-03,PM2,Enviar cópia do CRLV da Spin por e-mail,Hoje,baixo
+04828753-PM-001,04828753,2026-07-01,PM5,Solicitar inclusão de segundo condutor via assistência,Hoje,baixo
+05273804-PM-001,05273804,2026-07-01,PM2,Enviar e-mail para cadastrar Poliana no faturamento,Imediato,baixo
+11163170-PM-001,11163170,2026-07-01,PM2,Enviar e-mail com confirmação de reserva e valores,Imediato,baixo
