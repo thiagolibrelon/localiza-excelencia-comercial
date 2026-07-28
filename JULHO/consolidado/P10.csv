@@ -786,32 +786,174 @@ SEMINFO_b262bf3f-db84-4bd7-93af-daca6bb7ab27-PM-001,SEMINFO_b262bf3f-db84-4bd7-9
 06508695-PM-002,06508695,2026-07-02,PM1,"""Eu desabilito aqui agora.""",IMEDIATO,BAIXO
 06508695-PM-003,06508695,2026-07-02,PM1,"""Eu só estou olhando aqui com o time se o valor não flegou.""",IMEDIATO,BAIXO
 06508695-PM-004,06508695,2026-07-02,PM1,"""Eu vou olhar com eles e aí eu já te falo. Pode ser,Ricardo?""",IMEDIATO,BAIXO
-27380812-PM-001,2026-07-02,PM4,Vou acionar a agência para ver se tem o carro,"Aí eu te posiciono aí,beleza?",NAO,baixo
-27380812-PM-002,2026-07-02,PM2,Vou te encaminhar a pesquisa,"tá? Para você avaliar e vou acionar a agência,te dou um retorno no WhatsApp,beleza?",NAO,baixo
-27380812-PM-003,2026-07-03,PM2,Vou te encaminhar a pesquisa,tá? Para você avaliar,NAO,baixo
-27380812-PM-004,2026-07-06,PM2,Vou te encaminhar a pesquisa,tá?,NAO,baixo
-27380812-PM-009,2026-07-08,PM2,Eu vou te mandar a pesquisa,tá?,NAO,baixo
-27380812-PM-010,2026-07-14,PM2,Vou te mandar aqui,"tá,Luiz? Lá no WhatsApp?",NAO,baixo
-27380812-PM-011,2026-07-14,PM2,Vou te mandar a pesquisa,"não deixe de me avaliar,tá?",NAO,baixo
-27380812-PM-012,2026-07-14,PM2,Vou finalizar aqui de novo para você,só um minutinho.,NAO,baixo
-26961714-PM-001,2026-07-02,PM2,Eu vou mandar para você pelo WhatsApp o link da Web Corp,"se você tiver interesse,para dar uma olhadinha.",NAO,baixo
-26961714-PM-002,2026-07-02,PM2,Eu vou até te mandar o passo a passo porque como vai ter expirado a sua senha,você tem que colocar que esqueceu a senha e aí precisa fazer uma biometria para fazer a nova senha.,NAO,baixo
-01841274-PM-003,2026-07-02,PM2,Eu vou te mandar mais no final da tarde,"tu pode ver amanhã quando eu for guardar o carro,daí eu te passo o KM dele,tá?",NAO,baixo
-27426063-PM-001,2026-07-02,PM2,Eu vou te chamar no WhatsApp,"na hora que você for fazer a cotação amanhã,se tiver alguma dúvida,só me chamar.",NAO,baixo
-27306848-PM-001,2026-07-02,PM2,Aí se você puder me chamar lá no WhatsApp para falar que aí eu te auxilio se você precisar fazer o primeiro acesso,"te ajudo com a reserva,enfim,o que você precisar estaria à sua disposição.",NAO,baixo
-SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b-PM-001,2026-07-02,PM5,Eu acabei de mandar para o price o print da tela dela,tá?,NAO,baixo
-SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b-PM-002,2026-07-02,PM2,Eu vou te mandar um e-mail aí,"com aquele mesmo login e senha,só para reforçar qual que é o site localiza.com barra empresas.",NAO,baixo
-00915783-PM-002,2026-07-02,PM2,Eu vou te dar um oi no WhatsApp. Se importa,"se precisar de alguma coisa,você fica com meu contato também?",NAO,baixo
-21723911-PM-001,2026-07-02,PM2,Eu vou te mandar um e-mail aí,"com aquele mesmo login e senha,só para reforçar qual que é o site localiza.com barra empresas.",NAO,baixo
-21723911-PM-002,2026-07-02,PM2,Eu vou te mandar aÃ­ no WhatsApp? Uma coisa. Me lembra amanhÃ£ sobre a franquia de 1000KM e confirmar se as faturas passarÃ£o a vencer a cada dia 25. Embora eu vou lembrar aqui tambÃ©m,"se vocÃª puder me lembrar isso antes,Ã³timo. Pode ser?",NAO,baixo
-26838597-PM-001,2026-07-02,PM2,Eu vou ser sincero com você,"e aí eu vou falar,ó Juan,realmente,queria muito que você fechasse aqui comigo,mas realmente o deles está cobrindo tudo aquilo que o meu já cobre,o valor deles está bacana,não vou mentir,o deles está bom sim.",NAO,baixo
-26838597-PM-002,2026-07-02,PM2,Eu te mando aí e eu te ligo,tá bom?,NAO,baixo
-26838597-PM-003,2026-07-03,PM4,Eu peço eles,"e se tiver com KM menor ainda,eu peço que seja com KM menor ainda.",NAO,baixo
-26838597-PM-004,2026-07-03,PM4,Eu peço,eu falo que...,NAO,baixo
-26838597-PM-005,2026-07-03,PM4,Deixa eu então organizar aqui,"organizar lá com a agência e falar com o Paulo então,tá bom?",NAO,baixo
-26838597-PM-006,2026-07-06,PM2,Aí no decorrer do tempo eu precisei de pedir crédito para vocês para poder comportar,porque antes vocês estavam com crédito e o time precisou de analisar ali os documentos que o Paulo me mandou.,NAO,baixo
-26838597-PM-007,2026-07-06,PM2,Aí só faz pra mim o seguinte... Juan,"pra poder já fazer todas de uma vez,manda dos outros três motoristas já pro Paulo e também pra mim aqui,pra fazer favor? Os dados?",NAO,baixo
-26838597-PM-008,2026-07-08,PM2,Eu vou verificar aqui tanto sobre ele,"sobre o Taos,aí só tem que ser só o Taos ou qualquer um do grupo dele,porque do grupo do Taos tem outro.",NAO,baixo
+09492407-PM-001,09492407,2026-07-02,PM4,"""Vou te passar o número da Patrícia.""",NAO,baixo
+20673462-PM-001,20673462,2026-07-02,PM1,"""Vou colocar aqui para você não receber mais ligação.""",NAO,baixo
+20673462-PM-002,20673462,2026-07-02,PM2,"""Eu te mando uma mensagem.""",NAO,baixo
+27380812-PM-001,27380812,2026-07-02,PM4,"""Vou acionar a agência para ver se tem o carro.""",NAO,baixo
+27380812-PM-002,27380812,2026-07-02,PM3,"""Te dou um retorno.""",NAO,baixo
+27380812-PM-003,27380812,2026-07-02,PM2,"""Vou te encaminhar a pesquisa.""",NAO,baixo
+27380812-PM-004,27380812,2026-07-02,PM3,"""Te dou um retorno no WhatsApp.""",NAO,baixo
+27380812-PM-005,27380812,2026-07-03,PM1,"""Vou falar aqui com ela aqui.""",NAO,baixo
+27380812-PM-006,27380812,2026-07-03,PM2,"""Vou te encaminhar a pesquisa.""",NAO,baixo
+27380812-PM-007,27380812,2026-07-06,PM1,"""Eu libero o reserva,eu aciono a supervisora da agência para a gente liberar carro lá para vocês.""",NAO,baixo
+27380812-PM-008,27380812,2026-07-06,PM3,"""Eu te chamo aí.""",NAO,baixo
+27380812-PM-009,27380812,2026-07-06,PM2,"""Vou te encaminhar a pesquisa.""",NAO,baixo
+27380812-PM-010,27380812,2026-07-07,PM2,"""Eu te mando aqui no áudio.""",NAO,baixo
+27380812-PM-011,27380812,2026-07-07,PM2,"""Eu te mando até aqui no WhatsApp um print como que você faz para poder editar ela?""",NAO,baixo
+27380812-PM-012,27380812,2026-07-07,PM2,"""Eu vou te mandar um áudio aqui e você mostra para os meninos lá na...""",NAO,baixo
+27380812-PM-013,27380812,2026-07-07,PM2,"""Vou te mandar agora!""",NAO,baixo
+27380812-PM-014,27380812,2026-07-08,PM2,"""Eu vou te mandar lá.""",NAO,baixo
+27380812-PM-015,27380812,2026-07-08,PM2,"""Eu vou te mandar a pesquisa.""",NAO,baixo
+27380812-PM-016,27380812,2026-07-09,PM3,"""Já chamei o pessoal lá de Confins,estou aguardando eles me responderem aqui.""",NAO,baixo
+27380812-PM-017,27380812,2026-07-09,PM2,"""Eu que te agradeço,Luiz! Um abraço!""",NAO,baixo
+27380812-PM-018,27380812,2026-07-14,PM2,"""Vou te mandar aqui no WhatsApp o contrato.""",NAO,baixo
+27380812-PM-019,27380812,2026-07-14,PM2,"""Vou te mandar a pesquisa.""",NAO,baixo
+27380812-PM-020,27380812,2026-07-14,PM1,"""Vou finalizar aqui de novo para você.""",NAO,baixo
+27380812-PM-021,27380812,2026-07-14,PM2,"""Vou te encaminhar a pesquisa para você me avaliar.""",NAO,baixo
+27227104-PM-001,27227104,2026-07-02,PM2,"""Vou mandar lá no WhatsApp.""",NAO,baixo
+26961714-PM-001,26961714,2026-07-02,PM2,"""Vou mandar para você pelo WhatsApp o link da Web Corp.""",NAO,baixo
+26961714-PM-002,26961714,2026-07-02,PM2,"""Vou te mandar o passo a passo.""",NAO,baixo
+01841274-PM-001,01841274,2026-07-02,PM5,"""Vou procurar uma tarifa melhor.""",NAO,baixo
+01841274-PM-002,01841274,2026-07-02,PM1,"""Eu faço isso tudo,te mostro e você toma a decisão final.""",NAO,baixo
+27426063-PM-001,27426063,2026-07-02,PM2,"""Vou te chamar no WhatsApp.""",NAO,baixo
+27306848-PM-001,27306848,2026-07-02,PM3,"""Se você puder me chamar lá no WhatsApp para falar que aí eu te auxilio.""",NAO,baixo
+SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b-PM-001,SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b,2026-07-02,PM5,"""Eu acabei de mandar para o price o print da tela dela.""",NAO,baixo
+SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b-PM-002,SEMINFO_a25abf3a-37aa-4296-b7d2-6fdd2c81a13b,2026-07-02,PM2,"""Vou te mandar um oi.""",NAO,baixo
+24997901-PM-001,24997901,2026-07-02,PM2,"""A gente pode te enviar uma apresentação comercial desses cabelos para você ter.""",NAO,baixo
+24997901-PM-002,24997901,2026-07-02,PM2,"""Eu já te mando até as informações que a gente precisa para você receber alguma cotação aí sem nenhum compromisso.""",NAO,baixo
+00915783-PM-001,00915783,2026-07-02,PM4,"""Eu vou chamar ela aqui no WhatsApp e vou orientar ela de como fazer esse pedido do acesso.""",NAO,baixo
+00915783-PM-002,00915783,2026-07-02,PM1,"""Eu faço imediatamente e instruo para ela aí como ativar o seu acesso.""",NAO,baixo
+00915783-PM-003,00915783,2026-07-02,PM2,"""Eu vou te dar um oi no WhatsApp.""",NAO,baixo
+01543872-PM-001,01543872,2026-07-02,PM4,"""Eu oriento sempre é entrar em contato com assistência clientes.""",NAO,baixo
+15327529-PM-001,15327529,2026-07-02,PM2,"""Vou te mandar uma mensagem lá no WhatsApp para você ficar com o meu contato.""",NAO,baixo
+21723911-PM-001,21723911,2026-07-02,PM2,"""Eu vou te mandar um e-mail aí,com aquele mesmo login e senha,só para reforçar qual que é o site localiza.com barra empresas.""",NAO,baixo
+26838597-PM-001,26838597,2026-07-02,PM2,"""Eu também estou querendo te passar essa diferença.""",NAO,baixo
+26838597-PM-002,26838597,2026-07-02,PM2,"""Eu vou ser sincero com você,e aí eu vou falar,ó Juan,realmente,queria muito que você fechasse aqui comigo,mas realmente o deles está cobrindo tudo aquilo que o meu já cobre,o valor deles está bacana,não vou mentir,o deles está bom sim.""",NAO,baixo
+26838597-PM-003,26838597,2026-07-03,PM4,"""Eu peço para o Paulo então fazer.""",NAO,baixo
+26838597-PM-004,26838597,2026-07-03,PM5,"""Eu peço eles,e se tiver com KM menor ainda,eu peço que seja com KM menor ainda.""",NAO,baixo
+26838597-PM-005,26838597,2026-07-03,PM1,"""Deixa eu então organizar aqui,organizar lá com a agência e falar com o Paulo então.""",NAO,baixo
+26838597-PM-006,26838597,2026-07-06,PM1,"""Hoje mesmo já vai ser liberado.""",NAO,baixo
+26838597-PM-007,26838597,2026-07-06,PM1,"""A gente já faz todas então.""",NAO,baixo
+26838597-PM-008,26838597,2026-07-08,PM5,"""Eu vou verificar aqui tanto sobre ele,sobre o Taos.""",NAO,baixo
+26838597-PM-009,26838597,2026-07-08,PM1,"""Eu faço aqui e monto um timão.""",NAO,baixo
+26838597-PM-010,26838597,2026-07-08,PM2,"""Eu só te mando a carteira do terceiro motorista.""",NAO,baixo
+26838597-PM-011,26838597,2026-07-08,PM1,"""Eu vou ajeitar com o Paulo para poder ser feito lá.""",NAO,baixo
+26838597-PM-012,26838597,2026-07-13,PM5,"""Eu já estava negociando ele.""",NAO,baixo
+26838597-PM-013,26838597,2026-07-16,PM5,"""Eu posso fazer do GH também.""",NAO,baixo
+26838597-PM-014,26838597,2026-07-16,PM5,"""Eu vou montar do GY e vou olhar outros grupos aqui também para você que sejam veículos com mais presença,que seja mais para uso executivo.""",NAO,baixo
+26838597-PM-015,26838597,2026-07-16,PM2,"""Eu olho aqui e já te mando aí.""",NAO,baixo
+26838597-PM-016,26838597,2026-07-17,PM1,"""Eu vou ligar lá para o Paulo para poder fazer reserva junto com o Paulo.""",NAO,baixo
+26838597-PM-017,26838597,2026-07-20,PM1,"""Deixa eu verificar então na quadra se for algum erro deles.""",NAO,baixo
+26838597-PM-018,26838597,2026-07-20,PM2,"""Eu vou pegar e já te mando aí.""",NAO,baixo
+16524371-PM-001,16524371,2026-07-02,PM1,"""Vamos criar sua senha e é até bom que a gente vai fazer a cotação juntos.""",NAO,baixo
+16524371-PM-002,16524371,2026-07-02,PM2,"""Vou te mandar já já no WhatsApp.""",NAO,baixo
+16524371-PM-003,16524371,2026-07-06,PM1,"""Eu posso ver.""",NAO,baixo
+16524371-PM-004,16524371,2026-07-06,PM1,"""Eu tento alterar,tipo,um minuto para ver se muda,se diminui.""",NAO,baixo
+16524371-PM-005,16524371,2026-07-06,PM2,"""Eu vou ter me pedir que eu te mando mesmo.""",NAO,baixo
+16524371-PM-006,16524371,2026-07-06,PM2,"""Vou te encaminhar a pesquisa para você me avaliar.""",NAO,baixo
+20245670-PM-001,20245670,2026-07-02,PM3,"""Eu retorno aí nessa data aí mais ou menos,para ver se tem alguma coisa aqui.""",NAO,baixo
+26932908-PM-001,26932908,2026-07-02,PM1,"""Eu vou abrir um chamado aqui.""",NAO,baixo
+26932908-PM-002,26932908,2026-07-02,PM1,"""Eu vou chamar você no ano e vou tentar liberar aqui para você.""",NAO,baixo
+26932908-PM-003,26932908,2026-07-02,PM3,"""Eu te chamo no WhatsApp com retorno.""",NAO,baixo
+26932908-PM-004,26932908,2026-07-03,PM2,"""Vou te chamar lá no WhatsApp,vou mandar o seu login e vou mandar para você também o link da Webcorp.""",NAO,baixo
+26932908-PM-005,26932908,2026-07-03,PM2,"""Eu posso mandar para você uma tabela de mensal fixo para você dar uma olhadinha nos valores.""",NAO,baixo
+26932908-PM-006,26932908,2026-07-03,PM5,"""Eu vou cotar aqui para você do compa se no mensal flexível e te mando.""",NAO,baixo
+26932908-PM-007,26932908,2026-07-03,PM1,"""Eu vou melhorar a sua condição comercial para a hora que você entrar aqui na WebCorp você conseguir visualizar.""",NAO,baixo
+26932908-PM-008,26932908,2026-07-03,PM2,"""Eu mando para você.""",NAO,baixo
+18642312-PM-001,18642312,2026-07-02,PM2,"""Vou te mandar para o próximo WhatsApp.""",NAO,baixo
+18642312-PM-002,18642312,2026-07-02,PM2,"""Estou te encaminhando aí.""",NAO,baixo
+22217579-PM-001,22217579,2026-07-02,PM3,"""Retorno amanhã.""",NAO,baixo
+22217579-PM-002,22217579,2026-07-03,PM3,"""Eu retorno então nesse momento aí se ele não conseguir me chamar eu retorno de novo.""",NAO,baixo
+22217579-PM-003,22217579,2026-07-06,PM3,"""Vou retornar por contato.""",NAO,baixo
+SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898-PM-001,SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898,2026-07-02,PM1,"""Eu vou entrar em contato com as lojas tanto de Curitiba quanto... para ver,para eles me ajudarem com essas cobranças aí.""",NAO,baixo
+SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898-PM-002,SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898,2026-07-02,PM3,"""Eu falo com vocês amanhã.""",NAO,baixo
+SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898-PM-003,SEMINFO_8363c327-bef5-4d70-a63e-3423f4157898,2026-07-02,PM1,"""Eu já vou cuidar disso aqui e vamos ver se eu consigo dar um posicionamento,uma decisão do que fazer até amanhã.""",NAO,baixo
+12936013-PM-001,12936013,2026-07-02,PM4,"""Eu acionei o Auxiliar de Operações.""",NAO,baixo
+12936013-PM-002,12936013,2026-07-02,PM2,"""Vou te mandar outra pesquisa.""",NAO,baixo
+12936013-PM-003,12936013,2026-07-13,PM1,"""Eu vou deixar igualzinho para a Criarte.""",NAO,baixo
+12936013-PM-004,12936013,2026-07-13,PM1,"""Quando você pagar as primeiras faturas da Criarte,já vou pedir o aumento de crédito lá.""",NAO,baixo
+12936013-PM-005,12936013,2026-07-13,PM2,"""Vou te encaminhar à pesquisa.""",NAO,baixo
+25361644-PM-001,25361644,2026-07-02,PM1,"""Nesse caso o ideal seria fazer esse ajuste aqui na parte do cadastro.""",NAO,baixo
+25361644-PM-002,25361644,2026-07-03,PM1,"""Eu vou ver se você está perguntando.""",NAO,baixo
+17952396-PM-001,17952396,2026-07-02,PM2,"""Vou mandar para você os valores que eu tenho aqui de picape para 5 mil km.""",NAO,baixo
+17952396-PM-002,17952396,2026-07-02,PM2,"""Manda uma proposta desse também,fazendo um favor,como é que funciona,se o prazo...""",NAO,baixo
+17952396-PM-003,17952396,2026-07-02,PM2,"""Vou te encaminhar.""",NAO,baixo
+15426023-PM-001,15426023,2026-07-02,PM2,"""Eu vou só te mandar um oito no WhatsApp para você salvar o contato.""",NAO,baixo
+25997030-PM-001,25997030,2026-07-02,PM1,"""A gente pode então alterar aqui os dados e colocar os seus dados.""",NAO,baixo
+25997030-PM-002,25997030,2026-07-02,PM2,"""Eu vou te chamar no WhatsApp aí agora e aí você me manda... Vou te chamar no WhatsApp aí,esse telefone é o WhatsApp,não é?""",NAO,baixo
+27409516-PM-001,27409516,2026-07-02,PM2,"""Vou te passar a proposta do mensal flexível.""",NAO,baixo
+27409516-PM-002,27409516,2026-07-02,PM2,"""Consigo sim.""",NAO,baixo
+27409516-PM-003,27409516,2026-07-02,PM2,"""Eu te mando deles completo dos dois,aí eu te chamo no WhatsApp e vou montar a proposta aqui certinho para você e já te encaminho lá.""",NAO,baixo
+27409516-PM-004,27409516,2026-07-02,PM1,"""Eu vou te mandar os valores certinho.""",NAO,baixo
+27409516-PM-005,27409516,2026-07-02,PM2,"""Eu vou te mandar de seis meses e do mensal flexível e de um ano também.""",NAO,baixo
+16490670-PM-001,16490670,2026-07-03,PM5,"""Eu vou contar para vocês quanto que ficaria seguindo o mesmo padrão desse contrato.""",NAO,baixo
+16490670-PM-002,16490670,2026-07-03,PM2,"""Eu vou mandar para você pelo WhatsApp para você poder analisar e passar para o pessoal.""",NAO,baixo
+08863911-PM-001,08863911,2026-07-03,PM3,"""Retorno nesse momento.""",NAO,baixo
+08863911-PM-002,08863911,2026-07-14,PM3,"""Eu ligo em outro momento.""",NAO,baixo
+09351051-PM-001,09351051,2026-07-03,PM1,"""Eu vou tentar fazer com você o procedimento e aí vai chegar um SMS no seu celular.""",NAO,baixo
+09351051-PM-002,09351051,2026-07-03,PM2,"""Eu vou deixar um print também aí na conversa de acessão.""",NAO,baixo
+09351051-PM-003,09351051,2026-07-03,PM2,"""Eu vou mandar aqui no WhatsApp aonde que você vai e aprova as reservas.""",NAO,baixo
+09351051-PM-004,09351051,2026-07-03,PM3,"""Você pode me dar um ok no WhatsApp fazendo favor na mensagem que eu descrevi.""",NAO,baixo
+02731137-PM-001,02731137,2026-07-03,PM1,"""Vamos fazer juntas.""",NAO,baixo
+02731137-PM-002,02731137,2026-07-03,PM2,"""Eu vou pedir só para você avaliar a ligação aí no final.""",NAO,baixo
+02731137-PM-003,02731137,2026-07-14,PM2,"""Eu vou ficar também acompanhando aqui e eu te mando assim que chegar aqui eu te mando aí no WhatsApp.""",NAO,baixo
+02731137-PM-004,02731137,2026-07-14,PM2,"""Me avalia por favor aí no final da ligação.""",NAO,baixo
+22960689-PM-001,22960689,2026-07-03,PM1,"""Eu vou precisar de seguir com o fluxo de pedido de análise de crédito aqui internamente.""",NAO,baixo
+22960689-PM-002,22960689,2026-07-03,PM2,"""Eu preciso de seguir com o fluxo de pedido de análise de crédito aqui internamente e porque eu pedi aqui uma análise e ele... Não me deu um retorno muito positivo.""",NAO,baixo
+22960689-PM-003,22960689,2026-07-03,PM2,"""Eu vou te mandar aí o que eu preciso.""",NAO,baixo
+23587708-PM-001,23587708,2026-07-03,PM1,"""Eu vou te ajudar com relação a sua sem seguida.""",NAO,baixo
+23587708-PM-002,23587708,2026-07-03,PM1,"""Eu vou acionar a área de baixas de pagamento.""",NAO,baixo
+23587708-PM-003,23587708,2026-07-03,PM3,"""Eles vão me posicionar no decorrer do dia de hoje sobre o pedido de retirada no DDA eu te comunico aí.""",NAO,baixo
+23587708-PM-004,23587708,2026-07-03,PM2,"""Eu te mandei um link no celular enquanto isso.""",NAO,baixo
+02649118-PM-001,02649118,2026-07-03,PM1,"""Eu vou te ajudar.""",NAO,baixo
+02649118-PM-002,02649118,2026-07-03,PM2,"""Eu vou te chamar porque eu preciso das informações para te cadastrar também como gestor de reserva.""",NAO,baixo
+02649118-PM-003,02649118,2026-07-03,PM2,"""Eu vou te passar o meu e-mail e você passa a relação dos documentos que você vai precisar para eu encaminhar para você.""",NAO,baixo
+02649118-PM-004,02649118,2026-07-03,PM2,"""Vou te mandar então no e-mail,tudo formalizado.""",NAO,baixo
+02649118-PM-005,02649118,2026-07-03,PM2,"""Já vou te dar um oi aqui no WhatsApp e a gente vai conversando aqui em paralelo.""",NAO,baixo
+18500297-PM-001,18500297,2026-07-03,PM2,"""Eu vou te dar um oi no WhatsApp se você precisar de alguma cotação também posso lhe encaminhar por lá.""",NAO,baixo
+18500297-PM-002,18500297,2026-07-03,PM2,"""Eu vou te dar um oi aí só para você salvar e alterar o nome mesmo.""",NAO,baixo
+02132913-PM-001,02132913,2026-07-03,PM2,"""Eu te mando o passo a passo certinho e aí qualquer dúvida a gente vai falando.""",NAO,baixo
+02132913-PM-002,02132913,2026-07-03,PM2,"""Eu vou te mandar certinho o passo a passo para você ter também isso.""",NAO,baixo
+02132913-PM-003,02132913,2026-07-03,PM2,"""Vou te mandar também a listinha de documento que a gente precisa para criar esses acessos.""",NAO,baixo
+02132913-PM-004,02132913,2026-07-03,PM4,"""Eu vou enviar um e-mail para o Ascri,vou te colocar em cópia e aí a gente aguarda o retorno da posição deles para a gente entender como que funciona.""",NAO,baixo
+27413612-PM-001,27413612,2026-07-03,PM2,"""Eu te mandei aí a plataforma para você realizar essa reserva.""",NAO,baixo
+27413612-PM-002,27413612,2026-07-03,PM1,"""Eu consigo também.""",NAO,baixo
+13152548-PM-001,13152548,2026-07-03,PM2,"""Eu vou te mandar um e-mail aí.""",NAO,baixo
+13152548-PM-002,13152548,2026-07-07,PM2,"""Eu te mandei aí localiza.com barra faturamento,mesmo login e senha.""",NAO,baixo
+13152548-PM-003,13152548,2026-07-10,PM2,"""Te mandei aí no financeiro,arroba Jorge Knox agora,um e-mail automático de sistema de renovação de aluguel.""",NAO,baixo
+11720469-PM-001,11720469,2026-07-03,PM4,"""Eu vou acionar a área de baixas de pagamento.""",NAO,baixo
+11720469-PM-002,11720469,2026-07-03,PM3,"""Eles vão me posicionar no decorrer do dia de hoje sobre o pedido de retirada no DDA eu te comunico aí.""",NAO,baixo
+12300795-PM-001,12300795,2026-07-03,PM4,"""Eu vou te passar na nossa área aqui para essa questão.""",NAO,baixo
+12300795-PM-002,12300795,2026-07-03,PM2,"""Eu vou te passar aqui primeiro no WhatsApp para você ter o time que trata essas questões para te dar um apoio mais adequado.""",NAO,baixo
+12300795-PM-003,12300795,2026-07-03,PM2,"""Vou colocar aqui para você ter as informações que se precisar... Ah,esses assuntos vinculados à fatura,esse time aqui que eu estou te passando que traça.""",NAO,baixo
+23639909-PM-001,23639909,2026-07-03,PM2,"""Vou te mandar por e-mail os meus contatos.""",NAO,baixo
+27022491-PM-001,27022491,2026-07-09,PM1,"""Eu vou até fazer aqui uma nova cotação só para ver se tem alguma diferença hoje.""",NAO,baixo
+27022491-PM-002,27022491,2026-07-09,PM2,"""Eu vou mandar a tabelinha para você.""",NAO,baixo
+27022491-PM-003,27022491,2026-07-09,PM2,"""Eu estou pegando a tabela aqui e eu vou te mandar que enquanto eu faço a cotação você verifica sobre... Aí se visualiza a diferença.""",NAO,baixo
+27022491-PM-004,27022491,2026-07-09,PM2,"""Eu vou te mandar no WhatsApp aqui a tabela para ser mais...""",NAO,baixo
+27022491-PM-005,27022491,2026-07-09,PM1,"""Eu vou só contar de novo para ver se teve alguma alteração.""",NAO,baixo
+27022491-PM-006,27022491,2026-07-09,PM2,"""Eu te mando aí também,eu tô pegando a tabelinha aqui e já te mando aí no WhatsApp a tabelinha com... E a cotação pode manter com 3 mil mesmo?""",NAO,baixo
+27022491-PM-007,27022491,2026-07-09,PM2,"""Eu já vou te mandar aí.""",NAO,baixo
+27022491-PM-008,27022491,2026-07-09,PM2,"""Eu vou gerar um documento aqui,te mando aí.""",NAO,baixo
+27022491-PM-009,27022491,2026-07-10,PM2,"""Eu vou gerar um documento aqui,te mando aí.""",NAO,baixo
+SEMINFO_e091f240-a755-452e-b6d6-674676c84f03-PM-001,SEMINFO_e091f240-a755-452e-b6d6-674676c84f03,2026-07-03,PM2,"""Eu vou te dar um oi aí e qualquer coisa que você precisar,você me chama.""",NAO,baixo
+27379121-PM-001,27379121,2026-07-03,PM2,"""Eu vou te mandar um oi no WhatsApp.""",NAO,baixo
+23249829-PM-001,23249829,2026-07-03,PM2,"""Eu vou dar um oi para você no WhatsApp.""",NAO,baixo
+26671477-PM-001,26671477,2026-07-03,PM3,"""Eu entre em contato novamente.""",NAO,baixo
+19449680-PM-001,19449680,2026-07-03,PM2,"""Eu vou te mandar básico,sem nada,sem nenhum adicional.""",NAO,baixo
+19449680-PM-002,19449680,2026-07-03,PM2,"""Eu vou te mandar aí também.""",NAO,baixo
+19449680-PM-003,19449680,2026-07-03,PM1,"""Eu vou fazer esse cálculo para você,vai deixar bem explicar agora.""",NAO,baixo
+19449680-PM-004,19449680,2026-07-03,PM2,"""Eu te mando texto lá,aí você vê se ficou bom.""",NAO,baixo
+19449680-PM-005,19449680,2026-07-07,PM1,"""Eu vou alinhar já com algumas gerentes aqui e te falo.""",NAO,baixo
+16230160-PM-001,16230160,2026-07-03,PM1,"""Eu vou entrar aqui daqui a pouco no site,já vou dar uma olhadinha e já vou deixar reservado mais para mais 30 dias.""",NAO,baixo
+27394380-PM-001,27394380,2026-07-03,PM2,"""Vou te mandar um oi por lá para facilitar.""",NAO,baixo
+03275250-PM-001,03275250,2026-07-03,PM1,"""Agora lá que eu vou te auxiliar.""",NAO,baixo
+03275250-PM-002,03275250,2026-07-03,PM1,"""A gente já vai liberar.""",NAO,baixo
+03275250-PM-003,03275250,2026-07-03,PM1,"""Eu vou te ajudar a fazer uma nova que é melhor,a gente já resolve.""",NAO,baixo
+03275250-PM-004,03275250,2026-07-03,PM2,"""Eu que agradeço.""",NAO,baixo
+03275250-PM-005,03275250,2026-07-09,PM2,"""Qualquer coisa me chama no WhatsApp também.""",NAO,baixo
+12922975-PM-001,12922975,2026-07-03,PM1,"""Eu vou só acessar o sistema.""",NAO,baixo
+12922975-PM-002,12922975,2026-07-03,PM2,"""Eu te envio a cotação formalizada.""",NAO,baixo
 03318724-PM-001,03318724,2026-07-03,PM4,"Vou direcionar aqui para o condutor responsável,tÃ¡? Porque assistÃªncia clientes que emite isso,tÃ¡?",NAO,baixo
 03318724-PM-002,03318724,2026-07-03,PM2,Eu vou te mandar tudo certinho. Te mando aqui tudo certinho qual Ã© a agÃªncia.,NAO,baixo
 03318724-PM-003,03318724,2026-07-03,PM5,Eu vou pedir para ajustar aqui o seu acesso.,NAO,baixo
@@ -2151,3 +2293,1356 @@ SEMINFO_dc2dff50-PM-001,SEMINFO_dc2dff50,2026-07-14,PM5,Tentar confirmar reserva
 26726699-PM-001,26726699,2026-07-14,PM2,Encaminhar material sobre 12 meses por e-mail,Imediato,baixo
 13599881-PM-001,13599881,2026-07-14,PM3,Ligar para o condutor Matheus,Imediato,baixo
 27501715-PM-001,27501715,2026-07-14,PM2,Enviar catálogo e cotação no WhatsApp,Imediato,baixo
+27507595-PM-001,27507595,2026-07-14,PM3,Retornar a ligação amanhã de manhã,Amanhã de manhã,baixo
+SEMINFO_13c29437-e60c-4102-82d7-2cfb968bb281-PM-001,SEMINFO_13c29437-e60c-4102-82d7-2cfb968bb281,2026-07-14,PM2,Enviar por e-mail os contratos e novos valores,Hoje,baixo
+SEMINFO_13c29437-e60c-4102-82d7-2cfb968bb281-PM-002,SEMINFO_13c29437-e60c-4102-82d7-2cfb968bb281,2026-07-14,PM2,Enviar e-mail sobre o funcionamento do projeto de melhoria de rentabilidade,Semana que vem,baixo
+SEMINFO_13c29437-e60c-4102-82d7-2cfb968bb281-PM-003,SEMINFO_13c29437-e60c-4102-82d7-2cfb968bb281,2026-07-14,PM5,Estudar as diferenças tarifárias entre os códigos,Semana que vem,baixo
+26686338-PM-001,26686338,2026-07-14,PM5,Atualizar o crédito do cliente,Na ligação,baixo
+26686338-PM-002,26686338,2026-07-14,PM2,Verificar cobrança de outro valor e enviar por e-mail,Na ligação,baixo
+24121979-PM-001,24121979,2026-07-14,PM2,Enviar proposta pelo WhatsApp,Na ligação,baixo
+03751192-PM-001,03751192,2026-07-14,PM3,Pedir para Giovana entrar em contato na próxima semana,Próxima semana,baixo
+16561835-PM-001,16561835,2026-07-14,PM2,Encaminhar e-mail com as condições atuais,Na ligação,baixo
+27498257-PM-001,27498257,2026-07-14,PM2,Enviar passo a passo para aprovar acesso da Gisele no WhatsApp,Na ligação,baixo
+SEMINFO_b8e935aa-1108-46be-9d63-32eea418a0b6-PM-001,SEMINFO_b8e935aa-1108-46be-9d63-32eea418a0b6,2026-07-14,PM3,Retornar a ligação em 10-15 minutos,10-15 minutos,baixo
+15752992-PM-001,15752992,2026-07-14,PM2,"Mandar um ""oi"" no WhatsApp para o cliente salvar o contato",Na ligação,baixo
+15870941-PM-001,15870941,2026-07-14,PM5,Desativar a conta do cliente,Na ligação,baixo
+25651574-PM-001,25651574,2026-07-14,PM3,Retornar a ligação depois,Depois,baixo
+25651574-PM-002,25651574,2026-07-16,PM5,Acompanhar se há débitos de tag e avisar o cliente,Não definido,baixo
+25651574-PM-003,25651574,2026-07-16,PM5,Verificar com o time sobre o não recebimento de notificações de fatura,Não definido,baixo
+23884925-PM-001,23884925,2026-07-14,PM2,Enviar passo a passo para contestar KM no WebCorp,Na ligação,baixo
+23884925-PM-002,23884925,2026-07-14,PM2,Enviar localizador do contrato para contestação,Na ligação,baixo
+21902197-PM-001,21902197,2026-07-14,PM2,Enviar e-mail para o cliente responder com os dados para alteração de acesso,Na ligação,baixo
+21902197-PM-002,21902197,2026-07-14,PM5,Cadastrar o login do cliente e responder por e-mail,Na ligação,baixo
+21902197-PM-003,21902197,2026-07-14,PM2,Enviar assinatura do e-mail com o WhatsApp,Na ligação,baixo
+26275927-PM-001,26275927,2026-07-14,PM5,Fazer cotação de aluguel mensal para o cliente,Na ligação,baixo
+26275927-PM-002,26275927,2026-07-14,PM2,Mandar WhatsApp para o cliente,Na ligação,baixo
+26275927-PM-003,26275927,2026-07-14,PM2,Mandar manual do gestor,Na ligação,baixo
+03183966-PM-001,03183966,2026-07-14,PM2,"Mandar um ""oi"" no WhatsApp para o cliente salvar o contato",Na ligação,baixo
+04787338-PM-001,04787338,2026-07-14,PM3,Retornar a ligação amanhã,Amanhã,baixo
+04787338-PM-002,04787338,2026-07-15,PM2,Verificar questão da renovação do contrato e enviar por e-mail,Na ligação,baixo
+04787338-PM-003,04787338,2026-07-17,PM2,Enviar e-mail com a reserva para o cliente dar uma olhada,Na ligação,baixo
+04787338-PM-004,04787338,2026-07-17,PM2,Manter os dois e-mails (Nilson e transportes) no circuito,Na ligação,baixo
+27344492-PM-001,27344492,2026-07-14,PM2,Enviar link do WebCorp no WhatsApp,Na ligação,baixo
+27344492-PM-002,27344492,2026-07-14,PM4,Transferir para o 0800 para fazer a reserva,Na ligação,baixo
+27344492-PM-003,27344492,2026-07-14,PM5,Pedir internamente a vinculação do login ao engenharia,Na ligação,baixo
+SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361-PM-001,SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361,2026-07-14,PM4,Pedir para o time de comissão responder o e-mail da Juliana solicitando as notas fiscais,Na ligação,baixo
+SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361-PM-002,SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361,2026-07-14,PM5,Obter resposta sobre as notas fiscais do mês 6 e 7 até terça-feira que vem,Terça-feira que vem,baixo
+SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361-PM-003,SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361,2026-07-14,PM5,Pedir para assistência ao cliente detalhar o débito do cliente,Na ligação,baixo
+SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361-PM-004,SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361,2026-07-14,PM2,Enviar e-mail com o canal de atendimento para agências de viagem,Na ligação,baixo
+SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361-PM-005,SEMINFO_c997bd89-657c-4b9b-9f4f-d5edb6aa8361,2026-07-14,PM5,Cobrir o time de fidelidade para pedir carta de retratação e documentar o ocorrido,Hoje,baixo
+26506437-PM-001,26506437,2026-07-14,PM2,Fazer proposta de aluguel mensal e enviar,Na ligação,baixo
+26506437-PM-002,26506437,2026-07-14,PM2,Compartilhar informações no WhatsApp,Na ligação,baixo
+26506437-PM-003,26506437,2026-07-14,PM5,Verificar se há algo em aberto na conta do cliente,Na ligação,baixo
+26266472-PM-001,26266472,2026-07-14,PM2,Mandar WhatsApp para o cliente,Na ligação,baixo
+26266472-PM-002,26266472,2026-07-14,PM2,Mandar manual do gestor,Na ligação,baixo
+10983303-PM-001,10983303,2026-07-14,PM2,Acionar o cliente no WhatsApp,Na ligação,baixo
+SEMINFO_ecb04b89-1402-4d06-9745-db5e47b63f30-PM-001,SEMINFO_ecb04b89-1402-4d06-9745-db5e47b63f30,2026-07-14,PM3,Entrar em contato direto com Luan sobre reajuste de aluguel,Não definido,baixo
+24023239-PM-001,24023239,2026-07-14,PM2,Adicionar o cliente no WhatsApp,Na ligação,baixo
+06660902-PM-001,06660902,2026-07-14,PM2,Enviar e-mail para o contas a pagar,Na ligação,baixo
+01336508-PM-001,01336508,2026-07-14,PM3,Pedir para Camille Duarte ligar para o cliente,Na ligação,baixo
+SEMINFO_7345cc76-dfee-405e-ab58-58bdb89e1e8c-PM-001,SEMINFO_7345cc76-dfee-405e-ab58-58bdb89e1e8c,2026-07-14,PM2,Mandar print do erro da reserva,Na ligação,baixo
+SEMINFO_7345cc76-dfee-405e-ab58-58bdb89e1e8c-PM-002,SEMINFO_7345cc76-dfee-405e-ab58-58bdb89e1e8c,2026-07-14,PM2,"Mandar um ""oi"" no WhatsApp",Na ligação,baixo
+SEMINFO_3d5a1de0-bfed-4cf9-b1e8-4c936c31074d-PM-001,SEMINFO_3d5a1de0-bfed-4cf9-b1e8-4c936c31074d,2026-07-14,PM5,Pedir atualização do limite de crédito,Na ligação,baixo
+SEMINFO_3d5a1de0-bfed-4cf9-b1e8-4c936c31074d-PM-002,SEMINFO_3d5a1de0-bfed-4cf9-b1e8-4c936c31074d,2026-07-14,PM2,Enviar relação de contratos com reajuste de valores,Em 5 minutos,baixo
+SEMINFO_3d5a1de0-bfed-4cf9-b1e8-4c936c31074d-PM-003,SEMINFO_3d5a1de0-bfed-4cf9-b1e8-4c936c31074d,2026-07-14,PM2,Enviar tabela com valores de quilometragem e período de utilização para mensal fixo,Amanhã de manhã,baixo
+SEMINFO_90666f83-2b91-4032-a94f-758a2604296b-PM-001,SEMINFO_90666f83-2b91-4032-a94f-758a2604296b,2026-07-14,PM5,Pedir ampliação do crédito,Na ligação,baixo
+SEMINFO_90666f83-2b91-4032-a94f-758a2604296b-PM-002,SEMINFO_90666f83-2b91-4032-a94f-758a2604296b,2026-07-14,PM2,Mandar print da WebCorp para o cliente ver o limite,Na ligação,baixo
+SEMINFO_90666f83-2b91-4032-a94f-758a2604296b-PM-003,SEMINFO_90666f83-2b91-4032-a94f-758a2604296b,2026-07-14,PM2,Mandar voucher da reserva,Na ligação,baixo
+SEMINFO_90666f83-2b91-4032-a94f-758a2604296b-PM-004,SEMINFO_90666f83-2b91-4032-a94f-758a2604296b,2026-07-14,PM3,Ligar para a Aparecida amanhã e se colocar à disposição,Amanhã,baixo
+SEMINFO_9616891b-14e2-4abe-812d-6a37b77f986f-PM-001,SEMINFO_9616891b-14e2-4abe-812d-6a37b77f986f,2026-07-14,PM5,Aguardar resposta interna sobre a troca de veículo,Não definido,baixo
+27512078-PM-001,27512078,2026-07-15,PM3,Fazer contato com a Milena,Na ligação,baixo
+03139765-PM-001,03139765,2026-07-15,PM2,Mandar link para redefinição de senha no WhatsApp,Na ligação,baixo
+03139765-PM-002,03139765,2026-07-15,PM2,Mandar login do Emerson no WhatsApp,Na ligação,baixo
+03139765-PM-003,03139765,2026-07-15,PM5,Solicitar novo agendamento para o time e enviar o código para aprovar,Na ligação,baixo
+24655885-PM-001,24655885,2026-07-15,PM4,Orientar o cliente a ligar para a assistência ao cliente para solicitar bloqueio do veículo,Na ligação,baixo
+01379514-PM-001,01379514,2026-07-15,PM2,Enviar print do demonstrativo de cobrança,Na ligação,baixo
+15482868-PM-001,15482868,2026-07-15,PM1,"""Vou dar uma olhadinha aqui agora,só um minutinho.""",NAO,baixo
+15482868-PM-002,15482868,2026-07-15,PM1,"""Vou dar uma olhadinha aqui,tá? Só um minutinho.""",NAO,baixo
+15482868-PM-003,15482868,2026-07-15,PM1,"""Vou dar uma olhadinha aqui de novo.""",NAO,baixo
+23916898-PM-001,23916898,2026-07-15,PM2,"""Se quiser eu te mando agora.""",NAO,baixo
+23916898-PM-002,23916898,2026-07-15,PM1,"""Deixa eu ver aqui uma coisa.""",NAO,baixo
+23916898-PM-003,23916898,2026-07-15,PM3,"""Me avisa que eu te ligo imediatamente.""",NAO,baixo
+00307931-PM-001,00307931,2026-07-15,PM5,"""Eu vou até pedir aqui prioridade para ajustar isso rápido.""",NAO,baixo
+17450187-PM-001,17450187,2026-07-15,PM2,"""Vou fazer esse levantamento e vou te mandar.""",NAO,baixo
+17450187-PM-002,17450187,2026-07-15,PM2,"""Vou te mandar a tabela de mil dois mil três mil quatro mil cinco mil.""",NAO,baixo
+17450187-PM-003,17450187,2026-07-15,PM2,"""Eu te mandei um bom dia aí,aí ele é meu,você pode salvar esse contato.""",NAO,baixo
+14216112-PM-001,14216112,2026-07-15,PM2,"""Eu vou te mandar uma mensagem,vamos dizer sim. Deixa o meu contato ali numa futura utilização?""",NAO,baixo
+27340924-PM-001,27340924,2026-07-15,PM6,"""Aí a recomendação é que vocês tendem fazer pelo menos com quatro dias de antecedência reserva.""",NAO,baixo
+18812192-PM-001,18812192,2026-07-15,PM6,"""Mas depois eu vou te passar os detalhes aí.""",NAO,baixo
+01703479-PM-001,01703479,2026-07-15,PM1,"""Eu vou ativar os seus acessos.""",NAO,baixo
+01703479-PM-002,01703479,2026-07-15,PM2,"""Mandei.""",NAO,baixo
+21856144-PM-001,21856144,2026-07-15,PM4,"""Eu vou localizar quem que é a pessoa que está tratando para vocês lá e vou pedir para que te dê um retorno aí o quanto antes.""",NAO,baixo
+21856144-PM-002,21856144,2026-07-15,PM2,"""Vou mandar no seu WhatsApp aí para você a forma que essa pesquisa chegou.""",NAO,baixo
+21856144-PM-003,21856144,2026-07-15,PM4,"""Eu vou mandar para eles.""",NAO,baixo
+21856144-PM-004,21856144,2026-07-15,PM4,"""Eu vou localizar aqui quem está te atendendo e vou pedir um auxílio.""",NAO,baixo
+26985131-PM-001,26985131,2026-07-15,PM6,"""A localiza fica à disposição tal Danilo caso você queira por exemplo ah você está com dois carros frota própria mas vamos supor que vai ter uma alta demanda em outubro e novembro você pode fazer uma alocação aqui de um mensal flexível que você pega por 30 dias e vai renovando enquanto tiver tendo demanda porque às vezes você vai ter essa demanda ali só por um pouco tempo em vez de comprar se aluga.""",NAO,baixo
+17582442-PM-001,17582442,2026-07-15,PM3,"""Retorna então mais tarde,em outro momento.""",NAO,baixo
+27512332-PM-001,27512332,2026-07-15,PM6,"""O cadastro já está todo certinho,tá? Você provavelmente já recebeu no seu e-mail o contato arroba chegato ponto com ponto BR o seu login e o passo a passo de criação de senha.""",NAO,baixo
+27512332-PM-002,27512332,2026-07-15,PM1,"""Eu vou trocar.""",NAO,baixo
+27512332-PM-003,27512332,2026-07-15,PM2,"""Eu vou te mandar um oi no WhatsApp e aí você salva o meu número.""",NAO,baixo
+12294498-PM-001,12294498,2026-07-15,PM4,"""Eu vou solicitar o condutor e eles passam para vocês.""",NAO,baixo
+12294498-PM-002,12294498,2026-07-15,PM2,"""Eu vou te mandar no WhatsApp como que ela chega para você.""",NAO,baixo
+12294498-PM-003,12294498,2026-07-15,PM2,"""Eu te dei um oi aí no WhatsApp? Eu acho que você já tinha meu contato,mas reforço aí precisando me chama!""",NAO,baixo
+13473497-PM-001,13473497,2026-07-15,PM3,"""Eu vou tentar contato com a WhatsApp dele sobre a parte de locação de casa.""",NAO,baixo
+05430229-PM-001,05430229,2026-07-15,PM2,"""Eu te mandei um oi no WhatsApp surgindo qualquer necessidade,me aciona,combinado?""",NAO,baixo
+26052445-PM-001,26052445,2026-07-15,PM6,"""A gente faz um acompanhamento aqui com vocês. Então,por acaso surgir alguma demanda diferente do que vocês já estão habituados? Nós estamos à disposição para conversar sobre o assunto.""",NAO,baixo
+18422853-PM-001,18422853,2026-07-15,PM2,"""Eu vou te mandar os códigos do contrato que eu tenho aqui e aí você só joga aí no sistema e faz a prorrogação.""",NAO,baixo
+18422853-PM-002,18422853,2026-07-15,PM2,"""Vou te mandar no seu WhatsApp,central de atendimento.""",NAO,baixo
+18422853-PM-003,18422853,2026-07-15,PM6,"""Depois que você prorrogar os contratos,você me fala que eu confirmo se todos foram prorrogados.""",NAO,baixo
+25924605-PM-001,25924605,2026-07-15,PM1,"""Eu dou uma olhada.""",NAO,baixo
+25924605-PM-002,25924605,2026-07-15,PM2,"""Posso te mandar... Prefere que eu te mande a lista pelo WhatsApp ou por e-mail?""",NAO,baixo
+25924605-PM-003,25924605,2026-07-15,PM1,"""JÁ vejo.""",NAO,baixo
+20309632-PM-001,20309632,2026-07-15,PM4,"""Eu encaminhei para a área aqui do cadastro,aí eu vou te dar um retorno se o cadastro da empresa foi aprovado ou não.""",NAO,baixo
+20309632-PM-002,20309632,2026-07-15,PM3,"""Eu vou te mandar um retorno lá.""",NAO,baixo
+13266667-PM-001,13266667,2026-07-15,PM2,"""Eu vou te mandar aqui uma mensagem pelo WhatsApp para você ter meu contato,tá bom? E vou já mandar o manual do gestor e se o acesso ao WebCorp.""",NAO,baixo
+10133461-PM-001,10133461,2026-07-15,PM2,"""Eu vou fazer o seguinte,se vocês precisarem então de alguma ajuda,algum auxílio aqui da minha parte,pode ficar à vontade para me dar uma ligadinha ou então me mandar mensagem ali no WhatsApp que eu fico à disposição,viu? Pode contar comigo!""",NAO,baixo
+10133461-PM-002,10133461,2026-07-15,PM2,"""Se você quiser,eu te dou um oi lá no WhatsApp também que fica até mais fácil para você salvar.""",NAO,baixo
+26105166-PM-001,26105166,2026-07-15,PM1,"""Consigo sim,me passa o seu CNPJ,por favor.""",NAO,baixo
+26105166-PM-002,26105166,2026-07-15,PM2,"""Eu vou te mandar a cotação aqui.""",NAO,baixo
+26105166-PM-003,26105166,2026-07-15,PM2,"""A caminho aqui agora,tá? Aí se você... Qualquer uma das duas que você quiser vai ser contratado direto lá no WebCorp. Se você quiser,quando você for efetivamente fazer a contratação,você pode me chamar que eu te ligo e te ajudo a fazer pelo site.""",NAO,baixo
+26105166-PM-004,26105166,2026-07-15,PM2,"""Aí eu vou te mandar aqui agora as duas cotações no WhatsApp,tá bom?""",NAO,baixo
+26148368-PM-001,26148368,2026-07-15,PM2,"""Eu vou deixar um oi lá no seu WhatsApp e qualquer coisa pode me chamar por lá.""",NAO,baixo
+01739166-PM-001,01739166,2026-07-15,PM3,"""Pode deixar que eu ligo com o vai ficar direitinho e a gente vai ficando...""",NAO,baixo
+01739166-PM-002,01739166,2026-07-15,PM3,"""Ligo mais tarde então,Luciana.""",NAO,baixo
+01739166-PM-003,01739166,2026-07-16,PM3,"""Ligo mais tarde então,Luciana.""",NAO,baixo
+23666306-PM-001,23666306,2026-07-15,PM1,"""Espera,vamos ver o que aconteceu.""",NAO,baixo
+23666306-PM-002,23666306,2026-07-15,PM4,"""Aí eu vou pedir se eu tô responsável pra migrar pra você assim que migrar eu te aviso aí.""",NAO,baixo
+23666306-PM-003,23666306,2026-07-15,PM1,"""Me passa o seu cpf no WhatsApp que eu vou pedir essa análise.""",NAO,baixo
+23666306-PM-004,23666306,2026-07-15,PM3,"""Aí eu peço aqui e aí te falo se liberar aí você já pode colocar como condutor adicional.""",NAO,baixo
+23666306-PM-005,23666306,2026-07-15,PM6,"""Espera eu migrar o contrato comercial primeiro?""",NAO,baixo
+23261647-PM-001,23261647,2026-07-15,PM2,"""Pode entrar em contato comigo pelo WhatsApp ou aqui mesmo por esse número.""",NAO,baixo
+23412636-PM-001,23412636,2026-07-15,PM4,"""SÓ mandar para a moça aqui.""",NAO,baixo
+23412636-PM-002,23412636,2026-07-15,PM6,"""Se eu precisar de mais alguma coisa,eu te mando no WhatsApp aí.""",NAO,baixo
+23412636-PM-003,23412636,2026-07-15,PM6,"""Eu vou até validar com eles aqui,mas eu acho que pode tentar como pessoa física e se não der você me fala que eu tento ver com eles aqui.""",NAO,baixo
+27513101-PM-001,27513101,2026-07-15,PM2,"""Eu preciso encaminhar um link para você de validação. E através desse link,você preenchendo,posso encaminhar para você via WhatsApp para a gente agilizar o processo.""",NAO,baixo
+27513101-PM-002,27513101,2026-07-15,PM4,"""Eu vou solicitar o financeiro análise aqui,porque sendo aprovado,a gente faz a liberação do cadastro.""",NAO,baixo
+27513101-PM-003,27513101,2026-07-15,PM2,"""Eu te passo o seu login e a plataforma para você fazer sua reserva já.""",NAO,baixo
+27513101-PM-004,27513101,2026-07-15,PM2,"""Vou te encaminhar.""",NAO,baixo
+05482717-PM-001,05482717,2026-07-15,PM2,"""Eu vou te mandar um oi no WhatsApp,Débora,e aí você salva o meu número surgindo qualquer demanda aí,você pode mencionar diretamente,combinado?""",NAO,baixo
+26621049-PM-001,26621049,2026-07-15,PM2,"""Eu posso te mandar seus acessos e quando você tiver um tempinho a gente faz junto.""",NAO,baixo
+26621049-PM-002,26621049,2026-07-15,PM2,"""Eu já vou te dar um oizinho esse telefone que a gente se fala tem WhatsApp,né?""",NAO,baixo
+05817928-PM-001,05817928,2026-07-15,PM2,"""Eu vou te mandar um oi aí Ramiro da localiza e aí você pode salvar o meu número qualquer necessidade que tiver você pode me acionar.""",NAO,baixo
+27448305-PM-001,27448305,2026-07-15,PM2,"""Eu vou te chamar,aí você salva o que eu vou te chamar.""",NAO,baixo
+27448305-PM-002,27448305,2026-07-15,PM2,"""Eu vou te enviar o link do portal de faturas.""",NAO,baixo
+01897490-PM-001,01897490,2026-07-15,PM5,"""Eu vou pedir um orçamento para você aqui e mando para você poder analisar.""",NAO,baixo
+01897490-PM-002,01897490,2026-07-15,PM2,"""Eu vou pedir então esse orçamento e eu mando para você pelo WhatsApp.""",NAO,baixo
+01897490-PM-003,01897490,2026-07-15,PM2,"""Eu vou te dar um olhar no WhatsApp.""",NAO,baixo
+05690565-PM-001,05690565,2026-07-15,PM4,"""Pode mandar mensagem no 1020 é 3622 1020 aí a responsável fica lá.""",NAO,baixo
+05690565-PM-002,05690565,2026-07-15,PM2,"""Eu vou te mandar aqui meu WhatsApp com o meu contato.""",NAO,baixo
+22947567-PM-001,22947567,2026-07-15,PM2,"""Se você quiser,eu te dou um oi lá no WhatsApp também que fica até mais fácil para você salvar.""",NAO,baixo
+20577926-PM-001,20577926,2026-07-15,PM2,"""Eu posso te dar um oi e te enviar novamente um reset de senha e se você precisar de apoio,você me chama?""",NAO,baixo
+20577926-PM-002,20577926,2026-07-15,PM2,"""Eu vou te dar um oi agora. Qualquer dúvida você me chama.""",NAO,baixo
+13055473-PM-001,13055473,2026-07-15,PM5,"""Eu posso verificar com a agência se a gente consegue essa... Possibilidade.""",NAO,medio
+13055473-PM-002,13055473,2026-07-15,PM5,"""Eu posso verificar,mas eu acho que vai depender de agência,mas eu creio que não vai dar por conta disso.""",NAO,medio
+13055473-PM-003,13055473,2026-07-15,PM5,"""Eu posso ver se a gente conseguiria,por exemplo,com 28,29 dias transformar para o mensal com a agência.""",NAO,medio
+13055473-PM-004,13055473,2026-07-15,PM5,"""Eu posso ver eu posso ver quando for um caso assim por exemplo de quatro três dias antes de vocês entregarem o veículo eu posso verificar para com a agência para fechar para a gente no mensal mas eu não posso garantir pra vocês.""",NAO,medio
+13055473-PM-005,13055473,2026-07-15,PM5,"""Eu vou tentar aqui entrar em contato com...""",NAO,medio
+13055473-PM-006,13055473,2026-07-15,PM5,"""Eu vou verificar outras formas aqui ver se a gente consegue outras coisas aqui para não cobrar tão altas diárias de vocês.""",NAO,medio
+13055473-PM-007,13055473,2026-07-15,PM5,"""Eu vou verificar aqui para ver o que a gente pode ver,né? Encontrar a melhor saída nessa aqui eu não vou garantir mas nas próximas vamos tentar pelo menos ver se a gente consegue entregar com 27 28 dias que aí eu acho que fica mais fácil da gente tentar ver se fecha o mensal.""",NAO,medio
+13055473-PM-008,13055473,2026-07-15,PM6,"""Antes de devolver o veículo,quando vocês verem que não vai conseguir devolver com prazo de 30 dias,me manda mensagem. Pode me mandar mensagem antes?""",NAO,baixo
+21949789-PM-001,21949789,2026-07-15,PM6,"""Eu já tinha mandado isso para Luciana. Informei para ela que estava pendente realizar essa prorrogação. Ela não fez ainda,tá? E eu já mandei novamente para ela com o link. Ela só clica lá em prorrogação automática e aí não vai ficar vencido. Todo mês ele vai prorrogar sozinho até a data de devolução. Já mandei isso para ela e ela precisa fazer,tá? Ela como gestora lá do contrato,ela precisa fazer. Mas eu já cobrei ela aqui se você puder reforçar... Eu agradeço demais.""",NAO,baixo
+05982318-PM-001,05982318,2026-07-15,PM2,"""Eu vou te mandar um oi no WhatsApp,Débora,e aí você salva o meu número surgindo qualquer demanda aí,você pode mencionar diretamente,combinado?""",NAO,baixo
+18561902-PM-001,18561902,2026-07-15,PM1,"""Eu olho agora tá facinho.""",NAO,baixo
+18561902-PM-002,18561902,2026-07-15,PM2,"""Carta de alteração de condutor principal. Já até te mandei,fica fácil aí pra você.""",NAO,baixo
+18561902-PM-003,18561902,2026-07-15,PM2,"""Vou te mandar um printzinho aí.""",NAO,baixo
+18561902-PM-004,18561902,2026-07-15,PM2,"""Deixa eu mandar aí para você com telemetria.""",NAO,baixo
+18561902-PM-005,18561902,2026-07-15,PM2,"""Se você puder dar um alô lá para eles...""",NAO,baixo
+18561902-PM-006,18561902,2026-07-15,PM6,"""Aí você só me faz uma gentileza. Seu e-mail está aberto aí ainda,né? Prorroga o contrato do Cadu para qualquer data futura aí? Qualquer uma?""",NAO,baixo
+06559671-PM-001,06559671,2026-07-15,PM2,"""Eu vou te mandar aqui meu WhatsApp com o meu contato.""",NAO,baixo
+SEMINFO_bb55deb1-6fa4-4319-a17e-3bf9687e3fd0-PM-001,SEMINFO_bb55deb1-6fa4-4319-a17e-3bf9687e3fd0,2026-07-15,PM2,"""Eu vou colocar para vocês tanto o meu número direto,porque eu sou atendimento... É remoto. Então,eu vou colocar o seu nome na mesa direto para vocês.""",NAO,baixo
+SEMINFO_bb55deb1-6fa4-4319-a17e-3bf9687e3fd0-PM-002,SEMINFO_bb55deb1-6fa4-4319-a17e-3bf9687e3fd0,2026-07-15,PM2,"""Eu vou mandar... Cadê? Vou escrever aqui. Ó,então eu coloquei aqui o meu nome,ver se chegou aí para você... Para você com o meu contato,tá?""",NAO,baixo
+SEMINFO_bb55deb1-6fa4-4319-a17e-3bf9687e3fd0-PM-003,SEMINFO_bb55deb1-6fa4-4319-a17e-3bf9687e3fd0,2026-07-15,PM2,"""Eu chamei ele aqui no WhatsApp para dar um oi para ele e aí eu mando o e-mail que eu preciso mandar para ele.""",NAO,baixo
+06001606-PM-001,06001606,2026-07-15,PM2,"""Você pode anotar o número de telefone? Porque aí caso surja alguma demanda,vocês entram em contato comigo diretamente?""",NAO,baixo
+06102604-PM-001,06102604,2026-07-15,PM2,"""Eu vou te mandar um oi aí Ramiro da localiza e aí você pode salvar o meu número qualquer necessidade que tiver você pode me acionar.""",NAO,baixo
+15579873-PM-001,15579873,2026-07-20,PM3,"""Me liga!""",NAO,baixo
+23932573-PM-001,23932573,2026-07-15,PM1,Confirmar se estava tudo bem com o acesso ao portal,N/A,baixo
+06302307-PM-001,06302307,2026-07-15,PM2,Enviar número para a Sheila,N/A,baixo
+06165127-PM-001,06165127,2026-07-15,PM2,Passar informações sobre gestão de frotas,N/A,baixo
+06165127-PM-002,06165127,2026-07-15,PM2,Enviar pesquisa de satisfação por e-mail,N/A,baixo
+06165127-PM-003,06165127,2026-07-15,PM2,Enviar notificação de avaliação por WhatsApp,N/A,baixo
+27509207-PM-001,27509207,2026-07-15,PM1,Ajudar a fazer a reserva,N/A,baixo
+27509207-PM-002,27509207,2026-07-15,PM2,Mandar endereço da Pampulha,N/A,baixo
+27509207-PM-003,27509207,2026-07-15,PM1,Confirmar reserva,N/A,baixo
+27509207-PM-004,27509207,2026-07-15,PM1,Ajudar a fazer a reserva,N/A,baixo
+27509207-PM-005,27509207,2026-07-15,PM2,Mandar endereço da Pampulha,N/A,baixo
+10845574-PM-001,10845574,2026-07-15,PM2,Mandar link do portal de faturamento,N/A,baixo
+10845574-PM-002,10845574,2026-07-15,PM3,Ligar para a agência para agendar substituição,N/A,baixo
+SEMINFO_488a06a6-7314-4196-9acf-d8378842f442-PM-001,SEMINFO_488a06a6-7314-4196-9acf-d8378842f442,2026-07-15,PM4,Pedir para o time analisar o bloqueio,5 minutos,baixo
+14560488-PM-001,14560488,2026-07-15,PM1,Auxiliar na redefinição de senha,N/A,baixo
+14560488-PM-002,14560488,2026-07-20,PM2,Providenciar e encaminhar contato do executivo do Localiza Meu,N/A,baixo
+19960815-PM-001,19960815,2026-07-15,PM3,Retornar a ligação na parte da tarde,N/A,baixo
+26987508-PM-001,26987508,2026-07-15,PM2,Compartilhar número de WhatsApp,N/A,baixo
+08015710-PM-001,08015710,2026-07-15,PM1,Ajudar a acessar o portal de faturamento,N/A,baixo
+08015710-PM-002,08015710,2026-07-15,PM1,Verificar multa,N/A,baixo
+08015710-PM-003,08015710,2026-07-15,PM1,Desflegar e flegar acesso para integrar,N/A,baixo
+00941735-PM-001,00941735,2026-07-15,PM3,Ligar para o ramal do Compass,N/A,baixo
+02874702-PM-001,02874702,2026-07-15,PM6,Pedir para as meninas da logística responderem a pesquisa,N/A,baixo
+27451213-PM-001,27451213,2026-07-15,PM2,Mandar mensagem no WhatsApp,N/A,baixo
+27451213-PM-002,27451213,2026-07-15,PM4,Fazer a ponte para priorizar retorno da frota,N/A,baixo
+SEMINFO_0ad2fe72-86ce-412b-9a6a-b5018a5f08de-PM-001,SEMINFO_0ad2fe72-86ce-412b-9a6a-b5018a5f08de,2026-07-15,PM5,Apurar o que aconteceu com a avaria,N/A,medio
+SEMINFO_0ad2fe72-86ce-412b-9a6a-b5018a5f08de-PM-002,SEMINFO_0ad2fe72-86ce-412b-9a6a-b5018a5f08de,2026-07-15,PM3,Dar um toque depois,N/A,baixo
+19705059-PM-001,19705059,2026-07-15,PM5,Levar informações para a diretoria para condição diferenciada,N/A,medio
+19705059-PM-002,19705059,2026-07-15,PM2,Mandar mensagem no WhatsApp com contato salvo,N/A,baixo
+10032795-PM-001,10032795,2026-07-15,PM1,Descredenciar pessoas do cadastro,N/A,baixo
+10032795-PM-002,10032795,2026-07-15,PM2,Mandar mensagem no WhatsApp com número salvo,N/A,baixo
+26056946-PM-001,26056946,2026-07-15,PM3,Retornar sobre disponibilidade em Rio Verde,N/A,baixo
+26056946-PM-002,26056946,2026-07-15,PM1,Verificar reserva,N/A,baixo
+08687497-PM-001,08687497,2026-07-15,PM1,Auxiliar na reserva,N/A,baixo
+08687497-PM-002,08687497,2026-07-15,PM3,Chamar em caso de dúvida ou intercorrência,N/A,baixo
+07548531-PM-001,07548531,2026-07-15,PM6,Pedir para responder pesquisa de satisfação,N/A,baixo
+07616740-PM-001,07616740,2026-07-15,PM3,Ligar de volta para verificar e-mail,N/A,baixo
+25826153-PM-001,25826153,2026-07-15,PM2,Mandar tabela mensal fixo,N/A,baixo
+25826153-PM-002,25826153,2026-07-15,PM5,Tentar algo com a gerência para 15 veículos,N/A,medio
+25826153-PM-003,25826153,2026-07-15,PM2,Mandar o que precisa por escrito,N/A,baixo
+SEMINFO_cc72ba2e-f9e9-4be9-af32-906b508826f1-PM-001,SEMINFO_cc72ba2e-f9e9-4be9-af32-906b508826f1,2026-07-15,PM2,Mandar oi no WhatsApp para salvar contato,N/A,baixo
+27513261-PM-001,27513261,2026-07-15,PM2,Mandar oi no WhatsApp,N/A,baixo
+06900785-PM-001,06900785,2026-07-15,PM2,Passar e-mail para o novo comprador,N/A,baixo
+25797395-PM-001,25797395,2026-07-15,PM2,Mandar assunto da pesquisa no WhatsApp,N/A,baixo
+25797395-PM-002,25797395,2026-07-15,PM6,Pedir para responder pesquisa de satisfação,N/A,baixo
+17300694-PM-001,17300694,2026-07-15,PM6,Pedir para responder pesquisa de satisfação,N/A,baixo
+18920435-PM-001,18920435,2026-07-15,PM1,Simular reserva,N/A,baixo
+18920435-PM-002,18920435,2026-07-15,PM1,Orientar sobre a melhor forma de troca de carro,N/A,baixo
+04488605-PM-001,04488605,2026-07-15,PM6,Pedir para dar uma olhadinha na pesquisa,N/A,baixo
+19654745-PM-001,19654745,2026-07-15,PM3,Ligar para Joel mais tarde ou chamar no WhatsApp,N/A,baixo
+07178865-PM-001,07178865,2026-07-15,PM3,Ligar após o almoço,N/A,baixo
+15857739-PM-001,15857739,2026-07-15,PM6,Pedir para responder pesquisa de satisfação,N/A,baixo
+04442414-PM-001,04442414,2026-07-15,PM6,Pedir para responder pesquisa de satisfação,N/A,baixo
+12464511-PM-001,12464511,2026-07-15,PM4,Transferir para a central de assistência ao cliente,N/A,baixo
+08096158-PM-001,08096158,2026-07-15,PM6,Pedir para responder pesquisa de NPS,N/A,baixo
+27513994-PM-001,27513994,2026-07-15,PM2,Mandar link de validação facial,N/A,baixo
+27513994-PM-002,27513994,2026-07-15,PM2,Mandar oi no WhatsApp para adicionar contato,N/A,baixo
+27513994-PM-003,27513994,2026-07-15,PM1,Gerar link de validação facial,2 minutos,baixo
+27513994-PM-004,27513994,2026-07-15,PM2,Mandar link de acesso da plataforma WebCorp,N/A,baixo
+27513994-PM-005,27513994,2026-07-15,PM2,Mandar oi no WhatsApp com informações,N/A,baixo
+01535058-PM-001,01535058,2026-07-15,PM5,Subir e-mail reforçando pedido do valor da indenização,N/A,medio
+01535058-PM-002,01535058,2026-07-15,PM1,Fazer simulação de mensal,N/A,baixo
+14682060-PM-001,14682060,2026-07-15,PM2,Chamar no WhatsApp,N/A,baixo
+14682060-PM-002,14682060,2026-07-15,PM2,Mandar simulação de assinatura mensal,N/A,baixo
+02567523-PM-001,02567523,2026-07-15,PM2,Encaminhar tabela de fixo mensal,N/A,baixo
+22063740-PM-001,22063740,2026-07-15,PM1,Sugerir disponibilidade,N/A,baixo
+22063740-PM-002,22063740,2026-07-15,PM3,Avisar em caso de necessidade,N/A,baixo
+13816737-PM-001,13816737,2026-07-15,PM3,Ligar daqui a 30 minutos,30 minutos,baixo
+03313098-PM-001,03313098,2026-07-15,PM1,Tirar acesso da Yasmin,N/A,baixo
+03313098-PM-002,03313098,2026-07-15,PM3,Tentar falar com a Isis,N/A,baixo
+15541678-PM-001,15541678,2026-07-15,PM2,Passar WhatsApp da Aline,N/A,baixo
+12121158-PM-001,12121158,2026-07-15,PM2,Mandar contatos no WhatsApp,N/A,baixo
+22910848-PM-001,22910848,2026-07-15,PM2,Mandar oi no WhatsApp para salvar contato,N/A,baixo
+22910848-PM-002,22910848,2026-07-15,PM2,Mandar link do portal Web Corp com login,N/A,baixo
+27066187-PM-001,27066187,2026-07-15,PM6,Pedir para o Itamar responder pesquisa de satisfação,N/A,medio
+27066187-PM-002,27066187,2026-07-15,PM2,Mandar pesquisa do telefone,N/A,baixo
+27509725-PM-001,27509725,2026-07-15,PM1,Ajudar a fazer reserva,N/A,baixo
+27509725-PM-002,27509725,2026-07-15,PM1,Fazer simulação de mensal,N/A,baixo
+13407433-PM-001,13407433,2026-07-15,PM2,Passar número de contato para retorno,N/A,baixo
+13407433-PM-002,13407433,2026-07-15,PM1,Fazer processo de redefinição de senha juntos,N/A,baixo
+13407433-PM-003,13407433,2026-07-15,PM5,Abrir chamado para erro de reconhecimento facial,N/A,medio
+13407433-PM-004,13407433,2026-07-15,PM2,Mandar e-mail para abrir chamado,N/A,baixo
+09340352-PM-001,09340352,2026-07-15,PM3,Retornar a ligação amanhã,Amanhã,baixo
+19499982-PM-001,19499982,2026-07-15,PM2,Enviar e-mail com informações,NAO_DEFINIDO,baixo
+07948440-PM-001,07948440,2026-07-15,PM3,Ligar em outro momento para falar com Leila,NAO_DEFINIDO,baixo
+27459491-PM-001,27459491,2026-07-15,PM2,Enviar cotação de 3 meses,NAO_DEFINIDO,baixo
+27459491-PM-002,27459491,2026-07-15,PM1,Liberar acesso à plataforma,NAO_DEFINIDO,baixo
+27459491-PM-003,27459491,2026-07-15,PM1,Ajudar com a primeira reserva,NAO_DEFINIDO,baixo
+27459491-PM-004,27459491,2026-07-15,PM2,Enviar cotação de SUV,NAO_DEFINIDO,baixo
+27459491-PM-005,27459491,2026-07-15,PM2,Enviar links de fatura e reserva,NAO_DEFINIDO,baixo
+01768371-PM-001,01768371,2026-07-15,PM2,Enviar e-mail para prorrogar contrato,NAO_DEFINIDO,medio
+21859750-PM-001,21859750,2026-07-15,PM4,Entrar em contato com Lairis,NAO_DEFINIDO,baixo
+21859750-PM-002,21859750,2026-07-15,PM2,Mandar proposta de carro por assinatura,NAO_DEFINIDO,baixo
+21859750-PM-003,21859750,2026-07-15,PM2,Mandar proposta de carro por assinatura via WhatsApp,NAO_DEFINIDO,baixo
+24670884-PM-001,24670884,2026-07-15,PM2,Enviar oi no WhatsApp para contato,NAO_DEFINIDO,baixo
+23927703-PM-001,23927703,2026-07-15,PM1,Verificar erro no envio de faturas,NAO_DEFINIDO,baixo
+06456362-PM-001,06456362,2026-07-15,PM2,Enviar mensagem no WhatsApp para contato,NAO_DEFINIDO,baixo
+27300664-PM-001,27300664,2026-07-15,PM2,Enviar e-mail para contestar uso de tag,NAO_DEFINIDO,baixo
+27300664-PM-002,27300664,2026-07-15,PM1,Desabilitar tag para próximas locações,NAO_DEFINIDO,baixo
+17780519-PM-001,17780519,2026-07-15,PM2,Enviar link para validação de cadastro,NAO_DEFINIDO,baixo
+06789833-PM-001,06789833,2026-07-15,PM3,Retornar a ligação em outro momento,NAO_DEFINIDO,baixo
+07006135-PM-001,07006135,2026-07-16,PM3,Ligar em outro momento,NAO_DEFINIDO,baixo
+10649031-PM-001,10649031,2026-07-15,PM2,Chamar no WhatsApp para pegar CNPJ e criar cadastro,NAO_DEFINIDO,baixo
+10649031-PM-002,10649031,2026-07-15,PM2,Mandar proposta de carro por assinatura,NAO_DEFINIDO,baixo
+10649031-PM-003,10649031,2026-07-15,PM2,Enviar link para preenchimento de cadastro,NAO_DEFINIDO,baixo
+05367375-PM-001,05367375,2026-07-15,PM1,Cancelar reserva,NAO_DEFINIDO,baixo
+05367375-PM-002,05367375,2026-07-15,PM2,Chamar no WhatsApp para contato,NAO_DEFINIDO,baixo
+05367375-PM-003,05367375,2026-07-15,PM1,Atualizar cadastro,NAO_DEFINIDO,baixo
+05367375-PM-004,05367375,2026-07-15,PM1,Refazer reserva junto com cliente,NAO_DEFINIDO,baixo
+20291631-PM-001,20291631,2026-07-15,PM1,Renovar contrato por mais 3 meses,NAO_DEFINIDO,baixo
+20291631-PM-002,20291631,2026-07-15,PM4,Transferir para agendamento de manutenção,NAO_DEFINIDO,baixo
+25221374-PM-001,25221374,2026-07-15,PM2,Enviar mensagem no WhatsApp para contato,NAO_DEFINIDO,baixo
+22938825-PM-001,22938825,2026-07-15,PM4,Entrar em contato com José Arnaldo,NAO_DEFINIDO,baixo
+06164492-PM-001,06164492,2026-07-15,PM6,Cliente irá responder pesquisa,NAO_DEFINIDO,baixo
+15704492-PM-001,15704492,2026-07-15,PM2,Chamar no WhatsApp para contato,NAO_DEFINIDO,baixo
+17870863-PM-001,17870863,2026-07-15,PM2,Chamar no WhatsApp para contato,NAO_DEFINIDO,baixo
+SEMINFO_56bd56bc-6be4-4542-a931-564118a88b89-PM-001,SEMINFO_56bd56bc-6be4-4542-a931-564118a88b89,2026-07-15,PM2,Enviar proposta por e-mail,NAO_DEFINIDO,baixo
+SEMINFO_56bd56bc-6be4-4542-a931-564118a88b89-PM-002,SEMINFO_56bd56bc-6be4-4542-a931-564118a88b89,2026-07-15,PM2,Enviar oi no WhatsApp para contato,NAO_DEFINIDO,baixo
+22211024-PM-001,22211024,2026-07-15,PM2,Mandar tabela de preços,NAO_DEFINIDO,baixo
+22211024-PM-002,22211024,2026-07-15,PM2,Chamar no WhatsApp para contato,NAO_DEFINIDO,baixo
+SEMINFO_7f07459e-9ef2-49ae-8226-53c3e6bbdfd6-PM-001,SEMINFO_7f07459e-9ef2-49ae-8226-53c3e6bbdfd6,2026-07-15,PM3,Ligar de volta após verificar com a loja,NAO_DEFINIDO,baixo
+05901027-PM-001,05901027,2026-07-15,PM2,Enviar mensagem no WhatsApp para contato,NAO_DEFINIDO,baixo
+26113702-PM-001,26113702,2026-07-15,PM2,Enviar oi no WhatsApp para contato,NAO_DEFINIDO,baixo
+06290768-PM-001,06290768,2026-07-15,PM2,Mandar mensagem no WhatsApp com informações para acesso,NAO_DEFINIDO,baixo
+23014574-PM-001,23014574,2026-07-15,PM2,Mandar oi no WhatsApp para pegar dados do condutor,NAO_DEFINIDO,baixo
+23014574-PM-002,23014574,2026-07-15,PM4,Solicitar troca de condutor para colegas,NAO_DEFINIDO,baixo
+27365455-PM-001,27365455,2026-07-15,PM2,Enviar mensagem no WhatsApp para contato,NAO_DEFINIDO,baixo
+02323816-PM-001,02323816,2026-07-15,PM2,Pegar CNPJ e e-mail via WhatsApp para cadastro,NAO_DEFINIDO,baixo
+25242104-PM-001,25242104,2026-07-15,PM6,Cliente irá repassar aviso para Diego,NAO_DEFINIDO,baixo
+04856086-PM-001,04856086,2026-07-15,PM2,Enviar oi no WhatsApp para contato,NAO_DEFINIDO,baixo
+06222299-PM-001,06222299,2026-07-15,PM2,Enviar link de validação de cadastro,NAO_DEFINIDO,baixo
+06222299-PM-002,06222299,2026-07-15,PM2,Enviar oi no WhatsApp para contato,NAO_DEFINIDO,baixo
+06319626-PM-001,06319626,2026-07-15,PM2,Mandar mensagem no e-mail da Ana,NAO_DEFINIDO,baixo
+19545253-PM-001,19545253,2026-07-15,PM2,Enviar mensagem no WhatsApp para contato,NAO_DEFINIDO,baixo
+00719838-PM-001,00719838,2026-07-15,PM3,Ligar de volta quando o cliente for fazer a reserva,NAO_DEFINIDO,baixo
+08282095-PM-001,08282095,2026-07-15,PM3,Retornar a ligação mais tarde,NAO_DEFINIDO,baixo
+01669415-PM-001,01669415,2026-07-15,PM2,Enviar contato do vendedor,NAO_DEFINIDO,baixo
+19166218-PM-001,19166218,2026-07-20,PM6,Passar informações sobre pesquisa de satisfação para Igor,NAO_DEFINIDO,baixo
+13392169-PM-001,13392169,2026-07-15,PM6,Pedir para Gabriela Teodoro responder pesquisa de satisfação,NAO_DEFINIDO,baixo
+20465189-PM-001,20465189,2026-07-15,PM2,Chamar no WhatsApp para confirmar plano e cancelamento de boleto,NAO_DEFINIDO,baixo
+27478922-PM-001,27478922,2026-07-15,PM2,Compartilhar WhatsApp e manter contato para negociação,NAO_DEFINIDO,baixo
+07228274-PM-001,07228274,2026-07-15,PM3,Cliente ligar de volta se não conseguir retirar o carro em Bento Gonçalves,NAO_DEFINIDO,baixo
+06882264-PM-001,06882264,2026-07-15,PM2,Mandar proposta do mensal fixo no WhatsApp,NAO_DEFINIDO,baixo
+10935579-PM-001,10935579,2026-07-15,PM1,Instruir o cliente a prorrogar contratos manualmente,NAO_DEFINIDO,baixo
+SEMINFO_bef4a3a2-4cf1-4869-9dab-49cdef5655c2-PM-001,SEMINFO_bef4a3a2-4cf1-4869-9dab-49cdef5655c2,2026-07-15,PM5,Verificar com o gerente a liberação da multa,ESSA_SEMANA,baixo
+27513993-PM-001,27513993,2026-07-15,PM2,Chamar no WhatsApp para desvincular nome da empresa antiga,NAO_DEFINIDO,baixo
+09893459-PM-001,09893459,2026-07-15,PM2,Encaminhar e-mail com contato no WhatsApp,NAO_DEFINIDO,baixo
+12032207-PM-001,12032207,2026-07-15,PM2,Responder e-mail sobre taxas e alta temporada,NAO_DEFINIDO,baixo
+12032207-PM-002,12032207,2026-07-15,PM2,Cotar Onix Plus e Spin para contrato de 2 anos,NAO_DEFINIDO,baixo
+14489246-PM-001,14489246,2026-07-15,PM5,Atualizar tarifa da empresa para melhoria de desconto,NAO_DEFINIDO,baixo
+25802170-PM-001,25802170,2026-07-15,PM2,"Mandar ""oi"" no WhatsApp para cliente salvar contato",NAO_DEFINIDO,baixo
+19496387-PM-001,19496387,2026-07-15,PM6,Cliente passar telefone da Jaqueline,NAO_DEFINIDO,baixo
+24188690-PM-001,24188690,2026-07-15,PM2,Mandar link da plataforma empresarial e login de acesso no WhatsApp,NAO_DEFINIDO,baixo
+24188690-PM-002,24188690,2026-07-15,PM6,Solicitar contato de condutor de assinatura para orçamento de carro por assinatura,NAO_DEFINIDO,baixo
+12935455-PM-001,12935455,2026-07-15,PM2,Mandar e-mail com login e senha para acesso à plataforma,NAO_DEFINIDO,baixo
+21915521-PM-001,21915521,2026-07-15,PM1,Ajudar a cliente a fazer a reserva do carro,NAO_DEFINIDO,baixo
+24598524-PM-001,24598524,2026-07-15,PM2,"Mandar ""oi"" no WhatsApp para cliente salvar contato",NAO_DEFINIDO,baixo
+20881411-PM-001,20881411,2026-07-15,PM2,Mandar e-mail pedindo documentação financeira,NAO_DEFINIDO,baixo
+20881411-PM-002,20881411,2026-07-15,PM5,Pedir urgência na análise de ampliação de crédito,HOJE,baixo
+11860661-PM-001,11860661,2026-07-15,PM2,"Mandar ""oi"" no WhatsApp para cliente salvar contato",NAO_DEFINIDO,baixo
+11860661-PM-002,11860661,2026-07-15,PM5,Verificar na agência a possibilidade de reservar modelo específico de carro,ANTES_DE_03_DE_AGOSTO,baixo
+27514987-PM-001,27514987,2026-07-15,PM2,Mandar print do WebCorp e explicar orçamento no WhatsApp,NAO_DEFINIDO,baixo
+21190327-PM-001,21190327,2026-07-15,PM4,Pedir para Flávio Alves Castilho Ferreira ligar para cliente,NAO_DEFINIDO,baixo
+22649979-PM-001,22649979,2026-07-15,PM2,Encaminhar e-mail para os três responsáveis e tentar falar com Patrícia amanhã,AMANHA,baixo
+07287844-PM-001,07287844,2026-07-15,PM6,Cliente enviar CNH do condutor adicional para AndrÃ© Luiz,NAO_DEFINIDO,baixo
+24638439-PM-001,24638439,2026-07-15,PM2,Mandar mensagem no WhatsApp e enviar cotação se solicitado,NAO_DEFINIDO,baixo
+27430334-PM-001,27430334,2026-07-15,PM2,Mandar login de usuário e orientações para redefinição de senha no WhatsApp,NAO_DEFINIDO,baixo
+07617477-PM-001,07617477,2026-07-15,PM2,Mandar proposta de aluguel mensal de T-Cross 3000km em Goiânia por e-mail,NAO_DEFINIDO,baixo
+23769997-PM-001,23769997,2026-07-15,PM5,Abrir chamado para desbloqueio de CPF e avisar por WhatsApp,NAO_DEFINIDO,baixo
+17797446-PM-001,17797446,2026-07-15,PM6,Deixar no radar para ligar se aparecer promoção de Montana,NAO_DEFINIDO,baixo
+24730612-PM-001,24730612,2026-07-15,PM2,Mandar mensagem no WhatsApp e reforçar contato em outubro,OUTUBRO,baixo
+08657825-PM-001,08657825,2026-07-15,PM2,Mandar e-mail com promoção de mensal fixo,NAO_DEFINIDO,baixo
+20508505-PM-001,20508505,2026-07-15,PM2,Mandar contato e usuário no WhatsApp e ensinar redefinição de senha,NAO_DEFINIDO,baixo
+00104406-PM-001,2026-07-15,PM2,Eu vou te chamar no WhatsApp,vou deixar aí o meu contato à disposição.,NAO,baixo
+22732340-PM-001,2026-07-15,PM4,Eu posso anotar as informações aqui,passo para a plataforma e eles pedem um prazo de até 48 horas para fazer contato com você.,48 HORAS,baixo
+03041646-PM-001,2026-07-15,PM4,Eu vou te passar aqui o telefone lá do condutor,"aí eles conseguem te ajudar com relação para verificar sobre o documento,então eles acionam ela para você.",NAO,baixo
+14259585-PM-001,2026-07-15,PM3,Sibeli não está,só amanhã a partir do meio-dia.,AMANHÃ A PARTIR DO MEIO-DIA,baixo
+27467043-PM-001,2026-07-15,PM2,Eu acabei de te mandar uma mensagem para você ficar com o meu telefone também registrado,o meu contato direto.,NAO,baixo
+23304703-PM-001,2026-07-15,PM2,Eu vou encaminhar para você,"no e-mail,o link para você redefinir.",NAO,baixo
+SEMINFO_d90f494c-60c0-4087-8ec0-93e17f7b1c08-PM-001,2026-07-15,PM1,Eu crio um segundo código para você... Nesse segundo código,eu coloco que a sua comissão é de 10%.,NAO,baixo
+00118221-PM-003,2026-07-16,PM1,Eu liberei o seu também,porque na ausência dela você consegue visualizar também.,NAO,baixo
+23257026-PM-001,2026-07-15,PM2,Vou deixar a agência ciente sobre essa troca. Como você retirou hoje e hoje mesmo não teve,"provavelmente hoje também não vai ter,a não ser que tenha alguma devolução específica. Mas eu vou chamar aqui a agência para a gente poder fazer o alinhamento e quando eles me derem uma devolutiva sobre a disponibilidade só coloca para mim no WhatsApp qual que é em específico Para que fique salvo na nossa conversa,por favor?",NAO,baixo
+23257026-PM-003,2026-07-21,PM5,A gente pode fazer uma validação em outras agências,"talvez que seja próxima,para a gente poder tentar fazer a troca?",NAO,baixo
+23257026-PM-004,2026-07-21,PM5,Eu vou validar com a atendente,deixa então ela me responder para ela me dar um ok para que vocês consigam fazer essa troca.,NAO,baixo
+SEMINFO_e8341d32-1987-4bb8-9fbe-25bbd2e90394-PM-001,SEMINFO_e8341d32-1987-4bb8-9fbe-25bbd2e90394,2026-07-15,PM1,Ajudar a cliente a fazer a reserva pelo webcorp,Na ligação,baixo
+SEMINFO_dcfb9b88-8282-489f-b059-3f5eb815a370-PM-001,SEMINFO_dcfb9b88-8282-489f-b059-3f5eb815a370,2026-07-15,PM2,Enviar e-mail da assistência clientes para dúvidas sobre CIOT,Na ligação,baixo
+SEMINFO_dcfb9b88-8282-489f-b059-3f5eb815a370-PM-002,SEMINFO_dcfb9b88-8282-489f-b059-3f5eb815a370,2026-07-15,PM5,Tentar aumentar o limite de crédito quando o cliente enviar o documento ajustado,Indefinido,baixo
+SEMINFO_8a12db17-6050-47d4-ac91-fb4cd81ab3d8-PM-001,SEMINFO_8a12db17-6050-47d4-ac91-fb4cd81ab3d8,2026-07-15,PM6,Receber contato da Gisele,Na ligação,baixo
+SEMINFO_97870621-542c-48ae-a075-c475b52d297e-PM-001,SEMINFO_97870621-542c-48ae-a075-c475b52d297e,2026-07-15,PM1,Verificar status de aprovação de locação,Na ligação,baixo
+SEMINFO_b4fdb24a-949a-4674-b95e-3e26333597f5-PM-001,SEMINFO_b4fdb24a-949a-4674-b95e-3e26333597f5,2026-07-15,PM1,Remover acessos de faturamento para e-mails de condutores,Na ligação,baixo
+26916838-PM-001,26916838,2026-07-15,PM2,Enviar proposta de locação para o WhatsApp,Na ligação,baixo
+26916838-PM-002,26916838,2026-07-15,PM5,Pedir ampliação de crédito para futuras reservas,Indefinido,baixo
+26916838-PM-003,26916838,2026-07-15,PM1,Ajudar a cliente a fazer o primeiro acesso e reserva no WebCorp,Na ligação,baixo
+23938058-PM-001,23938058,2026-07-15,PM2,Enviar link para validação da empresa e cadastro de gestores,Na ligação,baixo
+23938058-PM-002,23938058,2026-07-15,PM6,Manter contato via WhatsApp para acompanhamento,Indefinido,baixo
+SEMINFO_5b9d0d7f-028a-492d-a1d6-1545e76b3286-PM-001,SEMINFO_5b9d0d7f-028a-492d-a1d6-1545e76b3286,2026-07-15,PM3,Retornar o contato para atualizar condição comercial,Indefinido,baixo
+SEMINFO_bb166f19-8998-483d-b12a-8e2f788fcc0a-PM-001,SEMINFO_bb166f19-8998-483d-b12a-8e2f788fcc0a,2026-07-15,PM2,"Enviar ""oi"" no WhatsApp para contato futuro",Na ligação,baixo
+SEMINFO_90291815-107f-4af8-aba4-24eb40ab0f3e-PM-001,SEMINFO_90291815-107f-4af8-aba4-24eb40ab0f3e,2026-07-15,PM4,Direcionar para colega da área de Localiza Meu para cotação,Indefinido,baixo
+SEMINFO_90291815-107f-4af8-aba4-24eb40ab0f3e-PM-002,SEMINFO_90291815-107f-4af8-aba4-24eb40ab0f3e,2026-07-15,PM2,Enviar cotação de plano fixo anual para SUV automático,Na ligação,baixo
+SEMINFO_899f94ba-e4b2-411b-8b6d-c7392b4e217f-PM-001,SEMINFO_899f94ba-e4b2-411b-8b6d-c7392b4e217f,2026-07-15,PM6,Aguardar avaliação do atendimento,Na ligação,baixo
+26708858-PM-001,26708858,2026-07-15,PM5,Pedir ampliação de crédito para 10 mil reais,Na ligação,alto
+26708858-PM-002,26708858,2026-07-15,PM6,Orientar cliente a criar nova reserva diária para evitar ficar sem carro,Na ligação,baixo
+26708858-PM-003,26708858,2026-07-15,PM1,Agendar troca de carro para amanhã às 8h,Amanhã,baixo
+20078502-PM-001,20078502,2026-07-15,PM2,Chamar no WhatsApp para salvar contato e oferecer suporte,Na ligação,baixo
+24369567-PM-001,24369567,2026-07-15,PM3,Ligar de volta amanhã,Amanhã,baixo
+00716308-PM-001,00716308,2026-07-15,PM1,Cadastrar Rosana como nova gestora,Na ligação,baixo
+00716308-PM-002,00716308,2026-07-15,PM2,Mandar WhatsApp para Alexandre com print para aprovar acesso de Rosana,Na ligação,baixo
+00716308-PM-003,00716308,2026-07-15,PM6,Ajudar Rosana a fazer a reserva quando o acesso for aprovado,Indefinido,baixo
+10183575-PM-001,10183575,2026-07-15,PM1,Fazer contato com a agência para verificar disponibilidade de Quid,Na ligação,baixo
+10183575-PM-002,10183575,2026-07-15,PM3,Dar retorno no WhatsApp sobre a disponibilidade do Quid,Na ligação,baixo
+10183575-PM-003,10183575,2026-07-15,PM1,Alinhar com a Ana para separar o Quid,Na ligação,baixo
+10183575-PM-004,10183575,2026-07-17,PM1,Pedir à central para adicionar novo condutor se a alteração de navegador não funcionar,Na ligação,baixo
+05490542-PM-001,05490542,2026-07-15,PM2,Mandar e-mail com informações do contrato atual e valores para 3 e 6 meses,Na ligação,baixo
+05490542-PM-002,05490542,2026-07-15,PM1,Tentar mandar link de redefinição de senha,Na ligação,baixo
+05490542-PM-003,05490542,2026-07-15,PM2,Verificar instabilidade no portal ou login e dar retorno,Na ligação,baixo
+05490542-PM-004,05490542,2026-07-15,PM1,Atualizar cadastro para manter apenas Ezequiel e Rafael ativos,Na ligação,baixo
+24275394-PM-001,24275394,2026-07-15,PM6,Entrar em contato com Fernando via celular,Na ligação,baixo
+17298361-PM-001,17298361,2026-07-15,PM1,Liberar aluguel da AD,Na ligação,baixo
+SEMINFO_31aa2a69-1d69-4eae-a635-a2169ad879ce-PM-001,SEMINFO_31aa2a69-1d69-4eae-a635-a2169ad879ce,2026-07-15,PM1,Corrigir número de telefone do Carlos Ney,Na ligação,baixo
+13456422-PM-001,13456422,2026-07-15,PM2,"Enviar ""oi"" no WhatsApp para contato futuro",Na ligação,baixo
+21774959-PM-001,21774959,2026-07-15,PM5,Agilizar solicitação de crédito para ativação do cadastro,Na ligação,alto
+21774959-PM-002,21774959,2026-07-15,PM6,Orientar Marcos sobre o que precisa para ativar o cadastro,Na ligação,baixo
+21914299-PM-001,21914299,2026-07-15,PM3,Retornar para Fernanda amanhã para conferir demandas,Amanhã,baixo
+23613138-PM-001,23613138,2026-07-15,PM2,"Enviar ""oi"" no WhatsApp para contato futuro e atualização de cadastro",Na ligação,baixo
+13492441-PM-001,13492441,2026-07-15,PM5,Atualizar desconto para melhoria,Na ligação,baixo
+13492441-PM-002,13492441,2026-07-15,PM4,Transferir ligação para central de reservas,Na ligação,baixo
+13492441-PM-003,13492441,2026-07-15,PM2,Mandar WhatsApp com link e passo a passo para confirmar reserva na WebCorp,Na ligação,baixo
+23490835-PM-001,23490835,2026-07-15,PM2,Deixar contatos no WhatsApp para alinhar propostas futuras,Na ligação,baixo
+26002129-PM-001,26002129,2026-07-15,PM4,Indicar outro condutor para entrar em contato e passar orçamento de carros maiores,Na ligação,baixo
+26002129-PM-002,26002129,2026-07-15,PM2,Mandar site e login/senha para simulação pela empresa,Na ligação,baixo
+26002129-PM-003,26002129,2026-07-15,PM4,Indicar pessoal de Pesados para entrar em contato e passar valores para caminhão,Na ligação,baixo
+21538737-PM-001,21538737,2026-07-15,PM2,"Enviar ""oi"" no WhatsApp para contato futuro e suporte",Na ligação,baixo
+24443223-PM-001,24443223,2026-07-15,PM4,Tentar transferir para o Paulo,Na ligação,baixo
+24443223-PM-002,24443223,2026-07-15,PM1,Orientar cliente a desmarcar opções para obter valor negociado,Na ligação,baixo
+24443223-PM-003,24443223,2026-07-15,PM4,Mandar para a equipe o condutor responsável pela separação do carro,Na ligação,baixo
+24101392-PM-001,24101392,2026-07-15,PM3,Retornar o contato amanhã,Amanhã,baixo
+17086115-PM-001,17086115,2026-07-15,PM2,Chamar no WhatsApp para salvar contato e oferecer suporte,Na ligação,baixo
+06678651-PM-001,06678651,2026-07-15,PM4,Transferir para Camila e enviar telefone direto no WhatsApp,Na ligação,baixo
+06678651-PM-002,06678651,2026-07-15,PM3,Pedir para Camila ligar para o cliente,Na ligação,baixo
+06678651-PM-003,06678651,2026-07-17,PM2,Mandar cotação dos grupos G e GC,Na ligação,baixo
+02319406-PM-001,02319406,2026-07-15,PM6,Ligar para o celular do Paulo,Na ligação,baixo
+25697757-PM-001,25697757,2026-07-15,PM3,Ligar amanhã às 11h,Amanhã,baixo
+13848936-PM-001,13848936,2026-07-15,PM4,Transferir ligação para central de reservas,Na ligação,baixo
+13848936-PM-002,13848936,2026-07-15,PM2,Mandar WhatsApp com link e passo a passo para confirmar reserva na WebCorp,Na ligação,baixo
+13848936-PM-003,13848936,2026-07-17,PM2,Mandar mensagem sobre a locação no WhatsApp,Na ligação,baixo
+27516756-PM-001,27516756,2026-07-15,PM1,Auxiliar cliente a entrar e fazer reserva pela plataforma,Na ligação,baixo
+27516756-PM-002,27516756,2026-07-15,PM2,Mandar WhatsApp com passo a passo e link para se logar,Na ligação,baixo
+27509163-PM-001,27509163,2026-07-15,PM2,Enviar contato de WhatsApp,IMEDIATO,baixo
+27509163-PM-002,27509163,2026-07-15,PM3,Chamar no WhatsApp,IMEDIATO,baixo
+27509163-PM-003,27509163,2026-07-15,PM5,Conversar com a agência para ajudar com a placa,NAO_DEFINIDO,medio
+23834014-PM-001,23834014,2026-07-15,PM2,Enviar cotação de utilitário e econômico no WhatsApp,IMEDIATO,baixo
+17168739-PM-001,17168739,2026-07-15,PM2,Encaminhar link de validação de cadastro no WhatsApp,IMEDIATO,baixo
+17168739-PM-002,17168739,2026-07-15,PM4,Enviar indicação para a plataforma de carros por assinatura,48_HORAS,baixo
+02503729-PM-001,02503729,2026-07-15,PM2,Enviar condição atual de aluguel,IMEDIATO,baixo
+24660757-PM-001,24660757,2026-07-15,PM2,Compartilhar telefone e fatura para pagamento/negociação,IMEDIATO,baixo
+24660757-PM-002,24660757,2026-07-15,PM2,Compartilhar login e senha de acesso ao WebCorp,APOS_PAGAMENTO,baixo
+26749636-PM-001,26749636,2026-07-15,PM2,Enviar link da WebCorp,IMEDIATO,baixo
+26749636-PM-002,26749636,2026-07-15,PM2,Enviar login de acesso,IMEDIATO,baixo
+03194714-PM-001,03194714,2026-07-15,PM6,Comunicar o financeiro sobre a pesquisa,NAO_DEFINIDO,baixo
+05261755-PM-001,05261755,2026-07-15,PM2,Encaminhar modelo de procuração no WhatsApp,15_MINUTOS,baixo
+05261755-PM-002,05261755,2026-07-17,PM1,Cadastrar cliente e Fabrício como usuários,IMEDIATO,baixo
+05261755-PM-003,05261755,2026-07-17,PM1,Liberar acesso financeiro,IMEDIATO,baixo
+15030252-PM-001,15030252,2026-07-15,PM2,Deixar contato no WhatsApp para salvar número,IMEDIATO,baixo
+15030252-PM-002,15030252,2026-07-15,PM4,Mandar proposta de gestão de frota,NAO_DEFINIDO,baixo
+03523939-PM-001,03523939,2026-07-15,PM5,Verificar falha sistêmica com o TI,IMEDIATO,baixo
+03523939-PM-002,03523939,2026-07-15,PM3,Retornar com informações sobre a reserva,IMEDIATO,baixo
+14644784-PM-001,14644784,2026-07-15,PM3,Tentar ligar para o Matheus no WhatsApp,IMEDIATO,baixo
+27463795-PM-001,27463795,2026-07-15,PM5,Verificar negociação de estrada com a equipe,NAO_DEFINIDO,baixo
+27463795-PM-002,27463795,2026-07-15,PM3,Ligar para Emerson para explicar a situação,IMEDIATO,baixo
+15197580-PM-001,15197580,2026-07-15,PM2,Mandar proposta de mensal fixo,IMEDIATO,baixo
+23005995-PM-001,23005995,2026-07-16,PM5,Acionar time para avaliar desbloqueio do CPF,HOJE,baixo
+23005995-PM-002,23005995,2026-07-16,PM3,Dar retorno sobre o desbloqueio do CPF,HOJE,baixo
+24486777-PM-001,24486777,2026-07-16,PM5,Chamar pessoal da TI para ajustar acesso da Caltech,NAO_DEFINIDO,baixo
+24486777-PM-002,24486777,2026-07-16,PM3,Retornar com o cliente para testar o acesso,NAO_DEFINIDO,baixo
+27517420-PM-001,27517420,2026-07-16,PM2,"Mandar um ""oi"" no WhatsApp",IMEDIATO,baixo
+27517420-PM-002,27517420,2026-07-16,PM3,Ligar de volta quando o cliente estiver tranquilo,NAO_DEFINIDO,baixo
+07822083-PM-001,07822083,2026-07-16,PM2,Enviar foto da fatura,IMEDIATO,baixo
+07822083-PM-002,07822083,2026-07-16,PM4,Transferir para assistência ao cliente,IMEDIATO,baixo
+26795963-PM-001,26795963,2026-07-16,PM4,Transferir para marcação de revisão/manutenção,IMEDIATO,baixo
+27456617-PM-001,27456617,2026-07-16,PM2,Mandar login da Jaqueline e passo a passo para criação de senha no WhatsApp,IMEDIATO,baixo
+27456617-PM-002,27456617,2026-07-16,PM2,Mandar manual para incluir outros gestores de reservas no WhatsApp,IMEDIATO,baixo
+04882635-PM-001,04882635,2026-07-16,PM6,Pedir para o cliente responder a pesquisa de satisfação,HOJE,baixo
+20253964-PM-001,20253964,2026-07-16,PM4,Completar ligação para o atendimento de avaria,IMEDIATO,baixo
+27516003-PM-001,27516003,2026-07-16,PM5,Ligar para a agência para separar um carro Tera,IMEDIATO,baixo
+04519228-PM-001,04519228,2026-07-16,PM1,Retirar Igor do cadastro,IMEDIATO,baixo
+04519228-PM-002,04519228,2026-07-16,PM2,"Enviar ""oi"" no WhatsApp para salvar número",IMEDIATO,baixo
+21938409-PM-001,21938409,2026-07-16,PM2,Passar celular do Lourenço,IMEDIATO,baixo
+15264621-PM-001,15264621,2026-07-16,PM1,Reativar cadastro,IMEDIATO,baixo
+15264621-PM-002,15264621,2026-07-16,PM2,Mandar mensagem no WhatsApp,IMEDIATO,baixo
+07247363-PM-001,07247363,2026-07-16,PM2,"Mandar ""oi"" no WhatsApp",IMEDIATO,baixo
+21858954-PM-001,21858954,2026-07-16,PM3,Ligar para o escritório para verificar problema do condutor Cláudio,IMEDIATO,baixo
+21858954-PM-002,21858954,2026-07-16,PM2,Mandar WhatsApp para o cliente,IMEDIATO,baixo
+21858954-PM-003,21858954,2026-07-16,PM5,Abrir chamado para desbloqueio do condutor,IMEDIATO,baixo
+21858954-PM-004,21858954,2026-07-16,PM3,Retornar para o cliente sobre o desbloqueio,IMEDIATO,baixo
+22665838-PM-001,22665838,2026-07-16,PM4,Pedir orçamento de carro por assinatura,NAO_DEFINIDO,baixo
+22665838-PM-002,22665838,2026-07-16,PM6,Sinalizar reclamação sobre carros ruins para a gerência da agência,NAO_DEFINIDO,baixo
+22665838-PM-003,22665838,2026-07-16,PM2,"Mandar ""oi"" no WhatsApp para salvar número",IMEDIATO,baixo
+23586140-PM-001,23586140,2026-07-16,PM2,Mandar cotação de carro automático de entrada para 5 mil km no WhatsApp,IMEDIATO,baixo
+23586140-PM-002,23586140,2026-07-16,PM2,Mandar cotação de carro 1.0 manual no WhatsApp,IMEDIATO,baixo
+23586140-PM-003,23586140,2026-07-16,PM2,Mandar cotação de SUV intermediário no WhatsApp,IMEDIATO,baixo
+26810654-PM-001,26810654,2026-07-16,PM2,Mandar demonstrativo da multa no WhatsApp,IMEDIATO,baixo
+26810654-PM-002,26810654,2026-07-16,PM3,Retornar com o cliente sobre a multa,NAO_DEFINIDO,baixo
+26810654-PM-003,26810654,2026-07-16,PM2,Mandar contato no WhatsApp,IMEDIATO,baixo
+23698035-PM-001,23698035,2026-07-16,PM5,"""Solicitar ampliação de crédito e enviar DRE/balancete para o cliente.""",NAO_DEFINIDO,baixo
+23698035-PM-002,23698035,2026-07-16,PM2,"""Enviar no WhatsApp o que precisa para ampliação de crédito.""",NAO_DEFINIDO,baixo
+00161238-PM-001,00161238,2026-07-16,PM5,"""Verificar possibilidade de transferir parte do crédito para o spot.""",NAO_DEFINIDO,medio
+27519944-PM-001,27519944,2026-07-16,PM2,"""Enviar um 'oi' no WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+27509249-PM-001,27509249,2026-07-16,PM2,"""Enviar um 'oi' no WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+27509249-PM-002,27509249,2026-07-16,PM2,"""Mandar orçamento de Spin para o cliente.""",NAO_DEFINIDO,baixo
+00752452-PM-001,00752452,2026-07-16,PM3,"""Entrar em contato com a Miriam no próximo mês.""",NAO_DEFINIDO,baixo
+22475550-PM-001,22475550,2026-07-16,PM2,"""Enviar o portal corporativo via WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+10126761-PM-001,10126761,2026-07-16,PM2,"""Enviar o login do portal de reservas via WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+03302117-PM-001,03302117,2026-07-16,PM2,"""Mandar e-mail para a Isabel.""",NAO_DEFINIDO,baixo
+07301001-PM-001,07301001,2026-07-16,PM2,"""Passar o contato da Isadora para o cliente.""",NAO_DEFINIDO,baixo
+27520594-PM-001,27520594,2026-07-16,PM2,"""Fazer simulação de orçamento e enviar no WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+15671038-PM-001,15671038,2026-07-16,PM2,"""Enviar um 'oi' no WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+03088879-PM-001,03088879,2026-07-16,PM2,"""Chamar o cliente no WhatsApp.""",NAO_DEFINIDO,baixo
+04253448-PM-001,04253448,2026-07-16,PM2,"""Mandar mensagem para a Dominique no contato dela.""",NAO_DEFINIDO,baixo
+22653197-PM-001,22653197,2026-07-16,PM2,"""Fazer cotação e enviar no WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+22653197-PM-002,22653197,2026-07-20,PM2,"""Corrigir informações da reserva e enviar para o cliente.""",NAO_DEFINIDO,baixo
+22653197-PM-003,22653197,2026-07-20,PM4,"""Fazer contato com a agência para tentar disponibilizar o veículo.""",NAO_DEFINIDO,medio
+22653197-PM-004,22653197,2026-07-20,PM4,"""Fazer contato com a agência novamente.""",NAO_DEFINIDO,medio
+11703407-PM-001,11703407,2026-07-16,PM4,"""Pedir à agência para separar um veículo.""",NAO_DEFINIDO,baixo
+11703407-PM-002,11703407,2026-07-16,PM2,"""Enviar passo a passo para adicionar condutor na WebCorp.""",NAO_DEFINIDO,baixo
+11703407-PM-003,11703407,2026-07-16,PM4,"""Mandar mensagem para a agência Batel para saber sobre troca de carro.""",NAO_DEFINIDO,baixo
+25172166-PM-001,25172166,2026-07-16,PM3,"""Fazer contato com a Lina.""",NAO_DEFINIDO,baixo
+25172166-PM-002,25172166,2026-07-16,PM5,"""Verificar com o time a reabertura do contrato para manter o valor original de cobrança.""",NAO_DEFINIDO,medio
+25172166-PM-003,25172166,2026-07-16,PM2,"""Montar e-mail e enviar para o time com cópia para o cliente.""",NAO_DEFINIDO,baixo
+27509442-PM-001,27509442,2026-07-16,PM2,"""Enviar o login do portal de reservas via WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+14600602-PM-001,14600602,2026-07-16,PM2,"""Chamar o cliente no WhatsApp.""",NAO_DEFINIDO,baixo
+00393280-PM-001,00393280,2026-07-16,PM3,"""Acionar o Rafael.""",NAO_DEFINIDO,baixo
+00393280-PM-002,00393280,2026-07-16,PM2,"""Chamar o Rafael no WhatsApp para passar informações da cobertura.""",NAO_DEFINIDO,baixo
+27520592-PM-001,27520592,2026-07-16,PM2,"""Disparar e-mail para redefinição de senha.""",NAO_DEFINIDO,baixo
+27520592-PM-002,27520592,2026-07-16,PM2,"""Enviar print do QR Code no WhatsApp para o cliente.""",NAO_DEFINIDO,baixo
+27520592-PM-003,27520592,2026-07-16,PM3,"""Desligar e ligar em dois minutos para ver se o SMS chegou.""",NAO_DEFINIDO,baixo
+27520592-PM-004,27520592,2026-07-16,PM2,"""Enviar o link do portal de faturamento para o cliente.""",NAO_DEFINIDO,baixo
+06619201-PM-001,06619201,2026-07-16,PM3,"""Tentar contato no WhatsApp do José.""",NAO_DEFINIDO,baixo
+06619201-PM-002,06619201,2026-07-16,PM3,"""Ligar novamente na próxima segunda-feira.""",NAO_DEFINIDO,baixo
+11991615-PM-001,11991615,2026-07-16,PM1,Orientar sobre reserva e troca de condutor,Na ligação,baixo
+11991615-PM-002,11991615,2026-07-16,PM2,Mandar link para redefinir senha,Na ligação,baixo
+11991615-PM-003,11991615,2026-07-16,PM1,Aguardar na linha enquanto cliente resolve,Na ligação,baixo
+11991615-PM-004,11991615,2026-07-16,PM1,Ajudar a refazer processo de redefinição de senha,Na ligação,baixo
+11991615-PM-005,11991615,2026-07-16,PM1,Ajudar a criar nova senha,Na ligação,baixo
+11991615-PM-006,11991615,2026-07-16,PM1,Ajudar a fazer validação biométrica,Na ligação,baixo
+11991615-PM-007,11991615,2026-07-16,PM1,Ajudar a entrar no portal,Na ligação,baixo
+11991615-PM-008,11991615,2026-07-16,PM1,Ajudar a fazer reserva,Na ligação,baixo
+11991615-PM-009,11991615,2026-07-16,PM1,Entrar em contato com a agência para verificar carro,Na ligação,baixo
+27066100-PM-001,27066100,2026-07-16,PM1,Acionar tag para cliente,Na ligação,baixo
+27066100-PM-002,27066100,2026-07-16,PM3,Avisar sobre conclusão da reserva,Assim que concluir,baixo
+20932697-PM-001,20932697,2026-07-16,PM2,Passar telefone da Ana Paula,Na ligação,baixo
+23948253-PM-001,23948253,2026-07-16,PM3,Retornar ligação depois do almoço,Depois do almoço,baixo
+SEMINFO_4ff60226-2445-453e-b656-cf58fc1f342d-PM-001,SEMINFO_4ff60226-2445-453e-b656-cf58fc1f342d,2026-07-16,PM2,Mandar link para redefinir senha,Na ligação,baixo
+SEMINFO_4ff60226-2445-453e-b656-cf58fc1f342d-PM-002,SEMINFO_4ff60226-2445-453e-b656-cf58fc1f342d,2026-07-16,PM1,Aguardar na linha enquanto cliente resolve,Na ligação,baixo
+SEMINFO_4ff60226-2445-453e-b656-cf58fc1f342d-PM-003,SEMINFO_4ff60226-2445-453e-b656-cf58fc1f342d,2026-07-16,PM3,Ligar de volta em dois minutos,Dois minutos,baixo
+03320402-PM-001,03320402,2026-07-16,PM2,Mandar WhatsApp para Fernanda,Imediato,baixo
+19173432-PM-001,19173432,2026-07-16,PM4,Transferir para assistência a clientes,Na ligação,baixo
+19173432-PM-002,19173432,2026-07-16,PM4,Transferir cliente para prorrogação de fatura,Na ligação,baixo
+08811853-PM-001,08811853,2026-07-16,PM2,Mandar processo detalhado da multa de trânsito,Na ligação,baixo
+08811853-PM-002,08811853,2026-07-16,PM3,Verificar se cliente recebeu pesquisa de satisfação,Na ligação,baixo
+08811853-PM-003,08811853,2026-07-16,PM6,Pesquisa será replicada na próxima terça-feira,Próxima terça-feira,baixo
+27471342-PM-001,27471342,2026-07-16,PM2,Mandar link para fazer facial para terminar cadastro,Na ligação,baixo
+27471342-PM-002,27471342,2026-07-16,PM2,Verificar e enviar relatório de avaria,Na ligação,baixo
+27471342-PM-003,27471342,2026-07-16,PM3,Avisar sobre indenização,Imediato,baixo
+27471342-PM-004,27471342,2026-07-16,PM3,Avisar sobre contrato,Imediato,baixo
+27520214-PM-001,27520214,2026-07-16,PM1,Passar orçamento para Quidzen manual,Na ligação,baixo
+SEMINFO_a21decdd-782b-46a2-a999-6c1344f90d0f-PM-001,SEMINFO_a21decdd-782b-46a2-a999-6c1344f90d0f,2026-07-16,PM6,Tentar isenção de taxa de devolução,Imediato,médio
+SEMINFO_a21decdd-782b-46a2-a999-6c1344f90d0f-PM-002,SEMINFO_a21decdd-782b-46a2-a999-6c1344f90d0f,2026-07-16,PM2,Deixar mensagem para Jéssica,Na ligação,baixo
+21028434-PM-001,21028434,2026-07-16,PM2,Encaminhar reset de senha,Na ligação,baixo
+21028434-PM-002,21028434,2026-07-16,PM1,Acompanhar redefinição de senha,Na ligação,baixo
+21028434-PM-003,21028434,2026-07-16,PM3,Retornar ligação,No mesmo minuto,baixo
+27520290-PM-001,27520290,2026-07-16,PM2,Mandar oi no WhatsApp,Na ligação,baixo
+27520290-PM-002,27520290,2026-07-16,PM2,Reenviar link de redefinição de senha,Na ligação,baixo
+27520290-PM-003,27520290,2026-07-16,PM5,Pedir unificação de login,Imediato,baixo
+27520290-PM-004,27520290,2026-07-16,PM2,Enviar formulário para cliente,Imediato,baixo
+27520290-PM-005,27520290,2026-07-16,PM5,Adiantar processo de unificação,Hoje,baixo
+11882792-PM-001,11882792,2026-07-16,PM2,Mandar oi no WhatsApp,Na ligação,baixo
+11882792-PM-002,11882792,2026-07-16,PM1,Solicitar inclusão de condutor adicional,Imediato,baixo
+25394140-PM-001,25394140,2026-07-16,PM2,Mandar balanço da empresa,Imediato,baixo
+25394140-PM-002,25394140,2026-07-16,PM2,Pedir balanço via WhatsApp,Imediato,baixo
+27420103-PM-001,27420103,2026-07-16,PM2,Mandar login e endereço do site via WhatsApp,Na ligação,baixo
+20270137-PM-001,20270137,2026-07-16,PM2,Mandar 0800 via WhatsApp,Na ligação,baixo
+20270137-PM-002,20270137,2026-07-16,PM3,Marcar horário para Luiz Gustavo aprovar cadastro,Em breve,baixo
+08550926-PM-001,08550926,2026-07-16,PM2,Encaminhar e-mail com informações básicas,Na ligação,baixo
+08550926-PM-002,08550926,2026-07-16,PM4,Solicitar contato da plataforma de carro por assinatura,Em até 48 horas,baixo
+08550926-PM-003,08550926,2026-07-17,PM2,"Mandar WhatsApp com ""Oi""",Na ligação,baixo
+08550926-PM-004,08550926,2026-07-17,PM1,Migrar contrato para mensal,Segunda-feira,baixo
+24826874-PM-001,24826874,2026-07-16,PM3,Pedir para Alexandre entrar em contato,Imediato,baixo
+22898754-PM-001,22898754,2026-07-16,PM5,Fazer ajuste de percentual de desconto,Na ligação,baixo
+22898754-PM-002,22898754,2026-07-16,PM2,Mandar e-mail com contato e instrução para habilitar portal,Na ligação,baixo
+27474864-PM-001,27474864,2026-07-16,PM2,Mandar oi no WhatsApp,Na ligação,baixo
+10643922-PM-001,10643922,2026-07-16,PM2,Solicitar medidas da Fiorino,Imediato,baixo
+10643922-PM-002,10643922,2026-07-16,PM2,Mandar dados para assinatura digital,Na ligação,baixo
+10643922-PM-003,10643922,2026-07-16,PM5,Solicitar prioridade na liberação de cadastro,Imediato,baixo
+10643922-PM-004,10643922,2026-07-16,PM2,Encaminhar detalhamento de pendência,Imediato,baixo
+14421199-PM-001,14421199,2026-07-16,PM1,Verificar estoque de carros,Na ligação,baixo
+14421199-PM-002,14421199,2026-07-16,PM1,Ajudar a fazer pedido no WebCort,Na ligação,baixo
+14421199-PM-003,14421199,2026-07-16,PM1,Ajudar a simular reserva,Na ligação,baixo
+14421199-PM-004,14421199,2026-07-16,PM1,Ajudar a corrigir erro na reserva,Na ligação,baixo
+14421199-PM-005,14421199,2026-07-16,PM1,Ajudar a concluir reserva,Na ligação,baixo
+14421199-PM-006,14421199,2026-07-16,PM2,Passar contato para motorista,Na ligação,baixo
+14421199-PM-007,14421199,2026-07-16,PM3,Avisar se deu certo a troca de carro,Depois,baixo
+SEMINFO_0e9dd535-d059-47fa-9164-97bca2300a08-PM-001,SEMINFO_0e9dd535-d059-47fa-9164-97bca2300a08,2026-07-16,PM2,Mandar e-mail com reajuste de contrato,Na ligação,baixo
+SEMINFO_0e9dd535-d059-47fa-9164-97bca2300a08-PM-002,SEMINFO_0e9dd535-d059-47fa-9164-97bca2300a08,2026-07-16,PM2,Encaminhar dados para condutor de PJ,Na ligação,baixo
+SEMINFO_0e9dd535-d059-47fa-9164-97bca2300a08-PM-003,SEMINFO_0e9dd535-d059-47fa-9164-97bca2300a08,2026-07-16,PM2,Mandar contrato,Na ligação,baixo
+07726718-PM-001,07726718,2026-07-16,PM2,Enviar e-mail,Na ligação,baixo
+07726718-PM-002,07726718,2026-07-16,PM3,Retornar em outro momento,Em outro momento,baixo
+21775848-PM-001,21775848,2026-07-16,PM3,Retornar em outro momento,Em outro momento,baixo
+21775848-PM-002,21775848,2026-07-16,PM2,Mandar mensagem no WhatsApp,Imediato,baixo
+03289309-PM-001,03289309,2026-07-16,PM2,Documentar no e-mail,Imediato,baixo
+03289309-PM-002,03289309,2026-07-16,PM2,Mandar print no WhatsApp,Na ligação,baixo
+03289309-PM-003,03289309,2026-07-16,PM5,Acionar time para refazer proposta,Imediato,baixo
+03289309-PM-004,03289309,2026-07-16,PM3,Ligar para verificar envio de aceite,Imediato,baixo
+25402841-PM-001,25402841,2026-07-16,PM3,Tentar no celular da Janete,Imediato,baixo
+16661580-PM-001,16661580,2026-07-16,PM1,Aguardar retorno da equipe de apoio,10 minutos,baixo
+16661580-PM-002,16661580,2026-07-16,PM2,Mandar print com passo a passo para limpeza de cache,Na ligação,baixo
+16661580-PM-003,16661580,2026-07-16,PM2,Mandar print para equipe,Na ligação,baixo
+16661580-PM-004,16661580,2026-07-16,PM2,Mandar valores de reserva,Na ligação,baixo
+16661580-PM-005,16661580,2026-07-16,PM3,Dar retorno sobre acesso,10 minutos,baixo
+27491257-PM-001,27491257,2026-07-16,PM2,Acionar no WhatsApp,Na ligação,baixo
+13010476-PM-001,13010476,2026-07-16,PM2,Mandar no WhatsApp,Na ligação,baixo
+16594640-PM-001,16594640,2026-07-16,PM3,Retornar contato,Imediato,baixo
+02116754-PM-001,02116754,2026-07-16,PM1,Tirar acesso do Marcelo,Na ligação,baixo
+02116754-PM-002,02116754,2026-07-16,PM2,Passar contato,Na ligação,baixo
+00244485-PM-001,00244485,2026-07-16,PM2,Passar contato,Na ligação,baixo
+24794903-PM-001,24794903,2026-07-16,PM2,Passar número de telefone,Na ligação,baixo
+24794903-PM-002,24794903,2026-07-16,PM2,Passar 0800,Na ligação,baixo
+24794903-PM-003,24794903,2026-07-16,PM6,Verificar falha no e-mail,Imediato,baixo
+24794903-PM-004,24794903,2026-07-16,PM5,Pedir para agilizar liberação de acesso,Hoje,baixo
+SEMINFO_6309d0ed-1f65-459c-a0c1-9f69e8a5c403-PM-001,2026-07-16,PM2,"""Mandar na mensagem o CNPJ","nome do contato,e-mail e telefone para solicitar documento financeiro""",NAO,baixo
+22754882-PM-001,22754882,2026-07-16,PM2,Vou te chamar no WhatsApp e te mandar o e-mail da assistência cliente e o meu e-mail para você me colocar em cópia.,IMEDIATO,baixo
+12891710-PM-001,12891710,2026-07-16,PM2,"Chama no zap,por favor. Só me confirma se o número é esse aqui. Vou te dar um oi aqui,aí você fica com o meu número salvo!",IMEDIATO,baixo
+18919305-PM-001,18919305,2026-07-16,PM4,Eu posso pedir para eles entrarem em contato com você para te passar as opções?,NAO_DEFINIDO,medio
+18919305-PM-002,18919305,2026-07-16,PM2,Eu vou até te mandar um oi aí no WhatsApp só para você salvar meu contato,IMEDIATO,baixo
+10507227-PM-001,10507227,2026-07-16,PM1,Eu já fiz a cotação aqui até te mandei pelo WhatsApp. Aí eu te espero.,IMEDIATO,baixo
+27473902-PM-001,27473902,2026-07-16,PM2,Eu vou encaminhar um e-mail para você com algumas informações básicas de locação. Na minha assinatura tem o meu contato.,IMEDIATO,baixo
+00103254-PM-001,00103254,2026-07-16,PM2,Você me permite dar um oi ali para você salvar o meu contato?,IMEDIATO,baixo
+14164114-PM-001,14164114,2026-07-16,PM2,Eu vou formalizar isso então no e-mail.,IMEDIATO,baixo
+14164114-PM-002,14164114,2026-07-16,PM4,Eu posso pedir para alguém do time do Localiza Meu entrar em contato com vocês?,NAO_DEFINIDO,medio
+27522971-PM-001,27522971,2026-07-16,PM2,"Sim,manda aí no WhatsApp. Aí se você puder me mandar um print de como que tá aparecendo pra você,que aí eu vejo se eu consigo te ajudar.",IMEDIATO,baixo
+20862486-PM-001,20862486,2026-07-16,PM2,Vou pedir aqui um boleto atualizado para que possa ocorrer o desbloqueio do veículo.,IMEDIATO,baixo
+20862486-PM-002,20862486,2026-07-16,PM4,"Eu precisava,Rodrigo,que ou você me encaminhasse aqui,ou se você souber quem é responsável por esse central de negociação,que verificasse uma forma de eu conseguir falar logo com ela para agilizar isso.",IMEDIATO,medio
+02074511-PM-001,02074511,2026-07-16,PM2,"Eu vou te mandar lá e aí sobre a reativação do cadastro também,tá bom? Se a gente precisa de fazer algum procedimento,alguma documentação,eu te mando também,combinado?",IMEDIATO,baixo
+27523567-PM-001,27523567,2026-07-16,PM2,Você pode entrar em contato comigo pelo WhatsApp? Só um momento.,IMEDIATO,baixo
+20042798-PM-001,20042798,2026-07-16,PM2,Eu vou te chamar que vou estar à disposição combinado?,IMEDIATO,baixo
+13037713-PM-001,13037713,2026-07-16,PM5,Eu estou modificando aqui a tarifa de vocês para melhoria de desconto,IMEDIATO,baixo
+24091382-PM-001,24091382,2026-07-16,PM2,"Vou te dar um oi no WhatsApp. Aí eu vou te mandar aí o seu login,o portal do PJ.",IMEDIATO,baixo
+21173320-PM-001,21173320,2026-07-16,PM2,"Eu vou te mandar aí. Eu vou recortar para você aqui do mensal fixo a tabela do grupo U,tá? Eu vou te mandar aí,tá?",IMEDIATO,baixo
+20126810-PM-001,20126810,2026-07-16,PM5,Eu estou abrindo um chamado no e-mail estou colocando você e estou colocando a assistência à cliente no e-mail solicitando esse parcelamento para você,IMEDIATO,baixo
+15543415-PM-001,15543415,2026-07-16,PM2,Eu vou passar uma mensagem para ela no WhatsApp sem problemas.,IMEDIATO,baixo
+25144903-PM-001,25144903,2026-07-16,PM2,Eu vou te dar um oi no seu WhatsApp?,IMEDIATO,baixo
+24570378-PM-001,24570378,2026-07-16,PM2,"Eu vou informar aqui por e-mail qual que é o seu login de acesso,como que você faz para usar",IMEDIATO,baixo
+17169091-PM-001,17169091,2026-07-16,PM5,Eu estou melhorando aqui a tarifa de desconto de vocês,IMEDIATO,baixo
+17084823-PM-001,17084823,2026-07-16,PM2,Me chama lá no WhatsApp para a gente poder dar sequência e fortalecer ainda mais essa parceria,IMEDIATO,baixo
+18466227-PM-001,18466227,2026-07-16,PM2,Eu te mando a cotação aí no WhatsApp!,IMEDIATO,baixo
+27517322-PM-001,27517322,2026-07-16,PM2,"Eu vou mandar um e-mail para vocês com minha apresentação,meu contato e aí qualquer dúvida também tem o telefone lá ou é o WhatsApp também.",IMEDIATO,baixo
+24098493-PM-001,24098493,2026-07-16,PM2,"Se tiver o número do contrato,me manda aqui no WhatsApp,eu pode me ditar ele que eu confiro aqui para você.",IMEDIATO,baixo
+02926818-PM-001,02926818,2026-07-16,PM2,"Eu vou te mandar o termo agora e a gente vai ver sobre a multa aí,como é que a gente vai fazer da multa",IMEDIATO,baixo
+02926818-PM-002,02926818,2026-07-16,PM2,Vou te mandar também no WhatsApp. Mandar nos dois.,IMEDIATO,baixo
+02926818-PM-003,02926818,2026-07-16,PM2,Eu vou te mandar o contrato é o CVG... Eu tenho que preencher aqui o contrato também?,IMEDIATO,baixo
+02926818-PM-004,02926818,2026-07-16,PM2,"O código eu te mandei também. Código da empresa... Vou colocar tudo aqui nesse... Qual que é o nome do código da empresa? É 02926... Não... [MASKED]. Novo usuário seria o nome do cara,seria isso?",IMEDIATO,baixo
+23496375-PM-001,23496375,2026-07-16,PM2,"Eu vou te mandar a tabela então,que aí você consegue fazer também essa análise sua aí. Eu vou te mandar dois documentos,tá? Um vai ser só o regulamento mesmo falando sobre a multa tudo certinho e o outro já vai ser com a precificação",IMEDIATO,baixo
+17087297-PM-001,2026-07-16,PM2,Eu peguei todas as faturas geradas,"estou colocando tudo numa planilha com valores para poder detalhar para vocÃª,para poder mandar tudo em um e-mail sÃ³ o que estÃ¡ errado,o que tem que ser corrigido e para ficar o mais claro possÃ­vel em um Ãºnico e-mail",NAO_DEFINIDO,baixo
+17087297-PM-002,2026-07-16,PM5,AÃ­ eu teria entÃ£o que tentar aqui novamente a aprovaÃ§Ã£o,uma concessÃ£o para eles gerarem os boletos para o dia 22,AmanhÃ£,baixo
+17087297-PM-004,2026-07-16,PM1,Eu vou correr atrÃ¡s disso daqui. Assim que eu finalizar com vocÃª,eu vou correr atrÃ¡s disso.,NAO_DEFINIDO,baixo
+17087297-PM-007,2026-07-16,PM2,Eu vou abrir um chamado amanhÃ£,"a minha regra Ã© assim,eu posso pedir atÃ© cinco dias de vencido com prazo e eles me concedem um prazo de mais cinco dias para pagamento.",AmanhÃ£,baixo
+17087297-PM-008,2026-07-16,PM2,Eu vou mandar o e-mail,aÃ­ eu te mando o e-mail explicando tudo direitinho e aÃ­ se precisar a gente ainda se fala de novo para poder conversar sobre o e-mail que eu vou te passar caso fique alguma dÃºvida mas eu vou tentar colocar tudo assim mais detalhado possÃ­vel,NAO_DEFINIDO,baixo
+15545910-PM-001,2026-07-16,PM2,Eu vou te mandar uma mensagem,"entÃ£o. E aÃ­ fica mais fÃ¡cil,nÃ©? Para salvar o contato.",NAO_DEFINIDO,baixo
+25903314-PM-001,2026-07-16,PM2,Eu vou te enviar um WhatsApp. AÃ­ vocÃª pode entrar em contato comigo que eu te ofereÃ§o o suporte aÃ­,tÃ¡ bom?,NAO_DEFINIDO,baixo
+17446101-PM-001,2026-07-16,PM4,Eu vou fazer o seguinte,"Carlos,eu diretamente nÃ£o atendo. Quem vai entrar em contato com vocÃª,meus colegas da gestÃ£o de frotas?",NAO_DEFINIDO,baixo
+27514358-PM-001,2026-07-16,PM2,Eu vou te dar um oi no seu WhatsApp. Qualquer dÃºvida que ele tiver,vocÃª me chama que eu auxilio vocÃªs aÃ­.,NAO_DEFINIDO,baixo
+14845379-PM-002,2026-07-20,PM1,Eu vou verificar aqui,"Tiago,porque Ã© para a gente tentar ampliar o seu crÃ©dito e vocÃª seguir a reserva,porque jÃ¡ estÃ¡ com o valor comprometido,nÃ©?",NAO_DEFINIDO,baixo
+14845379-PM-003,2026-07-20,PM3,Eu vou verificar aqui e eu te chamo no WhatsApp,pode ser?,NAO_DEFINIDO,baixo
+07009616-PM-001,2026-07-16,PM2,Eu vou te mandar um oi no WhatsApp. Qualquer necessidade que vocÃª vier ter,"vocÃª pode entrar em contato comigo que a gente conversa,nÃ©? Eu te dou um suporte aÃ­ referente a isso,tudo bem?",NAO_DEFINIDO,baixo
+02844157-PM-001,2026-07-16,PM1,Eu jÃ¡ habilitei no cadastro de vocÃªs,entÃ£o a partir de agora todos os carros quando vocÃªs retirarem da agÃªncia ele jÃ¡ sai com a tag funcionando.,NAO_DEFINIDO,baixo
+10528726-PM-001,2026-07-16,PM3,Eu vou te passar o celular dele,vocÃª consegue entrar em contato com ele?,NAO_DEFINIDO,baixo
+24582560-PM-001,2026-07-16,PM3,Eu chamo ele aqui novamente no WhatsApp,tÃ¡ bom?,NAO_DEFINIDO,baixo
+12326845-PM-002,2026-07-16,PM2,Eu vou te chamar no WhatsApp porque de qualquer forma eu vou... Como eu vou cadastrar,eu vou ter que te pedir o cadastro aÃ­ eu te mando no e-mail o termo pronto pra vocÃª encaminhar pra um condutor responsÃ¡vel eles fazerem tÃ¡ bom,NAO_DEFINIDO,baixo
+24530032-PM-001,2026-07-16,PM2,Eu vou deixar ela aqui inativa,"mas de qualquer forma eu vou te chamar aqui no WhatsApp. E aÃ­ caso vocÃª tenha interesse em fazer qualquer alocaÃ§Ã£o ou diÃ¡ria ou mensal,me manda lÃ¡ no WhatsApp que eu mando para vocÃª uma cotaÃ§Ã£o.",NAO_DEFINIDO,baixo
+25553549-PM-001,2026-07-16,PM2,Eu vou deixar os meus contatos lÃ¡ no WhatsApp e aÃ­ vocÃª salva,tÃ¡ bom?,NAO_DEFINIDO,baixo
+17582171-PM-001,2026-07-16,PM2,De qualquer forma,"mandei para vocÃª um cadastro meu e-mail. Caso vocÃª precise tiver qualquer necessidade aqui pode mencionar,tÃ¡ bom?",NAO_DEFINIDO,baixo
+SEMINFO_aff47ec1-4cc5-495e-ba17-3c73653d413e-PM-001,2026-07-16,PM6,Eu sigo atendendo vocÃªs,"tÃ¡? EntÃ£o,se surgiu alguma nova demanda,pode contar comigo aqui.",NAO_DEFINIDO,baixo
+15907923-PM-001,2026-07-16,PM2,Consigo,"consigo sim,pode ter certeza. JÃ¡ coloco aqui para vocÃª.",NAO_DEFINIDO,baixo
+15907923-PM-002,2026-07-16,PM2,Vou te enviÃ¡-la por aqui,mas tem... Vai lÃ¡ no... Tem uma aba aÃ­ que chama faturamento ou acompanhar cobranÃ§as da lei.,NAO_DEFINIDO,baixo
+15907923-PM-004,2026-07-16,PM2,Essa informaÃ§Ã£o que eu te envi,"vocÃª quer receber ela por e-mail? Claro,deixa eu te enviar. AÃ­ eu te envio lÃ¡ tambÃ©m. AÃ­ te envio a mesma informaÃ§Ã£o. AÃ­ pode ser nesse e-mail do financeiro?",NAO_DEFINIDO,baixo
+27288340-PM-001,2026-07-16,PM2,Eu vou fazer o seguinte,"Gerenice,vou te mandar um olho no seu WhatsApp aÃ­,vocÃª salva meu contato.",NAO_DEFINIDO,baixo
+23839632-PM-002,2026-07-16,PM2,Vou te mandar agora,"tÃ¡? O site da Localiza WebCorp. Vou mandar o seu login. Se vocÃª nÃ£o souber a sua senha,Ã© sÃ³ vocÃª criar uma nova senha,tÃ¡?",NAO_DEFINIDO,baixo
+23839632-PM-003,2026-07-16,PM2,Eu vou mandar no seu e-mail a solicitaÃ§Ã£o de dados para cadastrar um novo gestor. Eu posso cadastrar a Michelle,"enfim,quem vocÃª tiver interesse.",NAO_DEFINIDO,baixo
+23839632-PM-004,2026-07-16,PM2,Te mandei agora uma mensagem para vocÃª passar... Enfim,pode pedir para a Michelle? Ela vai cadastrar os dados dela. Eu faÃ§o o cadastro dela ou de outro gestor se precisar.,NAO_DEFINIDO,baixo
+13787355-PM-002,2026-07-16,PM1,Deixa eu fazer aqui para vocÃª,peraÃ­.,NAO_DEFINIDO,baixo
+13787355-PM-003,2026-07-16,PM1,Pronto,"enviei o e-mail aÃ­,vÃª se chegou",NAO_DEFINIDO,baixo
+13787355-PM-006,2026-07-16,PM1,AÃ­ vocÃª fala com ela e me passa os dados dela,que eu faÃ§o o cadastro dela aqui.,NAO_DEFINIDO,baixo
+25321236-PM-001,2026-07-16,PM3,Eu te ligo depois entÃ£o,Ramon.,NAO_DEFINIDO,baixo
+18624189-PM-001,2026-07-16,PM2,NÃ£o qualquer coisa eu mando um alÃ´ para ele tambÃ©m,tÃ¡?,NAO_DEFINIDO,baixo
+17708727-PM-001,2026-07-16,PM2,Vou te dar um oi no WhatsApp,"vocÃª pode me chamar que eu te apresento as proteÃ§Ãµes que eu tenho,ok?",NAO_DEFINIDO,baixo
+SEMINFO_7c248544-01f0-4996-9e9c-8d4c346abb5d-PM-001,2026-07-16,PM2,Eu vou te dar um olho entÃ£o no WhatsApp,esse nÃºmero e aÃ­ quando vocÃª estiver disponÃ­vel vocÃª fala Paulo pode me ligar pode ser?,NAO_DEFINIDO,baixo
+08639732-PM-001,2026-07-16,PM2,Vou deixar os meus contatos. A gente jÃ¡ conversou por lÃ¡,"mas vou deixar meus contatos para reforÃ§ar,tÃ¡ Paula?",NAO_DEFINIDO,baixo
+SEMINFO_fa12661c-8252-4e33-8dd9-51f2a7786f03-PM-001,2026-07-16,PM2,Vou fazer a cotaÃ§Ã£o aqui e te mando aÃ­ tudo certinho no WhatsApp,tÃ¡ bom?,NAO_DEFINIDO,baixo
+19164404-PM-001,2026-07-16,PM5,Eu vou tentar dobrar. Se me pedir alguma documentaÃ§Ã£o,eu te falo.,NAO_DEFINIDO,baixo
+19164404-PM-002,2026-07-16,PM2,E vou mandar para a agÃªncia,aÃ­ assim que eles me responderem sobre a disponibilidade de fala.,NAO_DEFINIDO,baixo
+19164404-PM-003,2026-07-16,PM2,Pode,"pode,que eu jÃ¡ subo com documentaÃ§Ã£o melhor.",NAO_DEFINIDO,baixo
+19164404-PM-007,2026-07-20,PM1,Eu vou pedir para liberar as reservas,tÃ¡?,NAO_DEFINIDO,baixo
+25491566-PM-001,2026-07-16,PM2,Eu vou mandar um e-mail de qualquer forma com os meus contatos. Se em algum momento vocÃªs precisarem ir na empresa,estou Ã  disposiÃ§Ã£o.,NAO_DEFINIDO,baixo
+SEMINFO_b926a970-b34a-4244-a06c-bf6fb331dce6-PM-001,2026-07-16,PM2,Eu vou te passar o WhatsApp da corporativa e vocÃª pode anotar e me dar um toque aqui,por favor?,NAO_DEFINIDO,baixo
+21981884-PM-001,21981884,2026-07-16,PM3,"""Vou continuar tentando achar o WhatsApp e te chamo""",NAO_DEFINIDO,baixo
+SEMINFO_08ee9f76-be7c-4cb4-94c8-89804525ffb3-PM-001,SEMINFO_08ee9f76-be7c-4cb4-94c8-89804525ffb3,2026-07-16,PM1,"""Me manda CNH dele aí no WhatsApp e eu solicito para poder incluir ele no contrato""",NAO_DEFINIDO,baixo
+SEMINFO_37695a84-6aaa-4555-bf8f-1f9a508db2f1-PM-001,SEMINFO_37695a84-6aaa-4555-bf8f-1f9a508db2f1,2026-07-16,PM1,"""Manda para mim aqui a CNH que eu vou pedir a inclusão para você""",NAO_DEFINIDO,baixo
+SEMINFO_16d9f2de-50f6-4c90-bdfd-e900d44cc230-PM-001,SEMINFO_16d9f2de-50f6-4c90-bdfd-e900d44cc230,2026-07-16,PM3,"""Eu vou chamar ele no WhatsApp""",NAO_DEFINIDO,baixo
+SEMINFO_30b3f4bc-d92d-4ebf-8c32-352e219d43ed-PM-001,SEMINFO_30b3f4bc-d92d-4ebf-8c32-352e219d43ed,2026-07-16,PM2,"""Eu vou fazer a verificação""",NAO_DEFINIDO,baixo
+SEMINFO_5f320a51-4616-4c1f-8bbb-387383a34967-PM-001,SEMINFO_5f320a51-4616-4c1f-8bbb-387383a34967,2026-07-16,PM3,"""Eu te mando um alô""",NAO_DEFINIDO,baixo
+SEMINFO_27f41690-1ef8-47a6-b10c-b7f9e66ab902-PM-001,SEMINFO_27f41690-1ef8-47a6-b10c-b7f9e66ab902,2026-07-16,PM2,"""Eu vou preparar a proposta então baseada nessas informações. E aí... Já já te mando por e-mail respondendo lá""",NAO_DEFINIDO,baixo
+SEMINFO_c229289a-e85c-4dc6-8e38-59ebcfd8e11b-PM-001,SEMINFO_c229289a-e85c-4dc6-8e38-59ebcfd8e11b,2026-07-16,PM1,"""Eu vou desativar você aqui,né? Que está aqui vinculado a esse NPJ. Vou fazer essa desvinculação.""",NAO_DEFINIDO,baixo
+SEMINFO_c229289a-e85c-4dc6-8e38-59ebcfd8e11b-PM-002,SEMINFO_c229289a-e85c-4dc6-8e38-59ebcfd8e11b,2026-07-16,PM3,"""Você pode mandar um oi para mim agora no WhatsApp,que eu te salvo aqui e a gente vai fazer essa tratativa pela frente.""",NAO_DEFINIDO,baixo
+SEMINFO_6c5bbc01-b6d3-42cf-adce-3b0a3c71dcad-PM-001,SEMINFO_6c5bbc01-b6d3-42cf-adce-3b0a3c71dcad,2026-07-16,PM3,"""Eu posso te chamar no WhatsApp?""",NAO_DEFINIDO,baixo
+SEMINFO_d0756d10-56c9-49a4-940f-a39b7ade7b8a-PM-001,SEMINFO_d0756d10-56c9-49a4-940f-a39b7ade7b8a,2026-07-16,PM2,"""Vou efetuar essa proposta para você. Vou te enviar. Na verdade,você prefere,né? Que eu te envie ou pelo WhatsApp ou por e-mail. Qual que para você é melhor?""",NAO_DEFINIDO,baixo
+SEMINFO_350a8284-8f58-4ad3-a5a8-30d203e0177f-PM-001,SEMINFO_350a8284-8f58-4ad3-a5a8-30d203e0177f,2026-07-16,PM3,"""Eu te ligo de volta""",NAO_DEFINIDO,baixo
+SEMINFO_62b59462-3b0b-4bb4-a922-76c796f3ad39-PM-001,SEMINFO_62b59462-3b0b-4bb4-a922-76c796f3ad39,2026-07-16,PM2,"""Vou encaminhar por você por e-mail os valores que a gente está aqui no mensal fixo""",NAO_DEFINIDO,baixo
+SEMINFO_0482dd70-15bf-44ed-b3f0-c759a45726b9-PM-001,SEMINFO_0482dd70-15bf-44ed-b3f0-c759a45726b9,2026-07-16,PM3,"""Eu retorno então o atendimento""",2026-07-27,baixo
+27366329-PM-001,27366329,2026-07-16,PM2,"""Nesse e-mail que eu vou te mandar tem os meus contatos.""",NAO_DEFINIDO,baixo
+27366329-PM-002,27366329,2026-07-16,PM1,"""Eu mando sim,mas quando surgir a demanda e você for fazer a primeira reserva,me chama,me manda uma mensagem no WhatsApp ou me liga,que aí eu te ligo e a gente faz esse processo juntas,eu vou te orientando...""",NAO_DEFINIDO,baixo
+SEMINFO_e694e884-b154-40b1-aa35-a412ef68e076-PM-001,SEMINFO_e694e884-b154-40b1-aa35-a412ef68e076,2026-07-16,PM3,"""Eu peço para ele entrar em contato com vocês,tá bom?""",NAO_DEFINIDO,baixo
+SEMINFO_37fb9f5e-6bfe-4c7e-8949-a6e026e6e721-PM-001,SEMINFO_37fb9f5e-6bfe-4c7e-8949-a6e026e6e721,2026-07-16,PM3,"""Eu vou te chamar no WhatsApp,você me passa sua demanda que eu te apresento uma proposta que aí você consegue verificar qual que vale mais a pena para a sua empresa?""",NAO_DEFINIDO,baixo
+SEMINFO_ec6beabb-9e5f-4725-aa10-d43cafa3aa1e-PM-001,SEMINFO_ec6beabb-9e5f-4725-aa10-d43cafa3aa1e,2026-07-16,PM3,"""Eu vou te pedir para te chamar no WhatsApp,então.""",NAO_DEFINIDO,baixo
+SEMINFO_cc22fc87-df0f-45db-a442-a978008b42da-PM-001,SEMINFO_cc22fc87-df0f-45db-a442-a978008b42da,2026-07-16,PM3,"""Você quer que eu te chame no WhatsApp?""",NAO_DEFINIDO,baixo
+24804734-PM-001,24804734,2026-07-16,PM3,"""Eu entro em contato com ele novamente?""",NAO_DEFINIDO,baixo
+20473921-PM-001,20473921,2026-07-16,PM1,"""Qualquer dúvida,se precisar,aí é só você mencionar que eu reativo ele para vocês.""",NAO_DEFINIDO,baixo
+19331069-PM-001,19331069,2026-07-16,PM3,"""Eu até te envio uma mensagem aí no WhatsApp,te dou um oi?""",NAO_DEFINIDO,baixo
+19331069-PM-002,19331069,2026-07-16,PM2,"""Eu notei também que tem algumas faturas em aberto do mês de janeiro. Já vou te encaminhar também,assim que possível,só regularizar na hora que precisar das locações,tá bom?""",NAO_DEFINIDO,baixo
+27442478-PM-001,27442478,2026-07-16,PM2,"""Eu vou te mandar,então,um e-mail com as orientações e com o login""",NAO_DEFINIDO,baixo
+SEMINFO_2b72ed58-ae4c-47bc-8044-16131e265460-PM-001,SEMINFO_2b72ed58-ae4c-47bc-8044-16131e265460,2026-07-16,PM2,"""Eu vou te deixar em cópia e vou pedir novamente uma reanálise com você...""",NAO_DEFINIDO,baixo
+SEMINFO_d57c6f7c-303b-447f-b163-56c4c604e030-PM-001,SEMINFO_d57c6f7c-303b-447f-b163-56c4c604e030,2026-07-16,PM1,"""Eu vou te pedir para você deixar correr. Enquanto isso... Porque,assim,realmente,ele está como no show aqui para mim,não tem problema assim. E eu vou descobrir... Eu vou descobrir... Ele pegou esse carro mesmo nesse contrato? Nessa reserva?""",NAO_DEFINIDO,baixo
+SEMINFO_d57c6f7c-303b-447f-b163-56c4c604e030-PM-002,SEMINFO_d57c6f7c-303b-447f-b163-56c4c604e030,2026-07-16,PM1,"""Eu já estou também aqui contactando meus colegas lá de Salvador para me ajudar também.""",NAO_DEFINIDO,baixo
+21199961-PM-001,21199961,2026-07-16,PM3,"""Vou olhar isso aqui agora e eu te retorno aí. Aí eu já te passo o contato de quem vai te atender lá,tá bom?""",NAO_DEFINIDO,baixo
+01117343-PM-001,01117343,2026-07-16,PM2,"""Me passa por e-mail aí,eu te mando por e-mail,por favor?""",NAO_DEFINIDO,baixo
+24294175-PM-001,24294175,2026-07-16,PM3,"""Eu até te chamei aqui no WhatsApp para salvar meu contato""",NAO_DEFINIDO,baixo
+23103174-PM-001,23103174,2026-07-16,PM3,"""Eu vou te chamar no WhatsApp só para você salvar o meu número.""",NAO_DEFINIDO,baixo
+19366947-PM-001,19366947,2026-07-16,PM3,"""Eu vou te mandar um WhatsApp com meus contatos.""",NAO_DEFINIDO,baixo
+09760177-PM-001,09760177,2026-07-16,PM3,"""Vou chamar no WhatsApp só para deixar meu contato registrado""",NAO_DEFINIDO,baixo
+00960519-PM-001,00960519,2026-07-16,PM3,"""Vou te dar um oi,aí você salva meu contato precisando e eu sigo aqui à disposição.""",NAO_DEFINIDO,baixo
+23652613-PM-001,23652613,2026-07-16,PM3,"""Se eu vou te mandar um oi no WhatsApp,se você quiser me mandar o CNPJ,eu verifico aqui qualquer coisa eu tento fazer o cadastro novamente ver se já dá certo para você.""",NAO_DEFINIDO,baixo
+23773055-PM-001,23773055,2026-07-16,PM3,"""Eu vou te chamar no WhatsApp agora e já vou te mandar o link para a gente já providenciar esse cadastro para ontem,tá bom?""",NAO_DEFINIDO,baixo
+23773055-PM-002,23773055,2026-07-16,PM2,"""Eu vou escrever lá também para te ajudar,tá?""",NAO_DEFINIDO,baixo
+24168210-PM-001,24168210,2026-07-16,PM2,"""Vou te enviar um e-mail com os meus contatos atualizados.""",NAO_DEFINIDO,baixo
+27074736-PM-001,27074736,2026-07-16,PM1,"""Vou ativar a tag.""",NAO_DEFINIDO,baixo
+15082697-PM-001,15082697,2026-07-16,PM3,"""Posso te chamar para deixar meus contatos registrados?""",NAO_DEFINIDO,baixo
+10692565-PM-001,10692565,2026-07-16,PM2,"""Vou te mandar um oi lÃ¡ e aÃ­ qualquer coisa vocÃª me manda os seus dados e eu faÃ§o o seu cadastro aqui.""",NAO_DEFINIDO,baixo
+02583135-PM-001,02583135,2026-07-16,PM2,"""Eu vou te chamar aqui agora com os meus contatos.""",NAO_DEFINIDO,baixo
+23663230-PM-001,23663230,2026-07-16,PM3,"""Na prÃ³xima semana eu entro em contato com vocÃª novamente.""",SEMANA_QUE_VEM,baixo
+24225343-PM-001,24225343,2026-07-16,PM2,"""Se vocÃª me permitir,te manda aÃ­ um oi no WhatsApp para sua futura alocaÃ§Ã£o.""",NAO_DEFINIDO,baixo
+03636334-PM-001,03636334,2026-07-16,PM2,"""Vou te dar um oi lÃ¡ sÃ³ para o seu nome e contato.""",NAO_DEFINIDO,baixo
+25121269-PM-001,25121269,2026-07-16,PM3,"""Posso sim,eu retorno entÃ£o.""",30_MINUTOS,baixo
+21743767-PM-001,21743767,2026-07-16,PM2,"""Eu vou te mandar aqui certinho um minutinho no WhatsApp.""",NAO_DEFINIDO,baixo
+21743767-PM-002,21743767,2026-07-16,PM5,"""Eu peÃ§o prioridade lÃ¡ para o time tambÃ©m.""",NAO_DEFINIDO,baixo
+02015101-PM-001,02015101,2026-07-16,PM6,"""Ao final da minha ligaÃ§Ã£o vocÃª vai escutar uma pesquisa com relaÃ§Ã£o ao meu atendimento neste momento. Se vocÃª puder me avaliar,eu te agradeÃ§o.""",NAO_DEFINIDO,baixo
+22026896-PM-001,22026896,2026-07-16,PM2,"""Eu posso chamar vocÃª no WhatsApp e a hora que vocÃª tiver alguma demanda de locaÃ§Ã£o,vocÃª passa para mim que eu mando uma cotaÃ§Ã£o para vocÃª.""",NAO_DEFINIDO,baixo
+24846192-PM-001,24846192,2026-07-16,PM2,"""Vou enviar os meus contatos.""",NAO_DEFINIDO,baixo
+03754302-PM-001,03754302,2026-07-16,PM5,"""Eu vou atÃ© pegar aqui com o time porque para ampliaÃ§Ã£o de limite mais alto isso Ã© prÃ¡tico,eles solicitam em todas as demandas esse tipo de documento.""",NAO_DEFINIDO,baixo
+21527813-PM-001,21527813,2026-07-16,PM6,"""Quando tiver na contaÃ§Ã£o mais baixa,vocÃª dÃ¡ uma ligada para mim.""",NAO_DEFINIDO,baixo
+18962836-PM-001,18962836,2026-07-16,PM2,"""Vou te mandar lÃ¡ no e-mail os meus contratos.""",NAO_DEFINIDO,baixo
+25935078-PM-001,25935078,2026-07-16,PM6,"""Qualquer coisa que vocÃª precisar de 8 Ã s 18 eu estou aqui Ã  sua disposiÃ§Ã£o.""",NAO_DEFINIDO,baixo
+12336907-PM-001,12336907,2026-07-16,PM3,"""Eu vou chamar ele no WhatsApp.""",NAO_DEFINIDO,baixo
+SEMINFO_d7341abd-ca96-440c-9348-713b275c185c-PM-001,SEMINFO_d7341abd-ca96-440c-9348-713b275c185c,2026-07-16,PM5,"""Eu jÃ¡ tÃ´ conversando com vocÃª e tÃ´ aqui formulando um alerta pro meu pessoal aqui pra eles corrigirem.""",NAO_DEFINIDO,baixo
+SEMINFO_d7341abd-ca96-440c-9348-713b275c185c-PM-002,SEMINFO_d7341abd-ca96-440c-9348-713b275c185c,2026-07-16,PM5,"""A gente transfere um pouco do limite de um cÃ³digo para o outro,se houver necessidade.""",NAO_DEFINIDO,baixo
+20421987-PM-001,20421987,2026-07-16,PM2,"""Eu queria ver alguma coisa na faixa atÃ© 3 mil,um carro... VocÃª teria como fazer esse orÃ§amento para mim e mandar para mim?""",NAO_DEFINIDO,baixo
+23241680-PM-001,23241680,2026-07-16,PM2,"""Eu vou te dar um oi no WhatsApp e vocÃª salva meu contato.""",NAO_DEFINIDO,baixo
+27524452-PM-001,27524452,2026-07-16,PM2,"""Eu vou mandar para vocÃª no WhatsApp agora tambÃ©m o login passo a passo para vocÃª criar a senha.""",NAO_DEFINIDO,baixo
+23644895-PM-001,23644895,2026-07-16,PM6,"""VocÃª tem os meus contatos fÃ¡ceis ainda caso vocÃª precise?""",NAO_DEFINIDO,baixo
+24904478-PM-001,24904478,2026-07-16,PM2,"""Eu te dou uma boa tarde no seu WhatsApp,nos 5846,aÃ­ fica o meu contato direto.""",NAO_DEFINIDO,baixo
+16191273-PM-001,16191273,2026-07-16,PM2,"""Eu vou te mandar no WhatsApp,entÃ£o,o link do Web Corp.""",NAO_DEFINIDO,baixo
+SEMINFO_4c0466e1-6eb5-4d68-b23c-a6812655b252-PM-001,SEMINFO_4c0466e1-6eb5-4d68-b23c-a6812655b252,2026-07-16,PM5,"""Eu jÃ¡ estou chamando aqui uma pessoa do TI para me dar uma luz sobre esse assunto e aÃ­ eu te retorno.""",NAO_DEFINIDO,baixo
+SEMINFO_4c0466e1-6eb5-4d68-b23c-a6812655b252-PM-002,SEMINFO_4c0466e1-6eb5-4d68-b23c-a6812655b252,2026-07-16,PM2,"""Eu posso te adicionar no WhatsApp?""",NAO_DEFINIDO,baixo
+22821234-PM-001,22821234,2026-07-16,PM2,"""Eu vou te dar um oi no WhatsApp para vocÃª salvar meu contato.""",NAO_DEFINIDO,baixo
+27509726-PM-001,27509726,2026-07-16,PM6,"""Faz uma validaÃ§Ã£o com o pessoal,tÃ¡? E eu fico aqui super Ã  disposiÃ§Ã£o para que a gente faÃ§a o alinhamento necessÃ¡rio aqui internamente.""",NAO_DEFINIDO,baixo
+22977166-PM-001,22977166,2026-07-16,PM2,"""Eu vou te mandar um aÃ­ no WhatsApp. Vou desativar o cadastro para nÃ£o ficar ligando para vocÃªs.""",NAO_DEFINIDO,baixo
+23824146-PM-001,23824146,2026-07-16,PM6,"""Pode ficar Ã  vontade para me ligar ou para me chamar no WhatsApp.""",NAO_DEFINIDO,baixo
+SEMINFO_e7dba15a-722b-4b72-bdb1-c910883edcd4-PM-001,SEMINFO_e7dba15a-722b-4b72-bdb1-c910883edcd4,2026-07-16,PM4,"""Eu consigo te transferir para a nossa central de reservas que te dÃ¡ todo o apoio com essa verificaÃ§Ã£o.""",NAO_DEFINIDO,baixo
+SEMINFO_bc5e6628-d36e-44ba-a4cf-c4749cc422e0-PM-001,SEMINFO_bc5e6628-d36e-44ba-a4cf-c4749cc422e0,2026-07-16,PM2,"""TÃ¡ bom,vou te mandar no WhatsApp,pode ser?""",NAO_DEFINIDO,baixo
+SEMINFO_eae283ef-2ece-4c01-8939-014a68dd5165-PM-001,SEMINFO_eae283ef-2ece-4c01-8939-014a68dd5165,2026-07-16,PM2,"""Eu vou te enviar um link que tem os modelos que a Localiza trabalha.""",NAO_DEFINIDO,baixo
+SEMINFO_eae283ef-2ece-4c01-8939-014a68dd5165-PM-002,SEMINFO_eae283ef-2ece-4c01-8939-014a68dd5165,2026-07-16,PM2,"""Eu vou montar a proposta para vocÃª. VocÃª prefere que eu te envie pelo WhatsApp,por e-mail?""",NAO_DEFINIDO,baixo
+SEMINFO_d546fc9a-0f74-4872-9f6f-918e2e6f35e3-PM-001,SEMINFO_d546fc9a-0f74-4872-9f6f-918e2e6f35e3,2026-07-16,PM2,"""Vou te encaminhar entÃ£o.""",NAO_DEFINIDO,baixo
+SEMINFO_d546fc9a-0f74-4872-9f6f-918e2e6f35e3-PM-002,SEMINFO_d546fc9a-0f74-4872-9f6f-918e2e6f35e3,2026-07-16,PM2,"""Eu vou olhar aqui e jÃ¡ te mando aÃ­.""",NAO_DEFINIDO,baixo
+SEMINFO_09c43893-855c-4158-9bf3-39ac3fb46e11-PM-001,SEMINFO_09c43893-855c-4158-9bf3-39ac3fb46e11,2026-07-16,PM5,"""AÃ­ se eu tiver notÃ­cias boas aqui do outro,eu te falo.""",NAO_DEFINIDO,baixo
+SEMINFO_44da29cf-9e61-49a3-a23c-eabec6e3ece2-PM-001,SEMINFO_44da29cf-9e61-49a3-a23c-eabec6e3ece2,2026-07-16,PM2,"""Eu te mandei o e-mail,vocÃª consegue responder para mim?""",NAO_DEFINIDO,baixo
+SEMINFO_0561c8a4-78dc-45a8-8f66-774c720de0a2-PM-001,SEMINFO_0561c8a4-78dc-45a8-8f66-774c720de0a2,2026-07-16,PM5,"""Eu jÃ¡ pedi aqui prioridade,parece que essa semana eles jÃ¡ vÃ£o migrar ele automaticamente para mensal.""",SEMANA_QUE_VEM,baixo
+SEMINFO_0561c8a4-78dc-45a8-8f66-774c720de0a2-PM-002,SEMINFO_0561c8a4-78dc-45a8-8f66-774c720de0a2,2026-07-16,PM6,"""Assim que eu tiver o retorno daquele caso da migraÃ§Ã£o eu passo para vocÃª.""",NAO_DEFINIDO,baixo
+SEMINFO_65ea0a20-baa0-4e4a-9b2e-fb651dcb75b1-PM-001,SEMINFO_65ea0a20-baa0-4e4a-9b2e-fb651dcb75b1,2026-07-16,PM2,"""Eu vou te enviar um link esse link Ã© contentar os modelos que eu localizo hoje trabalho.""",NAO_DEFINIDO,baixo
+SEMINFO_65ea0a20-baa0-4e4a-9b2e-fb651dcb75b1-PM-002,SEMINFO_65ea0a20-baa0-4e4a-9b2e-fb651dcb75b1,2026-07-16,PM2,"""Eu vou montar a proposta para vocÃª. VocÃª prefere que eu te envie pelo WhatsApp,por e-mail?""",NAO_DEFINIDO,baixo
+SEMINFO_2ff0f8cb-a549-4eff-aca3-c87cf893afa4-PM-001,SEMINFO_2ff0f8cb-a549-4eff-aca3-c87cf893afa4,2026-07-16,PM6,"""Qualquer erro que der,Ã s vezes se o CRD nÃ£o tiver aÃ­,vocÃª me avisa que eu baixo o manual aqui para vocÃªs.""",NAO_DEFINIDO,baixo
+27425625-PM-001,27425625,2026-07-16,PM2,"""Eu vou enviar para vocÃª agora no seu e-mail um link para vocÃª criar a sua senha.""",NAO_DEFINIDO,baixo
+27425625-PM-002,27425625,2026-07-16,PM5,"""Eu vou encaminhar para o pessoal aqui da agÃªncia agora e aÃ­ vocÃª vai recebendo o e-mail a confirmaÃ§Ã£o.""",NAO_DEFINIDO,baixo
+SEMINFO_9ef4715b-48db-4f0f-87dc-20e0add0c491-PM-001,SEMINFO_9ef4715b-48db-4f0f-87dc-20e0add0c491,2026-07-16,PM6,"""Quem cuida dessa parte Ã© outra pessoa. Posso passar o e-mail?""",NAO_DEFINIDO,baixo
+26768572-PM-001,26768572,2026-07-17,PM2,"""Vou colocar aqui contrato KM da abertura. Colei aÃ­ pra vocÃª e te mandei no WhatsApp pra vocÃª saber.""",NAO_DEFINIDO,baixo
+13469583-PM-001,13469583,2026-07-17,PM6,"""Fico aqui à sua total disposição,tá? Se precisar,se surgir alguma dúvida,pode me acionar""",NAO_DEFINIDO,baixo
+23234880-PM-001,23234880,2026-07-17,PM1,"""Vou pedir lá de hoje,que é essa da Central para as meninas cancelarem para não ficar aqui em aberto""",NAO_DEFINIDO,baixo
+23549467-PM-001,23549467,2026-07-17,PM2,"""Posso chamar você no WhatsApp e se você tiver qualquer demanda,manda para mim que aí eu mando uma cotação para você""",NAO_DEFINIDO,baixo
+SEMINFO_8c8a7d5a-46fc-4058-990f-372f4e640d57-PM-001,SEMINFO_8c8a7d5a-46fc-4058-990f-372f4e640d57,2026-07-17,PM6,"""Qualquer coisa me chama""",NAO_DEFINIDO,baixo
+26450714-PM-001,26450714,2026-07-17,PM6,"""Se você ficar com dúvida,Matheus,não,pô,a gente fez essas outras reservas já tem um tempo,me ajuda aqui,você me manda mensagem e eu te ligo e a gente faz juntos""",NAO_DEFINIDO,baixo
+17313826-PM-001,17313826,2026-07-17,PM2,"""Vou te mandar um link aqui no WhatsApp para você criar uma senha e você fazer a biometria facial para você recuperar seu cadastro""",NAO_DEFINIDO,baixo
+17313826-PM-002,17313826,2026-07-17,PM6,"""Quando eu ajustar o cadastro,eu vou entrar em contato""",NAO_DEFINIDO,baixo
+27174976-PM-001,27174976,2026-07-17,PM2,"""Vou te passar o link aí na nossa conversa do WhatsApp,que é aquele link do portal empresa""",NAO_DEFINIDO,baixo
+27174976-PM-002,27174976,2026-07-17,PM5,"""Vou repassar para o meu condutor de tecnologia para a gente poder entender o que pode estar ocorrendo""",NAO_DEFINIDO,baixo
+27174976-PM-003,27174976,2026-07-17,PM6,"""Assim que eu conseguir ter uma resposta deles aqui,eu aviso para você aí""",NAO_DEFINIDO,baixo
+00260676-PM-001,00260676,2026-07-17,PM6,"""Quando precisar de mais carros aí,precisar de qualquer ajuda na hora de fazer as reservas Luiz. Você tem meu contato no WhatsApp,você pode me chamar que eu ajudo vocês""",NAO_DEFINIDO,baixo
+23930394-PM-001,23930394,2026-07-17,PM6,"""Qualquer dúvida que você tiver também,meu telefone está lá no WhatsApp,você pode me assinar,pode me ligar aqui também que a gente te ajuda da melhor maneira""",NAO_DEFINIDO,baixo
+06495149-PM-001,06495149,2026-07-17,PM6,"""Conta comigo aqui também sempre que precisar""",NAO_DEFINIDO,baixo
+17082576-PM-001,17082576,2026-07-17,PM2,"""Vou te chamar lá no WhatsApp e aí,para eu conseguir te mandar o diário,eu vou precisar da data de retirada""",NAO_DEFINIDO,baixo
+25163368-PM-001,25163368,2026-07-17,PM2,"""Vou compartilhar lá no e-mail para você relembrar o seu login e a sua senha""",NAO_DEFINIDO,baixo
+25163368-PM-002,25163368,2026-07-17,PM6,"""A assinatura tem meu telefone,me liga que eu te ajudo aí em relação às demandas""",NAO_DEFINIDO,baixo
+22622614-PM-001,22622614,2026-07-17,PM6,"""Eu já pedi o atendimento do seu CNPJ para mim,tá? Aí notícia boa. Só eu vou atender você""",NAO_DEFINIDO,baixo
+18879710-PM-001,18879710,2026-07-17,PM6,"""Pode continuar contando aqui comigo""",NAO_DEFINIDO,baixo
+12700709-PM-001,12700709,2026-07-17,PM3,"""Posso passar o contato dela,se você preferir?""",NAO_DEFINIDO,baixo
+22637007-PM-001,22637007,2026-07-17,PM2,"""Vou te mandar a guia aqui para ficar mais fácil para você. Vou separar só ela""",NAO_DEFINIDO,baixo
+22637007-PM-002,22637007,2026-07-17,PM6,"""Vou pedir para você me colocar em cópia que eu acompanho também e aí a gente vai verificando se deu tudo certinho junto e se precisar de algum apoio a gente faz aqui""",NAO_DEFINIDO,baixo
+11406166-PM-001,11406166,2026-07-17,PM5,"""Deixa eu verificar aqui com a questão do crédito e te falo pelo WhatsApp""",NAO_DEFINIDO,baixo
+10079357-PM-001,10079357,2026-07-17,PM6,"""Se quiser me chamar no WhatsApp,precisando aí,preferir que eu faça a cotação para você. Te ajudo aí nesse processo todo""",NAO_DEFINIDO,baixo
+02327944-PM-001,02327944,2026-07-17,PM6,"""Qualquer coisa eu te chamo no zap para você me auxiliar""",NAO_DEFINIDO,baixo
+19581931-PM-001,19581931,2026-07-17,PM2,"""Vou te mandar um WhatsApp aí com meu contato. Caso você precise,é só me chamar aqui um contato direto comigo""",NAO_DEFINIDO,baixo
+19812784-PM-001,19812784,2026-07-17,PM3,"""Retorno depois""",NAO_DEFINIDO,baixo
+08035040-PM-001,08035040,2026-07-17,PM2,"""Vou te deixar um oi no WhatsApp,então precisou de qualquer coisa,pode me achar por lá""",NAO_DEFINIDO,baixo
+27516264-PM-001,27516264,2026-07-17,PM2,"""Vou te mandar o link ali pelo WhatsApp para você redefinir sua senha""",NAO_DEFINIDO,baixo
+10373415-PM-001,10373415,2026-07-17,PM2,"""Vou te dar um oi lá,salvo meu contato e precisando pode me chamar""",NAO_DEFINIDO,baixo
+12692392-PM-001,12692392,2026-07-17,PM2,"""Vou responder lá no e-mail pedindo essas informações e aí a gente libera o seu acesso ao portal de faturamento""",NAO_DEFINIDO,baixo
+12692392-PM-002,12692392,2026-07-21,PM5,"""Eu vou falar com ele,que não dá certo não,porque sempre fica muita gente envolvida que não tem nada a ver""",NAO_DEFINIDO,baixo
+12692392-PM-003,12692392,2026-07-21,PM6,"""Eu vou te passar uma sugestão que eu tenho aqui,que ela sempre funciona""",NAO_DEFINIDO,baixo
+11275682-PM-001,11275682,2026-07-17,PM3,"""Pode ser depois a ligação?""",NAO_DEFINIDO,baixo
+12027924-PM-001,12027924,2026-07-17,PM5,"""Vou solicitar uma nova proposta do limite de crédito""",NAO_DEFINIDO,baixo
+12027924-PM-002,12027924,2026-07-17,PM2,"""Assim que eu conseguir acessar os boletos,eu posso te encaminhar pelo WhatsApp também""",NAO_DEFINIDO,baixo
+27227564-PM-001,27227564,2026-07-17,PM5,"""Posso verificar aqui pra você se eu consigo um acordo melhor""",NAO_DEFINIDO,baixo
+27227564-PM-002,27227564,2026-07-17,PM5,"""Vou tentar aqui ver se eu solicitar para o nosso gerente e ver se ele aprova. Se ele aprovar,eu te passo um novo acordo""",NAO_DEFINIDO,baixo
+27227564-PM-003,27227564,2026-07-20,PM5,"""Posso tentar para você ver se você permanece com o mesmo e altera a tarifa nele,mas eu não posso te garantir que eu vou conseguir""",NAO_DEFINIDO,medio
+27227564-PM-004,27227564,2026-07-20,PM5,"""Vou verificar aqui com condutor de apoio se é possível manter o mesmo contrato e te falo""",NAO_DEFINIDO,medio
+03678408-PM-001,03678408,2026-07-17,PM2,"""Se você quiser mandar para mim um oi no meu WhatsApp que aí eu já salvo aqui nos meus contatos""",NAO_DEFINIDO,baixo
+17786917-PM-001,17786917,2026-07-17,PM2,"""Vou encaminhar,então,para você um link de redefinição de senha""",NAO_DEFINIDO,baixo
+17786917-PM-002,17786917,2026-07-17,PM6,"""Meu telefone de contato direto também tá Matheus meu fixo e o WhatsApp caso você tenha alguma dúvida precise fazer alguma negociação ou até mesmo dificuldades com acesso me aciona que eu te auxilie a gente já deixa reservado para garantir""",NAO_DEFINIDO,baixo
+SEMINFO_246d6c61-5cea-4654-b657-c1b856971234-PM-001,SEMINFO_246d6c61-5cea-4654-b657-c1b856971234,2026-07-17,PM2,"""Vou te encaminhar um login a princípio então para você""",NAO_DEFINIDO,baixo
+SEMINFO_246d6c61-5cea-4654-b657-c1b856971234-PM-002,SEMINFO_246d6c61-5cea-4654-b657-c1b856971234,2026-07-17,PM6,"""Qualquer dúvida que você tiver pode me mandar um oi no WhatsApp""",NAO_DEFINIDO,baixo
+SEMINFO_6639634b-782e-4750-b713-21dbb2174cb4-PM-001,SEMINFO_6639634b-782e-4750-b713-21dbb2174cb4,2026-07-17,PM4,"""Eu só encaminhei esse e-mail ao condutor específico de comissões""",NAO_DEFINIDO,baixo
+SEMINFO_6639634b-782e-4750-b713-21dbb2174cb4-PM-002,SEMINFO_6639634b-782e-4750-b713-21dbb2174cb4,2026-07-17,PM3,"""Eu retorno com você""",NAO_DEFINIDO,baixo
+03568949-PM-001,03568949,2026-07-17,PM5,"""Vou entrar solicitando o desbloqueio aqui na área responsável""",NAO_DEFINIDO,medio
+03568949-PM-002,03568949,2026-07-17,PM2,"""Vou enviar aqui para o meu suporte e assim que eles melhoram o retorno,eu te falo no WhatsApp""",NAO_DEFINIDO,baixo
+02658842-PM-001,02658842,2026-07-17,PM2,"""Vou fazer um print aqui da tela agora e vou encaminhar aí também no seu WhatsApp para ter formalizado""",NAO_DEFINIDO,baixo
+02658842-PM-002,02658842,2026-07-17,PM5,"""Vou enviar um e-mail lá para o time para resolver isso rapidinho""",NAO_DEFINIDO,baixo
+02658842-PM-003,02658842,2026-07-17,PM5,"""Vou tentar baixar suas faturas e pedir também para tirar os juros dela""",NAO_DEFINIDO,baixo
+00307191-PM-001,00307191,2026-07-17,PM1,"""Vou colocar aqui você como contato principal da empresa para que as próximas avaliações possam estar indo para você""",NAO_DEFINIDO,baixo
+24497990-PM-001,24497990,2026-07-17,PM5,"""Eu pedi uma ampliação de crédito aí para o CNPJ""",NAO_DEFINIDO,medio
+24497990-PM-002,24497990,2026-07-17,PM4,"""Posso pedir eles para enviar a proposta para você analisar também""",NAO_DEFINIDO,baixo
+24497990-PM-003,24497990,2026-07-17,PM3,"""Assim que eu tiver um retorno aqui sobre o crédito,eu vou te revisão""",NAO_DEFINIDO,baixo
+10722814-PM-001,10722814,2026-07-17,PM4,"""Vou pedir para eles entrarem em contato com você então a partir de segunda""",NAO_DEFINIDO,baixo
+10722814-PM-002,10722814,2026-07-17,PM2,"""Vou te mandar oi no WhatsApp se você precisar das locações avulsas""",NAO_DEFINIDO,baixo
+21879708-PM-001,21879708,2026-07-17,PM5,"""Vou te transferir para lá,mas eu já vou deixar aqui na nossa conversa do WhatsApp. Se cair,é só entrar em contato novamente""",NAO_DEFINIDO,baixo
+16958804-PM-001,16958804,2026-07-17,PM5,"""Vou pedir o pessoal para poder fazer a alteração aqui e aí tem que confirmarem o que aviso aí""",NAO_DEFINIDO,baixo
+16958804-PM-002,16958804,2026-07-17,PM6,"""Qualquer dúvida que precisasse pode me chamar também""",NAO_DEFINIDO,baixo
+24213127-PM-001,24213127,2026-07-17,PM2,"""Vou te mando aí o WhatsApp novamente e aí qualquer coisa pode contar comigo""",NAO_DEFINIDO,baixo
+06486838-PM-001,06486838,2026-07-17,PM2,"""Vou mandar um e-mail e vou mandar um WhatsApp""",NAO_DEFINIDO,baixo
+25352900-PM-001,25352900,2026-07-17,PM6,"""Se você precisar de algum suporte eu consigo te enviar a segunda via""",NAO_DEFINIDO,baixo
+18999014-PM-001,18999014,2026-07-17,PM3,"""Você pode falar com o Ricardo,ele que está olhando essa coisa do carro para a gente?""",NAO_DEFINIDO,baixo
+07227403-PM-001,07227403,2026-07-17,PM1,"""Vou só,então,atualizar para você voltar a alocar""",NAO_DEFINIDO,baixo
+07227403-PM-002,07227403,2026-07-17,PM2,"""Vou te dar o meu número,que aí a gente pode falar por ali""",NAO_DEFINIDO,baixo
+07227403-PM-003,07227403,2026-07-17,PM5,"""Vou olhar para você,eu te falo""",NAO_DEFINIDO,baixo
+26790351-PM-001,26790351,2026-07-17,PM2,"""Vou te mandar,então,por e-mail os meus contatos""",NAO_DEFINIDO,baixo
+04219163-PM-001,04219163,2026-07-17,PM2,Vou mandar um oi no WhatsApp para você salvar meu contato e se precisar de auxílio ou reclamação me chamar.,IMEDIATO,baixo
+12333091-PM-001,12333091,2026-07-17,PM3,Vou chamar o responsável da frota no WhatsApp após o almoço.,APÓS ALMOÇO,baixo
+23704666-PM-001,23704666,2026-07-17,PM2,"Vou compartilhar sobre seu acesso e colocar ""Cadastro Aluguel Esporádico"".",IMEDIATO,baixo
+06949015-PM-001,06949015,2026-07-17,PM5,Vou pedir para cancelarem a reserva para você fazer a nova reserva.,IMEDIATO,baixo
+06949015-PM-002,06949015,2026-07-17,PM3,Vou te dar a resposta sobre o grupo P.,IMEDIATO,baixo
+02329518-PM-001,02329518,2026-07-17,PM2,Vou te passar meu contato no WhatsApp para caso precisar de ajuda.,IMEDIATO,baixo
+02329518-PM-002,02329518,2026-07-17,PM2,Vou mandar um oi no WhatsApp para você salvar meu contato e me chamar se tiver demanda.,IMEDIATO,baixo
+21358134-PM-001,21358134,2026-07-17,PM2,Vou mandar uma mensagem no WhatsApp para você voltar a alocar conosco.,IMEDIATO,baixo
+27515651-PM-001,27515651,2026-07-17,PM2,Vou te dar um oi no WhatsApp e te mandar um videozinho de como recuperar a senha e onde fazer as reservas.,IMEDIATO,baixo
+17312982-PM-001,17312982,2026-07-17,PM6,Vou verificar a avaliação de atendimento enviada por e-mail.,IMEDIATO,baixo
+10607341-PM-001,10607341,2026-07-17,PM3,Ligo mais tarde para falar com a Carla.,MAIS TARDE,baixo
+SEMINFO_123dff2c-cc00-496a-b865-f964b2366690-PM-001,SEMINFO_123dff2c-cc00-496a-b865-f964b2366690,2026-07-17,PM2,Vou te mandar o e-mail com a ART e correr para resolver hoje.,IMEDIATO,baixo
+27504954-PM-001,27504954,2026-07-17,PM2,Vou te mandar uma cotação para você dar uma olhada e te mandar um oi no WhatsApp.,IMEDIATO,baixo
+27504954-PM-002,27504954,2026-07-17,PM2,Vou te mandar a cotação da cabine dupla e da estrada cabine dupla.,IMEDIATO,baixo
+12100118-PM-001,12100118,2026-07-17,PM2,"Vou reenviar o e-mail com o relatório,CNH e notificação,explicando qual é a multa.",IMEDIATO,baixo
+24669048-PM-001,24669048,2026-07-17,PM2,Vou te enviar o link de novo para fazer a redefinição do zero.,IMEDIATO,baixo
+24669048-PM-002,24669048,2026-07-17,PM2,Vou fazer a inclusão da nova gestora e pedir para ela me enviar os dados pelo WhatsApp.,IMEDIATO,baixo
+24669048-PM-003,24669048,2026-07-17,PM3,"Assim que o login for vinculado,te ligo novamente para fazer o primeiro acesso juntas.",IMEDIATO,baixo
+SEMINFO_cd3d11b5-6b7d-4132-9e90-4bcf02d80ffd-PM-001,SEMINFO_cd3d11b5-6b7d-4132-9e90-4bcf02d80ffd,2026-07-17,PM5,Vou abrir uma contestação em relação ao pagamento da lavagem.,IMEDIATO,baixo
+SEMINFO_cd3d11b5-6b7d-4132-9e90-4bcf02d80ffd-PM-002,SEMINFO_cd3d11b5-6b7d-4132-9e90-4bcf02d80ffd,2026-07-17,PM5,Vou ver com a Natália se tem como solicitar o acumulativo do KM.,IMEDIATO,baixo
+27512912-PM-001,27512912,2026-07-17,PM3,Você me chama de novo que eu te ligo para a gente fazer junto.,IMEDIATO,baixo
+27512912-PM-002,27512912,2026-07-17,PM4,Vou te transferir para a central de atendimento para eles criarem a reserva.,IMEDIATO,baixo
+27512912-PM-003,27512912,2026-07-17,PM2,Vou te deixar o número no WhatsApp caso caia a ligação.,IMEDIATO,baixo
+10011855-PM-001,10011855,2026-07-17,PM2,Vou te mandar uma mensagem no WhatsApp para você salvar meu número.,IMEDIATO,baixo
+14002112-PM-001,14002112,2026-07-17,PM2,Vou te mandar no WhatsApp o seu login e o link da plataforma WebCop.,IMEDIATO,baixo
+27504518-PM-001,27504518,2026-07-17,PM2,Vou te mandar um oi no WhatsApp para você salvar meu contato.,IMEDIATO,baixo
+12108408-PM-001,12108408,2026-07-17,PM6,Vou olhar a pesquisa de NPS e ver se consigo responder.,IMEDIATO,baixo
+13392251-PM-001,13392251,2026-07-17,PM2,Vou enviar um e-mail com o termo para vincular os dois CNPJs e te chamar no WhatsApp.,IMEDIATO,baixo
+07780417-PM-001,07780417,2026-07-17,PM1,Vou desativar o acesso da Rafaela e te enviar o seu login para você redefinir a senha.,IMEDIATO,baixo
+07780417-PM-002,07780417,2026-07-17,PM2,Vou te mandar um outro portal de faturas para melhor gestão.,IMEDIATO,baixo
+26752747-PM-001,26752747,2026-07-17,PM6,Vou aguardar uns segundinhos após a ligação para avaliar minha ligação.,IMEDIATO,baixo
+06004377-PM-001,06004377,2026-07-17,PM6,Vou verificar a disponibilidade do grupo GC novamente.,IMEDIATO,baixo
+00635700-PM-001,00635700,2026-07-17,PM2,Vou anotar o número para compartilhar a informação com os responsáveis.,IMEDIATO,baixo
+00939515-PM-001,00939515,2026-07-17,PM5,Vou pedir o desligamento do login da Jaluz da empresa.,IMEDIATO,baixo
+26103446-PM-001,26103446,2026-07-17,PM2,Vou colocar você em cópia no e-mail sobre os pagamentos.,IMEDIATO,baixo
+SEMINFO_02110468-26dc-42db-84d3-292f78b91041-PM-001,SEMINFO_02110468-26dc-42db-84d3-292f78b91041,2026-07-17,PM1,Vou confirmar a informação sobre o parcelamento do depósito de segurança.,IMEDIATO,baixo
+14878836-PM-001,14878836,2026-07-17,PM6,Vou confirmar o número de celular do Rodolfo que tenho cadastrado.,IMEDIATO,baixo
+27525219-PM-001,27525219,2026-07-17,PM2,Vou te chamar no WhatsApp para você salvar meu contato.,IMEDIATO,baixo
+27529755-PM-001,27529755,2026-07-17,PM2,Vou te dar um oi no WhatsApp para você ficar com meu contato.,IMEDIATO,baixo
+26634332-PM-001,26634332,2026-07-17,PM1,Vou verificar o lugar mais próximo para revisão ou manutenção em Manga.,IMEDIATO,baixo
+27521278-PM-001,27521278,2026-07-17,PM2,Vou te chamar no WhatsApp e deixar meu contato à sua disposição.,IMEDIATO,baixo
+21734538-PM-001,21734538,2026-07-17,PM2,"Vou mandar para você a multa,o boleto em atraso e o que vai vencer.",IMEDIATO,baixo
+21734538-PM-002,21734538,2026-07-17,PM2,Vou te chamar no WhatsApp para você receber o comunicado dos boletos.,IMEDIATO,baixo
+01080060-PM-001,01080060,2026-07-17,PM2,Vou te mandar por e-mail os dados que preciso para fazer seu cadastro como contato ativo.,IMEDIATO,baixo
+01080060-PM-002,01080060,2026-07-17,PM6,Vou pedir para o João Henrique fazer a liberação do seu acesso.,IMEDIATO,baixo
+06368280-PM-001,06368280,2026-07-17,PM3,Pode ligar no transporte para verificar a situação e quem é a melhor pessoa para atender.,IMEDIATO,baixo
+27524592-PM-001,27524592,2026-07-17,PM4,Vou te direcionar para poder fazer a revisão desse carro de 10 mil.,IMEDIATO,baixo
+27524592-PM-002,27524592,2026-07-17,PM2,Vou te fazer uma simulação por 7 e por 5 dias para você ter um efeito comparativo.,IMEDIATO,baixo
+27524592-PM-003,27524592,2026-07-17,PM2,Vou montar uma proposta para você com o Virtus.,IMEDIATO,baixo
+15295017-PM-001,15295017,2026-07-17,PM4,Vou te transferir.,IMEDIATO,baixo
+26729530-PM-001,26729530,2026-07-17,PM2,Vou te mandar um oi para você ter meu número salvo no WhatsApp.,IMEDIATO,baixo
+03627179-PM-001,03627179,2026-07-17,PM2,Vou digitar o número para mandar para a Ana Lúcia.,IMEDIATO,baixo
+06804909-PM-001,06804909,2026-07-17,PM6,Vou te chamar quando oficializar a reativação dos contratos.,IMEDIATO,baixo
+03627179-PM-002,03627179,2026-07-21,PM6,Vou falar com a Mayara sobre o contrato do carro reserva e te dar uma resposta.,IMEDIATO,baixo
+19530718-PM-001,19530718,2026-07-17,PM2,Vou te mandar um boa tarde no WhatsApp para você salvar meu contato e me enviar prints de comparação de preços.,NAO,baixo
+10704077-PM-001,10704077,2026-07-17,PM2,Vou te passar o contato do seguro de terceiros.,NAO,baixo
+10704077-PM-002,10704077,2026-07-17,PM3,Vou acionar a gestora da empresa de novo e verificar se ela não quer liberar a tag.,NAO,baixo
+SEMINFO_cc3e33fb-2e32-4a67-966d-fae0d4fb8887-PM-001,SEMINFO_cc3e33fb-2e32-4a67-966d-fae0d4fb8887,2026-07-17,PM5,Vou continuar sondando aqui para ver se consigo reduzir alguma coisa desses 3.500.,NAO,medio
+05119940-PM-001,05119940,2026-07-17,PM2,Vou te mandar o link do portal via e-mail e os dados para cadastrar você.,NAO,baixo
+05119940-PM-002,05119940,2026-07-17,PM2,Esse número que você me ligou também é o WhatsApp. Então qualquer dúvida que você tiver pode me chamar por lá também.,NAO,baixo
+18859744-PM-001,18859744,2026-07-17,PM2,Vou te mandar a cotação que você precisa e o passo a passo para o Ronaldo cadastrar você como um gestor.,NAO,baixo
+18859744-PM-002,18859744,2026-07-17,PM2,Vou verificar qual a agência mais próxima que funcione no domingo e te passo as opções.,NAO,baixo
+25313618-PM-001,25313618,2026-07-17,PM2,Vou te passar a minha tabela que vai até 12 meses e pedir para outro condutor que trabalha acima de 18 meses te mandar uma tabela também.,NAO,baixo
+25313618-PM-002,25313618,2026-07-17,PM2,Vou olhar certinho a multa por quebra de contrato de 12 meses e te passo as informações.,NAO,baixo
+25313618-PM-003,25313618,2026-07-17,PM2,Mando a lista de carros rápido para você.,NAO,baixo
+02450791-PM-001,02450791,2026-07-17,PM2,Vou mandar uma mensagem para o Cláudio no WhatsApp.,NAO,baixo
+10009717-PM-001,10009717,2026-07-17,PM2,Vou mandar o link do portal e os dados para você via e-mail.,NAO,baixo
+10009717-PM-002,10009717,2026-07-17,PM2,No e-mail lá tem meu WhatsApp também.,NAO,baixo
+21175272-PM-001,21175272,2026-07-17,PM2,"Vou te chamar aí no WhatsApp. Se tiver algo que eu possa auxiliá-lo,me avisa aqui.",NAO,baixo
+27532107-PM-001,27532107,2026-07-17,PM2,Vou mandar um oi no WhatsApp para você.,NAO,baixo
+19868494-PM-001,19868494,2026-07-17,PM2,Vou te mandar o seu login com o e-mail e o passo a passo de redefinição de senha.,NAO,baixo
+06626306-PM-001,06626306,2026-07-17,PM2,Vou te mandar uma documentação para a gente pedir a ampliação do seu crédito.,NAO,baixo
+27365178-PM-001,27365178,2026-07-17,PM2,"Vou te mandar um oi no WhatsApp também. Qualquer dúvida lá que você for fazendo,você vai me falando aqui.",NAO,baixo
+27532158-PM-001,27532158,2026-07-17,PM2,"Vou te mandar um e-mail com os meus contatos,que ele é WhatsApp e ele é ligação também.",NAO,baixo
+22581855-PM-001,22581855,2026-07-17,PM3,Vou ligar para o Jean Neto para definir a franquia de quilometragem.,NAO,baixo
+22581855-PM-002,22581855,2026-07-17,PM2,Vou te mandar o boleto da fatura vencida.,NAO,baixo
+22581855-PM-003,22581855,2026-07-17,PM5,Já solicitei ampliação de crédito para ver se aprova.,NAO,baixo
+22581855-PM-004,22581855,2026-07-17,PM2,Vou lhe mandar o telefone do outro filho (pai).,NAO,baixo
+SEMINFO_9d38cf13-f3a4-4792-84f1-dce092b72692-PM-001,SEMINFO_9d38cf13-f3a4-4792-84f1-dce092b72692,2026-07-17,PM2,Vou colocar umas coisas aqui no WhatsApp que eu vou precisar para a gente aumentar o limite de vocês.,NAO,baixo
+SEMINFO_9d38cf13-f3a4-4792-84f1-dce092b72692-PM-002,SEMINFO_9d38cf13-f3a4-4792-84f1-dce092b72692,2026-07-17,PM5,Vou pedir aqui 100 mil para você (aumento de limite).,NAO,baixo
+SEMINFO_9d38cf13-f3a4-4792-84f1-dce092b72692-PM-003,SEMINFO_9d38cf13-f3a4-4792-84f1-dce092b72692,2026-07-17,PM4,Tenho uma colega que está fera nisso aqui e ela ajuda a gente (com o PayTrack).,NAO,baixo
+02005264-PM-001,02005264,2026-07-17,PM3,Vou tentar então falar com o Casser.,NAO,baixo
+16620663-PM-001,16620663,2026-07-17,PM6,"Nós alteramos aqui a condição comercial da empresa,então valores mais atrativos vai surgir para suas próximas locações.",NAO,baixo
+08277950-PM-001,08277950,2026-07-17,PM2,Eu vou te mandar um WhatsApp se porventura surgir qualquer demanda e me aciona.,NAO,baixo
+08052205-PM-001,08052205,2026-07-17,PM3,"Você consegue me ligar daqui uns 20 minutos,mais ou menos?",20 minutos,baixo
+08052205-PM-002,08052205,2026-07-21,PM2,Você quer marcar (o WhatsApp)? Porque fica mais rápido o acesso ao WhatsApp e fica bem melhor para a gente conversar.,NAO,baixo
+23833953-PM-001,23833953,2026-07-17,PM2,Eu vou te mandar um WhatsApp e aí quando você tiver disponibilidade você conversa comigo.,NAO,baixo
+02418291-PM-001,02418291,2026-07-20,PM2,Posso te dar um oi ali para você salvar meu contato e precisando você me aciona?,NAO,baixo
+21832917-PM-001,21832917,2026-07-17,PM2,"Vou mandar a condição que eu tenho atual também na parte de locação mensal,se de repente vocês precisarem aí também.",NAO,baixo
+27406342-PM-001,27406342,2026-07-17,PM3,Vou falar com o dono da empresa. Você pode me retornar na terça-feira?,terça-feira,baixo
+15424878-PM-001,15424878,2026-07-17,PM2,"Vou pedir só para você me mandar esse erro que está dando no meu e-mail,que aí eu vou pedir suporte para eles estarem atualizando e vendo o que aconteceu.",NAO,baixo
+15424878-PM-002,15424878,2026-07-17,PM3,Vou pedir para você fazer essa reserva direto pelo 0800 na central de reserva.,NAO,baixo
+27532512-PM-001,27532512,2026-07-17,PM2,Vou mandar para você um formuláriozinho que eu preciso de alguns dados seus para poder criar o seu usuário.,NAO,baixo
+18709144-PM-001,18709144,2026-07-17,PM2,Eu te chamo no WhatsApp então.,NAO,baixo
+09995053-PM-001,09995053,2026-07-17,PM2,"""Mandar WhatsApp com contato""",NAO,baixo
+11374514-PM-001,11374514,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+26889844-PM-001,26889844,2026-07-17,PM2,"""Mandar contratos no WhatsApp""",NAO,baixo
+26889844-PM-002,26889844,2026-07-17,PM3,"""Ligar de volta quando os contratos do Rio forem confirmados""",NAO,baixo
+26889844-PM-003,26889844,2026-07-17,PM2,"""Verificar contratos em aberto e dívidas da empresa e retornar no WhatsApp""",NAO,baixo
+22052242-PM-001,22052242,2026-07-17,PM2,"""Mandar número do contrato no WhatsApp""",NAO,baixo
+27181174-PM-001,27181174,2026-07-17,PM2,"""Enviar login e senha para o e-mail da Cícera""",NAO,baixo
+27181174-PM-002,27181174,2026-07-17,PM3,"""Ligar para a Larissa no WhatsApp""",NAO,baixo
+27181174-PM-003,27181174,2026-07-17,PM2,"""Mandar e-mail com cópia para o financeiro""",NAO,baixo
+27181174-PM-004,27181174,2026-07-17,PM2,"""Mandar link para Larissa abrir""",NAO,baixo
+15276122-PM-001,15276122,2026-07-17,PM5,"""Pedir para o pessoal aplicar desconto""",NAO,baixo
+15276122-PM-002,15276122,2026-07-17,PM2,"""Passar telefone da Mob7""",NAO,baixo
+07586692-PM-001,07586692,2026-07-17,PM3,"""Ligar para a Rita para explicar sobre a devolução do carro""",NAO,baixo
+23943330-PM-001,23943330,2026-07-17,PM2,"""Enviar contatos por WhatsApp""",NAO,baixo
+21708607-PM-001,21708607,2026-07-17,PM2,"""Mandar Oi no WhatsApp e pedir print da cotação""",NAO,baixo
+24581741-PM-001,24581741,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+05551203-PM-001,05551203,2026-07-17,PM3,"""Ligar de volta""",NAO,baixo
+23916887-PM-001,23916887,2026-07-17,PM3,"""Ligar de volta na segunda-feira""",SIM,baixo
+23916887-PM-002,23916887,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+21452765-PM-001,21452765,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+27214341-PM-001,27214341,2026-07-17,PM1,"""Pedir cancelamento da reserva""",NAO,baixo
+27214341-PM-002,27214341,2026-07-17,PM2,"""Mandar instrução para inclusão de condutor adicional via e-mail""",NAO,baixo
+26646468-PM-001,26646468,2026-07-17,PM2,"""Encaminhar login no e-mail""",NAO,baixo
+26646468-PM-002,26646468,2026-07-17,PM2,"""Mandar e-mail no WhatsApp para verificação""",NAO,baixo
+15694759-PM-001,15694759,2026-07-17,PM2,"""Mandar WhatsApp com contato""",NAO,baixo
+19277321-PM-001,19277321,2026-07-17,PM3,"""Ligar de volta em meia hora""",SIM,baixo
+23103084-PM-001,23103084,2026-07-17,PM2,"""Chamar no WhatsApp com contato""",NAO,baixo
+10369983-PM-001,10369983,2026-07-17,PM5,"""Aplicar desconto na tarifa""",NAO,baixo
+10369983-PM-002,10369983,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+SEMINFO_56ceb64a-b941-4b54-bf42-1ffc96b8d165-PM-001,SEMINFO_56ceb64a-b941-4b54-bf42-1ffc96b8d165,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+21393938-PM-001,21393938,2026-07-17,PM3,"""Ligar para a Olívia para ajudar a confirmar a reserva""",NAO,baixo
+21393938-PM-002,21393938,2026-07-17,PM4,"""Passar 0800 da Central Empresas""",NAO,baixo
+02501269-PM-001,02501269,2026-07-17,PM2,"""Enviar e-mail com informações necessárias""",NAO,baixo
+04779467-PM-001,04779467,2026-07-17,PM5,"""Pedir negociação de parcelamento com prioridade""",NAO,baixo
+04779467-PM-002,04779467,2026-07-17,PM2,"""Colocar cliente em cópia no e-mail""",NAO,baixo
+03937754-PM-001,03937754,2026-07-17,PM2,"""Mandar login de acesso e passo a passo para recuperar senha""",NAO,baixo
+25988845-PM-001,25988845,2026-07-17,PM5,"""Pedir aprovação de desconto para coordenação""",NAO,baixo
+25988845-PM-002,25988845,2026-07-17,PM2,"""Mandar link de acesso,login e reset de senha do Lucas no WhatsApp""",NAO,baixo
+25988845-PM-003,25988845,2026-07-17,PM2,"""Mandar passo a passo para Lucas aprovar perfil""",NAO,baixo
+25988845-PM-004,25988845,2026-07-17,PM2,"""Mandar link de redefinição de senha do Josué no WhatsApp""",NAO,baixo
+25988845-PM-005,25988845,2026-07-20,PM4,"""Comunicar agência sobre o problema do veículo e pedir para separar outro""",NAO,baixo
+13328741-PM-001,13328741,2026-07-17,PM2,"""Mandar e-mail da assistência cliente e colocar em cópia""",NAO,baixo
+07973011-PM-001,07973011,2026-07-17,PM2,"""Passar contatos por e-mail""",NAO,baixo
+27528679-PM-001,27528679,2026-07-17,PM2,"""Passar contatos por e-mail""",NAO,baixo
+SEMINFO_3b476935-35e0-402b-bb9e-8fcfc0f46f8c-PM-001,SEMINFO_3b476935-35e0-402b-bb9e-8fcfc0f46f8c,2026-07-17,PM5,"""Verificar questão da Brasil com gerente divisional""",SIM,baixo
+12996597-PM-001,12996597,2026-07-17,PM2,"""Mandar e-mail para Bruno e Eduardo para autorizar Janete como gestora""",NAO,baixo
+12996597-PM-002,12996597,2026-07-17,PM2,"""Mandar WhatsApp com contato""",NAO,baixo
+12996597-PM-003,12996597,2026-07-17,PM5,"""Conseguir aprovação de desconto com o chefe""",NAO,baixo
+12996597-PM-004,12996597,2026-07-17,PM2,"""Mandar dados do condutor e horário de retirada no WhatsApp""",NAO,baixo
+SEMINFO_0ff12ea8-94d9-4a6c-a03a-66e78b75135c-PM-001,SEMINFO_0ff12ea8-94d9-4a6c-a03a-66e78b75135c,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+SEMINFO_01e0e1ac-3495-4655-a20e-50f7482b9a88-PM-001,SEMINFO_01e0e1ac-3495-4655-a20e-50f7482b9a88,2026-07-17,PM2,"""Fazer cadastro no sistema e enviar link do WebFácil e login por e-mail""",NAO,baixo
+23587431-PM-001,23587431,2026-07-17,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+16954312-PM-001,16954312,2026-07-20,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+06599671-PM-001,06599671,2026-07-20,PM4,"""Entrar em contato com a agência para liberar veículo""",NAO,baixo
+06599671-PM-002,06599671,2026-07-20,PM3,"""Ligar de volta em 10 minutos""",SIM,baixo
+06599671-PM-003,06599671,2026-07-21,PM2,"""Salvar reserva e Rafael recebe e-mail""",NAO,baixo
+07874309-PM-001,07874309,2026-07-20,PM2,"""Mandar WhatsApp com status da reserva""",NAO,baixo
+07874309-PM-002,07874309,2026-07-20,PM2,"""Mandar print da fatura paga""",NAO,baixo
+07874309-PM-003,07874309,2026-07-21,PM2,"""Encaminhar print da fatura a vencer""",NAO,baixo
+07874309-PM-004,07874309,2026-07-21,PM2,"""Mandar pesquisa de avaliação""",NAO,baixo
+22487024-PM-001,22487024,2026-07-20,PM2,"""Mandar Oi no WhatsApp com contato""",NAO,baixo
+22487024-PM-002,22487024,2026-07-20,PM2,"""Mandar informações necessárias para cadastro da gerente""",NAO,baixo
+22487024-PM-003,22487024,2026-07-20,PM2,"""Ditar CPF do condutor""",NAO,baixo
+15034779-PM-001,15034779,2026-07-20,PM3,"""Ligar de volta mais tarde""",NAO,baixo
+15034779-PM-002,15034779,2026-07-20,PM2,"""Mandar mensagem no WhatsApp""",NAO,baixo
+17490765-PM-001,17490765,2026-07-20,PM4,"""Chamar a agência para agilizar o atendimento""",NAO,baixo
+17490765-PM-002,17490765,2026-07-20,PM2,"""Mandar mensagem no WhatsApp com aviso""",NAO,baixo
+17388901-PM-001,17388901,2026-07-20,PM5,Verificar disponibilidade de troca na loja do aeroporto,hoje,medio
+17388901-PM-002,17388901,2026-07-20,PM2,Enviar e-mail para inclusão de nova gestora,hoje,baixo
+03598144-PM-001,03598144,2026-07-20,PM2,Enviar e-mail com passo a passo de ativação,imediato,baixo
+08793498-PM-001,08793498,2026-07-20,PM4,Entrar em contato com a agência para resolver cobrança indevida,hoje,medio
+26100859-PM-001,26100859,2026-07-20,PM2,Enviar fatura em aberto via WhatsApp,imediato,baixo
+17086456-PM-001,17086456,2026-07-20,PM2,Enviar links dos portais e passo a passo de senha,imediato,baixo
+07899754-PM-001,07899754,2026-07-20,PM5,Realizar estudo de KM excedente para apresentar à diretoria,hoje,baixo
+08705415-PM-001,08705415,2026-07-20,PM1,Atuar na liberação de saldo no sistema,imediato,baixo
+19086629-PM-001,19086629,2026-07-20,PM2,Enviar dados do contrato e placa para agendamento de revisão,imediato,baixo
+23478139-PM-001,23478139,2026-07-20,PM3,Cobrar posição do condutor sobre encerramento de contrato,hoje,medio
+SEMINFO_80354201-32a4-4c1f-bb08-04e894079c0d-PM-001,SEMINFO_80354201-32a4-4c1f-bb08-04e894079c0d,2026-07-20,PM5,Solicitar aumento de limite de crédito para 30 mil,hoje,alto
+04622881-PM-001,04622881,2026-07-20,PM2,Enviar dados para pagamento via PIX,imediato,baixo
+15653944-PM-001,15653944,2026-07-20,PM5,Solicitar atualização de crédito para permitir reserva,hoje,medio
+22310854-PM-001,22310854,2026-07-20,PM5,Solicitar ampliação de limite de crédito,hoje,medio
+27346935-PM-001,27346935,2026-07-20,PM3,Verificar status do veículo com a assistência e retornar,hoje,alto
+13692579-PM-001,13692579,2026-07-20,PM2,Enviar cotação de mensal fixo 12 meses por e-mail,hoje,baixo
+03150312-PM-001,03150312,2026-07-20,PM3,Retornar ligação para concluir biometria facial,hoje,baixo
+27338688-PM-001,27338688,2026-07-20,PM4,Transferir cliente para central de reservas para garantir tarifa,imediato,baixo
+25668107-PM-001,25668107,2026-07-20,PM5,Cadastrar novo gestor no sistema,hoje,baixo
+14881155-PM-001,14881155,2026-07-20,PM4,Indicar cliente para o time de Pesados (Caminhões),hoje,baixo
+23028733-PM-001,23028733,2026-07-20,PM3,Verificar com colega (Juliana) procedimento de desconto anterior,hoje,baixo
+22488988-PM-001,22488988,2026-07-20,PM5,Verificar internamente motivo de bloqueio para diárias,hoje,medio
+SEMINFO_007cc871-d6d7-4778-9cec-7f2077c7de37-PM-001,SEMINFO_007cc871-d6d7-4778-9cec-7f2077c7de37,2026-07-20,PM4,Intervir junto à supervisão de Osasco para liberar devolução,imediato,baixo
+21033713-PM-001,21033713,2026-07-20,PM2,Enviar e-mail com instruções de vinculação e vídeo,Imediato,baixo
+19128841-PM-001,19128841,2026-07-20,PM3,Chamar no WhatsApp para cotação,Final da tarde,baixo
+24755151-PM-001,24755151,2026-07-20,PM4,Encaminhar contato para equipe de assinatura (Localiza Meoo),Imediato,baixo
+24755151-PM-002,24755151,2026-07-20,PM2,Enviar login de acesso via WhatsApp,Imediato,baixo
+SEMINFO_c50a81b2-bb6d-4e38-a29a-e2c45937fcd9-PM-001,SEMINFO_c50a81b2-bb6d-4e38-a29a-e2c45937fcd9,2026-07-20,PM2,Enviar e-mail e contato da gestão de frotas via WhatsApp,Imediato,baixo
+SEMINFO_50c25adb-6cb3-44a7-9bbd-110279350ce3-PM-001,SEMINFO_50c25adb-6cb3-44a7-9bbd-110279350ce3,2026-07-20,PM5,Negociar flexibilização de valor com o gerente,Imediato,medio
+SEMINFO_6d8f984b-1ba6-4b9b-b980-d953a921c01c-PM-001,SEMINFO_6d8f984b-1ba6-4b9b-b980-d953a921c01c,2026-07-20,PM4,Orientar envio de e-mail para assistência ao cliente,Imediato,baixo
+SEMINFO_f8744209-abab-4ddd-8ba7-ebddcf275682-PM-001,SEMINFO_f8744209-abab-4ddd-8ba7-ebddcf275682,2026-07-20,PM2,Enviar dados de login e site para primeiro acesso,Imediato,baixo
+SEMINFO_73d9ec6e-d8c8-4850-bad6-03dd7de9269b-PM-001,SEMINFO_73d9ec6e-d8c8-4850-bad6-03dd7de9269b,2026-07-20,PM2,Enviar fatura pendente por e-mail,Imediato,baixo
+SEMINFO_73be41a1-051a-4b36-b7ea-dac2377c9f68-PM-001,SEMINFO_73be41a1-051a-4b36-b7ea-dac2377c9f68,2026-07-20,PM2,Enviar faturas detalhadas via WhatsApp,Imediato,baixo
+SEMINFO_dc95655c-4ac9-409e-96a4-de70be2868b6-PM-001,SEMINFO_dc95655c-4ac9-409e-96a4-de70be2868b6,2026-07-20,PM2,Enviar tabela de preços e opções de mensal fixo,Imediato,baixo
+10549209-PM-001,10549209,2026-07-20,PM2,Incluir acesso da Viviane e enviar e-mail para aprovação,Imediato,baixo
+22308291-PM-001,22308291,2026-07-20,PM2,Preparar termo de alteração de condutor,Imediato,baixo
+SEMINFO_b89a8e1d-000a-4823-bc5d-a92d988d43c7-PM-001,SEMINFO_b89a8e1d-000a-4823-bc5d-a92d988d43c7,2026-07-20,PM2,Enviar proposta de locação de caminhonete 4x4,Imediato,baixo
+08652095-PM-001,08652095,2026-07-20,PM2,Enviar login e link de redefinição de senha,Imediato,baixo
+23806458-PM-001,23806458,2026-07-20,PM2,Enviar link do portal de faturamento e faturas,Imediato,baixo
+23806458-PM-002,23806458,2026-07-20,PM2,Enviar termo de indicação de condutor infrator,Imediato,baixo
+05998550-PM-001,05998550,2026-07-20,PM5,Solicitar prioridade na desvinculação de empresa no sistema,Hoje,medio
+05998550-PM-002,05998550,2026-07-20,PM2,Enviar print da reserva e dados do contrato,Imediato,baixo
+20321810-PM-001,20321810,2026-07-20,PM2,Enviar link de recuperação de senha e WebCorp,Imediato,baixo
+26403341-PM-001,26403341,2026-07-20,PM5,Liberar acesso ao portal de faturamento para Maíra,Hoje,baixo
+05382235-PM-001,05382235,2026-07-20,PM3,Chamar o responsável no WhatsApp à tarde,Hoje,baixo
+07187369-PM-001,07187369,2026-07-20,PM3,Chamar no WhatsApp para atualizar cadastro,Hoje,baixo
+24858098-PM-001,24858098,2026-07-20,PM3,Retornar ligação no dia seguinte,Amanhã,baixo
+06514060-PM-001,06514060,2026-07-20,PM2,Enviar CRLV do veículo via WhatsApp,Imediato,baixo
+24378177-PM-001,24378177,2026-07-20,PM3,Dar um oi no WhatsApp para salvar contato,Hoje,baixo
+12412400-PM-001,12412400,2026-07-20,PM1,Realizar prorrogação de contrato no sistema,Imediato,baixo
+21261881-PM-001,21261881,2026-07-20,PM3,Mandar oi no WhatsApp para suporte futuro,Hoje,baixo
+02316249-PM-001,02316249,2026-07-20,PM5,Liberar acesso de novo usuário no sistema,Imediato,baixo
+27532265-PM-001,27532265,2026-07-20,PM3,Chamar no WhatsApp para suporte comercial,Hoje,baixo
+22242119-PM-001,22242119,2026-07-20,PM2,Enviar usuário e link para reserva,Imediato,baixo
+SEMINFO_01e97dad-PM-001,SEMINFO_01e97dad,2026-07-20,PM2,Preparar e enviar cotação de aluguel mensal,Hoje,baixo
+21698584-PM-001,21698584,2026-07-20,PM3,Mandar oi no WhatsApp para cotação,Hoje,baixo
+07117036-PM-001,07117036,2026-07-20,PM3,Encaminhar contato via WhatsApp,Hoje,baixo
+07712959-PM-001,07712959,2026-07-20,PM2,Enviar e-mail com condições atuais,Hoje,baixo
+03360563-PM-001,03360563,2026-07-20,PM5,Levar solicitação de perfil diário para diretoria,Sem prazo,medio
+04502986-PM-001,04502986,2026-07-20,PM2,Enviar cotação comparativa por e-mail,Hoje,baixo
+27548355-PM-001,27548355,2026-07-20,PM3,Mandar oi no WhatsApp para suporte,Hoje,baixo
+16167707-PM-001,16167707,2026-07-20,PM3,Mandar oi no WhatsApp para futuras cotações,Hoje,baixo
+11394245-PM-001,11394245,2026-07-20,PM2,Enviar e-mail para Gilmara sobre cadastro,Hoje,baixo
+08090904-PM-001,08090904,2026-07-20,PM3,Dar um oi no WhatsApp,Hoje,baixo
+11438547-PM-001,11438547,2026-07-20,PM2,Enviar proposta de mensal fixo e assinatura,Hoje,baixo
+15445880-PM-001,15445880,2026-07-20,PM5,Criar login e liberar acesso ao WebCorp,Imediato,baixo
+00740947-PM-001,00740947,2026-07-20,PM2,Enviar link de validação (Trust) para atualização,Imediato,baixo
+SEMINFO_63c178f6-PM-001,SEMINFO_63c178f6,2026-07-20,PM2,Enviar link de validação de sócio via WhatsApp,Imediato,baixo
+24485932-PM-001,24485932,2026-07-20,PM3,Mandar oi no WhatsApp,Hoje,baixo
+11551307-PM-001,11551307,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp para manter contato",Imediato,baixo
+SEMINFO_09dfe76c-c22a-425f-a13e-dfbcae0995c6-PM-001,SEMINFO_09dfe76c-c22a-425f-a13e-dfbcae0995c6,2026-07-20,PM5,Solicitar alteração de KM para o condutor responsável,Hoje,medio
+SEMINFO_09dfe76c-c22a-425f-a13e-dfbcae0995c6-PM-002,SEMINFO_09dfe76c-c22a-425f-a13e-dfbcae0995c6,2026-07-20,PM2,Enviar passo a passo de inclusão de condutor via WhatsApp,Imediato,baixo
+26045683-PM-001,26045683,2026-07-20,PM2,Enviar e-mail com login e proposta de Saveira/Strada,Hoje,baixo
+SEMINFO_03acfdce-d30d-49fe-aa21-029195e3448b-PM-001,SEMINFO_03acfdce-d30d-49fe-aa21-029195e3448b,2026-07-20,PM5,Resolver zeramento de limite com a liderança,15 minutos,medio
+SEMINFO_d6adcde3-4857-431a-bfbb-47ff3a8c05d9-PM-001,SEMINFO_d6adcde3-4857-431a-bfbb-47ff3a8c05d9,2026-07-20,PM3,Gravar áudio explicando a franquia para o patrão,Imediato,baixo
+SEMINFO_cc8f7279-d090-4465-b401-3f991dd5e051-PM-001,SEMINFO_cc8f7279-d090-4465-b401-3f991dd5e051,2026-07-20,PM3,Enviar no WhatsApp como deve aparecer a avaliação,Hoje,baixo
+SEMINFO_04ca30b4-d63f-4825-8e31-a0f61d965bb5-PM-001,SEMINFO_04ca30b4-d63f-4825-8e31-a0f61d965bb5,2026-07-20,PM4,Passar contato para Bruna retornar com cotações,Hoje (13h),baixo
+SEMINFO_289c19a9-f897-4fb7-845c-6cb3336bdbbc-PM-001,SEMINFO_289c19a9-f897-4fb7-845c-6cb3336bdbbc,2026-07-20,PM2,Enviar termo por e-mail para atualização de gestor master,Hoje,baixo
+27532651-PM-001,27532651,2026-07-20,PM1,Ativar login da assistente Josélia,10 minutos,baixo
+14016580-PM-001,14016580,2026-07-20,PM2,Enviar link detalhado da fatura via WhatsApp,Imediato,baixo
+14016580-PM-002,14016580,2026-07-20,PM5,Acompanhar protocolo de ressarcimento internamente,Hoje,medio
+27351719-PM-001,27351719,2026-07-20,PM3,Mandar mensagem para Leonardo no WhatsApp,Hoje,baixo
+27523119-PM-001,27523119,2026-07-20,PM2,Enviar tabela de mensal fixo via WhatsApp,Hoje,baixo
+00715448-PM-001,00715448,2026-07-20,PM5,Pedir liberação do código 48 para reserva,Hoje,baixo
+27378950-PM-001,27378950,2026-07-20,PM3,Chamar no WhatsApp para passar passo a passo,Imediato,baixo
+27548912-PM-001,27548912,2026-07-20,PM2,Enviar e-mail formalizando aprovação de cadastro,Hoje,baixo
+27548912-PM-002,27548912,2026-07-20,PM5,Pedir aumento de limite e enviar termos DocSign,Hoje,medio
+27548912-PM-003,27548912,2026-07-20,PM2,Formalizar termo de confidencialidade (LGPD) por e-mail,Hoje,baixo
+SEMINFO_2ad8c4a8-e140-4d61-8745-e02c8aef1662-PM-001,SEMINFO_2ad8c4a8-e140-4d61-8745-e02c8aef1662,2026-07-20,PM3,"Mandar ""oi"" no WhatsApp para suporte",Imediato,baixo
+09429557-PM-001,09429557,2026-07-20,PM3,Reforçar contatos via WhatsApp,Hoje,baixo
+SEMINFO_bb1d940f-9915-4131-8093-2be9d92a13f1-PM-001,SEMINFO_bb1d940f-9915-4131-8093-2be9d92a13f1,2026-07-20,PM3,Retornar ligação em 2 minutos,2 minutos,baixo
+19307862-PM-001,19307862,2026-07-20,PM2,Enviar login e passo a passo de reset de senha,Hoje,baixo
+25967298-PM-001,25967298,2026-07-20,PM5,Verificar com TI por que o site bloqueia o cliente,Hoje,medio
+21582846-PM-001,21582846,2026-07-20,PM2,Enviar cotação de Creta e Mobi (12 meses) no WhatsApp,Hoje,baixo
+24170609-PM-001,24170609,2026-07-20,PM2,Enviar e-mail com condições atuais de locação,Hoje,baixo
+27549231-PM-001,27549231,2026-07-20,PM3,"Dar ""oi"" no WhatsApp para suporte",Hoje,baixo
+24732037-PM-001,24732037,2026-07-20,PM6,Esclarecer dúvidas sobre proteções adicionais se solicitado,Indefinido,baixo
+26649407-PM-001,26649407,2026-07-20,PM2,Enviar contatos e WhatsApp por e-mail,Hoje,baixo
+02883191-PM-001,02883191,2026-07-20,PM3,Retornar ligação após Daniel pesquisar contrato,15 minutos,baixo
+SEMINFO_dcf3f203-9f22-40dd-acf2-fe63840f40b4-PM-001,SEMINFO_dcf3f203-9f22-40dd-acf2-fe63840f40b4,2026-07-20,PM2,Enviar cotação em PDF via WhatsApp,10 minutos,baixo
+24373001-PM-001,24373001,2026-07-20,PM3,"Mandar ""oi"" no WhatsApp para acompanhar desbloqueio",Hoje,baixo
+22011690-PM-001,22011690,2026-07-20,PM2,Enviar endereço da agência via WhatsApp,Imediato,baixo
+25397610-PM-001,25397610,2026-07-20,PM3,"Dar ""oi"" no WhatsApp para Nadia",Imediato,baixo
+27547584-PM-001,27547584,2026-07-20,PM3,Enviar contato fixo e WhatsApp,Hoje,baixo
+27547584-PM-002,27547584,2026-07-21,PM2,Enviar cotação de Porto Velho via WhatsApp,Imediato,baixo
+22453297-PM-001,22453297,2026-07-20,PM3,Enviar oi no WhatsApp para suporte,NAO_DEFINIDO,baixo
+26195060-PM-001,26195060,2026-07-20,PM3,Chamar no WhatsApp para verificar demanda,NAO_DEFINIDO,baixo
+14654391-PM-001,14654391,2026-07-20,PM5,Alterar e-mail do usuário no sistema,IMEDIATO,baixo
+20054051-PM-001,20054051,2026-07-20,PM2,Encaminhar contatos por e-mail e WhatsApp,NAO_DEFINIDO,baixo
+26277054-PM-001,26277054,2026-07-20,PM3,Mandar mensagem no WhatsApp,IMEDIATO,baixo
+21184924-PM-001,21184924,2026-07-20,PM5,Solicitar alteração de franquia de KM após retirada,POSTERIOR,medio
+25190118-PM-001,25190118,2026-07-20,PM3,Ligar em meia hora e chamar no WhatsApp,30_MINUTOS,baixo
+27529922-PM-001,27529922,2026-07-20,PM2,Mandar e-mail com informações de acesso,NAO_DEFINIDO,baixo
+21201823-PM-001,21201823,2026-07-20,PM2,Enviar e-mail com dados para atualização cadastral,IMEDIATO,baixo
+03777851-PM-001,03777851,2026-07-20,PM5,Unificar códigos de gestor e criar novos usuários,NAO_DEFINIDO,baixo
+06115805-PM-001,06115805,2026-07-20,PM3,Mandar contato direto via WhatsApp,NAO_DEFINIDO,baixo
+SEMINFO_b2420257-d9ea-41e8-bdfb-fd86dead6e51-PM-001,SEMINFO_b2420257-d9ea-41e8-bdfb-fd86dead6e51,2026-07-20,PM2,Mandar link de redefinição de senha no WhatsApp,IMEDIATO,baixo
+07006805-PM-001,07006805,2026-07-20,PM2,Mandar e-mail e WhatsApp com contatos,NAO_DEFINIDO,baixo
+27518647-PM-001,27518647,2026-07-20,PM3,Dar um oi no WhatsApp com contato direto,IMEDIATO,baixo
+22296287-PM-001,22296287,2026-07-20,PM2,Encaminhar e-mail para o gestor,IMEDIATO,baixo
+10725697-PM-001,10725697,2026-07-20,PM2,Mandar e-mail com contato para o financeiro,NAO_DEFINIDO,baixo
+09430467-PM-001,09430467,2026-07-20,PM2,Mandar e-mail com contatos para Renata,NAO_DEFINIDO,baixo
+23871794-PM-001,23871794,2026-07-20,PM2,Mandar faturas e link de faturamento no WhatsApp,IMEDIATO,baixo
+SEMINFO_cf0f3f1a-0449-4c4e-96a9-986967b86dc4-PM-001,SEMINFO_cf0f3f1a-0449-4c4e-96a9-986967b86dc4,2026-07-20,PM5,Liberar cadastro e enviar cotação PJ,IMEDIATO,medio
+23086189-PM-001,23086189,2026-07-20,PM4,Avisar agência sobre viagem e mandar contato,IMEDIATO,baixo
+08522573-PM-001,08522573,2026-07-20,PM2,Enviar cotação detalhada via WhatsApp,IMEDIATO,baixo
+26685501-PM-001,26685501,2026-07-20,PM2,Enviar proposta de SUV via WhatsApp,15_MINUTOS,baixo
+24961767-PM-001,24961767,2026-07-20,PM5,Criar senha e enviar para biometria,IMEDIATO,baixo
+19073747-PM-001,19073747,2026-07-20,PM2,Mandar contato em Uberlândia via WhatsApp,NAO_DEFINIDO,baixo
+27158362-PM-001,27158362,2026-07-20,PM3,Enviar mensagem no WhatsApp para recordar contato,NAO_DEFINIDO,baixo
+15722872-PM-001,15722872,2026-07-20,PM1,Verificar disponibilidade de utilitário e valor,NAO_DEFINIDO,baixo
+SEMINFO_40da2ba8-f1b6-470e-8357-12fab7c3c8b4-PM-001,SEMINFO_40da2ba8-f1b6-470e-8357-12fab7c3c8b4,2026-07-20,PM3,Ligar novamente para o Cauã,2026-07-20 16:20,baixo
+11627363-PM-001,11627363,2026-07-20,PM2,Enviar WhatsApp com login e reset de senha,IMEDIATO,baixo
+11627363-PM-002,11627363,2026-07-20,PM5,Investigar cobrança indevida em outro segmento,NAO_DEFINIDO,medio
+26947106-PM-001,26947106,2026-07-20,PM1,Auxiliar na redefinição de senha e reserva em linha,IMEDIATO,baixo
+05429352-PM-001,05429352,2026-07-20,PM3,Retornar ligação para falar com Jonathan,40 minutos,baixo
+10320116-PM-001,10320116,2026-07-20,PM3,Chamar Rodrigo no WhatsApp para intermediar contato com diretor,IMEDIATO,baixo
+SEMINFO_5f722740-a471-48d0-b53d-e507412c1a64-PM-001,SEMINFO_5f722740-a471-48d0-b53d-e507412c1a64,2026-07-20,PM2,Enviar e-mail com dados para emissão de nota e link Webfácil,IMEDIATO,baixo
+27547921-PM-001,27547921,2026-07-20,PM2,Enviar cotações de HB20 manual e automático via WhatsApp,NAO_DEFINIDO,baixo
+10307595-PM-001,10307595,2026-07-20,PM2,Enviar instruções de acesso e login via WhatsApp,NAO_DEFINIDO,baixo
+24597222-PM-001,24597222,2026-07-20,PM5,Verificar disponibilidade do Compass com a agência,IMEDIATO,baixo
+27530803-PM-001,27530803,2026-07-20,PM2,Enviar e-mail com condições de carros de passeio e utilitários,NAO_DEFINIDO,baixo
+12967288-PM-001,12967288,2026-07-20,PM3,Enviar WhatsApp para o Mário Henrique,IMEDIATO,baixo
+SEMINFO_b8077ee2-c06a-4d03-8297-6fe0414a9155-PM-001,SEMINFO_b8077ee2-c06a-4d03-8297-6fe0414a9155,2026-07-20,PM1,Levantar procedimento de busca e apreensão e monitorar devoluções,NAO_DEFINIDO,medio
+17045502-PM-001,17045502,2026-07-20,PM2,Enviar valores de locação e orientação para atualizar cadastro,NAO_DEFINIDO,baixo
+16212769-PM-001,16212769,2026-07-20,PM4,Solicitar cancelamento de reserva no apoio venda,IMEDIATO,baixo
+13392613-PM-001,13392613,2026-07-20,PM1,Verificar erro de liberação no Webcorp após simulação do cliente,NAO_DEFINIDO,baixo
+08583763-PM-001,08583763,2026-07-20,PM2,Enviar WhatsApp com e-mail corporativo e acesso WebCorp,IMEDIATO,baixo
+12649150-PM-001,12649150,2026-07-20,PM5,Chamar responsável pelas reservas para validar retirada hoje,IMEDIATO,medio
+05839463-PM-001,05839463,2026-07-20,PM2,Enviar passo a passo de cancelamento via WhatsApp,IMEDIATO,baixo
+23674828-PM-001,23674828,2026-07-20,PM4,Passar contato do 0800 para contestação de fatura de step,IMEDIATO,baixo
+04820166-PM-001,04820166,2026-07-20,PM2,Incluir login da Vitória e enviar informações via WhatsApp,NAO_DEFINIDO,baixo
+25304411-PM-001,25304411,2026-07-20,PM4,Transferir ligação para o ramal da Fernanda,IMEDIATO,baixo
+13432961-PM-001,13432961,2026-07-20,PM3,Retornar ligação na semana que vem para falar com Samana,1 semana,baixo
+20219778-PM-001,20219778,2026-07-20,PM1,Vincular placa do veículo à tag de pedágio,IMEDIATO,baixo
+24756209-PM-001,24756209,2026-07-20,PM3,Chamar no WhatsApp para pegar número do novo responsável,IMEDIATO,baixo
+25312650-PM-001,25312650,2026-07-20,PM2,Enviar passo a passo para desbloqueio de perfil gestor,NAO_DEFINIDO,baixo
+14729183-PM-001,14729183,2026-07-20,PM2,Enviar login copiado via WhatsApp,IMEDIATO,baixo
+SEMINFO_2ff96233-d46e-4ca9-96a8-0f3faafd4271-PM-001,SEMINFO_2ff96233-d46e-4ca9-96a8-0f3faafd4271,2026-07-20,PM2,Enviar link para redefinição de senha e validar acesso,IMEDIATO,baixo
+07927735-PM-001,07927735,2026-07-20,PM2,Enviar detalhamento de faturas e tags via WhatsApp,IMEDIATO,baixo
+09362740-PM-001,09362740,2026-07-20,PM4,Pedir para executivo de pesados entrar em contato,NAO_DEFINIDO,baixo
+23947515-PM-001,23947515,2026-07-20,PM3,"Enviar ""alô"" no WhatsApp para manter contato",IMEDIATO,baixo
+23895760-PM-001,23895760,2026-07-20,PM2,Enviar e-mail com proposta de mensal fixo,NAO_DEFINIDO,baixo
+26034181-PM-001,26034181,2026-07-20,PM3,Chamar no WhatsApp para enviar contato e orcamento,Imediato,baixo
+26034181-PM-002,26034181,2026-07-20,PM4,Encaminhar para o setor de seminovos/condutor,Nao definido,medio
+07100006-PM-001,07100006,2026-07-20,PM1,"Enviar ""oi"" no WhatsApp para salvar contato",Imediato,baixo
+07725279-PM-001,07725279,2026-07-20,PM3,Ligar para o Robson no numero fornecido,Imediato,baixo
+08928836-PM-001,08928836,2026-07-20,PM5,Acionar TI e supervisao para resolver erro de acesso,Imediato,alto
+08928836-PM-002,08928836,2026-07-20,PM2,Solicitar reserva via e-mail para a supervisora,Imediato,medio
+12939940-PM-001,12939940,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp para formalizar proposta",Imediato,baixo
+24087305-PM-001,24087305,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp para suporte",Imediato,baixo
+23594156-PM-001,23594156,2026-07-20,PM2,Reenviar e-mail com dados de acesso PJ,Imediato,baixo
+SEMINFO_16b5bd7f-7083-4178-9edb-837a1e25aca9-PM-001,SEMINFO_16b5bd7f-7083-4178-9edb-837a1e25aca9,2026-07-20,PM5,Realizar contestacao interna de avaria de vidro,Nao definido,medio
+SEMINFO_16b5bd7f-7083-4178-9edb-837a1e25aca9-PM-002,SEMINFO_16b5bd7f-7083-4178-9edb-837a1e25aca9,2026-07-20,PM2,Enviar e-mail da assistencia para o cliente,Imediato,baixo
+15031504-PM-001,15031504,2026-07-20,PM2,Enviar regulamento do mensal fixo via WhatsApp,Imediato,baixo
+12288821-PM-001,12288821,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp para suporte",Imediato,baixo
+27549366-PM-001,27549366,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp e orcamento futuro",Imediato,baixo
+27262017-PM-001,27262017,2026-07-20,PM5,Pedir liberacao da reserva apos comprovante,Imediato,baixo
+19505928-PM-001,19505928,2026-07-20,PM2,Enviar instrucoes de reset de senha por e-mail,Imediato,baixo
+23654002-PM-001,23654002,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp para suporte direto",Imediato,baixo
+14138829-PM-001,14138829,2026-07-20,PM3,"Enviar ""oi"" no WhatsApp para negociacao futura",Imediato,baixo
+SEMINFO_ff4715b9-1980-4405-b053-cb279dea923a-PM-001,SEMINFO_ff4715b9-1980-4405-b053-cb279dea923a,2026-07-20,PM5,Simular recalculo de devolucao antecipada,30 minutos,baixo
+10511837-PM-001,10511837,2026-07-20,PM3,"Dar um ""oi"" no WhatsApp da Nubia",Imediato,baixo
+25711894-PM-001,25711894,2026-07-20,PM3,Enviar WhatsApp e ligar amanha,Amanha,baixo
+17898393-PM-001,17898393,2026-07-20,PM5,Verificar com Ismael transferencia de carro entre agencias,Imediato,medio
+SEMINFO_84ed127e-ef1e-4d16-9b93-f619b6daa157-PM-001,SEMINFO_84ed127e-ef1e-4d16-9b93-f619b6daa157,2026-07-20,PM5,Acionar time PJ para reativar cadastro da Finatec,Nao definido,medio
+12594273-PM-001,12594273,2026-07-20,PM2,Enviar e-mail com orcamento completo,Imediato,baixo
+03509063-PM-001,03509063,2026-07-20,PM3,Mandar mensagem para o Diego no WhatsApp,Imediato,baixo
+19117837-PM-001,19117837,2026-07-20,PM5,Melhorar condicao comercial e retornar ligacao,Amanha 10h,baixo
+05064694-PM-001,05064694,2026-07-20,PM2,Enviar e-mail para aprovação da Natália,hoje,baixo
+10392290-PM-001,10392290,2026-07-20,PM3,Enviar link de biometria no WhatsApp,hoje,baixo
+20140560-PM-001,20140560,2026-07-20,PM5,Negociar manutenção do valor atual com a gerência,hoje,medio
+07037884-PM-001,07037884,2026-07-20,PM3,Mandar WhatsApp para a responsável,hoje,baixo
+09049390-PM-001,09049390,2026-07-20,PM2,Mandar condições atuais e proteções inclusas,hoje,baixo
+10499992-PM-001,10499992,2026-07-20,PM3,Chamar no WhatsApp para salvar contato,hoje,baixo
+SEMINFO_846db4a1-PM-001,SEMINFO_846db4a1,2026-07-20,PM5,Verificar disponibilidade de categoria Lima Papa,até 18h,medio
+10648926-PM-001,10648926,2026-07-20,PM2,Enviar link de prorrogação de contrato,imediato,baixo
+10319554-PM-001,10319554,2026-07-20,PM3,Dar um oi no WhatsApp,hoje,baixo
+05660497-PM-001,05660497,2026-07-20,PM3,Dar um oi no WhatsApp para salvar número,hoje,baixo
+07998191-PM-001,07998191,2026-07-20,PM3,Chamar no WhatsApp para suporte,hoje,baixo
+26776952-PM-001,26776952,2026-07-20,PM4,Falar com Adriano para resolver erros de cobrança,hoje,medio
+13394347-PM-001,13394347,2026-07-21,PM3,Retornar ligação para Tassiana,após 10h,baixo
+SEMINFO_cf429883-PM-001,SEMINFO_cf429883,2026-07-20,PM2,Mandar login e link do WebCorp no WhatsApp,hoje,baixo
+11071378-PM-001,11071378,2026-07-20,PM2,Mandar login de acesso no WhatsApp,hoje,baixo
+18806156-PM-001,18806156,2026-07-20,PM5,Verificar disponibilidade de 12 veículos 4x4 em agências,hoje,alto
+15417601-PM-001,15417601,2026-07-20,PM3,Retornar ligação amanhã,amanhã,baixo
+15417601-PM-002,15417601,2026-07-21,PM3,Dar um oi no WhatsApp para Daniel,hoje,baixo
+00985582-PM-001,00985582,2026-07-21,PM2,Enviar plano mensal fixo por e-mail,hoje,baixo
+SEMINFO_57ac00ab-PM-001,SEMINFO_57ac00ab,2026-07-20,PM5,Verificar integração de seguros com PayTrack,amanhã,medio
+25564775-PM-001,25564775,2026-07-21,PM2,Mandar resumo das reservas por WhatsApp,hoje,baixo
+22264518-PM-001,22264518,2026-07-21,PM5,Acionar equipe para buscar carro do grupo GC,imediato,medio
+SEMINFO_b32d7b2f-PM-001,SEMINFO_b32d7b2f,2026-07-21,PM2,Avisar no WhatsApp quando reserva for criada,hoje,baixo
+08180861-PM-001,08180861,2026-07-21,PM5,Acionar time para confirmar disponibilidade da reserva,hoje,baixo
+23574494-PM-001,23574494,2026-07-21,PM2,Enviar valores de grupos Hatch e Sedan via WhatsApp,hoje,baixo
+10104056-PM-001,10104056,2026-07-21,PM4,Pedir para setor de Pesados ligar para a cliente,hoje,medio
+27547641-PM-001,27547641,2026-07-21,PM2,Mandar orientações de acesso à plataforma,hoje,baixo
+22092600-PM-001,22092600,2026-07-21,PM4,Transferir para atendimento do Localiza Meu,imediato,baixo
+19801842-PM-001,19801842,2026-07-21,PM2,Enviar cotação de carros híbridos,hoje,baixo
+27550020-PM-001,27550020,2026-07-21,PM5,Solicitar tentativa de retirada de restrição,hoje,alto
+10291058-PM-001,10291058,2026-07-21,PM2,Encaminhar link de atualização cadastral,hoje,baixo
+05661523-PM-001,05661523,2026-07-21,PM5,Solicitar prorrogação de faturas vencidas,hoje,medio
+04078567-PM-001,04078567,2026-07-21,PM3,Retornar ligação em 10 minutos,hoje,baixo
+00827296-PM-001,00827296,2026-07-21,PM2,Reenviar e-mail de apresentação,Imediato,baixo
+00827296-PM-002,00827296,2026-07-21,PM2,Enviar passo a passo WebCorp via WhatsApp,Imediato,baixo
+16860816-PM-001,16860816,2026-07-21,PM2,Enviar passo a passo de relatórios e relatório em anexo,Imediato,baixo
+24947439-PM-001,24947439,2026-07-21,PM2,Enviar proposta comercial via WhatsApp,Imediato,baixo
+00863716-PM-001,00863716,2026-07-21,PM3,Retornar ligação em 10 minutos,10 minutos,baixo
+00863716-PM-002,00863716,2026-07-21,PM2,Chamar no WhatsApp para orientar sobre assistência,Imediato,baixo
+02088192-PM-001,02088192,2026-07-21,PM2,Enviar mensagem por e-mail para Vanessa,Imediato,baixo
+12874118-PM-001,12874118,2026-07-21,PM3,Cliente retornará após falar com colega,Imediato,baixo
+23706277-PM-001,23706277,2026-07-21,PM3,Vendedor retornará em 1 hora,1 hora,baixo
+7dcea14a-302e-43c0-9ea4-2fd6469af1c4-PM-001,7dcea14a-302e-43c0-9ea4-2fd6469af1c4,2026-07-21,PM5,Levar caso de excesso de KM para gerência,Hoje,medio
+20158022-PM-001,20158022,2026-07-21,PM2,Enviar WhatsApp com documentos para novo acesso,Imediato,baixo
+04686735-PM-001,04686735,2026-07-21,PM2,Reencaminhar e-mail com link de atualização,Imediato,baixo
+27551698-PM-001,27551698,2026-07-21,PM4,Solicitar contato do time de gestão de frotas,Sem prazo,baixo
+27551698-PM-002,27551698,2026-07-21,PM3,Chamar no WhatsApp quando cliente chegar no escritório,Hoje,baixo
+13669767-PM-001,13669767,2026-07-21,PM2,Mandar mensagem de apresentação no celular,Imediato,baixo
+27204548-PM-001,27204548,2026-07-21,PM6,Acompanhar sinalização de reserva no sistema,Imediato,baixo
+24455244-PM-001,24455244,2026-07-21,PM2,Chamar no WhatsApp para salvar contato,Imediato,baixo
+18983382-PM-001,18983382,2026-07-21,PM3,Retornar ligação entre 10h e 11h,Hoje,baixo
+23730161-PM-001,23730161,2026-07-21,PM2,"Mandar ""Oi"" no WhatsApp",Imediato,baixo
+26837762-PM-001,26837762,2026-07-21,PM4,Encaminhar contato para gestão de frotas,Hoje,baixo
+26152089-PM-001,26152089,2026-07-21,PM2,Chamar no WhatsApp para coletar dados faltantes,Imediato,baixo
+14979017-PM-001,14979017,2026-07-21,PM2,"Dar um ""Oi"" no WhatsApp",Imediato,baixo
+6effa814-5af6-4099-ae1e-caaea2bebace-PM-001,6effa814-5af6-4099-ae1e-caaea2bebace,2026-07-21,PM2,Enviar cotação solicitada,Imediato,baixo
+23399394-PM-001,23399394,2026-07-21,PM2,Enviar simulação de caminhonete via WhatsApp,Imediato,baixo
+26579230-PM-001,26579230,2026-07-21,PM2,"Mandar ""Oi"" no WhatsApp",Imediato,baixo
+03654576-PM-001,03654576,2026-07-21,PM2,Enviar invite de reunião para sexta-feira,Hoje,baixo
+2c026be3-d713-4230-b697-e8bf30a1208b-PM-001,2c026be3-d713-4230-b697-e8bf30a1208b,2026-07-21,PM2,"Mandar ""Oi"" no WhatsApp com apresentação",Imediato,baixo
+06487664-PM-001,06487664,2026-07-21,PM2,Enviar link de validação e chamar no WhatsApp,Imediato,baixo
+08865579-PM-001,08865579,2026-07-21,PM2,Responder e-mail de boas-vindas com contatos,Imediato,baixo
+17083389-PM-001,17083389,2026-07-21,PM1,Ajustar limite de crédito durante a ligação,Imediato,baixo
+13637782-PM-001,13637782,2026-07-21,PM2,Enviar propostas e tentar conseguir documento do carro,Imediato,medio
+07829430-PM-001,07829430,2026-07-21,PM2,Enviar proposta de carro elétrico,Imediato,baixo
+08519192-PM-001,08519192,2026-07-21,PM2,Mandar WhatsApp para Patrícia,Imediato,baixo
+23883637-PM-001,23883637,2026-07-21,PM3,Vendedor retornará em outra hora,Sem prazo,baixo
+25516327-PM-001,25516327,2026-07-21,PM2,Enviar cotação de veículo zero e seminovo,Imediato,baixo
+06964759-PM-001,06964759,2026-07-21,PM2,Enviar reset de senha por e-mail,Imediato,baixo
+06964759-PM-002,06964759,2026-07-21,PM3,Chamar no WhatsApp para suporte,Imediato,baixo
+03612194-PM-001,03612194,2026-07-21,PM2,Enviar contato do consultor regional via WhatsApp,Hoje,baixo
+25700064-PM-001,25700064,2026-07-21,PM2,Enviar link de validação de cadastro (Trust),Imediato,baixo
+08018437-PM-001,08018437,2026-07-21,PM2,Formalizar dados da placa e troca por e-mail,Imediato,baixo
+17b25d57-PM-001,17b25d57,2026-07-21,PM2,Encaminhar proposta/e-mail para o Felipe,Hoje,baixo
+fe9fd2b1-PM-001,fe9fd2b1,2026-07-21,PM3,Responder e-mail sobre problema com pneus,Hoje,medio
+03389055-PM-001,03389055,2026-07-21,PM5,Acionar time interno para verificar baixa de pagamento,Após envio comprovante,baixo
+04838962-PM-001,04838962,2026-07-21,PM2,Enviar cotação detalhada via WhatsApp,Imediato,baixo
+14794902-PM-001,14794902,2026-07-21,PM5,Configurar data fixa de vencimento para dia 05,2 dias,baixo
+24711659-PM-001,24711659,2026-07-21,PM2,Enviar lista de contratos e coberturas via WhatsApp,Hoje,baixo
+23975714-PM-001,23975714,2026-07-21,PM3,Dar um oi no WhatsApp para salvar contato,Hoje,baixo
+e84686a6-PM-001,e84686a6,2026-07-21,PM5,Intervir internamente para liberar dÃ©bito/carro,Imediato,baixo
+18614969-PM-001,18614969,2026-07-21,PM3,Chamar no WhatsApp para suporte em setembro,Setembro,baixo
+03021913-PM-001,03021913,2026-07-21,PM3,Retornar após verificar falha no envio do e-mail,Hoje,baixo
+10817290-PM-001,10817290,2026-07-21,PM2,Enviar e-mail com orientações de acesso e cadastro,Hoje,baixo
+27065607-PM-001,27065607,2026-07-21,PM5,Acompanhar pedido de parcelamento/prorrogação interno,Hoje,medio
+05611340-PM-001,05611340,2026-07-21,PM3,Chamar no WhatsApp para enviar cotação,Hoje,baixo
+27555542-PM-001,27555542,2026-07-21,PM2,Responder e-mail com cotações de blindados e estrada,Hoje,baixo
+11079631-PM-001,11079631,2026-07-21,PM2,Enviar contatos por e-mail,Hoje,baixo
+05115345-PM-001,05115345,2026-07-21,PM3,Chamar no WhatsApp para suporte interno,Hoje,baixo
+23894152-PM-001,23894152,2026-07-21,PM2,Enviar e-mail para alinhar data de substituição,Hoje,baixo
+03829988-PM-001,03829988,2026-07-21,PM2,Enviar cotação de sedãs executivos,Hoje,baixo
+21582544-PM-001,21582544,2026-07-21,PM3,Enviar mensagem no WhatsApp para o Carlos,Hoje,baixo
+993f68e6-PM-001,993f68e6,2026-07-21,PM5,Realizar testes de alteração no sistema,Hoje,baixo
+SEMINFO_27607da6-PM-001,SEMINFO_27607da6-8b1a-475e-9300-a5697aa757cd,2026-07-21,PM3,Vendedor ligará para assistente Estela,Imediato,baixo
+19790410-PM-001,19790410,2026-07-21,PM3,Vendedor chamará no WhatsApp para enviar contato,Hoje,baixo
+17083343-PM-001,17083343,2026-07-21,PM2,Enviar e-mail com dados para atualização de gestor,Hoje,baixo
+SEMINFO_7140e625-PM-001,SEMINFO_7140e625-f912-41a4-9082-348835bd3ed1,2026-07-21,PM5,Criar segundo código com 10% de comissão,Hoje,baixo
+SEMINFO_7140e625-PM-002,SEMINFO_7140e625-f912-41a4-9082-348835bd3ed1,2026-07-21,PM2,Enviar e-mail para ajustar fluxo de pagamento,Hoje,baixo
+07031944-PM-001,07031944,2026-07-21,PM2,Enviar checklist de viabilidade de frota por WhatsApp,Hoje,baixo
+06422553-PM-001,06422553,2026-07-21,PM2,Enviar endereços de agências corporativas por WhatsApp,Imediato,baixo
+03076903-PM-001,03076903,2026-07-21,PM3,Enviar mensagem de apresentação no WhatsApp da empresa,Imediato,baixo
+02505874-PM-001,02505874,2026-07-21,PM3,Chamar cliente no WhatsApp para suporte,Hoje,baixo
+27556112-PM-001,27556112,2026-07-21,PM2,Encaminhar link de redefinição de senha por e-mail,Imediato,baixo
+22615326-PM-001,22615326,2026-07-21,PM2,Enviar arquivo PDF com tabela de grupos e preços,Hoje,baixo
+03595079-PM-001,03595079,2026-07-21,PM2,Enviar passo a passo da WebCorp por WhatsApp,Hoje,baixo
+05806556-PM-001,05806556,2026-07-21,PM4,Verificar disponibilidade de S10 com agência Ouro Preto,Imediato,medio
+16819050-PM-001,16819050,2026-07-21,PM3,Dar um oi no WhatsApp para o novo gestor Gabriel,Hoje,baixo
+26856022-PM-001,26856022,2026-07-21,PM2,Enviar link de validação de identidade para o sócio,Imediato,baixo
+03113236-PM-001,03113236,2026-07-21,PM2,Reforçar contatos por e-mail e WhatsApp,Hoje,baixo
+16905668-PM-001,16905668,2026-07-21,PM3,Dar um oi no WhatsApp para reforçar contato,Hoje,baixo
+27558011-PM-001,27558011,2026-07-21,PM2,Enviar condições cotadas e limite de crédito por WhatsApp,Hoje,baixo
+22585193-PM-001,22585193,2026-07-21,PM5,Isentar multa mencionada pela cliente,Hoje,baixo
+14637022-PM-001,14637022,2026-07-21,PM3,Mandar um oi no WhatsApp para salvar contato,Hoje,baixo
+22906020-PM-001,22906020,2026-07-21,PM3,Mandar mensagem no WhatsApp para auxiliar na reserva,Hoje,baixo
+25501064-PM-001,25501064,2026-07-21,PM5,Verificar internamente diferença de preço PF vs PJ,Hoje,medio
+27559432-PM-001,27559432,2026-07-21,PM2,Enviar link de validação de empresa por WhatsApp,Imediato,baixo
+14963527-PM-001,14963527,2026-07-21,PM5,Pedir aplicação de desconto no CNPJ para reserva,Hoje,baixo
+26644221-PM-001,26644221,2026-07-21,PM2,Gerar link manual de redefinição de senha no WhatsApp,Imediato,baixo
+26209812-PM-001,26209812,2026-07-21,PM2,Mandar site do portal de faturamento por WhatsApp,Hoje,baixo
+06345180-PM-001,06345180,2026-07-21,PM2,Enviar cotação de Argo 1.0 por WhatsApp,Hoje,baixo
+15766449-PM-001,15766449,2026-07-21,PM2,Enviar e-mail para a gestora Lúcia,Hoje,baixo
+27339410-PM-001,27339410,2026-07-21,PM5,Abrir chamado para retirar inconsistência de CPF,30 minutos,baixo
+02065090-PM-001,02065090,2026-07-21,PM2,Enviar e-mail detalhando coberturas de seguro,Hoje,baixo
+06821416-PM-001,06821416,2026-07-21,PM5,Acompanhar liberação de limite e confirmação de reserva,Hoje,medio
+09283622-PM-001,09283622,2026-07-21,PM1,Realizar prorrogação de contrato no sistema,Imediato,baixo
+19367157-PM-001,19367157,2026-07-21,PM3,Inativar acesso do gestor após confirmação,Indefinido,baixo
+05418468-PM-001,05418468,2026-07-21,PM2,Enviar passo a passo para aprovação de acesso via WhatsApp,Hoje,baixo
+05723138-PM-001,05723138,2026-07-21,PM2,Gerar e enviar link de validação de sócio via WhatsApp,Hoje,baixo
+23616847-PM-001,23616847,2026-07-21,PM2,Enviar login e cotações de SUV via WhatsApp,Hoje,baixo
+02758096-PM-001,02758096,2026-07-21,PM2,Enviar proposta de mensal fixo 12 meses,Hoje,baixo
+02758096-PM-002,02758096,2026-07-21,PM4,Indicar cliente para Localiza Meoo (assinatura),Hoje,baixo
+27557310-PM-001,27557310,2026-07-21,PM5,Solicitar liberação de acesso para nova conta,Hoje,baixo
+SEMINFO_3f8ea715-3d3f-4d42-85db-44d9142e2fd3-PM-001,SEMINFO_3f8ea715-3d3f-4d42-85db-44d9142e2fd3,2026-07-21,PM5,Cobrar setor de comissões sobre divergência de valores,Hoje,medio
+03416593-PM-001,03416593,2026-07-21,PM2,Liberar acesso ao portal de faturas para nova gestora,Hoje,baixo
+01739776-PM-001,01739776,2026-07-21,PM3,Retornar ligação para conversar com calma,Amanhã,baixo
+SEMINFO_6352c7af-PM-001,SEMINFO_6352c7af-0f3e-4a30-9697-a229c689f190,2026-07-21,PM3,Vendedor ligará em uma hora para falar com o decisor,1 hora,baixo
+25974529-PM-001,25974529,2026-07-21,PM2,Enviar link do WebCorp e auxiliar na reserva,imediato,baixo
+21539920-PM-001,21539920,2026-07-21,PM5,Analisar cobertura de proposta da concorrência e enviar e-mail,NAO_DEFINIDO,medio
+24709238-PM-001,24709238,2026-07-21,PM2,Enviar e-mail com contatos comerciais,NAO_DEFINIDO,baixo
+12713456-PM-001,12713456,2026-07-21,PM3,Enviar mensagem no WhatsApp para salvar contato,imediato,baixo
+25909298-PM-001,25909298,2026-07-21,PM4,Solicitar que a executiva Fernanda entre em contato sobre faturas,urgente,medio
+10646527-PM-001,10646527,2026-07-21,PM2,Enviar contatos por WhatsApp e e-mail,imediato,baixo
+27557223-PM-001,27557223,2026-07-21,PM2,Enviar link para criação de senha via WhatsApp,imediato,baixo
+00708084-PM-001,00708084,2026-07-21,PM2,Enviar cotação de locação anual escalonada por KM,NAO_DEFINIDO,baixo
+18035877-PM-001,18035877,2026-07-21,PM4,Solicitar reserva à central e enviar passo a passo de senha,imediato,baixo
+19645948-PM-001,19645948,2026-07-21,PM3,"Enviar ""oi"" no WhatsApp para salvar contato",imediato,baixo
+01226627-PM-001,01226627,2026-07-21,PM4,Solicitar que o setor de Gestão de Frotas entre em contato,NAO_DEFINIDO,medio
+27559346-PM-001,27559346,2026-07-21,PM3,Chamar no WhatsApp para suporte à WebCorp,amanhã,baixo
+06857166-PM-001,06857166,2026-07-21,PM1,Alterar e-mail no cadastro do cliente,imediato,baixo
+SEMINFO_7ba44b1e-PM-001,SEMINFO_7ba44b1e-1cb3-4ffa-8c6c-75907f8cac78,2026-07-21,PM3,Cobrar superior sobre caso de Rondonópolis e retornar,20 minutos,alto
+00957061-PM-001,00957061,2026-07-21,PM3,Enviar mensagem no WhatsApp corporativo,imediato,baixo
+27219200-PM-001,27219200,2026-07-21,PM3,Enviar mensagem no WhatsApp com contatos,imediato,baixo
+23923687-PM-001,23923687,2026-07-21,PM3,Enviar login e informações via WhatsApp,imediato,baixo
+07232662-PM-001,07232662,2026-07-21,PM2,Reenviar e-mail de comunicado de reajuste,imediato,baixo
+27559731-PM-001,27559731,2026-07-21,PM3,Chamar no WhatsApp para completar dados cadastrais,imediato,baixo
+07732794-PM-001,07732794,2026-07-21,PM2,Enviar informações por e-mail para a nova gestora,imediato,baixo
+18814872-PM-001,18814872,2026-07-21,PM3,Enviar mensagem no WhatsApp para salvar contato,Imediato,baixo
+17086284-PM-001,17086284,2026-07-21,PM5,Migrar cadastro para carteira do vendedor e enviar cotação,Assim que migrar,medio
+19485297-PM-001,19485297,2026-07-21,PM2,Enviar e-mail com contatos para Paola e Luiza,Breve,baixo
+11401598-PM-001,11401598,2026-07-21,PM3,Ligar novamente para falar com Laureta,Amanhã,baixo
+15641322-PM-001,15641322,2026-07-21,PM2,Ajustar e-mail e login do gestor no portal,Após a ligação,baixo
+26054336-PM-001,26054336,2026-07-21,PM4,Encaminhar demanda de caminhão para equipe responsável,Não definido,medio
+02751242-PM-001,02751242,2026-07-21,PM3,Acompanhar inclusão de condutor via WhatsApp,Imediato,baixo
+27559692-PM-001,27559692,2026-07-21,PM3,Chamar no WhatsApp para enviar contatos,Imediato,baixo
+10457512-PM-001,10457512,2026-07-21,PM3,Mandar mensagem no WhatsApp para Fernanda,Imediato,baixo
+23241331-PM-001,23241331,2026-07-21,PM2,Enviar link de atualização cadastral e biometria,Imediato,baixo
+14309903-PM-001,14309903,2026-07-21,PM5,Alterar faixa de taxa da empresa no sistema,Imediato,medio
+08467900-PM-001,08467900,2026-07-21,PM2,Enviar cotação de Fortaleza por e-mail,Imediato,baixo
+27558773-PM-001,27558773,2026-07-21,PM3,Enviar propostas detalhadas via WhatsApp,Hoje,baixo
+17255669-PM-001,17255669,2026-07-21,PM2,Enviar cotação de picape e polo via WhatsApp,Imediato,baixo
+00342331-PM-001,00342331,2026-07-21,PM3,Ligar novamente para falar com Dionísio,Amanhã às 08h,baixo
+27556006-PM-001,27556006,2026-07-21,PM2,Enviar e-mail de apresentação com contatos,Imediato,baixo
+25799346-PM-001,25799346,2026-07-21,PM4,Solicitar orçamento de carro por assinatura para o responsável,Breve,medio
+27409896-PM-001,27409896,2026-07-21,PM3,Chamar no WhatsApp para enviar valores de mensal,Imediato,baixo
+23867395-PM-001,23867395,2026-07-21,PM3,Mandar oi no WhatsApp para Josias,Imediato,baixo
+26893405-PM-001,26893405,2026-07-21,PM3,Chamar no WhatsApp para salvar contato,Imediato,baixo
+17786499-PM-001,17786499,2026-07-21,PM3,Enviar áudio explicativo e acompanhar aprovação,Imediato,baixo
+24369097-PM-001,24369097,2026-07-21,PM3,Chamar no WhatsApp para auxiliar em viagem futura,Imediato,baixo
+08046447-PM-001,08046447,2026-07-21,PM2,Enviar e-mail solicitando documentos para novo cadastro,Imediato,baixo
+26903087-PM-001,26903087,2026-07-21,PM5,Modificar tarifas no sistema para o cliente,30 minutos,medio
+08058504-PM-001,08058504,2026-07-21,PM3,Mandar mensagem no WhatsApp para André,Imediato,baixo
+14963882-PM-001,14963882,2026-07-21,PM3,Mandar WhatsApp para Alexandre,Imediato,baixo
+27559106-PM-001,27559106,2026-07-21,PM3,Vincular login e chamar no WhatsApp para senha,10 minutos,baixo
