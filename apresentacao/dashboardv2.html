@@ -607,7 +607,7 @@ tbody tr:hover td{background:var(--bg-dn)}
   </nav>
 
   <div class="sfoot">
-    <div class="sft">Análise completa · 1.275 ligações<br>Junho 2026</div>
+    <div class="sft">Análise completa · 13.264 ligações<br>Junho–Julho 2026</div>
   </div>
 </aside>
 
@@ -624,7 +624,7 @@ tbody tr:hover td{background:var(--bg-dn)}
     </div>
     <div class="top-badge">
       <span class="top-dot"></span>
-      Análise completa · 30/06/2026
+      Análise completa · 27/07/2026 (pipeline diário)
     </div>
     <div class="tdiv"></div>
     <button class="bicon" onclick="toggleTheme()" id="tbtn" title="Alternar tema">🌙</button>
@@ -639,12 +639,11 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="story">
         <div>
-          <div class="story-eye">Diagnóstico · Base piloto, Junho 2026 (R$ ainda não recalculado na base combinada)</div>
-          <div class="story-h">44,8% das ligações encerram sem data.<br><span class="tip" data-tip="IA estimou valor potencial de cada OP com base no contexto da ligação (frota, produto, contrato). Composição: OP6 R$23.410 + OP7 R$3.600 + OP1 R$800 + outros = R$28.490. Estimativa — não é receita confirmada.">R$28.490/mês</span> em oportunidades não tentadas.</div>
+          <div class="story-eye">Diagnóstico original · Base piloto, Junho 2026 (marco histórico do projeto — ver números combinados abaixo)</div>
+          <div class="story-h">44,8% das ligações encerram sem data.<br><span class="tip" data-tip="IA identificou oportunidades comerciais não aproveitadas em cada ligação, com base no contexto (frota, produto, contrato). Concentradas em OP6, OP7 e OP1.">Oportunidades comerciais não tentadas</span> em volume relevante.</div>
           <div class="story-sub">Em 44,8% das ligações, o encerramento foi "qualquer coisa me chama" — sem data, sem próximo passo, sem comprometimento. O pipeline está sendo gerenciado pela memória do vendedor.</div>
           <div class="story-stats">
             <div><div class="story-sv">1.275</div><div class="story-sl">Ligações analisadas</div></div>
-            <div><div class="story-sv">R$28,5k</div><div class="story-sl">Oportunidades perdidas/mês</div></div>
             <div><div class="story-sv">9%</div><div class="story-sl">Ligações com prazo definido</div></div>
           </div>
         </div>
@@ -653,13 +652,13 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="alert ok" style="margin-bottom:16px">
         <span class="a-ico">🆕</span>
-        <span><strong>Atualizado em 09/07/2026:</strong> P1_P2 e P5_P6 (desfecho, B1-B10, Challenger, oportunidades) agora cobrem 99,6%/96,5% das <strong>6.623 ligações combinadas</strong> (1.275 da base piloto + 5.348 do lote seguinte) — deixou de ser análise só da base piloto. P9_P10 (abertura/fechamento, promessas) ainda cobre 33,8% do total, em processamento — números que dependem dele continuam refletindo só a base piloto. Ver <code>analises/analise_recalculo_base_combinada_6623.md</code>.</span>
+        <span><strong>Atualizado em 27/07/2026:</strong> a base agora inclui Julho — <strong>13.264 ligações combinadas</strong> (6.623 de junho + 6.641 de julho, 01–27/07, pipeline diário incremental). P1_P2 e P5_P6 (desfecho, B1-B10, Challenger, oportunidades) cobrem 99,1% da base (13.144 de 13.264 com desfecho resolvido) — deixou de ser análise só de junho. P9_P10 (abertura/fechamento, promessas) cobre 80,3% do total (10.647 de 13.264): junho 100% completo, julho 64% processado e rodando diariamente — números que dependem dele (AB1–5, FC1–5, PM1–6) estão marcados como <strong>provisórios</strong> e se atualizam sozinhos conforme o pipeline completa.</span>
       </div>
       <div class="alert info" style="margin-bottom:16px">
         <span class="a-ico">ℹ️</span>
-        <span><strong>Base de análise:</strong> 6.623 ligações combinadas, junho–julho de 2026 (1.275 base piloto + 5.348 novo lote). A taxa de fechamento caiu de 7,0% (só base piloto) para 5,1% na base combinada — o novo lote fecha proporcionalmente 33% menos. Causa ainda em investigação (sazonalidade, mix de carteiras ou política comercial).</span>
+        <span><strong>Base de análise:</strong> 13.264 ligações combinadas, junho–julho de 2026 (6.623 de junho + 6.641 de julho). A taxa de fechamento é 5,22% na base combinada total (686/13.144 resolvidos) — 5,11% em junho e 5,33% em julho, ambas abaixo dos 7,0% da base piloto original (89/1.275, só junho). Causa da queda vs. piloto ainda em investigação (sazonalidade, mix de carteiras ou política comercial).</span>
       </div>
-      <div class="sec-lbl mb16">Visão geral — 6.623 ligações · junho–julho de 2026</div>
+      <div class="sec-lbl mb16">Visão geral — 13.264 ligações · junho–julho de 2026</div>
       <div class="kpi-grid">
 
         <div class="kpi">
@@ -668,10 +667,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Ligações analisadas</span>
             <div class="kpi-ico" style="background:rgba(120,222,31,.1)">📞</div>
           </div>
-          <div class="kpi-val">6.623</div>
-          <div class="kpi-sub">1.275 base piloto + 5.348 novo lote</div>
-          <span class="kpi-trend nu">Junho–julho 2026 · P1/P2/P5/P6 completos</span>
-          <div class="kpi-hint">Análise com IA (99,6%/96,5%) + scoring automático Python (100%)</div>
+          <div class="kpi-val">13.264</div>
+          <div class="kpi-sub">6.623 junho + 6.641 julho</div>
+          <span class="kpi-trend nu">Junho–julho 2026 · P1/P2/P5/P6 completos (99,1%)</span>
+          <div class="kpi-hint">Análise com IA (99,1% resolvido) + scoring automático Python (100%)</div>
         </div>
 
         <div class="kpi">
@@ -680,10 +679,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Taxa de fechamento</span>
             <div class="kpi-ico" style="background:var(--ok-bg)">✅</div>
           </div>
-          <div class="kpi-val">5,1%</div>
-          <div class="kpi-sub">337 fechamentos em 6.594 ligações (era 7,0% na base piloto)</div>
-          <span class="kpi-trend up">↑ Confirmado por IA · base combinada</span>
-          <div class="kpi-hint">B5 (upsell conectado à dor) eleva em +7,1pp quando aplicado</div>
+          <div class="kpi-val">5,22%</div>
+          <div class="kpi-sub">686 fechamentos em 13.144 ligações resolvidas (era 7,0% na base piloto)</div>
+          <span class="kpi-trend up">↑ Confirmado por IA · base combinada junho+julho</span>
+          <div class="kpi-hint">B5 (upsell conectado à dor) eleva em +8,4pp quando aplicado</div>
         </div>
 
         <div class="kpi">
@@ -692,10 +691,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Sem pergunta comercial</span>
             <div class="kpi-ico" style="background:var(--err-bg)">⚠️</div>
           </div>
-          <div class="kpi-val">57,4%</div>
-          <div class="kpi-sub">3.785 de 6.594 — suporte, operacional, prospecção sem tração</div>
+          <div class="kpi-val">59,2%</div>
+          <div class="kpi-sub">7.778 de 13.144 — suporte, operacional, prospecção sem tração</div>
           <span class="kpi-trend dn">↓ Capacidade desperdiçada</span>
-          <div class="kpi-hint">OP1: 2.551 oportunidades — ligação encerra sem nenhuma sondagem (39,9% de todas as ligações com P6 mapeado)</div>
+          <div class="kpi-hint">OP1: 3.384 oportunidades — ligação encerra sem nenhuma sondagem (35,5% de todas as ligações com P6 mapeado)</div>
         </div>
 
         <div class="kpi">
@@ -704,10 +703,10 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="kpi-lbl">Alto potencial</span>
             <div class="kpi-ico" style="background:var(--warn-bg)">🎯</div>
           </div>
-          <div class="kpi-val">5,6%</div>
-          <div class="kpi-sub">368 ligações com score ≥ 20/30 (base combinada)</div>
+          <div class="kpi-val">3,68%</div>
+          <div class="kpi-sub">488 ligações com score ≥ 20/30 (base combinada, 13.264)</div>
           <span class="kpi-trend nu">Identificadas · scoring Python</span>
-          <div class="kpi-hint">Na base piloto (84 ligações desse perfil), 92,9% criaram urgência com fato real (B6)</div>
+          <div class="kpi-hint">Na base piloto (84 ligações desse perfil, histórico), 92,9% criaram urgência com fato real (B6)</div>
         </div>
 
       </div>
@@ -716,7 +715,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Desfechos das Ligações</div><div class="card-st">IA · 6.594 ligações (base combinada) · P1_P2 · 99,6% cobertura</div></div>
+            <div><div class="card-t">Desfechos das Ligações</div><div class="card-st">IA · 13.144 ligações resolvidas (base combinada) · P1_P2 · 99,1% cobertura</div></div>
             <span class="card-bdg">P1_P2 ✓</span>
           </div>
           <canvas id="cDesfecho" height="220"></canvas>
@@ -724,13 +723,13 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="g2">
               <div class="abox pos">
                 <div class="at">✓ Maior diferencial positivo</div>
-                <div class="ai"><span class="app">+7,1pp</span><span class="ad"><strong>B5 — Upsell conectado à dor</strong> (16,6% vs 9,6%)</span></div>
-                <div class="ai"><span class="app">+2,9pp</span><span class="ad"><strong>B3 — Usou histórico do cliente</strong> (11,9% vs 9,0%)</span></div>
+                <div class="ai"><span class="app">+8,4pp</span><span class="ad"><strong>B5 — Upsell conectado à dor</strong> (16,9% vs 8,5%)</span></div>
+                <div class="ai"><span class="app">+2,2pp</span><span class="ad"><strong>B3 — Usou histórico do cliente</strong> (18,5% vs 16,3%)</span></div>
               </div>
               <div class="abox neg">
                 <div class="at">✗ Hipóteses revisadas — timing é a chave</div>
-                <div class="ai"><span class="app">−10,5pp</span><span class="ad"><strong>B10</strong> — perguntar sobre concorrente/frota é negativo pra fechamento imediato (5,3% vs 15,9%)</span></div>
-                <div class="ai"><span class="app">−6,5pp</span><span class="ad"><strong>B8</strong> — ligação proativa é pipeline, não fechamento imediato (4,2% vs 10,7%)</span></div>
+                <div class="ai"><span class="app">−12,1pp</span><span class="ad"><strong>B10</strong> — perguntar sobre concorrente/frota é negativo pra fechamento imediato (4,8% vs 16,9%)</span></div>
+                <div class="ai"><span class="app">−14,2pp</span><span class="ad"><strong>B8</strong> — ligação proativa é pipeline, não fechamento imediato (7,1% vs 21,4%)</span></div>
               </div>
             </div>
           </div>
@@ -738,15 +737,15 @@ tbody tr:hover td{background:var(--bg-dn)}
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Distribuição de Potencial</div><div class="card-st">Scoring automático Python · 6.623 ligações (1.275 originais + 5.348 novo lote) · Score 0–30</div></div>
+            <div><div class="card-t">Distribuição de Potencial</div><div class="card-st">Scoring automático Python · 13.264 ligações (base combinada junho+julho) · Score 0–30</div></div>
             <span class="card-bdg">Scoring ✓</span>
           </div>
           <canvas id="cScoring" height="160"></canvas>
           <div class="mt16">
-            <div class="trow"><span class="tlbl" style="color:var(--brand-fg);font-weight:800">ALTO ≥20</span><div class="twrap"><div class="tbar" style="width:14.8%;background:var(--brand)"></div></div><span class="tcnt">368 <strong>(5,6%)</strong></span></div>
-            <div class="trow"><span class="tlbl" style="color:var(--ok)">MÉDIO 13–19</span><div class="twrap"><div class="tbar" style="width:60.6%;background:var(--ok)"></div></div><span class="tcnt">1.502 <strong>(22,7%)</strong></span></div>
-            <div class="trow"><span class="tlbl" style="color:var(--fg-2)">BAIXO 7–12</span><div class="twrap"><div class="tbar" style="width:100%;background:#9AA5B4"></div></div><span class="tcnt">2.480 <strong>(37,4%)</strong></span></div>
-            <div class="trow"><span class="tlbl" style="color:var(--err)">SEM POTENCIAL</span><div class="twrap"><div class="tbar" style="width:91.7%;background:var(--border-2)"></div></div><span class="tcnt">2.273 <strong>(34,3%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--brand-fg);font-weight:800">ALTO ≥20</span><div class="twrap"><div class="tbar" style="width:8.2%;background:var(--brand)"></div></div><span class="tcnt">488 <strong>(3,68%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--ok)">MÉDIO 13–19</span><div class="twrap"><div class="tbar" style="width:39.7%;background:var(--ok)"></div></div><span class="tcnt">2.365 <strong>(17,83%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--fg-2)">BAIXO 7–12</span><div class="twrap"><div class="tbar" style="width:74.8%;background:#9AA5B4"></div></div><span class="tcnt">4.456 <strong>(33,59%)</strong></span></div>
+            <div class="trow"><span class="tlbl" style="color:var(--err)">SEM POTENCIAL</span><div class="twrap"><div class="tbar" style="width:100%;background:var(--border-2)"></div></div><span class="tcnt">5.955 <strong>(44,90%)</strong></span></div>
           </div>
         </div>
 
@@ -765,9 +764,9 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="badge b-err">Crítico</span>
           </div>
           <div class="ic-body">
-            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">PM2 "vou te mandar no WhatsApp" representa 56,2% (684/1.216) de todas as promessas — quase sempre sem prazo</span></div>
-            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">O vendedor encerra sem data concreta. Prazo definido: apenas 9,0% das ligações (116/1.296)</span></div>
-            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">FC3 "qualquer coisa me chama": 44,8% (580/1.296) · FC1 compromisso duplo: 31,9% · Base: 23 batches</span></div>
+            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">PM2 "vou te mandar no WhatsApp" representa 51,9% (4.433/8.534) de todas as promessas — quase sempre sem prazo <em>(provisório — julho 64% processado)</em></span></div>
+            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">O vendedor encerra sem data concreta. Prazo definido: apenas 10,0% das ligações (1.065/10.647)</span></div>
+            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">FC3 "qualquer coisa me chama": 37,3% (3.969/10.647) · FC1 compromisso duplo: 29,0% (3.087/10.647) · Base: junho completo + julho 64% (provisório)</span></div>
           </div>
           <div class="ic-act">
             <span class="ic-arr">→</span>
@@ -782,9 +781,9 @@ tbody tr:hover td{background:var(--bg-dn)}
             <span class="badge b-warn">Alta</span>
           </div>
           <div class="ic-body">
-            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">57,1% das ligações são suporte puro — biometria, senha, onboarding. Score comercial = 0</span></div>
-            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">OP1: 375 ocorrências — ligação encerra sem nenhuma pergunta comercial (42,9% de todas as OPs)</span></div>
-            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">728 de 1.275 ligações = "não era venda" nos 23 batches. Biometria com falha: recorrente em 10+ clientes</span></div>
+            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">59,2% das ligações são suporte puro — biometria, senha, onboarding, prospecção sem tração. Score comercial = 0</span></div>
+            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">OP1: 3.384 ocorrências — ligação encerra sem nenhuma pergunta comercial (41,5% de todas as OPs)</span></div>
+            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">7.778 de 13.144 ligações resolvidas = "não era venda" (59,2%), base combinada junho+julho. Biometria com falha: recorrente em 10+ clientes</span></div>
           </div>
           <div class="ic-act">
             <span class="ic-arr">→</span>
@@ -795,13 +794,13 @@ tbody tr:hover td{background:var(--bg-dn)}
         <div class="ic">
           <div class="ic-hdr">
             <div class="ic-num">3</div>
-            <div class="ic-t"><span class="tip" data-tip="IA estimou valor potencial de cada OP com base no contexto da ligação (frota, produto, contrato). Composição: OP6 R$23.410 + OP7 R$3.600 + OP1 R$800 + outros = R$28.490. Estimativa — não é receita confirmada.">R$28.490/mês</span> em oportunidades perdidas</div>
+            <div class="ic-t"><span class="tip" data-tip="Contagem de oportunidades comerciais não aproveitadas por linha (OP1–OP8), identificadas pela IA com base no contexto da ligação (frota, produto, contrato). Base combinada junho+julho.">8.161 ocorrências</span> em oportunidades perdidas</div>
             <span class="badge b-info">Mensurável</span>
           </div>
           <div class="ic-body">
-            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">OP6: R$23.410/mês em upsell não tentado — SUV (R$3.600), elétrico (R$3.600), telemetria (R$50–130/veículo). OP7 + OP1 somam R$4.400 adicionais</span></div>
-            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">234 ocorrências de OP6 + 49 de OP7 nos 23 batches. Vendedor não conecta necessidade ao produto disponível</span></div>
-            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">1.149 oportunidades perdidas totais — OP1=499 (43,4%), OP6=234 (20,4%), OP7=49 (4,3%) · R$28.490/mês total estimado</span></div>
+            <div class="ic-row"><span class="ic-rl">O que</span><span class="ic-rt">8.161 ocorrências de oportunidades não tentadas na base combinada. OP1 e OP6 (sem sondagem / upsell não tentado) são os códigos mais frequentes</span></div>
+            <div class="ic-row"><span class="ic-rl">Por quê</span><span class="ic-rt">3.384 ocorrências de OP1 + 1.719 de OP6 na base combinada. Vendedor não sonda nem conecta necessidade ao produto disponível</span></div>
+            <div class="ic-row"><span class="ic-rl">Evidência</span><span class="ic-rt">8.161 ocorrências de oportunidades perdidas (OP1–OP8) — OP1=3.384 (41,5%), OP6=1.719 (21,1%), OP2=1.120 (13,7%)</span></div>
           </div>
           <div class="ic-act">
             <span class="ic-arr">→</span>
@@ -815,74 +814,74 @@ tbody tr:hover td{background:var(--bg-dn)}
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Fechamento — P9_P10</div><div class="card-st">23/23 batches · 1.296 ligações</div></div>
+            <div><div class="card-t">Fechamento — P9_P10 <span style="font-weight:600;color:var(--warn)">(provisório)</span></div><div class="card-st">Junho completo + julho 64% · 10.647 ligações resolvidas</div></div>
           </div>
           <div class="blist">
             <div class="bitem">
-              <span class="bpct" style="color:var(--err)">44,8%</span>
+              <span class="bpct" style="color:var(--err)">37,3%</span>
               <div class="bwrap"><div class="bbar" style="width:100%;background:var(--err)"></div></div>
-              <span class="bdesc">FC3 — "Qualquer coisa me chama" (580)</span>
+              <span class="bdesc">FC3 — "Qualquer coisa me chama" (3.969)</span>
             </div>
             <div class="bitem">
-              <span class="bpct" style="color:var(--ok)">31,9%</span>
-              <div class="bwrap"><div class="bbar" style="width:71%"></div></div>
-              <span class="bdesc">FC1 — Compromisso duplo com data (413)</span>
+              <span class="bpct" style="color:var(--ok)">29,0%</span>
+              <div class="bwrap"><div class="bbar" style="width:78%"></div></div>
+              <span class="bdesc">FC1 — Compromisso duplo com data (3.087)</span>
             </div>
             <div class="bitem">
-              <span class="bpct" style="color:var(--fg-2)">14,7%</span>
-              <div class="bwrap"><div class="bbar" style="width:33%;background:#9AA5B4"></div></div>
-              <span class="bdesc">FC2 — Próximo passo só do vendedor (190)</span>
+              <span class="bpct" style="color:var(--fg-2)">16,9%</span>
+              <div class="bwrap"><div class="bbar" style="width:45%;background:#9AA5B4"></div></div>
+              <span class="bdesc">FC2 — Próximo passo só do vendedor (1.795)</span>
             </div>
             <div class="bitem">
-              <span class="bpct" style="color:var(--err)">56,2%</span>
+              <span class="bpct" style="color:var(--err)">51,9%</span>
               <div class="bwrap"><div class="bbar" style="width:100%;background:var(--err)"></div></div>
-              <span class="bdesc">PM2 — Envia documento/proposta (684)</span>
+              <span class="bdesc">PM2 — Envia documento/proposta (4.433)</span>
             </div>
             <div class="bitem">
-              <span class="bpct" style="color:var(--warn)">9%</span>
-              <div class="bwrap"><div class="bbar" style="width:20%;background:var(--warn)"></div></div>
-              <span class="bdesc">Prazo definido — apenas 116/1.296 ligações</span>
+              <span class="bpct" style="color:var(--warn)">10,0%</span>
+              <div class="bwrap"><div class="bbar" style="width:19%;background:var(--warn)"></div></div>
+              <span class="bdesc">Prazo definido — apenas 1.065/10.647 ligações</span>
             </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Nas 84 ligações de alto potencial (score ≥ 20)</div><div class="card-st">Comportamentos diferenciadores vs. demais · scoring Python real</div></div>
+            <div><div class="card-t">Nas 488 ligações de alto potencial (score ≥ 20)</div><div class="card-st">Comportamentos diferenciadores vs. demais · scoring Python real · base combinada 13.264</div></div>
           </div>
           <div style="padding:8px 12px;background:var(--bg-dn);border-radius:6px;font-size:11px;color:var(--fg-2);margin-bottom:12px;line-height:1.5">
-            ⚠ <strong>B1 parece contradizer a correlação (−12,5pp)?</strong> Não contradiz — são métricas diferentes. O scoring recompensa B1 (+2pts) por ser comportamento de qualidade em ligações longas de alto potencial. A correlação (P1_P2) mostra que B1 aparece mais em ligações de <em>qualificação</em> — onde o fechamento vem em follow-ups, não na mesma ligação.
+            ⚠ <strong>B1 parece contradizer a correlação (−6,9pp)?</strong> Não contradiz — são métricas diferentes. O scoring recompensa B1 (+2pts) por ser comportamento de qualidade em ligações longas de alto potencial. A correlação (P1_P2) mostra que B1 aparece mais em ligações de <em>qualificação</em> — onde o fechamento vem em follow-ups, não na mesma ligação.
           </div>
           <div class="blist">
             <div class="bitem">
-              <span class="bpct">92,9%</span>
-              <div class="bwrap"><div class="bbar" style="width:92.9%"></div></div>
-              <span class="bdesc">B6 — Criou urgência com fato real (78/84)</span>
+              <span class="bpct">94,9%</span>
+              <div class="bwrap"><div class="bbar" style="width:94.9%"></div></div>
+              <span class="bdesc">B6 — Criou urgência com fato real (463/488)</span>
             </div>
             <div class="bitem">
-              <span class="bpct">84,5%</span>
-              <div class="bwrap"><div class="bbar" style="width:84.5%"></div></div>
-              <span class="bdesc">B1 — Fez diagnóstico antes de oferecer (71/84)</span>
+              <span class="bpct">77,9%</span>
+              <div class="bwrap"><div class="bbar" style="width:77.9%"></div></div>
+              <span class="bdesc">B5 — Upsell conectado à dor do cliente (380/488)</span>
             </div>
             <div class="bitem">
-              <span class="bpct">81,0%</span>
-              <div class="bwrap"><div class="bbar" style="width:81%"></div></div>
-              <span class="bdesc">B5 — Upsell conectado à dor do cliente (68/84)</span>
+              <span class="bpct">76,6%</span>
+              <div class="bwrap"><div class="bbar" style="width:76.6%"></div></div>
+              <span class="bdesc">B1 — Fez diagnóstico antes de oferecer (374/488)</span>
             </div>
             <div class="bitem">
-              <span class="bpct">75,0%</span>
-              <div class="bwrap"><div class="bbar" style="width:75%"></div></div>
-              <span class="bdesc">B3 — Usou histórico/dados do cliente (63/84)</span>
+              <span class="bpct">66,8%</span>
+              <div class="bwrap"><div class="bbar" style="width:66.8%"></div></div>
+              <span class="bdesc">B3 — Usou histórico/dados do cliente (326/488)</span>
             </div>
             <div class="bitem">
-              <span class="bpct" style="color:var(--warn)">34,5%</span>
-              <div class="bwrap"><div class="bbar" style="width:34.5%;background:var(--warn)"></div></div>
-              <span class="bdesc">P15 — Expansão de frota detectada (29/84)</span>
+              <span class="bpct" style="color:var(--warn)">32,0%</span>
+              <div class="bwrap"><div class="bbar" style="width:32%;background:var(--warn)"></div></div>
+              <span class="bdesc">P15 — Expansão de frota detectada (156/488)</span>
             </div>
             <div class="bitem">
-              <span class="bpct" style="color:var(--err)">20,2%</span>
-              <div class="bwrap"><div class="bbar" style="width:20.2%;background:var(--err)"></div></div>
-              <span class="bdesc">B10 — Sondagem de concorrência (17/84) · maior peso no modelo</span>
+              <span class="bpct" style="color:var(--err)">27,3%</span>
+              <div class="bwrap"><div class="bbar" style="width:27.3%;background:var(--err)"></div></div>
+              <span class="bdesc">B10 — Sondagem de concorrência (133/488) · maior peso no modelo</span>
             </div>
           </div>
         </div>
@@ -986,7 +985,7 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-corr" class="subp active">
         <div class="alert info">
           <span class="a-ico">ℹ️</span>
-          <span><strong>Como ler:</strong> Diferença positiva = comportamento mais frequente em ligações que fecharam. Base combinada: 6.594 ligações · 337 fechamentos · 2.458 interessaram mas não fecharam (atualizado 09/07/2026).</span>
+          <span><strong>Como ler:</strong> Diferença positiva = comportamento mais frequente em ligações que fecharam. Base combinada junho+julho: 13.144 ligações resolvidas · 686 fechamentos · 4.513 interessaram mas não fecharam (atualizado 27/07/2026).</span>
         </div>
         <div class="g2 mb24">
           <div class="card">
@@ -1015,13 +1014,13 @@ tbody tr:hover td{background:var(--bg-dn)}
         <div class="g2 mb24">
           <div class="abox pos card" style="border:1px solid #A7F3D0">
             <div class="at">✓ Comportamentos que ajudam a fechar</div>
-            <div class="ai"><span class="app">+7,1pp</span><div><div class="ad"><strong>B5 — Upsell conectado à dor</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">16,6% dos fechamentos vs 9,6% dos interessou_não_fechou (base combinada, 337 fechamentos). O produto é apresentado como solução para algo que o cliente já relatou.</div></div></div>
-            <div class="ai" style="margin-top:10px"><span class="app">+2,9pp</span><div><div class="ad"><strong>B3 — Usou histórico do cliente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">11,9% vs 9,0%. Na base piloto (n pequeno) esse comportamento parecia negativo — com 5x mais dados, o sinal se resolveu como levemente positivo.</div></div></div>
+            <div class="ai"><span class="app">+8,4pp</span><div><div class="ad"><strong>B5 — Upsell conectado à dor</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">16,9% dos fechamentos vs 8,5% dos interessou_não_fechou (base combinada junho+julho, 686 fechamentos). O produto é apresentado como solução para algo que o cliente já relatou.</div></div></div>
+            <div class="ai" style="margin-top:10px"><span class="app">+2,2pp</span><div><div class="ad"><strong>B3 — Usou histórico do cliente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">18,5% vs 16,3%. Sinal levemente positivo, consistente na base combinada.</div></div></div>
           </div>
           <div class="abox neg card" style="border:1px solid #FCA5A5">
             <div class="at">✗ Hipóteses revisadas — timing é a chave</div>
-            <div class="ai"><span class="app">−10,5pp</span><div><div class="ad"><strong>B10 — Perguntou sobre concorrente/frota</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">5,3% dos fechamentos vs 15,9%. Comportamento de pipeline — protege a conta, mas correlaciona negativo com fechamento na mesma ligação.</div></div></div>
-            <div class="ai" style="margin-top:10px"><span class="app">−6,5pp</span><div><div class="ad"><strong>B8 — Ligou proativamente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">4,2% vs 10,7%. Comportamento de pipeline — precisa acontecer antes da decisão, não no momento do fechamento.</div></div></div>
+            <div class="ai"><span class="app">−12,1pp</span><div><div class="ad"><strong>B10 — Perguntou sobre concorrente/frota</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">4,8% dos fechamentos vs 16,9%. Comportamento de pipeline — protege a conta, mas correlaciona negativo com fechamento na mesma ligação.</div></div></div>
+            <div class="ai" style="margin-top:10px"><span class="app">−14,2pp</span><div><div class="ad"><strong>B8 — Ligou proativamente</strong></div><div style="font-size:12px;color:var(--fg-2);margin-top:3px">7,1% vs 21,4%. Comportamento de pipeline — precisa acontecer antes da decisão, não no momento do fechamento.</div></div></div>
           </div>
         </div>
         <div class="card">
@@ -1030,16 +1029,16 @@ tbody tr:hover td{background:var(--bg-dn)}
           <table>
             <thead><tr><th>Código</th><th>Comportamento</th><th>% Fechou</th><th>% Interessou, não fechou</th><th>Diferencial</th></tr></thead>
             <tbody>
-              <tr><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor</td><td>16,6%</td><td>9,6%</td><td style="color:var(--ok);font-weight:700">+7,1pp</td></tr>
-              <tr><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>11,9%</td><td>9,0%</td><td style="color:var(--ok);font-weight:700">+2,9pp</td></tr>
-              <tr><td><span class="badge b-mu">B4</span></td><td>Avisou risco ao cliente</td><td>5,6%</td><td>4,3%</td><td style="color:var(--fg-2)">+1,4pp</td></tr>
-              <tr><td><span class="badge b-mu">B6</span></td><td>Urgência com fato verificável</td><td>4,5%</td><td>3,3%</td><td style="color:var(--fg-2)">+1,1pp</td></tr>
-              <tr><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>0,6%</td><td>1,1%</td><td style="color:var(--fg-2)">−0,5pp</td></tr>
-              <tr><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>3,0%</td><td>5,0%</td><td style="color:var(--fg-2)">−2,0pp</td></tr>
-              <tr><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>1,2%</td><td>3,5%</td><td style="color:var(--fg-2)">−2,3pp</td></tr>
-              <tr><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>37,4%</td><td>42,1%</td><td style="color:var(--err);font-weight:700">−4,8pp</td></tr>
-              <tr><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>4,2%</td><td>10,7%</td><td style="color:var(--err);font-weight:700">−6,5pp</td></tr>
-              <tr><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>5,3%</td><td>15,9%</td><td style="color:var(--err);font-weight:700">−10,5pp</td></tr>
+              <tr><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor</td><td>16,9%</td><td>8,5%</td><td style="color:var(--ok);font-weight:700">+8,4pp</td></tr>
+              <tr><td><span class="badge b-br">B4</span></td><td>Avisou risco ao cliente</td><td>12,5%</td><td>5,8%</td><td style="color:var(--ok);font-weight:700">+6,7pp</td></tr>
+              <tr><td><span class="badge b-mu">B6</span></td><td>Urgência com fato verificável</td><td>6,9%</td><td>3,6%</td><td style="color:var(--ok);font-weight:700">+3,3pp</td></tr>
+              <tr><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>18,5%</td><td>16,3%</td><td style="color:var(--ok);font-weight:700">+2,2pp</td></tr>
+              <tr><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>3,2%</td><td>2,1%</td><td style="color:var(--fg-2)">+1,1pp</td></tr>
+              <tr><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>4,5%</td><td>5,2%</td><td style="color:var(--fg-2)">−0,7pp</td></tr>
+              <tr><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>1,5%</td><td>3,5%</td><td style="color:var(--fg-2)">−2,0pp</td></tr>
+              <tr><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>34,8%</td><td>41,7%</td><td style="color:var(--err);font-weight:700">−6,9pp</td></tr>
+              <tr><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>4,8%</td><td>16,9%</td><td style="color:var(--err);font-weight:700">−12,1pp</td></tr>
+              <tr><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>7,1%</td><td>21,4%</td><td style="color:var(--err);font-weight:700">−14,2pp</td></tr>
             </tbody>
           </table>
           <div style="margin-top:12px;font-size:11px;color:var(--fg-2);padding:10px 12px;background:var(--bg-dn);border-radius:6px">
@@ -1052,12 +1051,12 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-ch" class="subp">
         <div class="alert ok">
           <span class="a-ico">⭐</span>
-          <span><strong>P5 — Comportamentos Challenger:</strong> 6.406 ligações (96,5% da base combinada). Achado atualizado 09/07: <strong>ter Challenger (SIM/NAO) não discrimina fechamento</strong> (51,1% vs 50,8% — praticamente igual). O que discrimina é a <strong>qualidade</strong>: Challenger de qualidade alta correlaciona com 10,8% de fechamento, qualidade média com só 2,1% (pior que a média geral da base). Combinado com B5 (upsell), a taxa de fechamento chega a 20,0% — 6,25x a taxa de quem não tem nenhum dos dois (3,2%).</span>
+          <span><strong>P5 — Comportamentos Challenger:</strong> 12.007 ligações com P5 resolvido (90,5% da base combinada de 13.264, junho+julho) — SIM/NAO válidos: 11.895, dos quais 3.044 tiveram Challenger (25,6%). <em>Os achados de qualidade abaixo (SIM/NAO não discrimina fechamento, qualidade alta 10,8% vs qualidade média 2,1%, combinação com B5 chegando a 20,0%) ainda refletem a base combinada de junho (6.623, atualizada 09/07/2026) — cruzamento com qualidade do Challenger para julho ainda não recalculado. <!-- TODO: recalcular cruzamento p5_qualidade x fechamento na base 13.264 --></em></span>
         </div>
 
         <div class="g2 mb24">
           <div class="card">
-            <div class="card-hdr"><div><div class="card-t">Frequência dos Comportamentos CH1–CH7</div><div class="card-st">Análise relativa · 23 batches completos</div></div><span class="card-bdg">P5_P6 ✓</span></div>
+            <div class="card-hdr"><div><div class="card-t">Frequência dos Comportamentos CH1–CH7</div><div class="card-st">Base combinada junho+julho · 11.895 ligações com Challenger SIM/NAO resolvido</div></div><span class="card-bdg">P5_P6 ✓</span></div>
             <canvas id="cCH" height="260"></canvas>
           </div>
           <div class="card">
@@ -1082,7 +1081,7 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="ch-card c1">
             <div class="ch-num">CH1 · Dominante</div>
             <div class="ch-t">Revelar custo oculto</div>
-            <div class="ch-d">"Devolver antes do 30º dia recalcula para diária." "Localiza PJ cobra 12% vs Movida 19–22%." "Sinistro sem proteção pode ser R$10.000." Padrão observado: o cliente para e recalcula o valor.</div>
+            <div class="ch-d">"Devolver antes do 30º dia recalcula para diária." "Localiza PJ cobra 12% vs Movida 19–22%." "Sinistro sem proteção pode sair bem mais caro." Padrão observado: o cliente para e recalcula o valor.</div>
             <span class="ch-tag" style="background:rgba(120,222,31,.15);color:var(--brand-fg)">É o mecanismo de B6</span>
           </div>
           <div class="ch-card c5">
@@ -1100,7 +1099,7 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="ch-card c2">
             <div class="ch-num">CH2 · Moderado</div>
             <div class="ch-t">Calcular ROI em tempo real</div>
-            <div class="ch-d">Vendedor faz o cálculo em voz alta durante a ligação. "X dias × R$ diária = R$ Y. O mensal custa R$ Z." O cliente para e recalcula. É uma versão estruturada de CH1.</div>
+            <div class="ch-d">Vendedor faz o cálculo em voz alta durante a ligação: dias de uso × valor da diária, comparado ao custo do plano mensal. O cliente para e recalcula. É uma versão estruturada de CH1.</div>
             <span class="ch-tag">Combina bem com CH5</span>
           </div>
           <div class="ch-card c3">
@@ -1128,17 +1127,17 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-op" class="subp">
         <div class="g2 mb24">
           <div class="card">
-            <div class="card-hdr"><div><div class="card-t">Frequência OP1–OP6</div><div class="card-st">P5_P6 · 23 batches · % das ligações analisadas</div></div><span class="card-bdg">P5_P6 ✓</span></div>
+            <div class="card-hdr"><div><div class="card-t">Frequência OP1–OP8</div><div class="card-st">P5_P6 · base combinada junho+julho · % das 8.161 ocorrências de OP (9.531 ligações com P6 mapeado)</div></div><span class="card-bdg">P5_P6 ✓</span></div>
             <canvas id="cOP" height="240"></canvas>
           </div>
           <div class="card">
-            <div class="card-t">Impacto Estimado em R$</div>
+            <div class="card-t">Oportunidades Identificadas</div>
             <div class="card-st">Oportunidades identificadas e quantificadas</div>
             <div style="margin-top:12px">
               <div style="padding:16px;background:var(--err-bg);border-radius:var(--r);margin-bottom:12px;border:1px solid #FCA5A5">
-                <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--err-fg);margin-bottom:4px">OP6 — Upsell não tentado</div>
-                <div style="font-size:28px;font-weight:800;color:var(--err)">R$23.410<span style="font-size:14px;font-weight:500">/mês</span></div>
-                <div style="font-size:12px;color:var(--err-fg);margin-top:4px">SUV (R$3.600) · Elétrico (R$3.600) · Telemetria (R$50–130/veículo)</div>
+                <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--err-fg);margin-bottom:4px">Total OP1–OP8 — base combinada</div>
+                <div style="font-size:28px;font-weight:800;color:var(--err)">8.161<span style="font-size:14px;font-weight:500"> ocorrências</span></div>
+                <div style="font-size:12px;color:var(--err-fg);margin-top:4px">Soma de todas as ligações com OP mapeada, por código (OP1–OP8), na base combinada junho+julho.</div>
               </div>
               <div style="padding:16px;background:var(--warn-bg);border-radius:var(--r);border:1px solid #FDE68A">
                 <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--warn-fg);margin-bottom:4px">OP4 — Referral não solicitado</div>
@@ -1156,7 +1155,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               <div class="op-t">Suporte sem nenhuma pergunta comercial</div>
               <div class="op-d">O vendedor foca em resolver o problema técnico (biometria, senha, responsável não encontrado) e encerra a ligação sem sondagem. Nenhum produto mencionado, nenhuma expansão explorada.</div>
               <div class="op-meta">
-                <span class="badge b-err">~60% das ligações de suporte</span>
+                <span class="badge b-err">41,5% de todas as OPs (3.384 ocorrências)</span>
                 <span class="badge b-mu">Mais frequente nos dados</span>
               </div>
             </div>
@@ -1167,8 +1166,8 @@ tbody tr:hover td{background:var(--bg-dn)}
               <div class="op-t">Não criou urgência para fechar</div>
               <div class="op-d">Vendedor explica a vantagem, cliente reflete — a ligação termina sem data. CH5 observado, mas CH1 ou CH3 não aplicados em seguida. O cliente "vai pensar" — hipótese: falta de urgência criada.</div>
               <div class="op-meta">
-                <span class="badge b-err">~20% das ligações comerciais</span>
-                <span class="badge b-mu">Segunda mais frequente</span>
+                <span class="badge b-err">8,8% de todas as OPs (716 ocorrências)</span>
+                <span class="badge b-mu">Quarta mais frequente</span>
               </div>
             </div>
           </div>
@@ -1178,19 +1177,19 @@ tbody tr:hover td{background:var(--bg-dn)}
               <div class="op-t">Referral não solicitado</div>
               <div class="op-d">Cliente troca de CNPJ — vendedor não pede indicação. Cliente menciona diretor ou sócio — vendedor não pede referral interno. Cliente satisfeito encerrando — vendedor não pede para empresa do grupo. A pergunta nunca é feita.</div>
               <div class="op-meta">
-                <span class="badge b-warn">~10% das ligações</span>
-                <span class="badge b-mu">Sistemático nos 23 batches</span>
+                <span class="badge b-warn">6,7% de todas as OPs (547 ocorrências)</span>
+                <span class="badge b-mu">Sistemático na base combinada junho+julho</span>
               </div>
             </div>
           </div>
           <div class="op-item">
             <div class="op-badge" style="background:var(--err-bg);color:var(--err-fg)">OP6</div>
             <div class="op-body">
-              <div class="op-t">Upsell não tentado — R$23.410/mês identificado</div>
-              <div class="op-d">Cliente menciona frota, necessidade de veículo maior ou novo — vendedor não oferta. Oportunidades concretas: SUV (R$3.600/veículo), elétrico como piloto (R$3.600), telemetria (R$50–130/veículo), Localiza Pesados (caminhões não mapeados).</div>
+              <div class="op-t">Upsell não tentado — 21,1% de todas as OPs (1.719 ocorrências)</div>
+              <div class="op-d">Cliente menciona frota, necessidade de veículo maior ou novo — vendedor não oferta. Na base piloto original, exemplos concretos incluíam SUV, elétrico como piloto, telemetria, Localiza Pesados (caminhões não mapeados) — breakdown por subtipo de OP6 ainda não recalculado para a base combinada.</div>
               <div class="op-meta">
-                <span class="badge b-err">R$23.410/mês estimado na amostra</span>
-                <span class="badge b-mu">Identificado em todos os 23 batches</span>
+                <span class="badge b-err">Segunda oportunidade mais frequente</span>
+                <span class="badge b-mu">1.719 ocorrências na base combinada</span>
               </div>
             </div>
           </div>
@@ -1199,15 +1198,15 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="op-body">
               <div class="op-t">Dor relatada sem produto oferecido</div>
               <div class="op-d">Cliente menciona um problema (custo alto, prazo, sinistro) e o vendedor registra mas não conecta ao portfólio. A dor estava na mesa — o produto nunca foi citado.</div>
-              <div class="op-meta"><span class="badge b-mu">Frequência moderada</span></div>
+              <div class="op-meta"><span class="badge b-mu">13,7% de todas as OPs (1.120 ocorrências) — terceira mais frequente</span></div>
             </div>
           </div>
           <div class="op-item">
             <div class="op-badge" style="background:var(--bg-dn);color:var(--fg-2)">OP5</div>
             <div class="op-body">
               <div class="op-t">Objeção respondida com "vou ver internamente"</div>
-              <div class="op-d">PM5 (negociar internamente) representa 12,7% das promessas (154/1.216). Parte delas responde a objeções legítimas, mas a maioria são sinais de que o vendedor não tinha argumento pronto — e adiou o problema.</div>
-              <div class="op-meta"><span class="badge b-mu">PM5 = 12,7% das promessas</span></div>
+              <div class="op-d">PM5 (negociar internamente) representa 11,8% das promessas (1.003/8.534, provisório — julho 64% processado). Parte delas responde a objeções legítimas, mas a maioria são sinais de que o vendedor não tinha argumento pronto — e adiou o problema.</div>
+              <div class="op-meta"><span class="badge b-mu">PM5 = 11,8% das promessas</span></div>
             </div>
           </div>
         </div>
@@ -1217,17 +1216,17 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-fc" class="subp">
         <div class="g2 mb24">
           <div class="card">
-            <div class="card-hdr"><div><div class="card-t">Distribuição FC1–FC4 — Tipo de Fechamento</div><div class="card-st">P9 · 23/23 batches · 1.296 ligações</div></div><span class="card-bdg">P9_P10 ✓</span></div>
+            <div class="card-hdr"><div><div class="card-t">Distribuição FC1–FC5 — Tipo de Fechamento <span style="font-weight:600;color:var(--warn)">(provisório)</span></div><div class="card-st">P9 · junho completo + julho 64% · 10.647 ligações resolvidas</div></div><span class="card-bdg">P9_P10 ✓</span></div>
             <canvas id="cFC" height="220"></canvas>
             <div style="margin-top:16px;padding:12px 14px;background:var(--err-bg);border-radius:6px;font-size:12px;color:var(--err-fg)">
-              <strong>Prazo definido:</strong> apenas <strong>9% das ligações</strong> (116/1.296) têm data concreta comprometida. O vendedor define o que vai fazer — mas quase nunca define quando.
+              <strong>Prazo definido:</strong> apenas <strong>10,0% das ligações</strong> (1.065/10.647) têm data concreta comprometida. O vendedor define o que vai fazer — mas quase nunca define quando.
             </div>
             <div style="margin-top:8px;padding:10px 12px;background:var(--bg-dn);border-radius:6px;font-size:11px;color:var(--fg-2);line-height:1.5">
-              <strong>Por que FC1 (31,9%) ≠ prazo definido (9%)?</strong> FC1 é detectado pela IA (P9) pelo padrão conversacional de encerramento — "próximo passo comprometido por ambos os lados". Prazo definido é detectado pelo scoring Python via palavras-chave de data específica — critério mais restritivo. As duas métricas medem o mesmo comportamento com sensibilidades diferentes.
+              <strong>Por que FC1 (29,0%) ≠ prazo definido (10,0%)?</strong> FC1 é detectado pela IA (P9) pelo padrão conversacional de encerramento — "próximo passo comprometido por ambos os lados". Prazo definido é detectado pelo scoring Python via palavras-chave de data específica — critério mais restritivo. As duas métricas medem o mesmo comportamento com sensibilidades diferentes.
             </div>
           </div>
           <div class="card">
-            <div class="card-hdr"><div><div class="card-t">Distribuição PM1–PM6 — Promessas Feitas</div><div class="card-st">P10 · 1.216 promessas com código estruturado</div></div></div>
+            <div class="card-hdr"><div><div class="card-t">Distribuição PM1–PM6 — Promessas Feitas <span style="font-weight:600;color:var(--warn)">(provisório)</span></div><div class="card-st">P10 · 8.534 promessas com código estruturado · junho completo + julho 64%</div></div></div>
             <canvas id="cPM" height="220"></canvas>
             <div style="margin-top:16px;padding:12px 14px;background:var(--err-bg);border-radius:6px;font-size:12px;color:var(--err-fg)">
               <strong>PM2 domina:</strong> 1 em cada 2 promessas é "vou te mandar no WhatsApp" — quase sempre sem prazo. Pipeline gerenciado pela memória do vendedor, não por processo.
@@ -1242,7 +1241,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div style="padding:16px;background:var(--ok-bg);border-radius:var(--r);border:1px solid #A7F3D0">
               <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ok);margin-bottom:6px">Padrão vencedor</div>
               <div style="font-size:13px;font-weight:700;color:var(--fg);margin-bottom:6px">FC1 + PM1 ou PM3 com data</div>
-              <div style="font-size:12px;color:var(--fg-2)">Compromisso duplo + ação concreta com prazo. É o modelo que correlaciona com fechamento real. Apenas 9% das ligações chegam aqui.</div>
+              <div style="font-size:12px;color:var(--fg-2)">Compromisso duplo + ação concreta com prazo. É o modelo que correlaciona com fechamento real. Apenas 10,0% das ligações chegam aqui (provisório).</div>
             </div>
             <div style="padding:16px;background:var(--warn-bg);border-radius:var(--r);border:1px solid #FDE68A">
               <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--warn-fg);margin-bottom:6px">Padrão de risco</div>
@@ -1250,7 +1249,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               <div style="font-size:12px;color:var(--fg-2)">O vendedor cria compromisso duplo (bom) mas entrega por WhatsApp sem data (ruim). Parece FC1 no relatório — na prática é FC3 com uma etapa a mais.</div>
             </div>
             <div style="padding:16px;background:var(--err-bg);border-radius:var(--r);border:1px solid #FCA5A5">
-              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--err-fg);margin-bottom:6px">Padrão dominante — 44,8%</div>
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--err-fg);margin-bottom:6px">Padrão dominante — 37,3% (provisório)</div>
               <div style="font-size:13px;font-weight:700;color:var(--fg);margin-bottom:6px">FC3 + PM2</div>
               <div style="font-size:12px;color:var(--fg-2)">"Qualquer coisa me chama" + "vou te dar um oi no WhatsApp". Nenhum prazo, nenhum comprometimento. O follow-up depende exclusivamente da memória do vendedor.</div>
             </div>
@@ -1262,19 +1261,19 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="com-hip" class="subp">
         <div class="sec-hdr mb16">
           <div class="sec-lbl">Hipóteses</div>
-          <div class="sec-h">9 hipóteses sobre o que fecha um contrato</div>
+          <div class="sec-h">10 hipóteses sobre o que fecha um contrato</div>
         </div>
         <div class="hgrid">
-          <div class="hcard"><div class="hhdr"><span class="hnum">H1</span><span class="badge b-warn">Em validação</span></div><div class="ht">A conta da diária vs. mensal é o que mais converte</div><div class="hb">Nos casos observados, o vendedor faz o cálculo em voz alta e o cliente para para recalcular. Padrão recorrente nos dados: cliente aluga por diária por inércia — hipótese ainda sem amostra controlada.<br><br><em>"X dias × R$ diária = R$ Y. O mensal custa R$ Z."</em></div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H2</span><span class="badge b-ok">Confirmada</span></div><div class="ht">Fechar sem data é não fechar</div><div class="hb">FC3 "qualquer coisa me chama" em 44,8% das ligações. FC1 compromisso duplo: 31,9%. Prazo definido: apenas 9%.<br><br>OP3 (não criou urgência para o fechamento) é a segunda oportunidade perdida mais frequente.<br><br><em>⚠ Números ainda só da base piloto (1.275) — P9_P10 do novo lote está em 33,8%, será recalculado quando completar.</em></div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H3</span><span class="badge b-ok">Confirmada — reforçada 09/07</span></div><div class="ht">A plataforma está consumindo o time comercial</div><div class="hb">Exploração em amostra de 456 ligações (base combinada): problemas de <strong>acesso/sistema + faturamento + cadastro + reserva/sistema somam 65,6%</strong> de tudo que é reportado como problema numa ligação. OP1 (suporte sem pergunta comercial) continua a oportunidade perdida mais frequente da base inteira: <strong>39,9%</strong> de todas as ligações com P6 mapeado (2.551 ocorrências, 6.406 ligações).</div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H4</span><span class="badge b-warn">Revisada</span></div><div class="ht">Perguntar sobre concorrência protege — mas o timing é tudo</div><div class="hb">B10 tem correlação negativa com fechamento imediato (−10,5pp na base combinada, era −13,1pp na base piloto). A pergunta precisa vir <strong>antes</strong> da decisão do cliente. Novo concorrente: <strong>Carro Zero</strong> (assinatura).</div></div>
-          <div class="hcard"><div class="hhdr"><span class="hnum">H5</span><span class="badge b-ok">Confirmada — base combinada</span></div><div class="ht">57% das ligações são suporte puro (ou prospecção sem tração)</div><div class="hb">3.785 de 6.594 ligações = "não era venda" (57,4%, base combinada de 09/07/2026 — era 56,7% só na base piloto). <strong>Achado novo:</strong> dentro desse grupo, 26,5% (1.002 ligações) eram na verdade tentativas de prospecção nova que não geraram tração nenhuma — 90% iniciadas pelo próprio vendedor. Não é só suporte consumindo tempo comercial.<br><br><em>Segmentar antes de escalar o esforço comercial.</em></div></div>
-          <div class="hcard s2"><div class="hhdr"><span class="hnum">H10</span><span class="badge b-ok">Confirmada — base combinada</span></div><div class="ht">Comportamentos bons se somam — a combinação fecha 6,25x mais</div><div class="hb">B5 (upsell conectado à dor) + Challenger de qualidade alta na mesma ligação: <strong>20,0%</strong> de fechamento (n=225). Nenhum dos dois: <strong>3,2%</strong> (n=4.885). Confirmado nas duas bases separadamente (piloto: 25,8% vs 4,4% · novo lote: 17,6% vs 2,9%). <strong>Não é sinergia mágica</strong> — é a soma de dois efeitos que já ajudam sozinhos (B5 sozinho: 13,2% · Challenger bom sozinho: 9,1%). A lição pra treinamento: cada comportamento bom vale a pena por si só, e fazer os dois soma os ganhos.</div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H1</span><span class="badge b-warn">Em validação</span></div><div class="ht">A conta da diária vs. mensal é o que mais converte</div><div class="hb">Nos casos observados, o vendedor faz o cálculo em voz alta e o cliente para para recalcular. Padrão recorrente nos dados: cliente aluga por diária por inércia — hipótese ainda sem amostra controlada.<br><br><em>"Dias de uso × valor da diária, comparado ao custo do plano mensal."</em></div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H2</span><span class="badge b-ok">Confirmada</span></div><div class="ht">Fechar sem data é não fechar</div><div class="hb">FC3 "qualquer coisa me chama" em 37,3% das ligações. FC1 compromisso duplo: 29,0%. Prazo definido: apenas 10,0%.<br><br>OP3 (não criou urgência para o fechamento) é a quarta oportunidade perdida mais frequente (8,8% de todas as OPs).<br><br><em>⚠ Números de P9_P10 são provisórios — base combinada junho completo + julho 64% processado (10.647 de 13.264 ligações), atualiza automaticamente conforme o pipeline diário completa.</em></div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H3</span><span class="badge b-ok">Confirmada — reforçada 09/07</span></div><div class="ht">A plataforma está consumindo o time comercial</div><div class="hb">Exploração em amostra de 456 ligações (base combinada de junho, 09/07/2026): problemas de <strong>acesso/sistema + faturamento + cadastro + reserva/sistema somam 65,6%</strong> de tudo que é reportado como problema numa ligação <em>(amostra ainda não recalculada para julho)</em>. OP1 (suporte sem pergunta comercial) continua a oportunidade perdida mais frequente da base inteira: <strong>41,5%</strong> de todas as ocorrências de OP (3.384 ocorrências, base combinada junho+julho de 13.264 ligações).</div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H4</span><span class="badge b-warn">Revisada</span></div><div class="ht">Perguntar sobre concorrência protege — mas o timing é tudo</div><div class="hb">B10 tem correlação negativa com fechamento imediato (−12,1pp na base combinada junho+julho, era −10,5pp só em junho e −13,1pp na base piloto original). A pergunta precisa vir <strong>antes</strong> da decisão do cliente. Novo concorrente: <strong>Carro Zero</strong> (assinatura).</div></div>
+          <div class="hcard"><div class="hhdr"><span class="hnum">H5</span><span class="badge b-ok">Confirmada — base combinada</span></div><div class="ht">59% das ligações são suporte puro (ou prospecção sem tração)</div><div class="hb">7.778 de 13.144 ligações resolvidas = "não era venda" (59,2%, base combinada junho+julho — era 57,4% só em junho e 56,7% na base piloto original). <em>O achado de que 26,5% desse grupo eram prospecção nova sem tração (90% iniciada pelo vendedor) é da análise combinada de junho (09/07/2026) e ainda não foi recalculado incluindo julho.</em><br><br><em>Segmentar antes de escalar o esforço comercial.</em></div></div>
+          <div class="hcard s2"><div class="hhdr"><span class="hnum">H10</span><span class="badge b-ok">Confirmada — base combinada de junho</span></div><div class="ht">Comportamentos bons se somam — a combinação fecha 6,25x mais</div><div class="hb">B5 (upsell conectado à dor) + Challenger de qualidade alta na mesma ligação: <strong>20,0%</strong> de fechamento (n=225). Nenhum dos dois: <strong>3,2%</strong> (n=4.885). Confirmado nas duas bases separadamente (piloto: 25,8% vs 4,4% · novo lote: 17,6% vs 2,9%). <strong>Não é sinergia mágica</strong> — é a soma de dois efeitos que já ajudam sozinhos (B5 sozinho: 13,2% · Challenger bom sozinho: 9,1%). A lição pra treinamento: cada comportamento bom vale a pena por si só, e fazer os dois soma os ganhos.<br><br><em>⚠ Números desta hipótese são da base combinada de junho (6.623, atualizada 09/07/2026) — cruzamento com qualidade do Challenger incluindo julho ainda não recalculado.</em></div></div>
           <div class="hcard"><div class="hhdr"><span class="hnum">H6</span><span class="badge b-pur">Nova</span></div><div class="ht">Localiza Pesados é invisível para o time</div><div class="hb">Vendedor perguntou sobre frota, cliente mencionou caminhões, vendedor apresentou Localiza Pesados. O cliente não sabia que o produto existia.<br><br><em>Quantos dos 1.109 clientes têm frota mista e nunca receberam oferta?</em></div></div>
           <div class="hcard s2"><div class="hhdr"><span class="hnum">H7</span><span class="badge b-pur">Nova</span></div><div class="ht">Biometria com falha é vazamento de receita mensurável — não é problema do vendedor</div><div class="hb">Se 10% das ligações viram suporte de plataforma e o time faz 100 ligações/semana, são 10 oportunidades de venda perdidas semanalmente, de forma silenciosa e recorrente. Resolver o fluxo de biometria remove esse atrito sem precisar treinar ninguém.</div></div>
-          <div class="hcard s3"><div class="hhdr"><span class="hnum">H8</span><span class="badge b-pur">Nova</span></div><div class="ht">Referral nunca é pedido — e os clientes têm contatos para dar</div><div class="hb">OP4 aparece sistematicamente nos 23 batches: cliente troca de CNPJ (sem indicação), menciona diretores/sócios (sem referral interno), está satisfeito encerrando (sem pedido para empresa do grupo). O cliente tem o contato. O vendedor tem a abertura. A pergunta nunca é feita.</div></div>
-          <div class="hcard s3"><div class="hhdr"><span class="hnum">H9</span><span class="badge b-pur">Nova — P9_P10</span></div><div class="ht">O WhatsApp virou o pseudo-fechamento — e ninguém percebeu</div><div class="hb">PM2 = 56,2% (684/1.216) de todas as promessas. Quase 100% sem prazo concreto. O WhatsApp substituiu o comprometimento formal sem criar a responsabilidade que ele implica. O pipeline é gerenciado pela memória do vendedor, não por processo.</div></div>
+          <div class="hcard s3"><div class="hhdr"><span class="hnum">H8</span><span class="badge b-pur">Nova</span></div><div class="ht">Referral nunca é pedido — e os clientes têm contatos para dar</div><div class="hb">OP4 aparece sistematicamente na base combinada junho+julho (547 ocorrências, 6,7% de todas as OPs): cliente troca de CNPJ (sem indicação), menciona diretores/sócios (sem referral interno), está satisfeito encerrando (sem pedido para empresa do grupo). O cliente tem o contato. O vendedor tem a abertura. A pergunta nunca é feita.</div></div>
+          <div class="hcard s3"><div class="hhdr"><span class="hnum">H9</span><span class="badge b-pur">Nova — P9_P10 (provisório)</span></div><div class="ht">O WhatsApp virou o pseudo-fechamento — e ninguém percebeu</div><div class="hb">PM2 = 51,9% (4.433/8.534) de todas as promessas na base combinada (junho completo + julho 64% processado). Quase 100% sem prazo concreto. O WhatsApp substituiu o comprometimento formal sem criar a responsabilidade que ele implica. O pipeline é gerenciado pela memória do vendedor, não por processo.</div></div>
         </div>
       </div>
 
@@ -1287,7 +1286,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="alert warn">
         <span class="a-ico">⚠️</span>
-        <span><strong>Fonte:</strong> Scoring automático Python · 6.623 ligações (1.275 originais + 5.348 novo lote, 01/07/2026) · 376 com sinais de cancelamento ou expansão. Clientes abaixo têm maior pontuação em uma única ligação.</span>
+        <span><strong>Fonte:</strong> Scoring automático Python · 13.264 ligações (base combinada junho+julho, cobertura total). Clientes abaixo têm maior pontuação em uma única ligação.</span>
       </div>
 
       <div class="card mb24">
@@ -1299,18 +1298,24 @@ tbody tr:hover td{background:var(--bg-dn)}
           <thead><tr><th>Cliente ID</th><th>Pontuação</th><th>Sinal Identificado</th><th>Prioridade</th></tr></thead>
           <tbody>
             <tr><td><strong>08208057</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>10845574</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>06821416</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
-            <tr><td><strong>27247224</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
-            <tr><td><strong>10508823</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td><strong>27247224</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>10508823</strong></td><td><strong>29 / 30</strong></td><td>Expansão de frota</td><td><span class="tc">CRÍTICA — ligar hoje</span></td></tr>
+            <tr><td><strong>10845574</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td><strong>06821416</strong></td><td><strong>29 / 30</strong></td><td>Risco de cancelar + expansão de frota</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td>09456821</td><td>28 / 30</td><td>Score alto de risco/oportunidade (perfil comercial)</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td>17792952</td><td>28 / 30</td><td>Score alto de risco/oportunidade (perfil comercial)</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td>25665440</td><td>28 / 30</td><td>Score alto de risco/oportunidade (perfil comercial)</td><td><span class="th">ALTA — esta semana</span></td></tr>
+            <tr><td>27273465</td><td>27 / 30</td><td>Score alto de risco/oportunidade (perfil comercial)</td><td>MÉDIA — monitorar</td></tr>
+            <tr><td>20271903</td><td>27 / 30</td><td>Score alto de risco/oportunidade (perfil comercial)</td><td>MÉDIA — monitorar</td></tr>
           </tbody>
         </table>
+        <div style="margin-top:10px;font-size:11px;color:var(--fg-2)">Top 10 por score heurístico (dedupe por cliente), base combinada de 13.264 ligações. Os 5 primeiros mantêm o sinal qualitativo já identificado em análise anterior; os demais são novos na lista com score empatado/próximo — sinal específico ainda não recalculado, por isso rotulados genericamente.</div>
       </div>
 
       <div class="g2">
         <div class="card">
           <div class="card-t">Como o Scoring Funciona</div>
-          <div class="card-st">Análise automática Python · sem IA generativa · 6.623 ligações processadas</div>
+          <div class="card-st">Análise automática Python · sem IA generativa · 13.264 ligações processadas</div>
           <div style="margin-top:12px">
             <div class="trow"><span class="tlbl">Contexto</span><div class="twrap"><div class="tbar" style="width:33%;background:var(--ok)"></div></div><span class="tcnt">0–10 pts</span></div>
             <div style="font-size:12px;color:var(--fg-2);margin-bottom:12px">Duração da ligação · quem iniciou</div>
@@ -1322,7 +1327,7 @@ tbody tr:hover td{background:var(--bg-dn)}
         </div>
         <div class="card">
           <div class="card-t">Distribuição por Potencial</div>
-          <div class="card-st">6.623 ligações · scoring automático</div>
+          <div class="card-st">13.264 ligações · scoring automático · cobertura total</div>
           <canvas id="cScoringC" height="200"></canvas>
         </div>
       </div>
@@ -1354,96 +1359,90 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div style="margin-top:8px">
               <div class="vrank">
                 <div class="vpos gold">1</div>
-                <div class="vname">MLI02A</div>
+                <div class="vname">NLI02A</div>
                 <div class="vsbar-wrap"><div class="vsbar" style="width:100%"></div></div>
-                <div class="vscr">23</div>
-                <div class="vtag"><span class="badge b-ok">30,0% fechamento</span></div>
+                <div class="vscr">122</div>
+                <div class="vtag"><span class="badge b-ok">21,3% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos gold">2</div>
-                <div class="vname">COI01A</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:79%"></div></div>
-                <div class="vscr">21</div>
-                <div class="vtag"><span class="badge b-ok">23,8% fechamento</span></div>
+                <div class="vname">NOR07A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:89%"></div></div>
+                <div class="vscr">37</div>
+                <div class="vtag"><span class="badge b-ok">18,9% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos silver">3</div>
-                <div class="vname">NLI02A</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:67%"></div></div>
-                <div class="vscr">15</div>
-                <div class="vtag"><span class="badge b-info">20,0% fechamento</span></div>
+                <div class="vname">RSI02A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:71%"></div></div>
+                <div class="vscr">66</div>
+                <div class="vtag"><span class="badge b-info">15,2% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos silver">4</div>
-                <div class="vname">MLI08A</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:60%"></div></div>
-                <div class="vscr">28</div>
-                <div class="vtag"><span class="badge b-info">17,9% fechamento</span></div>
+                <div class="vname">COI03A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:69%"></div></div>
+                <div class="vscr">122</div>
+                <div class="vtag"><span class="badge b-info">14,8% fechamento</span></div>
               </div>
               <div class="vrank">
                 <div class="vpos bronze">5</div>
-                <div class="vname">REI02A</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:43%"></div></div>
-                <div class="vscr">23</div>
-                <div class="vtag"><span class="badge b-warn">13,0% fechamento</span></div>
-              </div>
-              <div class="vrank">
-                <div class="vpos bronze">6</div>
-                <div class="vname">RJI05A</div>
-                <div class="vsbar-wrap"><div class="vsbar" style="width:42%"></div></div>
-                <div class="vscr">32</div>
-                <div class="vtag"><span class="badge b-warn">12,5% fechamento</span></div>
+                <div class="vname">RSI01A</div>
+                <div class="vsbar-wrap"><div class="vsbar" style="width:68%"></div></div>
+                <div class="vscr">62</div>
+                <div class="vtag"><span class="badge b-info">14,5% fechamento</span></div>
               </div>
             </div>
-            <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">Número ao lado da barra = quantidade de ligações analisadas nessa carteira (amostra). MLI02A fecha mais mas com comportamentos fracos (ver card ao lado) — resultado a validar com mais volume antes de tratar como referência.</div>
+            <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">Número ao lado da barra = quantidade de ligações resolvidas nessa carteira (amostra), base combinada junho+julho. Ranking de <code style="font-size:11px">carteiras_comportamento_final.csv</code>, 65 carteiras elegíveis (≥15 ligações resolvidas) de 69 totais.</div>
           </div>
           <div class="card">
             <div class="card-t">O que diferencia carteiras que fecham mais</div>
-            <div class="card-st">Top 10 carteiras (fechamento ≥10%, 231 ligações) vs. bottom 6 (0% fechamento, 156 ligações)</div>
+            <div class="card-st">Top 5 carteiras elegíveis (14,5%–21,3% fechamento, 409 ligações) vs. bottom 5 (0%–1,6% fechamento, 905 ligações)</div>
             <div style="margin-top:12px">
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B5</span><div class="bwrap"><div class="bbar" style="width:32%"></div></div><span class="bdesc" style="min-width:170px">32,0% vs 11,5% (grupo 0%)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B1</span><div class="bwrap"><div class="bbar" style="width:44%"></div></div><span class="bdesc" style="min-width:170px">44,1% vs 25,0% (grupo 0%)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B6</span><div class="bwrap"><div class="bbar" style="width:44%"></div></div><span class="bdesc" style="min-width:170px">43,7% vs 34,0% (grupo 0%)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">CH1</span><div class="bwrap"><div class="bbar" style="width:6%"></div></div><span class="bdesc" style="min-width:170px">5,6% vs 2,6% (grupo 0%)</span></div>
-              <div class="bitem"><span class="bpct" style="color:var(--err);font-size:13px">FC3</span><div class="bwrap"><div class="bbar" style="width:13%;background:var(--err)"></div></div><span class="bdesc" style="min-width:170px">12,6% vs 23,7% (grupo 0%)</span></div>
-              <div class="bitem"><span class="bpct" style="font-size:13px">Score médio</span><div class="bwrap"><div class="bbar" style="width:37%"></div></div><span class="bdesc" style="min-width:170px">11,2 vs 7,8 pts (grupo 0%)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B5</span><div class="bwrap"><div class="bbar" style="width:21%"></div></div><span class="bdesc" style="min-width:170px">20,8% vs 7,0% (grupo bottom 5)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B1</span><div class="bwrap"><div class="bbar" style="width:32%"></div></div><span class="bdesc" style="min-width:170px">31,9% vs 20,7% (grupo bottom 5)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">B6</span><div class="bwrap"><div class="bbar" style="width:49%"></div></div><span class="bdesc" style="min-width:170px">48,6% vs 38,6% (grupo bottom 5)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--ok);font-size:13px">CH1</span><div class="bwrap"><div class="bbar" style="width:7%"></div></div><span class="bdesc" style="min-width:170px">6,9% vs 2,7% (grupo bottom 5)</span></div>
+              <div class="bitem"><span class="bpct" style="color:var(--err);font-size:13px">FC3</span><div class="bwrap"><div class="bbar" style="width:11%;background:var(--err)"></div></div><span class="bdesc" style="min-width:170px">10,6% vs 17,7% (grupo bottom 5)</span></div>
+              <div class="bitem"><span class="bpct" style="font-size:13px">Score médio</span><div class="bwrap"><div class="bbar" style="width:34%"></div></div><span class="bdesc" style="min-width:170px">10,2 vs 6,9 pts (grupo bottom 5)</span></div>
             </div>
             <div style="margin-top:14px;font-size:11px;color:var(--fg-2);padding:10px;background:var(--bg-dn);border-radius:6px">
-              💡 A maior diferença é B5 (upsell conectado à dor) — quase 3× mais frequente no grupo que fecha. Reforça o achado global (B5 = +11,7pp em fechamento). FC3 (encerrar sem compromisso) é quase 2× mais comum no grupo que não fecha nada.
+              💡 A maior diferença relativa é B5 (upsell conectado à dor) — quase 3× mais frequente no grupo que fecha mais. Reforça o achado global (B5 = +8,4pp em fechamento, base combinada). FC3 (encerrar sem compromisso) é quase 2× mais comum no grupo que fecha menos.
             </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-t">Visão comparativa por carteira</div>
-          <div class="card-st">Carteiras com 15+ ligações, ordenadas por taxa de fechamento</div>
+          <div class="card-st">Top 5 e bottom 5 das 65 carteiras elegíveis (≥15 ligações resolvidas), ordenadas por taxa de fechamento</div>
           <table>
             <thead><tr><th>Carteira</th><th>Ligações</th><th>Fechamento</th><th>B5</th><th>B1</th><th>FC3 ↓</th><th>Score</th><th>Foco</th></tr></thead>
             <tbody>
-              <tr><td><strong>MLI02A</strong></td><td>23</td><td class="th">30,0%</td><td>8,7%</td><td>34,8%</td><td>8,7%</td><td>7,4</td><td><span class="badge b-warn">Validar c/ + volume</span></td></tr>
-              <tr><td><strong>COI01A</strong></td><td>21</td><td class="th">23,8%</td><td class="th">52,4%</td><td>33,3%</td><td>23,8%</td><td>11,4</td><td><span class="badge b-ok">Referência B5</span></td></tr>
-              <tr><td><strong>NLI02A</strong></td><td>15</td><td class="th">20,0%</td><td class="th">46,7%</td><td class="th">53,3%</td><td class="tc">33,3%</td><td class="th">14,6</td><td><span class="badge b-ok">Melhor score geral</span></td></tr>
-              <tr><td><strong>MLI08A</strong></td><td>28</td><td>17,9%</td><td>28,6%</td><td class="th">64,3%</td><td class="th">3,6%</td><td>12,2</td><td><span class="badge b-ok">Diagnóstico + fecha limpo</span></td></tr>
-              <tr><td><strong>REI02A</strong></td><td>23</td><td>13,0%</td><td>39,1%</td><td>30,4%</td><td class="th">0,0%</td><td>10,1</td><td><span class="badge b-info">Consistente</span></td></tr>
-              <tr><td><strong>RJI05A</strong></td><td>32</td><td>12,5%</td><td>31,2%</td><td>28,1%</td><td>9,4%</td><td>11,0</td><td><span class="badge b-info">Consistente</span></td></tr>
-              <tr><td><strong>KPI07A</strong></td><td>41</td><td class="tc">0,0%</td><td class="tc">7,3%</td><td>29,3%</td><td class="tc">26,8%</td><td>8,3</td><td><span class="badge b-err">Prioridade coaching</span></td></tr>
-              <tr><td><strong>KPI03A</strong></td><td>30</td><td class="tc">0,0%</td><td class="tc">0,0%</td><td class="tc">3,3%</td><td class="tc">33,3%</td><td class="tc">4,3</td><td><span class="badge b-err">Prioridade urgente</span></td></tr>
-              <tr><td><strong>RSI07A</strong></td><td>19</td><td class="tc">0,0%</td><td class="tc">0,0%</td><td class="tc">21,1%</td><td class="tc">31,6%</td><td class="tc">6,0</td><td><span class="badge b-err">Prioridade urgente</span></td></tr>
+              <tr><td><strong>NLI02A</strong></td><td>122</td><td class="th">21,3%</td><td class="th">24,6%</td><td>30,3%</td><td>9,0%</td><td>11,2</td><td><span class="badge b-ok">Melhor taxa de fechamento</span></td></tr>
+              <tr><td><strong>NOR07A</strong></td><td>37</td><td class="th">18,9%</td><td class="th">27,0%</td><td>27,0%</td><td>2,7%</td><td class="th">12,0</td><td><span class="badge b-ok">Melhor score médio do grupo</span></td></tr>
+              <tr><td><strong>RSI02A</strong></td><td>66</td><td class="th">15,2%</td><td>22,4%</td><td>37,3%</td><td class="tc">19,4%</td><td>11,2</td><td><span class="badge b-info">Bom desempenho, FC3 alto</span></td></tr>
+              <tr><td><strong>COI03A</strong></td><td>122</td><td>14,8%</td><td>10,7%</td><td>14,8%</td><td>12,3%</td><td>7,9</td><td><span class="badge b-info">Volume alto, comportamentos medianos</span></td></tr>
+              <tr><td><strong>RSI01A</strong></td><td>62</td><td>14,5%</td><td>19,4%</td><td class="th">50,0%</td><td>9,7%</td><td>8,5</td><td><span class="badge b-info">Maior B1 do grupo</span></td></tr>
+              <tr><td><strong>KPI07A</strong></td><td>315</td><td class="tc">1,6%</td><td class="tc">9,8%</td><td>25,6%</td><td class="tc">18,0%</td><td>7,4</td><td><span class="badge b-err">Prioridade coaching (maior volume zerado)</span></td></tr>
+              <tr><td><strong>RSI06A</strong></td><td>63</td><td class="tc">1,6%</td><td class="tc">4,8%</td><td>23,8%</td><td>11,1%</td><td class="tc">5,7</td><td><span class="badge b-err">Prioridade coaching</span></td></tr>
+              <tr><td><strong>S3I04A</strong></td><td>81</td><td class="tc">1,2%</td><td class="tc">13,4%</td><td>35,4%</td><td>15,9%</td><td>9,9</td><td><span class="badge b-warn">B1/B6 altos mas não converte</span></td></tr>
+              <tr><td><strong>KPI03A</strong></td><td>276</td><td class="tc">0,7%</td><td class="tc">1,8%</td><td class="tc">5,8%</td><td class="tc">27,2%</td><td class="tc">3,9</td><td><span class="badge b-err">Prioridade urgente (pior score)</span></td></tr>
+              <tr><td><strong>S2I01A</strong></td><td>170</td><td class="tc">0,0%</td><td class="tc">5,3%</td><td class="tc">12,9%</td><td class="tc">16,5%</td><td>7,6</td><td><span class="badge b-err">Prioridade urgente (0% fechamento)</span></td></tr>
             </tbody>
           </table>
-          <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">↓ significa "menor é melhor" para FC3 — fechamento vago, sem próximo passo com data. Tabela completa (65 carteiras) em <code style="font-size:11px">resultados/cruzamento_ligacoes_diarias/</code>.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--fg-2);padding:8px 12px;background:var(--bg-dn);border-radius:6px">↓ significa "menor é melhor" para FC3 — fechamento vago, sem próximo passo com data. Tabela completa (65 carteiras elegíveis) em <code style="font-size:11px">resultados/cruzamento_ligacoes_diarias/carteiras_comportamento_final.csv</code>.</div>
         </div>
       </div>
 
       <!-- ── SUB: COMPORTAMENTOS ── -->
       <div id="vend-comp" class="subp">
         <div class="card mb24">
-          <div class="card-hdr"><div><div class="card-t">Comportamentos por Carteira — Comparativo</div><div class="card-st">Frequência real dos comportamentos-chave · scoring Python (scoring_potencial.csv) · top 6 por fechamento</div></div><span class="card-bdg">Real ✓</span></div>
+          <div class="card-hdr"><div><div class="card-t">Comportamentos por Carteira — Comparativo</div><div class="card-st">Frequência real dos comportamentos-chave · carteiras_comportamento_final.csv · top 5 por fechamento</div></div><span class="card-bdg">Real ✓</span></div>
           <canvas id="cVend" height="260"></canvas>
         </div>
         <div class="alert info">
           <span class="a-ico">ℹ️</span>
-          <span><strong>Como ler:</strong> Para CH1, B5 e FC1, barras maiores indicam melhor performance. Para FC3 (fechamento sem comprometimento), barras menores são melhores. MLI02A fecha mais mas com CH1/B5 baixos — amostra pequena (23 ligações), tratar com cautela.</span>
+          <span><strong>Como ler:</strong> Para CH1, B5 e FC1, barras maiores indicam melhor performance. Para FC3 (fechamento sem comprometimento), barras menores são melhores. COI03A tem o maior volume entre as top 5 (122 ligações) mas B5/B1 mais baixos do grupo — fecha por volume, não por comportamento consistente.</span>
         </div>
       </div>
 
@@ -1459,7 +1458,7 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="coach-ico">🔴</div>
           <div>
             <div class="coach-t">KPI03A — Prioridade Urgente</div>
-            <div class="coach-d">0% de fechamento em 30 ligações. B1 (diagnóstico) em apenas 3,3% e B5 (upsell) em 0% — pior perfil comportamental de todo o dataset (score médio 4,27 vs 9,3 da base geral). FC3 (fechamento vago) em 33,3%. Não é questão de sorte de carteira: faltam os comportamentos básicos em quase todas as ligações. Prioridade: treinar B1 (diagnóstico antes do produto) antes de qualquer outra coisa.</div>
+            <div class="coach-d">0,7% de fechamento em 276 ligações resolvidas (2 fechamentos) — maior volume de ligações entre as carteiras de pior desempenho. B1 (diagnóstico) em apenas 5,8% e B5 (upsell) em 1,8% — pior score médio entre as 65 carteiras elegíveis (3,89 vs 8,19 da base geral). FC3 (fechamento vago) em 27,2%, o maior de toda a base. Prioridade: treinar B1 (diagnóstico antes do produto) antes de qualquer outra coisa.</div>
           </div>
         </div>
 
@@ -1467,7 +1466,7 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="coach-ico">🔴</div>
           <div>
             <div class="coach-t">KPI07A — Prioridade Alta</div>
-            <div class="coach-d">Maior volume de ligações zeradas: 41 ligações, 0% de fechamento. B5 (upsell conectado à dor) em apenas 7,3% — o maior diferencial de fechamento do estudo geral (B5 = +11,7pp) está praticamente ausente aqui. B6 (urgência) alta (56,1%) mostra que a carteira engaja, mas não converte o engajamento em oferta.</div>
+            <div class="coach-d">Maior volume de ligações da base (315 resolvidas) com fechamento quase zerado: 1,6% (5 fechamentos). B5 (upsell conectado à dor) em apenas 9,8% — o maior diferencial de fechamento do estudo geral (B5 = +8,4pp na base combinada) está praticamente ausente aqui. B6 (urgência) em 46,8% mostra que a carteira engaja, mas não converte o engajamento em oferta.</div>
           </div>
         </div>
 
@@ -1475,31 +1474,31 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="coach-ico">🟡</div>
           <div>
             <div class="coach-t">KPI02A — Prioridade Média</div>
-            <div class="coach-d">FC3 (fechamento vago, sem próximo passo) em 47,4% — o maior índice entre as carteiras com amostra relevante (38 ligações). O time engaja (score médio 9,55, acima da base) mas encerra sem comprometimento. Script sugerido: substituir "qualquer coisa me chama" por data + próximo passo concreto antes de encerrar.</div>
+            <div class="coach-d">FC3 (fechamento vago, sem próximo passo) em 23,6% em 224 ligações resolvidas — 3,1% de fechamento (7 fechamentos). B1 (diagnóstico) alto (49,8%), acima da média da base (29,6%), mas isso não converte em fechamento — o time engaja e diagnostica, mas encerra sem comprometimento de data. Script sugerido: substituir "qualquer coisa me chama" por data + próximo passo concreto antes de encerrar.</div>
           </div>
         </div>
 
         <div class="coach-item warn">
           <div class="coach-ico">🟡</div>
           <div>
-            <div class="coach-t">RSI07A / S3I01A / RSI03A / NOI02A — Desenvolvimento</div>
-            <div class="coach-d">Grupo de 4 carteiras com 0% de fechamento mas volume menor (19–25 ligações cada) e comportamentos medianos (score 6,0–10,4). Diferente de KPI03A, aqui o problema parece mais concentrado em criar urgência (B6 15,8%–44,0%) do que em diagnóstico. Monitorar próximo lote antes de tratar como prioridade urgente — amostra ainda limítrofe.</div>
+            <div class="coach-t">NLI01A / KPI06A / SPI03A / SPI01A — Desenvolvimento</div>
+            <div class="coach-d">Grupo de 4 carteiras com fechamento entre 1,7% e 2,3% e volume relevante (56 a 171 ligações resolvidas cada). Diferente de KPI03A, aqui o score médio não é uniformemente baixo (NLI01A chega a 10,63) — o padrão observável nos dados é FC3 elevado (22,8%–28,3%) combinado com B6 variável (22,8%–58,3%), sugerindo engajamento inconsistente no fechamento, não falta de diagnóstico. Monitorar evolução com o pipeline de julho antes de reclassificar prioridade.</div>
           </div>
         </div>
 
         <div class="coach-item ok">
           <div class="coach-ico">🟢</div>
           <div>
-            <div class="coach-t">COI01A — Referência em Upsell (B5)</div>
-            <div class="coach-d">B5 em 52,4% — mais que o dobro da média das carteiras que fecham (32,0%) e quase 5× o grupo que não fecha nada (11,5%). 23,8% de fechamento em 21 ligações. Comportamento replicável: conectar a dor relatada pelo cliente a um produto específico antes de encerrar a ligação.</div>
+            <div class="coach-t">S2I06A — Referência em Upsell (B5)</div>
+            <div class="coach-d">B5 em 48,0% — o maior de todas as 65 carteiras elegíveis, mais de 3× a média da base (15,5%). 5,8% de fechamento em 173 ligações resolvidas. B5 alto sozinho não garante fechamento alto (esta carteira não está no top 5 de taxa de fechamento), mas o comportamento em si — conectar a dor relatada pelo cliente a um produto específico — é replicável e vale reforçar em treinamento.</div>
           </div>
         </div>
 
         <div class="coach-item ok">
           <div class="coach-ico">✨</div>
           <div>
-            <div class="coach-t">NLI02A — Melhor Score Composto</div>
-            <div class="coach-d">Score médio 14,6 (o mais alto entre as 26 carteiras elegíveis, vs. 9,3 da base geral). B1 53,3%, B5 46,7%, B6 53,3% — os três pilares de diagnóstico, upsell e urgência simultaneamente fortes. 20,0% de fechamento em 15 ligações. Amostra ainda pequena (limite mínimo de 15), mas o perfil comportamental é o mais equilibrado da base — candidato a estudo de caso.</div>
+            <div class="coach-t">NLI02A — Melhor Taxa de Fechamento</div>
+            <div class="coach-d">21,3% de fechamento em 122 ligações resolvidas (26 fechamentos) — a melhor taxa entre as 65 carteiras elegíveis. Score médio 11,20 (acima dos 8,19 da base geral). B1 30,3%, B5 24,6%, B6 50,0% — os três pilares de diagnóstico, upsell e urgência acima da média simultaneamente. Volume já relevante (122 ligações) — candidato a estudo de caso replicável.</div>
           </div>
         </div>
 
@@ -1516,7 +1515,7 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div class="g3 mb24">
         <div class="acard red">
           <div class="achdr">Esta semana</div>
-          <div class="acitem"><span class="acn">1</span><span>Ligar para os 5 clientes críticos: <strong>08208057, 27247224, 20271903</strong> (risco + expansão) e <strong>27166870, 07118469</strong> (expansão)</span></div>
+          <div class="acitem"><span class="acn">1</span><span>Ligar para os 5 clientes críticos: <strong>08208057, 10845574, 06821416</strong> (risco + expansão) e <strong>27247224, 10508823</strong> (expansão)</span></div>
           <div class="acitem"><span class="acn">2</span><span>Escalar biometria para produto/operações — impacto direto na capacidade comercial sem precisar treinar ninguém</span></div>
           <div class="acitem"><span class="acn">3</span><span>Criar pergunta padrão de sondagem de frota pesada — uma pergunta, dois minutos, abre mercado não mapeado</span></div>
         </div>
@@ -1528,10 +1527,11 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="acitem"><span class="acn">4</span><span><strong>OP4 — Pedir indicação:</strong> "tem alguém na empresa que também cuida de locações?" Uma pergunta, 10 segundos.</span></div>
         </div>
         <div class="acard nvy">
-          <div class="achdr">Concluído — 30/06</div>
-          <div class="acitem"><span class="acn">✓</span><span>P5_P6 (23/23 batches): CH1–CH7, OP1–OP6. OP6 = R$23.410/mês identificado</span></div>
+          <div class="achdr">Concluído — 30/06 (marco histórico, base piloto)</div>
+          <div class="acitem"><span class="acn">✓</span><span>P5_P6 (23/23 batches): CH1–CH7, OP1–OP6. OP6 identificado como segunda oportunidade mais frequente</span></div>
           <div class="acitem"><span class="acn">✓</span><span>P9_P10 (23/23 batches): FC3=44,8%, FC1=31,9%, PM2=56,2%, prazo=9%</span></div>
-          <div class="acitem"><span class="acn">✓</span><span>Síntese final: R$28.490/mês em oportunidades perdidas · 5 ações priorizadas</span></div>
+          <div class="acitem"><span class="acn">✓</span><span>Síntese final: volume relevante de oportunidades perdidas · 5 ações priorizadas</span></div>
+          <div class="acitem"><span class="acn">🆕</span><span>Atualização 27/07/2026: base agora combina junho+julho (13.264 ligações) — números atuais em Dashboard e Comercial</span></div>
         </div>
       </div>
 
@@ -1544,11 +1544,11 @@ tbody tr:hover td{background:var(--bg-dn)}
             <tr><td>Ligar para os 5 clientes críticos</td><td>Hoje</td><td>Retenção ou captura de expansão imediata</td><td><span class="badge b-ok">Baixo</span></td></tr>
             <tr><td>Escalar biometria para produto/ops</td><td>Esta semana</td><td>Libera ~10% da capacidade comercial</td><td><span class="badge b-ok">Baixo</span></td></tr>
             <tr><td>Treinar CH1 — revelar custo oculto</td><td>2 semanas</td><td>+2,5pp em B6 (9,0% vs 6,5%) — mecanismo de urgência com evidência</td><td><span class="badge b-ok">Baixo</span></td></tr>
-            <tr><td>Inserir pergunta comercial em suporte (OP1)</td><td>2 semanas</td><td>~60% das ligações sem sondagem — qualquer melhora tem impacto imediato</td><td><span class="badge b-ok">Baixo</span></td></tr>
-            <tr><td>Treinar fechamento com data (OP3)</td><td>2 semanas</td><td>FC3 de 44,8% para meta abaixo de 20%</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Inserir pergunta comercial em suporte (OP1)</td><td>2 semanas</td><td>OP1 é 41,5% de todas as oportunidades perdidas (3.384 ocorrências) — qualquer melhora tem impacto imediato</td><td><span class="badge b-ok">Baixo</span></td></tr>
+            <tr><td>Treinar fechamento com data (OP3)</td><td>2 semanas</td><td>FC3 de 37,3% (provisório) para meta abaixo de 20%</td><td><span class="badge b-ok">Baixo</span></td></tr>
             <tr><td>Inserir pedido de referral (OP4)</td><td>2 semanas</td><td>Leads qualificados sem custo — hoje sistematicamente esquecido</td><td><span class="badge b-ok">Baixo</span></td></tr>
-            <tr><td>Treinar B5 — upsell conectado à dor</td><td>2 semanas</td><td>+7,4pp — maior diferencial nos dados (21,3% vs 13,9%)</td><td><span class="badge b-warn">Médio</span></td></tr>
-            <tr><td>Script de sondagem frota pesada</td><td>2 semanas</td><td>Abertura de mercado nos 1.109 clientes</td><td><span class="badge b-warn">Médio</span></td></tr>
+            <tr><td>Treinar B5 — upsell conectado à dor</td><td>2 semanas</td><td>+8,4pp — maior diferencial nos dados (16,9% vs 8,5%, base combinada)</td><td><span class="badge b-warn">Médio</span></td></tr>
+            <tr><td>Script de sondagem frota pesada</td><td>2 semanas</td><td>Abertura de mercado na base de 9.857 clientes combinados <!-- TODO: subconjunto específico de clientes com frota mista não recalculado --></td><td><span class="badge b-warn">Médio</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1670,7 +1670,7 @@ tbody tr:hover td{background:var(--bg-dn)}
                 <span class="badge b-ok" style="flex-shrink:0;margin-top:1px">Resolvido</span>
                 <div style="font-size:13px;line-height:1.5;color:var(--fg)">
                   <strong>D1.1 — Baseline por carteira</strong><br>
-                  Não temos <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">vendedor_id</code> nem nome de vendedor na fonte — e não vamos usar. Em vez disso, cruzamos o <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">Cod</code> do cliente com a base de diárias e obtivemos a <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">carteira</code> de cada um. Baseline de taxa de fechamento, B1, B5, B6 e FC3 já calculado para 65 carteiras (26 com amostra ≥15 ligações). Ver aba Carteiras.
+                  Não temos <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">vendedor_id</code> nem nome de vendedor na fonte — e não vamos usar. Em vez disso, cruzamos o <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">Cod</code> do cliente com a base de diárias e obtivemos a <code style="font-size:11px;background:var(--bg-dn);padding:1px 5px;border-radius:3px">carteira</code> de cada um. Baseline de taxa de fechamento, B1, B5, B6 e FC3 já calculado para 69 carteiras, das quais 65 elegíveis (amostra ≥15 ligações resolvidas). Ver aba Carteiras.
                 </div>
               </div>
 
@@ -1715,7 +1715,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="rm-dl">
               <div class="rm-item" data-id="d2-1" onclick="rmCheck(this,'p2')">
                 <div class="rm-chk"></div><div class="rm-icode">D2.1</div>
-                <div class="rm-itext"><strong>Grupo piloto treinado em B5 e CH1</strong> — 3 a 5 vendedores. Foco: upsell conectado à dor (+7,4pp nos dados) e revelar custo oculto (dominante em fechamentos).</div>
+                <div class="rm-itext"><strong>Grupo piloto treinado em B5 e CH1</strong> — 3 a 5 vendedores. Foco: upsell conectado à dor (+8,4pp nos dados, base combinada) e revelar custo oculto (dominante em fechamentos).</div>
               </div>
               <div class="rm-item" data-id="d2-2" onclick="rmCheck(this,'p2')">
                 <div class="rm-chk"></div><div class="rm-icode">D2.2</div>
@@ -1723,7 +1723,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               </div>
               <div class="rm-item" data-id="d2-3" onclick="rmCheck(this,'p2')">
                 <div class="rm-chk"></div><div class="rm-icode">D2.3</div>
-                <div class="rm-itext"><strong>Fluxo suporte → comercial ativo (OP1)</strong> — antes de encerrar ligação de suporte, 1 pergunta comercial padrão. Endereça 57% das ligações que hoje fecham sem sondagem.</div>
+                <div class="rm-itext"><strong>Fluxo suporte → comercial ativo (OP1)</strong> — antes de encerrar ligação de suporte, 1 pergunta comercial padrão. Endereça a oportunidade perdida mais frequente da base (OP1 = 41,5% de todas as OPs).</div>
               </div>
               <div class="rm-item" data-id="d2-4" onclick="rmCheck(this,'p2')">
                 <div class="rm-chk"></div><div class="rm-icode">D2.4</div>
@@ -1735,7 +1735,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               <span class="rm-citag">📅 21 Jul — Acompanhamento piloto semana 1</span>
               <span class="rm-citag">📅 28 Jul — Review pré-entrega Fase 2</span>
             </div>
-            <div class="rm-note"><strong>Foco:</strong> B5 (+7,4pp) e CH1 (dominante nos dados) são os comportamentos com maior diferencial. Treinar 3–5 vendedores e medir o delta real — é a prova de conceito que justifica a expansão.</div>
+            <div class="rm-note"><strong>Foco:</strong> B5 (+8,4pp, base combinada) e CH1 (dominante nos dados) são os comportamentos com maior diferencial. Treinar 3–5 vendedores e medir o delta real — é a prova de conceito que justifica a expansão.</div>
           </div>
         </div>
 
@@ -1764,7 +1764,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               </div>
               <div class="rm-item" data-id="d3-2" onclick="rmCheck(this,'p3')">
                 <div class="rm-chk"></div><div class="rm-icode">D3.2</div>
-                <div class="rm-itext"><strong>Revisão das hipóteses H1–H9</strong> — quais foram confirmadas com dados ao vivo, quais precisam ser reformuladas, quais descartadas.</div>
+                <div class="rm-itext"><strong>Revisão das hipóteses H1–H10</strong> — quais foram confirmadas com dados ao vivo, quais precisam ser reformuladas, quais descartadas.</div>
               </div>
               <div class="rm-item" data-id="d3-3" onclick="rmCheck(this,'p3')">
                 <div class="rm-chk"></div><div class="rm-icode">D3.3</div>
@@ -1895,7 +1895,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="rm-dl">
               <div class="rm-item" data-id="d6-1" onclick="rmCheck(this,'p6')">
                 <div class="rm-chk"></div><div class="rm-icode">D6.1</div>
-                <div class="rm-itext"><strong>Relatório executivo com ROI medido</strong> — R$28.490/mês estimado vs valor real recuperado: quanto do potencial identificado foi capturado nos 90 dias.</div>
+                <div class="rm-itext"><strong>Relatório executivo com ROI medido</strong> — 8.161 ocorrências de oportunidades identificadas (base combinada junho+julho) vs quanto do potencial identificado foi de fato capturado nos 90 dias.</div>
               </div>
               <div class="rm-item" data-id="d6-2" onclick="rmCheck(this,'p6')">
                 <div class="rm-chk"></div><div class="rm-icode">D6.2</div>
@@ -1955,7 +1955,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">"Devolver antes do 30º dia recalcula para diária." "Localiza PJ cobra 12% vs. Movida 19–22%." O vendedor dá uma informação nova — não um desconto.</span></div>
               <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">CH1 em 82% das ligações do top performer vs. 38% da média. Padrão consistente em 23/23 batches. É o comportamento com maior gap entre melhor e pior vendedor.</span></div>
             </div>
-            <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Treinar 3 frases de CH1 com dados reais: diária vs. mensal, PJ 12% vs. Movida, sinistro sem proteção = R$10.000. Inserir quando cliente questionar preço — antes de dar desconto.</span></div>
+            <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Treinar 3 frases de CH1 com dados reais: diária vs. mensal, PJ 12% vs. Movida, sinistro sem proteção sai bem mais caro. Inserir quando cliente questionar preço — antes de dar desconto.</span></div>
           </div>
 
           <div class="ins-card">
@@ -1966,7 +1966,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             </div>
             <div class="ins-body">
               <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">10+ clientes com problemas recorrentes de biometria identificados em 23 batches. Cada ligação de suporte de plataforma = uma oportunidade de venda consumida sem retorno.</span></div>
-              <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">O vendedor resolve o sintoma (reseta, orienta) mas não o problema. Cliente volta. OP1 = ~60% das ligações de suporte sem nenhuma sondagem comercial.</span></div>
+              <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">O vendedor resolve o sintoma (reseta, orienta) mas não o problema. Cliente volta. OP1 é a oportunidade perdida mais frequente da base combinada (41,5% de todas as OPs, 3.384 ocorrências).</span></div>
               <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">H7 confirmada: 10% das ligações são suporte de plataforma. Time faz 100 ligações/semana = 10 oportunidades perdidas semanalmente de forma silenciosa e recorrente.</span></div>
             </div>
             <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Criar ticket técnico com lista de CNPJs afetados. Escalar para produto/ops. Resolver o fluxo de biometria remove o atrito sem precisar treinar ninguém.</span></div>
@@ -1979,9 +1979,9 @@ tbody tr:hover td{background:var(--bg-dn)}
               <span class="conf-badge conf-a">Alta confiança</span>
             </div>
             <div class="ins-body">
-              <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">56,2% das promessas são "vou te mandar no WhatsApp" — e quase nenhuma com prazo. Prazo definido: 9% das 1.296 ligações (116).</span></div>
+              <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">51,9% das promessas são "vou te mandar no WhatsApp" — e quase nenhuma com prazo. Prazo definido: 10,0% das 10.647 ligações resolvidas (1.065). <em>Provisório — julho 64% processado.</em></span></div>
               <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">O WhatsApp dá ao vendedor a ilusão de follow-up sem comprometimento. A responsabilidade de retomar fica exclusivamente com ele — e cai na fila com outros 50 clientes.</span></div>
-              <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">FC3 em 44,8% + PM2 em 56,2% = pipeline gerenciado por memória. H9 confirmada em todos os 23 batches sem exceção.</span></div>
+              <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">FC3 em 37,3% + PM2 em 51,9% (base combinada, provisório) = pipeline gerenciado por memória. H9 confirmada.</span></div>
             </div>
             <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Substituir PM2 por PM1 (ligação com data) ou PM3 (proposta com prazo). Meta: FC3 abaixo de 25% e prazo definido acima de 30% em 60 dias.</span></div>
           </div>
@@ -1994,7 +1994,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             </div>
             <div class="ins-body">
               <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">Vendedor usa 2–3 dos 12 produtos disponíveis sistematicamente. Localiza Pesados, elétricos e telemetria quase ausentes no discurso comercial.</span></div>
-              <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">Não há rotina de verificação de portfólio por perfil de cliente. O vendedor vende o que conhece — não o que o cliente precisa. OP6 = R$23.410/mês em upsell não tentado.</span></div>
+              <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">Não há rotina de verificação de portfólio por perfil de cliente. O vendedor vende o que conhece — não o que o cliente precisa. OP6 (upsell não tentado) é a segunda oportunidade perdida mais frequente da base combinada (21,1% de todas as OPs, 1.719 ocorrências) — breakdown por subtipo de OP6 é da base piloto e não foi recalculado para a base combinada.</span></div>
               <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">Em uma ligação o cliente não sabia que Localiza Pesados existia — e o vendedor descobriu junto com ele. Confirmado em P5_P6 nos 23 batches.</span></div>
             </div>
             <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Checklist de portfólio por perfil (frota leve / pesada / mista). Uma pergunta de sondagem de frota pesada antes de encerrar ligações com empresas de médio/grande porte.</span></div>
@@ -2009,7 +2009,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <div class="ins-body">
               <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">Carro Zero aparece como alternativa mencionada pelo cliente em múltiplos batches. Não estava no framework original — capturado via P13 (padrões emergentes).</span></div>
               <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">Modelo de assinatura ataca o mesmo perfil de cliente da Localiza PJ. Diferença percebida: flexibilidade vs. custo. Vendedor não tem argumentação preparada.</span></div>
-              <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">H4 revisada: B10 (pergunta sobre concorrente) tem –17,1pp em fechamento imediato — a pergunta precisa vir antes da decisão, não no fechamento.</span></div>
+              <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">H4 revisada: B10 (pergunta sobre concorrente) tem –12,1pp em fechamento imediato na base combinada — a pergunta precisa vir antes da decisão, não no fechamento.</span></div>
             </div>
             <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Preparar 2 argumentos específicos anti-Carro Zero: (1) custo total de propriedade, (2) nível de serviço em sinistro. CH4 com dado concreto vale mais que CH4 genérico.</span></div>
           </div>
@@ -2021,9 +2021,9 @@ tbody tr:hover td{background:var(--bg-dn)}
               <span class="conf-badge conf-a">Alta confiança</span>
             </div>
             <div class="ins-body">
-              <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">B8 (ligou proativamente) tem –17,7pp — o maior diferencial negativo com fechamento imediato. Não significa que ligar proativamente é errado.</span></div>
-              <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">Ligações proativas são de qualificação. O fechamento vem no follow-up com data marcada — não na primeira ligação ativa. B10 tem o mesmo padrão.</span></div>
-              <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">3,4% dos fechamentos vs. 21,1% dos "interessou, não fechou" tiveram B8. A ligação proativa prepara o terreno — quem define prazo de retorno é quem fecha.</span></div>
+              <div class="ins-row"><span class="ins-rl">O que</span><span class="ins-rt">B8 (ligou proativamente) tem –14,2pp na base combinada — o maior diferencial negativo com fechamento imediato. Não significa que ligar proativamente é errado.</span></div>
+              <div class="ins-row"><span class="ins-rl">Por quê</span><span class="ins-rt">Ligações proativas são de qualificação. O fechamento vem no follow-up com data marcada — não na primeira ligação ativa. B10 tem o mesmo padrão (–12,1pp).</span></div>
+              <div class="ins-row"><span class="ins-rl">Evidência</span><span class="ins-rt">7,1% dos fechamentos vs. 21,4% dos "interessou, não fechou" tiveram B8 (base combinada, 686 fechamentos e 4.513 interessou_não_fechou). A ligação proativa prepara o terreno — quem define prazo de retorno é quem fecha.</span></div>
             </div>
             <div class="ins-act"><span style="color:var(--brand);font-weight:700;flex-shrink:0">→</span><span>Redesenhar fluxo: Ligação 1 (proativa) = diagnóstico + qualificação. Ligação 2 (follow-up com data) = fechamento com CH1 + FC1. Não tentar fechar na primeira ativa.</span></div>
           </div>
@@ -2083,17 +2083,18 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="ia-exp" class="subp">
         <div class="alert info">
           <span class="a-ico">ℹ️</span>
-          <span><strong>Explorer (interface de drill-down):</strong> Filtre as 1.275 ligações por desfecho, comportamento, vendedor ou sinal de cliente. Os filtros são cumulativos — combine-os para explorar subconjuntos específicos.</span>
+          <span><strong>Explorer (interface de drill-down):</strong> Filtre as 13.144 ligações resolvidas (base combinada junho+julho) por desfecho, comportamento, vendedor ou sinal de cliente. Os filtros são cumulativos — combine-os para explorar subconjuntos específicos.</span>
         </div>
 
         <div class="card mb24">
           <div class="card-t mb8">Filtros ativos</div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--fg-3);margin-bottom:6px">Desfecho</div>
           <div class="exp-filter-row">
-            <span class="exp-chip on">Todos (1.275)</span>
-            <span class="exp-chip">Fechou (58)</span>
-            <span class="exp-chip">Interessou, não fechou (303)</span>
-            <span class="exp-chip">Não era venda (463)</span>
+            <span class="exp-chip on">Todos (13.144)</span>
+            <span class="exp-chip">Fechou (686)</span>
+            <span class="exp-chip">Interessou, não fechou (4.513)</span>
+            <span class="exp-chip">Não era venda (7.778)</span>
+            <span class="exp-chip">Outras (167)</span>
           </div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--fg-3);margin-bottom:6px;margin-top:14px">Comportamento presente</div>
           <div class="exp-filter-row">
@@ -2116,7 +2117,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
         <div class="card">
           <div class="card-hdr">
-            <div><div class="card-t">Resultados — todas as ligações</div><div class="card-st">1.275 de 1.275 · ordenado por score decrescente</div></div>
+            <div><div class="card-t">Resultados — todas as ligações</div><div class="card-st">13.144 de 13.144 · ordenado por score decrescente</div></div>
             <span class="badge b-mu">Mockup ilustrativo</span>
           </div>
           <div style="margin-top:8px">
@@ -2152,7 +2153,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             </div>
           </div>
           <div style="margin-top:14px;padding:12px;border-top:1px solid var(--border);font-size:12px;color:var(--fg-2);text-align:center">
-            Exibindo 5 de 1.275 ligações &nbsp;·&nbsp; <span style="color:var(--brand-fg);font-weight:600;cursor:pointer">Carregar mais →</span>
+            Exibindo 5 de 13.144 ligações &nbsp;·&nbsp; <span style="color:var(--brand-fg);font-weight:600;cursor:pointer">Carregar mais →</span>
           </div>
         </div>
       </div>
@@ -2172,7 +2173,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="lcard"><div class="lhdr"><div class="lnum">1</div><div><div class="lt">O que aconteceu na ligação?</div><div class="ls">Desfecho e comportamentos do vendedor</div></div></div><div class="litems"><div class="litem"><strong>P1 — Desfecho e comportamentos:</strong> classifica resultado (fechou / interessou / não era venda) e avalia 10 comportamentos (B1–B10)</div><div class="litem"><strong>P2 — Tipo de ligação:</strong> nova venda, renovação, upsell, retenção, suporte operacional</div></div></div>
       <div class="lcard"><div class="lhdr"><div class="lnum">2</div><div><div class="lt">Qual o estado do cliente?</div><div class="ls">Saúde e valor potencial da conta</div></div></div><div class="litems"><div class="litem"><strong>P3 — Problemas recorrentes:</strong> identifica problemas relatados e se foram resolvidos. Risco de churn</div><div class="litem"><strong>P4 — Valor potencial:</strong> pontua o cliente em 6 dimensões (volume, adimplência, relacionamento, engajamento, complexidade, expansão)</div></div></div>
-      <div class="lcard"><div class="lhdr"><div class="lnum">3</div><div><div class="lt">O vendedor usou as técnicas?</div><div class="ls">Venda consultiva e Challenger</div></div></div><div class="litems"><div class="litem"><strong>P5 — Comportamentos Challenger (CH1–CH7):</strong> custo oculto revelado, ROI calculado, urgência real, dado do concorrente, dor conectada ao produto</div><div class="litem"><strong>P6 — Oportunidades perdidas em R$:</strong> suporte sem pergunta, dor sem produto, fechamento sem urgência, referral não solicitado</div><div class="litem"><strong>P7 — Expansão de portfólio:</strong> produtos mencionados vs ofertados. Time usa 2–3 dos 12 disponíveis</div><div class="litem"><strong>P8 — Objeções:</strong> tipo (preço, prazo, produto, concorrência) e como o vendedor respondeu</div><div class="litem"><strong>P9 — Abertura e fechamento:</strong> AB1–AB5 e FC1–FC5. Fechamento com data vs "qualquer coisa me chama"</div><div class="litem"><strong>P10 — Promessas:</strong> rastreia compromissos assumidos, prazo e risco de não cumprimento</div></div></div>
+      <div class="lcard"><div class="lhdr"><div class="lnum">3</div><div><div class="lt">O vendedor usou as técnicas?</div><div class="ls">Venda consultiva e Challenger</div></div></div><div class="litems"><div class="litem"><strong>P5 — Comportamentos Challenger (CH1–CH7):</strong> custo oculto revelado, ROI calculado, urgência real, dado do concorrente, dor conectada ao produto</div><div class="litem"><strong>P6 — Oportunidades perdidas:</strong> suporte sem pergunta, dor sem produto, fechamento sem urgência, referral não solicitado</div><div class="litem"><strong>P7 — Expansão de portfólio:</strong> produtos mencionados vs ofertados. Time usa 2–3 dos 12 disponíveis</div><div class="litem"><strong>P8 — Objeções:</strong> tipo (preço, prazo, produto, concorrência) e como o vendedor respondeu</div><div class="litem"><strong>P9 — Abertura e fechamento:</strong> AB1–AB5 e FC1–FC5. Fechamento com data vs "qualquer coisa me chama"</div><div class="litem"><strong>P10 — Promessas:</strong> rastreia compromissos assumidos, prazo e risco de não cumprimento</div></div></div>
       <div class="lcard"><div class="lhdr"><div class="lnum">4</div><div><div class="lt">O que o mercado está dizendo?</div><div class="ls">Inteligência competitiva e proporção de fala</div></div></div><div class="litems"><div class="litem"><strong>P11 — Inteligência competitiva:</strong> menções a Unidas, Movida, Móvel, Carro Zero. Cada menção é uma janela de diferenciação</div><div class="litem"><strong>P12 — Proporção de fala:</strong> vendedor que fala &gt;60% do tempo não está ouvindo. Quem ouve mais personaliza mais e fecha mais</div></div></div>
       <div class="lcard"><div class="lhdr"><div class="lnum">5</div><div><div class="lt">O que ninguém ainda viu?</div><div class="ls">Padrões emergentes e eventos raros</div></div></div><div class="litems"><div class="litem"><strong>P13 — Padrões emergentes:</strong> comportamentos novos e sinais fracos que o framework não esperava</div><div class="litem"><strong>P14 — Diferenças entre vendedores:</strong> benchmarks reais por comportamento observável — não por feeling do gestor</div><div class="litem"><strong>P15 — Eventos raros de alto impacto:</strong> "vou expandir 30 carros", "estou pensando em encerrar" — sinais que se perdem no volume</div></div></div>
 
@@ -2186,7 +2187,7 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div class="sec-hdr mb24">
         <div class="sec-lbl">Comportamento em ação · P5 — Challenger</div>
         <div class="sec-h">CH1 — Revelar custo oculto</div>
-        <div class="sec-d">O comportamento Challenger mais frequente na amostra (14 ocorrências). O vendedor mostra um custo que o cliente não havia calculado — e o cliente reage. Dois exemplos reais, mesma técnica, contextos diferentes.</div>
+        <div class="sec-d">O comportamento Challenger mais frequente na base combinada (1.298 ocorrências em 11.895 ligações com Challenger resolvido — 10,9%). O vendedor mostra um custo que o cliente não havia calculado — e o cliente reage. Dois exemplos reais, mesma técnica, contextos diferentes.</div>
       </div>
 
       <div class="grid2">
@@ -2226,7 +2227,7 @@ tbody tr:hover td{background:var(--bg-dn)}
 
       <div class="card" style="margin-top:20px">
         <div class="rm-dl-hdr">Por que isso importa</div>
-        <div class="rm-itext">CH1 aparece em apenas 14 das 1.275 ligações analisadas, mas com altíssima qualidade nos dois exemplos acima. É uma técnica replicável em qualquer ligação — inclusive suporte e sinistro: identificar um custo que o cliente não calculou (franquia, indenização, taxa de operação) e nomear o número. Tabela completa de comportamentos Challenger (CH1–CH7) em <strong>Framework</strong> e <strong>Documentação → Glossário</strong>.</div>
+        <div class="rm-itext">CH1 aparece em 1.298 das 11.895 ligações com Challenger resolvido na base combinada (10,9%), mas com altíssima qualidade nos dois exemplos acima. É uma técnica replicável em qualquer ligação — inclusive suporte e sinistro: identificar um custo que o cliente não calculou (franquia, indenização, taxa de operação) e nomear o número. Tabela completa de comportamentos Challenger (CH1–CH7) em <strong>Framework</strong> e <strong>Documentação → Glossário</strong>.</div>
       </div>
 
     </div>
@@ -2237,7 +2238,7 @@ tbody tr:hover td{background:var(--bg-dn)}
     <div class="wrap">
 
       <div class="sec-hdr mb24">
-        <div class="sec-lbl">Projeto Aletheia RAC · Localiza Frota PJ · Junho 2026</div>
+        <div class="sec-lbl">Projeto Aletheia RAC · Localiza Frota PJ · Junho–Julho 2026</div>
         <div class="sec-h">Documentação Técnica</div>
         <div class="sec-d">Dicionário, glossário, premissas metodológicas, lógica de scoring e hipóteses — tudo em um lugar.</div>
       </div>
@@ -2265,19 +2266,19 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Delta</th></tr></thead>
               <tbody>
-                <tr data-g="B5 upsell dor comportamento"><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor</td><td>Vendedor oferece produto adicional ancorado em algo que o cliente já relatou como problema</td><td style="color:var(--ok);font-weight:700">+7,4pp</td></tr>
-                <tr data-g="B6 urgência fato verificável comportamento"><td><span class="badge b-br">B6</span></td><td>Urgência com fato verificável</td><td>Cria pressão de tempo com dado real: prazo, preço, disponibilidade — algo que o cliente pode checar</td><td style="color:var(--ok);font-weight:700">+2,5pp</td></tr>
-                <tr data-g="B9 conhecimento pessoal comportamento"><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>Vendedor usa informação pessoal ou contextual do cliente específico para personalizar a abordagem</td><td style="color:var(--ok)">+0,3pp</td></tr>
-                <tr data-g="B4 avisou risco comportamento"><td><span class="badge b-mu">B4</span></td><td>Avisou risco ao cliente</td><td>Vendedor alerta o cliente sobre um risco antes que ele perceba — age como consultor</td><td style="color:var(--fg-2)">−1,9pp</td></tr>
-                <tr data-g="B2 âncora preço comportamento"><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>Vendedor apresenta preço premium antes de negociar — técnica de ancoragem</td><td style="color:var(--fg-2)">−2,7pp</td></tr>
-                <tr data-g="B7 batalhar internamente comportamento"><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>Vendedor se compromete a negociar condições especiais para o cliente dentro da empresa</td><td style="color:var(--err)">−3,0pp</td></tr>
-                <tr data-g="B3 histórico cliente comportamento"><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>Vendedor referencia dados reais do relacionamento anterior com aquele cliente</td><td style="color:var(--err)">−3,3pp</td></tr>
-                <tr data-g="B1 diagnóstico produto comportamento"><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>Vendedor faz perguntas sobre a situação do cliente antes de propor qualquer produto</td><td style="color:var(--err);font-weight:700">−12,5pp</td></tr>
-                <tr data-g="B10 concorrente frota comportamento"><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>Vendedor sonda se o cliente usa outros fornecedores ou tem frota própria</td><td style="color:var(--err);font-weight:700">−13,1pp</td></tr>
-                <tr data-g="B8 ligou proativamente comportamento"><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>A ligação foi iniciada pelo vendedor (não pelo cliente)</td><td style="color:var(--err);font-weight:700">−15,9pp</td></tr>
+                <tr data-g="B5 upsell dor comportamento"><td><span class="badge b-br">B5</span></td><td>Upsell conectado à dor</td><td>Vendedor oferece produto adicional ancorado em algo que o cliente já relatou como problema</td><td style="color:var(--ok);font-weight:700">+8,4pp</td></tr>
+                <tr data-g="B4 avisou risco comportamento"><td><span class="badge b-br">B4</span></td><td>Avisou risco ao cliente</td><td>Vendedor alerta o cliente sobre um risco antes que ele perceba — age como consultor</td><td style="color:var(--ok);font-weight:700">+6,7pp</td></tr>
+                <tr data-g="B6 urgência fato verificável comportamento"><td><span class="badge b-mu">B6</span></td><td>Urgência com fato verificável</td><td>Cria pressão de tempo com dado real: prazo, preço, disponibilidade — algo que o cliente pode checar</td><td style="color:var(--ok);font-weight:700">+3,3pp</td></tr>
+                <tr data-g="B3 histórico cliente comportamento"><td><span class="badge b-mu">B3</span></td><td>Usou histórico do cliente</td><td>Vendedor referencia dados reais do relacionamento anterior com aquele cliente</td><td style="color:var(--ok);font-weight:700">+2,2pp</td></tr>
+                <tr data-g="B9 conhecimento pessoal comportamento"><td><span class="badge b-mu">B9</span></td><td>Conhecimento pessoal do cliente</td><td>Vendedor usa informação pessoal ou contextual do cliente específico para personalizar a abordagem</td><td style="color:var(--fg-2)">+1,1pp</td></tr>
+                <tr data-g="B2 âncora preço comportamento"><td><span class="badge b-mu">B2</span></td><td>Âncora de preço alto</td><td>Vendedor apresenta preço premium antes de negociar — técnica de ancoragem</td><td style="color:var(--fg-2)">−0,7pp</td></tr>
+                <tr data-g="B7 batalhar internamente comportamento"><td><span class="badge b-mu">B7</span></td><td>Prometeu batalhar internamente</td><td>Vendedor se compromete a negociar condições especiais para o cliente dentro da empresa</td><td style="color:var(--fg-2)">−2,0pp</td></tr>
+                <tr data-g="B1 diagnóstico produto comportamento"><td><span class="badge b-err">B1</span></td><td>Diagnóstico antes do produto</td><td>Vendedor faz perguntas sobre a situação do cliente antes de propor qualquer produto</td><td style="color:var(--err);font-weight:700">−6,9pp</td></tr>
+                <tr data-g="B10 concorrente frota comportamento"><td><span class="badge b-err">B10</span></td><td>Perguntou sobre concorrente/frota</td><td>Vendedor sonda se o cliente usa outros fornecedores ou tem frota própria</td><td style="color:var(--err);font-weight:700">−12,1pp</td></tr>
+                <tr data-g="B8 ligou proativamente comportamento"><td><span class="badge b-err">B8</span></td><td>Ligou proativamente</td><td>A ligação foi iniciada pelo vendedor (não pelo cliente)</td><td style="color:var(--err);font-weight:700">−14,2pp</td></tr>
               </tbody>
             </table>
-            <div style="font-size:11px;color:var(--fg-3);margin-top:8px">Delta = diferença de frequência entre ligações que fecharam vs. interessaram mas não fecharam (1.275 ligações, P1_P2)</div>
+            <div style="font-size:11px;color:var(--fg-3);margin-top:8px">Delta = diferença de frequência entre ligações que fecharam vs. interessaram mas não fecharam (base combinada junho+julho: 13.144 ligações resolvidas, 686 fechamentos, 4.513 interessou_não_fechou · P1_P2, atualizado 27/07/2026)</div>
           </div>
 
           <div class="card mb12">
@@ -2299,19 +2300,19 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="card mb12">
             <div class="rm-dl-hdr">Oportunidades Perdidas — OP1 a OP8 <span class="badge b-mu" style="margin-left:8px">P6</span></div>
             <table class="dtable" style="margin-top:8px">
-              <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Valor est.</th></tr></thead>
+              <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th></tr></thead>
               <tbody>
-                <tr data-g="OP1 suporte sem pergunta comercial oportunidade"><td><span class="badge b-err">OP1</span></td><td>Suporte sem pergunta comercial</td><td>Ligação de suporte encerrada sem nenhuma sondagem comercial — a janela existia e não foi aberta</td><td>R$800/mês</td></tr>
-                <tr data-g="OP2 dor relatada sem produto oportunidade"><td><span class="badge b-mu">OP2</span></td><td>Dor relatada, produto não oferecido</td><td>Cliente revelou uma dor explícita mas o vendedor não conectou a nenhum produto disponível</td><td>—</td></tr>
-                <tr data-g="OP3 urgência não criada oportunidade"><td><span class="badge b-mu">OP3</span></td><td>Fechamento sem urgência</td><td>Havia contexto para criar pressão de tempo mas o vendedor não usou nenhum fato concreto</td><td>—</td></tr>
-                <tr data-g="OP4 referral não solicitado oportunidade"><td><span class="badge b-mu">OP4</span></td><td>Referral não solicitado</td><td>Cliente satisfeito com potencial de indicação — vendedor não pediu indicação de outro contato</td><td>—</td></tr>
-                <tr data-g="OP5 dado estratégico não explorado oportunidade"><td><span class="badge b-mu">OP5</span></td><td>Dado estratégico não explorado</td><td>Cliente revelou frota própria, expansão de empresa ou outra locadora — vendedor não aproveitou o dado</td><td>—</td></tr>
-                <tr data-g="OP6 upsell não tentado oportunidade"><td><span class="badge b-err">OP6</span></td><td>Upsell óbvio não tentado</td><td>Havia contexto para oferecer produto adicional (SUV, elétrico, telemetria) e o vendedor não tentou</td><td style="font-weight:700;color:var(--err)">R$23.410/mês</td></tr>
-                <tr data-g="OP7 churn não detectado oportunidade"><td><span class="badge b-mu">OP7</span></td><td>Churn não detectado</td><td>Sinais de queda de volume ou insatisfação do cliente foram ignorados pelo vendedor</td><td>—</td></tr>
-                <tr data-g="OP8 escalada desnecessária oportunidade"><td><span class="badge b-mu">OP8</span></td><td>Escalada desnecessária</td><td>Vendedor transferiu para 0800 um problema que poderia ter resolvido</td><td>—</td></tr>
+                <tr data-g="OP1 suporte sem pergunta comercial oportunidade"><td><span class="badge b-err">OP1</span></td><td>Suporte sem pergunta comercial</td><td>Ligação de suporte encerrada sem nenhuma sondagem comercial — a janela existia e não foi aberta</td></tr>
+                <tr data-g="OP2 dor relatada sem produto oportunidade"><td><span class="badge b-mu">OP2</span></td><td>Dor relatada, produto não oferecido</td><td>Cliente revelou uma dor explícita mas o vendedor não conectou a nenhum produto disponível</td></tr>
+                <tr data-g="OP3 urgência não criada oportunidade"><td><span class="badge b-mu">OP3</span></td><td>Fechamento sem urgência</td><td>Havia contexto para criar pressão de tempo mas o vendedor não usou nenhum fato concreto</td></tr>
+                <tr data-g="OP4 referral não solicitado oportunidade"><td><span class="badge b-mu">OP4</span></td><td>Referral não solicitado</td><td>Cliente satisfeito com potencial de indicação — vendedor não pediu indicação de outro contato</td></tr>
+                <tr data-g="OP5 dado estratégico não explorado oportunidade"><td><span class="badge b-mu">OP5</span></td><td>Dado estratégico não explorado</td><td>Cliente revelou frota própria, expansão de empresa ou outra locadora — vendedor não aproveitou o dado</td></tr>
+                <tr data-g="OP6 upsell não tentado oportunidade"><td><span class="badge b-err">OP6</span></td><td>Upsell óbvio não tentado</td><td>Havia contexto para oferecer produto adicional (SUV, elétrico, telemetria) e o vendedor não tentou</td></tr>
+                <tr data-g="OP7 churn não detectado oportunidade"><td><span class="badge b-mu">OP7</span></td><td>Churn não detectado</td><td>Sinais de queda de volume ou insatisfação do cliente foram ignorados pelo vendedor</td></tr>
+                <tr data-g="OP8 escalada desnecessária oportunidade"><td><span class="badge b-mu">OP8</span></td><td>Escalada desnecessária</td><td>Vendedor transferiu para 0800 um problema que poderia ter resolvido</td></tr>
               </tbody>
             </table>
-            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: OP5 e OP7 tinham nome/descrição trocados (não correspondiam ao Prompt 6 real) e faltava OP8. Os valores estimados de OP6 (R$23.410/mês) e o antigo OP7 (R$3.600/mês, ligado à narrativa de Localiza Pesados/H6) foram calculados sob a definição antiga — revalidar a origem desses números antes de reapresentar.</div>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: OP5 e OP7 tinham nome/descrição trocados (não correspondiam ao Prompt 6 real) e faltava OP8.</div>
           </div>
 
           <div class="card mb12">
@@ -2319,13 +2320,14 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Eficácia</th><th>Base</th></tr></thead>
               <tbody>
-                <tr data-g="FC1 compromisso duplo data fechamento"><td><span class="badge b-ok">FC1</span></td><td>Compromisso duplo com data</td><td>Vendedor E cliente assumiram próximo passo com data específica</td><td style="color:var(--ok)">Máxima</td><td>31,9%</td></tr>
-                <tr data-g="FC2 próximo passo vendedor fechamento"><td><span class="badge b-br">FC2</span></td><td>Próximo passo só do vendedor</td><td>Vendedor assume ação ("vou te mandar") sem compromisso do cliente</td><td>Média</td><td>—</td></tr>
-                <tr data-g="FC3 qualquer coisa me chama vago fechamento"><td><span class="badge b-err">FC3</span></td><td>"Qualquer coisa me chama"</td><td>Encerramento vago — sem data, sem próximo passo, sem comprometimento de nenhum lado</td><td style="color:var(--err)">Baixíssima</td><td>44,8%</td></tr>
-                <tr data-g="FC4 sem fechamento explícito fechamento"><td><span class="badge b-mu">FC4</span></td><td>Sem fechamento explícito</td><td>Ligação termina sem qualquer definição de continuidade — inclassificável</td><td style="color:var(--fg-2)">Nula</td><td>—</td></tr>
-                <tr data-g="FC5 diretivo instrução clara fechamento"><td><span class="badge b-mu">FC5</span></td><td>Diretivo</td><td>Vendedor dá instrução clara ao cliente (ex: "não paga essa fatura ainda")</td><td>Variável</td><td>—</td></tr>
+                <tr data-g="FC1 compromisso duplo data fechamento"><td><span class="badge b-ok">FC1</span></td><td>Compromisso duplo com data</td><td>Vendedor E cliente assumiram próximo passo com data específica</td><td style="color:var(--ok)">Máxima</td><td>29,0%</td></tr>
+                <tr data-g="FC2 próximo passo vendedor fechamento"><td><span class="badge b-br">FC2</span></td><td>Próximo passo só do vendedor</td><td>Vendedor assume ação ("vou te mandar") sem compromisso do cliente</td><td>Média</td><td>16,9%</td></tr>
+                <tr data-g="FC3 qualquer coisa me chama vago fechamento"><td><span class="badge b-err">FC3</span></td><td>"Qualquer coisa me chama"</td><td>Encerramento vago — sem data, sem próximo passo, sem comprometimento de nenhum lado</td><td style="color:var(--err)">Baixíssima</td><td>37,3%</td></tr>
+                <tr data-g="FC4 sem fechamento explícito fechamento"><td><span class="badge b-mu">FC4</span></td><td>Sem fechamento explícito</td><td>Ligação termina sem qualquer definição de continuidade — inclassificável</td><td style="color:var(--fg-2)">Nula</td><td>16,0%</td></tr>
+                <tr data-g="FC5 diretivo instrução clara fechamento"><td><span class="badge b-mu">FC5</span></td><td>Diretivo</td><td>Vendedor dá instrução clara ao cliente (ex: "não paga essa fatura ainda")</td><td>Variável</td><td>0,9%</td></tr>
               </tbody>
             </table>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Base: 10.647 ligações resolvidas (junho completo + julho 64% processado) — <strong>provisório</strong>, atualiza conforme o pipeline diário completa.</div>
           </div>
 
           <div class="card mb12">
@@ -2333,15 +2335,15 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>Risco</th></tr></thead>
               <tbody>
-                <tr data-g="PM1 resolve mesma ligação promessa"><td><span class="badge b-ok">PM1</span></td><td>Resolve na mesma ligação</td><td style="color:var(--ok)">Baixo — está feito antes de desligar</td></tr>
-                <tr data-g="PM2 envia documento proposta promessa"><td><span class="badge b-br">PM2</span></td><td>Envia documento/proposta</td><td>Médio — depende de prioridade</td></tr>
-                <tr data-g="PM3 liga de volta resultado promessa"><td><span class="badge b-err">PM3</span></td><td>Liga de volta com resultado</td><td style="color:var(--err)">Médio-alto — 56,2% das promessas</td></tr>
-                <tr data-g="PM4 encaminha terceiro promessa"><td><span class="badge b-mu">PM4</span></td><td>Encaminha para terceiro</td><td>Alto — sem visibilidade do que o terceiro fez</td></tr>
-                <tr data-g="PM5 negocia internamente promessa"><td><span class="badge b-mu">PM5</span></td><td>Negocia internamente</td><td>Alto — processo longo, cliente aguarda sem prazo</td></tr>
-                <tr data-g="PM6 promessa implícita cobertura promessa"><td><span class="badge b-mu">PM6</span></td><td>Promessa implícita de cobertura</td><td style="color:var(--fg-2)">Muito alto — nunca formalizada</td></tr>
+                <tr data-g="PM1 resolve mesma ligação promessa"><td><span class="badge b-ok">PM1</span></td><td>Resolve na mesma ligação</td><td style="color:var(--ok)">Baixo — está feito antes de desligar (9,7% das promessas)</td></tr>
+                <tr data-g="PM2 envia documento proposta promessa"><td><span class="badge b-err">PM2</span></td><td>Envia documento/proposta</td><td style="color:var(--err)">Médio — depende de prioridade (51,9% das promessas)</td></tr>
+                <tr data-g="PM3 liga de volta resultado promessa"><td><span class="badge b-br">PM3</span></td><td>Liga de volta com resultado</td><td>Médio-alto (13,4% das promessas)</td></tr>
+                <tr data-g="PM4 encaminha terceiro promessa"><td><span class="badge b-mu">PM4</span></td><td>Encaminha para terceiro</td><td>Alto — sem visibilidade do que o terceiro fez (6,8% das promessas)</td></tr>
+                <tr data-g="PM5 negocia internamente promessa"><td><span class="badge b-mu">PM5</span></td><td>Negocia internamente</td><td>Alto — processo longo, cliente aguarda sem prazo (11,8% das promessas)</td></tr>
+                <tr data-g="PM6 promessa implícita cobertura promessa"><td><span class="badge b-mu">PM6</span></td><td>Promessa implícita de cobertura</td><td style="color:var(--fg-2)">Muito alto — nunca formalizada (6,4% das promessas)</td></tr>
               </tbody>
             </table>
-            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: os nomes de PM1-PM4 estavam trocados/incorretos em relação ao Prompt 10 real. O "56,2% das promessas" que estava em PM2 foi mantido em PM3 (mesma métrica, código correto) — revalidar a origem exata desse número.</div>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Base combinada (junho completo + julho 64% processado): 8.534 promessas com código estruturado — <strong>provisório</strong>. Correção de 10/07/2026: os nomes de PM1-PM4 estavam trocados/incorretos em relação ao Prompt 10 real — já corrigido nesta tabela.</div>
           </div>
 
           <div class="card mb12">
@@ -2349,14 +2351,14 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Código</th><th>Nome</th><th>O que significa</th><th>Base</th></tr></thead>
               <tbody>
-                <tr data-g="AB1 contextualizada motivo histórico"><td><span class="badge b-br">AB1</span></td><td>Contextualizada</td><td>Vendedor diz por que está ligando antes de pedir atenção / referencia o histórico do cliente</td><td>55,7%</td></tr>
-                <tr data-g="AB2 relacional vínculo pessoal"><td><span class="badge b-br">AB2</span></td><td>Relacional</td><td>Vendedor abre com interesse genuíno na pessoa antes de falar de negócio</td><td>—</td></tr>
-                <tr data-g="AB3 genérica sem personalização"><td><span class="badge b-mu">AB3</span></td><td>Genérica</td><td>Abertura padrão sem personalização ("Bom dia, tudo bem? Em que posso ajudar?")</td><td>—</td></tr>
-                <tr data-g="AB4 reativa responde cliente"><td><span class="badge b-mu">AB4</span></td><td>Reativa</td><td>Vendedor só responde ao que o cliente traz — cliente tomou a iniciativa</td><td>—</td></tr>
-                <tr data-g="AB5 proteção antecipa problema"><td><span class="badge b-mu">AB5</span></td><td>De proteção</td><td>Vendedor abre antecipando um problema que o cliente ainda não percebeu</td><td>—</td></tr>
+                <tr data-g="AB1 contextualizada motivo histórico"><td><span class="badge b-br">AB1</span></td><td>Contextualizada</td><td>Vendedor diz por que está ligando antes de pedir atenção / referencia o histórico do cliente</td><td>53,9%</td></tr>
+                <tr data-g="AB2 relacional vínculo pessoal"><td><span class="badge b-br">AB2</span></td><td>Relacional</td><td>Vendedor abre com interesse genuíno na pessoa antes de falar de negócio</td><td>13,3%</td></tr>
+                <tr data-g="AB3 genérica sem personalização"><td><span class="badge b-mu">AB3</span></td><td>Genérica</td><td>Abertura padrão sem personalização ("Bom dia, tudo bem? Em que posso ajudar?")</td><td>20,7%</td></tr>
+                <tr data-g="AB4 reativa responde cliente"><td><span class="badge b-mu">AB4</span></td><td>Reativa</td><td>Vendedor só responde ao que o cliente traz — cliente tomou a iniciativa</td><td>12,1%</td></tr>
+                <tr data-g="AB5 proteção antecipa problema"><td><span class="badge b-mu">AB5</span></td><td>De proteção</td><td>Vendedor abre antecipando um problema que o cliente ainda não percebeu</td><td>0,0%</td></tr>
               </tbody>
             </table>
-            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Correção de 10/07/2026: AB2-AB5 estavam com nome/descrição incompatíveis com o Prompt 9 real (ex: AB3 antigo "oferta imediata" não existe na taxonomia real, que é "Genérica").</div>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Base combinada: 10.647 ligações resolvidas (junho completo + julho 64% processado) — <strong>provisório</strong>. Correção de 10/07/2026: AB2-AB5 estavam com nome/descrição incompatíveis com o Prompt 9 real (ex: AB3 antigo "oferta imediata" não existe na taxonomia real, que é "Genérica").</div>
           </div>
 
           <div class="card mb12">
@@ -2394,12 +2396,14 @@ tbody tr:hover td{background:var(--bg-dn)}
             <table class="dtable" style="margin-top:8px">
               <thead><tr><th>Valor</th><th>Significado</th><th>Base</th></tr></thead>
               <tbody>
-                <tr data-g="não era venda suporte operacional desfecho"><td><span class="badge b-mu">não_era_venda</span></td><td>Ligação de suporte, operacional ou administrativa — sem contexto de venda</td><td>57,1%</td></tr>
-                <tr data-g="interessou não fechou pipeline desfecho"><td><span class="badge b-br">interessou_nao_fechou</span></td><td>Cliente demonstrou interesse mas não houve decisão — ficou em aberto</td><td>36,1%</td></tr>
-                <tr data-g="fechou novo renovação upsell desfecho"><td><span class="badge b-ok">fechou</span></td><td>Venda concluída: novo contrato, renovação ou upsell</td><td>7,0%</td></tr>
-                <tr data-g="sem conteúdo curta interrompida desfecho"><td><span class="badge b-mu">sem_conteudo</span></td><td>Ligação muito curta, interrompida ou sem conversa identificável</td><td>0,5%</td></tr>
+                <tr data-g="não era venda suporte operacional desfecho"><td><span class="badge b-mu">não_era_venda</span></td><td>Ligação de suporte, operacional ou administrativa — sem contexto de venda</td><td>59,2%</td></tr>
+                <tr data-g="interessou não fechou pipeline desfecho"><td><span class="badge b-br">interessou_nao_fechou</span></td><td>Cliente demonstrou interesse mas não houve decisão — ficou em aberto</td><td>34,3%</td></tr>
+                <tr data-g="fechou novo renovação upsell desfecho"><td><span class="badge b-ok">fechou</span></td><td>Venda concluída: novo contrato, renovação ou upsell</td><td>5,2%</td></tr>
+                <tr data-g="sem conteúdo curta interrompida desfecho"><td><span class="badge b-mu">sem_conteudo</span></td><td>Ligação muito curta, interrompida ou sem conversa identificável</td><td>0,8%</td></tr>
+                <tr data-g="outras suporte operacional retenção cobrança desfecho"><td><span class="badge b-mu">outras</span></td><td>Categorias novas de julho: suporte_operacional, retenção, pós-venda/manutenção, misto, cobrança</td><td>0,5%</td></tr>
               </tbody>
             </table>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Base: 13.144 ligações resolvidas, base combinada junho+julho (atualizado 27/07/2026). Antiga base piloto (histórico): fechou = 7,0%.</div>
           </div>
 
         </div><!-- /glossTable -->
@@ -2440,7 +2444,7 @@ tbody tr:hover td{background:var(--bg-dn)}
             <tbody>
               <tr><td><span class="badge b-mu">PR1</span></td><td>Locação mensal de veículos leves (passeio, picape, caminhonete, fiorino/furgão leve — produto principal RAC)</td><td>Core</td></tr>
               <tr><td><span class="badge b-mu">PR2</span></td><td>Localiza Pesados — locação de caminhão, cavalo mecânico, carreta</td><td>Cross-sell</td></tr>
-              <tr><td><span class="badge b-mu">PR3</span></td><td>Telemetria — rastreamento em tempo real (~R$50–130/mês/veículo)</td><td>Upsell</td></tr>
+              <tr><td><span class="badge b-mu">PR3</span></td><td>Telemetria — rastreamento em tempo real</td><td>Upsell</td></tr>
               <tr><td><span class="badge b-mu">PR4</span></td><td>Proteção total / cobertura de avarias</td><td>Upsell</td></tr>
               <tr><td><span class="badge b-mu">PR5</span></td><td>Upgrade de categoria de veículo</td><td>Upsell</td></tr>
               <tr><td><span class="badge b-mu">PR6</span></td><td>Km adicional / plano de km maior</td><td>Upsell</td></tr>
@@ -2460,12 +2464,13 @@ tbody tr:hover td{background:var(--bg-dn)}
           <table class="dtable" style="margin-top:8px">
             <thead><tr><th>Faixa</th><th>Nível</th><th>Interpretação</th><th>Base</th></tr></thead>
             <tbody>
-              <tr><td style="font-weight:700">20–30</td><td><span class="badge b-ok">ALTO</span></td><td>Contexto, sinais e comportamento alinhados — prioridade máxima</td><td>84 (6,6%)</td></tr>
-              <tr><td style="font-weight:700">13–19</td><td><span class="badge b-br">MÉDIO</span></td><td>Potencial real — algo faltou: contexto curto, sinal não explorado ou vendedor abaixo</td><td>298 (23,4%)</td></tr>
-              <tr><td style="font-weight:700">7–12</td><td><span class="badge b-mu">BAIXO</span></td><td>Potencial limitado — ligação de suporte com janela comercial fraca</td><td>508 (39,8%)</td></tr>
-              <tr><td style="font-weight:700">0–6</td><td><span class="badge b-mu">SEM POTENCIAL</span></td><td>Suporte puro ou sem conteúdo suficiente para análise comercial</td><td>385 (30,2%)</td></tr>
+              <tr><td style="font-weight:700">20–30</td><td><span class="badge b-ok">ALTO</span></td><td>Contexto, sinais e comportamento alinhados — prioridade máxima</td><td>488 (3,68%)</td></tr>
+              <tr><td style="font-weight:700">13–19</td><td><span class="badge b-br">MÉDIO</span></td><td>Potencial real — algo faltou: contexto curto, sinal não explorado ou vendedor abaixo</td><td>2.365 (17,83%)</td></tr>
+              <tr><td style="font-weight:700">7–12</td><td><span class="badge b-mu">BAIXO</span></td><td>Potencial limitado — ligação de suporte com janela comercial fraca</td><td>4.456 (33,59%)</td></tr>
+              <tr><td style="font-weight:700">0–6</td><td><span class="badge b-mu">SEM POTENCIAL</span></td><td>Suporte puro ou sem conteúdo suficiente para análise comercial</td><td>5.955 (44,90%)</td></tr>
             </tbody>
           </table>
+          <div style="font-size:12px;color:var(--fg-2);margin-top:6px">Base: 13.264 ligações combinadas (junho+julho, cobertura total). Score médio geral: 8,19.</div>
         </div>
 
       </div>
@@ -2478,11 +2483,11 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
             <div style="padding:12px 14px;background:var(--bg-dn);border-radius:8px;font-size:13px;line-height:1.6">
               <strong>Qualidade da transcrição (STT)</strong><br>
-              Ligações transcritas por Speech-to-Text — não é transcrição humana revisada. Nomes próprios, jargão técnico e sobreposição de vozes geram erros. O framework usa padrões de palavras múltiplas, não palavras isoladas, para ser robusto a erros de STT. <strong>Premissa aceita:</strong> erros afetam casos individuais, mas não distorcem padrões agregados de 1.275 ligações.
+              Ligações transcritas por Speech-to-Text — não é transcrição humana revisada. Nomes próprios, jargão técnico e sobreposição de vozes geram erros. O framework usa padrões de palavras múltiplas, não palavras isoladas, para ser robusto a erros de STT. <strong>Premissa aceita:</strong> erros afetam casos individuais, mas não distorcem padrões agregados de 13.264 ligações combinadas (junho+julho).
             </div>
             <div style="padding:12px 14px;background:var(--bg-dn);border-radius:8px;font-size:13px;line-height:1.6">
-              <strong>Período analisado — Junho 2026 apenas</strong><br>
-              Sem série histórica, não é possível distinguir padrão permanente de padrão sazonal. Renovações de frota no final de semestre podem distorcer os números de desfecho. <strong>Limitação conhecida.</strong>
+              <strong>Período analisado — Junho e Julho de 2026</strong><br>
+              Base agora combina dois meses (13.264 ligações). Sem série histórica mais longa, não é possível distinguir padrão permanente de padrão sazonal. Renovações de frota no final de semestre podem distorcer os números de desfecho. Julho ainda está com P9_P10 em processamento parcial (64%) — ver selos "provisório" nas métricas que dependem dele. <strong>Limitação conhecida.</strong>
             </div>
             <div style="padding:12px 14px;background:var(--bg-dn);border-radius:8px;font-size:13px;line-height:1.6">
               <strong>Ausência de dados de CRM</strong><br>
@@ -2510,7 +2515,7 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
             <div style="padding:12px 14px;background:var(--bg-dn);border-radius:8px;font-size:13px;line-height:1.6">
               <strong>Modelo e limites</strong><br>
-              Gemini 2.5 Flash (Google), tier gratuito: 20 requisições/dia. 1.275 ligações divididas em 23 batches — cada batch recebe múltiplos prompts em sequência. A IA analisa o bloco inteiro de uma vez, não ligação por ligação em chamadas separadas.
+              Gemini 2.5 Flash (Google), tier gratuito: 20 requisições/dia. A base piloto original (1.275 ligações) foi dividida em 23 batches; o lote seguinte (5.348) e julho (6.641, pipeline diário incremental) seguiram o mesmo processo em batches adicionais — cada batch recebe múltiplos prompts em sequência. A IA analisa o bloco inteiro de uma vez, não ligação por ligação em chamadas separadas.
             </div>
             <div style="padding:12px 14px;background:var(--bg-dn);border-radius:8px;font-size:13px;line-height:1.6">
               <strong>O que a IA não decide</strong><br>
@@ -2610,15 +2615,15 @@ tbody tr:hover td{background:var(--bg-dn)}
       <div id="doc-hipoteses" class="doc-panel" style="display:none">
 
         <div class="card mb16">
-          <div class="rm-dl-hdr">Status das Hipóteses — 1.275 ligações (P1_P2 completo)</div>
+          <div class="rm-dl-hdr">Status das Hipóteses — 13.144 ligações resolvidas (base combinada junho+julho, P1_P2)</div>
           <table class="dtable" style="margin-top:10px">
             <thead><tr><th>#</th><th>O que os dados mostram</th><th>Status</th></tr></thead>
             <tbody>
               <tr><td>H1</td><td>Vendedor que faz a conta da diária vs. mensal em voz alta converte mais (B5 + B6)</td><td><span class="badge b-warn">Em validação</span></td></tr>
-              <tr><td>H2</td><td>Fechar sem data é não fechar — FC3 "qualquer coisa me chama" domina (44,8% das ligações)</td><td><span class="badge b-ok">Confirmada</span></td></tr>
+              <tr><td>H2</td><td>Fechar sem data é não fechar — FC3 "qualquer coisa me chama" domina (37,3% das ligações, provisório)</td><td><span class="badge b-ok">Confirmada</span></td></tr>
               <tr><td>H3</td><td>Problemas de senha e biometria consomem ligações que poderiam ser vendas</td><td><span class="badge b-ok">Confirmada</span></td></tr>
               <tr><td>H4</td><td>B10 (perguntar sobre concorrência) protege o contrato — mas o timing precisa ser antes da decisão do cliente</td><td><span class="badge b-br">Revisada</span></td></tr>
-              <tr><td>H5</td><td>57,1% das ligações são suporte puro — esse tempo poderia ser redirecionado comercialmente</td><td><span class="badge b-ok">Confirmada</span></td></tr>
+              <tr><td>H5</td><td>59,2% das ligações são suporte puro — esse tempo poderia ser redirecionado comercialmente</td><td><span class="badge b-ok">Confirmada</span></td></tr>
               <tr><td>H6</td><td>Localiza Pesados é invisível para o time — a pergunta sobre frota própria abre mercado que o cliente não oferece espontaneamente</td><td><span class="badge b-info">Nova</span></td></tr>
               <tr><td>H7</td><td>Biometria com falha é vazamento de receita mensurável — não é problema do vendedor, é atrito de plataforma</td><td><span class="badge b-info">Nova</span></td></tr>
             </tbody>
@@ -2632,7 +2637,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               <span class="badge b-ok">H1</span>
               <strong style="font-size:14px">O argumento da diária vs. mensal é o que mais converte</strong>
             </div>
-            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">Toda vez que o vendedor traduz o tempo restante do aluguel em reais e compara com o mensal, o cliente para e recalcula. Não é persuasão — é matemática que o cliente não havia feito sozinho. Mapeado como B5 + B6. <strong>Evidência:</strong> B5 (+7,4pp), B6 (+2,5pp) são os dois comportamentos com maior correlação positiva com fechamento.</div>
+            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">Toda vez que o vendedor traduz o tempo restante do aluguel em reais e compara com o mensal, o cliente para e recalcula. Não é persuasão — é matemática que o cliente não havia feito sozinho. Mapeado como B5 + B6. <strong>Evidência (base combinada):</strong> B5 (+8,4pp) e B6 (+3,3pp) estão entre os comportamentos com maior correlação positiva com fechamento.</div>
           </div>
 
           <div class="card">
@@ -2640,7 +2645,7 @@ tbody tr:hover td{background:var(--bg-dn)}
               <span class="badge b-ok">H2</span>
               <strong style="font-size:14px">Fechar sem data é não fechar</strong>
             </div>
-            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">44,8% das ligações encerram com FC3 ("qualquer coisa me chama") — sem data, sem próximo passo, sem comprometimento. O pipeline está sendo gerenciado pela memória do vendedor. Apenas 9% das ligações têm prazo definido. <strong>Solução:</strong> substituir FC3 por FC1 — roleplay de 30 minutos com o time resolve isso.</div>
+            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">37,3% das ligações encerram com FC3 ("qualquer coisa me chama") — sem data, sem próximo passo, sem comprometimento (base combinada junho+julho, provisório: julho 64% processado). O pipeline está sendo gerenciado pela memória do vendedor. Apenas 10,0% das ligações têm prazo definido. <strong>Solução:</strong> substituir FC3 por FC1 — roleplay de 30 minutos com o time resolve isso.</div>
           </div>
 
           <div class="card">
@@ -2662,9 +2667,9 @@ tbody tr:hover td{background:var(--bg-dn)}
           <div class="card">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
               <span class="badge b-ok">H5</span>
-              <strong style="font-size:14px">57% das ligações são suporte puro (ou prospecção sem tração)</strong>
+              <strong style="font-size:14px">59% das ligações são suporte puro (ou prospecção sem tração)</strong>
             </div>
-            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">3.785 de 6.594 ligações da base combinada classificadas como "não era venda" (57,4%, atualizado 09/07/2026). Achado novo: 26,5% desse grupo (1.002 ligações) eram prospecção fria sem tração — 90% iniciadas pelo próprio vendedor, não é só suporte operacional. Segmentar por motivo da ligação antes de escalar esforço comercial aumenta o retorno por ligação sem aumentar volume.</div>
+            <div style="font-size:13px;color:var(--fg-2);line-height:1.6">7.778 de 13.144 ligações resolvidas da base combinada junho+julho classificadas como "não era venda" (59,2%, atualizado 27/07/2026 — era 57,4% só em junho). O achado de que 26,5% desse grupo eram prospecção fria sem tração (90% iniciada pelo vendedor) é da análise de junho (09/07/2026) e ainda não foi recalculado incluindo julho. Segmentar por motivo da ligação antes de escalar esforço comercial aumenta o retorno por ligação sem aumentar volume.</div>
           </div>
 
           <div class="card">
@@ -2702,7 +2707,7 @@ tbody tr:hover td{background:var(--bg-dn)}
     </section>
 
     <div class="footer">
-      Análise completa: P1_P2, P5_P6 e P9_P10 em 1.275 ligações · Síntese final gerada · Scoring automático Python · 30/06/2026 · Aletheia RAC v2
+      Análise completa: P1_P2 e P5_P6 em 13.144 ligações resolvidas (base combinada junho+julho) · P9_P10 em 10.647 ligações (80,3%, provisório — julho 64% processado) · Scoring automático Python em 13.264 ligações (100%) · Síntese atualizada 27/07/2026 · Aletheia RAC v2
     </div>
 
   </div>
@@ -2792,11 +2797,11 @@ function drawDesfecho() {
   charts.d = new Chart(document.getElementById('cDesfecho'), {
     type:'bar',
     data:{
-      labels:['Não era venda (suporte)','Interessou, não fechou','Fechou — novo','Fechou — renovação','Fechou — upsell','Sem conteúdo'],
-      datasets:[{data:[3785,2458,226,76,35,8],backgroundColor:[c.border,c.muted,c.primary,'#6EE7B7',c.green,'#D1D5DB'],borderRadius:4,barPercentage:.7}]
+      labels:['Não era venda (suporte)','Interessou, não fechou','Fechou — novo','Fechou — renovação','Fechou — upsell','Sem conteúdo','Outras'],
+      datasets:[{data:[7778,4513,482,133,71,102,65],backgroundColor:[c.border,c.muted,c.primary,'#6EE7B7',c.green,'#D1D5DB','#9CA3AF'],borderRadius:4,barPercentage:.7}]
     },
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6588;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=13144;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2807,9 +2812,9 @@ function drawScoring() {
   if (charts.s) { charts.s.destroy(); delete charts.s; }
   charts.s = new Chart(document.getElementById('cScoring'), {
     type:'bar',
-    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[368,1502,2480,2273],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
+    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[488,2365,4456,5955],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6623;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=13264;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2891,9 +2896,9 @@ function drawEvolucao() {
 function drawCorrPos() {
   const c = C();
   if (charts.corrP) { charts.corrP.destroy(); delete charts.corrP; }
-  const lbls=['B5 — Upsell/dor','B3 — Histórico cliente','B4 — Avisou risco','B6 — Urgência verificável'];
-  const f=[16.6,11.9,5.6,4.5];
-  const n=[9.6,9.0,4.3,3.3];
+  const lbls=['B5 — Upsell/dor','B4 — Avisou risco','B6 — Urgência verificável','B3 — Histórico cliente','B9 — Conhecimento pessoal'];
+  const f=[16.9,12.5,6.9,18.5,3.2];
+  const n=[8.5,5.8,3.6,16.3,2.1];
   charts.corrP = new Chart(document.getElementById('cCorrPos'), {
     type:'bar',
     data:{labels:lbls,datasets:[{label:'% fechou',data:f,backgroundColor:c.primary,borderRadius:3,barPercentage:.7},{label:'% interessou, n.fechou',data:n,backgroundColor:c.border,borderRadius:3,barPercentage:.7}]},
@@ -2904,9 +2909,9 @@ function drawCorrPos() {
 function drawCorrNeg() {
   const c = C();
   if (charts.corrN) { charts.corrN.destroy(); delete charts.corrN; }
-  const lbls=['B10 — Concorrente/frota','B8 — Ligou proativamente','B1 — Diagnóstico','B7 — Batalhar interno','B2 — Âncora preço','B9 — Conhecimento pessoal'];
-  const f=[5.3,4.2,37.4,1.2,3.0,0.6];
-  const n=[15.9,10.7,42.1,3.5,5.0,1.1];
+  const lbls=['B8 — Ligou proativamente','B10 — Concorrente/frota','B1 — Diagnóstico','B7 — Batalhar interno','B2 — Âncora preço'];
+  const f=[7.1,4.8,34.8,1.5,4.5];
+  const n=[21.4,16.9,41.7,3.5,5.2];
   charts.corrN = new Chart(document.getElementById('cCorrNeg'), {
     type:'bar',
     data:{labels:lbls,datasets:[{label:'% fechou',data:f,backgroundColor:c.red,borderRadius:3,barPercentage:.7},{label:'% interessou, n.fechou',data:n,backgroundColor:c.border,borderRadius:3,barPercentage:.7}]},
@@ -2919,9 +2924,9 @@ function drawScoringC() {
   if (charts.sc) { charts.sc.destroy(); delete charts.sc; }
   charts.sc = new Chart(document.getElementById('cScoringC'), {
     type:'bar',
-    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[368,1502,2480,2273],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
+    data:{labels:['Alto (≥20)','Médio (13–19)','Baixo (7–12)','Sem potencial'],datasets:[{data:[488,2365,4456,5955],backgroundColor:[c.primary,c.green,c.muted,c.border],borderRadius:4,barPercentage:.7}]},
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=6623;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const t=13264;return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;} }}},
       scales:{x:{grid:{color:c.grid},ticks:{font:{size:11},color:c.text}},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2946,11 +2951,11 @@ function drawCH() {
     type:'bar',
     data:{
       labels:['CH1 — Custo oculto','CH2 — ROI em tempo real','CH3 — Urgência real','CH4 — Dado concorrente','CH5 — Conectar dor','CH6 — Antecipar problema','CH7 — Propor piloto'],
-      datasets:[{label:'Frequência (%)',data:[13.6,0.9,1.2,1.6,6.3,2.9,2.7],backgroundColor:[c.primary,c.green,c.warn,'#7C3AED',c.green,'#0D9488',c.red],borderRadius:4,barPercentage:.7}]
+      datasets:[{label:'Frequência (%)',data:[10.9,1.0,1.9,1.5,6.9,5.1,3.6],backgroundColor:[c.primary,c.green,c.warn,'#7C3AED',c.green,'#0D9488',c.red],borderRadius:4,barPercentage:.7}]
     },
     options:{
       indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% das ligações analisadas`}}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% de 11.895 ligações com Challenger resolvido`}}},
       scales:{x:{grid:{color:c.grid},ticks:{callback:v=>v+'%',font:{size:11},color:c.text},max:20},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2962,8 +2967,8 @@ function drawOP() {
   charts.op = new Chart(document.getElementById('cOP'), {
     type:'bar',
     data:{
-      labels:['OP1 — Suporte sem sondagem','OP2 — Dor sem produto','OP3 — Sem urgência para fechar','OP4 — Referral não solicitado','OP5 — Objeção adiada','OP6 — Upsell não tentado'],
-      datasets:[{label:'Frequência (%)',data:[42.9,10.2,11.9,8.4,2.9,18.4],backgroundColor:[c.red,c.red,c.warn,c.warn,c.muted,c.red],borderRadius:4,barPercentage:.7}]
+      labels:['OP1 — Suporte sem sondagem','OP6 — Upsell não tentado','OP2 — Dor sem produto','OP3 — Sem urgência para fechar','OP4 — Referral não solicitado','OP5 — Objeção adiada','OP7 — Churn não detectado','OP8 — Escalada desnecessária'],
+      datasets:[{label:'Frequência (%)',data:[41.5,21.1,13.7,8.8,6.7,4.0,3.4,0.9],backgroundColor:[c.red,c.red,c.muted,c.warn,c.warn,c.muted,c.muted,c.muted],borderRadius:4,barPercentage:.7}]
     },
     options:{
       indexAxis:'y',responsive:true,
@@ -2979,11 +2984,11 @@ function drawFC() {
   charts.fc = new Chart(document.getElementById('cFC'), {
     type:'bar',
     data:{
-      labels:['FC3 — "Qualquer coisa me chama"','FC1 — Compromisso duplo com data','FC2 — Próximo passo só vendedor','FC4 — Sem fechamento explícito'],
-      datasets:[{data:[44.8,31.9,14.7,8.7],backgroundColor:[c.red,c.primary,c.muted,c.border],borderRadius:4,barPercentage:.7}]
+      labels:['FC3 — "Qualquer coisa me chama"','FC1 — Compromisso duplo com data','FC2 — Próximo passo só vendedor','FC4 — Sem fechamento explícito','FC5 — Diretivo'],
+      datasets:[{data:[37.3,29.0,16.9,16.0,0.9],backgroundColor:[c.red,c.primary,c.muted,c.border,c.grid],borderRadius:4,barPercentage:.7}]
     },
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% · ${Math.round(ctx.raw*12.96)} ligações`}}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% · ${Math.round(ctx.raw*106.47)} ligações (base 10.647, provisório)`}}},
       scales:{x:{grid:{color:c.grid},ticks:{callback:v=>v+'%',font:{size:11},color:c.text},max:55},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -2995,11 +3000,11 @@ function drawPM() {
   charts.pm = new Chart(document.getElementById('cPM'), {
     type:'bar',
     data:{
-      labels:['PM2 — Envia documento/proposta','PM5 — Negocia internamente','PM3 — Liga de volta c/ resultado','PM1 — Resolve na mesma ligação','PM4 — Encaminha p/ terceiro','PM6 — Promessa implícita'],
-      datasets:[{data:[56.2,12.7,11.1,8.2,7.4,4.4],backgroundColor:[c.red,c.warn,c.muted,'#7C3AED',c.border,c.grid],borderRadius:4,barPercentage:.7}]
+      labels:['PM2 — Envia documento/proposta','PM3 — Liga de volta c/ resultado','PM5 — Negocia internamente','PM1 — Resolve na mesma ligação','PM4 — Encaminha p/ terceiro','PM6 — Promessa implícita'],
+      datasets:[{data:[51.9,13.4,11.8,9.7,6.8,6.4],backgroundColor:[c.red,c.muted,c.warn,'#7C3AED',c.border,c.grid],borderRadius:4,barPercentage:.7}]
     },
     options:{indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% · ${Math.round(ctx.raw*12.16)} promessas`}}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% · ${Math.round(ctx.raw*85.34)} promessas (base 8.534, provisório)`}}},
       scales:{x:{grid:{color:c.grid},ticks:{callback:v=>v+'%',font:{size:11},color:c.text},max:65},y:{ticks:{font:{size:11},color:c.text},grid:{display:false}}}
     }
   });
@@ -3011,12 +3016,12 @@ function drawVend() {
   charts.vend = new Chart(document.getElementById('cVend'), {
     type:'bar',
     data:{
-      labels:['MLI02A','COI01A','NLI02A','MLI08A','REI02A','RJI05A'],
+      labels:['NLI02A','NOR07A','RSI02A','COI03A','RSI01A'],
       datasets:[
-        {label:'CH1 — Custo oculto',   data:[4.3,0.0,13.3,0.0,8.7,9.4],backgroundColor:c.primary,borderRadius:2},
-        {label:'B5 — Upsell/dor',       data:[8.7,52.4,46.7,28.6,39.1,31.2],backgroundColor:c.green,borderRadius:2},
-        {label:'FC1 — Compromisso duplo',data:[0.0,9.5,0.0,0.0,0.0,0.0],backgroundColor:'#2563EB',borderRadius:2},
-        {label:'FC3 — Sem compromisso', data:[8.7,23.8,33.3,3.6,0.0,9.4],backgroundColor:c.red,borderRadius:2}
+        {label:'CH1 — Custo oculto',   data:[9.8,2.7,16.4,2.5,3.2],backgroundColor:c.primary,borderRadius:2},
+        {label:'B5 — Upsell/dor',       data:[24.6,27.0,22.4,10.7,19.4],backgroundColor:c.green,borderRadius:2},
+        {label:'FC1 — Compromisso duplo',data:[0.0,0.0,0.0,0.0,0.0],backgroundColor:'#2563EB',borderRadius:2},
+        {label:'FC3 — Sem compromisso', data:[9.0,2.7,19.4,12.3,9.7],backgroundColor:c.red,borderRadius:2}
       ]
     },
     options:{
