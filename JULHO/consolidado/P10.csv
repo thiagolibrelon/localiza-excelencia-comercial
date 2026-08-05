@@ -3646,3 +3646,258 @@ SEMINFO_7ba44b1e-PM-001,SEMINFO_7ba44b1e-1cb3-4ffa-8c6c-75907f8cac78,2026-07-21,
 08058504-PM-001,08058504,2026-07-21,PM3,Mandar mensagem no WhatsApp para André,Imediato,baixo
 14963882-PM-001,14963882,2026-07-21,PM3,Mandar WhatsApp para Alexandre,Imediato,baixo
 27559106-PM-001,27559106,2026-07-21,PM3,Vincular login e chamar no WhatsApp para senha,10 minutos,baixo
+17222194-PM-001,17222194,2026-07-22,PM2,Enviar faturas vencidas e a vencer via WhatsApp,Imediato,baixo
+17222194-PM-002,17222194,2026-07-27,PM2,Encaminhar e-mail do financeiro para formalizaÃ§Ã£o,Imediato,baixo
+04788122-PM-001,04788122,2026-07-22,PM6,Acompanhar resposta da pesquisa de satisfaÃ§Ã£o,Nao definido,baixo
+SEMINFO_959be5c6-647d-4c55-90a5-07c2ffc30c7a-PM-001,SEMINFO_959be5c6-647d-4c55-90a5-07c2ffc30c7a,2026-07-22,PM1,Criar login de acesso ao portal,Na ligacao,baixo
+SEMINFO_959be5c6-647d-4c55-90a5-07c2ffc30c7a-PM-002,SEMINFO_959be5c6-647d-4c55-90a5-07c2ffc30c7a,2026-07-22,PM5,Solicitar aumento de limite de credito para 29 mil,Imediato,medio
+24325211-PM-001,24325211,2026-07-22,PM2,Enviar e-mail de apresentacao com contatos,Nao definido,baixo
+07768934-PM-001,07768934,2026-07-22,PM3,Aguardar retorno da cliente Doraci,Nao definido,baixo
+05532801-PM-001,05532801,2026-07-22,PM3,Chamar no WhatsApp para marcar reuniao,Imediato,baixo
+00000000-PM-001,00000000,2026-07-22,PM2,Enviar tabela de preços mensais por e-mail,Hoje,baixo
+00000000-PM-002,00000000,2026-07-22,PM5,Solicitar reanálise de crédito ao financeiro,Hoje,medio
+00000000-PM-003,00000000,2026-07-22,PM3,Chamar no WhatsApp com retorno do financeiro,Hoje,baixo
+00000000-PM-004,00000000,2026-07-22,PM2,Enviar link de validação de cadastro por WhatsApp,Hoje,baixo
+00000000-PM-005,00000000,2026-07-22,PM2,Enviar proposta de aumento de franquia de KM,Hoje,baixo
+00000000-PM-006,00000000,2026-07-22,PM3,Retornar no WhatsApp após análise do sistema,30 minutos,baixo
+00000000-PM-007,00000000,2026-07-22,PM4,Encaminhar e-mail para coordenador da executiva,Hoje,baixo
+00000000-PM-008,00000000,2026-07-22,PM3,Ligar para o sócio Pedro para orientar validação,5 minutos,baixo
+00000000-PM-009,00000000,2026-07-23,PM2,Gerar link de lead e enviar por WhatsApp,Hoje,baixo
+00000000-PM-010,00000000,2026-07-23,PM2,Finalizar cadastro após recebimento de e-mail,Hoje,baixo
+00000000-PM-011,00000000,2026-07-23,PM2,Enviar Termo WebCorp para vinculação de CNPJs,Após validação,baixo
+00000000-PM-012,00000000,2026-07-23,PM2,Enviar condições gerais e cotações de mensal fixo,Hoje,baixo
+00000000-PM-013,00000000,2026-07-23,PM5,Solicitar reconsideração de multas ao setor responsável,Hoje,medio
+00000000-PM-014,00000000,2026-07-24,PM3,Retornar com confirmação de alteração de reserva,5 minutos,baixo
+00000000-PM-015,00000000,2026-07-24,PM5,Solicitar prorrogação de fatura por 5 dias,Hoje,baixo
+00000000-PM-016,00000000,2026-07-24,PM4,Pedir para executivo Jackson marcar visita presencial,Hoje,baixo
+00000000-PM-017,00000000,2026-07-27,PM2,Enviar e-mail de apresentação e contato,Hoje,baixo
+00000000-PM-018,00000000,2026-07-27,PM2,Enviar convite de reunião via Teams,Hoje,baixo
+00000000-PM-019,00000000,2026-07-28,PM2,Enviar link de acesso ao portal de faturamento,Hoje,baixo
+00000000-PM-020,00000000,2026-07-28,PM3,Retornar ligação para o cliente,10 minutos,baixo
+00000000-PM-021,00000000,2026-07-28,PM3,Ligar para agência para confirmar reserva,Hoje,baixo
+00000000-PM-022,00000000,2026-07-28,PM3,Retornar com status da reserva da agência,Hoje,baixo
+00000000-PM-023,00000000,2026-07-29,PM2,Enviar link de redefinição de senha por e-mail,Imediato,baixo
+00000000-PM-024,00000000,2026-07-29,PM4,Buscar quem atende os 7 Compass da frota,Hoje,medio
+00000000-PM-025,00000000,2026-07-29,PM3,Retornar ligação após horário de almoço,13h30,baixo
+00000000-PM-026,00000000,2026-07-30,PM4,Falar com gerência da agência sobre disponibilidade,Hoje,baixo
+00000000-PM-027,00000000,2026-07-30,PM2,Enviar proposta detalhada com telemetria,Hoje,baixo
+00000000-PM-028,00000000,2026-07-30,PM2,Enviar cotação de SUV para Sâo Luís/Balsas,Hoje,baixo
+00000000-PM-029,00000000,2026-07-31,PM3,Retornar ligação após almoço,13h30,baixo
+00000000-PM-030,00000000,2026-07-31,PM2,Enviar link de biometria para o sócio Iago,Hoje,baixo
+00000000-PM-031,00000000,2026-07-31,PM3,Retornar ligação para Sara,5 minutos,baixo
+00000000-PM-032,00000000,2026-07-31,PM4,Indicar contato de consultor de Seminovos,Hoje,baixo
+00000000-PM-033,00000000,2026-07-31,PM2,Enviar link de biometria para representante legal,Hoje,baixo
+20933662-PM-001,20933662,2026-07-22,PM2,Enviar link de redefinição de senha por e-mail,Imediato,baixo
+20933662-PM-002,20933662,2026-07-22,PM3,Auxiliar na reserva em linha após acesso,Na ligação,baixo
+27019037-PM-001,27019037,2026-07-22,PM5,Validar validade da promoção de cashback com supervisora,Breve,medio
+22493998-PM-001,22493998,2026-07-22,PM2,Enviar proposta de mensal fixo via WhatsApp,Hoje,baixo
+11676936-PM-001,11676936,2026-07-22,PM3,Enviar mensagem no WhatsApp para salvar contato,Imediato,baixo
+12220561-PM-001,12220561,2026-07-22,PM3,Ligar para o novo número fornecido (Vivia),Imediato,baixo
+12238090-PM-001,12238090,2026-07-22,PM5,Verificar desbloqueio de oferta para baixa quilometragem,Breve,medio
+SEMINFO_8070b872-2862-4d17-a6ec-cdedde5adeb9-PM-001,SEMINFO_8070b872-2862-4d17-a6ec-cdedde5adeb9,2026-07-22,PM3,Verificar disponibilidade de blindado em Fortaleza e retornar,Hoje,medio
+19181665-PM-001,19181665,2026-07-22,PM4,Falar com a loja para segurar reserva,Imediato,baixo
+27066398-PM-001,27066398,2026-07-22,PM3,Chamar no novo número de WhatsApp fornecido,Imediato,baixo
+26513821-PM-001,26513821,2026-07-22,PM2,Enviar orientações de contestação de fatura via WhatsApp,Imediato,baixo
+25245666-PM-001,25245666,2026-07-22,PM2,Enviar termo de adesão WebCorp preenchido por e-mail,Hoje,baixo
+26685032-PM-001,26685032,2026-07-22,PM2,Enviar valores de reserva via WhatsApp,Imediato,baixo
+00888266-PM-001,00888266,2026-07-22,PM1,Alterar e-mail gestor no sistema,30 minutos,baixo
+00888266-PM-002,00888266,2026-07-22,PM5,Solicitar ajuste de datas do contrato mensal,Hoje,medio
+25011487-PM-001,25011487,2026-07-22,PM2,Enviar proposta de 12 meses e indicar para Assinatura,Hoje,baixo
+07317127-PM-001,07317127,2026-07-22,PM5,"Verificar motivo de limite ""à vista"" e tentar liberação",Breve,alto
+25605942-PM-001,25605942,2026-07-22,PM4,Solicitar orçamento de carro por assinatura ao consultor,Hoje,baixo
+05206093-PM-001,05206093,2026-07-22,PM2,Enviar fatura e boleto por e-mail com passo a passo,Imediato,baixo
+SEMINFO_1355d056-da94-407c-8ae7-750b77b0f301-PM-001,SEMINFO_1355d056-da94-407c-8ae7-750b77b0f301,2026-07-22,PM5,Verificar com gerente (dia 30) possibilidade de usar crédito em outras lojas,30/07,alto
+21297767-PM-001,21297767,2026-07-28,PM5,Reforçar com financeiro (Thiago) pedido de não bloqueio da frota,Hoje,muito_alto
+20920524-PM-001,20920524,2026-07-22,PM2,Enviar link de acesso ao WebCorp via WhatsApp,Imediato,baixo
+25446036-PM-001,25446036,2026-07-22,PM5,Solicitar migração de contrato diário para mensal,Hoje,baixo
+25446036-PM-002,25446036,2026-07-22,PM4,Indicar cliente para setor de vendas de seminovos,24 horas,baixo
+07748583-PM-001,07748583,2026-07-22,PM3,Chamar no WhatsApp para receber prints e verificar aprovador,Imediato,baixo
+09752085-PM-001,09752085,2026-07-22,PM3,Chamar no WhatsApp para cadastrar gestores,Imediato,baixo
+27109022-PM-001,27109022,2026-07-22,PM2,Enviar passo a passo de renovacao e tabela de precos,Hoje,baixo
+27109022-PM-002,27109022,2026-07-22,PM2,Enviar fatura vencida pelo WhatsApp,Hoje,baixo
+27555781-PM-001,27555781,2026-07-22,PM2,Enviar condicoes comerciais e assinatura por e-mail,Esta semana,baixo
+01768243-PM-001,01768243,2026-07-22,PM1,Resolver problema de acesso ao site via navegador,Imediato,baixo
+24427684-PM-001,24427684,2026-07-22,PM4,Solicitar prioridade na analise de contestacao de combustivel,Imediato,medio
+20898966-PM-001,20898966,2026-07-22,PM5,Negociar aumento de limite de credito internamente,Imediato,alto
+27563303-PM-001,27563303,2026-07-22,PM1,Gerar login e enviar link de redefinicao de senha,10 minutos,baixo
+SEMINFO_ff55fd13-17ca-44a2-8d63-cbb359f72f5d-PM-001,SEMINFO_ff55fd13-17ca-44a2-8d63-cbb359f72f5d,2026-07-22,PM5,Verificar com a franquia uso de credito de fatura paga,Hoje,medio
+SEMINFO_3a839ed4-2090-466d-a812-f15af7c7b412-PM-001,SEMINFO_3a839ed4-2090-466d-a812-f15af7c7b412,2026-07-22,PM4,Abrir chamado no ASCRE para habilitar telemetria,Imediato,baixo
+15110394-PM-001,15110394,2026-07-22,PM3,Chamar no WhatsApp para deixar contato salvo,Imediato,baixo
+27184649-PM-001,27184649,2026-07-22,PM3,Verificar quem atende a conta GF e enviar contato,Hoje,baixo
+27288438-PM-001,27288438,2026-07-22,PM3,Reforcar contato via WhatsApp,Hoje,baixo
+SEMINFO_bd132ceb-a530-4136-ac81-5827527d9d9d-PM-001,SEMINFO_bd132ceb-a530-4136-ac81-5827527d9d9d,2026-07-22,PM2,Enviar prints dos parametros de faturamento (BV3/BV4),Imediato,baixo
+18706518-PM-001,18706518,2026-07-22,PM5,Resolver internamente questao de duplicidade de multa,Hoje,medio
+16411686-PM-001,16411686,2026-07-22,PM3,"Enviar ""oi"" no WhatsApp para salvar contato",Imediato,baixo
+18943304-PM-001,18943304,2026-07-22,PM3,"Dar ""oi"" no WhatsApp para salvar contato",Imediato,baixo
+20529157-PM-001,20529157,2026-07-22,PM5,Retirar juros de fatura vencida e reenviar para sexta-feira,Hoje,baixo
+24794846-PM-001,24794846,2026-07-22,PM2,Enviar informacoes para atualizar acesso do Gilmar,Hoje,baixo
+27117768-PM-001,27117768,2026-07-22,PM2,Repassar acesso e apresentar condicoes de mensal fixo,Hoje,baixo
+27554624-PM-001,27554624,2026-07-22,PM3,Retornar ligacao para fechar reserva de SUV,Amanha,baixo
+15519358-PM-001,15519358,2026-07-22,PM1,Auxiliar na redefinicao de senha e biometria em linha,Imediato,baixo
+15519358-PM-002,15519358,2026-07-22,PM4,Pedir prioridade na confirmacao de reserva em Pato Branco,Hoje,baixo
+25272980-PM-001,25272980,2026-07-22,PM5,Solicitar desbloqueio de condutor internamente,24 horas,medio
+19412088-PM-001,19412088,2026-07-22,PM5,Encaminhar comprovante ao financeiro para liberar carro reserva,Imediato,baixo
+12548386-PM-001,12548386,2026-07-22,PM1,Auxiliar no cadastro de novo gestor no portal,Imediato,baixo
+14793023-PM-001,14793023,2026-07-22,PM1,Cadastrar novo gestor e enviar link de validacao aos socios,Hoje,medio
+03173556-PM-001,03173556,2026-07-22,PM3,Mandar mensagem no WhatsApp para Simone,Hoje,baixo
+SEMINFO_f9b9c4ef-23ef-4fdb-8c32-55dc2f920c51-PM-001,SEMINFO_f9b9c4ef-23ef-4fdb-8c32-55dc2f920c51,2026-07-22,PM2,Enviar link de validacao cadastral via WhatsApp,Imediato,baixo
+24234544-PM-001,24234544,2026-07-22,PM2,Enviar no WhatsApp instrucoes para troca de gestor,Imediato,baixo
+27420480-PM-001,27420480,2026-07-22,PM3,Ligar na sexta-feira para atualizar cadastro,Sexta-feira,baixo
+27288437-PM-001,27288437,2026-07-22,PM1,Resetar senha e ativar perfil de gestor em linha,Imediato,baixo
+07227525-PM-001,07227525,2026-07-22,PM2,Enviar cotação de 12 meses para tarifa fixa,Hoje,baixo
+06411554-PM-001,06411554,2026-07-22,PM3,Verificar pagamento via WhatsApp,Hoje,baixo
+26330861-PM-001,26330861,2026-07-22,PM3,Chamar no WhatsApp para salvar contato,Hoje,baixo
+03489520-PM-001,03489520,2026-07-22,PM3,Dar um oi no WhatsApp,Hoje,baixo
+27466794-PM-001,27466794,2026-07-22,PM3,Chamar no WhatsApp para salvar contato,Hoje,baixo
+02671341-PM-001,02671341,2026-07-22,PM2,Mandar e-mail com condições atuais,Hoje,baixo
+22753346-PM-001,22753346,2026-07-22,PM5,Unificar acessos de duas empresas,Hoje,medio
+27555175-PM-001,27555175,2026-07-22,PM2,Enviar link da plataforma WebCorp,Imediato,baixo
+13464460-PM-001,13464460,2026-07-22,PM5,Intermediar análise de sinistro de PT,Hoje,alto
+24148198-PM-001,24148198,2026-07-22,PM3,Retornar ligação após as 14h,Hoje,baixo
+21695655-PM-001,21695655,2026-07-22,PM1,Incluir condutor adicional amanhã,Amanhã,baixo
+SEMINFO_ff6225c2-PM-001,SEMINFO_ff6225c2,2026-07-22,PM2,Enviar termo para cadastro de Master,Hoje,baixo
+26391038-PM-001,26391038,2026-07-22,PM1,Validar reserva mensal internamente,Hoje,baixo
+21474817-PM-001,21474817,2026-07-22,PM3,Enviar print de aprovação via WhatsApp,Imediato,baixo
+08214973-PM-001,08214973,2026-07-27,PM4,Solicitar contato da área de Assinatura,Hoje às 18h,medio
+17394213-PM-001,17394213,2026-07-22,PM4,Transferir para assistência emergencial,Imediato,baixo
+22093953-PM-001,22093953,2026-07-22,PM2,Gerar link de atualização cadastral,Imediato,baixo
+17420264-PM-001,17420264,2026-07-22,PM5,Verificar troca de condutor urgente,Hoje às 14h,medio
+04508218-PM-001,04508218,2026-07-22,PM5,Solicitar prorrogação de fatura vencida,Hoje,alto
+27565582-PM-001,27565582,2026-07-22,PM3,Ligar de volta em 20 minutos para ajudar na reserva,20 minutos,baixo
+04299323-PM-001,04299323,2026-07-22,PM2,Enviar tabela de mensal fixo via WhatsApp,imediato,baixo
+27528630-PM-001,27528630,2026-07-22,PM4,Verificar disponibilidade com a agência e enviar localizador via WhatsApp,imediato,medio
+12315987-PM-001,12315987,2026-07-22,PM2,Enviar orçamento de 3k e 4k KM e mensal fixo via WhatsApp,imediato,baixo
+27564600-PM-001,27564600,2026-07-22,PM5,Abrir chamado para vincular acesso ao novo CNPJ e colocar cliente em cópia,imediato,medio
+23977401-PM-001,23977401,2026-07-22,PM4,Encaminhar solicitação de manutenção para central e retornar,até o dia seguinte,medio
+07181464-PM-001,07181464,2026-07-22,PM3,Retornar ligação para o Rodrigo após as 16h,hoje,baixo
+26209226-PM-001,26209226,2026-07-22,PM2,Enviar proposta anual e tabela comparativa via WhatsApp,hoje,baixo
+07801427-PM-001,07801427,2026-07-22,PM2,Preparar e encaminhar propostas de caminhonete e utilitários via WhatsApp,imediato,baixo
+15140120-PM-001,15140120,2026-07-22,PM5,Solicitar configuração de data fixa de vencimento (dia 10) ao faturamento,2 dias,baixo
+27548911-PM-001,27548911,2026-07-22,PM3,Ligar de volta após as 16h,hoje,baixo
+22087199-PM-001,22087199,2026-07-22,PM1,Confirmar baixa de faturas e liberação de limite após pagamento via PIX,20 minutos,baixo
+27466315-PM-001,27466315,2026-07-22,PM2,Enviar mensagem de WhatsApp com contato do executivo,imediato,baixo
+27565285-PM-001,27565285,2026-07-22,PM2,Enviar cotação de 5k KM com excedente e opções de motorização via WhatsApp,imediato,baixo
+17086353-PM-001,17086353,2026-07-22,PM4,Acionar agência de Vitória para verificar disponibilidade de Spin branca,imediato,alto
+25376267-PM-001,25376267,2026-07-23,PM1,Migrar contrato para modalidade mensal com upgrade de grupo,imediato,baixo
+24031673-PM-001,24031673,2026-07-22,PM5,Solicitar análise de contestação de fatura e baixa de pagamentos,imediato,medio
+21619143-PM-001,21619143,2026-07-22,PM3,Vendedor ligará amanhã à tarde,2026-07-23,baixo
+22397916-PM-001,22397916,2026-07-22,PM3,Vendedor chamará no WhatsApp agora,imediato,baixo
+22397916-PM-002,22397916,2026-07-22,PM2,Enviar e-mail com apresentação,NAO_DEFINIDO,baixo
+02824153-PM-001,02824153,2026-07-22,PM2,Enviar e-mail para liberação de acessos,NAO_DEFINIDO,baixo
+02824153-PM-002,02824153,2026-07-22,PM3,Chamar no WhatsApp para salvar contato,imediato,baixo
+21125405-PM-001,21125405,2026-07-22,PM3,Dar um oi no WhatsApp,imediato,baixo
+01279219-PM-001,01279219,2026-07-22,PM2,Enviar catálogo de telemetria,NAO_DEFINIDO,baixo
+SEMINFO_e4717db6-1ecb-480a-9cd2-b663588c2759-PM-001,SEMINFO_e4717db6-1ecb-480a-9cd2-b663588c2759,2026-07-22,PM2,Enviar extrato parcial por e-mail,imediato,baixo
+SEMINFO_e4717db6-1ecb-480a-9cd2-b663588c2759-PM-002,SEMINFO_e4717db6-1ecb-480a-9cd2-b663588c2759,2026-07-22,PM5,Confirmar por que extrato de cartão não aparece no portal,hoje,medio
+26792179-PM-001,26792179,2026-07-22,PM3,Dar um oi no WhatsApp,imediato,baixo
+24100798-PM-001,24100798,2026-07-22,PM2,Enviar link separado para biometria,imediato,baixo
+14576971-PM-001,14576971,2026-07-22,PM2,Enviar cotação do Renegade 12 meses,NAO_DEFINIDO,baixo
+20726657-PM-001,20726657,2026-07-22,PM3,Chamar no WhatsApp,imediato,baixo
+21602130-PM-001,21602130,2026-07-22,PM2,Enviar passo a passo no WhatsApp,imediato,baixo
+22777948-PM-001,22777948,2026-07-22,PM2,Enviar login e informações do portal por e-mail,NAO_DEFINIDO,baixo
+17340999-PM-001,17340999,2026-07-22,PM4,Alinhar acordo tripartite com a agência Fly,NAO_DEFINIDO,medio
+27274048-PM-001,27274048,2026-07-22,PM5,Solicitar ampliação de limite internamente,NAO_DEFINIDO,medio
+23425402-PM-001,23425402,2026-07-22,PM5,Solicitar migração de diário para mensal,2026-07-24,baixo
+06340754-PM-001,06340754,2026-07-22,PM5,Analisar se compensa migrar para 3k km ou pagar excedente,2026-07-28,baixo
+23613299-PM-001,23613299,2026-07-22,PM3,Chamar no WhatsApp,NAO_DEFINIDO,baixo
+27418781-PM-001,27418781,2026-07-22,PM5,Checar disponibilidade de Fiorino,NAO_DEFINIDO,baixo
+19604920-PM-001,19604920,2026-07-22,PM3,Dar um oi no WhatsApp,imediato,baixo
+13395328-PM-001,13395328,2026-07-22,PM2,Enviar e-mail com contatos,NAO_DEFINIDO,baixo
+03207756-PM-001,03207756,2026-07-22,PM3,Chamar no WhatsApp para cadastro,NAO_DEFINIDO,baixo
+00259333-PM-001,00259333,2026-07-22,PM2,Enviar e-mail com condições atuais,NAO_DEFINIDO,baixo
+21488160-PM-001,21488160,2026-07-22,PM3,Retornar em 20 minutos com informações,2026-07-22,baixo
+13696483-PM-001,13696483,2026-07-22,PM5,Validar com financeiro sobre boleto no DDA,NAO_DEFINIDO,medio
+16243750-PM-001,16243750,2026-07-22,PM5,Questionar origem da cobrança de KM (telemetria),NAO_DEFINIDO,baixo
+16243750-PM-002,16243750,2026-07-28,PM5,Prorrogar fatura por 5 dias para tratativa,imediato,baixo
+16243750-PM-003,16243750,2026-07-28,PM2,Enviar link para aceite de alteração de franquia,NAO_DEFINIDO,baixo
+27566263-PM-001,27566263,2026-07-22,PM3,Mandar mensagem via WhatsApp para Ellen,Imediato,baixo
+05284448-PM-001,05284448,2026-07-22,PM3,Ligar amanhã às 9 horas para Rodrigo,2026-07-23,baixo
+07777244-PM-001,07777244,2026-07-22,PM3,Tentar contato com Josias e Mariana nos novos números,Imediato,baixo
+23035675-PM-001,23035675,2026-07-22,PM3,"Mandar um ""oi"" no WhatsApp para salvar contato",Imediato,baixo
+90cbbe27-30d0-4204-bb00-c373d96d19d8-PM-001,90cbbe27-30d0-4204-bb00-c373d96d19d8,2026-07-22,PM5,Verificar com coordenação melhoria de preço/desconto,ASAP,medio
+25613181-PM-001,25613181,2026-07-22,PM3,"Dar um ""oi"" no WhatsApp para estreitar relação",Imediato,baixo
+09693797-PM-001,09693797,2026-07-22,PM3,Mandar WhatsApp para validação específica,Imediato,baixo
+2dc4e84b-b6ca-4d24-b295-9fe00afd8add-PM-001,2dc4e84b-b6ca-4d24-b295-9fe00afd8add,2026-07-22,PM3,Enviar link de registro de senha via WhatsApp,Imediato,baixo
+05465145-PM-001,05465145,2026-07-22,PM3,Ligar na quarta-feira que vem para falar com Carla/Samuel,2026-07-29,baixo
+03533465-PM-001,03533465,2026-07-22,PM2,Mandar condição atual por e-mail,Imediato,baixo
+9a261042-7a2e-487e-9751-60d21c488740-PM-001,9a261042-7a2e-487e-9751-60d21c488740,2026-07-22,PM4,Pedir para equipe de terceirização entrar em contato,ASAP,medio
+06193945-PM-001,06193945,2026-07-22,PM2,Encaminhar e-mail com proposta para o Fabiano,Imediato,baixo
+5bb8a449-c6ed-4179-a4a0-2ccd6fd40977-PM-001,5bb8a449-c6ed-4179-a4a0-2ccd6fd40977,2026-07-22,PM4,Pedir com urgência para Monique retornar a ligação,Imediato,medio
+f9f10e8d-87c2-4a6a-aec0-83bae32b0b81-PM-001,f9f10e8d-87c2-4a6a-aec0-83bae32b0b81,2026-07-22,PM3,"Mandar ""oi"" no WhatsApp para pegar contato do decisor",Imediato,baixo
+14169924-PM-001,14169924,2026-07-22,PM5,Levar pedido de desconto para diretoria e simular telemetria,ASAP,medio
+33aa5a14-7a82-4045-88ed-9c5f8b70f251-PM-001,33aa5a14-7a82-4045-88ed-9c5f8b70f251,2026-07-22,PM4,Passar contato para o executivo Carlos Eduardo (MT),Imediato,baixo
+72d20896-e9d2-4d49-9b0f-dccd32f1fb9e-PM-001,72d20896-e9d2-4d49-9b0f-dccd32f1fb9e,2026-07-22,PM4,Indicar cliente para consultor de carros por assinatura,Imediato,baixo
+f0293229-ea11-468f-b60b-f67b12979f5b-PM-001,f0293229-ea11-468f-b60b-f67b12979f5b,2026-07-22,PM5,Solicitar parcelamento de sinistro em 3x ao financeiro,ASAP,medio
+09801121-PM-001,09801121,2026-07-22,PM3,"Mandar ""oi"" no WhatsApp da Diana",Imediato,baixo
+07666802-PM-001,07666802,2026-07-22,PM3,Encaminhar WhatsApp para Mariana,Imediato,baixo
+17204653-PM-001,17204653,2026-07-22,PM3,Chamar no WhatsApp para orientar criação de acesso,Imediato,baixo
+17159653-PM-001,17159653,2026-07-22,PM4,Pedir para alguém liberar a reserva no sistema,Imediato,baixo
+13332070-PM-001,13332070,2026-07-22,PM2,Enviar e-mail para Juliana com contatos da vendedora,Imediato,baixo
+21875501-PM-001,21875501,2026-07-22,PM3,Chamar no WhatsApp para suporte em cotação,Imediato,baixo
+07764524-PM-001,07764524,2026-07-22,PM3,Acionar Alexandre no WhatsApp para chegar na Márcia,Imediato,baixo
+01100164-PM-001,01100164,2026-07-22,PM3,Retornar ligação amanhã cedo para falar com Dante,2026-07-23,baixo
+45df2092-d61b-42f5-bb61-71640be7920e-PM-001,45df2092-d61b-42f5-bb61-71640be7920e,2026-07-22,PM1,Enviar link para redefinição de senha e login,Imediato,baixo
+01538807-PM-001,01538807,2026-07-22,PM3,"Mandar ""oi"" no WhatsApp para suporte em Porto Alegre",Imediato,baixo
+02765773-PM-001,02765773,2026-07-22,PM2,Enviar proposta de comparativo mensal vs diário,hoje,baixo
+23867557-PM-001,23867557,2026-07-22,PM3,Enviar mensagem para o financeiro (Yasmin),hoje,baixo
+19216805-PM-001,19216805,2026-07-22,PM4,Solicitar proposta de gestão de frotas (assinatura),hoje,medio
+03094044-PM-001,03094044,2026-07-22,PM2,Enviar e-mail para Elder Alvarenga,hoje,baixo
+03094044-PM-002,03094044,2026-07-23,PM3,Enviar link de validação de gestor via WhatsApp,hoje,baixo
+23876765-PM-001,23876765,2026-07-22,PM3,Enviar mensagem de WhatsApp comercial,hoje,baixo
+08928534-PM-001,08928534,2026-07-22,PM4,Enviar contato/mensagem para Lucas,hoje,baixo
+27431935-PM-001,27431935,2026-07-22,PM5,Solicitar desbloqueio de CPF de condutor,hoje,medio
+19985812-PM-001,19985812,2026-07-22,PM4,Pedir para responsável de frotas ligar para o cliente,hoje,medio
+SEMINFO_b64432e4-760d-4901-b7b4-7a8f115c1e32-PM-001,SEMINFO_b64432e4-760d-4901-b7b4-7a8f115c1e32,2026-07-22,PM2,Enviar comprovante de encerramento do contrato,amanhã,baixo
+19896738-PM-001,19896738,2026-07-22,PM5,Solicitar acesso às duas contas e verificar crédito,hoje,medio
+20427091-PM-001,20427091,2026-07-22,PM3,Entrar em contato com Fábio (novo gestor),hoje,baixo
+08125941-PM-001,08125941,2026-07-22,PM3,Chamar no WhatsApp para deixar contato salvo,hoje,baixo
+26216508-PM-001,26216508,2026-07-22,PM3,"Mandar um ""oi"" no WhatsApp",hoje,baixo
+SEMINFO_2c98bf00-51dc-4cac-ae37-dc4e23909fde-PM-001,SEMINFO_2c98bf00-51dc-4cac-ae37-dc4e23909fde,2026-07-22,PM3,"Dar um ""oi"" no WhatsApp para salvar número",hoje,baixo
+SEMINFO_5ef6d0f8-ca2b-4052-a976-11522b52f3e5-PM-001,SEMINFO_5ef6d0f8-ca2b-4052-a976-11522b52f3e5,2026-07-22,PM5,Solicitar liberação de crédito para a conta Corp,hoje,medio
+08183114-PM-001,08183114,2026-07-22,PM3,Chamar no WhatsApp para salvar contato,hoje,baixo
+08930025-PM-001,08930025,2026-07-22,PM3,"Dar um ""oi"" no WhatsApp com informações de acesso",hoje,baixo
+08930025-PM-002,08930025,2026-07-29,PM4,"Solicitar que o time de ""Localiza Meu"" envie cotação de assinatura",hoje,baixo
+14219063-PM-001,14219063,2026-07-22,PM3,"Dar um ""oi"" no WhatsApp",hoje,baixo
+SEMINFO_7de3bcb0-940f-4c82-81a7-5020fe5243c7-PM-001,SEMINFO_7de3bcb0-940f-4c82-81a7-5020fe5243c7,2026-07-22,PM2,Enviar simulação de valores com proteções por e-mail,hoje,baixo
+01723769-PM-001,01723769,2026-07-23,PM3,"Mandar um ""oi"" no WhatsApp",hoje,baixo
+20767790-PM-001,20767790,2026-07-23,PM5,Acompanhar solicitação de crédito e avisar no WhatsApp,hoje,medio
+20491172-PM-001,20491172,2026-07-23,PM3,Mandar localizador e passo a passo no WhatsApp,imediato,baixo
+27176809-PM-001,27176809,2026-07-23,PM2,Elaborar e enviar termos para assinatura eletrônica,hoje,baixo
+24675483-PM-001,24675483,2026-07-23,PM3,Chamar no WhatsApp para reforçar contato,hoje,baixo
+00820893-PM-001,00820893,2026-07-23,PM5,Verificar quem solicitou cadastro antigo (legado),sem prazo,alto
+08241912-PM-001,08241912,2026-07-23,PM2,Enviar proposta de Creta e F10 no WhatsApp,hoje,baixo
+04932819-PM-001,04932819,2026-07-23,PM5,Consultar diretoria sobre preços e enviar e-mail,hoje,medio
+20466176-PM-001,20466176,2026-07-23,PM3,Chamar no WhatsApp para salvar contato,hoje,baixo
+20635295-PM-001,20635295,2026-07-23,PM3,"Dar um ""oi"" no WhatsApp pessoal",hoje,baixo
+18983214-PM-001,18983214,2026-07-23,PM3,Mandar mensagem para salvar contato,hoje,baixo
+11517644-PM-001,11517644,2026-07-23,PM2,Enviar cotação trimestral por e-mail,5 minutos,baixo
+27564699-PM-001,27564699,2026-07-23,PM2,Passar contatos por e-mail,hoje,baixo
+15096192-PM-001,15096192,2026-07-23,PM3,Entrar em contato com Juliana,hoje,baixo
+27571124-PM-001,27571124,2026-07-23,PM2,Fazer orçamento e mandar no WhatsApp,hoje,baixo
+13946434-PM-001,13946434,2026-07-23,PM2,Mandar e-mail com contato do vendedor,hoje,baixo
+13701766-PM-001,13701766,2026-07-23,PM5,Resolver pendência de reserva com a agência e retornar,hoje,medio
+13701766-PM-002,13701766,2026-07-23,PM3,Confirmar disponibilidade de data e ligar de volta,2 minutos,baixo
+09270471-PM-001,09270471,2026-07-23,PM2,Enviar propostas de elétrico e pesado,NAO_DEFINIDO,medio
+27109672-PM-001,27109672,2026-07-23,PM3,Chamar no WhatsApp para deixar contato,NAO_DEFINIDO,baixo
+23857864-PM-001,23857864,2026-07-23,PM3,Enviar áudio explicando valores e demonstrativo,NAO_DEFINIDO,baixo
+27428062-PM-001,27428062,2026-07-23,PM3,Reforçar mensagem no WhatsApp,NAO_DEFINIDO,baixo
+08076531-PM-001,08076531,2026-07-23,PM3,Chamar no WhatsApp para pegar contato do responsável,NAO_DEFINIDO,baixo
+20084788-PM-001,20084788,2026-07-23,PM2,Enviar e-mail para cadastro de gestor,NAO_DEFINIDO,baixo
+20231423-PM-001,20231423,2026-07-23,PM3,Adicionar no WhatsApp e enviar oi,IMEDIATO,baixo
+01836233-PM-001,01836233,2026-07-23,PM1,Liberar acesso ao faturamento e alterar e-mail,IMEDIATO,baixo
+04872040-PM-001,04872040,2026-07-23,PM5,Acionar supervisor para substituição de veículo,NAO_DEFINIDO,medio
+04872040-PM-002,04872040,2026-07-23,PM2,Enviar e-mail de renovação para o gestor,IMEDIATO,baixo
+SEMINFO_68942b47-f1cf-4647-9346-c321ba9a72e9-PM-001,SEMINFO_68942b47-f1cf-4647-9346-c321ba9a72e9,2026-07-23,PM5,Verificar débitos pendentes com executivo,NAO_DEFINIDO,baixo
+19663195-PM-001,19663195,2026-07-23,PM3,Enviar oi no WhatsApp para receber documentos,IMEDIATO,baixo
+02873844-PM-001,02873844,2026-07-23,PM1,Ativar tag de pedágio no cadastro,IMEDIATO,baixo
+02873844-PM-002,02873844,2026-07-23,PM5,Verificar possibilidade de alteração de KM sem multa,NAO_DEFINIDO,medio
+10621849-PM-001,10621849,2026-07-23,PM2,Enviar boleto e contrato de sinistro,NAO_DEFINIDO,baixo
+20265236-PM-001,20265236,2026-07-23,PM5,Verificar disponibilidade de HB20 na agência Mooca,IMEDIATO,baixo
+13683852-PM-001,13683852,2026-07-23,PM4,Pedir para setor de assinatura enviar orçamento de elétrico,NAO_DEFINIDO,medio
+25511788-PM-001,25511788,2026-07-23,PM4,Pedir para setor de assinatura entrar em contato,NAO_DEFINIDO,medio
+07085990-PM-001,07085990,2026-07-23,PM5,Subir orçamentos para análise de diretoria,NAO_DEFINIDO,medio
+02610616-PM-001,02610616,2026-07-23,PM2,Enviar e-mail para Lilia e financeiro,NAO_DEFINIDO,baixo
+13524224-PM-001,13524224,2026-07-23,PM3,Enviar WhatsApp sobre recuperação de login,IMEDIATO,baixo
+07204421-PM-001,07204421,2026-07-23,PM1,Gerar acesso e enviar instruções por e-mail,IMEDIATO,baixo
+SEMINFO_229998ad-7cd2-4d3b-9d84-6fdcc2dfa389-PM-001,SEMINFO_229998ad-7cd2-4d3b-9d84-6fdcc2dfa389,2026-07-23,PM5,Regularizar fluxo de comissões no sistema,NAO_DEFINIDO,medio
+27571611-PM-001,27571611,2026-07-23,PM3,Dar oi no WhatsApp para pegar contato da Ana,IMEDIATO,baixo
