@@ -144,7 +144,7 @@ Você é um analista de Customer Success em locação de veículos corporativos.
 - STT fragmentado — junte turns do mesmo speaker. `<unk>` = inaudível, ignore.
 
 ## Tarefa
-Identifique CADA problema mencionado ou vivenciado em cada ligação. Um problema pode aparecer em múltiplas ligações do mesmo cliente ou de clientes diferentes.
+Identifique CADA problema mencionado ou vivenciado em cada ligação. Um problema pode aparecer em múltiplas ligações do mesmo cliente ou de clientes diferentes. Só marque um código se o problema for tema central ou relevante da ligação — não marque por menção tangencial de 1 palavra-chave sem um problema real por trás dela.
 
 ### Categorias de problema
 | Código | Categoria | Exemplos |
@@ -158,7 +158,7 @@ Identifique CADA problema mencionado ou vivenciado em cada ligação. Um problem
 | P7 | Disponibilidade | Carro reservado indisponível, categoria esgotada |
 | P8 | Franquia/agência | Processo diferente em franqueada, fatura não baixada |
 | P9 | Sinistro | Acidente, franquia de dano, mudança de oficina |
-| P10 | Reserva/sistema | Reserva caindo em "sob consulta", status incorreto |
+| P10 | Reserva/sistema | Reserva não aparece no sistema, status incorreto, erro ao criar/editar uma reserva, bug reproduzível do fluxo de reserva. **Não** marcar P10 quando for só dúvida de como navegar/usar o portal sem nenhum erro real (isso é "nenhum", não P10), nem quando o assunto real da ligação for outro (fatura, cadastro, troca de contato comercial) e "reserva" só aparecer de passagem. |
 | P11 | Outro | Descrever |
 | P12 | Manipulação de pesquisa/NPS | Vendedor pede/dita a nota da pesquisa de satisfação (ex: "as notas boas são 9 e 10", "só ajuda dar nota 9 ou mais") — problema não do cliente, mas de integridade do indicador |
 
