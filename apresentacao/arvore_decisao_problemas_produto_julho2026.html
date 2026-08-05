@@ -1,0 +1,700 @@
+<title>Árvore de decisão dos problemas — Julho 2026</title>
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --paper-raised:#FFFFFF;
+    --ink:#1C2128;
+    --ink-soft:#4A4F58;
+    --ink-faint:#8A8D93;
+    --line: rgba(28,33,40,0.12);
+    --line-strong: rgba(28,33,40,0.22);
+    --accent:#2E4A6B;
+    --accent-soft: rgba(46,74,107,0.10);
+    --raiz:#1F6F5C;
+    --raiz-soft: rgba(31,111,92,0.12);
+    --sintoma:#B5651D;
+    --sintoma-soft: rgba(181,101,29,0.13);
+    --ruido:#8A8578;
+    --ruido-soft: rgba(138,133,120,0.14);
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  }
+  :root[data-theme="dark"]{
+    --paper:#15181D;
+    --paper-raised:#1C2027;
+    --ink:#EBE8E1;
+    --ink-soft:#ABAFB8;
+    --ink-faint:#6E7278;
+    --line: rgba(235,232,225,0.12);
+    --line-strong: rgba(235,232,225,0.22);
+    --accent:#7C9CC4;
+    --accent-soft: rgba(124,156,196,0.14);
+    --raiz:#4FBFA0;
+    --raiz-soft: rgba(79,191,160,0.14);
+    --sintoma:#E2A15C;
+    --sintoma-soft: rgba(226,161,92,0.14);
+    --ruido:#A6A296;
+    --ruido-soft: rgba(166,162,150,0.14);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#15181D;
+      --paper-raised:#1C2027;
+      --ink:#EBE8E1;
+      --ink-soft:#ABAFB8;
+      --ink-faint:#6E7278;
+      --line: rgba(235,232,225,0.12);
+      --line-strong: rgba(235,232,225,0.22);
+      --accent:#7C9CC4;
+      --accent-soft: rgba(124,156,196,0.14);
+      --raiz:#4FBFA0;
+      --raiz-soft: rgba(79,191,160,0.14);
+      --sintoma:#E2A15C;
+      --sintoma-soft: rgba(226,161,92,0.14);
+      --ruido:#A6A296;
+      --ruido-soft: rgba(166,162,150,0.14);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:920px;margin:0 auto;padding:0 24px 96px;}
+
+  a{color:var(--accent);}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{padding:56px 0 32px;border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(28px,4.2vw,42px);
+    line-height:1.12;
+    margin:0 0 16px;
+    text-wrap:balance;
+    font-weight:400;
+  }
+  .thesis{
+    font-family:var(--font-display);
+    font-size:19px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:0 0 20px;
+    text-wrap:balance;
+    font-style:italic;
+  }
+  .meta{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink-faint);
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .meta span:not(:last-child)::after{content:"·";margin-left:8px;color:var(--line-strong);}
+
+  /* ---------- KPI strip ---------- */
+  .kpis{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin:32px 0 40px;
+  }
+  .kpi{background:var(--paper-raised);padding:18px 16px;}
+  .kpi .num{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:26px;
+    color:var(--accent);
+    display:block;
+    margin-bottom:4px;
+  }
+  .kpi .label{font-size:12.5px;color:var(--ink-soft);line-height:1.35;}
+  @media (max-width:640px){.kpis{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Hero diagram ---------- */
+  .hero-diagram{margin:48px 0 56px;}
+  .hero-diagram figure{margin:0;}
+  .hero-diagram svg{width:100%;height:auto;display:block;color:var(--ink);}
+  .hero-diagram figcaption{
+    font-size:13px;
+    color:var(--ink-faint);
+    margin-top:12px;
+    max-width:60ch;
+  }
+  .flow-label{font-family:var(--font-mono);font-size:11px;}
+  .flow-title{font-family:var(--font-body);font-size:13px;font-weight:600;}
+
+  /* ---------- View toggle ---------- */
+  .view-toggle{
+    display:flex;
+    gap:0;
+    border:1px solid var(--line-strong);
+    width:fit-content;
+    margin:0 0 28px;
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .view-toggle button{
+    font-family:var(--font-body);
+    font-size:13.5px;
+    font-weight:600;
+    padding:10px 18px;
+    background:var(--paper-raised);
+    color:var(--ink-soft);
+    border:none;
+    cursor:pointer;
+    border-right:1px solid var(--line-strong);
+  }
+  .view-toggle button:last-child{border-right:none;}
+  .view-toggle button.on{background:var(--accent);color:var(--paper);}
+  .view-toggle button:hover:not(.on){background:var(--accent-soft);color:var(--ink);}
+
+  section.view-heading{margin:0 0 20px;}
+  .view-heading h2{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:22px;
+    margin:0 0 6px;
+  }
+  .view-heading p{font-size:14px;color:var(--ink-soft);margin:0;max-width:68ch;}
+
+  /* ---------- Tree / accordion ---------- */
+  .tree{display:none;}
+  .tree.active{display:block;}
+
+  .group{
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:14px;
+    background:var(--paper-raised);
+    overflow:hidden;
+  }
+  .group-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 18px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .group-head:hover{background:var(--accent-soft);}
+  .group-chevron{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    width:14px;
+    flex-shrink:0;
+    transition:transform 0.15s ease;
+  }
+  .group.open .group-chevron{transform:rotate(90deg);}
+  .group-title{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:15.5px;
+    flex:1;
+  }
+  .group-sub{font-size:12.5px;color:var(--ink-soft);font-weight:400;display:block;margin-top:2px;}
+  .group-count{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:13px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .group-body{
+    display:none;
+    padding:0 18px 18px;
+    border-top:1px solid var(--line);
+  }
+  .group.open .group-body{display:block;}
+  .group-desc{font-size:13.5px;color:var(--ink-soft);padding:14px 0 4px;max-width:70ch;}
+
+  .leaf{
+    border-top:1px solid var(--line);
+    padding:14px 0;
+  }
+  .leaf:first-of-type{border-top:none;}
+  .leaf-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+    cursor:pointer;
+  }
+  .leaf-name{font-weight:600;font-size:14px;flex:1;min-width:180px;}
+  .badge{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:2px 7px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .badge.raiz{background:var(--raiz-soft);color:var(--raiz);}
+  .badge.sintoma{background:var(--sintoma-soft);color:var(--sintoma);}
+  .badge.ruido{background:var(--ruido-soft);color:var(--ruido);}
+  .leaf-stat{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .leaf-origin{font-size:12px;color:var(--ink-faint);}
+  .leaf-detail{display:none;padding-top:10px;}
+  .leaf.open .leaf-detail{display:block;}
+  .leaf-redirect{
+    font-size:13px;
+    padding:8px 10px;
+    background:var(--sintoma-soft);
+    color:var(--sintoma);
+    border-radius:6px;
+    margin-bottom:10px;
+  }
+  .leaf-redirect strong{font-weight:700;}
+  .leaf-res{font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;}
+  blockquote{
+    margin:8px 0;
+    padding:8px 0 8px 14px;
+    border-left:2px solid var(--line-strong);
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink);
+  }
+  blockquote cite{
+    display:block;
+    font-family:var(--font-mono);
+    font-style:normal;
+    font-size:11px;
+    color:var(--ink-faint);
+    margin-top:4px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.methodology{
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  footer.methodology h3{
+    font-family:var(--font-body);
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-faint);
+    margin:0 0 10px;
+  }
+  footer.methodology ul{margin:0 0 20px;padding-left:18px;}
+  footer.methodology li{margin-bottom:6px;}
+  footer.methodology code{font-family:var(--font-mono);font-size:12px;background:var(--accent-soft);padding:1px 5px;border-radius:3px;}
+
+  ::selection{background:var(--accent-soft);}
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Auditoria de causa raiz · Ligações Localiza Frota PJ · Julho 2026</div>
+    <h1>A árvore de decisão dos problemas</h1>
+    <p class="thesis">Em boa parte dos casos, o código de problema que a IA atribuiu à ligação não é a causa raiz — é o sintoma de outra coisa, muitas vezes de uma área completamente diferente.</p>
+    <div class="meta">
+      <span>1.844 ligações auditadas</span>
+      <span>4 categorias (P1 Acesso · P2 Faturamento · P10 Reserva · P12 NPS)</span>
+      <span>leitura integral por 4 agentes especializados</span>
+      <span>04/08/2026</span>
+    </div>
+  </header>
+
+  <section class="kpis">
+    <div class="kpi"><span class="num">~38%</span><span class="label">dos casos são sintoma de outra causa, não a raiz que o código sugere</span></div>
+    <div class="kpi"><span class="num">27%</span><span class="label">do "problema de boleto" (P2) é, na real, cobrança travando reserva/crédito — não o contrário</span></div>
+    <div class="kpi"><span class="num">99,4%</span><span class="label">dos casos de manipulação de NPS nunca foram escalados — ninguém no processo vê isso hoje</span></div>
+    <div class="kpi"><span class="num">~11%</span><span class="label">de "Reserva/sistema" (P10) é falso positivo — não tem nada a ver com reserva</span></div>
+  </section>
+
+  <section class="hero-diagram">
+    <figure>
+      <svg viewBox="0 0 920 300" role="img" aria-label="Diagrama mostrando que os quatro códigos de problema P1, P2, P10 e P12 não mapeiam 1 para 1 para suas causas raiz — várias linhas cruzam entre o código original e a causa real, formando um emaranhado, exceto P12 que aponta inteiro para um único processo de NPS mal desenhado.">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <text x="150" y="24" class="flow-title" text-anchor="middle" fill="currentColor">Código atribuído pela IA</text>
+        <text x="770" y="24" class="flow-title" text-anchor="middle" fill="currentColor">Causa raiz real</text>
+
+        <!-- left column: P-codes -->
+        <g font-family="var(--font-mono)">
+          <rect x="60" y="46" width="180" height="34" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="150" y="67" text-anchor="middle" fill="currentColor" font-size="13">P1 · Acesso/sistema</text>
+
+          <rect x="60" y="100" width="180" height="34" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="150" y="121" text-anchor="middle" fill="currentColor" font-size="13">P2 · Faturamento</text>
+
+          <rect x="60" y="154" width="180" height="34" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="150" y="175" text-anchor="middle" fill="currentColor" font-size="13">P10 · Reserva/sistema</text>
+
+          <rect x="60" y="208" width="180" height="34" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="150" y="229" text-anchor="middle" fill="currentColor" font-size="13">P12 · Manipulação NPS</text>
+        </g>
+
+        <!-- right column: root causes -->
+        <g font-family="var(--font-mono)">
+          <rect x="680" y="20" width="180" height="30" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="770" y="39" text-anchor="middle" fill="currentColor" font-size="12">Financeiro / Crédito</text>
+
+          <rect x="680" y="66" width="180" height="30" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="770" y="85" text-anchor="middle" fill="currentColor" font-size="12">Acesso técnico</text>
+
+          <rect x="680" y="112" width="180" height="30" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="770" y="131" text-anchor="middle" fill="currentColor" font-size="12">Bug de produto</text>
+
+          <rect x="680" y="158" width="180" height="30" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="770" y="177" text-anchor="middle" fill="currentColor" font-size="12">Governança do cliente</text>
+
+          <rect x="680" y="204" width="180" height="30" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="770" y="223" text-anchor="middle" fill="currentColor" font-size="12">Processo de NPS</text>
+
+          <rect x="680" y="250" width="180" height="30" rx="5" fill="none" stroke="currentColor" opacity="0.5"/>
+          <text x="770" y="269" text-anchor="middle" fill="currentColor" font-size="12">Ruído de classificação</text>
+        </g>
+
+        <!-- connectors: same-row (raiz genuína) thin, cross-row (sintoma) accent -->
+        <g fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.55">
+          <path d="M240,63 C440,63 480,35 680,35" marker-end="url(#arrow)"/>
+          <path d="M240,117 C440,117 480,81 680,81" marker-end="url(#arrow)"/>
+          <path d="M240,171 C440,171 480,127 680,127" marker-end="url(#arrow)"/>
+        </g>
+        <g fill="none" stroke="var(--sintoma)" stroke-width="1.4">
+          <path d="M240,63 C420,63 500,35 680,35" marker-end="url(#arrow)" opacity="0.9"/>
+          <path d="M240,117 C420,117 500,35 680,35" marker-end="url(#arrow)" opacity="0.9"/>
+          <path d="M240,171 C420,171 500,35 680,35" marker-end="url(#arrow)" opacity="0.9"/>
+          <path d="M240,117 C420,117 500,81 680,81" marker-end="url(#arrow)" opacity="0.9"/>
+          <path d="M240,63 C420,63 500,173 680,173" marker-end="url(#arrow)" opacity="0.9"/>
+          <path d="M240,171 C420,171 500,173 680,173" marker-end="url(#arrow)" opacity="0.9"/>
+          <path d="M240,63 C420,63 500,265 680,265" marker-end="url(#arrow)" opacity="0.7"/>
+          <path d="M240,171 C420,171 500,265 680,265" marker-end="url(#arrow)" opacity="0.7"/>
+        </g>
+        <g fill="none" stroke="var(--raiz)" stroke-width="1.6">
+          <path d="M240,229 C420,229 500,219 680,219" marker-end="url(#arrow)"/>
+        </g>
+
+        <text x="460" y="292" text-anchor="middle" font-size="11.5" fill="currentColor" opacity="0.6" class="flow-label">linhas laranja = sintoma (código original mascara a causa real) · linha verde = P12 mapeia inteiro pra um único processo</text>
+      </svg>
+      <figcaption>P1, P2 e P10 se espalham por várias causas raiz diferentes — a mesma reclamação de "boleto" pode nascer de acesso quebrado, cobrança genuína, ou cobrança travando o crédito. Só P12 converge 100% para uma única causa: o desenho do processo de coleta de NPS.</figcaption>
+    </figure>
+  </section>
+
+  <div class="view-toggle" role="tablist">
+    <button class="on" data-view="causa" role="tab" aria-selected="true">Ver por causa raiz</button>
+    <button data-view="codigo" role="tab" aria-selected="false">Ver por código original</button>
+  </div>
+
+  <section class="view-heading" id="heading-causa">
+    <h2>Agrupado pelo que realmente precisa ser consertado</h2>
+    <p>Mesma base de 1.844 ligações, reagrupada pela causa raiz identificada na auditoria — não pelo código que a IA atribuiu de primeira. É a visão acionável: mostra onde investir resolve vários códigos ao mesmo tempo.</p>
+  </section>
+  <section class="view-heading" id="heading-codigo" style="display:none;">
+    <h2>Agrupado pelo código original da classificação</h2>
+    <p>A visão como os dados chegaram — cada ligação já rotulada P1/P2/P10/P12 pela IA. Abra cada grupo para ver a mistura de causas raiz escondida dentro do rótulo.</p>
+  </section>
+
+  <div id="tree-causa" class="tree active"></div>
+  <div id="tree-codigo" class="tree"></div>
+
+  <footer class="methodology">
+    <h3>Metodologia</h3>
+    <ul>
+      <li>Base: ligações de julho/2026 já classificadas por LLM (Gemini) no Prompt 3 (Problemas Recorrentes). Universo tageado: P1=860, P2=572, P10=242, P12=170.</li>
+      <li>Para P1, P2 e P10 (bases grandes), cada agente leu integralmente uma amostra estratificada (ex: <code>AMOSTRA_P1.txt</code>, 242 casos cobrindo todas as sub-categorias já identificadas + 100% dos clientes recorrentes) e varreu por palavra-chave o restante para não perder casos com sinal causal forte. Percentuais são extrapolados da subamostra lida em profundidade, não uma recontagem censitária dos totais.</li>
+      <li>Para P12 (base menor), cobertura foi de 100% — as 170 transcrições foram lidas na íntegra.</li>
+      <li>"Sintoma" = o código original está tecnicamente presente na ligação, mas a causa que precisa ser corrigida está em outra área. "Ruído" = a IA classificou errado; a ligação não trata do tema do código.</li>
+      <li>Citações foram limpas de ruído de encoding pré-existente na fonte (problema de dupla-codificação de acentos) preservando o conteúdo real dito.</li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+var LEAVES = [
+  // ---------------- P1 · Acesso/sistema (total 860) ----------------
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Senha / login', n:189, veredito:'raiz', causa:'autenticacao',
+   res:'Resolvida na ligação na maioria dos casos; poucas escaladas.',
+   quotes:[{t:'Provavelmente vai pedir para redefinir a senha, porque a cada três meses eles pedem.',c:'caso 62 — expiração é política, não falha'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Cadastro / liberação de primeiro acesso', n:258, veredito:'raiz', causa:'autenticacao',
+   res:'Alta taxa de resolução na própria ligação; raramente escalado. Boa parte nem é queixa — é o time comercial ligando pra destravar cadastro parado.',
+   quotes:[{t:'Quem tem acesso ao site é o Fábio, ele que está com acesso de gestor... só que pra fazer esse primeiro acesso, ele vai precisar da biometria facial dele.',c:'caso 3'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Portal / app — confusão de navegação', n:69, veredito:'raiz', causa:'autenticacao',
+   res:'Resolvida na ligação quase sempre — configuração de navegador/dispositivo.',
+   quotes:[{t:'Você pode fazer pelo computador... na hora da biometria facial vai abrir um QR Code.',c:'confusão recorrente entre app pessoa física e site WebCorp PJ'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Sistema instável / bug de plataforma', n:86, veredito:'raiz', causa:'bug_produto',
+   res:'A pior do grupo: baixa resolução na ligação, mais escalonamento pra TI, mais recorrência do mesmo cliente ligando de novo sem solução.',
+   quotes:[{t:'Não conseguimos identificar se é você mesmo na foto. Você fez alguma cirurgia plástica?',c:'sistema de biometria rejeitando o titular legítimo, sem solução em 2 ligações seguidas'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Bloqueio por fatura vencida / limite de crédito', n:90, veredito:'sintoma', causa:'financeiro',
+   res:'Raramente resolvida na ligação — depende de pagamento ou chamado financeiro. Alta reincidência do mesmo cliente.',
+   quotes:[{t:'Não é erro mesmo do acesso, não é nada não, é essa questão mesmo [de fatura vencida].',c:'caso 82 — o próprio atendente descarta a hipótese de bug'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Bloqueio por decisão de crédito/antifraude opaca', n:26, veredito:'sintoma', causa:'financeiro',
+   res:'Nunca resolvida na ligação — depende de outra área, às vezes nem o atendente sabe o motivo.',
+   quotes:[{t:'A primeira solicitação de crédito foi reprovada... pode ser que libere ou pode ser que também não libere.',c:'caso 43 — cliente PJ travado, sem alternativa'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Gestor interno do cliente não libera acesso', n:43, veredito:'sintoma', causa:'governanca',
+   res:'Frequentemente não resolvida na ligação — fica esperando o gestor aparecer.',
+   quotes:[{t:'O André não liberou seu acesso, não.',c:'caso 217'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Colaborador desligado levou o único acesso', n:34, veredito:'sintoma', causa:'governanca',
+   res:'Geralmente resolvida na própria ligação, criando novo login.',
+   quotes:[{t:'A Camila... ela não trabalha mais conosco → vou pedir o desligamento do login dela da empresa.',c:'caso 37'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Login compartilhado / identidade cadastral divergente', n:4, veredito:'sintoma', causa:'governanca',
+   res:'Não resolvida na ligação — chamado técnico aberto.',
+   quotes:[{t:'O nome não tá o meu, é o nome de Tatiane... alguém na empresa alterou.',c:'caso 159 — duas pessoas usam o mesmo login/CNPJ'}]},
+  {codigo:'p1', codigoNome:'P1 · Acesso/sistema', codigoTotal:860,
+   nome:'Outros / indeterminado mesmo após a ligação', n:61, veredito:'ruido', causa:'ruido_class',
+   res:'Nem o atendente identifica a causa raiz; chamado de TI aberto sem diagnóstico.',
+   quotes:[]},
+
+  // ---------------- P2 · Faturamento (total 572) ----------------
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Cobrança trava reserva, crédito ou uso do veículo', n:154, veredito:'sintoma', causa:'financeiro',
+   res:'Resolvido na ligação em ~50%; forte presença de escalonamento a 0800/supervisora. É o padrão mais comum da amostra — mais que o "boleto disfarçado de acesso".',
+   quotes:[{t:'Você não consegue fazer reserva, porque o seu cadastro está bloqueado para novas reservas.',c:'caso 31'},
+           {t:'Eu paguei e ele bloqueia... e ele liberou. É um bloqueio que eu não sabia.',c:'caso 35 — bloqueio automático desconhecido do cliente'}]},
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Acesso/portal impede ver ou baixar o boleto', n:114, veredito:'sintoma', causa:'autenticacao',
+   res:'Maioria resolvida na ligação (senha redefinida / acesso liberado na hora). Um cliente saiu da Localiza citando esse bug como motivo.',
+   quotes:[{t:'Não está conseguindo pegar os boletos... entrei, só que não sei que erro estava dando.',c:'caso 3'},
+           {t:'Muito problema de portal dando problema, não aparece a nota, e depois vinha juros, uma confusão.',c:'caso 110 — cliente que trocou de locadora citando esse bug'}]},
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Erro de cobrança genuíno (valor, duplicidade, CNPJ)', n:97, veredito:'raiz', causa:'financeiro',
+   res:'Baixa resolução na própria ligação; frequentemente escalado para assistência por e-mail.',
+   quotes:[{t:'A gente está com um problema na nossa fatura desse mês, veio cobrança duplicada, dobrou a fatura.',c:'caso 76'}]},
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Boleto não chegou por nenhum canal', n:86, veredito:'sintoma', causa:'entrega',
+   res:'Geralmente resolvido reenviando por WhatsApp/e-mail ou liberando acesso individual. Falta de redundância de login é causa recorrente.',
+   quotes:[{t:'Toda hora eu preciso pedir para o Rodrigo acessar o sistema para ele poder pegar as faturas para mim.',c:'caso 84 — cliente sem login próprio, depende de terceiro'}]},
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Bug de sistema não ligado a acesso (checkout)', n:40, veredito:'raiz', causa:'bug_produto',
+   res:'Geralmente contornado manualmente pelo agente.',
+   quotes:[]},
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Negociação / parcelamento (processo normal)', n:46, veredito:'ruido', causa:'processo_normal',
+   res:'Não é bug — jornada comercial padrão.', quotes:[]},
+  {codigo:'p2', codigoNome:'P2 · Faturamento/cobrança', codigoTotal:572,
+   nome:'Dúvida informacional simples', n:40, veredito:'ruido', causa:'processo_normal',
+   res:'Cliente só não sabia onde/como ver o boleto — resolvido na ligação.', quotes:[]},
+
+  // ---------------- P10 · Reserva/sistema (total 242) ----------------
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Bug genuíno de sistema (WebCorp)', n:34, veredito:'raiz', causa:'bug_produto',
+   res:'A pior do grupo: só ~23% resolvido na ligação, 38% escalado — de longe a maior taxa de escalonamento de toda a categoria.',
+   quotes:[{t:'A ação está travada mesmo, não é só para você não. Eu fiz o teste aqui comigo... esse aqui é um problema do sistema mesmo.',c:'caso 53'},
+           {t:'Isso é erro porque não pode, o mensal fixo não altera a franquia, isso é erro sistêmico.',c:'caso 126'}]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Reserva travada por limite de crédito insuficiente', n:19, veredito:'sintoma', causa:'financeiro',
+   res:'Geralmente parcial — depende de aprovação de área financeira à parte.',
+   quotes:[{t:'Não tem nenhuma reserva pendente. Mas o limite de crédito está todo comprometido... quando não tem crédito a reserva fica pendente.',c:'caso 24'}]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Indisponibilidade física de veículo na agência', n:17, veredito:'sintoma', causa:'operacoes_frota',
+   res:'Costuma resolver trocando agência/grupo/horário; raramente é "erro" de sistema.',
+   quotes:[{t:'Não tem disponibilidade desse grupo, como a gente está em alta temporada... só tem o grupo CE nesse horário.',c:'caso 17'}]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Reserva duplicada por confusão de fluxo', n:17, veredito:'raiz', causa:'bug_produto',
+   res:'Resolvido manualmente cancelando uma das duas; risco real de cobrança dupla.', quotes:[]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Aprovação por telefone pendente no portal (não comunicado)', n:15, veredito:'sintoma', causa:'governanca',
+   res:'Alta resolução quando explicado — não é bug, é um passo de segurança do processo mal comunicado.',
+   quotes:[{t:'Só precisa acessar a plataforma, aprovar a reserva... como foi feito por telefone, por questão de segurança, precisa confirmar.',c:'caso 1'}]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Erro humano operacional (central/agência/vendedor)', n:7, veredito:'sintoma', causa:'erro_humano',
+   res:'Resolvido reorientando o cliente na hora.', quotes:[]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Dúvida de navegação, sem erro real', n:58, veredito:'ruido', causa:'ruido_class',
+   res:'Alta resolução na própria ligação (~85%); agente só ensina o caminho.', quotes:[]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Falso positivo (não é sobre reserva)', n:27, veredito:'ruido', causa:'ruido_class',
+   res:'Tag errada da IA — ligação trata de troca de contato, fatura ou cadastro.',
+   quotes:[{t:'Agora quem está te atendendo é a Luma e eu vou te transferir para ela.',c:'caso 2 — zero menção a reserva com problema'}]},
+  {codigo:'p10', codigoNome:'P10 · Reserva/sistema', codigoTotal:242,
+   nome:'Gap de produto: renovação de contrato não automática', n:48, veredito:'sintoma', causa:'bug_produto',
+   res:'Contratos "vencem" silenciosamente sem prorrogação manual — cliente pode ficar sem cobertura de avarias sem saber.',
+   quotes:[{t:'Devia ter uma iniciativa automática da Localiza.',c:'caso 56 — o próprio agente concorda'}]},
+
+  // ---------------- P12 · Manipulação NPS (total 170, cobertura 100%) ----------------
+  {codigo:'p12', codigoNome:'P12 · Manipulação de NPS', codigoTotal:170,
+   nome:'Pedido genérico "autointeressado" ("me ajuda muito")', n:154, veredito:'sintoma', causa:'processo_nps',
+   res:'90,6% nunca resolvida como demanda — a ligação existe só pra isso. Dito abertamente, em linha gravada, sem disfarce.',
+   quotes:[{t:'Se você conseguir aguardar na linha para avaliar meu atendimento, me ajuda muito.',c:'caso 15'}]},
+  {codigo:'p12', codigoNome:'P12 · Manipulação de NPS', codigoTotal:170,
+   nome:'Ancoragem de escala ("0 a 8 é insatisfação, 9-10 é satisfação")', n:5, veredito:'sintoma', causa:'processo_nps',
+   res:'Roteiro decorado — mesma frase repetida por uma vendedora (Andresa) em 5 ligações ao longo do mês.',
+   quotes:[{t:'De 0 a 8 é uma insatisfação, de 9 a 10 é uma satisfação.',c:'Andresa, repetida em 5 ligações — cliente responde "só o 10 que eu ponho"'}]},
+  {codigo:'p12', codigoNome:'P12 · Manipulação de NPS', codigoTotal:170,
+   nome:'Nota atrelada ao resultado pessoal do vendedor', n:4, veredito:'sintoma', causa:'processo_nps',
+   res:'A evidência mais forte de causa estrutural — o vendedor descreve o próprio mecanismo de avaliação da empresa.',
+   quotes:[{t:'A nota cai pra mim... como está na carteira, a nota cai pra gente, sabe?',c:'Fabrício, caso 33 — mesma fórmula usada em junho e julho, com clientes diferentes'}]},
+  {codigo:'p12', codigoNome:'P12 · Manipulação de NPS', codigoTotal:170,
+   nome:'Recompensa pessoal / campanha com prêmio', n:6, veredito:'sintoma', causa:'processo_nps',
+   res:'Confirma que existe (ou existiu em jul/2026) incentivo formal da empresa atrelado a taxa de resposta.',
+   quotes:[{t:'Está dentro de uma campanha aqui da Localiza e vale um dinheirinho para mim.',c:'Vitor, 6 ligações no mesmo dia'}]},
+  {codigo:'p12', codigoNome:'P12 · Manipulação de NPS', codigoTotal:170,
+   nome:'Pedido de número específico, sem contexto', n:1, veredito:'sintoma', causa:'processo_nps',
+   res:'Isolado, mas soma à mesma lógica.', quotes:[]},
+];
+
+var ROOT_CAUSES = {
+  financeiro:      {nome:'Financeiro / Cobrança / Crédito', desc:'A causa mais frequente escondida atrás de outros códigos. Fatura vencida ou limite de crédito no teto trava acesso, reserva e uso do veículo — o sistema está funcionando como desenhado (bloqueio automático), mas o cliente vive isso como "bug".'},
+  autenticacao:    {nome:'Acesso técnico (autenticação / onboarding / portal)', desc:'O maior bloco isolado da base: senha, biometria, primeiro acesso e navegação de portal. Na maioria é causa raiz genuína — política de segurança ou processo normal de onboarding — mas também é a fachada mais comum para reclamações de outras áreas (boleto, cobrança).'},
+  bug_produto:     {nome:'Bug de produto / sistema (WebCorp)', desc:'Menor em volume, mas a categoria mais grave: maior escalonamento pra TI, menor resolução na própria ligação, mais recorrência do mesmo cliente voltando a ligar sem solução. Inclui um gap de produto sério — renovação de contrato não é automática.'},
+  governanca:      {nome:'Governança interna do cliente', desc:'A causa não está do lado da Localiza — é gestor ausente, funcionário desligado que levou o único acesso, ou processo de aprovação mal comunicado ao próprio time do cliente.'},
+  operacoes_frota: {nome:'Operações / Frota física', desc:'Falta de veículo físico disponível numa agência (comum em franquias pequenas e alta temporada), confundida com erro de sistema.'},
+  entrega:         {nome:'Entrega / provisionamento de acesso', desc:'Falta de redundância: só uma pessoa por empresa tem login, e-mail não repassado, sem contato cadastrado. "Não recebi o boleto" quase sempre nasce aqui, não de bug.'},
+  processo_nps:    {nome:'Processo de coleta de NPS', desc:'100% do código P12 aponta pra cá. Métrica atribuída ao vendedor/carteira, campanha com prêmio em dinheiro, link de validade curta, e-mail que cai em spam — o desenho do processo empurra qualquer vendedor pra manipular a nota.'},
+  erro_humano:     {nome:'Erro humano operacional (equipe Localiza)', desc:'Central confirmando a reserva errada, vendedor digitando dado errado — falha pontual de processo humano, não de sistema.'},
+  processo_normal: {nome:'Processo comercial normal (não é problema)', desc:'Negociação de dívida, parcelamento, dúvida informacional simples — a IA classificou como "problema" mas é jornada comercial padrão.'},
+  ruido_class:     {nome:'Ruído de classificação', desc:'A IA errou o rótulo: a ligação não tem relação real com o tema do código, ou o cliente só tinha uma dúvida de navegação sem erro nenhum.'},
+};
+
+var CODIGOS = {
+  p1:  {nome:'P1 · Acesso/sistema', total:860, desc:'"Portal fora do ar, senha, biometria" — o código mais volumoso da base.'},
+  p2:  {nome:'P2 · Faturamento/cobrança', total:572, desc:'"Boleto errado, fatura errada" — testado especificamente contra a hipótese de acesso disfarçado.'},
+  p10: {nome:'P10 · Reserva/sistema', total:242, desc:'"Status incorreto" — o código com maior proporção de ruído de classificação.'},
+  p12: {nome:'P12 · Manipulação de NPS', total:170, desc:'Cobertura de 100% da base — único código com veredito unânime de causa raiz.'},
+};
+
+function badge(v){
+  var label = v==='raiz' ? 'causa raiz' : v==='sintoma' ? 'sintoma' : 'ruído';
+  return '<span class="badge '+v+'">'+label+'</span>';
+}
+
+function leafHtml(leaf, showOrigin){
+  var pct = Math.round((leaf.n/leaf.codigoTotal)*1000)/10;
+  var quotesHtml = (leaf.quotes||[]).map(function(q){
+    return '<blockquote>“'+q.t+'”<cite>'+q.c+'</cite></blockquote>';
+  }).join('');
+  var redirect = '';
+  if(leaf.veredito==='sintoma'){
+    redirect = '<div class="leaf-redirect">Causa real: <strong>'+ROOT_CAUSES[leaf.causa].nome+'</strong></div>';
+  } else if(leaf.veredito==='ruido'){
+    redirect = '<div class="leaf-redirect">Não é um problema de causa raiz identificável nesta categoria — ruído de classificação ou processo normal.</div>';
+  }
+  var origin = showOrigin ? '<span class="leaf-origin">'+leaf.codigoNome+'</span>' : '';
+  return ''+
+  '<div class="leaf">'+
+    '<div class="leaf-head" onclick="this.parentElement.classList.toggle(\'open\')">'+
+      '<span class="leaf-name">'+leaf.nome+'</span>'+
+      badge(leaf.veredito)+
+      '<span class="leaf-stat">n='+leaf.n+' &middot; '+pct+'%</span>'+
+      origin+
+    '</div>'+
+    '<div class="leaf-detail">'+
+      redirect+
+      (leaf.res ? '<div class="leaf-res">'+leaf.res+'</div>' : '')+
+      quotesHtml+
+    '</div>'+
+  '</div>';
+}
+
+function renderByCausa(){
+  var groups = {};
+  Object.keys(ROOT_CAUSES).forEach(function(k){ groups[k] = []; });
+  LEAVES.forEach(function(l){ groups[l.causa].push(l); });
+
+  var html = '';
+  Object.keys(ROOT_CAUSES).forEach(function(key){
+    var leaves = groups[key];
+    if(!leaves.length) return;
+    var total = leaves.reduce(function(s,l){return s+l.n;},0);
+    leaves.sort(function(a,b){return b.n-a.n;});
+    html += '<div class="group">'+
+      '<div class="group-head" onclick="this.parentElement.classList.toggle(\'open\')">'+
+        '<span class="group-chevron">&#9656;</span>'+
+        '<span class="group-title">'+ROOT_CAUSES[key].nome+'<span class="group-sub">'+leaves.length+' padrão(ões) &middot; aparece em: '+Array.from(new Set(leaves.map(function(l){return l.codigoNome.split(' ')[0];}))).join(', ')+'</span></span>'+
+        '<span class="group-count">n&asymp;'+total+'</span>'+
+      '</div>'+
+      '<div class="group-body">'+
+        '<div class="group-desc">'+ROOT_CAUSES[key].desc+'</div>'+
+        leaves.map(function(l){return leafHtml(l, true);}).join('')+
+      '</div>'+
+    '</div>';
+  });
+  document.getElementById('tree-causa').innerHTML = html;
+}
+
+function renderByCodigo(){
+  var html = '';
+  Object.keys(CODIGOS).forEach(function(key){
+    var leaves = LEAVES.filter(function(l){return l.codigo===key;});
+    var cfg = CODIGOS[key];
+    leaves.sort(function(a,b){return b.n-a.n;});
+    var nRaiz = leaves.filter(function(l){return l.veredito==='raiz';}).reduce(function(s,l){return s+l.n;},0);
+    var nSintoma = leaves.filter(function(l){return l.veredito==='sintoma';}).reduce(function(s,l){return s+l.n;},0);
+    var nRuido = leaves.filter(function(l){return l.veredito==='ruido';}).reduce(function(s,l){return s+l.n;},0);
+    html += '<div class="group">'+
+      '<div class="group-head" onclick="this.parentElement.classList.toggle(\'open\')">'+
+        '<span class="group-chevron">&#9656;</span>'+
+        '<span class="group-title">'+cfg.nome+'<span class="group-sub">raiz '+Math.round(nRaiz/cfg.total*100)+'% &middot; sintoma '+Math.round(nSintoma/cfg.total*100)+'% &middot; ruído '+Math.round(nRuido/cfg.total*100)+'%</span></span>'+
+        '<span class="group-count">n='+cfg.total+'</span>'+
+      '</div>'+
+      '<div class="group-body">'+
+        '<div class="group-desc">'+cfg.desc+'</div>'+
+        leaves.map(function(l){return leafHtml(l, false);}).join('')+
+      '</div>'+
+    '</div>';
+  });
+  document.getElementById('tree-codigo').innerHTML = html;
+}
+
+renderByCausa();
+renderByCodigo();
+
+var buttons = document.querySelectorAll('.view-toggle button');
+buttons.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    buttons.forEach(function(b){b.classList.remove('on'); b.setAttribute('aria-selected','false');});
+    btn.classList.add('on'); btn.setAttribute('aria-selected','true');
+    var view = btn.getAttribute('data-view');
+    document.getElementById('tree-causa').classList.toggle('active', view==='causa');
+    document.getElementById('tree-codigo').classList.toggle('active', view==='codigo');
+    document.getElementById('heading-causa').style.display = view==='causa' ? '' : 'none';
+    document.getElementById('heading-codigo').style.display = view==='codigo' ? '' : 'none';
+  });
+});
+
+// open the first (largest) group of each view by default
+var firstCausa = document.querySelector('#tree-causa .group');
+if(firstCausa) firstCausa.classList.add('open');
+
+})();
+</script>
