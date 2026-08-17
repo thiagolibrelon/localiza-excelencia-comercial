@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Árvore de Causa Raiz — Aletheia RAC</title>
+<style>
+:root{
+  --brand:#78DE1F; --brand-fg:#003418; --brand-2:#018444;
+  --bg:#F4F5F7; --bg-up:#FFFFFF; --bg-dn:#ECEEF1;
+  --fg:#1A1F2E; --fg-2:#6B7280; --fg-3:#9CA3AF;
+  --border:#E5E7EB; --border-2:#D1D5DB;
+  --ok:#018444; --ok-bg:#D1FAE5; --ok-fg:#065F46;
+  --warn:#D97706; --warn-bg:#FEF3C7; --warn-fg:#92400E;
+  --err:#DC2626; --err-bg:#FEE2E2; --err-fg:#991B1B;
+  --info:#2563EB; --info-bg:#DBEAFE; --info-fg:#1E40AF;
+  --sh-xs:0 1px 2px rgb(0 0 0/.05);
+  --sh-sm:0 1px 3px rgb(0 0 0/.08),0 1px 2px rgb(0 0 0/.04);
+  --sh-md:0 4px 6px -1px rgb(0 0 0/.07),0 2px 4px -1px rgb(0 0 0/.05);
+  --r:8px; --rl:14px;
+  --sans:-apple-system,"Segoe UI",Inter,system-ui,sans-serif;
+  --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1117; --bg-up:#1A1F2E; --bg-dn:#0A0D14;
+    --fg:#F9FAFB; --fg-2:#9CA3AF; --fg-3:#6B7280;
+    --border:#2D3748; --border-2:#374151;
+    --ok-bg:#0B2E22; --ok-fg:#4ADE80;
+    --warn-bg:#3A2A0A; --warn-fg:#FBBF24;
+    --err-bg:#3B1414; --err-fg:#F87171;
+    --info-bg:#0F2247; --info-fg:#93C5FD;
+    --sh-xs:0 1px 2px rgb(0 0 0/.35);
+    --sh-sm:0 1px 3px rgb(0 0 0/.4),0 1px 2px rgb(0 0 0/.25);
+    --sh-md:0 4px 10px -1px rgb(0 0 0/.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1117; --bg-up:#1A1F2E; --bg-dn:#0A0D14;
+  --fg:#F9FAFB; --fg-2:#9CA3AF; --fg-3:#6B7280;
+  --border:#2D3748; --border-2:#374151;
+  --ok-bg:#0B2E22; --ok-fg:#4ADE80;
+  --warn-bg:#3A2A0A; --warn-fg:#FBBF24;
+  --err-bg:#3B1414; --err-fg:#F87171;
+  --info-bg:#0F2247; --info-fg:#93C5FD;
+  --sh-xs:0 1px 2px rgb(0 0 0/.35);
+  --sh-sm:0 1px 3px rgb(0 0 0/.4),0 1px 2px rgb(0 0 0/.25);
+  --sh-md:0 4px 10px -1px rgb(0 0 0/.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{
+  font-family:var(--sans);font-size:14px;color:var(--fg);background:var(--bg);
+  line-height:1.55;padding:0 0 64px;
+}
+::selection{background:var(--brand);color:var(--brand-fg)}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ---------- header ---------- */
+.hero{
+  background:linear-gradient(180deg,var(--brand-fg) 0%, #01230F 100%);
+  color:#EFFCE7;padding:38px 0 30px;border-bottom:4px solid var(--brand);
+}
+.hero .wrap{display:flex;flex-direction:column;gap:10px}
+.eyebrow{
+  display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--brand);
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);display:inline-block}
+h1{font-size:29px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.hero p{color:#C9E7C4;font-size:14.5px;max-width:66ch}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.pill{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.01em;
+  padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);color:#DFF5D8;
+}
+.pill b{color:#fff}
+
+/* ---------- tab bar ---------- */
+.tabbar{background:var(--bg-up);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5;box-shadow:var(--sh-xs)}
+.tabbar .wrap{display:flex;gap:4px;padding-top:0;padding-bottom:0}
+.tabbtn{
+  appearance:none;border:none;background:none;cursor:pointer;font-family:var(--sans);
+  font-size:13px;font-weight:700;color:var(--fg-2);padding:15px 6px;
+  border-bottom:3px solid transparent;transition:color .12s,border-color .12s;
+  display:flex;align-items:center;gap:8px;margin-right:22px;
+}
+.tabbtn:hover{color:var(--fg)}
+.tabbtn[aria-selected="true"]{color:var(--brand-2);border-bottom-color:var(--brand-2)}
+.tabbtn .tnum{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;background:var(--bg-dn);color:var(--fg-3);
+  width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.tabbtn[aria-selected="true"] .tnum{background:var(--ok-bg);color:var(--brand-2)}
+.view{display:none}
+.view.active{display:block}
+
+/* ---------- KPI strip ---------- */
+.kpis{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  margin:26px 0 34px;position:relative;z-index:2;
+}
+.kpis.first{margin-top:-26px}
+.kpi{
+  background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);
+  box-shadow:var(--sh-md);padding:18px 20px;
+}
+.kpi .num{font-family:var(--mono);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.kpi .lbl{font-size:12px;color:var(--fg-2);margin-top:3px}
+.kpi .sub{font-size:11px;color:var(--fg-3);margin-top:6px}
+.kpi.ok .num{color:var(--ok)}
+.kpi.warn .num{color:var(--warn)}
+.kpi.err .num{color:var(--err)}
+.kpi.info .num{color:var(--info)}
+
+/* ---------- section shell ---------- */
+section{margin:44px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+.sec-head h2{font-size:20px;font-weight:750;letter-spacing:-.01em}
+.sec-head .tag{
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--brand-2);background:var(--ok-bg);padding:4px 9px;border-radius:5px;
+}
+.sec-sub{color:var(--fg-2);font-size:13px;max-width:78ch;margin-bottom:20px}
+
+/* ---------- pareto ---------- */
+.pareto{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:22px 24px}
+.prow{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:12px;padding:7px 0;cursor:pointer;border-radius:6px;transition:background .12s}
+.prow:hover{background:var(--bg-dn)}
+.prow .pname{font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prow .pname .code{font-family:var(--mono);color:var(--fg-3);font-weight:500;margin-right:5px}
+.pbar-track{height:16px;background:var(--bg-dn);border-radius:4px;overflow:hidden;position:relative}
+.pbar-fill{height:100%;border-radius:4px;background:var(--brand-2)}
+.prow.top .pbar-fill{background:var(--err)}
+.prow.top2 .pbar-fill{background:var(--warn)}
+.prow .pval{font-family:var(--mono);font-size:12px;text-align:right;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.prow.held .pname{color:var(--fg-3)}
+.prow.held .pbar-fill{background:var(--fg-3)}
+.held-note{font-size:10.5px;color:var(--fg-3);grid-column:1/-1;margin:-3px 0 2px 150px;font-style:italic}
+.legend{display:flex;gap:16px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);flex-wrap:wrap}
+.legend span{font-size:11px;color:var(--fg-2);display:flex;align-items:center;gap:6px}
+.legend i{width:9px;height:9px;border-radius:2px;display:inline-block}
+
+/* ---------- root cause tree ---------- */
+.tree{display:flex;flex-direction:column;gap:14px}
+.pcard{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);overflow:hidden;scroll-margin-top:20px}
+.pcard > summary{
+  list-style:none;cursor:pointer;padding:18px 22px;display:flex;align-items:center;gap:14px;
+  user-select:none;
+}
+.pcard > summary::-webkit-details-marker{display:none}
+.pcard .chev{font-size:12px;color:var(--fg-3);transition:transform .18s;flex-shrink:0}
+.pcard[open] .chev{transform:rotate(90deg)}
+.pcard .rank{
+  font-family:var(--mono);font-weight:700;font-size:13px;color:var(--brand-2);
+  background:var(--ok-bg);width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pcard .htitle{flex:1;min-width:0}
+.pcard .htitle .code{font-family:var(--mono);color:var(--fg-3);font-size:11.5px;font-weight:600}
+.pcard .htitle h3{font-size:15.5px;font-weight:700;margin-top:1px}
+.pcard .hstat{font-size:11.5px;color:var(--fg-2);text-align:right;flex-shrink:0}
+.pcard .hstat b{color:var(--fg);font-family:var(--mono)}
+.pcard-body{padding:0 22px 22px;border-top:1px solid var(--border)}
+.pcard-intro{font-size:13px;color:var(--fg-2);margin:16px 0 18px;max-width:80ch}
+
+.causes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.cause{background:var(--bg-dn);border:1px solid var(--border);border-radius:var(--r);padding:15px 16px}
+.cause h4{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.cause h4 .n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--bg-up);background:var(--fg-2);padding:1px 7px;border-radius:20px}
+.cause .desc{font-size:12.5px;color:var(--fg-2);margin-bottom:10px}
+blockquote{
+  font-size:12.5px;border-left:3px solid var(--brand-2);padding:8px 12px;
+  background:var(--bg-up);border-radius:0 6px 6px 0;color:var(--fg);
+}
+blockquote cite{display:block;font-style:normal;font-size:10.5px;color:var(--fg-3);margin-top:6px;font-family:var(--mono)}
+.role{color:var(--brand-2);font-weight:600}
+
+.caveat{
+  margin-top:16px;font-size:12px;background:var(--warn-bg);color:var(--warn-fg);
+  border-radius:var(--r);padding:10px 14px;display:flex;gap:8px;
+}
+
+/* ---------- fishbone ---------- */
+.fb-wrap{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:24px;overflow-x:auto}
+.fb-svg{display:block;margin:0 auto;min-width:760px}
+.fb-spine{stroke:var(--fg-3);stroke-width:2.5}
+.fb-bone{stroke:var(--border-2);stroke-width:2}
+.fb-head-box{fill:var(--err-bg);stroke:var(--err);stroke-width:1.5}
+.fb-head-text{fill:var(--err-fg);font-family:var(--sans);font-weight:700}
+.fb-cat-text{fill:var(--fg);font-family:var(--sans);font-weight:700}
+.fb-cause-text{fill:var(--fg-2);font-family:var(--sans)}
+.fb-dot{fill:var(--brand-2)}
+
+/* ---------- 5w2h ---------- */
+.actions{display:flex;flex-direction:column;gap:16px}
+.action{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);overflow:hidden}
+.action-head{display:flex;align-items:center;gap:12px;padding:16px 22px;background:var(--bg-dn);border-bottom:1px solid var(--border)}
+.action-head .badge{
+  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--brand-fg);
+  background:var(--brand);padding:3px 9px;border-radius:20px;flex-shrink:0;
+}
+.action-head h3{font-size:14.5px;font-weight:700}
+.w2h{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.w2h .cell{padding:14px 18px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.w2h .cell:nth-child(4n){border-right:none}
+.w2h .cell .k{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-2);margin-bottom:5px}
+.w2h .cell .v{font-size:12.5px;color:var(--fg)}
+@media (max-width:900px){.w2h{grid-template-columns:repeat(2,1fr)}.w2h .cell:nth-child(4n){border-right:1px solid var(--border)}.w2h .cell:nth-child(2n){border-right:none}}
+
+/* ---------- comparison table (tab 2) ---------- */
+.tblwrap{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);overflow-x:auto}
+table.cmp{width:100%;border-collapse:collapse;min-width:640px}
+table.cmp caption{text-align:left;font-size:12px;color:var(--fg-2);padding:16px 20px 0}
+table.cmp th, table.cmp td{padding:12px 18px;text-align:right;font-size:13px;border-bottom:1px solid var(--border)}
+table.cmp th:first-child, table.cmp td:first-child{text-align:left}
+table.cmp thead th{
+  font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--fg-3);
+  background:var(--bg-dn);border-bottom:1px solid var(--border);
+}
+table.cmp tbody tr:last-child td{border-bottom:none}
+table.cmp tbody tr.hl td{background:var(--ok-bg)}
+table.cmp tbody tr.hl td:first-child{font-weight:700;color:var(--brand-2)}
+table.cmp td b{font-variant-numeric:tabular-nums}
+table.cmp .n{color:var(--fg-3);font-family:var(--mono);font-size:11.5px}
+table.cmp .grp{background:var(--bg-dn)}
+table.cmp .grp td{font-weight:700;font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--fg-2);padding-top:16px;padding-bottom:8px}
+
+/* ---------- grouped comparison bars (tab 2) ---------- */
+.cmp-list{background:var(--bg-up);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-sm);padding:22px 24px}
+.cmp-row{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:center;padding:9px 0}
+.cmp-row + .cmp-row{border-top:1px solid var(--border)}
+.cmp-row .cname{font-size:12.5px;font-weight:600}
+.cmp-row .cname .code{font-family:var(--mono);color:var(--fg-3);font-weight:500;margin-right:5px}
+.cmp-bars{display:flex;flex-direction:column;gap:5px}
+.cmp-bar-line{display:grid;grid-template-columns:44px 1fr 46px;align-items:center;gap:8px}
+.cmp-bar-line .btag{font-size:9.5px;color:var(--fg-3);font-family:var(--mono);font-weight:700;text-transform:uppercase}
+.cmp-bar-track{height:9px;background:var(--bg-dn);border-radius:3px;overflow:hidden}
+.cmp-bar-fill{height:100%;border-radius:3px}
+.cmp-bar-fill.jun{background:var(--brand-2)}
+.cmp-bar-fill.jul{background:var(--info)}
+.cmp-bar-val{font-family:var(--mono);font-size:11px;text-align:right;color:var(--fg-2);font-variant-numeric:tabular-nums}
+
+/* ---------- footer ---------- */
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border)}
+footer p{font-size:11.5px;color:var(--fg-3);max-width:90ch;margin-bottom:6px}
+
+@media (max-width:820px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .prow{grid-template-columns:110px 1fr 44px}
+  .held-note{margin-left:110px}
+  h1{font-size:23px}
+  .cmp-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Aletheia RAC · Inteligência Comercial</div>
+    <div id="hero-produto">
+      <h1>Auditoria de Problemas de Produto — Base de Julho/2026</h1>
+      <p>Causa raiz dos problemas relatados por clientes nas ligações de julho, para levar à RMR de 17/08. Escopo desta rodada: <strong>problema de produto</strong> — análise por vendedor foi deixada de fora deste ciclo.</p>
+      <div class="hero-meta">
+        <span class="pill">Base: <b>10.240</b> ligações</span>
+        <span class="pill">P3 analisado: <b>5.953</b> (58,1%)</span>
+        <span class="pill">Gerado em <b>14/08/2026</b></span>
+      </div>
+    </div>
+    <div id="hero-conexao" style="display:none">
+      <h1>Conectar a Dor à Solução — Junho × Julho</h1>
+      <p>Mesma análise apresentada na RMR de junho (upsell conectado à dor + qualidade do Challenger → fechamento), recalculada trocando a base: julho isolado e as duas bases combinadas, pra ver se o achado se sustenta com mais dado.</p>
+      <div class="hero-meta">
+        <span class="pill">Junho: <b>6.594</b> ligações</span>
+        <span class="pill">Julho: <b>6.550</b> ligações</span>
+        <span class="pill">Gerado em <b>16/08/2026</b></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tabbar">
+  <div class="wrap" role="tablist" aria-label="Seções da apresentação">
+    <button class="tabbtn" id="tabbtn-produto" role="tab" aria-selected="true" aria-controls="view-produto" data-tab="produto">
+      <span class="tnum">1</span>Causa Raiz — Produto (Julho)
+    </button>
+    <button class="tabbtn" id="tabbtn-conexao" role="tab" aria-selected="false" aria-controls="view-conexao" data-tab="conexao">
+      <span class="tnum">2</span>Conexão Dor × Fechamento (Jun × Jul)
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="view active" id="view-produto" role="tabpanel" aria-labelledby="tabbtn-produto">
+
+  <div class="kpis first">
+    <div class="kpi">
+      <div class="num">2.462</div>
+      <div class="lbl">ligações com problema relatado</div>
+      <div class="sub">41,4% das 5.953 já analisadas</div>
+    </div>
+    <div class="kpi err">
+      <div class="num">60,6%</div>
+      <div class="lbl">não resolvido na própria ligação</div>
+      <div class="sub">901 NÃO + 592 PARCIAL, de 2.462</div>
+    </div>
+    <div class="kpi err">
+      <div class="num">80,4%</div>
+      <div class="lbl">dos não-resolvidos, nunca escalados</div>
+      <div class="sub">1.200 de 1.493 ficam sem dono</div>
+    </div>
+    <div class="kpi">
+      <div class="num">P1</div>
+      <div class="lbl">maior categoria: acesso/sistema</div>
+      <div class="sub">803 ocorrências — 1,5x a 2ª colocada</div>
+    </div>
+  </div>
+
+  <section id="pareto">
+    <div class="sec-head"><h2>Onde os problemas se concentram</h2><span class="tag">Pareto · 12 categorias</span></div>
+    <p class="sec-sub">Ocorrências de cada tipo de problema dentro das 5.953 ligações já analisadas pela IA (uma ligação pode ter mais de um problema). Clique numa barra para abrir a árvore de causa raiz — três categorias já têm investigação qualitativa completa.</p>
+    <div class="pareto" id="paretoList"></div>
+  </section>
+
+  <section id="arvore">
+    <div class="sec-head"><h2>Árvore de causa raiz</h2><span class="tag">Interativo · clique para expandir</span></div>
+    <p class="sec-sub">Para as 3 maiores categorias analisáveis, fomos além do código de problema: lemos uma amostra das transcrições reais para identificar o padrão por trás do código. Nomes de cliente e de atendente foram removidos das falas — mantivemos só o conteúdo.</p>
+
+    <div class="tree" id="treeP1">
+      <details class="pcard" id="card-P1" open>
+        <summary>
+          <span class="chev">▶</span>
+          <span class="rank">1º</span>
+          <span class="htitle"><span class="code">P1</span><h3>Acesso / Sistema</h3></span>
+          <span class="hstat"><b>803</b> ocorrências · 49% resolvido na ligação</span>
+        </summary>
+        <div class="pcard-body">
+          <p class="pcard-intro">O maior problema da base — e crônico, não um pico de um dia só (fica entre 35 e 78 ligações/dia o mês inteiro, sem data de outage isolada). Lendo as transcrições, quase tudo cai em três padrões dentro do mesmo funil: primeiro acesso / redefinição de senha.</p>
+          <div class="causes">
+            <div class="cause">
+              <h4><span class="n">279 menções</span>Biometria facial trava o autoatendimento</h4>
+              <p class="desc">Redefinir senha ou liberar um novo usuário exige validação facial "ao vivo" — mesmo quando é só troca de senha, sem suspeita de fraude. Cliente precisa estar fisicamente disponível na hora da ligação.</p>
+              <blockquote>"...como pede a biometria na hora da redefinição, então a pessoa precisa estar presente por causa da facial."<cite>Ligação P1 · 803a205c</cite></blockquote>
+            </div>
+            <div class="cause">
+              <h4><span class="n">429 menções</span>Criação de senha só funciona guiada por telefone</h4>
+              <p class="desc">Não existe fluxo de self-service real: o <span class="role">atendente</span> manda link por WhatsApp e fica na linha guiando clique a clique, muitas vezes para mais de uma pessoa da mesma empresa.</p>
+              <blockquote>"...vou te mandar aqui de novo o acesso da plataforma aqui WebCorp... você vai clicar em 'esqueci minha senha', vai criar uma nova senha..."<cite>Ligação P1 · 398e84ae</cite></blockquote>
+            </div>
+            <div class="cause">
+              <h4><span class="n">22 menções</span>Portal indisponível ("fora do ar")</h4>
+              <p class="desc">Menor em volume, mas agudo: o cliente já tinha resolvido o que precisava antes e liga de novo porque o sistema caiu no meio do processo.</p>
+              <blockquote>"...eu estava com o meu sistema fora do ar no dia e eu não consegui. Aí eu estou entrando em contato aqui de novo..."<cite>Ligação P1 · 5ac762a0</cite></blockquote>
+            </div>
+          </div>
+          <div class="caveat">⚠ Contagens de sub-padrão são por menção na transcrição (biometria e senha aparecem juntas com frequência, no mesmo funil de acesso) — não somam 803 porque não são mutuamente exclusivas.</div>
+        </div>
+      </details>
+
+      <details class="pcard" id="card-P2">
+        <summary>
+          <span class="chev">▶</span>
+          <span class="rank">2º</span>
+          <span class="htitle"><span class="code">P2</span><h3>Faturamento / Cobrança</h3></span>
+          <span class="hstat"><b>524</b> ocorrências</span>
+        </summary>
+        <div class="pcard-body">
+          <p class="pcard-intro">Dois padrões distintos: um de processo (pagamento trava numa aprovação de terceiro) e um de comunicação (cliente não entende de onde veio o valor cobrado).</p>
+          <div class="causes">
+            <div class="cause">
+              <h4>Pagamento trava numa aprovação fora do alcance do vendedor</h4>
+              <p class="desc">Prorrogação de fatura autorizada, mas o pagamento (TED/Pix) depende da aprovação de outra pessoa na empresa do cliente — gera ligação repetida sobre o "mesmo erro".</p>
+              <blockquote>"...mais uma vez eu tive que questionar aqui o <span class="role">condutor</span> que me deu o retorno referente à prorrogação das faturas para entender esse erro recorrente aí quando vocês tentam efetuar o pagamento."<cite>Ligação P2 · b8e9ddf0</cite></blockquote>
+            </div>
+            <div class="cause">
+              <h4>Cobrança sem explicação clara do que é</h4>
+              <p class="desc">Item avulso (lavagem, diária extra, indenização) aparece na fatura sem detalhamento — o cliente liga só para entender o que está pagando, às vezes com valor alto o suficiente para gerar risco de crédito.</p>
+              <blockquote>"...tem uma fatura ... no valor de R$ 51.467 que não estou recordando muito bem... estou aqui com um problema no Serasa!"<cite>Ligação P2 · 4ff4554e</cite></blockquote>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="pcard" id="card-P10">
+        <summary>
+          <span class="chev">▶</span>
+          <span class="rank">4º</span>
+          <span class="htitle"><span class="code">P10</span><h3>Reserva / Sistema</h3></span>
+          <span class="hstat"><b>223</b> ocorrências</span>
+        </summary>
+        <div class="pcard-body">
+          <p class="pcard-intro">Menos volume que P1/P2, mas o padrão é o mais claramente "produto, não atendimento": o fluxo de reserva tem 4 estados (cotação → reserva → confirmação → aprovação) que o cliente não consegue prever sozinho.</p>
+          <div class="causes">
+            <div class="cause">
+              <h4>Cliente não distingue cotação de reserva confirmada</h4>
+              <p class="desc">O cliente acha que já reservou ao cotar; a reserva real exige passos adicionais que não ficam óbvios na tela.</p>
+              <blockquote>"Ah, entendi. Aí como que eu faço para reservar? Por exemplo, ali eu fiz a cotação, né? Aí para reservar mesmo..."<cite>Ligação P10 · 4dd23664</cite></blockquote>
+            </div>
+            <div class="cause">
+              <h4>Aprovação depende de um terceiro que não sabe que precisa agir</h4>
+              <p class="desc">O papel "quem aprova" não é claro pra quem solicitou — a reserva fica parada até alguém (às vezes um gerente) perceber que precisa aprovar.</p>
+              <blockquote>"...ele é solicitante e o <span class="role">aprovador</span> aprova, ou ele consegue fazer tudo no sistema?" / "Não, quem aprova é o <span class="role">gerente dele</span>."<cite>Ligação P10 · d577a720</cite></blockquote>
+            </div>
+            <div class="cause">
+              <h4>Falha técnica ao carregar a tela de reserva</h4>
+              <p class="desc">Link enviado por e-mail/WhatsApp trava no carregamento — sem retorno de erro claro para o cliente entender o que fazer.</p>
+              <blockquote>"Eu ainda estou abrindo o link, porque o link quando eu cliquei não abriu, ficou aqui carregando, carregando e não abria."<cite>Ligação P10 · 2dfb38c5</cite></blockquote>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="pcard held">
+        <summary>
+          <span class="chev">▶</span>
+          <span class="rank">6º</span>
+          <span class="htitle"><span class="code">P12</span><h3>Manipulação de NPS</h3></span>
+          <span class="hstat"><b>169</b> ocorrências</span>
+        </summary>
+        <div class="pcard-body">
+          <p class="pcard-intro">Não é problema de produto — é vendedor pedindo/ditando nota na pesquisa de satisfação. Deixado de fora desta árvore de propósito: combinamos em 29/07 esperar P3 chegar a 100% de cobertura (hoje 58,1%) antes de levar isso como pauta de governança. Só reaparece aqui para não esconder o número — sem pauta associada nesta rodada.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="fishbone">
+    <div class="sec-head"><h2>Diagrama de causa e efeito — P1, Acesso/Sistema</h2><span class="tag">Ishikawa</span></div>
+    <p class="sec-sub">Aplicado só na maior categoria (803 ocorrências, crônica o mês inteiro) — é onde o esforço de correção tem mais retorno.</p>
+    <div class="fb-wrap">
+      <svg class="fb-svg" viewBox="0 0 980 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de espinha de peixe mostrando causas do problema de acesso/sistema">
+        <line class="fb-spine" x1="80" y1="230" x2="760" y2="230"/>
+        <polygon points="760,230 745,220 745,240" fill="var(--fg-3)"/>
+        <rect class="fb-head-box" x="765" y="196" width="195" height="68" rx="10"/>
+        <text class="fb-head-text" x="862" y="222" font-size="13.5" text-anchor="middle">Ligações repetidas</text>
+        <text class="fb-head-text" x="862" y="240" font-size="13.5" text-anchor="middle">de Acesso/Sistema</text>
+        <text class="fb-cause-text" x="862" y="256" font-size="10.5" text-anchor="middle" fill="var(--fg-2)">803 / mês · 49% resolvido</text>
+
+        <line class="fb-bone" x1="150" y1="70" x2="290" y2="228"/>
+        <text class="fb-cat-text" x="122" y="56" font-size="13.5" text-anchor="middle">Sistema</text>
+        <circle class="fb-dot" cx="238" cy="146" r="3"/>
+        <text class="fb-cause-text" x="250" y="132" font-size="11.5">Biometria facial obrigatória</text>
+        <text class="fb-cause-text" x="250" y="148" font-size="11.5">mesmo p/ troca simples de senha</text>
+        <circle class="fb-dot" cx="272" cy="196" r="3"/>
+        <text class="fb-cause-text" x="284" y="200" font-size="11.5">Portal cai no meio do fluxo</text>
+        <text class="fb-cause-text" x="284" y="214" font-size="10.5" fill="var(--fg-3)">(22 menções)</text>
+
+        <line class="fb-bone" x1="370" y1="70" x2="440" y2="228"/>
+        <text class="fb-cat-text" x="352" y="56" font-size="13.5" text-anchor="middle">Processo</text>
+        <circle class="fb-dot" cx="404" cy="146" r="3"/>
+        <text class="fb-cause-text" x="416" y="132" font-size="11.5">Sem self-service real —</text>
+        <text class="fb-cause-text" x="416" y="148" font-size="11.5">atendente guia clique a clique</text>
+        <circle class="fb-dot" cx="422" cy="196" r="3"/>
+        <text class="fb-cause-text" x="434" y="200" font-size="11.5">Link de senha enviado por</text>
+        <text class="fb-cause-text" x="434" y="214" font-size="11.5">WhatsApp, fora do fluxo oficial</text>
+
+        <line class="fb-bone" x1="150" y1="390" x2="290" y2="232"/>
+        <text class="fb-cat-text" x="122" y="410" font-size="13.5" text-anchor="middle">Pessoas</text>
+        <circle class="fb-dot" cx="238" cy="316" r="3"/>
+        <text class="fb-cause-text" x="250" y="312" font-size="11.5">Múltiplos usuários por empresa —</text>
+        <text class="fb-cause-text" x="250" y="328" font-size="11.5">cada um precisa de cadastro próprio</text>
+        <circle class="fb-dot" cx="272" cy="266" r="3"/>
+        <text class="fb-cause-text" x="284" y="270" font-size="11.5">Pessoa certa nem sempre está</text>
+        <text class="fb-cause-text" x="284" y="284" font-size="11.5">disponível na hora da ligação</text>
+
+        <line class="fb-bone" x1="370" y1="390" x2="440" y2="232"/>
+        <text class="fb-cat-text" x="352" y="410" font-size="13.5" text-anchor="middle">Política / Regra</text>
+        <circle class="fb-dot" cx="404" cy="316" r="3"/>
+        <text class="fb-cause-text" x="416" y="312" font-size="11.5">Regra trata redefinição de senha</text>
+        <text class="fb-cause-text" x="416" y="328" font-size="11.5">com o mesmo rigor de 1º acesso</text>
+      </svg>
+    </div>
+  </section>
+
+  <section id="acoes">
+    <div class="sec-head"><h2>Recomendações — 5W2H</h2><span class="tag">2 ações prioritárias</span></div>
+    <p class="sec-sub">Uma ataca o maior problema de produto (P1); a outra ataca o processo que faz 80% dos problemas não resolvidos ficarem sem dono, qualquer que seja a categoria.</p>
+    <div class="actions">
+
+      <div class="action">
+        <div class="action-head"><span class="badge">Ação 1</span><h3>Self-service de senha sem biometria obrigatória em toda redefinição</h3></div>
+        <div class="w2h">
+          <div class="cell"><div class="k">O quê</div><div class="v">Fluxo de autoatendimento para redefinir senha e liberar 1º acesso, sem exigir validação facial ao vivo quando não há suspeita de fraude.</div></div>
+          <div class="cell"><div class="k">Por quê</div><div class="v">803 ligações/mês — maior categoria da base, crônica o mês inteiro, não é pico isolado.</div></div>
+          <div class="cell"><div class="k">Onde</div><div class="v">Portal WebCorp / app de acesso do cliente PJ.</div></div>
+          <div class="cell"><div class="k">Quando</div><div class="v">Diagnóstico pronto agora; sugerir piloto em 30 dias.</div></div>
+          <div class="cell"><div class="k">Quem</div><div class="v">Gerente de Produto (dono do backlog) executa com TI; Especialista de Excelência Comercial mede impacto em volume de ligação.</div></div>
+          <div class="cell"><div class="k">Como</div><div class="v">Redefinição por e-mail/SMS verificado quando a biometria já foi validada antes; tutorial guiado no app para 1º acesso, tirando o atendente do meio.</div></div>
+          <div class="cell"><div class="k">Quanto</div><div class="v">803 ligações/mês (7,8% da base). Sem custo médio por ligação medido ainda — reduzir pela metade já libera ~400 ligações/mês de capacidade comercial.</div></div>
+          <div class="cell"><div class="k">Risco de não fazer</div><div class="v">Continua sendo a maior categoria mês após mês — cresce junto com a base de clientes.</div></div>
+        </div>
+      </div>
+
+      <div class="action">
+        <div class="action-head"><span class="badge">Ação 2</span><h3>Checklist de fechamento: problema não resolvido = escalar antes de desligar</h3></div>
+        <div class="w2h">
+          <div class="cell"><div class="k">O quê</div><div class="v">Regra de processo: se o problema fica como NÃO ou PARCIAL resolvido, a ligação não encerra sem abrir um encaminhamento formal.</div></div>
+          <div class="cell"><div class="k">Por quê</div><div class="v">De 1.493 problemas não resolvidos, 1.200 (80,4%) nunca são escalados para lugar nenhum — o cliente é quem tem que ligar de novo.</div></div>
+          <div class="cell"><div class="k">Onde</div><div class="v">Todos os canais de atendimento comercial, qualquer categoria de problema (P1–P11).</div></div>
+          <div class="cell"><div class="k">Quando</div><div class="v">Curto prazo — é regra de processo/treinamento, não depende de sistema novo.</div></div>
+          <div class="cell"><div class="k">Quem</div><div class="v">Especialista de Treinamentos faz o rollout do critério; Gerente de Excelência Comercial audita adesão mês a mês.</div></div>
+          <div class="cell"><div class="k">Como</div><div class="v">Checklist obrigatório de fechamento de ligação — resolvido=NÃO/PARCIAL dispara encaminhamento (0800, supervisão ou IT) antes de contar a ligação como concluída.</div></div>
+          <div class="cell"><div class="k">Quanto</div><div class="v">Meta: reduzir os ~1.200 casos órfãos/mês. Ainda não medimos quantas dessas ligações geram uma 2ª ligação do mesmo cliente sobre o mesmo assunto — gap de medição a fechar.</div></div>
+          <div class="cell"><div class="k">Risco de não fazer</div><div class="v">Retrabalho invisível: o mesmo problema pode gerar 2, 3 ligações sem que ninguém veja o padrão, porque cada uma é tratada como caso novo.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Metodologia:</strong> categorias de problema (P1–P12) vêm do Prompt 3 do framework de análise, classificado por IA (Gemini) ligação a ligação. Sub-padrões de P1/P2/P10 foram extraídos lendo uma amostra das transcrições originais de cada categoria — não são gerados por IA, são leitura direta do time.</p>
+    <p><strong>Cobertura:</strong> 58,1% da base de julho (5.953 de 10.240 ligações) já tem P3 analisado — os números aqui sobem conforme o restante for processado. P12 mostrado por transparência, sem virar pauta nesta rodada (decisão de 29/07).</p>
+    <p><strong>Fora de escopo deste ciclo:</strong> cruzamento com vendedor/atendente — dado só existe para os dias 22–31/07 e ainda não foi analisado pela IA nesses dias.</p>
+  </footer>
+
+</div>
+
+<div class="view" id="view-conexao" role="tabpanel" aria-labelledby="tabbtn-conexao">
+
+  <div class="kpis first">
+    <div class="kpi ok">
+      <div class="num">4,1×</div>
+      <div class="lbl">Junho — o que já foi apresentado</div>
+      <div class="sub">18,6% conectou vs. 4,5% não conectou</div>
+    </div>
+    <div class="kpi ok">
+      <div class="num">6,1×</div>
+      <div class="lbl">Julho — mesma metodologia, base nova</div>
+      <div class="sub">28,2% conectou vs. 4,6% não conectou</div>
+    </div>
+    <div class="kpi ok">
+      <div class="num">5,0×</div>
+      <div class="lbl">Junho + Julho combinado</div>
+      <div class="sub">22,6% conectou vs. 4,5% não conectou</div>
+    </div>
+    <div class="kpi warn">
+      <div class="num">64%</div>
+      <div class="lbl">cobertura P1 em julho</div>
+      <div class="sub">6.550 de 10.240 — restante ainda sem merge no consolidado</div>
+    </div>
+  </div>
+
+  <section id="conexao-headline">
+    <div class="sec-head"><h2>O achado se sustenta — e fica mais forte em julho</h2><span class="tag">Mesma regra da RMR de junho</span></div>
+    <p class="sec-sub">Refeita a análise "conectar a solução à dor do cliente" (B5 = upsell conectado à dor, cruzado com qualidade do Challenger) trocando a base: julho isolado e as duas bases juntas. Universo em cada base = só ligações com P1 já processado, pra manter a comparação justa.</p>
+    <div class="tblwrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>Base</th><th>n avaliado</th><th>Não conectou</th><th>Conectou (Sim)</th><th>Multiplicador</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Junho <span class="n">(referência, já na RMR)</span></td>
+            <td><span class="n">6.594</span></td>
+            <td><b>4,5%</b> <span class="n">(281/6.293)</span></td>
+            <td><b>18,6%</b> <span class="n">(56/301)</span></td>
+            <td><b>4,1×</b></td>
+          </tr>
+          <tr>
+            <td>Julho <span class="n">no lugar de junho</span></td>
+            <td><span class="n">6.550</span></td>
+            <td><b>4,6%</b> <span class="n">(289/6.337)</span></td>
+            <td><b>28,2%</b> <span class="n">(60/213)</span></td>
+            <td><b>6,1×</b></td>
+          </tr>
+          <tr class="hl">
+            <td>Junho + Julho <span class="n">combinado</span></td>
+            <td><span class="n">13.144</span></td>
+            <td><b>4,5%</b> <span class="n">(570/12.630)</span></td>
+            <td><b>22,6%</b> <span class="n">(116/514)</span></td>
+            <td><b>5,0×</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="conexao-detalhe">
+    <div class="sec-head"><h2>Detalhe — técnica consultiva dentro de cada grupo</h2><span class="tag">Equivalente às caixas do slide de junho</span></div>
+    <p class="sec-sub">"Eficiente" = Challenger de qualidade alta. "Ineficiente" = qualidade média ou baixa. "Sem técnica" = nenhum Challenger identificado, dividido entre havia uma oportunidade óbvia (OP6) ou não.</p>
+    <div class="tblwrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>Grupo</th><th>Junho</th><th>Julho</th><th>Combinado</th></tr>
+        </thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">Não conectou a dor à solução</td></tr>
+          <tr><td>Técnica eficiente</td><td><b>9,1%</b> <span class="n">(117/1.289)</span></td><td><b>14,6%</b> <span class="n">(98/672)</span></td><td><b>11,0%</b> <span class="n">(215/1.961)</span></td></tr>
+          <tr><td>Técnica ineficiente</td><td><b>2,6%</b> <span class="n">(43/1.650)</span></td><td><b>2,9%</b> <span class="n">(108/3.710)</span></td><td><b>2,8%</b> <span class="n">(151/5.360)</span></td></tr>
+          <tr><td>Sem técnica + sem oportunidade óbvia</td><td><b>3,1%</b> <span class="n">(96/3.051)</span></td><td><b>3,6%</b> <span class="n">(69/1.891)</span></td><td><b>3,3%</b> <span class="n">(165/4.942)</span></td></tr>
+          <tr><td>Sem técnica + com oportunidade óbvia (OP6)</td><td><b>8,3%</b> <span class="n">(25/303)</span></td><td><b>21,9%</b> <span class="n">(14/64)</span></td><td><b>10,6%</b> <span class="n">(39/367)</span></td></tr>
+          <tr class="grp"><td colspan="4">Conectou a dor à solução</td></tr>
+          <tr><td>Técnica eficiente</td><td><b>19,7%</b> <span class="n">(45/228)</span></td><td><b>28,9%</b> <span class="n">(37/128)</span></td><td><b>23,0%</b> <span class="n">(82/356)</span></td></tr>
+          <tr><td>Técnica ineficiente</td><td><b>4,2%</b> <span class="n">(2/48)</span></td><td><b>18,9%</b> <span class="n">(10/53)</span></td><td><b>11,9%</b> <span class="n">(12/101)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="caveat" style="margin-top:14px">⚠ Em julho, mesmo "técnica ineficiente + conectou" fecha muito mais (18,9% vs 4,2% em junho) — sinal de que julho teve uma base mais aquecida em geral, não só execução melhor. Não apresentar como "a técnica importa menos em julho" sem essa ressalva.</div>
+  </section>
+
+  <section id="conexao-ch">
+    <div class="sec-head"><h2>Técnicas consultivas mais usadas</h2><span class="tag">CH1–CH7 · contagem de menções</span></div>
+    <p class="sec-sub">Quantas vezes cada técnica do Challenger apareceu nas ligações, comparando junho e julho lado a lado.</p>
+    <div class="cmp-list" id="chList"></div>
+    <div class="legend">
+      <span><i style="background:var(--brand-2)"></i>Junho</span>
+      <span><i style="background:var(--info)"></i>Julho</span>
+    </div>
+  </section>
+
+  <section id="conexao-op">
+    <div class="sec-head"><h2>Oportunidades perdidas</h2><span class="tag">OP1–OP8 · contagem de menções</span></div>
+    <p class="sec-sub">Mesma comparação para as oportunidades perdidas — onde a ligação tinha abertura e ela não foi usada.</p>
+    <div class="cmp-list" id="opList"></div>
+    <div class="legend">
+      <span><i style="background:var(--brand-2)"></i>Junho</span>
+      <span><i style="background:var(--info)"></i>Julho</span>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Metodologia:</strong> mesma regra da árvore H10 apresentada na RMR de junho (<code>scripts/gerar_arvore_h10.py</code>) — "conectou" = B5 (upsell conectado à dor) = SIM; "técnica eficiente" = qualidade do Challenger (P5) = alta. "Fechou" = desfecho em fechou_novo, fechou_upsell ou fechou_renovacao.</p>
+    <p><strong>Universo:</strong> em cada base, só ligações com P1 já processado — junho está 99,6% completo (6.594/6.623), julho está 64% completo no consolidado (6.550/10.240; o resto já foi analisado pela IA mas ainda não foi casado no CSV consolidado). Os números de julho podem se mover quando esse gap fechar.</p>
+    <p><strong>Fonte:</strong> <code>resultados/consolidado/CONSOLIDADO_LIGACOES.csv</code> (junho) e <code>JULHO/consolidado/CONSOLIDADO_JULHO.csv</code> (julho).</p>
+  </footer>
+
+</div>
+
+</div>
+
+<script>
+const PARETO = [
+  {code:'P1', label:'Acesso / Sistema', n:803, id:'card-P1'},
+  {code:'P2', label:'Faturamento / Cobrança', n:524, id:'card-P2'},
+  {code:'P11', label:'Outro', n:413, id:null},
+  {code:'P10', label:'Reserva / Sistema', n:223, id:'card-P10'},
+  {code:'P5', label:'Condutor / Cadastro', n:192, id:null},
+  {code:'P12', label:'Manipulação de NPS', n:169, id:null, held:true},
+  {code:'P4', label:'Manutenção / Substituto', n:148, id:null},
+  {code:'P7', label:'Disponibilidade', n:145, id:null},
+  {code:'P9', label:'Sinistro', n:97, id:null},
+  {code:'P3', label:'Multa / Infração', n:93, id:null},
+  {code:'P6', label:'Km excedente', n:86, id:null},
+  {code:'P8', label:'Franquia / Agência', n:37, id:null},
+];
+const max = Math.max(...PARETO.map(p=>p.n));
+const list = document.getElementById('paretoList');
+PARETO.forEach((p,i)=>{
+  const row = document.createElement('div');
+  row.className = 'prow' + (i===0?' top':i===1?' top2':'') + (p.held?' held':'');
+  row.innerHTML = `
+    <div class="pname"><span class="code">${p.code}</span>${p.label}</div>
+    <div class="pbar-track"><div class="pbar-fill" style="width:${(p.n/max*100).toFixed(1)}%"></div></div>
+    <div class="pval">${p.n}</div>`;
+  if(p.id){
+    row.addEventListener('click', ()=>{
+      const el = document.getElementById(p.id);
+      el.open = true;
+      el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+    });
+  } else {
+    row.style.cursor = 'default';
+  }
+  list.appendChild(row);
+  if(p.held){
+    const note = document.createElement('div');
+    note.className = 'held-note';
+    note.textContent = 'Fora de pauta nesta rodada — aguardando 100% de cobertura (decisão de 29/07)';
+    list.appendChild(note);
+  }
+});
+
+// ---------- tab switching ----------
+const tabbtns = document.querySelectorAll('.tabbtn');
+tabbtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const tab = btn.dataset.tab;
+    tabbtns.forEach(b=>b.setAttribute('aria-selected', b===btn ? 'true':'false'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('view-'+tab).classList.add('active');
+    document.getElementById('hero-produto').style.display = tab==='produto' ? '' : 'none';
+    document.getElementById('hero-conexao').style.display = tab==='conexao' ? '' : 'none';
+  });
+});
+
+// ---------- grouped comparison bars (CH + OP) ----------
+function buildCmpList(elId, rows){
+  const maxVal = Math.max(...rows.map(r=>Math.max(r.jun, r.jul)));
+  const el = document.getElementById(elId);
+  rows.forEach(r=>{
+    const row = document.createElement('div');
+    row.className = 'cmp-row';
+    row.innerHTML = `
+      <div class="cname"><span class="code">${r.code}</span>${r.label}</div>
+      <div class="cmp-bars">
+        <div class="cmp-bar-line">
+          <span class="btag">Jun</span>
+          <div class="cmp-bar-track"><div class="cmp-bar-fill jun" style="width:${(r.jun/maxVal*100).toFixed(1)}%"></div></div>
+          <span class="cmp-bar-val">${r.jun}</span>
+        </div>
+        <div class="cmp-bar-line">
+          <span class="btag">Jul</span>
+          <div class="cmp-bar-track"><div class="cmp-bar-fill jul" style="width:${(r.jul/maxVal*100).toFixed(1)}%"></div></div>
+          <span class="cmp-bar-val">${r.jul}</span>
+        </div>
+      </div>`;
+    el.appendChild(row);
+  });
+}
+
+buildCmpList('chList', [
+  {code:'CH1', label:'Custo oculto revelado', jun:786, jul:512},
+  {code:'CH5', label:'Dor → produto conectado', jun:481, jul:336},
+  {code:'CH6', label:'Antecipação de problema', jun:345, jul:260},
+  {code:'CH7', label:'Descoberta de necessidade', jun:239, jul:184},
+  {code:'CH3', label:'Urgência por regra real', jun:84, jul:147},
+  {code:'CH4', label:'Concorrente superado c/ dado', jun:99, jul:80},
+  {code:'CH2', label:'ROI calculado', jun:17, jul:98},
+]);
+
+buildCmpList('opList', [
+  {code:'OP1', label:'Suporte sem pergunta comercial', jun:2551, jul:833},
+  {code:'OP6', label:'Upsell óbvio não tentado', jun:1101, jul:618},
+  {code:'OP2', label:'Dor sem produto conectado', jun:680, jul:440},
+  {code:'OP3', label:'Fechamento sem urgência', jun:525, jul:191},
+  {code:'OP4', label:'Referral não solicitado', jun:422, jul:125},
+  {code:'OP5', label:'Dado estratégico não explorado', jun:63, jul:260},
+  {code:'OP7', label:'Churn não detectado', jun:171, jul:109},
+  {code:'OP8', label:'Escalada desnecessária', jun:54, jul:18},
+]);
+</script>
+</body>
+</html>
