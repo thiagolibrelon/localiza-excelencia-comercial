@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manipulação de NPS — Dossiê de Governança</title>
+<style>
+  :root {
+    --bg: #eef0f3;
+    --surface: #ffffff;
+    --surface-2: #f5f6f8;
+    --ink: #1b232c;
+    --ink-2: #3d4750;
+    --muted: #647080;
+    --border: #dde1e7;
+    --border-strong: #c4cad3;
+    --accent: #a8680f;
+    --accent-ink: #6b4408;
+    --accent-bg: #fbf0dd;
+    --accent-bg-strong: #f5dfb4;
+    --critical: #a4291f;
+    --critical-bg: #fbe9e6;
+    --critical-border: #eec3bc;
+    --good: #2b6e4a;
+    --good-bg: #e7f2ea;
+    --mono-bg: #f6f4ee;
+    --mono-border: #e4dfd0;
+    --quote-mark: #c9a662;
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px -12px rgba(20, 24, 30, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #13161b;
+      --surface: #1a1e25;
+      --surface-2: #20252d;
+      --ink: #e8eaed;
+      --ink-2: #c2c8d1;
+      --muted: #8b95a3;
+      --border: #2b313b;
+      --border-strong: #3a4149;
+      --accent: #e0a94a;
+      --accent-ink: #f4d38f;
+      --accent-bg: #362a15;
+      --accent-bg-strong: #4a3a1c;
+      --critical: #e28378;
+      --critical-bg: #3a201d;
+      --critical-border: #5a3530;
+      --good: #7fbd98;
+      --good-bg: #1c2e22;
+      --mono-bg: #1e2028;
+      --mono-border: #33363f;
+      --quote-mark: #cba766;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #13161b;
+    --surface: #1a1e25;
+    --surface-2: #20252d;
+    --ink: #e8eaed;
+    --ink-2: #c2c8d1;
+    --muted: #8b95a3;
+    --border: #2b313b;
+    --border-strong: #3a4149;
+    --accent: #e0a94a;
+    --accent-ink: #f4d38f;
+    --accent-bg: #362a15;
+    --accent-bg-strong: #4a3a1c;
+    --critical: #e28378;
+    --critical-bg: #3a201d;
+    --critical-border: #5a3530;
+    --good: #7fbd98;
+    --good-bg: #1c2e22;
+    --mono-bg: #1e2028;
+    --mono-border: #33363f;
+    --quote-mark: #cba766;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    background: var(--bg);
+  }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 28px 96px;
+  }
+
+  h1, h2, h3 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    font-weight: 400;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  code, .mono, .tabular {
+    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 22px;
+    margin-bottom: 34px;
+  }
+
+  .eyebrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .doc-id { font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+
+  h1.title {
+    font-size: clamp(1.7rem, 4vw, 2.35rem);
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+
+  .dek {
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    max-width: 66ch;
+    margin: 0 0 18px;
+  }
+
+  .classification {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--critical);
+    background: var(--critical-bg);
+    border: 1px solid var(--critical-border);
+    padding: 6px 12px;
+    border-radius: 3px;
+  }
+
+  .classification::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--critical);
+    flex-shrink: 0;
+  }
+
+  /* ---------- Stat strip ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 30px 0 12px;
+  }
+
+  .stat {
+    background: var(--surface);
+    padding: 20px 16px;
+  }
+
+  .stat .n {
+    font-family: Georgia, serif;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat .n.flag { color: var(--critical); }
+
+  .stat .l {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .stats-caption {
+    font-size: 0.76rem;
+    color: var(--muted);
+    margin: 0 0 40px;
+  }
+
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Sections ---------- */
+  section { margin: 44px 0; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  h2.section-title {
+    font-size: 1.35rem;
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  h3.subtype-title {
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  h3.subtype-title .count {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .subtype-note {
+    font-size: 0.86rem;
+    color: var(--muted);
+    margin: 0 0 14px;
+    max-width: 68ch;
+  }
+
+  .subtype-block { margin-bottom: 32px; }
+  .subtype-block:last-child { margin-bottom: 0; }
+
+  p { color: var(--ink-2); margin: 0 0 14px; max-width: 68ch; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  .callout {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 18px 0;
+  }
+
+  .callout p { max-width: none; }
+
+  .pattern-callout {
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-bg-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 22px 0;
+  }
+
+  .pattern-callout .section-label { color: var(--accent-ink); margin-bottom: 8px; }
+  .pattern-callout p { color: var(--ink); max-width: none; }
+
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 14px 0 4px;
+  }
+
+  @media (max-width: 640px) {
+    .formula-grid { grid-template-columns: 1fr; }
+  }
+
+  .formula-chip {
+    background: var(--surface);
+    border: 1px solid var(--accent-bg-strong);
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .formula-chip .fc-meta {
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    margin-bottom: 4px;
+  }
+
+  .formula-chip q {
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  /* ---------- Evidence: full transcript cases ---------- */
+  .case {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .case-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 18px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .case-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .case-meta {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    margin-top: 4px;
+  }
+
+  .case-meta .who { color: var(--ink); font-weight: 600; }
+  .case-meta .id { font-family: ui-monospace, "SF Mono", Consolas, monospace; color: var(--muted); }
+
+  .case-full-badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .case-full-badge.full { background: var(--critical-bg); color: var(--critical); border: 1px solid var(--critical-border); }
+  .case-full-badge.excerpt { background: var(--surface); color: var(--muted); border: 1px solid var(--border-strong); }
+
+  .quote-block { padding: 16px 18px; }
+
+  .quote-block blockquote {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink);
+    padding-left: 16px;
+    border-left: 3px solid var(--quote-mark);
+  }
+
+  .quote-block cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  details.transcript { border-top: 1px solid var(--border); }
+
+  details.transcript > summary {
+    cursor: pointer;
+    padding: 12px 18px;
+    font-size: 0.82rem;
+    color: var(--accent-ink);
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+  }
+
+  details.transcript > summary::-webkit-details-marker { display: none; }
+  details.transcript > summary::before { content: "▸"; font-size: 0.7em; transition: transform 0.15s ease; }
+  details.transcript[open] > summary::before { transform: rotate(90deg); }
+
+  .transcript-body {
+    background: var(--mono-bg);
+    border-top: 1px solid var(--mono-border);
+    padding: 18px 20px;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--ink-2);
+    max-height: 420px;
+    overflow-y: auto;
+  }
+
+  .transcript-body .spk { color: var(--accent-ink); font-weight: 600; }
+  .transcript-body mark {
+    background: var(--accent-bg-strong);
+    color: var(--ink);
+    padding: 0 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------- Evidence: compact cards ---------- */
+  .ev-grid { display: flex; flex-direction: column; gap: 10px; }
+
+  .ev-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 14px 16px;
+  }
+
+  .ev-card .ev-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .ev-card .ev-meta .id { font-family: ui-monospace, "SF Mono", Consolas, monospace; color: var(--ink-2); }
+
+  .ev-card blockquote {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 0.98rem;
+    line-height: 1.48;
+    color: var(--ink);
+    padding-left: 14px;
+    border-left: 3px solid var(--quote-mark);
+  }
+
+  .ev-card .ev-context {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .ev-more {
+    font-size: 0.8rem;
+    color: var(--muted);
+    padding: 2px 4px;
+  }
+
+  /* ---------- Table ---------- */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 480px; }
+
+  th, td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+
+  thead th {
+    background: var(--surface-2);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-variant-numeric: tabular-nums; color: var(--ink); }
+  td.muted-cell { color: var(--muted); }
+
+  /* ---------- Asks ---------- */
+  .asks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  @media (max-width: 640px) { .asks { grid-template-columns: 1fr; } }
+
+  .ask-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .ask-card h3 {
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 10px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .ask-card p { font-size: 0.92rem; }
+
+  .ask-card .ask-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent-bg);
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+  /* ---------- Methodology note ---------- */
+  .method {
+    border: 1px dashed var(--border-strong);
+    border-radius: 6px;
+    padding: 16px 20px;
+    background: var(--surface-2);
+  }
+
+  .method .section-label { color: var(--muted); }
+  .method p { max-width: none; margin-bottom: 12px; }
+  .method p:last-child { margin-bottom: 0; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  a { color: var(--accent-ink); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <div class="eyebrow">
+      <span>Governança de Métrica · Programa Aletheia RAC · RAC PJ</span>
+      <span class="doc-id">P12 · v2 · 19/08/2026</span>
+    </div>
+    <h1 class="title">Manipulação de nota na pesquisa de satisfação</h1>
+    <p class="dek">Vendedores orientando o cliente sobre qual nota dar, quem deve responder ou por que a nota do vendedor depende disso — sete padrões distintos de manipulação da pesquisa de satisfação, verificados linha a linha na base de julho/2026 da Localiza Frota PJ.</p>
+    <span class="classification">Risco de governança de métrica — não é comportamento de coaching comercial</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="n flag">203</div>
+      <div class="l">casos confirmados com evidência real (de 216 sinalizados)</div>
+    </div>
+    <div class="stat">
+      <div class="n">2,36%</div>
+      <div class="l">de todas as ligações únicas analisadas no mês (8.604)</div>
+    </div>
+    <div class="stat">
+      <div class="n">5,7%</div>
+      <div class="l">de todos os problemas recorrentes detectados</div>
+    </div>
+    <div class="stat">
+      <div class="n flag">99,0%</div>
+      <div class="l">nunca chegaram a ser escalados (201 de 203)</div>
+    </div>
+  </div>
+  <p class="stats-caption">203 é o número já verificado — ver nota metodológica sobre como chegamos a ele a partir dos 216 sinalizados automaticamente.</p>
+
+  <section>
+    <div class="section-label">Como isso virou pauta</div>
+    <h2 class="section-title">Origem do achado</h2>
+    <p>Em 09/07/2026, uma auditoria de compliance sobre desvio de crédito encontrou, como achado colateral, <strong>2 ligações com coaching explícito de nota</strong> — o vendedor não apenas pede para o cliente avaliar o atendimento, mas dita literalmente qual nota dar. Isso deu origem à categoria <strong>P12 (Manipulação de pesquisa/NPS)</strong> dentro do Prompt 3 (Problemas Recorrentes), que passou a classificar essa ocorrência em 100% da base a partir daquele momento.</p>
+    <p>Com a base de julho/2026 fechada, o padrão deixou de ser anedótico. Cada uma das 216 ligações sinalizadas foi lida — a maioria por completo — para separar manipulação real de pedidos neutros de avaliação. <strong>203 ficaram confirmadas</strong>, distribuídas ao longo do mês inteiro e entre muitos vendedores diferentes, não concentradas num único caso.</p>
+  </section>
+
+  <section>
+    <div class="method">
+      <div class="section-label">Nota metodológica</div>
+      <p>A base bruta consolidada (<code>JULHO/consolidado/P3.csv</code>) tinha 10.014 linhas, das quais 1.410 (14%) eram duplicatas exatas — reprocessamento sem remoção de duplicidade na etapa de consolidação. Depois de deduplicar: <strong>8.604 ligações únicas</strong> e <strong>216 casos sinalizados como P12</strong>.</p>
+      <p>Desses 216, cada chave cliente+data foi cruzada com a transcrição bruta (<code>JULHO/dados_convertidos/julho_completo.json</code>) e lida integralmente. Resultado da verificação: <strong>11 eram falsos positivos</strong> (pedido neutro de avaliação, sem qualquer número, pressão ou condicionamento — ex.: só confirmar se o cliente recebeu o e-mail), <strong>1 ficou inconclusivo</strong> (ligação transferida e encerrada antes de qualquer conteúdo sobre a pesquisa) e <strong>1 não teve transcrição correspondente</strong> na base (<code>cliente_id</code> corrompido no CSV — bug de parsing separado, não investigado aqui). Os <strong>203 restantes</strong> são o número usado neste documento.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Taxonomia — sete padrões, não um só</div>
+    <h2 class="section-title">O que os 203 casos têm em comum (e o que não têm)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Subtipo</th><th>Casos</th><th>% dos 203</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Solicitação genérica — pede avaliação, sem número, sem pressão</td><td class="num">157</td><td class="num">77,3%</td></tr>
+          <tr><td>Redirecionamento / controle de quem responde a pesquisa</td><td class="num">16</td><td class="num">7,9%</td></tr>
+          <tr><td>Desqualificação de nota intermediária ("8 não conta")</td><td class="num">13</td><td class="num">6,4%</td></tr>
+          <tr><td>Apelo pessoal ou financeiro (campanha, comissão, prêmio)</td><td class="num">8</td><td class="num">3,9%</td></tr>
+          <tr><td>Ancoragem de nota específica (pede "9" ou "10")</td><td class="num">7</td><td class="num">3,4%</td></tr>
+          <tr><td>Instrução de preenchimento/prazo com nota embutida</td><td class="num">1</td><td class="num">0,5%</td></tr>
+          <tr><td>Proteção de nota de terceiro (colega/outro contato)</td><td class="num">1</td><td class="num">0,5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px">A maioria (77%) é um pedido educado sem número específico — o mais fraco dos sete padrões, e o mais defensável como prática comercial normal. Os outros 23% (46 casos) são onde a governança tem argumento mais forte: controle de quem responde, desqualificação sistemática de nota 8, e apelo a interesse pessoal do vendedor.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Evidência — transcrição real, por padrão</div>
+    <h2 class="section-title">Sete padrões, catorze ligações, dois meses</h2>
+    <p>Junho contribuiu os 2 casos originais, com transcrição completa. Julho contribuiu 12 casos adicionais, localizados e lidos na base fechada do mês — o trecho abaixo de cada um é a fala verbatim do vendedor.</p>
+
+    <div class="subtype-block">
+      <h3 class="subtype-title">Desqualificação de nota intermediária <span class="count">13 casos — o padrão mais replicado</span></h3>
+      <p class="subtype-note">Praticamente todos os 13 casos usam a mesma fórmula, quase palavra por palavra: nota 8 é reclassificada como "insatisfação" ou "detrator", e o vendedor pede pelo menos 9. Isso não parece comportamento espontâneo individual — parece um script compartilhado.</p>
+      <div class="formula-grid">
+        <div class="formula-chip"><div class="fc-meta">Cliente 06495149 · 17/07</div><q>a nota 8 não é uma nota boa, ela puxa o meu resultado para baixo, ela é neutra. Não precisa ceder, mas pelo menos o 9 vai me ajudar muito</q></div>
+        <div class="formula-chip"><div class="fc-meta">Cliente 13718486 · 30/07</div><q>não dar nota 8, que a nota 8 é uma nota neutra, aí ela puxa o meu resultado para baixo... Pode ser qualquer nota acima do 8!</q></div>
+        <div class="formula-chip"><div class="fc-meta">Cliente 06951593 · 24/07</div><q>acha válido com uma nota 9,10 porque o 8 já é considerado como detrator, vai me ajudar demais</q></div>
+        <div class="formula-chip"><div class="fc-meta">Cliente 14569171 · 28/07</div><q>eu tinha considerado como detrator aqui para a nota</q></div>
+        <div class="formula-chip"><div class="fc-meta">Cliente 08811853 · 16/07</div><q>de 0 a 8 é uma insatisfação, de 9 a 10 é uma satisfação</q></div>
+        <div class="formula-chip"><div class="fc-meta">Cliente 18879710 · 17/07</div><q>de 8 para baixo, ela joga meu resultado para baixo. Nem precisa de me dar 10, só de me dar um 9 já me ajuda</q></div>
+      </div>
+      <p class="subtype-note" style="margin-top:10px">+ 7 casos adicionais com a mesma fórmula "0 a 8 = insatisfação, 9 a 10 = satisfação" (02459478, 04201506, 06456362, 06664999, 12108408, 15385931, 20673282).</p>
+    </div>
+
+    <div class="subtype-block">
+      <h3 class="subtype-title">Ancoragem de nota específica <span class="count">7 casos</span></h3>
+      <p class="subtype-note">Pede um número diretamente, sem desqualificar as outras notas.</p>
+      <div class="case">
+        <div class="case-head">
+          <div>
+            <div class="case-tag">Junho · caso original</div>
+            <div class="case-meta"><span class="who">Vendedor Fabrício</span> · Cliente <span class="id">16824498</span> · 22/06/2026 · 260s</div>
+          </div>
+          <span class="case-full-badge full">Transcrição completa</span>
+        </div>
+        <div class="quote-block">
+          <blockquote>"...isso mas o gol foi sempre dá 10 em tudo, já dando 9 já ajuda, porque esse mês eu vou te contar..."</blockquote>
+          <cite>ligação feita exclusivamente para pedir a nota — sem pauta comercial</cite>
+        </div>
+        <details class="transcript">
+          <summary>Ver transcrição completa (segment_id 79154b44-6931-4386-8e02-18e4c5ef61be)</summary>
+          <div class="transcript-body">
+<span class="spk">C:</span> Lela de advogado, boa tarde.<br>
+<span class="spk">A:</span> Boa tarde. É a Rafaela?<br>
+<span class="spk">C:</span> Não, quem gostaria?<br>
+<span class="spk">A:</span> É o Fabrício, é a Localiza. Seria a respeito de quê? Sobre os seus cadastros que vocês têm com a gente.<br>
+<span class="spk">C:</span> Só um minutinho que eu vou passar para ela.<br>
+<span class="spk">A:</span> Ô Rafaela, é o Fabrício, tudo joia? Ô Rafaela, eu estou em contato com você hoje para te incomodar um pouco. Tempos em tempos, minha amiga, a Localiza manda uma pesquisa sobre o meu atendimento. Então se você conseguir responder essa pesquisa, você me ajudaria bastante, viu?<br>
+<span class="spk">C:</span> Tá bom, pode me mandar.<br>
+<span class="spk">A:</span> A pesquisa já foi enviada, foi enviada dia 17 para o dia 18 ali... A sua satisfação é a nossa prioridade, avaliar nosso serviço. Eu te mandei aqui no WhatsApp.<br>
+<span class="spk">C:</span> Deixa eu ver se está aqui no spam... Ah, achei. Só que essa você vê é do dia 2. Não é do dia 18, não. Já respondi, já estou respondendo aqui. Dia 2 de junho, tem quase um mês.<br>
+<span class="spk">A:</span> Olha, ela ainda está servindo, mas <mark>o gol foi sempre dá 10 em tudo, já dando 9 já ajuda, porque esse mês eu vou te contar...</mark><br>
+<span class="spk">C:</span> Não, já tô colocando tudo 10 aqui. Certo. Já tô vendo e já tô respondendo aqui, tá?<br>
+<span class="spk">A:</span> Ela deixou? Que bacana. Obrigado, Rafael. Desculpa o incômodo aí.<br>
+<span class="spk">C:</span> Nada, por nada. Tchau, tchau.
+          </div>
+        </details>
+      </div>
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">12660415</span></span><span>08/07/2026</span></div>
+          <blockquote>"Não precisa me dar 10 em tudo não, mas me dando 9 já me ajuda, viu? [...] Os clientes com problema lá na gestão de frota, dá nota zero, a nota cai pra mim."</blockquote>
+          <div class="ev-context">As duas frases são da mesma ligação de 195s, ditas em sequência quase imediata — ancoragem em "9" seguida, na próxima fala, da justificativa pessoal.</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">07616740</span></span><span>15/07/2026</span></div>
+          <blockquote>"É muito importante para mim que tem uma campanha rolando aqui e é importante que todos os meus clientes avaliem lá e se puder ser com 10 eu vou ficar muito feliz."</blockquote>
+          <div class="ev-context">Cliente responde animado: "com certeza é 11, cara."</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">26947106</span></span><span>20/07/2026</span></div>
+          <blockquote>"Por favor, 9, 10 me ajuda muito!"</blockquote>
+          <div class="ev-context">Ao final de uma ligação comercial longa (cotação, cadastro, retirada de veículo).</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">08671425</span></span><span>15/07/2026</span></div>
+          <blockquote>"E por favor avalie aí com 10 para me ajudar bastante."</blockquote>
+          <div class="ev-context">Pedido feito logo após a cliente relatar insatisfação com outro setor (gestão de frota) — o vendedor pede nota máxima para si mesmo mesmo sabendo que a experiência geral da cliente não foi boa.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subtype-block">
+      <h3 class="subtype-title">Redirecionamento / controle de quem responde <span class="count">16 casos</span></h3>
+      <p class="subtype-note">Em vez de manipular a nota, manipula quem tem a chance de dar uma nota — o padrão mais grave do lote, porque afeta a amostra da pesquisa, não só um resultado individual.</p>
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">17614468</span></span><span>28/07/2026 — caso mais forte</span></div>
+          <blockquote>"Como eu cheguei agora, eu estou com pouquíssimos respondentes e tentando pedir o pessoal só para responder quem já falou comigo, para não ter uma avaliação equivocada."</blockquote>
+          <div class="ev-context">O vendedor descreve, explicitamente, filtrar quem responde a pesquisa para incluir só clientes que já tiveram boa experiência com ele.</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">06646212</span></span><span>21/07/2026</span></div>
+          <blockquote>"Eu já o tirei aqui para as próximas avaliações e direto com o seu e-mail, porque o sistema que manda é automático, né?"</blockquote>
+          <div class="ev-context">Retira o dono da empresa (cadastrado para receber a pesquisa) da lista, redirecionando para o contato que prefere.</div>
+        </div>
+      </div>
+      <p class="subtype-note" style="margin-top:10px">+ 14 casos adicionais, incluindo variantes de "peço para outro contato responder no meu lugar" e "confirmar quem recebeu o e-mail antes de insistir".</p>
+    </div>
+
+    <div class="subtype-block">
+      <h3 class="subtype-title">Apelo pessoal ou financeiro <span class="count">8 casos</span></h3>
+      <p class="subtype-note">O vendedor expõe o próprio interesse (campanha, comissão, prêmio) como razão para o cliente responder bem.</p>
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">21721155</span></span><span>29/07/2026 — cliente nomeia o que está acontecendo</span></div>
+          <blockquote>"Eu preciso que você faça avaliação do meu atendimento. Eu estou numa campanha e eu preciso... Quanto mais cliente responda, melhor." — Cliente: "Comissão?" — Vendedor: "É tipo isso."</blockquote>
+          <div class="ev-context">O cliente identifica e o vendedor confirma, sem rodeio, que a nota está ligada a ganho financeiro pessoal.</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">06164492</span></span><span>15/07/2026</span></div>
+          <blockquote>"Eu preciso muito disso porque eu estou participando de uma campanha aqui na Localiza e eu precisava que vocês respondessem isso."</blockquote>
+        </div>
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">21852272</span></span><span>29/07/2026</span></div>
+          <blockquote>"É muito importante você avaliar lá para mim que está valendo um dinheirinho para mim!"</blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="subtype-block">
+      <h3 class="subtype-title">Instrução de preenchimento/prazo com nota embutida <span class="count">2 casos</span></h3>
+      <div class="case">
+        <div class="case-head">
+          <div>
+            <div class="case-tag">Junho · caso original</div>
+            <div class="case-meta"><span class="who">Vendedora Luma</span> · Cliente <span class="id">02536234</span> · 17/06/2026 · 469s</div>
+          </div>
+          <span class="case-full-badge full">Transcrição completa</span>
+        </div>
+        <div class="quote-block">
+          <blockquote>"...é muito importante que você responda a pesquisa até o final, senão não contabiliza aqui para nós. Tem que ser até o final. Aí as notas boas é 9 e 10, tá bom?"</blockquote>
+          <cite>trecho de encerramento, após um upsell de seguro ampliado bem conduzido</cite>
+        </div>
+        <details class="transcript">
+          <summary>Ver transcrição completa (segment_id a6265373-6334-463f-8640-10bd4faecd55)</summary>
+          <div class="transcript-body">
+<span class="spk">A:</span> Oi, Heleno! Bom dia! Aqui é a Luma da Localiza Rente AK, tudo bom? Ótimo. Helena, hoje eu estou fazendo manutenção de cadastro e como eu sou executiva responsável pela Zacara, eu gostaria de saber se está tudo certo com o contrato que vocês têm aberto, se eu posso ajudar de alguma forma, se já tem uma outra demanda prevista, como que são as coisas aí na empresa?<br>
+<span class="spk">C:</span> Está tudo tranquilo, só que tranquilo. Com relação à outra demanda, ainda apareceu... É que já não tem que colocar carro quando é para dar suporte à fiscalização de obra. Aí já fica para iniciar as obras, mas ainda não foram liberadas.<br>
+<span class="spk">A:</span> Entendi. Helena, deixa eu te fazer uma pergunta. Hoje eu vi que o contrato que vocês têm, ele não tem um seguro ampliado. Esse seguro ampliado é para proteção em caso de colisão com o terceiro... Vi que vocês não têm esse seguro, então gostaria de ofertar ali para você. Se você gostaria de fazer adesão desse seguro, ele aumenta apenas 200 reais aí na mensalidade.<br>
+<span class="spk">C:</span> Aí eu teria que falar com o doutor Fabrício, que é o dono, proprietário da empresa... Aí eu teria que ver com ele. Agora só teria essa tua resposta segunda-feira, porque doutor Fabrício está viajando.<br>
+<span class="spk">A:</span> Fechou. Vou fazer o seguinte: eu te retorno então na segunda para a gente ver se você tiver alguma dúvida sobre o seguro.<br>
+<span class="spk">A:</span> Outra coisa que eu gostaria de tratar com você: você recebeu na última terça-feira um link para avaliar o meu atendimento aqui na Localiza. Se você puder entrar lá no e-mail e puxar na última terça-feira, eu agradeço muito, porque hoje é o último dia para avaliar.<br>
+<span class="spk">A:</span> Aqui na Localiza, eles cobram muito da gente essa questão de nota, sabe? Então é muito importante para a gente quando o cliente avalia.<br>
+<span class="spk">C:</span> Sua satisfação aqui eu recebi! Sua satisfação é nossa prioridade! Avaliar nosso serviço! Dia 9!<br>
+<span class="spk">A:</span> Isso, dia 9. E aí é muito importante <mark>que você responda a pesquisa até o final, senão não contabiliza aqui para nós. Tem que ser até o final. Aí as notas boas é 9 e 10, tá bom?</mark><br>
+<span class="spk">C:</span> Certo, perfeito, perfeito! Vou responder agora! Vou responder agora, viu? Obrigado!<br>
+<span class="spk">A:</span> ...para deixar meu WhatsApp com você também, caso você precise de alguma coisa, eu vou te mandar um oi aqui no WhatsApp, viu?<br>
+<span class="spk">C:</span> Eu cliquei aqui e aí deu expirado! Tu consegue mandar de novo para mim?<br>
+<span class="spk">A:</span> Nossa, será que já expirou?... Tranquilo, eu acho que eu não consigo porque é um disparo automático, mas não tem problema. Se depois for para você de novo, aí você já sabe que é do meu atendimento, tá bom?<br>
+<span class="spk">C:</span> Eu responderei sim, viu? Pode ficar tranquila.<br>
+<span class="spk">A:</span> Beleza, amigo, perfeito. Eu agradeço muito, viu? Um ótimo dia para você e aí eu vou te transferir para uma outra pesquisa aqui no fim da ligação, tá bom? Ótimo dia. Tchau, tchau!
+          </div>
+        </details>
+      </div>
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">19780030</span></span><span>31/07/2026</span></div>
+          <blockquote>"Não, não, são as três primeiras que você precisa responder. O resto você não precisa responder [...] as três primeiras tem que ser dez."</blockquote>
+          <div class="ev-context">Instrui o cliente a ignorar a maior parte da pesquisa e concentrar nota máxima só nas 3 perguntas que contam para o vendedor — no campo de comentário livre, orienta apenas "bota o seu coração".</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subtype-block">
+      <h3 class="subtype-title">Proteção de nota de terceiro <span class="count">1 caso</span></h3>
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-meta"><span>Cliente <span class="id">05806556</span></span><span>21/07/2026 — caso mais explícito do lote</span></div>
+          <blockquote>"Se você puder, não dá para ela uma nota ruim, porque é ela que está ajudando a gente. Ela não tem nada a ver com esse problema [...] se você puder, pelo menos assim, para ajudar ela, para você não colocar para ela uma nota ruim, porque senão vai prejudicar a nota dela, entendeu?"</blockquote>
+          <div class="ev-context">A executiva de conta liga especificamente para pedir que o cliente não prejudique a nota da atendente da agência (Yara) na pesquisa — o pedido não é sobre a própria nota do vendedor.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pattern-callout">
+      <div class="section-label">O achado mais forte deste dossiê</div>
+      <p>Não é um caso isolado nem dois vendedores coincidentemente parecidos — é a fórmula "nota 8 = insatisfação/detrator, 9 ou 10 = satisfação" aparecendo, quase palavra por palavra, em pelo menos <strong>13 ligações diferentes</strong>, com vendedores e clientes diferentes, espalhadas ao longo de julho inteiro. Isso tem mais cara de treinamento ou script compartilhado informalmente do que de comportamento espontâneo individual — e é o argumento mais forte para o time de NPS revisar se algum material de treinamento comercial ensina essa framing de nota.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Escala — base de julho/2026, 203 casos confirmados</div>
+    <h2 class="section-title">O que acontece depois que o vendedor pede a nota</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Dimensão</th><th>Valor</th><th>% dos 203</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Detectado pelo padrão do próprio vendedor</td><td class="num">185</td><td class="num">91,1%</td></tr>
+          <tr><td>Relatado espontaneamente pelo cliente</td><td class="num">18</td><td class="num">8,9%</td></tr>
+          <tr><td>Nunca escalado</td><td class="num">201</td><td class="num">99,0%</td></tr>
+          <tr><td>Escalado para 0800</td><td class="num">2</td><td class="num">1,0%</td></tr>
+          <tr><td>Não resolvido na própria ligação</td><td class="num">182</td><td class="num">89,7%</td></tr>
+          <tr><td>Resolvido ou parcialmente resolvido</td><td class="num">21</td><td class="num">10,3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px">Não existe hoje nenhum mecanismo que capture esse padrão fora da análise de transcrição — nenhum dos 203 casos passou por um canal formal de governança.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Por que importa para cada time</div>
+    <h2 class="section-title">Dois pedidos separados</h2>
+    <div class="asks">
+      <div class="ask-card">
+        <h3>Time de NPS</h3>
+        <p>Se a nota alimenta algum indicador de qualidade ou composição de vendedor, ela está inflada por construção nesses 203 casos — e o padrão "nota 8 = detrator" repetido em 13 ligações sugere que não é individual.</p>
+        <span class="ask-label">Ask: cruzar a nota real desses clientes com a média geral, e checar se algum material de treinamento ensina a framing "8 não conta"</span>
+      </div>
+      <div class="ask-card">
+        <h3>Time de Produto</h3>
+        <p>O processo atual de coleta — vendedor sabe quando a pesquisa foi enviada, pede a nota na mesma ligação e, em 16 casos, chega a escolher quem responde — cria a oportunidade para cada um dos sete padrões.</p>
+        <span class="ask-label">Ask: avaliar pesquisa assíncrona/pós-ligação automatizada, sem o vendedor saber o momento exato do envio nem poder redirecionar o destinatário</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Fontes: <code>analises/AUDITORIA_manipulacao_nps.md</code> · <code>JULHO/consolidado/P3.csv</code> · <code>JULHO/dados_convertidos/julho_completo.json</code></span>
+    <span>Nomes de vendedor e código de cliente mantidos por decisão explícita — não anonimizado</span>
+  </footer>
+
+</div>
+</body>
+</html>
