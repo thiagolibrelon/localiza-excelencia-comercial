@@ -1,0 +1,20 @@
+```csv
+cliente_id,data,tipo_sinal,concorrente_mencionado,vendedor_explorou,status_competitivo,risco_churn_competitivo
+22770692,2026-06-03,,NAO,indefinido,nenhum
+14488094,2026-06-02,IC4;IC6,,SIM,exclusivo_localiza,baixo
+26508320,2026-06-03,IC1;IC7,Unidas,NAO,divide_com_concorrente,alto
+27163081,2026-06-02,IC1;IC5,Carro Zero (assinatura),SIM,divide_com_concorrente,medio
+00913571,2026-06-03,,,NAO,exclusivo_localiza,nenhum
+01700124,2026-06-03,,,NAO,indefinido,nenhum
+20817393,2026-06-02,,,NAO,indefinido,nenhum
+18557189,2026-06-01,,,NAO,indefinido,nenhum
+27234051,2026-06-01,IC4;IC6,,SIM,tem_frota_propria,baixo
+25706197,2026-06-05,IC4;IC6,,SIM,tem_frota_propria,baixo
+07399581,2026-06-02,,,NAO,indefinido,nenhum
+25343351,2026-06-03,,,NAO,exclusivo_localiza,nenhum
+26394152,2026-06-01,,,NAO,exclusivo_localiza,nenhum
+19610751,2026-06-02,,,NAO,exclusivo_localiza,nenhum
+20662047,2026-06-05,,,NAO,exclusivo_localiza,nenhum
+27255734,2026-06-02,,,NAO,indefinido,nenhum
+27255734,2026-06-03,,,NAO,exclusivo_localiza,nenhum
+08928706,2026-06-01,,,NAO,exclusivo_local

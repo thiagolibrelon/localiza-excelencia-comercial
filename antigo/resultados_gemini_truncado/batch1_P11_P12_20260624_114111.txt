@@ -1,0 +1,18 @@
+```csv
+cliente_id,data,tipo_sinal,concorrente_mencionado,vendedor_explorou,status_competitivo,risco_churn_competitivo
+26468784,2026-06-02,IC6,N/A,SIM,indefinido,nenhum
+19853293,2026-06-03,IC6,N/A,SIM,indefinido,nenhum
+13382750,2026-06-01,IC1;IC5;IC6;IC7,Concorrente não nomeado,SIM,divide_com_concorrente,alto
+25980241,2026-06-03,IC4;IC6,N/A,SIM,tem_frota_propria,baixo
+07877379,2026-06-02,N/A,N/A,NAO,indefinido,nenhum
+00044031,2026-06-01,N/A,N/A,NAO,indefinido,nenhum
+23214882,2026-06-01,IC6;IC7,N/A,SIM,indefinido,medio
+08208008,2026-06-02,IC2;IC6,N/A,SIM,exclusivo_localiza,nenhum
+15504380,2026-06-01,IC6,N/A,SIM,indefinido,nenhum
+21409258,2026-06-02,IC6,N/A,SIM,indefinido,nenhum
+21409258,2026-06-02,IC7,N/A,SIM,indefinido,medio
+27245444,2026-06-01,IC3;IC6,N/A,SIM,exclusivo_localiza,nenhum
+17086084,2026-06-02,IC6;IC7,N/A,SIM,indefinido,baixo
+26470053,2026-06-02,N/A,N/A,NAO,indefinido,nenhum
+10287830,2026-06-03,N/A,N/A,NAO,indefinido,nenhum
+00128792,2026-06-01

@@ -1,0 +1,31 @@
+Como Analista Sênior de Performance Comercial da Localiza, analisei os outputs dos prompts para identificar os fatores que impulsionam o fechamento de contratos. Abaixo, apresento as descobertas e recomendações.
+
+---
+
+### 1. RANKING DE COMPORTAMENTOS POR CORRELAÇÃO COM FECHAMENTO
+
+A análise dos comportamentos B1-B10 em relação aos desfechos comerciais ('FECHOU' vs. 'NAO_FECHOU') revela os seguintes insights:
+
+| comportamento | frequencia_nos_fechamentos | frequencia_nos_nao_fechamentos | forca_da_correlacao |
+| :------------ | :------------------------- | :----------------------------- | :------------------ |
+| B1            | 10 (71.4%)                 | 30 (16.9%)                     | alta positiva       |
+| B3            | 7 (50.0%)                  | 27 (15.2%)                     | alta positiva       |
+| B5            | 6 (42.9%)                  | 19 (10.7%)                     | alta positiva       |
+| B7            | 6 (42.9%)                  | 23 (12.9%)                     | alta positiva       |
+| B10           | 6 (42.9%)                  | 19 (10.7%)                     | alta positiva       |
+| B8            | 5 (35.7%)                  | 24 (13.5%)                     | media positiva      |
+| B9            | 5 (35.7%)                  | 36 (20.2%)                     | media positiva      |
+| B2            | 1 (7.1%)                   | 10 (5.6%)                      | baixa/neutra        |
+| B4            | 0 (0.0%)                   | 15 (8.4%)                      | media negativa      |
+| B6            | 0 (0.0%)                   | 11 (6.2%)                      | media negativa      |
+
+**Observações:**
+*   Os comportamentos **B1, B3, B5, B7 e B10** mostram uma **alta correlação positiva** com o fechamento de contratos, sendo significativamente mais frequentes em ligações que resultaram em vendas.
+*   **B8 e B9** apresentam uma **correlação positiva média**.
+*   **B4 e B6** têm uma **correlação negativa média**, indicando que a presença desses comportamentos é menos comum em fechamentos.
+
+---
+
+### 2. TOP 10 HIPÓTESES RANQUEADAS POR FORÇA DE EVIDÊNCIA
+
+| HIPOTESE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

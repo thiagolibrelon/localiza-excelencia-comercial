@@ -1,0 +1,9 @@
+```csv
+cliente_id,data,produtos_mencionados,produtos_ofertados,janelas_perdidas,receita_incremental_potencial_R$
+26155999,2026-06-02,PR4=Protecao(R$80)|PR1=Mensal leve|PR2=Pesado|PR5=Upgrade categoria|PR12=Gestao de frotas,PR5=Upgrade categoria|PR1=Mensal leve,Aprofundar oferta de PR12 (Gestao de frotas) e PR10 (Meoo) para picapes e carros definitivos.,70500
+16669586,2026-06-02,PR12=Gestao de frotas|PR1=Mensal leve|PR2=Pesado,PR12=Gestao de frotas|PR2=Pesado,Explorar mais profundamente a necessidade de terceirização da frota de carros e caminhões próprios.,9200
+25966050,2026-06-02,PR1=Mensal leve,,Oferecer PR7 (Contrato anual) ou PR10 (Meoo) para compromisso de longo prazo.,200
+27260847,2026-06-03,PR1=Mensal leve|PR11=Seminovos,PR1=Mensal leve|PR11=Seminovos,Aprofundar oferta de PR10 (Meoo) ou PR12 (Gestao de frotas) para carros fixos e zero-km.,5000
+04919242,2026-06-03,PR1=Mensal leve|PR4=Protecao(R$80)|PR12=Gestao de frotas,PR12=Gestao de frotas|PR1=Mensal leve,Explorar a substituição dos dois carros próprios da empresa por terceirização (PR12).,4200
+13924850,2026-06-05,PR1=Mensal leve|PR10=Meoo|PR7=Contrato anual(R$200)|PR2=Pesado,PR10=Meoo|PR7=Contrato anual(R$200)|PR2=Pesado,Explorar a terceirização dos caminhões próprios (PR2) ou carros (PR10/PR7).,7500
+22205081,2026-06-02,PR1=Mensal leve|PR7=Contrato anual(R$200)|PR4=Protecao(R$80)|PR6=Km adicional,PR1=Mensal leve,Oferecer PR10

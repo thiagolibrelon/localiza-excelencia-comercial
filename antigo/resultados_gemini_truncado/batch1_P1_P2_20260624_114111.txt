@@ -1,0 +1,10 @@
+cliente_id,data,duracao_s,desfecho,intencao_entrada,tentativa_comercial,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,score_comercial
+26468784,2026-06-02,66,nao_era_venda,vendedor_puxou,SIM,NAO,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,NAO,3
+19853293,2026-06-03,116,nao_era_venda,vendedor_puxou,SIM,NAO,NAO,NAO,NAO,NAO,NAO,NAO,SIM,NAO,NAO,1
+13382750,2026-06-01,342,interessou_nao_fechou,vendedor_puxou,SIM,NAO,NAO,SIM,SIM,NAO,NAO,SIM,SIM,NAO,SIM,9
+25980241,2026-06-03,128,interessou_nao_fechou,vendedor_puxou,SIM,SIM,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,SIM,8
+07877379,2026-06-02,339,nao_era_venda,cliente_queria,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,0
+00044031,2026-06-01,249,nao_era_venda,cliente_queria,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,0
+23214882,2026-06-01,183,interessou_nao_fechou,vendedor_puxou,SIM,NAO,NAO,SIM,NAO,SIM,NAO,SIM,SIM,NAO,NAO,6
+08208008,2026-06-02,128,nao_era_venda,vendedor_puxou,NAO,NAO,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,NAO,3
+15504380,2026-06

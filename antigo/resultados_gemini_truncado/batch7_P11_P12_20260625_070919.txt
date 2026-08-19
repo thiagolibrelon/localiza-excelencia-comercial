@@ -1,0 +1,20 @@
+```csv
+cliente_id,data,tipo_sinal,concorrente_mencionado,vendedor_explorou,status_competitivo,risco_churn_competitivo
+22086526,2026-06-02,IC5;IC7,,NAO,exclusivo_localiza,medio
+01130882,2026-06-01,,,,,nenhum
+27244325,2026-06-01,IC4;IC6,,SIM,tem_frota_propria,baixo
+23039370,2026-06-02,IC4;IC6,,SIM,exclusivo_localiza,nenhum
+18054339,2026-06-05,,,,,baixo
+01401903,2026-06-03,IC7,,NAO,exclusivo_localiza,baixo
+09500137,2026-06-03,IC7,,NAO,exclusivo_localiza,baixo
+08710470,2026-06-01,IC1;IC6;IC7,Outras locadoras,SIM,divide_com_concorrente,alto
+21511693,2026-06-03,IC1;IC5;IC7,Movida,NAO,divide_com_concorrente,medio
+08024489,2026-06-01,,,,,nenhum
+15598804,2026-06-03,IC7,,NAO,exclusivo_localiza,baixo
+26984025,2026-06-05,IC7,,NAO,exclusivo_localiza,baixo
+06592247,2026-06-03,IC5;IC6;IC7,Outras locadoras,SIM,divide_com_concorrente,medio
+27083153,2026-06-03,,,,,nenhum
+23912552,2026-06-05,IC5,,NAO,divide_com_concorrente,baixo
+26598153,2026-06-05,IC7,,NAO,exclusivo_localiza,baixo
+27125156,2026-06-01,IC7,,NAO,exclusivo_localiza,medio
+10754627,2026-06-02,,

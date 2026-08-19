@@ -1,0 +1,21 @@
+### CSV-P3 (Problemas Recorrentes)
+cliente_id,data,problemas_identificados,quem_relatou,foi_resolvido_na_ligacao,escalou_para
+14618910,2026-06-05,P1,Cliente,sim,nenhum
+14618910,2026-06-05,P11,Cliente,não,Central de Reservas PF
+26638850,2026-06-03,P2,Vendedor,não,Ronaldo (sócio do cliente)
+07276556,2026-06-01,P1,Cliente,não,Financeiro (para análise de crédito)
+27179271,2026-06-02,nenhum,nenhum,sim,nenhum
+11076379,2026-06-03,nenhum,nenhum,sim,nenhum
+07939548,2026-06-03,P2+P1,Cliente,não,Financeiro (para link de pagamento com valor original)
+19092673,2026-06-03,nenhum,nenhum,sim,nenhum
+27259866,2026-06-03,nenhum,nenhum,não,nenhum
+27259866,2026-06-03,P11,Cliente,não,nenhum
+13988047,2026-06-01,nenhum,nenhum,sim,nenhum
+20922321,2026-06-03,P1,Cliente,sim,nenhum
+27252344,2026-06-02,P11,Cliente,sim,nenhum
+21291852,2026-06-05,nenhum,nenhum,sim,nenhum
+10603408,2026-06-03,nenhum,nenhum,sim,Ivo (via alternativa)
+27225851,2026-06-02,P1,Cliente,não,Suporte TI
+27225851,2026-06-02,P1+P2+P10,Cliente,não,Suporte TI
+13228693,2026-06-02,P5,Cliente,sim,nenhum
+10094624,2026-

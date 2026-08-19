@@ -1,0 +1,3488 @@
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05901588 | Data:2026-06-19 | Dur:75s | Sent:POSITIVE ===
+C: Você ligou para Arved Metal Fair do Brasil. Para português, digite um for English presto. Digite o ramal desejado ou aguarde o menu de opções. Para comercial, digite 1: Compass 2: financeiro 3: qualidade 4: RH 5: ou aguarde para ser atendido. A Arved Metal Fair do Brasil agradece sua ligação: aguarde um instante e você já será atendido. Para sua segurança, essa ligação está sendo gravada." Arved bota bom dia
+A: Alô? Oi, bom dia. Aqui é a Keila. Não sei se foi com você que eu falei que
+C: sobre
+A: eu pedi para
+C: o
+A: transferir
+C: que?
+A: sobre locação de veículos.
+C: Não,
+A: Eu pedi para falar com a Aline ou a avaria.
+C: só um minuto.
+A: Com quem eu estou falando?
+C: É Patrícia.
+A: Tá bom, Patrícia?
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05908944 | Data:2026-06-18 | Dur:98s | Sent:POSITIVE ===
+A: Oi, boa tarde. Eu falo com Beatriz.
+C: Isso?
+A: Ótimo. Beatriz aqui é Rosiane da Localiza sobre o cadastro aqui da empresa de vocês, Instrutempi. Tudo bem com você?
+C: Sim, sim, com você.
+A: Tudo ótimo também. Beatriz, eu estou entrando em contato porque já faz um tempinho que a gente não se fala e já faz um tempinho também desde essa última locação. E aí eu gostaria de saber se houve alguma mudança aí na sua rotina que não tem feito locações com a gente? Como que
+C: É que
+A: está
+C: na verdade
+A: o cenário
+C: a gente adquiriu
+A: aqui?
+C: carros para os nossos vendedores externos, então na verdade por isso que não tem demanda mesmo. Então é que antes a gente não tinha, a gente usava porque ainda não tinha, mas como agora tem, então agora a gente está utilizando os carros top mesmo por conta disso.
+A: Entendi. E viagens assim fora da região de São Paulo, vocês também não têm feito?
+C: Sim, mas só que cada um já utiliza o seu, é porque não é muito longe as nossas viagens para clientes, então a gente acaba utilizando o nosso próprio transporte mesmo.
+A: Ah, tá. Então a operação de vocês é só dentro de São Paulo, em outras
+C: Isso,
+A: localidades não tem operação. Entendi.
+C: exatamente.
+A: Tá bom, então. Não, perfeito.
+C: Tá bom?
+A: Se isso de alguma demanda adicional, contei com a localiza, estou à disposição, tá bom?
+C: Tá bom, obrigada, viu?
+A: Obrigada a você, Beatriz. Tchau,
+C: Tchau,
+A: tchau.
+C: tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05921298 | Data:2026-06-17 | Dur:272s | Sent:POSITIVE ===
+C: Olá, obrigado por ligar para a APS Soluções. Digite o ramal desejado, ou um para vendas, dois engenharia, três service, quatro Compass, cinco financeiro, ou aguarde para ser atendido. A peste boa tarde?
+A: Alô, boa tarde! Quem está falando é Tainara da Localiza com quem eu falo?
+C: Com a Nil?
+A: Tudo bem, Nil?
+C: Tudo e você?
+A: Vou bem, obrigado por perguntar. Meu, eu sou executiva de vendas que trata aqui da conta da APS Components, voltado
+C: Hum...
+A: para a locação que eles realizam com agência de viagens. Eu estou precisando conversar referente ao cadastro e
+C: Hum...
+A: sobre as últimas locações. Eu tinha aqui o contato da Verônica ou do Leandro? Um dos dois se
+C: Não.
+A: encontram?
+C: Deixa eu ver pra quem...
+A: Geralmente
+C: É Compass, né?
+A: sim, ou o condutor financeiro que tem acesso às faturas, né?
+C: Ah, tá. Então eu vou te passar para Silvana, tá bom? Porque a Verônica nem o Leandro não faz mais parte da PS.
+A: Tranquilo,
+C: Tá bom?
+A: obrigada.
+C: Nada. Tchau, tchau. A PS Gisele, boa tarde
+A: Oi Gisele, boa tarde. É Tainara da Localiza, tudo
+C: tudo
+A: bem?
+C: e você?
+A: Vou bem, obrigado por perguntar. Gisele, eu sou executiva de venda se trata da conta.
+C: Verônica
+A: Eu acho que iriam me transferir para a Verônica. Ela se encontra?
+C: não tem nenhuma Verônica aqui no condutor nem a empresa.
+A: Deixa eu verificar com você então. Eu trato hoje do cadastro da APS com a Localiza e vocês fazem alocação via agência de viagens e eu preciso conversar sobre essa atualização. Você sabe se tem alguém que trata, por exemplo, dessas solicitações via agência ou dos boletos emitidos?
+C: Tá. Só um momentinho,
+A: Claro,
+C: tá? Que eu vou ver se a Mária consegue falar com você. Qual o seu nome mesmo? Desculpa.
+A: é Tainara da Localiza.
+C: Tá bom, tá em nada. Só um momentinho, tá?
+A: Uh-huh.
+C: Tainara, deixa eu te falar. Você pode mandar no e-mail? A pessoa não consegue falar com você agora.
+A: Oi! Qual
+C: Aí eu vou te passar o e-mail
+A: que
+C: dela.
+A: seria, por favor?
+C: É servico sem o acento, tá? Servico
+A: Sim.
+C: arroba APS Solu Coins
+A: Ok.
+C: ponto com
+A: Tá ok.
+C: tá
+A: Eu mando então um e-mail,
+C: bom isso
+A: mas de qualquer forma
+C: pode
+A: eu
+C: passar
+A: tento retornar posteriormente
+C: tá
+A: também. Obrigada,
+C: tá
+A: viu?
+C: ótimo imagina tchau tchau
+A: Bom dia, tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05924005 | Data:2026-06-18 | Dur:547s | Sent:POSITIVE ===
+C: Vai lá, ver se tem alguma coisa.
+A: Bom dia,
+C: Alô?
+A: meu nome é Bruna Rabelo, falei o nome da localiza. Fala com Thaís.
+C: Isso tudo.
+A: Oi Thaís, tudo bem? Perfeito, tá isso. Como dito, meu nome é Bruna Rabelo, sou executiva interna aqui na Localiza e eu que sou a gestora responsável por fazer, né, por efetuar de fato o gerenciamento do seu CDPJ e o motivo do meu contato é mais para poder me apresentar e entender um pouquinho da demanda da sua empresa para que a gente consiga alinhar, se você já possui algo para imediato, me conta um pouco.
+C: Tudo? Então, eu... Por enquanto, eu só atualizei o cadastro
+A: Sim.
+C: e fiz uma prévia de um orçamento. Estou aguardando a liberação do cadastro, acho que a efetivação, para estar como concluindo. Eu interesse é usar um carro pequeno para fazer o conceito comercial fazer venda em São Paulo?
+A: Tá, então vamos lá. O seu cadastro já está tudo ok e sou eu quem vou fazer esse gerenciamento a partir de agora, tá? E aí eu estou entrando em contato justamente para isso, para que a gente consiga alinhar, para eu poder te ajudar, para que você já faça retiradas.
+C: Ah, certo.
+A: E aí esse veículo específico que você citou seria pra quando? Você já tem uma previsibilidade?
+C: Certo. Então, como a nossa atendente tinha me falado que demoraria provavelmente ainda uns dois ou três dias, eu tinha feito uma prévia que provavelmente eu ia fazer a retirada do dia 24.
+A: No dia 24. Tá, e vai ser mensal, diária? Como que seria?
+C: Mensal, meu interesse é
+A: Aham.
+C: mensal. A princípio eu vou fazer no plano de mil quilômetros,
+A: Aham.
+C: porque vai ser, vou fazer uma, quero acompanhar, fazer uma gestão, entender a necessidade,
+A: Aham.
+C: por enquanto é piloto,
+A: Entendi.
+C: tá?
+A: Então você não iria fechar um contrato a longo prazo, por exemplo, com três meses?
+C: Não, porque eu preciso... Tem diferença de valor?
+A: Tem, e por que eu estou te fazendo essa pergunta? Justamente por isso. Quanto mais tempo você consegue ficar com este veículo, melhor é a sua precificação. A localiza tem planos de 3, 6, 9 e 12 meses. Então, por exemplo, acredito que se você tem uma demanda mais específica e que você tem essa possibilidade de ficar mais tempo com o carro, talvez seria interessante você conseguir realocar sua demanda para 3 meses, porque você... Segue um preço super interessante.
+C: Então vamos fazer o seguinte. Você consegue me fazer um orçamento e mandar esse número que ele é WhatsApp?
+A: Com toda certeza. Eu só preciso de
+C: Se
+A: algumas
+C: você
+A: informações.
+C: faz o orçamento para mim com um mês, com três meses. Carro da categoria que eu quero é um carro sem ser automático. Mas não precisa ser SUV. Pode ser a primeira categoria do automático.
+A: Eu vou fazer o seguinte, para ficar mais alinhado, eu vou te mandar um oi no WhatsApp agora e vou te enviar o nosso link com todos os grupos de modelos que a localiza trabalha e
+C: Certo?
+A: aí eu vou te pedir para que você valide um para mim, tá? Bruno, se você quiser também que eu faça por mais de dois carros, três, enfim, você quem sabe e aí eu faço essa proposta para você.
+C: É, porque o que a outra moça que me atendiu me explicou é que você... Onde eu vou fazer a retirada não garante o modelo com escolha, garante só a categoria.
+A: Exatamente. Aí o que a gente faz? Quando eu falo o modelo, é a categoria de modo geral, mas suponhamos que hoje você vai fazer uma retirada da categoria do grupo do GX e você tem uma preferência específica, eu posso conseguir com o internet da agência, não consigo te garantir, mas eu posso tentar aquela especificação de carro para você.
+C: Certo. Não, vamos fazer assim, porque eu sou saindo de viagem e
+A: Aham.
+C: eu vou ficar até um pouco às vezes urgente, quando eu conseguir pegar a internet. Só amanhã eu estarei em São Paulo para
+A: É, tá. Mas
+C: estar
+A: vamos fazer
+C: vendo
+A: o seguinte?
+C: essa efetivação. E aí lá em São Paulo a gente vai conseguir concluir, mas aí você já vai me mandando que eu vou
+A: É
+C: analisando
+A: isso
+C: por certinho
+A: que eu ia falar se você conseguir dar uma atenção agora para qual é a categoria que aí você me manda categoria você falou que vai retirar em São Paulo né
+C: Bom, a menina já terminou o local da proximidade à Alameda Santos.
+A: tá vou até colocar aqui retirado em São Paulo para poder ficar especificado também e aí assim que você me passar o grupo eu já faço aqui essas propostas
+C: A categoria...
+A: para você
+C: Às vezes eu já conto te
+A: ah
+C: falar com o telefone. A
+A: olha
+C: categoria
+A: aí
+C: é
+A: então
+C: sendo... Ah, eu tenho que olhar,
+A: isso
+C: né? Espera aí, deixa eu ver aqui. Deixa eu pegar
+A: eu
+C: aqui.
+A: fico aqui em linha não tem problema não
+C: Você me chamou assim, né?
+A: Isso
+C: Bruna,
+A: também isso
+C: né? Esse aqui, grupo B, ele é automático?
+A: não grupo o automático
+C: Não.
+A: é a partir do Fx
+C: Peraí, deixa eu ver... Grupo... Então eu tenho que seguir com esse grupo B aqui e achar o grupo? Não, né? Esse aqui é Onix Joy, ele é automático?
+A: não
+C: Grupo C...
+A: o grupo a partir o grupo automático é a partir do grupo do FH na verdade FH é Fx
+C: Ah,
+A: então tudo
+C: é CH!
+A: não FH tudo que tiver
+C: É
+A: antes
+C: CH?
+A: a ele é manual
+C: Grupo S, grupo S e só um minutinho então SH e FX Grupo G Nossa mas que engraçado porque o que está no grupo GH e até agora não apareceu SH Ele
+A: Deixa eu
+C: está
+A: entrar
+C: lá
+A: junto.
+C: no final?
+A: Tem a categoria do grupo CS, é aqui. Do CS, é a segunda fileira, grupo F, é a terceira fileira.
+C: Ah não é de baixo eu estou olhando no celular não é de baixo para cima não? Cima para baixo?
+A: É igual, grupo B, grupo C, grupo CE,
+C: Ah
+A: grupo CH, grupo do CS, grupo F. Aí vem FS-FH.
+C: então ele está no SH
+A: FH para baixo é só automático.
+C: FX é automático
+A: FX é automático.
+C: Certo! Aí o primeiro do grupo FX ele é o... Eu não
+A: FX
+C: quero
+A: é
+C: carro grande.
+A: sedã.
+C: Eu não quero, não tenho interesse nesses carros grandes.
+A: Então talvez seja interessante você fazer com o FH.
+C: Mas ele é automático?
+A: Ele é automático.
+C: Qual que é o FH?
+A: O FH... Não,
+C: Espera aí, deixa eu ver aqui. O FF também deve ser automático, porque o ônibus...
+A: o FS é manual.
+C: Então tá, vamos para o FH.
+A: O
+C: HB20
+A: FH mesmo?
+C: é...
+A: Ah tá!
+C: única HB20 de novo o que é esse carro aqui da boca você consegue visualizar ele porque você falou
+A: Qual?
+C: que você tenta o carro o
+A: Qual?
+C: último carro que a gente passa é um da boca eu
+A: Em
+C: estou
+A: qual que você está? Qual categoria?
+C: no FH
+A: FH, HB20, Onix ou Honda City ou similares? São
+C: É,
+A: esses?
+C: são esses. Aí
+A: São
+C: eu não
+A: esses?
+C: adianto escolher modelo, você só vai trabalhar...
+A: Aí o que a gente faz? Aí suponhamos que você fez a reserva, a reserva estando feita em sistema, aí eu consigo ter um intermédio junto com a agência para validar qual que é a categoria disponível, qual que é a categoria não, qual que é o modelo especificado, qual que está disponível para que a gente consiga ter a possibilidade de retirar um especificadamente. Mas só reforçando, eu não consigo te prometer nem garantir, mas eu vou tentar aqui.
+C: Tudo bem. Então nós vamos trabalhar com esse grupo SH, então.
+A: Tá, em São Paulo FH perfeito, vou montar essa proposta aqui para você e eu já te encaminho pelo WhatsApp, pode ser?
+C: Combinado. Fico só aguardando.
+A: Então tá joia, até logo
+C: Obrigada,
+A: viu?
+C: Bruna. Um
+A: Nada
+C: abraço.
+A: outro,
+C: Tchau.
+A: tchau tchau
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05927572 | Data:2026-06-25 | Dur:101s | Sent:POSITIVE ===
+A: Alô, Gisele?
+C: Alô?
+A: Oi, Gisele. Bom dia. Fábio aqui da Localiza, tá joia?
+C: Oi! Tudo já?
+A: Joia. Gisele, são meus contatos breves mesmo e rotineiros?
+C: Certo.
+A: Tô fazendo contato com você para saber se tá tudo bem aí com você, com a Chip Valley, se tá
+C: Tá,
+A: tendo alguma
+C: sim,
+A: demanda
+C: tá tudo...
+A: que eu consiga te ajudar.
+C: É, na verdade é que caçapava não tem... É fiorino disponível, né? Daí complica a minha vida.
+A: É... São José dos Campos tem ficado perto para você conveniente porque eu tô percebendo que lá está com um quantitativo melhor, viu?
+C: Ah, é?
+A: É,
+C: É, então.
+A: São José do Campo
+C: Às vezes
+A: lá
+C: eu consigo pegar lá em São José. É que daí só fica difícil pra gente, né? Porque depende de alguém pra
+A: para
+C: ir lá buscar ou me levar.
+A: ir lá buscar, né?
+C: É.
+A: Entendi.
+C: É,
+A: Quando o aluguel é mensal, vocês contudo ficam com o carro mais tempo, né?
+C: então, mas na verdade eu não pego mensal, né?
+A: Mensal. Vocês têm três carros que você chegou a me contar, né?
+C: Isso.
+A: Tem suprido bem.
+C: Aham.
+A: Olha, na próxima oportunidade de aluguel, se precisar de Fiorino prioriza,
+C: Aham.
+A: né? Dependendo aí da urgência, São José dos Campos e na agência do centro. Lá tem duas. Centro e Andrômeda, mas a do centro está mais tranquila para quantitativo de Fiorino. Mas assim,
+C: Uhum,
+A: como antecedência, tá? Porque se for no mesmo dia, qualquer agência até Guarulhos pode não ter. Porque Fiorino
+C: entendi.
+A: sai muito...
+C: Tá bom.
+A: Tá
+C: Uhum,
+A: bom? Então tá
+C: tá
+A: tranquilo
+C: bom.
+A: de demanda aí, né?
+C: Por enquanto sim. Obrigada, viu?
+A: Nada. Conta aqui comigo. Um bom dia aí pra ti.
+C: Bom dia!
+A: Obrigado, Gisele. Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05931398 | Data:2026-06-26 | Dur:107s | Sent:POSITIVE ===
+C: Alô?
+A: Alô, Silvio?
+C: Oi?
+A: Oi, Silvia Cristiane aqui da Localiza Aluguel de Carros. Tudo bem? Tudo jóia. Silvia, sobre o cadastro da empresa Coral Construtora aqui conosco, a gente sempre faz uma atualização aí com vocês e vimos que já tem um bom tempo que vocês não alugam aqui na Localiza.
+C: Não,
+A: Eu queria entender com você se foi questão de demanda ou se foi algum motivo específico que vocês deixaram de alugar conosco?
+C: na verdade, a gente está com frota própria e
+A: Sim.
+C: realmente algumas demandas eram mais para obras mais distantes e a gente estava
+A: É...
+C: sem casa e aí
+A: Sim.
+C: consequentemente como reduziu a gente parou mais nessa parte de locação mas foi só por isso mesmo
+A: Ah, entendi! Então foi questão de demanda mesmo, né Silvio?
+C: Exatamente.
+A: E aí você tem interesse em manter o cadastro ativo caso surja alguma demanda futura?
+C: Pode manter o cadastro ativo, não tem problema.
+A: Tá, combinado. Aí, Silvio, eu vou te mandar um oi aí no WhatsApp, só para você salvar meu contato, e depois a gente vai precisar só atualizar umas informações da empresa, porque como já tem um tempinho aqui na aluga, para deixar tudo certo quando precisar, já está liberado seu acesso aqui ao portal, né? Para ficar mais fácil o processo, tá bom?
+C: Ah, tudo bem.
+A: Ah, jóia então! Muito obrigada, viu Silvio, pela atenção!
+C: Tchau.
+A: Bom final de semana aí para você! Um abraço! Obrigada! Tchau, tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05951801 | Data:2026-06-09 | Dur:191s | Sent:POSITIVE ===
+C: Nordeste Fomento, boa tarde.
+A: O que é que a Stephanie da Localiza? Eu consigo falar com o Edson ou com a... Não sei lá. Não, desculpa, Simone.
+C: Alô, a ligação está cortando.
+A: Ah, desculpa.
+C: É da onde?
+A: Deixa eu... Da Localiza, eu queria falar com o Edson ou com a Simone. Eles se encontram?
+C: Tá, só um minutinho.
+A: Tá joia.
+C: Eu vou passar aqui para o Edson, só um minutinho.
+A: Perfeito, obrigada.
+C: Tá, tchau. Nordeste Fomento, boa tarde?
+A: Ei Edson, boa tarde! Aqui é a Stephanie da Localiza, tudo bem?
+C: Tudo bem Stephanie? Pois não?
+A: Eu entro em contato a primeira vez para me apresentar. Eu sou a gestora que acompanha o seu cadastro da Fomento com a Localiza e
+C: Sim...
+A: aí fazendo um contato de apresentação e manutenção, que eu vi que vocês denuncia retiraram o veículo com a gente ou já, deixa eu ver. Ah não,
+C: Não...
+A: já! Foi em ano passado, né?
+C: Foi você está mandando uma mensagem para mim.
+A: Mandei... Oh,
+C: Mandei
+A: gente! É porque é tão cliente que eu confundo.
+C: dia 29 do 9 de 2025.
+A: Isso mesmo, isso mesmo. Foi a última data de retorno do veículo, verdade. E aí você sumiu? Eu falei, deixa eu ligar para ele para ver como é que está a demanda.
+C: Porque na verdade é muito esporádico, sabe? Só quando a gente tem realmente a necessidade. A gente tem uma flota própria, temos
+A: Dois
+C: dois carros na verdade na empresa
+A: calos
+C: e
+A: lá.
+C: acontece às vezes de estar todos os sócios aqui e eu precisar pegar
+A: Então
+C: outro carro
+A: só quando precisa mesmo, né? Porque a frota não suporta, né?
+C: Isso, mas não é sempre.
+A: Não tem essa previsibilidade também, é de última hora que acontece, né?
+C: Isso, isso mesmo.
+A: Entendi, entendi.
+C: Até mesmo fiquei
+A: Por isso que
+C: de...
+A: é mais diário.
+C: Eu
+A: Você
+C: até...
+A: não tira mensal, né?
+C: Eu fiquei de mandar também a documentação para abrir o cadastro da outra empresa que a gente tem, que poderia ser quem quisesse colocar o carro pela outra empresa. Acabou que eu nem mandei a documentação
+A: Mas
+C: para vocês.
+A: assim, eu preciso apenas do CNPJ. Se você quiser até já me informar,
+C: Não, eu mando
+A: você
+C: aqui no WhatsApp,
+A: me
+C: eu estou com
+A: manda?
+C: o seu WhatsApp aqui ainda. Stephanie
+A: Tá.
+C: Martins, não é isso?
+A: Isso.
+C: Eu
+A: Me manda
+C: mando
+A: aí
+C: para
+A: então,
+C: você só para
+A: porque
+C: deixar o cadastro
+A: esse
+C: aberto?
+A: CNPJ tem mais de um ano de atividade já? Tem mais de um ano?
+C: Tem, tem, tem dois anos.
+A: Ah, então beleza. Então dá para tentar o cadastro. Aí me manda que aprovando, né, você vai ficar como responsável também nesse cadastro, né?
+C: Sim.
+A: Tá, perfeito. Porque aí a gente já deixa ativo e vê quanto que vai aprovar de limite. Aprovando ou não, eu te dou o retorno, tá?
+C: Tá bom então, combinado.
+A: Então tá bom, é isso combinado. Obrigada pela sua atenção. Boa semana, viu?
+C: Nada,
+A: Precisamos
+C: até mais.
+A: à disposição. Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05969089 | Data:2026-06-11 | Dur:979s | Sent:POSITIVE ===
+C: Bom dia, boa tarde!
+A: Boa tarde, Edilena!
+C: Sim, foi eu?
+A: Ana Luísa da Localiza, eu verifiquei que agora você
+C: Oi!
+A: me ligou?
+C: Sim, pois é! Liguei só que só estava dando... Só chamando, chamando estava naquela luz que a gente espera, né?
+A: Uhum!
+C: Aí eu acabei desistindo!
+A: Eu estava em pausa, pausa reunião em que eu posso te ajudar.
+C: Então, eu não sei se você sabe mas eu tenho um carro colocado com vocês que já temos um tempinho, né?
+A: Uhum! Certo!
+C: E aí eu queria verificar que a gente não consegue estar fazendo um reajuste nesses valores aí, que seriam esses mesmos, entendeu? Porque tipo assim, a gente já tem o tempo com vocês.
+A: Entendi. Infelizmente, não é possível com o contrato ativo fazer um reajuste nele de baixar o valor. Até porque os contratos
+C: Ah,
+A: mais antigos assim estão com preços melhores, porque a gente teve o reajuste tem duas semanas. Então, atualmente, os valores atuais são mais altos do que os contratos ativos.
+C: entendi.
+A: Então, se eu colocar para vocês um valor atual,
+C: Olha
+A: vai ficar
+C: quem...
+A: mais alto do que vocês têm.
+C: Mas deixa eu te perguntar uma coisa. Mas deixa eu te perguntar uma coisa. Aqui no meu contrato, o carro que ele está é um Arno Drive ou é um HB20? Porque tem dois contratos aqui. Eu queria entender qual é o... Porque ele não está com nenhum desses dois carros no hobby.
+A: É um MOB, é o que está aqui é um MOB placa
+C: Pois é, mas aqui no contrato que eu estou vendo aqui,
+A: TYX4C777
+C: que eu estou com consulta demonstrativa, ele me mostra um
+A: Deixa
+C: Argo Drive e mais
+A: eu
+C: abaixo
+A: ver se teve
+C: um
+A: substituição
+C: novo contrato escrito HD20.
+A: Deixa eu abrir aqui para a gente ver se a gente está no mesmo contrato Seu contrato atual?
+C: Pois
+A: Aí
+C: é,
+A: aqui
+C: eu estou
+A: tem
+C: aqui
+A: a
+C: no
+A: placa.
+C: faturamento eletrônico.
+A: Até porque o Argo e o HB20 é de outro grupo, é do grupo CE. Deixa eu te mandar o contrato certo aqui.
+C: Mas aqui não faz não da localidade? Eu não consigo acessar meu
+A: No portal
+C: contrato?
+A: WebCorp consegue, no portal de
+C: Pois
+A: faturamento
+C: é, eu estou aqui
+A: é
+C: no
+A: só fatura.
+C: portal.
+A: WebCorp ou faturamento?
+C: Eu estou no faturamento eletrônico.
+A: Não, fatura eletrônica é só fatura. Tem
+C: Não,
+A: que
+C: pois
+A: ser no
+C: é.
+A: localiza empresas. Você tem acesso
+C: Aí
+A: ao localiza
+C: eu
+A: empresas,
+C: cliquei
+A: que é o WebCorp?
+C: aqui... Qual é?
+A: WebCorp é o localiza empresas. Deixa eu te dar um e aqui no WhatsApp.
+C: Ah,
+A: Vou te mandar o link,
+C: tá bom.
+A: peraí, rapidinho. Que a gente faz juntas. Deixa eu pegar aqui para você.
+C: Aí o login, né? Ou acaba de trato? Eu não tenho aqui...
+A: O mesmo acesso do portal de faturamento é o do WebCorp, que é a mesma senha e o mesmo usuário. Aí você vai entrar, colocar o seu usuário, que é o mesmo do portal e a mesma senha. E aí quando você entrar, tem a opção de meus contratos. Mas eu vou te mandar ele aqui também, que eu já baixei ele. Você está falando com o cliente de registrar quando você... Esse
+C: Aqui
+A: aqui...
+C: ele pede um e-mail ou o CFS, né? Esse e-mail, né?
+A: cpf? No site que eu
+C: É.
+A: te mandei?
+C: Sim. Peraí,
+A: É login ou senha? Aqui, ó, deixa eu te mandar. É essa página aqui, olha se está abrindo a mesma página. Essa
+C: tá abrindo.
+A: aqui, ó...
+C: Ah, tá.
+A: cpf é pessoa física e é outro site. Aí
+C: Já
+A: o login é o mesmo, né? Deixa eu pegar aqui o seu login
+C: entrou
+A: também.
+C: o contrato, né?
+A: Isso,
+C: E
+A: você vai
+C: os contratos?
+A: meus contratos. Aí deixa eu te mandar um número do contrato para você poder pesquisar. Deixa eu pegar ele aqui.
+C: Número
+A: Número do contrato você pode puxar pelo código da empresa ou pelo número do contrato? Deixa eu pegar o número do contrato aqui.
+C: do contrato.
+A: Isso, tem o número do contrato. Deixa eu pegar para você aqui. Deixa eu mandar no WhatsApp. Aí você pode filtrar contratos abertos, fechados, nesse caso é o que está em aberto, né? O contrato, o número dele é esse aqui. Te mandei no WhatsApp também.
+C: Esse 16,
+A: É 16284.
+C: né? Uma pergunta. Caso eu queira mudar a categoria, como é que eu faço?
+A: Com o contrato em andamento você não consegue e teria que encerrar esse fazer uma nova reserva da categoria que você deseja e abrir o novo. Então, por exemplo,
+C: Pois é porque
+A: você
+C: ele
+A: não...
+C: tem vencimento aqui no mês 8 né?
+A: Vence...
+C: Não é isso? Ah não né?
+A: Deixa eu
+C: Como é que
+A: ver...
+C: é que vem vencimento aqui que nem está aparecendo?
+A: Ele já passou da data de vencimento? Ele está só prorrogado. Vocês utilizam ele desde 2024?
+C: Pois
+A: Deixa eu ver se
+C: é
+A: a categoria dele é mensal fixo
+C: Por isso que eu estou te perguntando como é que eu posso contar devolver agora se quiser isso mesmo?
+A: Ah, é, a qualquer momento vocês podem devolver e pegar um novo veículo. Não tem problema não. Não tem fidelidade mais, não tem multa. Ele era um mensal fixo de 12 meses. Vocês retirarem um 2 de 2024,
+C: Você
+A: a fidelidade dele acabou um 2 de 2025.
+C: consegue nem contar um orçamento se eu fosse querer trocar por um HB20 automático?
+A: Automático?
+C: Sim,
+A: A mesma franquia de quilometragem? Esse é 2000 km?
+C: sim, sim,
+A: Combinado com 5%. Deixa eu contar aqui para você. Já te manda agora.
+C: tá bom. Esse 2000KM
+A: Retirada
+C: não
+A: vai
+C: é livre
+A: ser
+C: não,
+A: em Manaus
+C: né?
+A: mesmo, né? Oi?
+C: É, esse 2000KM não é livre não, né?
+A: Não, 2 mil km mês. Então, por exemplo, você tem essa quantidade para rodar durante 30 dias. Se exceder os 2 mil, aí tem cobrança de fome excedente. Mas vocês sempre ficaram
+C: Ah tá.
+A: nessa quilometragem. Aí, quando dá os 30 dias, renova. Aí o próximo mês você tem de novo
+C: Ah
+A: 2 mil km mês.
+C: tá.
+A: É sempre mensal?
+C: Ah tá.
+A: Não está entrando
+C: Aqui
+A: aqui só um minutinho? Deixa eu acessar aqui para poder cotar. Senhora que o sistema da birra.
+C: nesse
+A: Retirada desse foi em Manaus, o outro também vai ser, né?
+C: contrato não tem o valor dele.
+A: Deixa eu ver...
+C: O valor que eu estou pagando agora, no caso.
+A: Vou pegar a última parcial e te mando. Você pode imprimir o último demonstrativo? É porque o contrato, o número do contrato vai mudando de acordo com os meses, né? Então, por exemplo, a gente começa com 00. Aí depois tem o final 01 e assim
+C: Então,
+A: consecutivamente.
+C: eu coloquei esse 16, 28 e 4 aqui
+A: Esse
+C: e não buscou.
+A: aí é o inicial. Agora deixa
+C: Tem
+A: eu pegar
+C: que...
+A: a última
+C: Tem
+A: parcial gerada
+C: que
+A: aqui para vocês.
+C: colocar...
+A: Deixa eu
+C: Tá.
+A: ver aqui a última parcial, quanto vocês estão pagando. Deixa eu só gerar cotação aqui, porque eu já estou nessa página e aí eu mando a parcial. Vai ser sem nenhuma proteção, sem nenhum adicional da mesma forma que o outro, né?
+C: O outro não tinha proteção, não?
+A: Não, o seguro dele é normal. Seguro padrão, não tem a proteção total de avarias. Para um contrato longo, eu até aconselho a proteção total de avarias porque ela cobre realmente tudo, desde um arranhãozinho que tiver até uma perda total e o
+C: Pode
+A: valor não é
+C: colocar
+A: tão
+C: então.
+A: alto. Eu
+C: Pode
+A: vou
+C: colocar
+A: contar
+C: então
+A: para
+C: só
+A: você com...
+C: para... Só para mim ter uma ideia e qualquer coisa me sentirei
+A: Isso,
+C: isso aí.
+A: isso eu vou contar para você com o
+C: Tá
+A: E100, tá? Deixa eu te mandar
+C: bom.
+A: aqui no WhatsApp. Na mesma franquia, o grupo que tem o HB20 automático é o FH. Aí 2 mil quilômetros. Ele está 3.670 e 90 sem a proteção. Deixa eu mandar aqui para você no WhatsApp só para você ter salvo, tá?
+C: Tá bom.
+A: Então, grupo CH, 2 mil KM sem a proteção. Agora eu vou colocar com a proteção total de avaria. Com a proteção total de avaria...
+C: Isso aqui é sem varia...
+A: Isso,
+C: Ah
+A: isso aí é
+C: tá,
+A: sem a
+C: tem
+A: proteção
+C: proporção.
+A: total de avaria.
+C: Tá.
+A: Isso, agora com a proteção total de avaria. Essa cotação que eu te passei é a cotação se fosse 30 dias normal e vocês quiserem prorrogar o contrato, porque dessa maneira não tem fidelidade e vocês conseguem fazer alteração contratual. Por exemplo, a Ana, eu quero aumentar o KM, diminuir o KM, aí dá certo. Agora, a modalidade que vocês... O que também é o mensal fixo de 12 meses, que já é esse contrato que tem fidelidade. Porém, a condição comercial dele é melhor, ele tem um valor mais baixo. Então, eu vou te mandar aqui também para você poder verificar, tá?
+C: Pois é, é isso que eu ia falar para você aqui. Vamos ver aí por mais um ano e meio, vamos colocar assim...
+A: Aí é mais barato. A gente tem no máximo 12 meses, mas depois a gente pode prorrogar. E o plano mensal de 12 meses, a condição dele é melhor. Então, vou colocar aqui esse valor seria 12 meses sem a proteção total. Agora eu vou colocar só a proteção aqui para poder te mandar 12 meses com a proteção. Prontinho,
+C: Ok...
+A: aí eu te mandei as duas mensal normal e a de 12 meses que é o plano do mensal fixo, tá?
+C: Então quer dizer que... Conseguir um desconto maior, a gente não consegue!
+A: Infelizmente não,
+C: Pois
+A: o plano melhor mesmo é o do mensal fixo que tem a condição comercial Melhor, aí é o valor mais barato que a gente tem, é o do mensal fixo.
+C: é
+A: Fora ele, a gente
+C: que
+A: só
+C: é
+A: conseguiria
+C: o que eu estou
+A: se
+C: usando!
+A: fosse uma... É, que é o que você está já. Só que o seu é o mais antigo, que ele é mais barato, porque a gente teve reajuste nessa precificação do mensal fixo tem duas semanas. Então está o valor atualizado esse que eu te passei. O seu ainda é o da tabelinha antiga de 2024 que não teve reajuste ainda.
+C: Entendi!
+A: Agora, eu vou pegar aqui o último demonstrativo do contrato para você jogar aí também, se você quiser consultar e vou te encaminhar para você verificar o valor dele, tá? Deixa eu pegar aqui. A vantagem do mensal fixo é que o período que você tem a fidelidade... Ele não reajusta. Então, por exemplo, se você fizer um contrato de 12 meses, é 12 meses o valor fixo. Ele pode
+C: Esse
+A: reajustar depois
+C: que eu
+A: que perder
+C: estou?
+A: a fidelidade.
+C: Esse
+A: Isso que
+C: que
+A: você está... Só que o seu
+C: eu
+A: já não tem fidelidade mais, então
+C: estou?
+A: pode reajustar quando não tem fidelidade. Agora, o período que ele está dentro da fidelidade... Não tem reajuste? É fixo o valor que você contratar. Então, se você for fazer um novo, compensa fazer o mensal fixo. Porque aí não tem reajuste, já que vocês têm a intenção de permanecer por mais um ano e meio, né?
+C: Tá,
+A: Além do valor...
+C: uma pergunta. Esse e-mail que eu estou agora, eu vou continuar com ele por mais um ano e meio. Ele não vai cofrer reajuste não, né?
+A: Agora ele pode sofrer reajuste porque não tem fidelidade mais. A localiza sempre tem reajuste no meio do ano, meados de julho, agosto, costuma ter reajuste. Então ele pode sofrer. Não significa que necessariamente vai ter. Mas se tiver, o contrato já está passível de reajuste porque ele não tem fidelidade mais. Ele só não sofre reajuste quando ele ainda está dentro da fidelidade.
+C: E
+A: No caso
+C: quando
+A: essa
+C: é que
+A: aí
+C: é essa pedagógica?
+A: acabou... Acabou em agosto de 2025.
+C: Eu não
+A: Vocês
+C: sabia.
+A: estão com o contrato prorrogado. É, acabou. Ele era 12 meses? Vocês fizeram ele dia 1º de
+C: Mas
+A: agosto de 2024? Acabou dia 1º de agosto de 2025.
+C: é isso que não pode? Eu teria que informar era isso?
+A: Informar o quê?
+C: Que eu iria ficar com mais um
+A: Não renovaria sua fidelidade porque ele é só 12 meses mesmo você consegue só prorrogar ele no caso ele está prorrogando agora aí
+C: ano sem mim. Tá bom então? É você que é a minha consultora?
+A: Isso, eu te mandei um oi no WhatsApp com todas essas informações, mas aí você salva o
+C: Tá
+A: meu número porque você precisar qualquer dúvida que você tiver da via certa você pode tratar comigo te mandei a última
+C: ok
+A: parcial
+C: então?
+A: também está enviando o anexo e aí assim se vocês forem trocar eu aconselho que antes de vocês irem à agência vocês já deixam a reserva feita certinho porque aí vocês não ficam sem o veículo né e aí lá na agência Você fecha esse contrato e pega o novo,
+C: Tá ok
+A: se vocês forem realmente trocar para esse automático. Se for continuar prorrogando, também eu consigo colocar ele em prorrogação automática. Geralmente, quando vai completando a parcial do mês, o pessoal, o próprio sistema encaminha um sistema automático para poder renovar o contrato. Se vocês quiserem, eu posso colocar em prorrogação automática para mais um ano e meio também. É só você me revisão lá no WhatsApp que eu faço atualização, tá?
+C: então? Obrigada tá bom?
+A: Imagina precisar, não pode contar aqui comigo? Tchau, tchau. Ótima tarde.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05973209 | Data:2026-06-22 | Dur:50s | Sent:POSITIVE ===
+C: Em plaza, Beatriz, bom dia.
+A: Ei, Beatriz, bom dia. Quem está
+C: Bom dia.
+A: falando é Tainara da Localiza, tudo bem?
+C: Oi, tudo bem? Você?
+A: Vou bem-me perguntar:
+C: Certo.
+A: Beatriz, eu sou executiva de vendas que trata aqui da conta da Implaz e eu queria conversar por gentileza com Wilson ou Aline?
+C: O Wilson não está aqui hoje e a Lili ainda com o ramal ocupado. Você consegue passar por e-mail?
+A: Na verdade, não consigo porque eu já estou tentando contato com eles tem alguns dias e é referente ao cadastro da empresa. Você sabe se tem algum outro horário que eu consiga falar ou algum outro
+C: Seria
+A: telefone?
+C: só esse mesmo. Se você quiser ligar mais tarde...
+A: Eu vou tentar mandar uma mensagem para o Wilson no celular dele, mas eu
+C: Ah,
+A: retorno
+C: então
+A: então
+C: tá bom.
+A: a ligação.
+C: Tá bom. Tá
+A: Tá
+C: joia?
+A: bom? Obrigada.
+C: Nada,
+A: Tchau.
+C: tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05977241 | Data:2026-06-26 | Dur:154s | Sent:POSITIVE ===
+C: Alô?
+A: Olá, tudo bem? É o João?
+C: Sim.
+A: Tudo bem
+C: Tudo bem,
+A: por
+C: você...
+A: aqui. Como posso te ajudar? Me conta.
+C: Eu estou precisando só de um novo volume para tentar aquele... Aquele período da seada,
+A: Tá, é o seguinte, vamos lá. Hoje tem aqui, ó, o Júlio Seabra,
+C: né?
+A: o Matheus e o Vitor Henrique. Você vai ser mais um
+C: Isso, é isso mesmo.
+A: Tá, aí o que eu vou fazer? Vou mandar um... Qual que é o seu e-mail? Tá, eu vou mandar aqui no e-mail os dados que eu preciso. Depois que eu fizer a inclusão, aí o Vitor tem que te aprovar, tá bom?
+C: Ok.
+A: Aí você que vai ficar como gestor responsável agora, João?
+C: Quem é que está hoje em responsável?
+A: Tá, o Vitor.
+C: Não, eu só tenho o vídeo aqui.
+A: Vai ser o Vitor e você e os demais, né? Você vai começar a fazer reserva? Você tem alguma demanda de imediato? Me conta, João.
+C: Mas não posso fazer uma reserva para a semana que vem, não sei se ainda é para
+A: Ah,
+C: dois dias. Eu vou
+A: beleza.
+C: ser a... Combinado,
+A: Beleza. Beleza. Então vou fazer o seguinte, João. Estou encaminhando aqui agora assim que você mandar lá responder, tá? Eu já incluo você, o Vitor entra e te aprova, beleza?
+C: agora...
+A: Então tá, Jóia? Estou fazendo os encaminhamentos agora. Tá, Jóia? Qualquer dúvida pode me ligar nesse WhatsApp, mas não pelo WhatsApp. Você tem que me ligar direto
+C: Pode
+A: no fixo, ok?
+C: ser combinado também.
+A: Aí na hora que liberar, tiver dúvida sobre os seus acessos. Ai, Andressa, preciso de suporte. Me liga aqui que a gente entra junto e eu te ajudo, tá bom? Obrigada, João. Um abraço. Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:05977241 | Data:2026-06-29 | Dur:40s | Sent:POSITIVE ===
+C: Bom dia.
+A: João. Bom dia, João Andresa da Localiza, tudo bem?
+C: Tá,
+A: Tudo joia. João, é o seguinte, eu fiz a liberação aqui do seu acesso. Agora o Vitor precisa fazer a inclusão, tá?
+C: tá
+A: A
+C: ok.
+A: aprovação. Aí eu vou te mandar... Eu vou responder aquele e-mail para você só com passo a passo ali para ele fazer aprovação, beleza?
+C: Já é um dia, não é nada então.
+A: Então tá, Joia, qualquer coisa pode me ligar aqui, tá bom? Um abraço, até mais.
+C: Tchau,
+A: Tchau, tchau.
+C: tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06003760 | Data:2026-06-22 | Dur:73s | Sent:POSITIVE ===
+A: Alô, Patrícia? Oi, Patrícia. Aqui quem está falando é Fabiana da Localiza, tudo bem? Então, tá bom. Patrícia, estou fazendo contato com você referente ao cadastro da Associação Super Eco que você possui aqui em
+C: Eu?
+A: todos.
+C: Tudo?
+A: E eu sou responsável pelo atendimento entre a parceria da Associação com a Localiza e gostaria de entender um pouco sobre as demandas de locações
+C: É
+A: que são realizadas pela Associação, saber se você tem alguma previsão para não ser retirado
+C: a
+A: de carro.
+C: Fabiana, né? Fabiana, agora em julho está fazendo um ano que eu não estou mais na associação superérgica.
+A: Isso. Entendi. E você sabe me informar aí, porque esse cadastro é mais
+C: É,
+A: antigo, né? E você que está aqui como referência. Você consegue me dizer quem está lá ainda ou não?
+C: acho que é a presidente que é Andri.
+A: Ah, não, ótimo. Eu tenho contato aqui e vou fazer contato lá com ela então, tá bom?
+C: Tá bom? Tá
+A: Ah,
+C: bom então,
+A: Joia, muito obrigada
+C: Robin.
+A: aí. Desculpa.
+C: Nada mais de...
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06004842 | Data:2026-06-15 | Dur:912s | Sent:POSITIVE ===
+A: Oi, Fernando!
+C: Fábio,
+A: Bom dia, tá jóia?
+C: Jó e você, meu amigo.
+A: [MASKED], graças a Deus! Espero que por aí também...
+C: Tudo jóia. Vamos ver se
+A: Jóia...
+C: você pode me dar uma ajuda?
+A: Claro, pode
+C: Eu
+A: falar!
+C: estou precisando de uns carros lá no Maranhão para começar uma
+A: Sei...
+C: operação e eu estou até negociando com o teu pai aí, que é um contrato mensal. Só que ainda está em análise, cadastro e tudo mais, e o meu contrato está para estourar.
+A: Sei... Sei...
+C: Eu acho
+A: Ô gente!
+C: que não... Por mais que eu feche lá, até mobilizar, até sair contrato,
+A: Nossa
+C: tudo, não vai dar...
+A: senhora!
+C: Não vai casar.
+A: Aham...
+C: Então eu vou ter que entrar no rente por uns dias aí ou fechar uma alocação de um mês ou dois até a gente conseguir os carros lá finais, entendeu?
+A: Entendi.
+C: E aí o seguinte, eu tô fazendo... Minha ideia é fazer uma alocação aqui já imediata pelo rente, mas eu olhei lá na web,
+A: Uhum...
+C: web corp lá e meu limite lá só tá 15 mil. Com 15 mil acho que eu não consigo alugar os carros Eu preciso.
+A: É
+C: O
+A: na new
+C: que
+A: option mesmo, né?
+C: eu preciso para a gente aumentar esse crédito aí para eu conseguir alocar esses carros?
+A: Deixa eu só entender sua demanda. Então, quantos carros mensais que você vai precisar?
+C: Olha, para amanhã eu precisaria de três.
+A: Três, né? Qual grupo? Quais tipos de
+C: O
+A: carros?
+C: mais básico que você tiver.
+A: Grupo
+C: Ah,
+A: B do Cuid e do Mobi, a pessoa é pequena ou alta as pessoas que vão dirigir o carro? Porque ele é muito compacto,
+C: é
+A: né?
+C: pequeno, é pequeno.
+A: É, tá tranquilo.
+C: Mas eu precisava também de quatro caminhonetes traçadas, quatro por
+A: É,
+C: quatro.
+A: 4 por 4, beleza. 4 por 4 em São Luís está muito difícil, a gente tem que agilizar isso, tá? Vamos seguir então com
+C: Isso.
+A: o fluxo do crédito. Deixa eu ver só uma coisa aqui primeiro. Eu pedi uma pré-análise, ele me
+C: Certo.
+A: retorna agora
+C: Tá.
+A: para a gente ver se tem perspectiva. Pera aí.
+C: Tá. Se eu não conseguir tudo por uma empresa só, eu tenho outras empresas do grupo que eu posso fazer a alocação pelas outras empresas. Aí precisa ver consigo como é que a gente cadastra as outras empresas, entendeu?
+A: É uma opção também, tá rapidinho também,
+C: Aí
+A: viu?
+C: eu divido, porque o total de carro, se eu não conseguir o contrato hoje aí com a Localiza, no
+A: Uhum.
+C: prazo que eu preciso, eu vou precisar de... São quatro caminhonetes e 16 carros pequenos.
+A: Uhum. Beleza.
+C: É um contrato meu com a Claro, é um contrato muito importante. Eu não posso
+A: Nossa
+C: delejar
+A: senhora!
+C: com os caras.
+A: Jamais!
+C: É o maior contrato que a gente já fechou até hoje na empresa, sabe? Então não
+A: Nada
+C: posso...
+A: pode sair do cronograma tudo 100%.
+C: Eu comprei
+A: Tem que ser uma operação...
+C: um pouco de carro, mas a montadora só conseguiu me entregar uma parte. Eu já mandei 50 picapes para ir, mas não vai ter o suficiente,
+A: Ver
+C: entendeu?
+A: se você concentra essas questões em aluguéis, você não acha melhor não? Embora você já fechou alguns negócios porque você não descapitaliza
+C: Sim,
+A: demais e o carro não deprecia na sua mão
+C: sim. Sim, é que o fechamento foi muito rápido, então eu
+A: Não
+C: fiquei com medo de não dar tempo.
+A: deu tempo
+C: E a
+A: nem de pensar,
+C: gente
+A: né?
+C: estava com uma carta de consórcio contemplado aqui, então a gente usou o consórcio, entendeu?
+A: Não sei.
+C: Mas a ideia é alocar.
+A: Entendi. Olha aqui, a gente precisa... Você diz 16 carros comuns, né?
+C: Isso, e quatro caminhonetes.
+A: E 4 caminhonetes. Beleza. Deixa eu pensar aqui. O pessoal vai me pedir aqui balanço e o DRE de 2024 e 2025 e o balance parcial desse ano da New Option. Você tem
+C: Tá.
+A: aí?
+C: O 25-26 eu tenho, o 24 eu vou ter que levantar. [MASKED]
+A: Não, 24 ele
+C: eu tenho
+A: está
+C: na mão.
+A: como opcional Não precisa
+C: Tá.
+A: te mandar o 24 se não tiver É um insumo a mais
+C: Tá.
+A: Se eles pedirem a gente providencia depois
+C: Tá
+A: Mas
+C: bom.
+A: está fácil aí para você selecionar e
+C: Tá,
+A: me mandar no WhatsApp?
+C: o 25-26 te manda agora.
+A: Show! Enquanto isso eu estou preparando um documento para te mandar e agora Pera aí Eu vou te explicar o que eu preciso com esse documento tá É bem simples também
+C: Eu vou... Qualquer coisa que... As coisas que precisam por e-mail, eu vou pedir para a minha assistente lá, Camila, trabalha comigo, te enviar que eu estou na rua hoje o dia todo, então vai ficar difícil para mandar por
+A: Vai
+C: e-mail,
+A: ficar
+C: mas
+A: difícil,
+C: o que você precisar, o e-mail que você vai receber aí vai ser em nome de Camila da Multivale.
+A: né? Não, tranquilo. Camila, né?
+C: Isso.
+A: Se o balanço da RE estiver no celular, se tiver fácil
+C: Tem?
+A: aí para você,
+C: Tem?
+A: para
+C: Não,
+A: mim já
+C: esse aqui
+A: serve
+C: eu te mando...
+A: no
+C: Esse
+A: WhatsApp.
+C: você te manda agora no WhatsApp.
+A: O outro você vai ver que é uma coisa tão simples que talvez a gente nem precise da Camila. A gente vai precisar do Damião, mas eu te explico, é coisa relativamente
+C: Não, Damião
+A: boba.
+C: é na hora, sem problema.
+A: É,
+C: Damião é
+A: né?
+C: meu parceiro aqui.
+A: Acesso a e-mail para ler pelo menos ver se
+C: Consigo,
+A: chegou alguma
+C: consigo.
+A: coisa aí você tem te mandei um mas são dois tá o que acontece nesse e-mail que eu vou que eu tô te mandando aí que são dois é uma consulta score do banco central aquela do serasa não precisa de autorização mas o do banco central precisa é
+C: Tá.
+A: aquelas consultas
+C: Eu assinei
+A: corriqueiras normais
+C: uma dessa para localizar mensal aí, será que essa não serve? Já te mando.
+A: Ou eu acredito que não. E na dúvida, para a gente não perder tempo, é bom talvez assinar de uma vez por esse? Porque pode ser que o pessoal fale, ah, essa documentação é de outra coisa,
+C: Tá.
+A: enfim. Aí a gente perde
+C: Pode me
+A: o
+C: mandar aqui
+A: time
+C: para
+A: aí.
+C: assinar agora?
+A: Mandei um... Aí só pedi para ele assinar.
+C: Você
+A: Agora estou...
+C: mandou no Hotmail ou no CB seguro? Qual o e-mail você
+A: Eu
+C: mandou?
+A: mandei no... Opa, acabou que eu mandei no dele mesmo, acredita? Pera aí que eu vou trocar para o seu. Pera aí.
+C: 85 mesmo. 85 mesmo.
+A: Fernando, eu tenho um e-mail aqui para você, tá fácil? Fernando Underline Maella, o arroba
+C: Está
+A: Gmail,
+C: sim.
+A: o Hotmail, tá né?
+C: Não, aparte meio, aparte meio.
+A: Hotmail, eu falei Gmail sem querer, mas é Hotmail mesmo.
+C: Aparte. Aparte. Tá?
+A: Mandei o primeiro. O e-mail chama Netline via DocuSign, tá? Um já chegou aí e eu estou preparando o segundo.
+C: A gente falou que não, então eu vou tomar o nosso mesmo. Esse é muito velho, esse é mais como meu lado. Esse é mais... Eu não entendo em diário... Ele não vai ficar mais velhão o negócio não é velhão dele também... Esse já vai ficar aqui de caminho... Para o nome de Damião, mas eu posso afinar, né? Ele entende também...
+A: Olha, a orientação que é ele porque é uma consulta score, né?
+C: Então, dele mais... Não são mais... É, não,
+A: Aí
+C: é que...
+A: ele clica
+C: E
+A: em adotar
+C: uma
+A: e assinar
+C: luz amarela aqui vai amarelar mais... E esse com a luz amarela fica um pouquinho... Mas bem e essa luz branca
+A: Estou
+C: fica
+A: finalizando
+C: um pouquinho...
+A: aqui o segundo para a
+C: É
+A: gente
+C: tudo
+A: Beleza,
+C: isso? Ele é nos dois ali... Você decide que vai ser... Ó, tem que me importar pela sua cor... Tá assinando!
+A: vai chegar aqui para mim uns 15 segundinhos enquanto eu te mando o segundo, o primeiro é PF e o segundo é PJ tá?
+C: Tá bom?
+A: Mandei o segundo vai chegar aí para você? Enquanto isso, Fernando vamos agilizar uma outra questão também me fala o CNPJ da outra empresa
+C: Peraí que eu vou te mandar. Multivale tecnologia. [MASKED]
+A: Se for fácil também para você digitar, me informar, também está fácil aqui para eu anotar. Meu
+C: mil contra 12.
+A: contra 12 um instante.
+C: Multivale tecnologia serviço.
+A: Conseguiu assinar o segundo aí enquanto isso?
+C: Estou assinando aqui,
+A: Beleza!
+C: tá? Pronto, foi também, os dois assinados.
+A: Beleza, vai chegar aqui para mim daqui a pouquinho, inclusive te agradeço. Enquanto eu gero aqui o cadastro, vocês vão prestar serviço tipo de cabeamento, suporte, essas
+C: Exatamente,
+A: coisas na localidade mesmo? Show! Deixa eu ver qual que é o retorno que eles vão me dar desse segundo cadastro aqui.
+C: já que mandei o balanço aí, tá Fábio?
+A: Ótimo, ótimo, ótimo. Deixa eu conferir aqui o balanço patrimonial... Será que ele tem o DRE junto? Deixa eu ver aqui.
+C: Acho que tá junto.
+A: Balanço patrimonial, balanço patrimonial, demonstração de resultado, demonstrativo de resultado. Aqui está escrito demonstração de resultado mas é o demonstração de resultado do exercício né porque eu não entendo de documentos contábeis esse é o próprio
+C: Isso,
+A: DRE mesmo né
+C: isso.
+A: show agora tem um aqui que você já me mandou janeiro a março ótimo novo prazo que eles pedem mesmo agora sobre o cadastro novo Pré-aprovou, mas ele não me dá uma perspectiva de crédito. Pode ser que aprove ou não, mas espero muito que sim, isso vai depender muito do cenário que a localiza precisa e espera para aprovar o cadastro, mas a gente dá um jeito. A gente vai ver aqui até a última instância que a gente consegue. Eu vou fazer o seguinte, vou te mandar um link pelo WhatsApp. Você vai me pedir o quanto antes para o... Opa,
+C: Não,
+A: voltei a tela aqui,
+C: espera,
+A: deixa eu abrir a
+C: deixa eu ver.
+A: receita aqui de novo.
+C: Não quero que você possa estar lá. Não, mas eu
+A: Eu vou te
+C: posso...
+A: mandar um
+C: Espera
+A: link
+C: um
+A: pelo
+C: pouquinho.
+A: WhatsApp e eu preciso que o Damião faça um processo... Sabe aquele processo da abertura da conta? Foto frente
+C: Sim.
+A: e verso da CNH e uma selfie?
+C: Sim.
+A: Eu vou te mandar um link aí e pede para o Damião fazer esse processo para a gente para ontem, se possível. Beleza?
+C: Agora,
+A: Deixa eu
+C: pode
+A: até te...
+C: mandar.
+A: Ó, pera aí, o link está sendo gerado, gerou, ótimo. Aí, Fernando, você não vai esquecer de pedir para não atrasar nenhuma parte do processo para ele te colocar como gestor. Porque você
+C: Tá?
+A: quem está aí a par disso, quando chegar nessa página do print que eu estou te mandando agora, você vai entrar com seu nome completo cpf
+C: Tá
+A: e e-mail telefone.
+C: bom?
+A: Se não sai no nome dele mesmo e ele não resolve esse tipo de coisa.
+C: Fechado.
+A: Os 16 carros podem ser Quid ou Mobi mesmo, tem certeza?
+C: Pode, pode sim.
+A: Para a gente ter uma ideia aqui do valor que eu vou precisar para crédito. E
+C: Tá bom.
+A: as 3, 4 por 4. Não, beleza. Ó, eu vou pedir uma análise de aumento de limite. O prazo para análise é de 24 horas, mas eles otimizam por umas 3 mais ou menos.
+C: Tá
+A: Eles
+C: bom.
+A: provavelmente podem me dar um retorno aqui durante o meu horário do almoço. Eu vou voltar às 1h30. Assim que o Damião finalizar o processo do link do cadastro novo, me avisa aqui porque as contas ficam passadas Eu não estou sabendo que o cliente já preencheu.
+C: Tá, é nesse link que ele vai me colocar como gestor, né?
+A: Exatamente!
+C: Tá bom,
+A: A
+C: beleza.
+A: imagem não chegou aí para você, era para ter chegado. Eu já dei um enter aqui, está não enviando, está rodando um relógio aqui, mas vai chegar para você agora. Chegou na
+C: Fechado.
+A: página de confirmação de gestores, são seus dados.
+C: Tá bom.
+A: Chegou aí o
+C: Chegou,
+A: print para você
+C: chegou.
+A: ter ideia de onde fica? Quando chegar nessa
+C: Chegou.
+A: página são suas informações,
+C: Beleza.
+A: beleza?
+C: Fechado, Fabio?
+A: Então, tranquilo, então. A gente
+C: Valeu,
+A: vai se falando.
+C: vem falando! Valeu,
+A: Vou agilizando
+C: um abraço!
+A: aqui. Valeu, até daqui a pouco. Tchau, tchau.
+C: Tchau, tchau!
+A: Valeu.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06032084 | Data:2026-06-08 | Dur:54s | Sent:POSITIVE ===
+C: Venturo Consultoria, Matheus?
+A: Ô, Matheus, Matheus da Localiza, tudo bem?
+C: Opa, tudo bem, Matheus?
+A: Pô, bem demais, cara. A Lilian tá por aí?
+C: Não, ó, acho que você confunde com a Ventura Análises. Tem
+A: Ah,
+C: a Ventura
+A: cara...
+C: Consultoria, a Ventura Análise.
+A: Sim,
+C: Você tem o telefone
+A: sim.
+C: deles?
+A: Acho que tem. Peraí, só me confirma. Porque eu peguei pela última visita que eu tinha e isso que eu tô ligando pra ti é o final 0378. O que eu tenho deles é o final 5827.
+C: [MASKED], isso é 3397
+A: Ah, esse
+C: 5827.
+A: é o de lá? Tá,
+C: Acho que
+A: não
+C: você
+A: perdi a...
+C: é representante das duas, da Ventura Consultoria e da Ventura Análise, certo?
+A: Isso, isso. Só que acabou que a visita hoje é sobre a
+C: Não,
+A: análise. É
+C: não... Análise.
+A: sempre confundo,
+C: Perfeito,
+A: mas eu vou corrigir isso aqui para acontecer junto.
+C: então é esse mesmo, 3697 5827.
+A: Fechou. Vou dar uma ligadinha lá então. Obrigadão, viu cara?
+C: Nada, tchau tchau.
+A: Valeu, abraço. Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06059294 | Data:2026-06-24 | Dur:282s | Sent:POSITIVE ===
+A: Alô, bom dia.
+C: Pronto. Bom dia.
+A: Gente, mas eu poderia falar com a Karina ou com o Vinícius?
+C: Quem gostaria?
+A: É a Tatiana aqui da Localiza.
+C: Ah, sim, um minuto só, por favor.
+A: Obrigada.
+C: Não foi nada. Alô?
+A: Oi, bom dia.
+C: Ah, só mais um minutinho, por favor.
+A: Ah, tá bom. Oi, bom dia! Falo com a Karina?
+C: Alô?
+A: Oi, Karina Tatiana aqui da Localiza, tudo bem?
+C: Isso? Tudo bem e você?
+A: Eu tô bem também, graças a Deus. Obrigada por perguntar. Karina, eu tô te ligando para saber se tá tudo certinho aí com os acessos às nossas plataformas e com as locações em andamento.
+C: Está sim, Tatiane. Por enquanto sim.
+A: Tudo ok? Deixa
+C: Tudo
+A: eu
+C: bem?
+A: te perguntar, Carina, tem uma fatura vencida no dia 18 do 6. Vocês estão consciente dessa fatura em atraso?
+C: Estamos sim e já está para a programação dia 3.
+A: Ah, tá bom então, Carina. Com relação aos acessos você e o Vinícius que costumam entrar geralmente, né?
+C: É na verdade só eu que faço as locações que acesso a plataforma, né? O Vinícius não...
+A: Ah, então tá bom. Mas ele permanece com
+C: Sim,
+A: acesso...
+C: sim,
+A: Mas não que ele
+C: sim.
+A: não
+C: Vinícius
+A: é...
+C: é meu irmão, é meu sócio, ele permanece assim, pode deixar o acesso dele. Mas quem mais faz essa parte sou eu que é a parte de
+A: Perfeito
+C: RH financeira. Vinícius
+A: sim...
+C: mais a parte de engenharia mesmo.
+A: Ah, então tá bom, sem problemas, Karina. Hoje eu estou ligando, além de confirmar se está tudo ok com as demandas de locações, também confirmar se você receber um e-mail nosso com uma pesquisa de satisfação referente ao nosso atendimento aqui da Localiza de forma geral. Tanto foi enviado para o seu e-mail quanto do Vinícius no dia 18. E aí eu queria saber se você chegou a receber, se você chegou a avaliar o nosso atendimento aqui
+C: Eu acho que eu não recebi não,
+A: na
+C: Tatiane.
+A: mão Vou verificar aqui então se a gente consegue reenviar também, tá bom?
+C: Tá,
+A: Ah,
+C: perfeito! Daí vocês me encaminham porque eu não me recordo de ter recebido nenhum e-mail de vocês de pesquisa não!
+A: então tá bom. E deixa eu perguntar, há alguma perspectiva aí de aumento nas demandas aqui conosco?
+C: Na verdade, não, porque assim, a gente tem uma frota, né? A gente tem os veículos que são da empresa mesmo. A gente
+A: Sim.
+C: faz a locação quando assim a gente tem uma demanda maior nas obras, aí eu necessito de mais veículos. Aí a gente faz essa locação. Caso contrário, não.
+A: Entendi, entendi.
+C: Entendeu?
+A: Então essas demandas que vocês já fazem já atendem bem aí à necessidade da
+C: Já
+A: empresa.
+C: atende sim.
+A: Ah, então tá bom, Karina.
+C: Tá bom?
+A: De qualquer forma, há novas oportunidades se porventura vocês... Inclusive quantos carros vocês têm hoje de frota própria?
+C: Eu tenho nove.
+A: Nove?
+C: Nove.
+A: E você já chegou a avaliar sobre a possibilidade da terceirização, questão de redução de custos ou...
+C: Na verdade, a gente já começou, eu e Vinícius, fazer esse levantamento para a gente avaliar, mas a gente não seguiu ainda em frente com essa avaliação devido às
+A: Ah...
+C: demandas aqui, mas a gente já começou fazer um levantamento para a gente ver essa questão.
+A: Então tá bom, nove carros é bastante a questão de custo de...
+C: É bastante. É bastante porque daí tem custo com pedágio, tem custo com manutenção, com seguro.
+A: IPVA
+C: Então, é
+A: é
+C: TVA,
+A: um monte de
+C: exatamente.
+A: coisa.
+C: Então é um custo alto sim.
+A: Então, tá bom, Karina.
+C: Certo.
+A: De qualquer forma, a gente não só atende a parte de rente à cara, que são essas locações pontuais que vocês fazem até 12 meses, a gente também tem a questão da gestão de frotas, que é o carro por assinatura, né? Contratos anuais, algumas condições bem específicas, carro zero quilômetro. Se porventura vocês quiserem fazer esse levantamento sobre os valores, inclusive me manda aqui eu peço para um construtor entrar em contato com você até para te apresentar algumas condições e aí qualquer coisa a gente está aqui à disposição para poder atendê-los da melhor forma
+C: Combinado
+A: possível, tá bom?
+C: então, tá? Eu agradeço,
+A: Eu
+C: viu?
+A: que agradeço. Bom dia pra você. Até mais.
+C: Obrigado para você também. Até mais. Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06081154 | Data:2026-06-16 | Dur:1196s | Sent:POSITIVE ===
+A: Localiza Amanda, bom dia.
+C: Oi, Amanda, bom dia. Aqui é a Letícia, tudo bem?
+A: Tudo bem, Letícia? E você?
+C: Tudo bem também. Eu entrei em contato com você, né? Uns dias atrás, para a gente fazer algumas cotações de carro, né? Você
+A: Sim.
+C: lembra?
+A: Ô, Letícia, desculpa, porque eu falo com muito cliente
+C: Ah,
+A: todo dia. Você pode me
+C: sim.
+A: falar o CNPJ da empresa? Porque aí eu localizo o cadastro aqui e vejo o que a gente conversou.
+C: Ah, tá. Eu não sei se tem cadastro, tá? Mas é o 17 [MASKED]
+A: [MASKED].
+C: 693
+A: Sim.
+C: Mil contra 9-1 da BSL Saúde Brasil Senior Living
+A: Achei, viu? Ótimo,
+C: Ah,
+A: pode falar.
+C: tá. Então, pelo site, a gente está querendo fazer um carro, querendo alugar um carro mensal.
+A: Uh-huh.
+C: E aí, pelo site, alguns números eu não consigo encontrar. E aí, quando eu venho aqui para o carro por assinatura, eu vejo muito mais modelos. Tem até BMW, tem o BIDI e tem vários. E é para
+A: Uh-huh.
+C: um executivo nosso de... Diretor, né?
+A: Sim.
+C: Então, assim, como que eu posso... Porque, assim, se eu venho aqui para cotar por assinatura, ele dá um período mínimo de todo... Como fazer essa assinatura mensal? Como que funciona? Porque ele queria esses carros mais prêmios, né? E até tem outros carros, tipo a Ram GS10 e o R200 e a Ramger que eu não consigo encontrar normal, né? Só na assinatura.
+A: Sim, sim, mas é aquilo que eu tinha te explicado. No aeroporto sempre puxa, entendeu? É porque não vai puxar alguns grupos aí prêmio, né? Não tem todas as agências, mas no aeroporto tem, tá? Mas BMW no rente AK de fato a gente não tem, tá? Só lá na questão... Só na
+C: E
+A: parte de frotas mesmo.
+C: aí teria que...
+A: Entendeu?
+C: Se a gente quisesse pegar BMW, seria nesse período mínimo de 12 meses de assinatura?
+A: Na verdade, Letícia, é a partir de 12, porque normalmente financeiramente falando compensa a partir de dois anos, sabe? Então você pode cotar... Eu vou pedir até um colega lá para te acionar? Porque melhor, eu pedindo aqui um contato mais rápido, eles fazem contato e te orientam com essas cotações. Mas assim, aqueles outros grupos de 4x4, o BID no aeroporto de Congonhas puxa disponibilidade. Lembra
+C: Então,
+A: que aquele
+C: eu não
+A: dia...
+C: consigo encontrar... Tipo, por exemplo, do dia 30 de
+A: Deixa
+C: junho
+A: eu
+C: ao
+A: simular
+C: dia 31
+A: aqui,
+C: de
+A: por exemplo.
+C: julho, sabe?
+A: Só me passa o seu e-mail só para eu pedir, estou pedindo alguém para te acionar lá na área, só me
+C: Sim.
+A: confirma seu e-mail.
+C: É
+A: Preciso
+C: letícia.
+A: colocar aqui no sistema
+C: Letícia.prudêncio@bsrsaude.com.br
+A: neticia.pslsaúde
+C: Isso.
+A: O telefone é esse que a gente conversa, né? Tá pronto. Não está aparecendo aqui para mim, Letícia. Fala para mim, por favor.
+C: O que? Os
+A: O
+C: carros?
+A: número 119-1961.
+C: Ah, tá! 11 e 9... 1961 [MASKED] É...
+A: Deixa eu simular aqui, porque eu lembro que aquele dia que a gente conversou, eu simulei e aí eu até te falei, pode simular no aeroporto que vai puxar? Aí você chegou a simular naquele mesmo dia?
+C: Sim, inclusive eu tô aberto aqui na
+A: Vamos
+C: parte de
+A: tentar...
+C: Congonhas Ele tem, por exemplo, a rampage né? Jeep tá mas o Jeep não interessa pra gente no momento Mas por exemplo o Audi Q3 está esgotado mas aí quando eu coloco consultar em agências próximas
+A: Isso,
+C: Não tem
+A: faz isso.
+C: nenhuma agência disponível, nenhuma, nenhuma, nenhuma.
+A: Pode ser para data. Mas o interesse de vocês no primeiro momento é um ano, né?
+C: Não, então a gente queria ver mensal,
+A: Nem só mesmo.
+C: né, 30 dias ou trimestral, mas um ano não. Um ano é muito tempo.
+A: É porque eu consigo te mandar uma tabela de mensal fixo, né? Ela vai ter os valores, tá?
+C: Tá...
+A: Aí todos os grupos... Deixa eu ver aqui. Vou te mandar no WhatsApp. Só um minutinho, tá? Está carregando aqui.
+C: Sim,
+A: Você consegue me dar um WhatsApp só para subir a nossa conversa?
+C: sim. Deixa eu mandar aqui. Mandei.
+A: Qual que é o grupo do que você falou mesmo?
+C: É que o grupo agora eu marquei só o número do carro. A Bia foi só um exemplo, tá? Mas é o RAM, né? O RAM eu consegui cotar o Audi Q3 GS10 e L200 ou a Ranger?
+A: Beleza? A L200 está no grupo P, que é o que você cotou de 4 por 4. Mas deixa eu te mandar aqui a tabela do mensal fixo. Acho que é melhor. O grupo P...
+C: Você falou que a Ranger está no grupo P, né? Que é o mesmo da GS10.
+A: Deixa eu ver aqui, ó. Tem a S10, a L200, peraí. Aqui é 4 por 4. Não arrumou isso. Acho que tá em outro grupo, peraí. Simular
+C: Deixa
+A: para o site é melhor. Dá uma olhadinha aí? Esses são de 4 por 4 que eu te mandei.
+C: eu ver aqui. Ah, tá. Certo.
+A: O Audi, só estou confirmando aqui, ele está aparecendo para você em qual grupo do Audi? Que
+C: O áudio,
+A: tem o
+C: peraí,
+A: Audi?
+C: deixa eu fazer aqui. O áudio Q3 está no grupo GS.
+A: Para mim não tem no mensal fixo aqui.
+C: Ah.
+A: Porque, assim, é um grupo novo e ele não está na nossa tabela de mensal fixo. Porque se tivesse, você
+C: É
+A: que queria ter pelo menos ideia dos valores, né? Que aí depois
+C: de
+A: sendo aprovado a gente correr atrás do carro. Mas aqui na web só dá para ver se tiver o carro. Está simulando aqui em Congonhas GS... Ó, apareceu o GS Qual KM que você quer saber o valor?
+C: mil ou dois mil, os dois?
+A: Eu simulei aqui uma data mais para frente, tá? Faz isso também. Coloca aí para você ver. Coloca do dia 7 do 7 a 6 do 8. Prazo de 30 dias.
+C: Então,
+A: Porque aí
+C: mas
+A: vai
+C: aí...
+A: aparecer...
+C: Tá, é, mas assim, por exemplo, a gente se fechar já ia querer para essa semana. Aí, por conta da disponibilidade que a gente está vendo na plataforma não ia ter, né? A gente ia ter que esperar por exemplo até julho. Vocês não
+A: Não,
+C: conseguem...
+A: aí o que... É porque assim,
+C: Ah,
+A: como no primeiro momento você quer saber o valor... É só para ter a tarifa. Aí o que eu faria?
+C: tá.
+A: Aí vocês aprovando eu ia verificar onde teria o carro
+C: Entendi, tá. Você falou do dia então 7 de julho, né?
+A: Entendeu? É, 7 de julho só para você ver a tarifa
+C: Pera aí, 7 de julho... Em Congonhas,
+A: Isso
+C: né?
+A: mesmo
+C: Tá.
+A: Esses carros mais prêmios é sempre no
+C: Ele
+A: aeroporto
+C: não... Ele
+A: tá
+C: não está esgotado mesmo no áudio.
+A: Para mim ele aparece Vou te mandar aqui o valor
+C: Isso.
+A: É mil e dois mil Ótimo, mandei comigo. Vou botar de dois mil agora.
+C: Essa tabela que você tem dos preços dos KMs de 3, 6 meses e 9 meses, você tem de todos os carros? Picape e SUV?
+A: PICAP e SUV sim, agora esses grupos novos, igual esse grupo GS é um grupo novo, tá? Ele não
+C: Uhum.
+A: está ainda aqui no mensal fixo, mas
+C: Ah,
+A: eu posso
+C: tá.
+A: te mandar dos outros grupos, de todos que tem.
+C: Tá, se puder?
+A: Entendeu? Tá,
+C: Uhum.
+A: eu te mando. O GS não está, o grupo NP não está, que é um grupo novo também.
+C: Uhum.
+A: É porque tem pouco tempo que eles estão sendo disponibilizados, então não tem tarifa mensal fixo para eles ainda.
+C: Uhum.
+A: Não tem
+C: Uhum. Uhum. Uhum. Entendi?
+A: na tabela, tá? Mas se você simular manual aqui no sistema aparece, por exemplo, pegando aqui... Esse grupo mesmo, né? Se eu simular aqui de três meses, ele aparece. Ele só não está ainda na tabela. Não passaram ainda para o sistema.
+C: Esse
+A: Entendeu?
+C: que você me mandou do áudio é para atenção completa? Quer dizer, plenio?
+A: É, a proteção completa. Eu já simulei com o seguro
+C: Tá,
+A: de terceiro criado e a proteção completa, tá?
+C: perfeito.
+A: Aí eu te mando aqui a tabela do mensal fixo. E assim, provavelmente vocês vão escolher um grupo prêmio, tem que ter um tempinho aí, viu Letícia? Porque é um grupo bem específico, principalmente esse que é novo na Localize, então a disponibilidade dele ainda é menor, né? Eles vão repondo aí de acordo com a saída, mas... Por exemplo, pode ficar um pouco em cima para a gente conseguir para essa semana, então vocês precisam definir o quanto antes para eu agir aqui e tentar achar o carro para vocês, tá?
+C: Tá, entendi. Eu vou passar para o nosso executivo, ele está querendo ver vários carros e vários modelos. E aí com o valor ele vai decidir depois, daí eu retorno com você.
+A: Tá, mas aqui eu tô achando estranho pra você na web não tá aparecendo porque a mesma visualização sua é a minha deveria
+C: Então...
+A: tá aparecendo depois qual vai de novo 7 do 7 a 8 a 6 do 8 porque
+C: Eu
+A: tá
+C: até
+A: aparecendo tudo isso pra mim
+C: coloquei mais para frente, agosto para setembro, né? E também não apareceu 7 do 7 e 7 do 8, vou colocar de novo. Um Congonhas... É,
+A: Aí eu seleciono
+C: ele dá como esgotado.
+A: o aeroporto de Congonhas que você selecionou?
+C: Isso.
+A: Porque tem duas
+C: Daí
+A: lá.
+C: eu coloco o consultar disponibilidade da agência mais próxima, aí ele dá a opção do Carrefour Brooklyn, Morumbi,
+A: Ah,
+C: Shopping Metrô Santa Cruz e agência Centro Otávio Tarquinho. Mas está tudo bloqueado.
+A: tá! Todas esgotadas também.
+C: Tudo
+A: Que
+C: esgotado
+A: estranho!
+C: assim. Vou tentar te mandar para você ver.
+A: Vê se está aparecendo para você e tem os outros grupos mais premium, aparece aí para você ver para baixo um pouquinho. O GS não está aparecendo, aí tem assim GY, grupo L, grupo LP está aparecendo para você?
+C: O grupo L também está esgotado, o LP também, GR também e o GP também.
+A: Deixa eu atualizar minha página aqui, peraí. Sei lá, às vezes quando eu entrei estava aparecendo e depois não deveria, viu? Tem que aparecer a mesma coisa para mim e para você simular de novo aqui. Peraí. O Monha Aeroporto 17h Está carregando aqui. Olha Tito está colocando no aeroporto mesmo né? Para
+C: Isso,
+A: mim apareceu atualizei a página aqui está aparecendo estranho
+C: congonha. Quer ver?
+A: você
+C: Deixa eu ver.
+A: manda o print aqui para mim só para eu ver como que está aparecendo
+C: Uhum, peraí.
+A: Se você puder fechar e abrir de novo... Porque tem que aparecer... O meu acesso não tem nada de diferente especial
+C: Deixar em...
+A: em Conjão?
+C: Tá,
+A: Não.
+C: eu vou fechar tudo aqui, vou entrar de novo. Peraí
+A: É, fecha
+C: na localiza.
+A: tudo aí. Fecha a tela...
+C: Desculpa. Onde você quer retirar o carro? Colocar aeroporto de congonha?
+A: É aeroporto de Congonhas dia 7 de julho a 6 de agosto.
+C: Que hora você está colocando? 6?
+A: Eu simulei 11 horas da manhã.
+C: 11, tá, eu vou colocar
+A: É.
+C: igual ao seu, tá?
+A: Tá.
+C: Tem dia 7 de agosto, né?
+A: Isso! Eu tô até pedindo uma colega aqui pra simular a mesma coisa lá pra ela também aparece tudo!
+C: Ó, vamos lá, aí vem aqui,
+A: Uhum!
+C: tá, o sedã está aqui, abaixando... Aqui já o grupo T e o TR aparece, que é as commanders e o Jeep. Aí, deixa eu ver... É, o Audi Q3 continua esgotado, o Audi A3 também, Jeep Commander também e o Equinox. Estranho?
+A: É muito estranho! Não deveria estar assim! Sim!
+C: E aí, mesma coisa, quando eu coloco nas agências próximas, tudo bloqueado também.
+A: Pois é, estranho mesmo. Enfim,
+C: Tá bom.
+A: tem mais algum que você queira além do GES? Que eu te mande?
+C: Deixa eu ver... Tem a BMW para X1?
+A: Não,
+C: Deixa
+A: no
+C: eu ver no 1, né?
+A: Rente AK não tem BMW, viu?
+C: Ah, é verdade,
+A: É
+C: você falou.
+A: só
+C: Uhum.
+A: lá na assinatura mesmo. Mas assim,
+C: Tá.
+A: eu pedi
+C: Uhum.
+A: alguém para entrar em contato com você também, porque de qualquer forma é bom você verificar as duas possibilidades.
+C: Uhum. Tá bom. Tá certo
+A: Tá?
+C: então.
+A: Aí eu te mando tabela do mensal fixo aí também?
+C: Ah, não, espera aí eu ia te falar
+A: Oi?
+C: da R200 e a S10, mas você já mandou, né? Tá bom.
+A: Não
+C: Tudo
+A: é
+C: bem,
+A: L200 que eu não mandei não. Quer que te mande? Eu te mando aqui.
+C: então. Na verdade
+A: Só
+C: se mandou
+A: foi
+C: com três
+A: o
+C: meses,
+A: do... Ah, não foi... Foi verdade.
+C: né?
+A: Não,
+C: Ah,
+A: eu te mandei mensal. Eu te mandei a tabela do mensal fixo e eu te mando aí mensal normal agora, tá?
+C: tá, pode ser então.
+A: E
+C: Ah,
+A: a Rampeje,
+C: sim então...
+A: ela está no grupo MP, ele aparece para
+C: NP.
+A: você aí?
+C: Deixa eu ver... NP né?
+A: É...
+C: Deixa eu ver... Sim, ah, é, aparece. Parece sim. Ah, então vou contar
+A: Isso,
+C: por aqui mesmo.
+A: o grupo P aparece também, está na mesma linha?
+C: Grupo P... Sim, que é GS10.
+A: Isso, então pode
+C: A
+A: fazer por aí também, tá?
+C: GS10 contempla qual mais? Porque está GS10 similares, né?
+A: Ah não, é a GM S10, é a S10 4x4
+C: Isso, então, mas está GS10 e similares. Esse grupo contempla qual?
+A: Ah, tá! Eu te mandei aqui no WhatsApp. Olha aí, você vê.
+C: Ah,
+A: É
+C: tá.
+A: o...
+C: É verdade. Grupo P.
+A: Isso!
+C: Isso. É isso mesmo.
+A: É
+C: Tá.
+A: o
+C: Ah,
+A: S10, L200, a Hilux, tá? E pode ter algum outro similar, mas normalmente é só esses mesmos. L200,
+C: tá bom.
+A: S10 e a Hilux.
+C: Tá bom.
+A: Ótimo!
+C: Beleza, então. Obrigada, viu? Tá bom.
+A: A gente vai conversando, viu? Qualquer dúvida me manda aqui,
+C: Tá
+A: tá?
+C: bom. Obrigadão. Tchau, tchau!
+A: Have the child.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06088848 | Data:2026-06-08 | Dur:46s | Sent:POSITIVE ===
+A: Alô, Jacleia?
+C: Alô?
+A: Localiza, tudo bem com você?
+C: Oi. Tudo?
+A: Que bom! Eu estou entrando em contato só para verificar se está tudo certinho com a construtora, se tem alguma demanda agora referente às locações para o segundo semestre em que eu posso auxiliar vocês.
+C: Tá tudo certo, tá? Por enquanto, tá bom?
+A: Maravilha,
+C: A gente não
+A: sem
+C: vai
+A: nenhuma
+C: estar
+A: previsão
+C: precisando
+A: no momento?
+C: por agora não tá?
+A: Ah, combinado então. Para eu poder atualizar
+C: Tá
+A: aqui
+C: bom?
+A: só os contatos, continua só você mesmo como contato ativo ou você gostaria de acrescentar mais alguém?
+C: É o mesmo tá?
+A: Combinado
+C: Tá
+A: então, qualquer coisa à sua disposição, tá bom? Obrigada,
+C: bom
+A: bom
+C: caso
+A: dia.
+C: bom dia
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06097510 | Data:2026-06-25 | Dur:431s | Sent:POSITIVE ===
+C: Pois não?
+A: Bom dia.
+C: Bom dia.
+A: Tudo bem? Eu gostaria de falar com a Miriam.
+C: A Miriam não se encontra.
+A: Entendi a Isadora eu falo aqui da Localiza, ela pediu um suporte...
+C: Ah, sim. Tenho que pedir.
+A: Tudo bem? Com quem eu falo?
+C: Bruna.
+A: Tudo bem, Bruna? É que tinham falado
+C: Aham?
+A: que era a Miriam que tinha entrado em contato...
+C: Não, a Miriam, ela saiu.
+A: A Miriam saiu?
+C: Ela não faz mais parte da empresa?
+A: Entendi... Então agora é você quem cuida das demandas de reserva, a Miriam não se encontra mais...
+C: Isso?
+A: Entendi, então a gente precisa de realizar o seu cadastro, né? Porque eu só tenho o da Miriam aqui e do Marcelo Zaya. Ele ainda integra
+C: Tá,
+A: o quadro dos funcionários?
+C: sim?
+A: Ele integra, tá. Aí vamos lá, qual que é o seu nome completo, por favor? Oi? Certo.
+C: Oi, bom
+A: Bom
+C: dia. Com quem eu falo?
+A: dia. Já adora, eu falo aqui da localiza?
+C: E agora vamos lá, meu nome é Ney Flamengo que eu posso te ajudar a Bruna agora vai estar à frente aqui tá das reservas porém nós não vamos ligar da senha no nome dela
+A: Entendi, o que acontece?
+C: Eu
+A: O
+C: vou continuar
+A: João Viz...
+C: com o condutor Marcelo, vou continuar com o condutor Júlio. Eu tenho o cadastro pela empresa, pela Watertech. Eu não consigo manter?
+A: Eu posso explicar o motivo da ligação?
+C: Sim, uhum.
+A: Tá, vamos lá. O José Vicente entrou em contato comigo, falando que a Neifa passou o contato para a Miriam solicitando um suporte. Por isso que eu estou entrando em contato. Aí a gente precisa de ter um responsável cadastrado juntamente ao cadastro da empresa para ter acesso às plataformas, seja webcorp, seja portal de faturamentos. gente precisa Então a
+C: Tá, então
+A: de
+C: pode
+A: ter um
+C: ser
+A: gestor
+C: nos
+A: cadastrado.
+C: meus dados, então.
+A: Tá, qual que é o seu nome?
+C: Neisla SLA,
+A: Com F, FL?
+C: isso.
+A: Tá, e o sobrenome?
+C: Polesel
+A: Só letra para mim, por favor.
+C: P-O-L-E-Z-E-L Zambell
+A: Só
+C: Z-A-M-B-E-L-L-E
+A: letra, por favor. Certo, seu cpf,
+C: [MASKED]
+A: por favor.
+C: 285
+A: [MASKED]
+C: [MASKED] e
+A: um seu e-mail
+C: neifla@watertech.com.br
+A: watertech watertech ponto com ponto
+C: correto
+A: br certo telefone para contato
+C: [MASKED]
+A: 19 9 96 90 [MASKED]
+C: e
+A: tem algum outro além desse
+C: [MASKED]
+A: 19 ddd [MASKED]
+C: Isso, [MASKED]. Isso.
+A: Certo, Neyfla, deixa eu te explicar. Todos os acessos aqui precisam e requerem de biometria facial. Então eu falei que precisava de cadastrar a Bruna porque ela quem atendeu e falou que solicitou um contato. Entendeu?
+C: Sim, eu que solicitei para ela fazer isso, correto?
+A: Pois é, por isso que eu sugeri que ela realizasse o cadastro dela, tá?
+C: Tá.
+A: Eu já habilitei o seu cadastro aqui e eu preciso que você redefina a senha para que você tenha acesso aos boletos, portais de faturamento, reservas e redefina a sua senha, faça a validação biométrica e que o Marcelo te aprove lá na plataforma para você ter todos os acessos liberados, tá bom?
+C: Tá.
+A: Aí eu te mando
+C: Tá.
+A: pelo WhatsApp?
+C: Pode ser?
+A: Pode ser esse
+C: Pode?
+A: com final 1907, né?
+C: Isso, 1447.
+A: Tá. [MASKED]. Esse 1907
+C: Isso.
+A: é o telefone de quem?
+C: É daqui da empresa.
+A: Que me chamou.
+C: Da
+A: Tá.
+C: empresa, tá?
+A: Certo. Tá bom, então. Aí a gente vai mantendo contato com qualquer coisa. Pode me procurar? Me manda mensagem? Me liga que eu oriento vocês.
+C: Tá,
+A: Tá
+C: Joel?
+A: bom?
+C: Qual que é o seu nome?
+A: É Isadora?
+C: Fiz agora.
+A: Isso. Tem alguma
+C: O seu
+A: demanda
+C: contato
+A: de locação
+C: é esse aqui?
+A: prevista?
+C: O
+A: Oi?
+C: seu contato... Deixa eu saber como que está aqui com a gente, peraí.
+A: É 23237092.
+C: 23, 23, 70?
+A: 92.
+C: Tá jóia.
+A: Tá?
+C: Tá bom.
+A: Aí, outra coisa que eu ia falar... Deixa eu me lembrar... Tem alguma demanda de locação prevista? Algo planejado por agora?
+C: Sim, mas a gente não conseguiu solicitar porque, Isadora? Eu estou com o condutor com o Marcelo e tenho um condutor Júlio. São dois condutores, tá? São os mais viagens. E o que aconteceu? A gente recebeu um e-mail da localiza com a fatura, tá? E só veio uma fatura. Não é para vir as duas, os dois condutores? Sendo que é o mesmo CNPJ?
+A: Não. São dois carros ou um carro só?
+C: Não é carro... A gente já faz locação, mas não de carros por mês
+A: Vocês fazem que tipo de locação?
+C: Locação quando eles viajam. Esporádica.
+A: Locações pontuais de aluguéis
+C: Isso,
+A: diários.
+C: exato. Exato,
+A: Foram
+C: aham.
+A: dois carros ou foi um carro só?
+C: Não, foram dois carros.
+A: Foram dois carros e veio uma fatura só?
+C: Veio só uma fatura e aí a outra ficou em aberta e eu recebi uma pendente do Serasa que estava atrasada a localiza.
+A: Deixa eu ver. Mas o portal... A fatura não vai chegar para você por e-mail. Você tem que acessar através do portal.
+C: Essa
+A: No
+C: chegou
+A: e-mail
+C: através
+A: vai chegar
+C: de
+A: só um
+C: e-mail.
+A: lembrete. Pois é, vai chegar só um lembrete.
+C: Tá,
+A: Aí
+C: então
+A: a
+C: sempre
+A: fatura
+C: tem que pegar
+A: mesmo...
+C: pelo portal.
+A: Isso, por isso que vocês têm que ter o cadastro,
+C: Tá,
+A: entendeu?
+C: tá.
+A: Aí eu te mando só um minutinho. Deixa eu ver se tem alguma fatura em aberto.
+C: Não, acho que
+A: Mas
+C: já
+A: eu
+C: acertei.
+A: não tenho, acabei de verificar.
+C: Eu acertei terça-feira passada, terça-feira agora que passou.
+A: Certo. Certo. Aí deixa eu te explicar uma coisa. O José Vicente não atende essas demandas do Rencha Carra.
+C: Ok.
+A: Então podem me mandar mensagem que em tempo abril eu vou responder vocês. Às vezes eu não consigo responder na hora porque eu estou em ligação, estou com algum cliente, estou em reunião. Mas assim que eu tiver um tempinho eu vou responder vocês e vou orientá-los, tá?
+C: Tá jóia
+A: Mas ele realmente
+C: agora.
+A: não vai conseguir ajudar nesse vocês tipo de demanda,
+C: Tá
+A: tá
+C: jóia?
+A: bom?
+C: Tá bom.
+A: Então tá
+C: Obrigada,
+A: certo, Ney.
+C: viu?
+A: Até logo. Por
+C: Até
+A: nada.
+C: essa...
+A: Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06100081 | Data:2026-06-25 | Dur:186s | Sent:POSITIVE ===
+C: Alô?
+A: Olá, bom dia.
+C: Bom dia!
+A: O que eu falo? Não consegui ouvir.
+C: Só o meu dia, eu vou passar para o Patrick, tá?
+A: Tá bom, beleza.
+C: Alô, bom dia!
+A: Olá, bom dia, Patrick, tudo jóia?
+C: Tudo certo!
+A: Tá bom, você quer que é Gabriela da Localiza?
+C: Isso!
+A: Eu tô entrando em contato para entender aqui em relação ao e-mail que vocês me enviaram? Eu não achei a fatura aqui no sistema, aquele
+C: Deixa eu...
+A: valor que você
+C: Eu
+A: me passou.
+C: até encaminhei em anexo também! Não,
+A: Mas é Eteobr, tem mais um CNPJ?
+C: só tem um CNPJ, pessoal!
+A: Aqui no portal de faturamento não tem essa fatura.
+C: É porque nós até pagamos, se tivermos que pagar para poder não entrar em protesto, entendeu? Deixa eu ver aqui esse...
+A: Foi essa de 2 mil?
+C: É 237.
+A: Ah, tá. Ah, tá. Tô procurando aqui 1.400.
+C: Esse 1.400 é que quando nós fizemos a reserva estava com esse valor aí quando finalizou a reserva devolveu um carro aí foi para 2 mil e pouco aí a
+A: Deixa
+C: nossa
+A: eu
+C: gerente
+A: olhar aqui.
+C: acabou pedindo a fonte de sustentação
+A: É, parece que foi algum erro mesmo do sistema. Aí como é que funciona? Esse e-mail que você me enviou a gente precisa encaminhar ele para assistência a clientes.
+C: sim
+A: E aí eles vão abrir um chamado lá e verificar. Eu vou te mandar o e-mail aqui, e aí você precisa abrir o chamado, porque eu não consigo abrir o chamado pelo cliente. E você pode me colocar em cópia que
+C: tá
+A: eu vou acompanhando?
+C: é
+A: Porque parece que realmente...
+C: só encaminhar
+A: Isso.
+C: esse mesmo e-mail com a mesma informação né do mesmo jeito posso encaminhar né
+A: Aí foram duas diárias mesmo, né?
+C: Isso foram duas diárias pegou no dia 5 do 6 e devolveu o 7 do 6
+A: É, devolveu no dia 7 16 e 49. Então deu praticamente três diárias, que foram duas diárias e cinco horas.
+C: tá entendi
+A: Então, eles vão verificar se foi isso que mudou o valor ou se tem como dar algum desconto de alguma forma, tá bom?
+C: tá certo
+A: Então combinado, eu vou ficar acompanhando por lá qualquer
+C: aí
+A: coisa...
+C: aí me encaminha por e-mail mesmo respondendo para todos que eu como que eu passo posso solicitar tudo
+A: Eu
+C: direitinho
+A: te mandei no WhatsApp,
+C: mandou
+A: você prefere que
+C: no
+A: manda
+C: WhatsApp
+A: no e-mail?
+C: É, se possível, pode estar encaminhando por e-mail também respondendo.
+A: Tá
+C: Que é bom
+A: bom,
+C: que
+A: então.
+C: fica a nossa diretoria acompanhando também.
+A: Ah, não? Beleza então! Vou te encaminhar!
+C: Tá bom?
+A: Tá bom?
+C: Tá
+A: Tenha
+C: certo,
+A: um bom dia.
+C: então.
+A: Tchau!
+C: Bom dia, tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06114955 | Data:2026-06-26 | Dur:906s | Sent:POSITIVE ===
+C: Boa tarde.
+A: Oi, boa tarde. Por gentileza, falou com o Venâncio?
+C: É com o Vânio?
+A: Ô Vani, desculpa, Vani, eu falei errado, me desculpa. Ô Vani, meu nome é Tatiane, eu falo aqui da Localiza Rente a Carte, tudo bem?
+C: Tudo bom, Tatiana? Tudo jóia?
+A: Tudo bem também. O Vânio, eu sou executiva gerente de contas, cuido aqui da parte de locação de veículos para PJ e
+C: Ah,
+A: eu recebi uma confirmação do seu contato com relação... Acredito que você compareceu em uma das nossas agências de seminovos com interesse em compra de veículo e aí demonstrou um certo interesse também na locação e é por isso que eu estou entrando em contato para... Para confirmar se realmente ainda segue essa informação de interesse na locação de veículo e entender aí qual que é a demanda da sua empresa.
+C: sim! Eu conversei com o CERN,
+A: Sim,
+C: ele é da parte de veículos lá, né? De venda de veículos. E aí
+A: sim,
+C: a
+A: ele diz.
+C: gente estava falando de uma necessidade nossa aqui que a gente tem. São 46 veículos
+A: Sim,
+C: pequenos, né? Ou Polo, ou Onix, ou HB20. E cinco caminhonetes. Aí é ou S10 ou é... Ai, Lux, né? Ou range. E aí ele me falou que há a possibilidade da gente... Na verdade, nossa demanda inicial seria de aquisição. Então a gente também está estudando locação. Mas ele falou que com a Localiza há a possibilidade de eu locar esses veículos por 12 meses e com 12 meses e um dia E ele falou que vocês conseguem me vender esse veículo.
+A: sim, sim,
+C: Ele
+A: exatamente,
+C: me
+A: sim.
+C: falou, só que não é comigo, é o pessoal lá de locação e tal, e aí
+A: Sim.
+C: ele passar o contato de alguém para a gente estar verificando isso, fazendo uma proposta,
+A: Perfeito.
+C: o que seja. Mas é basicamente
+A: Sim.
+C: isso que
+A: Tá.
+C: a gente está
+A: É
+C: estudando.
+A: o Vânio... E hoje você tem CNPJ ativo então, né?
+C: Temos, temos.
+A: Tá.
+C: Tá,
+A: E essas
+C: deixa eu
+A: demandas
+C: te apresentar.
+A: realmente seriam...
+C: Eu trabalho... Eu
+A: Pode
+C: sou de suprimentos
+A: falar?
+C: da Rota Mogiana. A gente é uma concessão de rodovia nova. Nós
+A: Sim,
+C: arrematamos um trecho de Campinas, vai até Cajuru, perto de Ribeirão Preto, são 520 quilômetros. E a gente já inicia aí toda essa operação abandeirada 1º de novembro. Então a gente está correndo atrás fazendo esses estudos, aquisição versus locação de
+A: sim.
+C: todas essas demandas para esses veículos aí dentro desses veículos tem veículo operacional e tem veículo administrativo
+A: Eu sei. Pronto. Dentro da necessidade da empresa, com certeza a gente tem uma vasta frota para poder atendê-los. A gente hoje tem a parte de rente a car, que são as locações de fato até 12 meses, só para você entender como que funciona. Nós temos vários grupos de veículos que atendem os modelos que vocês têm interesse por exemplo, e nós temos também a parte de terceirização de frota para locação também a longo prazo, locação para 12 meses,
+C: Entendi
+A: 24 meses, 36 meses, aí vai de acordo com a necessidade da empresa, tá? Então,
+C: Para
+A: eu sou gerente
+C: a
+A: de
+C: gente...
+A: contas que... Sim.
+C: O que a gente está fazendo? Na verdade, está se fazendo uma cotação direto com a fábrica. e também está fazendo esse estudo para alocação. Esses veículos
+A: Sim.
+C: têm que ter até os pequenos, esses são dois anos. Então, eu só consigo alocar com dois anos. Depois de dois anos, até exige que eu troque eles. As caminhonetes eu...
+A: Uh-huh.
+C: Mas dá para a gente trabalhar com dois anos. Aí o Sérgio me falou dessa questão de que a localiza também tem essa opção da gente locar por 12 meses.
+A: Uh-huh.
+C: Ele falou cara fez 12 meses e um dia eu consigo te vender. De repente se for viável os números vão mostrar né? Então é basicamente isso
+A: Uh-huh.
+C: que a gente A gente queria
+A: Tá.
+C: ver
+A: Tá.
+C: com essa diferença entre o local ou fazer essa opção de locação depois a conta.
+A: Não, perfeito. Como você já está fazendo aí alguns levantamentos, algumas cotações, é só para te explicar que independente da modalidade que vai atender, né? Que vai te
+C: Uhum.
+A: chamar a atenção aí para fechar negócio, a gente precisa seguir primeiro com o cadastro, né? A aprovação da empresa para ir apresentar as condições que nós temos. Isso tanto
+C: Uhum.
+A: para a questão da alocação... de curto prazo, locação de longo prazo e também a parte de compra de veículo assim como você pode identificar né? Você quer me
+C: Uhum.
+A: passar o
+C: Uhum.
+A: CNPJ da empresa? E
+C: Passo,
+A: aí seu e-mail, nome completo eu
+C: tá?
+A: vou fazer o
+C: Vou
+A: pré-cadastro
+C: pegar o
+A: da
+C: CNPJ.
+A: empresa
+C: Eu não sei o CNPJ do... O CNPJ é novo, o que acontece? Como que funciona a concessão? A nossa, um grupo de investidor que é a... As Evelas Travassas, eles são construtoras, o grande e eles têm um braço de fundo de investimento. Eles em conjunto com a Quimassa, que também é uma empresa grande do ramo de pavimentação tudo, eles formaram esse consórcio e eles adquiriram esse leilão. O nosso CNPJ é novo, porque foi criado
+A: Ele
+C: depois disso. Mas
+A: foi
+C: eu te
+A: criado
+C: falo aqui...
+A: sem quanto tempo?
+C: Eu acho que eles criaram em março. Mas assim, eu tenho a documentação das TVs para vaso, tenho a documentação daqui em março, de tudo também.
+A: Tá, mas aí essas demandas precisariam ser nesse CNPJ novo.
+C: Ah sim, quem vai locar mesmo vai ser... Tem que ser pelo nosso né? Até existe...
+A: Yes. Tá,
+C: A
+A: porque
+C: gente
+A: assim,
+C: não consegue fazer isso.
+A: a nossa análise é feita a partir de um ano de criação do CNPJ, tá?
+C: Sei,
+A: Quando
+C: sei.
+A: a gente utiliza, quando de repente o CNPJ tem menos de um ano que é o caso de vocês, para a gente pedir uma reavaliação no caso de... Porque o próprio sistema recusa direto quando tem menos de 12 meses.
+C: Sei.
+A: A gente pede reavaliação se de repente é uma empresa de grupo a qual a gente já tem CNPJ ativo, por exemplo? Você tem algum CNPJ ativo hoje com a Localiza que seja do grupo da concessão que vocês precisam da Rota Mogiana?
+C: Tem os dois CNPJ das empresas que são donas da rota logiana, as EV Travassa
+A: Não.
+C: e empresas centenárias.
+A: Eu sei, mas eu digo assim, com a Localiza não tem cadastro ainda.
+C: Aí eu não sei,
+A: Não
+C: eu não faço
+A: sabe, né? Tá.
+C: parte do quadro deles,
+A: Sim.
+C: mas eu posso te passar o
+A: Me
+C: CNPJ
+A: passa
+C: deles.
+A: no... Pronto, me passa
+C: O meu
+A: aqui
+C: eu
+A: os
+C: te falei?
+A: primeiros... É, me passa o novo e depois você me passa o outro porque aí eu vejo se tem cadastro aqui ou não.
+C: O nosso é [MASKED] agora deixa eu ficar só o deles
+A: Esse é um CNPJ antigo? Pode ser que já até tenha cadastro aqui com a gente, aí fica até mais fácil também. O Rota Mogiana foi criado em abril de 2026.
+C: é de agora ó às
+A: Sim,
+C: vezes para faça investimentos você quer anotar
+A: pode falar?
+C: [MASKED]
+A: 40?
+C: é isso
+A: Deixa eu dar uma
+C: E
+A: olhada
+C: tem daqui
+A: aqui.
+C: massa, pelo daqui massa. Aqui massa pela composição talvez tenha mais chance. Eles têm muita empresa pedreira das condições.
+A: Eu vou ter que verificar com as áreas de cadastro se de repente o da Azevedo já tem, porque aqui para mim não apareceu,
+C: Mm-hmm.
+A: mas eu vejo direitinho.
+C: Eu acho difícil porque, na verdade, esse sócio,
+A: Sim,
+C: vamos dizer assim, é um grupo de investimento da
+A: eu sei.
+C: ZV Travassos. Existe a construtora ZV Travassos e
+A: Sim,
+C: eles têm esse prazo de investimento que é quem entra nessa sociedade.
+A: sim.
+C: E tem o da Massa também, que é o outro acionista que eu te passo.
+A: Pode falar?
+C: É o
+A: Sim.
+C: [MASKED]
+A: Eu vou consultar a área de cadastro. Esses dois últimos não apareceu. Mas não tem problema não. É bom que eu entendo qual é a demanda? Vou direcionar, inclusive, eu vou direcionar também o seu contato, me passa o seu e-mail. Eu vou direcionar também o seu contato para a nossa equipe de gestão de frotas, tá?
+C: Entendi.
+A: Equipe de gestão de frotas e contratos a partir de 12 meses também. Que aí você... Lá eles também entram em contato, entendem a demanda, vai te apresentar as condições no caso da... A aprovação do cadastro e vão seguir também. É bom receber mais do que uma opção de, inclusive, de propostas, né? E aí
+C: O
+A: eu
+C: que a
+A: reparto.
+C: gente está fazendo é um estudo ainda para ver
+A: Sim.
+C: qual a melhor viabilidade dentro do
+A: Sim.
+C: que o pessoal imagina. Ou a aquisição toda, ou locação, ou essa locação quebrada, vou te fazer isso aí.
+A: Me fala, Vânio, então o total de veículos seriam os 46 ou você
+C: São
+A: vai
+C: 46,
+A: começar a ser lá?
+C: aí eles especificaram ou polo ou onix ou pera o HB20. A única exigência que eles colocaram é retroviso elétrico, que é de
+A: Aham.
+C: segurança e multimídia
+A: Aham.
+C: mecânico
+A: Tá. E aí
+C: automático.
+A: cinco caminhonetes também, né?
+C: E cinco caminhonetes. Aí é
+A: Tá.
+C: ou S10 ou Rangel ou Rai Lúcio, eu acho.
+A: Aham.
+C: Acho que é o mais sai. Tem aqui mais...
+A: Sim. Tá. Só estou anotando aqui para passar também para a área. Eu só vou confirmar, Vânio? Me passa o seu e-mail?
+C: Como é Vânio com V,
+A: É
+C: Vânio,
+A: zanilvanyo@silva
+C: isso. Ponto Silva, arroba rotamogianasp.com.br
+A: rotamogianasp .com .br Então,
+C: A gente também
+A: Vânia...
+C: tem os documentos...
+A: Sim.
+C: A concessão hoje em dia existe uma concessionária, a gente também tem os documentos dessa concessão com faturamento e tudo o pessoal
+A: Pronto,
+C: também pede para...
+A: sim, sim. É, geralmente quando... Por exemplo, quando a empresa tem uma negativa de crédito para seguir com demandas de locações, a gente pode pedir uma reavaliação realmente mediante documentação financeira. Então pode ser solicitado o balanço da RE balancete e termos SRE de assinatura dos sócios. Mas deixa eu só confirmar a questão do...
+C: Não,
+A: Se os
+C: tranquilo.
+A: demais...
+C: Sim, para
+A: A NPJ
+C: a gente é
+A: tiver?
+C: tranquilo. Eu
+A: Tá.
+C: já passei por isso. Na verdade, o problema é que você forma uma empresa nova e histórica do zero, né? Mas tem pai rico, né? Aí você tem que provar que o pai é rico para trabalhar numa
+A: Sim.
+C: empresa em BH de cimento que era nova até que tinha comprado umas unidades da Lafarge e da Rosinha, era novice também. Aí imagina-se de tocar quatro fábricas com CNPJ novo. Aí toda
+A: É,
+C: hora pegava os dados da matriz lá da Ilana para passar. Era confusão danada.
+A: o processo de análise não adianta, né? Só muda de
+C: Ah,
+A: empresa, mas o procedimento é o mesmo aí. É válido... Questão de segurança não tem jeito, não tem como
+C: não.
+A: fugir
+C: É garantia,
+A: disso.
+C: né? Assim,
+A: É verdade.
+C: você vai pegar 46, 51 veículos e botar na mão de...
+A: Sim, então tá bom, Lani. Vou fazer esse levantamento com relação às demais CNPJ, ver porque esse novo que vocês precisam das demandas, como é um novo CNPJ, ele teria que ter no mínimo um ano aí para a gente fazer análise de aprovação, mas eu vejo que eu consigo aqui internamente e qualquer coisa a lá gente volta a se falar então, tá bom? Eu te ligo novamente.
+C: Tudo bem, tudo jóia. Combinado.
+A: Então, só para te explicar, pode ser que outro executivo entre em contato com você também,
+C: Tá.
+A: tá bom? Por conta da região do CNPJ, se já tiver cadastro, aí tem tudo isso também, tá bom? Oi? Alô?
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06125877 | Data:2026-06-19 | Dur:168s | Sent:POSITIVE ===
+C: Você ligou para Fluidra Brasil. Digite 1 para vendas, 2 atendimento ao cliente, 3 assistência técnica, 4 suprimentos, 5 contas a receber, 6 contas a pagar, 7 comex ou aguarde para ser atendido. Fluidra, bom dia?
+A: Bom dia, com quem eu falo?
+C: O Ariel, tudo bem?
+A: Oi Ariel, aqui é a Ana da Localiza. Tudo bem e você? Eu vi sua mensagem aqui no e-mail, aí eu estou retornando para só te explicar por ligação mesmo sobre o cadastro de vocês aqui. Você pode falar agora?
+C: Posso falar assim?
+A: Ah, então tá bom, vamos lá. A empresa de vocês, a Fluida, ela está com crédito disponível para a locação, tá tudo certinho. Só que eu estou sem gestor cadastrado aqui para fazer a reserva. Eu tinha o contato da Rúbia, ela ainda faz parte aí da empresa?
+C: Fazer...
+A: Ah, então tranquilo então. As nossas reservas são feitas pelo portal Pessoa Jurídica. Você tem acesso?
+C: Não tenho esse acesso.
+A: Não,
+C: Acredito
+A: né?
+C: que a
+A: Ah,
+C: gente
+A: não.
+C: teria que criar um... Não
+A: Isso.
+C: sei se eu preciso pedir para ela liberar, então...
+A: Eu te mando o link e eles liberam... A gente cria um acesso para você. A última locação foi em janeiro de 2025, eu acredito que vocês estejam sem acesso mesmo, tem bastante tempo.
+C: Então
+A: E
+C: já
+A: sobre...
+C: vou agilizar
+A: Pode falar,
+C: isso
+A: desculpa.
+C: também. Não, já vou agilizar esses dados, talvez que você precise.
+A: Perfeito, a gente atualiza bem rapidinho. E sobre a alocação, é para quando e onde?
+C: É para o dia 13 do 7 ao dia 17
+A: Aham,
+C: do 7 em Chapecó.
+A: ah não, perfeito. É algum carro específico?
+C: Na verdade, eu acho que no portal vou ali olhar por grupos,
+A: Aham.
+C: porque a gente tem uma definição, depende da hierarquia
+A: Ah,
+C: do colaborador, aí
+A: entendi.
+C: o que encaixar ali no valor?
+A: Ah, não, perfeito. Então vamos atualizar o cadastro? Aí eu libero o seu acesso e lá dentro você consegue ver valor? Consegue ver o que tem disponível? Ver tudo o que tem lá na agência de Chatecol? Pode ser assim?
+C: Pode ser, perfeito. Então, se você puder
+A: Então
+C: responder
+A: tá.
+C: ali no e-mail o que você precisa, daí eu já te envio.
+A: Perfeito, Ariel! Vou te mandar por lá então! Obrigada!
+C: Tá
+A: Viu?
+C: bom? Obrigada e eu tchau,
+A: Até
+C: tchau!
+A: mais! Tchau tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06135414 | Data:2026-06-26 | Dur:666s | Sent:POSITIVE ===
+C: Oi?
+A: Bom dia, Antônio.
+C: Bom
+A: Tudo bem?
+C: dia.
+A: Vamos lá. Quando você tem entrado, você está entrando por qual navegador?
+C: Bom, eu só aperto no link aqui, aí já vai saber qual que vai abrir. Acho que é o do Safari
+A: O
+C: mesmo.
+A: Safari está indo... Tá, então vamos tentar
+C: É.
+A: novamente. Eu vou te mandar... Aí você vai em Esqueci a minha senha 6340.
+C: Aham. Abrei aqui. Aí o acesso é aquele mesmo 71...
+A: Aí você vai digitar o login, né? que é o 716340.
+C: Aham. Aí esqueci a senha.
+A: Isso.
+C: Sim, você tem o 6340, né?
+A: Exato.
+C: E aí esqueci minha senha. Aí eu coloco para esquecer minha senha, aí pede o login e o e-mail.
+A: E isso aí você vai digitar o seu login, que é o 716340.
+C: Tem
+A: E o seu
+C: o
+A: e-mail.
+C: 6340, né? Porque o CNPJ é bem mais em conta do que o professor Físico, né?
+A: Você vai realizar a alocação no diário ou no mensal?
+C: Não, só uns quatro, só três dias.
+A: O diário é oscila, tá? Às vezes o CNPJ está mais em conta, às vezes uma pessoa física está mais em conta. Aí depois que você foi, apareceu para você até a linha de redefinir agora? Aí você está digitando a nova senha?
+C: Sim. É decidir agora.
+A: Aí
+C: A nova ceia.
+A: a senha você manda algo do tipo assim, ó, vou te mandar.
+C: A ceia?
+A: É, tem que ter letra grande, uma letra maiúscula, tem que ser uma senha forte acima de 12 números, letras, enfim. Aí você vai colocar número e um carácter especial. Coloca esse carácter especial para ver.
+C: Tá, eu criar a ceia, né?
+A: Isso.
+C: Tem que ter 12 números?
+A: 12 números não. Letras, letras, números e caracteres. Tenta fazer acima de 12. A senha,
+C: Pois é, você tá falando que tem que ter acima de 12 números?
+A: para ela ser uma senha forte, ela tem que ser acima de 12 ao todo, não é 12 números, tá? Palavras, números...
+C: Vamos lá, colocar aqui para o nosso... Aí tem que manter os coques, eu acho. Preferência de coques. Ok, eu acho que é. Eu cliquei aqui, mas... Estou vendo algum só aqui. Ah, confirmado. Aí coloca o telefone, né?
+A: O seu número?
+C: Aí apareceu um QR
+A: Sim.
+C: Code
+A: Aí é por isso que seria bom se você tivesse no notebook. Tem a opção de enviar SMS? Vê se chegou algum SMS
+C: Chegou
+A: para você.
+C: não
+A: Você tem outro celular que consegue fazer a leitura desse QR Code?
+C: Nem não só tá aí ok Então por isso vai ter que... Aí tem só opção Ok É... Eu vou botar aqui Aparece aqui a opção se chegou reenviar para o SMS, mas aí tipo não
+A: E
+C: aparece. Se aperta e clica aqui, não está disponível.
+A: não está dando para ir por SMS?
+C: É, tipo aparece o nome, mas ele está tipo inativo. Aí zerou tudo de novo aqui, voltou tudo na aldada.
+A: Tenta só mais uma vez. Porque nesse caso, como você não tem nada para fazer a leitura de QR Code, vai ter que chegar para você um SMS certo?
+C: Está de novo aqui. É botar o louquinho 71 a 340 e meio novo.
+A: Isso, vai esquecer a minha senha, depois você coloca o seu login e a sua nova senha. Desculpe, seu login e o seu e-mail. Deu certo?
+C: Não vai chegar o SMS, eu estou em modo avião na Starlink. Não vai chegar isso aí, gente.
+A: Não entendi.
+C: Chegar por e-mail...
+A: Não, o SMS não chegou por qual motivo?
+C: É porque eu estou em modo avião, porque eu estou na Starlink, entendeu? Aí estou no modo avião, estou fora do sinal pessoal da
+A: No
+C: internet.
+A: modo pior não vai chegar mesmo, não, porque você tem que clicar com a sua
+C: É... É...
+A: linha
+C: Tá.
+A: ativa.
+C: Eu tô na estrada, então vai ter que fazer isso quando eu estiver na cidade.
+A: Quando tiver com o celular funcionando?
+C: Então tá, quando eu estiver na cidade eu te dou um alô aí de novo, tá?
+A: Não, perfeito então.
+C: Obrigado, tal abraço.
+A: Por nada, tchau, tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06137712 | Data:2026-06-19 | Dur:93s | Sent:POSITIVE ===
+C: Qual a logística? Boa tarde, Grazi!
+A: Oi, Grave, boa tarde! Aqui é o Breno da Localiza, posso falar com o Leonardo ou o Diego?
+C: Qual que é o seu nome?
+A: É Breno, sou da Localiza Aluguel de Carros.
+C: Breno, deixa eu só verificar ali se o Diego consegue te atender agora só
+A: Já
+C: um momento.
+A: é obrigado!
+C: Breno?
+A: Oi, pois não?
+C: Quer
+A: Oi, Grazi.
+C: deixar algum contato aqui lá agora? Tá meio errado e não tá certo também.
+A: Não, não, eu volto a ligar. Então manda aqui também um e-mail com meu contato.
+C: Então...
+A: Obrigado, viu, Grazi? Eu só
+C: Por
+A: pedi
+C: nada.
+A: para você aguardar na linha para avaliar meu atendimento, tá bom?
+C: Tudo
+A: Muito obrigado.
+C: bem? Nada. Tchau, tchau.
+A: Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06140188 | Data:2026-06-10 | Dur:121s | Sent:POSITIVE ===
+A: Alô, bom dia, é o Diego?
+C: Bom dia,
+A: Oi Diego, é a Ângela aqui da Localiza, tudo
+C: ele.
+A: bom?
+C: Não?
+A: Bom também. Estou passando só para saber, amigo, tem alguma demanda de locação? Como é que está passando aí esses últimos dias e previsão para os próximos
+C: Não, cara.
+A: meses?
+C: O negócio é o seguinte, ó.
+A: Hum...
+C: Eu sou birrento, sabe?
+A: Entendi!
+C: E aí eu tive um problema com a localiza e eu jurei pro meu atendente lá que eu denuncia mais ia pegar um carro da localiza. E aí eu tô fazendo isso? Não tô pegando, pego da concorrência e não pego mais a localiza Por uma questão de 50 reais, te ver como valeu
+A: Puxa!
+C: tão pouco o incômodo? E aí
+A: Entendi!
+C: eu falei, não, não, não vou mais, não quero, não quero mais localizar. Se vocês falaram que ia ser assim e não foi assim, não quero mais.
+A: Entendi, Diego. Sinto muito aí pelo ocorrido. Eu agradeço. Não agradeço
+C: Sim,
+A: mesmo acho que você está certo de colocar bem claro o que ocorreu isso é o mais importante e a maioria das pessoas não
+C: sim,
+A: fazem isso
+C: sim.
+A: e de acordo com isso a gente evita de melhorar né então essa conversa nossa ela é monitorada então pode ter certeza que vai ser ouvido que você disse, tá? E mais uma vez eu vou te pedir desculpa, amigo.
+C: Sim. Não,
+A: Eu estou
+C: tá tranquilo.
+A: aqui para te atender, mas eu não consigo levar o processo até
+C: É,
+A: o final,
+C: não,
+A: né?
+C: não.
+A: Ali
+C: Sim,
+A: na agência,
+C: sim, sim,
+A: até na ponta.
+C: sim.
+A: Se você precisar
+C: Não,
+A: de alguma
+C: mas...
+A: coisa, você me assona, tá Diego?
+C: Não,
+A: Você tem meu WhatsApp?
+C: te aciona. Pode ficar tranquilo.
+A: Tá legal.
+C: Por enquanto,
+A: Obrigado
+C: por enquanto...
+A: então.
+C: Até passar a mágoa vamos deixando...
+A: É, daqui a pouco passa, tenho certeza.
+C: Até que a pouco passa.
+A: Valeu,
+C: Tá
+A: Diego,
+C: beleza?
+A: um abraço!
+C: Um abraço! Tchau, tchau!
+A: Valeu, tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06143110 | Data:2026-06-12 | Dur:221s | Sent:POSITIVE ===
+A: Amanda, boa tarde.
+C: Oi Amanda, aqui quem fala é Bia Paba da Citrus BR, tudo bem? Acho que a Célia costumava falar com você.
+A: Tudo bem, você?
+C: Tudo bem, tudo bem. Amanda, vê se você pode me ajudar. Eu estou aqui na localiza aqui de Congonhas, eu vim devolver o carro a pedido da localiza para fazer substituição acho que o carro vai ser vendido tá e aqui eu estou no guichê aqui desculpa qual é o seu nome amigo como eu estou aqui com a Islan que está me atendendo e aqui no sistema dele está aparecendo que o carro ele está alugado até o dia 19, amigo, é isso? Até o dia 19, o nosso contrato é mensal e também está pedindo aqui o pagamento aqui, só que é faturado. Então, eu queria ver se você consegue me ajudar.
+A: Tá, peraí só
+C: É
+A: um minutinho. Deixa eu só a localizar. Me fala a razão social é cítulos?
+C: a Associação Nacional dos Exportadores de Supos Cítricos.
+A: Tá, beleza, porque eu estou procurando aqui pelo nome, só cítulos não está dando, peraí. Exportadores de sucos, achei. Deixa eu ver se eu entendi tem alguma tendência financeira?
+C: Eu acho que pode ter sim porque a gente teve um problema na conta essa semana.
+A: Deixa eu verificar aqui
+C: Porque qualquer coisa, o que acontece? Eu posso fazer aqui o seguinte, a gente altera a data, eu deixo por um mês inteiro, pago com cartão de crédito aqui e aí depois o próximo fatura, entendeu?
+A: Mas eu acho que não é por conta dessa fatura, não. Eu acho que o contrato está vencido. Deixa eu confirmar aqui que a fatura venceu tem só dois dias.
+C: É, então. Não era para
+A: Não,
+C: ser o problema.
+A: eu acho que não é isso não. Eu acho que pode ser que ele não soube explicar. Deixa eu só conferir se é isso mesmo. Peraí. Eu acho que o contrato está com retorno vencido e você não consegue. Não, não tá. Qual que é o nome? Repete o nome da pessoa que está em contato com você. É a Islan?
+C: Islan, né? Islan, isso. Eu tô aqui na... Aqui em Congonhas, ele tá no guichê 3 aqui.
+A: É o Islan Mendes? Só pergunta ele por gentileza.
+C: Islan Lin isso? Mendes,
+A: Mendes?
+C: isso é... Islan Mendes isso.
+A: Tá. Fala com ele que eu estou chamando ele no Teams agora só
+C: Ele
+A: para ele me
+C: tá
+A: responder,
+C: chamando você
+A: só
+C: no
+A: para eu entender...
+C: time. Tá, ele já vai te localizar aqui.
+A: Tá, esse número que a gente está conversando é o WhatsApp?
+C: É, WhatsApp também.
+A: Eu vou te mandar um oi aí, só para eu entender com ele o que está acontecendo, porque
+C: Tá
+A: às vezes
+C: bom.
+A: tem alguma coisa que está aqui para mim, aí eu já te falo aí no WhatsApp, viu?
+C: Tá bom, obrigado. Mas vamos tentar resolver, tá? Pra não ter descontinuidade.
+A: Não, com certeza, porque assim, o cadastro para mim não está negativado. Se ele tivesse negativado, eu já te falo de fato eu não consigo fazer nada, eu ia te sugerir pagar via Pix, mas aqui para mim ele não está negativado, então precisa entender qual que é o bloqueio aí, tá?
+C: Tá
+A: Eu já te falo
+C: bom.
+A: aí, tá bom?
+C: Tá bom, obrigado, viu?
+A: Nada, tchau.
+C: Pessoal.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06163798 | Data:2026-06-09 | Dur:389s | Sent:POSITIVE ===
+C: Você ligou para BM Strap. Digite o ramal desejado ou aguarde para ser atendido. BM Strap, bom dia.
+A: Bom dia, Cristina da Localiza Aluguel de Carros com quem falo!
+C: Com a Natália?
+A: Ô Natália! Prazer falar com você! Tudo bem?!
+C: Tudo bem, você?
+A: Tudo ótimo. Eu ligo porque eu acompanho aqui a conta da ABM para a indústria conosco na localiza. O nosso
+C: Uhum.
+A: contato aí geralmente que está aqui no sistema de registro é Marcelo, Leandro, Gustavo. Eu consigo falar com algum deles por esse contato?
+C: Deixa eu ver aqui só um minutinho.
+A: Tá ótimo. Obrigada, viu?
+C: Nada
+A: Oi, bom dia! Cristina da Localiza Aluguel de Caras com quem falo? Leandro, prazer falar com você mais acompanhando aqui a conta da Estrata e conosco aqui na Localiza, né?
+C: Leandro?
+A: Aí seria para verificar mesmo como é que estão suas demandas. Eu verifiquei aqui que vocês tiveram uma reserva recente, se vocês estão conseguindo acessar a plataforma da WebCorp, né? Se essa gestão fica mais com você, o seu Gustavo também continua. Aqui também tem Marcelo, né?
+C: O
+A: Se a gente pode manter esses outros contatos aqui e... E por último, tem Mike também. Então, a gente também acompanha para fazer as atualizações, né? Se é alguma atualização necessária. E se você consegue me falar um pouquinho
+C: do
+A: sobre essas demandas aí da...
+C: Mike pode tirar, tá? Então ele não faz mais parte do quadro,
+A: Deixa
+C: então pode tirar.
+A: eu abrir aqui... Ele não atua mais?
+C: Não, saiu semana passada.
+A: Ah, então foi recente, né?
+C: Isso.
+A: Tá, vou colocar aqui a sua observação. E fica... É mais você então, né? Que fica com toda essa gestão, não é
+C: Na
+A: isso?
+C: verdade o pessoal liga, né? Às vezes tem o pessoal aqui do comercial a fazer ligação tudo, só que a autorização fica por conta minha, do usuário, do meu usuário, né?
+A: Isso.
+C: Então...
+A: É, aqui para
+C: Isso.
+A: mim está dessa forma mesmo. Por exemplo, eu vi que em algum momento eles podem ligar na nossa central de reservas, né? Solicitar reservas focadas por telefone, mas aprovar só fica com você mesmo, né Leandro? Tá, deixa eu colocar aqui. Ô Leandro, e quando você entra na WebCorp você tem alguma dificuldade para acessar lá a plataforma?
+C: Não, não. Agora
+A: Não.
+C: que eu estou tendo o problema é que
+A: Sim.
+C: antigamente vinha um e-mail com... Vai, alguém fez uma solicitação na alocação e vinha um e-mail para mim, né? Aí eu olhava para ver quem era aqui tudo, quem fez o pedido, essas coisas todas, só que agora não vem mais. Aí às vezes o técnico chega lá na loja e fala assim não tem aprovação. O pessoal falou assim não aprovou? Eu falei lá mas não estou sabendo de nada?
+A: Mudou, viu, Leandro? Já tem um tempinho que está dessa forma mesmo. É para dar mais segurança aí para a BM Strap, né? Para nossas empresas parceiras que atuam com a localiza assim... Porque antes, como ela está sendo liberada alguns... Esse recente foi o Wilson, né? Inclusive retirou o veículo hoje, certo? Então, por exemplo, vamos por... O Wilson ligasse lá na central de reserva, mas ele não era autorizado. Então ele ligaria com... Eu não tornaria a reserva por lá. Às vezes você recebeu o e-mail mas já com a reserva confirmada não sei se você lembra antes não era necessário essa aprovação na web corp né não sei se você quem fazia essa gestão toda e antes também aí mudou de uns tempo pra cá realmente tá dessa forma então por isso que eu tinha em contato para poder orientar
+C: Isso.
+A: para poder acompanhar ela só queria ver se deu tudo certo com essa reserva né foi retirada hoje e quando E se a gente pode manter as outras pessoas que estão lá no cadastro também, né? E você já pediu aqui para atualizar, estou mantendo só você mesmo, tá?
+C: Ok, então.
+A: E o bom é que vocês aí, quando você entra lá, mostra também quem é que vai aprovar. Nesse caso, você quer que libera mais alguém que possa aprovar junto com você ou não? Centraliza só
+C: Não,
+A: em você
+C: não.
+A: mesmo, Leandro?
+C: Isso, melhor.
+A: Tá, perfeito. Ô Leandro, e essas reservas que você faz de aluguel diário, vocês têm alguma demanda no momento de aluguel mensal também? Só para acompanhar isso com você também.
+C: Não, o mensal eu tenho uma forma com vocês.
+A: Ah, você falou com a nossa gestão de frotas, né?
+C: Isso, já estou...
+A: Ah, sim. Desculpa, porque a gente atende... Tudo é localiza, mas o sistema que não integra, tá? Eu atendo vocês pela localiza Rente AK. Que essas demandas avulsas a gente também atua com mensal, mas é o mensal curto prazo até no máximo 12 meses, né? Então tudo que for acima de 12 meses é direto para o nosso time lá da gestão de frotas por onde você já atua também. Tá Leandro?
+C: Ah, legal.
+A: E está tudo certinho lá com... A gente tem acesso ao executivo que atende vocês lá também, tá? Se precisar,
+C: Ah,
+A: você quer
+C: não,
+A: lançar
+C: está tudo
+A: meu
+C: certo.
+A: telefone? Oi? Desculpa.
+C: Está tudo certo lá?
+A: Tá, você quer que... Você pode dar um oi aqui no seu WhatsApp só para você ter os meus contatos diretos também se precisar ou você tem salvo aí meu e-mail, meu contato?
+C: Não, já tenho já. Tem qualquer coisa?
+A: Ah, maravilha. Leandro, então obrigado. Eu já atualizei aqui, tá? Coloquei que ele já saiu da empresa. Estou centralizando tudo em você mesmo. O login está certinho, né? Que é o 962789. Se precisar de qualquer outro suporte comercial, não deixa de me acionar não alguma dúvida dessa questão de aprovar reserva na WebCorp ou outras questões mais que não for aqui da minha área para poder direcionar vocês,
+C: Combinado
+A: tá?
+C: então.
+A: Obrigada pela atenção. Reserva, então, está quando deu tudo certinho. Já retirou o veículo agora de manhã e fico à disposição aqui no que precisar, tá?
+C: Combinado, obrigado
+A: A
+C: hein?
+A: gente agradece aí a parceria com a Localiza. Se você puder só aguardar aqui no finalzinho da ligação, porque está entrando agora uma pesquisa para avaliar o nosso atendimento com vocês aí dessa ligação se puder avaliar
+C: Tá
+A: por
+C: bom?
+A: gentileza da Leandro.
+C: Combinado então.
+A: Obrigada, muito sucesso aí, viu? Para vocês, uma excelente semana.
+C: Obrigado
+A: Obrigada, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06163798 | Data:2026-06-18 | Dur:1155s | Sent:POSITIVE ===
+C: Você ligou para a BM Strap. Digite o ramal desejado ou aguarde para ser atendido. BM Strap, bom dia.
+A: Bom dia, Cristina da Localiza Aluguel de Carro, tudo bem?
+C: Tudo bem, vocês?
+A: Tudo ótimo. Eu estou retornando o contato do Adson, o Adson, não é? O
+C: Edson?
+A: Adson, né? O pessoal colocou o Adson aqui. Ele não está aqui no nosso sistema e tem o nosso contato geralmente era com Leandro Antunes. Aí tem Marcelo, é o Adson... Como é que é o nome? É Edson, né? Perdão. É o Edson que entrou no lugar deles?
+C: E isso é Cristina da Localiza, né?
+A: Isso, exato.
+C: Tá, só um minutinho, tá?
+A: Tá ok, obrigada.
+C: Não. Olá, me sinto bom dia.
+A: Bom dia, Cristina da Localiza com quem falo?
+C: Com Edson?
+A: Oi Edson, pra você falar com você, eu estou tentando contato, né? Até liguei no celular, só que é um encaixa postal. Falei, ah, deixa eu ligar no fixo da empresa.
+C: Oh, com
+A: Parece
+C: isso. E...
+A: que você falou na nossa central de reservas, aí a Glaucia me passou o seu contato. Aí eu queria entender o que está ocorrendo. Por que aqui para mim vocês estão com limite para fazer novas reservas?
+C: Porque, na verdade, o que acontece? A gente precisa fazer reserva de
+A: Sim.
+C: dois carros para o próximo final de semana, para domingo.
+A: Sim.
+C: E a gente já tem uma reserva de um. Então eu queria ver se tinha possibilidade de aumentar para três e aumentar o nosso limite.
+A: Sim, sim. Aqui para mim, eu até chequei, o limite vocês têm, mas eu posso pedir aqui tentar uma nova análise de ampliação com o time. Geralmente eles pedem alguma documentação. Eu vou tentar sem documentação pelo valor que está aqui, acho que dá para a gente tentar sem, mas se eles solicitarem então eu te aviso aí vamos lá então
+C: Não, sem problema, sem problema. Eu envio se precisar.
+A: Tá. Ô Edson, não, mas eu já vou tentar aqui. Agora a questão do limite de veículos, eu realmente fiquei sem entender porque aqui para mim não consta, mas eu vou pedir o time para verificar isso também.
+C: Porque a pessoa que me atendeu logo de manhã, que aliás foi super simpática, viu? Me atendeu super bem. Parabéns
+A: Ah,
+C: aí pelo
+A: que maravilha!
+C: atendimento.
+A: A Glauciene...
+C: Nossa senhora, sou super profissional, me senti acolhido logo de manhã assim foi super agradável falar com ela
+A: Ah,
+C: até...
+A: que maravilha,
+C: É verdade.
+A: Edson. Obrigada, viu? Por esse feedback eu
+C: Apesar
+A: faço questão de passar
+C: o
+A: lá.
+C: pessoal da localiza é super bem treinado com essa relação com o cliente né denuncia
+A: Sim,
+C: peguei
+A: sim, sim.
+C: ninguém mal-humorado ninguém com falta de vontade né então isso é muito bom é uma marca que vocês têm
+A: A gente
+C: e
+A: agradece
+C: assim
+A: por esse feedback,
+C: é
+A: viu Edson?
+C: que bom eu acho
+A: Porque
+C: que
+A: realmente a gente aqui na localiza é realmente um dos pilares mais importantes que a gente tem aqui realmente de conceito além de outros mas um dos principais é o atendimento ao nosso cliente mesmo tá?
+C: Eu acredito, porque isso é visível. Eu sou de RH, então eu consigo perceber essa atenção, essa preocupação de resolver o problema. Nossa, é fantástico.
+A: Maravilha
+C: Fantástico mesmo. A alta aqui me entendeu? Ela falou assim, ó, aqui no fato parece também como só pode o limite de dois carros enquanto ela fazer a reserva. É, aí era aumentar o de calma, porque a gente já está arralgado, verdade? Já tem que ficar mais dois por esse período aí que eu... Que a grau você não deve ter passado para você do dia 21 ao dia 28 do 6.
+A: Sim, ela passou aqui sim. Parece que você chegou até a fazer uma reserva já, né? Para conferir.
+C: Isso. Uma ela já fez, ela já concluiu. Aí ela falou, Edson, agora a gente precisa só aumentar aqui, o pessoal precisa só aumentar aqui a quantidade de carro e o valor, né? Aí eu já concluo a segunda reserva. Eu já passei inclusive todas as informações para ela, do condutor, qual é o carro, enfim.
+A: Maravilha.
+C: Só estou aguardando mesmo
+A: Tá, a
+C: essas questões.
+A: Aqui para mim, só para você saber, uma reserva parece que já foi confirmada, só está guardando aqui uma aprovação lá na WebCorp. Deixa eu só confirmar aqui qual que é e aí eu já te oriei você quem está acessando porque eu até liguei também porque não vi você aqui no nosso cadastro da parte PJ aqui no sistema
+C: É, eu até pedi para a minha gestora da Localiza para ela me colocar. Ela já mandou para mim um trâmite aqui que eu tenho que mandar um e-mail para atendimento, Localiza.
+A: Não precisa seguir por essa parte, porque agora eu vou seguir com você, porque quem
+C: Ah, tá!
+A: atende a BM Strap aqui está comigo mesmo. Antes, a
+C: Ah,
+A: gente tinha um contato
+C: maravilha!
+A: aí, vou até te falar os nomes, viu? Para você poder até me orientar aqui se precisa de alguma atualização. Vou te falar quem que está aqui principalmente com o login. Aqui para a gente no sistema era Leandro Antônio de Farias com
+C: Isso!
+A: o login ativo. Ele continua?
+C: Pode ficar mais de uma pessoa? Você consegue
+A: Não pode
+C: me adicionar?
+A: essa questão...
+C: Porque é
+A: Pode
+C: assim,
+A: sim?
+C: ó. Está o Marcelo Yang, que é o diretor. O Leandro entra no Saria e eu queria incluir
+A: Sim.
+C: eu também. Edson Felipe
+A: Maravilha!
+C: Braga. Porque
+A: Deixa eu te...
+C: eu faço a gestão de frota, essa coisa toda da empresa.
+A: Sim, deixa eu pegar aqui, vou pegar os dados que a gente precisa. Já te enviou então no e-mail para você? Então assim
+C: Maravilha.
+A: ó: Aqui para mim só para você saber acho que foi você quem fez essa reserva agora provavelmente lá na central
+C: Foi,
+A: aqui
+C: foi... Exatamente.
+A: Tá, não, perfeito. Aqui também é Edson, tá? 21 do 6 a 28 do 6
+C: E isso
+A: o
+C: confere?
+A: grupo sub né deixa eu verificar só está pendente de entrar lá no web corp e aprovar quem que pode aprovar no momento assim que está com acesso você vai conseguir também assim que eu liberar assim que a gente atualizar seus dados a gente vai precisar receber já vou te mandar aqui o e-mail né os dados que a gente precisa o Marcelo Leandro estão aí no momento que eles possam entrar lá e só para liberar essa reserva?
+C: Bom, o Leandro está na Bahia e lá onde ele está com acesso
+A: Limitado,
+C: limitado à
+A: né?
+C: internet, que é bem ruim lá onde ele está.
+A: Não, claro. Deixa eu colocar aqui então. Só um momento. Deixa eu abrir aqui. Pode me falar seu e-mail, por favor?
+C: RH arroba
+A: Ok.
+C: bmstrap ponto com ponto BR
+A: Aí vou colocar aqui, atualização, né? Atualização de dados novos gestos... É, você entra na empresa recente, Edson?
+C: faz não faz todo meu terceiro ano aqui
+A: Olha, e aqui para mim realmente não consta, viu? Só ficou eles mesmo o
+C: É
+A: Leandro.
+C: que essa questão de frota passou para mim no final do ano passado, para eu fazer...
+A: Ah, então é isso.
+C: Aí,
+A: Não, eu fico mais tranquila
+C: por isso que
+A: de
+C: eu
+A: saber.
+C: não...
+A: Porque aí eu pensei que era alguma coisa que não havia
+C: Não,
+A: chegado
+C: não.
+A: ou né? Que não haviam sido atualizados. Mas
+C: Não,
+A: esse contato
+C: não,
+A: é muito
+C: não,
+A: bom, viu Edson? Para a gente atualizar...
+C: não. Sim, perfeito.
+A: O seu Edson é com A mesmo? Ah,
+C: É com Edson com D mudo. É Edson E de escola D de W S
+A: tá. Ela
+C: de
+A: colocou
+C: estado. Não Adson, é Edson.
+A: com A. Aqui para mim no sistema ela deixou com A, D mudo S-O-N, então é com E mesmo,
+C: Não, não. É,
+A: né?
+C: é isso, Edson.
+A: Tá, perfeito. Por isso
+C: Edson
+A: que eu estava falando
+C: Felipe
+A: com
+C: Braga.
+A: a pessoa assim... É, deixa eu colocar aqui, ó, porque eu já te envio os dados que você vai precisar. Aí se... Aí o que vai acontecer? Na hora que a gente cadastrar você com os dados que você quer uns dados que são necessários, né? Aí é nome
+C: Certo?
+A: completo, cpf, e-mail departamento... Na hora que eu te cadastro aqui vai precisar do Leandro ou do Marcelo te aprovar lá na WebCorp? Porque aí, depois você vai ficar também com todos esses acessos liberados para
+C: Maravilha.
+A: poder fazer, tá?
+C: Isso vai me
+A: As
+C: ajudar
+A: reservas,
+C: muito.
+A: você nem vai precisar, não sei se você tem esse conhecimento. Depois que está ali na WebCorp, não precisa nem ligar na central. Você vai ter toda a visão aí, a gestão das reservas pela plataforma, tá?
+C: Mas aí eu não vou ser atendido por pessoas simpáticas como vocês, né?
+A: Não, aí pode...
+C: Mas eu
+A: Então
+C: consigo
+A: nos liga,
+C: por
+A: é um prazer
+C: lá...
+A: mesmo. Não, mas é um prazer imenso. É assim, a gente ama atendimento, né? Então assim, a área que a gente atua é quem gosta realmente de lidar com atendimento mesmo. Então é um prazer imenso assim.
+C: Vocês...
+A: Então, por exemplo, eu não consigo fazer reservas porque eu sou do comercial. Mas
+C: Aham...
+A: toda essa atualização... Ah Cris, não estou conseguindo acessar que eu... Web Corp o meu login está dando alguma... Qualquer ou tem que incluir novos gestores igual agora... Tudo isso eu... A solicitação de crédito com o nosso time... É porque
+C: Certo?
+A: nós somos nós que decidimos o crédito da PJ... Tem um time porque a localiza tem um time para
+C: Entendi-se
+A: tratar essas questões... Você vai contar com o meu atendimento... Agora reserva direto se você não quiser fazer direto lá no Web Corp Você vai contar com atendimento da central, igual você ligou hoje, e depois a sua entrada na web corp é aprovada.
+C: Maravilha.
+A: Tá?
+C: Também. Sem problemas.
+A: Vou colocar aqui. Então, rh.com.br, tá certo?
+C: Perfeito. Confira.
+A: Tá. Então, aqui ó, acabei de... Vai chegar aí para você? Deixa eu colocar aqui.
+C: Sim.
+A: Só atualizar aqui se a gente atua com Outlook? Aí ele tem alguns deleios. Não sei se você atua com Outlook também.
+C: Tem mesmo, né?
+A: Vocês têm, então, carros com a nossa gestão de frotas também da Localiza?
+C: Temos também temos
+A: Ah,
+C: nós
+A: que maravilha!
+C: temos
+A: É
+C: a
+A: porque aqui
+C: gente
+A: para
+C: já
+A: a gente não...
+C: Faz uns cinco anos já que a gente, a cada três, cinco mais de cinco anos, quase dez aí que a gente vai sempre renovando na localiza. Nós temos
+A: Ah,
+C: hoje,
+A: que
+C: nós
+A: bacana!
+C: temos em torno de oito carros na localiza e vai aumentar agora a frota.
+A: Não, é porque a gente atende aqui pela localizante AK, né? Aí o sistema, tudo é localizado, só não é cruzado as informações. Então assim, por exemplo, eu consigo te dar todo o suporte aqui se tratando de localizante AK e o que não for da minha área eu consigo lhe direcionar claro
+C: Perfeito?
+A: para outras áreas mas só não tem o sistema lá da frota ou outro... A gente também atua com localiza pesados. Não sei se você tem... Vocês têm atuação com... Os pesados também? Ou é isso?
+C: Não, por enquanto não. A gente
+A: Ah,
+C: hoje não...
+A: tá. Porque a gente tem outros segmentos
+C: Ah legal,
+A: aqui
+C: mas
+A: também,
+C: é bom saber!
+A: tá? É, pois é. Por isso que eu falei, deixa eu informar. Olha, acabou, agora saiu da minha caixa mesmo.
+C: Cris
+A: E
+C: chegou
+A: aí,
+C: aqui
+A: o
+C: para mim.
+A: que eu... Chegou?
+C: Já chegou, já chegou aqui,
+A: Ah,
+C: você está digitando
+A: maravilha!
+C: completo,
+A: Então assim, pode me
+C: depois...
+A: responder com calma? Porque
+C: Tá
+A: isso
+C: bom?
+A: vai chegar aqui para a gente e a gente vai processar. Enquanto isso, a reserva seria só essa reserva por enquanto? Não, você falou que tem outras também para fazer, né?
+C: Eu falei com... Nós estamos... Hoje de manhã eu pedi dois carros, né? Depende desse
+A: Sim.
+C: período. O dia 28 ou dia 28. Um eu já recebi o e-mail aqui. Aí falta só esse segundo que está pendente aí da autorização para aumentar o volume de carro
+A: Ah,
+C: aí.
+A: maravilha. Então, esse você já recebeu? Esse... Veja se foi esse que você recebeu. O final localizador B3I
+C: Deixa eu ver aqui.
+A: de Índia. Vê se foi isso.
+C: Na verdade,
+A: Oi, como...
+C: o meu líder que mandou para mim, ele encaminhou o e-mail, porque eu não estou recebendo...
+A: Tá.
+C: Porque, ó, B31 final.
+A: Isso mesmo. Aí,
+C: Mesmo?
+A: o que a gente vai precisar? Como você ainda
+C: Não,
+A: não tá...
+C: B31 ou B31? B3D?
+A: É, não, é B3I
+C: Isso,
+A: e esse aí
+C: é
+A: para
+C: isso.
+A: nós é confunde mesmo. É igual o óleo zero? Também confunde
+C: É
+A: esse
+C: verdade.
+A: aí e de índia.
+C: É verdade.
+A: É o...
+C: Então, isso precisa só confirmar lá no Web Corp.
+A: Isso, eu creio que o Leandro ou Marcelo mesmo, mas o Leandro está mais fácil aí para você, eu creio que ele já está
+C: Tá
+A: acostumado
+C: bom.
+A: com esse processo, tá? Então ele entra lá, vai ser o mesmo acesso que você vai ter liberado conosco posterior aí, por exemplo. Assim que a gente cadastrar você, aí você vai ter o seu login, aí vai ser o seu login mesmo, né?
+C: Perfeito?
+A: Porque cada usuário tem o seu login, por exemplo, o Leandro tem o dele, o Marcelo tem o dele e você vai ter o seu. E
+C: Tá bom.
+A: aí você Você vai conseguir aprovar essas reservas também na WebCorp ou fazer nova.
+C: Maravilha,
+A: Toda gestão vai ficar liberada para você também, tá?
+C: Cris. Maravilha.
+A: Tá! Aí é isso! Só vai faltar você pedir ele para aprovar até a gente receber seus dados que aí vai para o nosso cadastro para a gente poder cadastrar e liberar mas tudo é muito rápido hoje ainda você me respondendo eu creio que a gente consegue retornar aí com o seu login
+C: Tá bom.
+A: E aí eu te auxilio, tá Edson? Que depois que cadastrar o seu login, vai precisar, você vai ter que redefinir a sua senha pessoal Aí eu te auxilio com esse processo também
+C: Perfeito, eu te envio logo na sequência aqui que a gente terminar. Agora, sobre esse segundo carro, eu aguardo mais um pouco.
+A: Aguarda isso porque eu já entrei assim que eu recebi aqui seu contato eu tava num outro atendimento eu já priorizei aqui para entender pra lá deixa eu ligar para ele porque
+C: Perfeito.
+A: para entender né porque aqui pra mim você tem um limite é bom de crédito então pode ser alguma questão ali de veículos que eu já pedi o time para verificar tá
+C: Ela só falou para mim que foi isso, que ela só não conseguiu ir adiante porque lá para ela no sistema dela está aparecendo o limite de dois carros, ela pediu para aumentar para mais um.
+A: É, não, mas não é pelo limite que vocês têm aqui de crédito. Toda empresa que tem um limite acima de 10 mil, eu vou te falar acima de 5 mil, que tem empresa que tem muito pouco de limite. Vocês não,
+C: Não?
+A: vocês têm 15 mil já de limite e não chega a utilizar todo o limite que está aqui, pelo menos aqui para a gente.
+C: É porque
+A: Então...
+C: como a gente tem carro da frota, a gente usa mais o da
+A: É
+C: frota de
+A: demandas
+C: vocês. Esse aí
+A: azul...
+C: é um caso esporádico, igual esse que a gente vai para a Bahia, então tem que retirar no aeroporto da Bahia.
+A: Exato!
+C: Aí compensa de avião e pegar o carro lá.
+A: Sim. Não, exato. Até por você ser nosso cliente da gestão de prótons, a gente entende que a demanda avulsa aqui, a gente chama demandas avulsos, né? Acaba que
+C: Isso.
+A: vocês não têm assim tanto o uso pontuais mas tendo vocês não vão ter problema não porque eu creio que isso é uma trave de sistema automático mas então pediu o time que cuida disso para verificar lá e a gente já atualizar aí para você Eu não sei o quanto antes pode ficar tranquilo que você tem um limite muito bom aqui para reservas faturado tá
+C: Perfeito, Cris! Maravilha! Fica mais tranquilo muito
+A: Tá, o Edson, deixa eu só aproveitar e verificar com você. Teve uma reserva? Eu não sei se você chegar, que aqui para a gente consta que ela foi confirmada para o dia 13 de junho, seria uma demanda mensal de 30 dias, só que aí acabou que não foi utilizada. É só para verificar se foi alguma situação que vocês não conseguiram retirar o veículo ou alguma outra questão?
+C: tarde de junho 3 de junho Não, está acontecendo que não retirou... Acho
+A: É,
+C: que
+A: deixa
+C: foi...
+A: eu ver aqui...
+C: O que é? Acho que a
+A: Pode
+C: gente acabou cancelando a viagem.
+A: ter sido sim. Deixa eu olhar aqui... Não é só para saber mesmo se alguma questão...
+C: Foi cancelado a viagem dessa data.
+A: Ah não! Então ótimo! Então não foi nenhuma dificuldade não
+C: Não,
+A: né com a localização...
+C: não, não... Não foi...
+A: Ah maravilha então! Deixa eu pôr aqui... Ótimo. Aqui, então ótimo. Já pediu o nosso time como total prioridade. Não é padrão esse tipo de trava no sistema, tá? Eu creio que alguma coisa automática mesmo pode ocorrer às vezes, né? Então pediu o time nosso para corrigir, tá?
+C: Perfeito,
+A: E
+C: perfeito.
+A: pode ter certeza que eu te retorno.
+C: Cris, você... Não sei se é de praxe. Eu já tenho seu e-mail agora, mas seria um telefone que eu consigo mandar mensagem para você alguma coisa?
+A: Claro! Por favor anota aí e como eu te falei se não for da minha área comercial tratar né porque às vezes questão do sistema a gente não tem acesso com alguma questão a gente direciona tá então pode
+C: Tá bom.
+A: tudo que for localizando a gente aqui com exceção de a gente não faz reserva a gente não tem sistema de reserva aí
+C: Sim,
+A: é central mesmo
+C: entendi.
+A: mas
+C: Tá bom.
+A: se gosta de centralizar em mim o telefone meu é direto é o mesmo que está lá na assinatura É o 31 Código Diária
+C: 31-3003-perfeito.
+A: [MASKED]. Ele é tanto para ligações por telefone, tá Edson? Como você também pode me mandar uma mensagem?
+C: Ele entende o WhatsApp também?
+A: Ele entende o WhatsApp, ele só não entende chamadas por WhatsApp porque não é um celular, é um sistema corporativo que a
+C: Não,
+A: localiza usa
+C: perfeito.
+A: aqui. Tá? É
+C: Eu vou
+A: o
+C: deixar
+A: TUV.
+C: aqui já no meu contato, porque daí quando eu precisar eu aciono você.
+A: Isso, é igual quando... Porque você tem um atendimento lá do nosso time da gestão de flotas, né? O executivo é executiva que atende você lá,
+C: Isso,
+A: com certeza.
+C: eu
+A: A mesma
+C: tenho...
+A: coisa
+C: Maravilha.
+A: acontece aqui na Ranch AK, você pode contar com o meu atendimento eu realmente não tinha você aqui no sistema, né? E eu fiquei
+C: Maravilha.
+A: muito feliz aí por
+C: Eu
+A: esse contato
+C: também...
+A: a gente ainda aproveitar para atualizar
+C: Maravilha, fechou. Fechou com chave de ouro, então.
+A: Obrigada, viu? E pode ter certeza que eu te retorno. Então eu vou te retornar tanto por causa do seu acesso aí só vou aguardar os dados e a questão aí da sua próxima reserva
+C: Perfeito, Cris, muito obrigado e olha, como sempre, tive um excelente atendimento.
+A: Muito obrigada, viu? Eu vou até, se você puder ficar aqui na ligação um segundinho, porque quando a gente encerra as ligações, eu não sei se foi assim lá na central, mas aqui a localiza envia aquela pesquisa rápida de atendimento ao próprio
+C: Com
+A: sistema.
+C: certeza,
+A: Se
+C: com
+A: puder
+C: certeza.
+A: avaliar aqui essa ligação por gentileza é muito importante
+C: É
+A: para
+C: 10,
+A: a
+C: com certeza.
+A: gente. Muito obrigada e fico
+C: Obrigado,
+A: à disposição do que precisar, viu? Um abraço.
+C: abraço e tchau!
+A: Tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06163798 | Data:2026-06-22 | Dur:465s | Sent:POSITIVE ===
+C: Você ligou para BM Estrada? Visite o ramal desejado ou aguarde para ser atendido. Boa tarde.
+A: Boa tarde, é a Cristina da Localiza, aluguel de carro. Estou retornando
+C: Ah,
+A: o contato do Edson? Você consegue passar para ele?
+C: sim, vou transferir, tá bom?
+A: Tá ótimo, obrigada, viu?
+C: Oi Cris.
+A: Oi Edson, tudo bem? Prazer falar com você novamente. Obrigada
+C: Fica bem...
+A: aí pela atenção, viu?
+C: Imagina
+A: Vamos
+C: que agradeço.
+A: lá, obrigada a você. Então que bom você conseguiu redefinir seu acesso, né? Já
+C: Consegui,
+A: está na WebCorp
+C: Deus perdi isso já está na tela de entrada aqui já
+A: Maravilha! Vamos lá então. Vai lá na aba. Você já está dentro da WebCorp?
+C: vou até te mandar uma print
+A: Maravilha!
+C: da minha tela para você ver se todo lugar certo
+A: Maravilha!
+C: espera aí
+A: Tá ok!
+C: essa tela aí que eu te mandei o print
+A: Tá, deixa eu abrir ela aqui. Ah, maravilhíssimo mesmo. Está vendo aquela primeira aba lá em cima, reserva?
+C: estou
+A: Aí
+C: vendo
+A: você vai descer... Essa reserva você fez pela... Foi a que você fizer pela central de reserva e agora tem que aprovar?
+C: Foi na... Uma foi na... As duas foram... Perdão, essa foi feita por telefone também, na sexta-feira.
+A: Ah, então ótimo. Então é isso mesmo. Ah, não, tá certo. Porque eu esqueci que quando vocês fazem direto na WebCorp, nem precisa dessa aprovação não. O próprio sistema já confirma, tá? Então vamos lá.
+C: Certo.
+A: Vai nessa setinha da reserva, clica para baixo. Veja se aparece para você assim, ó. Criar... É, criar não... Aprovar reservas criadas por telefone
+C: Aparece esse link.
+A: Isso,
+C: Aparece
+A: vai nessa
+C: com
+A: aba!
+C: ele. Pronto. Aí agora aqui tem um... Pareceu como se fosse um filtro.
+A: Ah,
+C: Aí o localizador eu não tenho esse número, a gente aparece...
+A: deixa eu ver se eu tenho ele aqui! É, vai pedir um local nesse filtro? Mas você colocou reservas criadas por telefone! Não é isso
+C: Por
+A: a
+C: telefone,
+A: opção?
+C: exatamente.
+A: Tá, deixa eu ver aqui que eu já pego ela pra você!
+C: Tá
+A: Ah
+C: bom.
+A: lá tá mesmo! É a do dia 24 de junho?
+C: Isso.
+A: Tem
+C: Não, não... É, essa mesmo de 20 quadros? Deixa eu ver aqui como foi que eu mandei.
+A: uma do dia 24. Deixa eu olhar as reservas que estão pendentes aqui, que a gente já te auxilia já.
+C: Tá bom.
+A: Elas são de aluguel diário, né?
+C: Isso, são duas que estão pendentes.
+A: Infelizmente, a de campo, uma que é a agência centro, a não ser que você tenha outra agência para tentar confirmar. Essa não confirmou, não é pendente de vocês. A agência não confirmou, não tem a disponibilidade desse
+C: Tá bom.
+A: veículo. Ela deu não confirmada.
+C: E
+A: Agora
+C: aí
+A: vamos...
+C: a outra...
+A: A outra, esse localizador aqui, ó, já vou te mandar... Deixa eu te mandar ele aqui também, que você só copia e cola aí, tá?
+C: Tá bom.
+A: Essa que não confirmou que é do dia 22, tem alguma outra agência que atende vocês? Que você pode até tentar ir pela WebCorp mesmo fazer depois que a gente aprovar essa que está pendente, tá?
+C: Eu vou precisar falar com o meu time, porque eles pediram um carro específico, que é uma estrada. E eles estão lá em Campo Novo do Parecis, né? Então eu vou ver se tem alguma alta próxima lá para eu falar com eles.
+A: Entendi. Agora a de Cuiabá, Cuiabá, aeroporto de Cuiabá que é para o dia 24 de junho essa já confirmou só depende de você aprovar aí eu vou te mandar o localizador esse localizador aqui ó acabei de te mandar aí no WhatsApp também
+C: Perfeito,
+A: aluguel
+C: já peguei aqui.
+A: diário tá
+C: Tá bom. Aí esse aqui... E com esse número de localizador, agora sim eu coloco aqui no campo localizador.
+A: Isso, vai lá, por favor.
+C: Aí eu preciso...
+A: Ele vai dar para você e na hora que você coloca ele, vamos ver o que aparece aí você me fala, porque ele tem que deixar
+C: Já
+A: provar.
+C: apareceu, né? Aí apareceu uma nova linha.
+A: É
+C: Aí tem uma ação aqui, com
+A: nessa ação.
+C: uma setinha verde, um x vermelho ou uma lupinha.
+A: É a
+C: Aí eu
+A: setinha
+C: clico nela.
+A: verde. É, você vai colocar... Vai na ação da setinha verde que você está flegando para liberar a reserva, entendeu?
+C: Solicitação
+A: Isso,
+C: aprovada com sucesso.
+A: isso mesmo.
+C: Muito
+A: Viu como
+C: bem.
+A: é que é bem prático?
+C: Nossa,
+A: É muito
+C: demais!
+A: bom. O Edson vai gostar? É que você... Assim, igual você falou que gosta do atendimento também da central, né? A gente já falou aí do outro contato. Até te agradecer... Eu quero agradecer pelos feedbacks, porque realmente para a gente é muito importante, tá? Mas se você precisar fazer por aí, por exemplo, igual essa do dia 22 de hoje que não aprovou, não é que não aprovou, perdão, a agência não tem a disponibilidade,
+C: Não tem a qualidade
+A: não
+C: do carro, exato.
+A: tem esse veículo lá. A gente até orienta, ainda mais se for utilitário igual porque essa era utilitário,
+C: Perfeito,
+A: de você sempre colocar... tentar antecipar Ah, né? A reserva, por exemplo. Ah, já sei que hoje eu vou usar só em julho. Um exemplo. Final de junho vocês não pagam no show, então vale a pena vocês fazerem com antecedência se não for utilizar a cancela, entendeu? Para garantir aí
+C: perfeito.
+A: a disponibilidade da... É porque é um período de alta...
+C: Pura
+A: De alta, né?
+C: isso?
+A: Então... É isso. E para fazer
+C: Perfeito.
+A: reserva, só para você saber... Desculpa, pode falar.
+C: Não, perfeito. Para mim estava claro. Pode continuar, Cristina?
+A: Seria só aproveitando o seu contato para te mostrar aí na... Já que você está com a tela aberta, que para
+C: Tá bom?
+A: fazer reserva direto e não precisar ligar na central, se for o caso, você vai aí nessa aba mesmo, reserva, aí vai ser assim, nova reserva, que já vai abrir nessa aba que aparece o seu código cliente da BM Strat conosco, né? Agência
+C: Aham...
+A: de retirada, local de devolução.
+C: Aham... Maravilha!
+A: Aí você
+C: Aí
+A: mesmo...
+C: eu estou preenchendo!
+A: Só vai preencher muito intuitivo. Depois vai abrir o grupo do veículo, por exemplo, lá é um utilitário, é um grupo econômico, é
+C: Entendi!
+A: um grupo automático, você mesmo vai escolher isso. E depois você
+C: Perfeito!
+A: só vai precisar ter o nome do seu condutor completo no CPS que o sistema vai pedir de dados do condutor e
+C: Perfeito. Eu
+A: todo o restante
+C: vou tentar
+A: de
+C: fazer
+A: paliza na gente.
+C: um próximo por
+A: Isso!
+C: aqui, então, para eu ver isso.
+A: Exato, como você preferir. E aí qualquer coisa não deixa de mencionar não. Então essa está confirmada. É só de hoje que infelizmente a agência não teve realmente a
+C: Sem
+A: disponibilidade
+C: problemas.
+A: para poder atender vocês,
+C: Eu
+A: tá?
+C: entendo perfeitamente. Muito obrigado, viu Cristina?
+A: Eu que te agradeço. Vai me chamando aqui no que precisar, eu
+C: Agora
+A: te retorno, viu?
+C: que você me deu o seu número, vou te chamar toda vez que estiver com dúvidas.
+A: É um prazer imenso. É tanto o WhatsApp você viu, ele só não atende chamados aqui por esse sistema, que é um sistema corporativo de mensagens.
+C: Certo.
+A: Se
+C: Não,
+A: precisar me ligar tem que ser por telefone igual eu estou te ligando agora. Aí tem que me
+C: perfeito.
+A: ligar mesmo, é direto na minha mesa aqui também.
+C: Muito obrigado, viu?
+A: Ou eu que te agradeço, te ajudo com algo mais, Edson?
+C: Não, Cristina, só isso. Boa semana para você.
+A: Ou pra você também uma excelente semana? Eu vou te pedir pra guardar aqui no finalzinho da ligação porque entra aquela pesquisa pra avaliar o nosso atendimento
+C: Claro?
+A: das ligações,
+C: 10.
+A: tá?
+C: Obrigado.
+A: Muito obrigada! Um abraço! Excelente semana
+C: Um
+A: não!
+C: abraço.
+A: Excelente semana aí pra vocês
+C: Para nós.
+A: e muito sucesso!
+C: Muito
+A: Tchau tchau!
+C: sucesso.
+A: Já.
+C: Tchau, tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06163798 | Data:2026-06-23 | Dur:81s | Sent:POSITIVE ===
+C: Você ligou para o INTRAP? Visite para mal desejado ou aguarde para ser atendido. Bem, ministra, bom dia.
+A: Bom dia, Cristina aqui da Localiza, tudo bem?
+C: Tudo bem?
+A: Estou retornando o contato do Edson, eu consigo falar com ele?
+C: Sim, eu vou transferir, tá bom? Ministra,
+A: Bom
+C: bom dia.
+A: dia, Cristina da Localiza, eu tenho um retorno aqui com o Edson, ele pediu para ligar para ele? Ele consegue atender por esse contato?
+C: Ele está em uma reunião no momento, só daqui a uma hora.
+A: Ah, tá ótimo. Então eu estou retornando um contato dele mesmo. Você tem como falar para ele que eu retornei, por favor?
+C: Tá bom,
+A: Cristina
+C: Cristina da localiza,
+A: já
+C: né?
+A: localiza isso?
+C: Tá bom, pode deixar.
+A: Tá ótimo, então muito obrigada, viu?
+C: Imagina, tchau, tchau.
+A: Até mais! Tchau, tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06164492 | Data:2026-06-22 | Dur:91s | Sent:POSITIVE ===
+C: Você ligou para ferramentaria e protótipo solução. Uma empresa especializada no condutor metal mecânico. Digite 4 é engenharia qualidade, 5 fiscal financeiro, 6 Compass, 7 comercial ou aguarde o... Solução boa tarde!
+A: Boa tarde, com quem eu falo? Jaqueline?
+C: É a Ana?
+A: Ô Ana Carolina? Ana Carolina, eu sou o Vitor Executivo de Contas Localiza. Eu tô ligando pra entender se vocês têm alguma demanda de locação?
+C: Isso. Ah, não, por enquanto não, Vitor.
+A: Não,
+C: A gente
+A: beleza.
+C: é muito de vez em quando que precisa porque a gente tem veículo próprio, né? Aí é só quando ele não vai poder viajar que aí a gente faz a locação.
+A: Não, beleza. E eu já vou... É bom conseguir falar com você que eu já vou poder te revisão. A gente vai ter uma readequação de preço no próximo mês. E aí
+C: Entendi.
+A: eu sugiro, caso haja alguma demanda ou previsão de demanda, que vocês já façam as reservas para pegar o preço ainda desse semestre, porque vai mudar e vai ter um acréscimo bastante interessante.
+C: Tá bom, Vitor. Obrigada.
+A: Nada, tchau tchau.
+C: Tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06169866 | Data:2026-06-25 | Dur:182s | Sent:POSITIVE ===
+C: Qual é o uniforme? Bom dia.
+A: Bom dia, gostaria de falar com Vinícius?
+C: Opa, amigo, o início não se encontra no momento. Eu posso estar
+A: Ah, sim.
+C: te ajudando? Ou é só com
+A: Quem
+C: ele
+A: fala
+C: mesmo?
+A: que é uma... Show. Quem fala que é o Matheus da Localiza? O que acontece? Estou entrando em contato com vocês que eu queria saber quem é o responsável por essa parte de frotas. Eu vi que tem aqui o cadastro ativo do Vinícius e do Marcos Francisco.
+C: Sim,
+A: Você sabe me
+C: correto?
+A: dizer se além desses dois aí tem alguma outra pessoa que possa me auxiliar em respeito dessa gestão dessa frota aí de vocês?
+C: Olha, no momento não.
+A: Ah,
+C: Mas assim, eu da localiza acho que os casos que a gente tem alugado é para uso pessoal, não para empresarial. Porque você está
+A: sim.
+C: com uma
+A: Então,
+C: proposta?
+A: César?
+C: Como que seria?
+A: Não, na verdade eu estou entrando em contato porque eu atendo vocês aí da Power Uniformes, né?
+C: Você
+A: Então eu
+C: é?
+A: queria entender a senhora CNPJ de vocês aí, como é que está essa revisão de locação. Aí eu queria saber se você também pode me auxiliar em relação a isso ou não teria que ser diretamente com eles.
+C: Não, eu posso sim.
+A: Qual
+C: Eu sou relacionado ao
+A: que
+C: compra
+A: é o seu
+C: e
+A: nome?
+C: eu posso estar de Pedro.
+A: Pedro, né? Ô Pedro, aí é o seguinte, só para eu poder entender. Qual que é o seu nome? Só para deixar o resultado que eu conversei
+C: Pedro
+A: aqui com
+C: Henrique.
+A: você? Tem algum número comparativo que você possa me passar para a gente ter o seu contato?
+C: É o
+A: Comparativo?
+C: número...
+A: Uhum
+C: Só um momento aqui. [MASKED].
+A: Então você está me falando que o Márcio Vinícius ou outros funcionários aí vocês utilizam a localiza mais para fins pessoais, né?
+C: É
+A: Não pelos
+C: isso,
+A: fins corporativos,
+C: mas a gente também está com um
+A: né?
+C: carro alugado, mas acho que não é da localiza uma Fiorina.
+A: Uma Fiorino? Legal. E essa locação que você tem da Fiorino aí, ela é mensal, anual? Como é que é essa locação aí?
+C: É mensal, em torno de 3 mil reais.
+A: 3 mil reais. E você sabe dizer qual é a empresa que faz essa locação para vocês?
+C: É lock tudo...
+A: Lock tudo?
+C: É
+A: Deixa eu só anotar isso aqui para eu deixar só o... É lock com CK, você fala?
+C: lock
+A: Ou como é que é esse
+C: com
+A: lock
+C: C
+A: aí?
+C: mesmo, L-O-C.
+A: Lock tudo? Aí você mudo, né?
+C: Isso.
+A: Tudo bom, Fiorino? Qual que é a franquia de cametragem que vocês têm com ele, você sabe?
+C: Nossa, amigo, eu não posso saber te informar.
+A: Tá, não, tranquilo. Eu tô te perguntando que isso é importante, eu peso? Porque isso influencia na proposta que eu posso enviar pra vocês, entendeu? Então eu vou ver qual o preço que eu consigo pra vocês, tá bom? E de qualquer forma depois você avalia qual que é a franquia de quilometragem que vocês têm com ele. Eu vou te mandar um olho no seu WhatsApp e você
+C: Beleza,
+A: olha pra mim, tá bom? Pode
+C: fechado,
+A: ser?
+C: combinado então.
+A: Então beleza, eu fico na aguado lá assim então,
+C: Falou...
+A: beleza? Obrigado. Tchau, tchau
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06191957 | Data:2026-06-25 | Dur:126s | Sent:POSITIVE ===
+C: Olá, você ligou para a RKS Nobrei. Um momento, sua ligação está sendo transferida para nosso atendimento. RKS, boa tarde.
+A: Boa tarde, quem eu falo?
+C: Gabriela?
+A: Oi Gabriela, aqui é Rodrigo, tudo bem?
+C: Tudo bem, Rodrigo?
+A: Tudo bem. Ô Gabriela, preciso falar com a Vivian, por favor?
+C: A Vivela não se encontra no momento, quem deseja?
+A: Aqui é Rodrigo, sou gerente da conta de vocês que não localizam?
+C: Hum, tá. Deixa eu verificar. Talvez o financeiro poderia ajudar você só um minutinho.
+A: Tá ok, obrigado.
+C: Você quer deixar o seu telefone e eu peço para ela te retornar assim que ela retornar aqui? Pode ser?
+A: Não, não pode ser. É
+C: Qual
+A: 31...
+C: que é o seu telefone aí, Rodrigo?
+A: É 31-3003?
+C: 31 3003?
+A: Isso.
+C: Tá.
+A: [MASKED].
+C: [MASKED]. Nesse contato fala direto com você?
+A: Direto comigo.
+C: Tá. Eu vou pedir para ela retornar para você, tá bom?
+A: Tá bom, muito obrigado, viu?
+C: Imagina de nada! Tchau tchau!
+A: Tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06193618 | Data:2026-06-16 | Dur:79s | Sent:POSITIVE ===
+C: Recursos Humanos Projeto Alumínio, boa tarde.
+A: Oi, boa tarde. Aqui é Bruna do Localiza, tudo bem?
+C: Tudo bem, Bruna? Aqui quem fala é a Mariana. No que eu posso te ajudar?
+A: Oi Mariana! Por favor eu poderia falar com o Stéfano?
+C: Claro, já vou transferir para ele. Projeto Aluminio Stefano?
+A: Oi, Certo, não é Bruna da Localiza?
+C: Oi
+A: Tudo bem?
+C: Bruno, tudo bem e você?
+A: Tudo bem também, graças a Deus. Certo, estou entrando em contato, mas queria mais em contato de rotina para identificar sobre novas demandas de locações, como que vocês atuam aí no dia a dia com a mobilidade da empresa?
+C: Bruno,
+A: Está
+C: a ligação está bastante chiada.
+A: baixa a ligação?
+C: É, está com bastante chiado.
+A: Não entendi. Você quer que eu te... Vou ligar de novo, então, para ver se melhora.
+C: Tá bom.
+A: Tá bom? Tchau, tchau.
+C: Tá bom, tchau!
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06193618 | Data:2026-06-16 | Dur:200s | Sent:POSITIVE ===
+C: Já falou o Miro Stéfano?
+A: Oi, Sérgio, é Bruna da Localiza?
+C: Oi, Bruna.
+A: Está
+C: Tudo bem?
+A: melhor agora a ligação?
+C: Deu uma melhorada.
+A: Ah, que bom. Eu estou bem, graças a Deus. Sérgio e você? Então,
+C: Tudo ótimo.
+A: Sérgio, eu sou a gerente responsável pelo atendimento aí do projeto de alunínio, né? Aqui junto localiza para locação de veículo. E aí eu estou entrando em contato para saber um pouquinho como que vocês costumam trabalhar aí Tem a parte de mobilidade na empresa.
+C: Certo. A gente costuma alugar alguns carros,
+A: Entendi.
+C: não são muitos, mas de vez em quando a gente tem funcionário viajando pelo Brasil e costumamos alugar sim. O giro não é muito alto, não, mas a gente faz esse tipo de serviço.
+A: Ah, legal. E vocês têm veículos próprios aí na empresa também?
+C: Não entendi?
+A: Veículos próprios, vocês também têm aí na empresa?
+C: Temos também.
+A: Vocês têm uma média de quantos?
+C: Olha, nossos veículos são maiores, né? Veículos de carga. Veículos
+A: Não
+C: utilitários
+A: sei se...
+C: são poucos. Nós temos, se não me engano, quatro alugados e três próprios.
+A: Vocês estão alugando por onde é o veículo?
+C: Hoje a gente aluga pela movida
+A: Ah, seria por que o preço, atendimento...
+C: Um pouco de tudo, viu Bruno? Preço, atendimento, eles fazem algumas propostas e promoções boas para a gente manter os carros locados com ele, né? E quando a gente precisa, a gente acaba pegando com ele porque fica mais cômodo também, né? Como alguns carros locados.
+A: Entendi? Ah, entendi! É, hoje vocês possuem aqui uma tarifa especial para locações, né? Como já fazia há algum tempo que vocês não fazem locações mensais, né? E aí a gente está trabalhando aí com uma alocação aqui no Rente Acar que equivale um valor de tarifa de seis meses. Porém é um mensal flexível ali que vocês podem devolver a qualquer momento.
+C: Entendi. Você consegue me mandar isso por e-mail, Bruno?
+A: Consigo sim, hoje vocês estão pagando quanto lá na movida? Você consegue me falar? Ah,
+C: Ah, de cabeça eu não lembro. Eu vou precisar pesquisar aqui, Bruno.
+A: maravilha. Então tá bom, vou te mandar lá o picape que vocês têm lá, né? É
+C: Não entendi.
+A: picape que vocês têm alugado lá, né? Três.
+C: Nós temos... Na verdade, são carros... Se não me engano, são 3 HB20s, alguma coisa do
+A: Ah,
+C: tipo
+A: tá.
+C: utilitários
+A: Veio mais velho.
+C: da...
+A: E qual a franquia de quilômetro? Você sabe?
+C: Olha, dá 50 mil
+A: Tá ótimo,
+C: trocas, se eu não estou enganado.
+A: então. Então vou te encaminhar aí no e-mail. Confirma para mim
+C: Tá
+A: se está certo
+C: bom.
+A: o seu e-mail.
+C: Mudou o final. Vê de projeto a L é projeto alumínio.
+A: Alumínio no plural, no singular,
+C: Isso,
+A: quer dizer...
+C: exatamente.
+A: Tá ótimo. Tá ok, já te encaminho.
+C: Tá bom então, obrigado.
+A: Perfeito, certo? Obrigada, tchau, tchau.
+C: Tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06206287 | Data:2026-06-17 | Dur:481s | Sent:POSITIVE ===
+A: Oi?
+C: Alô? Oi, boa tarde. Quem fala?
+A: Aqui é o
+C: Eu não entendi, está cortando.
+A: Isaías
+C: Quem fala?
+A: da Localiza.
+C: Oi Isaías, tudo bem? Elizabeth aqui da Profer,
+A: Tudo bem, Isabel? Você como vai?
+C: tudo bem também. Oi Isaías, lembra que nós conversamos alguns dias atrás sobre a questão do meu cadastro no WebCorp?
+A: Sim, sim.
+C: Então, foi realizado, porém,
+A: Tá,
+C: eu entrei e eu fiz acesso lá para fazer uma cotação, só que está ficando zerado. Até mandei um e-mail para você.
+A: deixa eu verificar aqui só um minutinho, tá? Quando você entra na WebCorp e quando você tenta fazer fica... não aparece nada?
+C: Não, então, eu entrei, eu consegui acesso tudo, coloquei todas as informações. Aí quando ele manda imprimir a cotação, aparece zerado o valor mesmo
+A: Você consegue
+C: colocando...
+A: entrar agora por gentileza?
+C: Sim, eu já estou aqui.
+A: Tá você está em qual parte em ofertas?
+C: Não, pega só um minutinho. Deixa eu ver aqui... Eu coloquei ali, ó. Quer ver? Eu vou começar de novo. Ai, peraí que saiu
+A: Tá tá
+C: do meu
+A: bom
+C: login. Só um minutinho, tá?
+A: tá eu te mandei mensagem no whatsapp aí você conseguir tirar um print me mandar eu consigo verificar tá bom
+C: Ah, tá, deixa só eu entrar assim... Um minutinho, tá?
+A: Sim.
+C: Agora ele está falando que meu usuário não tem permissão.
+A: Você entrou com o mesmo usuário antes?
+C: O mesmo, o
+A: Qual o login
+C: mesmo.
+A: que você entrou, por gentileza?
+C: É o 721438.
+A: [MASKED].
+C: Aí ele deu que a senha tinha expirado porque veio com uma senha, né? Aí eu cadastrei
+A: Sim.
+C: outra senha, mas agora não está entrando
+A: Elizabeth,
+C: não.
+A: estranho porque aqui para mim parece que você está pendente de confirmação de um gestor ativo.
+C: Então, mas a gestora já tinha passado todas as informações e mesmo assim ela tem que...
+A: Isso, ela tem que entrar no sistema e aprovar. Deixa eu verificar aqui, só um minutinho, pera aí.
+C: Porque como ela quase não entra, eu acredito que a senha dela também não entra e se vai estar... Deixa eu ver aqui...
+A: Ó, eu mandei agora no dia 5. Não sei se você chegou a ver o passo a passo para ela, para ela, que é a Márcia, né? Para ela te aprovar, porque você
+C: Então,
+A: fica pendente.
+C: mas esse processo ela faz somente uma vez de me aprovar e aí depois...
+A: Isso. Ela
+C: Ah,
+A: tinha
+C: tá!
+A: a prova dentro da WebCorp e aí após isso você já fica com acesso total, tá? É que primeiro a gente pega os seus dados, faz o cadastro todo certinho e aí como ela é a gestora, por enquanto, depois você também vai ser, ela aprova dentro, eu mandei o passo a passo. Não sei se você viu aí, se você vê no e-mail. Aí ela
+C: Tá,
+A: faz
+C: então.
+A: esse passo a passo E aí após isso você fica totalmente aprovada. Eu só ia te pedir o quê? Quando ela conseguir fazer, só me avisa porque eu verifico se no sistema alterou o pessoal que ela é diferente para a palavra
+C: Então, mas aí deixa eu
+A: nem
+C: só ver aqui,
+A: só problema de atendimento
+C: ó. Que o dela também está informando que a senha dela foi expirada atualize e tente o login novamente Nossa,
+A: entendi então o dela pelo vício inspirou é importante que ela se define assim tá? Se tem um... é
+C: tá cortando a ligação não entendi nada que você falou tá bem ruim a ligação não
+A: melhor para você me ouvir
+C: tá cortando passa para mim seu WhatsApp
+A: Acabei de acionar aqui, não há de ver se o meu...
+C: Hum?
+A: Acabei de acionar aqui, ver se chegou,
+C: Peraí. Só um minuto.
+A: chegou?
+C: Ah, apareceu aqui. Tá,
+A: Tá,
+C: eu vou fazer o seguinte, eu vou pedir para ela tentar entrar no WebCorp e aí se ela conseguir aí ela
+A: tá,
+C: faz
+A: tá. Se
+C: lá...
+A: ela precisar de ajuda para poder redefinir, ela pode me acionar aqui o ajuda não tem problema não tá
+C: Tá bom então isso aí? Obrigada
+A: Aí,
+C: viu?
+A: você só falar pra ela que se ela precisar ou você, qualquer uma, só me liga que a gente faz junto, tá bom?
+C: Tá, mas deixa eu te falar. Eu tinha te enviado um e-mail solicitando uma
+A: Uma
+C: cotação. Você
+A: cotação?
+C: consegue me informar?
+A: Consigo, eu vou fazer aqui, já te envio em
+C: É que
+A: cima desse e-mail, tá bom?
+C: a gente está com um pouquinho de urgência, tá bom?
+A: Tá, combinado
+C: Então
+A: então
+C: tá bom.
+A: Beleza
+C: Obrigada.
+A: então Elizabeth Imagina ótima tarde viu? Tchau
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06206287 | Data:2026-06-17 | Dur:138s | Sent:POSITIVE ===
+A: Oi, Elizabeth!
+C: Oi! Tudo bom?
+A: Me ouvi?
+C: Ó! Deixa eu te falar: Eu entrei lá e fiz a cotação apareceu para mim só que meu valor ficou bem diferente do seu que
+A: Presta
+C: você me enviou por que será?
+A: atenção se não é porque está marcada as proteções. Porque as proteções, as únicas obrigatórias são a do carro e a de terceiros, tá? As demais são todas adicionais. Então você não é obrigado a colocar.
+C: Então
+A: Eu fiz a...
+C: a que está aqui selecionada é a proteção total de avaria
+A: Certo, é opcional,
+C: não
+A: tá?
+C: mas geralmente a gente sempre deixa porque a gente
+A: Ah,
+C: já teve problema
+A: então
+C: com
+A: vai...
+C: isso
+A: Ah, entendi. Então vai ficar mais alto mesmo, porque aquela que eu havia enviado estava só a do carro e a de terceiros.
+C: Não, a gente vai para outro estado, então geralmente a gente...
+A: É importante,
+C: Aí uma outra coisa
+A: né?
+C: também... Lá, quando a gente faz a cotação pessoa física, a gente colocava aquele prêmio, sabe? Que já é tudo incluso limpeza.
+A: Tudo inclusive você fala no sentido de que? Ah, sim. É, no PJ não tem o prêmio, né? Mas é a mesma coisa. Desce para baixo, por gentileza. Vê se a limpeza não está selecionada.
+C: É, tá selecionado limpeza
+A: Então,
+C: garantida,
+A: é a
+C: neutraliza...
+A: mesma coisa.
+C: Ah, tá.
+A: Tá?
+C: Tá. Então assim, eu vou verificar agora eu vou fazer no outro para ver o que vai compensar aqui para mim.
+A: Tudo bem?
+C: Tá bom?
+A: Não.
+C: E caso a gente faça aqui por vocês aqui pela empresa aí no ato da retira aí o funcionário não precisa passar cartão nada né? É bem boleto né?
+A: Isso, não tem...
+C: Tá bom, eu vou verificar aqui a diferença, se realmente vai compensar. Nossa, tá cortando. Acho que é melhor você me mandar um áudio, porque tá cortando tudo.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06209361 | Data:2026-06-08 | Dur:60s | Sent:POSITIVE ===
+C: KTM Indústria, boa tarde.
+A: Oi, boa tarde.
+C: Oi?
+A: Eu gostaria de falar com a Bruna Moisés. Moisés,
+C: É o Moisés quem está falando, quem gostaria?
+A: a Gabriela aqui da localiza tudo jóia?
+C: Oi, tudo jóia!
+A: Maravilha! Está entrando em contato para me apresentar com uma nova executiva de contas aqui da Localiza, né?
+C: Aham!
+A: E quero entender como vocês estão aí de demanda, se vocês estão com essa necessidade de fazer locações.
+C: Olha, no momento não porque nós adquirimos dois árgãos mas quem sabe
+A: Ah,
+C: a gente mais
+A: próprios,
+C: para frente!
+A: né?
+C: Aham!
+A: Entendi, não, perfeito. Eu vou te chamar no WhatsApp? Acho que eu até chamei o Júlio, na verdade, que a gente conversa às vezes pelo WhatsApp, mas se você tiver alguma dúvida, tiver alguma solicitação, pode mencionar que eu te dou todo o suporte
+C: Tá
+A: ali também, tá joia?
+C: ok então!
+A: Então tá, obrigada. Vou só pedir um favorzinho? Só de trabalhar meu atendimento? Leva dois segundos.
+C: Tá bom então!
+A: Obrigada, boa semana, viu?
+C: Igualmente!
+A: Até mais,
+C: Tchau tchau!
+A: tchau, tchau.
+
+=== LIGACAO | Base:NOVO_LOTE_5348 | Cliente:06210488 | Data:2026-06-17 | Dur:272s | Sent:POSITIVE ===
+C: Seja bem-vindo à GS1 Brasil, Associação Brasileira de Automação. Nosso atendimento telefônico está disponível de segunda a sexta-feira, das 8 às 18 horas. Após esse horário, estamos disponíveis até às 20 horas pelo WhatsApp nesse mesmo número, apenas para informações sobre o Cadastro Nacional de Produtos. Você também pode esclarecer suas dúvidas rapidamente pelo chat online no... www.gs1br.org Para agilizar o atendimento, digite o CNPJ da empresa ou o cpf cadastrado. Vamos tentar mais uma vez. Digite novamente o CNPJ da empresa ou o cpf cadastrado. Não se preocupe, vamos seguir com seu atendimento. Escolha uma das opções. Para falar sobre assuntos financeiros, digite 1. Para falar sobre o Cadastro Nacional de Produtos, digite 2. GSM Brasil Bom dia! Me chamo Larissa, com quem eu falo?
+A: Bom dia, Larissa. Você fala com a Amanda da Localiza, tudo bem?
+C: Oi, Amanda, tudo bem? Como posso ajudar?
+A: Larissa, por gentileza, eu não sei se seria nessa opção,
+C: Qual
+A: mas eu precisava falar com a Camila? Eu consigo falar com
+C: seria
+A: ela?
+C: a questão, por gentileza?
+A: É referente ao cadastro da GS1 aqui na Localiza para alocação de veículos. Vocês têm um cadastro aqui com a gente e eu sempre falei com ela nos meus contatos de manutenção.
+C: Só um momento, por gentileza?
+A: Ok.
+C: Obrigada por aguardar. Neste caso, você pode estar entrando em contato com a mesma através do número de contato. Você pode anotar?
+A: Claro, qual que é?
+C: É o DDD 11-96413-9264.
+A: Sim, [MASKED]. Repetindo, 119-643-9264,
+C: Isso
+A: né?
+C: mesmo.
+A: Tá ok, Larissa, eu vou entrar em contato. Obrigada, viu?
+C: Imagina já é assim então que eu desse seu contato para gentileza que vai ver o meu atendimento tudo bem ótimo dia
+A: Tchau para nós.
+C: antes de finalizar participe da pesquisa de satisfação do seu atendimento

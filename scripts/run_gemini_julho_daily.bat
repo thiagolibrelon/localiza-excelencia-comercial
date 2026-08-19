@@ -1,5 +1,9 @@
 @echo off
 cd /d C:\Users\quase\DOCUME~1\LIGAOE~1
+if errorlevel 1 (
+    echo ERRO: nao foi possivel localizar a pasta do projeto DOCUME~1\LIGAOE~1 1>&2
+    exit /b 1
+)
 echo. >> JULHO\log_execucao.txt
 echo ===== Execucao agendada: %date% %time% ===== >> JULHO\log_execucao.txt
 "C:\Users\quase\AppData\Local\Microsoft\WindowsApps\python.exe" scripts\converter_julho.py >> JULHO\log_execucao.txt 2>&1

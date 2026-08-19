@@ -1,0 +1,11 @@
+### CSV-P13 (Padrões Emergentes)
+categoria,codigo,descricao,frequencia_estimada,impacto_potencial,evidencias
+S2,P13_S2_001,Cliente mantém cadastro ativo mesmo com baixa frequência de uso,media,baixo,"Cliente:26468784, Cliente:15485664"
+S1,P13_S1_001,Vendedor pede ajuda pessoal para pesquisa de satisfação,baixa,baixo,Cliente:19853293
+S2,P13_S2_002,Cliente compara preços com concorrentes e encontra valores significativamente mais baixos,media,alto,Cliente:13382750
+S1,P13_S1_002,Vendedor explica diferenças de preço e serviço de forma detalhada e proativa, usando ""cliente oculto"" como evidência,baixa,alto,Cliente:13382750
+S3,P13_S3_001,Necessidade de cotação final de concorrente para análise de preço,media,alto,Cliente:13382750
+S2,P13_S2_003,Cliente aluga veículo por necessidade pontual (carro bateu), não por demanda recorrente,media,medio,Cliente:25980241
+S4,P13_S4_001,Sinal fraco de expansão (cliente está olhando para comprar HRs, mas não para alugar),baixa,medio,Cliente:25980241
+S2,P13_S2_004,Cliente tem dificuldades recorrentes com a plataforma (reset de senha, usabilidade),alta,alto,"Cliente:07877379, Cliente:00044031, Cliente:23289385, Cliente:27171024, Cliente:05551695, Cliente:15514547, Cliente:25461741, Cliente:21649994, Cliente:11032826, Cliente:27251750, Cliente:16161947"
+S3,P13_S3_002,Problema de usabilidade da plataforma (reset de senha complexo, exige biometria, login/senha não intuitivos),alta,alto,"Cliente:07877379, Cliente:00044031, Cliente:23289385, Cliente:27171024, Cliente:05551695, Cliente:15514547, Cliente:25461741, Cliente:21

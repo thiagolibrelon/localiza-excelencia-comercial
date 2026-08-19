@@ -1,0 +1,21 @@
+```csv
+cliente_id,data,problemas_identificados,quem_relatou,foi_resolvido_na_ligacao,escalou_para
+26155999,2026-06-02,P9+P2+P11+P7,Cliente,nao,agencia
+26155999,2026-06-03,P2,Cliente,nao,financeiro
+16669586,2026-06-02,P10,Cliente,sim,nenhum
+21856718,2026-06-01,P10+P11,Cliente,nao,time responsavel
+25966050,2026-06-02,P1+P2,Cliente,sim,nenhum
+27260847,2026-06-03,P1+P11,Cliente,nao,nenhum
+24722106,2026-06-02,P10,Cliente,sim,nenhum
+07852574,2026-06-03,P11,Cliente,sim,nenhum
+01811976,2026-06-02,nenhum,nenhum,nao,nenhum
+27080353,2026-06-05,P10+P2,Cliente,nao,financeiro
+04919242,2026-06-03,nenhum,nenhum,nao,nenhum
+20541778,2026-06-02,P10,Cliente,sim,agencia
+19233673,2026-06-01,P5+P2,Cliente,nao,verificar informacao
+04475681,2026-06-01,P1+P2+P11,Cliente,sim,pedir alteracao de cadastro
+13924850,2026-06-05,nenhum,nenhum,nao,nenhum
+22205081,2026-06-02,P6,Cliente,sim,nenhum
+05104534,2026-06-01,nenhum,nenhum,nao,nenhum
+12661227,2026-06-02,nenhum,nenhum,nao,nenhum
+27066253,2

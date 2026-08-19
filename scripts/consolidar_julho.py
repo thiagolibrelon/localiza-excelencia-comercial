@@ -52,6 +52,11 @@ P5_COLS = ["cliente_id", "data", "teve_challenger", "codigos_challenger", "frase
 P6_COLS = ["cliente_id", "data", "oportunidades_perdidas", "descricao_curta", "valor_potencial_R$"]
 P9_COLS = ["cliente_id", "data", "tipo_abertura", "usou_nome", "tipo_fechamento", "proximo_passo_claro", "prazo_definido", "desfecho_p9"]
 P10_COLS = ["promise_id", "cliente_id", "data", "tipo_promessa", "frase_resumo", "prazo_prometido", "risco_nao_cumprimento"]
+P3_COLS = ["cliente_id", "data", "problemas_identificados", "quem_relatou", "foi_resolvido_na_ligacao", "escalou_para"]
+P7_COLS = ["cliente_id", "data", "duracao_s", "produtos_mencionados", "produtos_ofertados", "janela_perdida", "produto_janela", "descricao_curta"]
+P4_COLS = ["cliente_id", "total_ligacoes", "volume", "adimplencia", "fidelidade", "engajamento", "complexidade_operacional", "potencial_upsell", "score_total", "risco_churn"]
+P8_COLS = ["cliente_id", "data", "tipo_objecao", "resposta_vendedor_codigo", "eficacia", "desfecho_da_objecao"]
+P11_COLS = ["cliente_id", "data", "tipo_sinal", "concorrente_mencionado", "vendedor_explorou"]
 
 # grupo de arquivo -> [(header_prefix, nome_prompt, cols, n_prefixo, n_sufixo), ...]
 GRUPOS = {
@@ -67,7 +72,21 @@ GRUPOS = {
         ("cliente_id,data,tipo_abertura", "P9", P9_COLS, None, None),
         ("promise_id,cliente_id", "P10", P10_COLS, 4, 2),  # frase_resumo = campo livre
     ],
+    "P3_P7": [
+        ("cliente_id,data,problemas_identificados", "P3", P3_COLS, None, None),
+        ("cliente_id,data,duracao_s,produtos_mencionados", "P7", P7_COLS, 7, 0),  # descricao_curta = campo livre (ultimo)
+    ],
+    "P4_P8_P11": [
+        ("cliente_id,total_ligacoes,volume", "P4", P4_COLS, None, None),
+        ("cliente_id,data,tipo_objecao", "P8", P8_COLS, None, None),
+        ("cliente_id,data,tipo_sinal", "P11", P11_COLS, None, None),
+    ],
 }
+# P13_P15 (padroes emergentes + eventos raros) fica DE FORA deste dict de
+# proposito: e' exploratorio de base inteira, sem "1 linha por ligacao" pra
+# casar com segment_id. Os batches ficam salvos como texto puro em
+# JULHO/resultados_gemini/batchNN_P13_P15_*.txt para revisao manual — nao
+# entram no CONSOLIDADO_JULHO.csv nem nos CSVs por prompt.
 
 # ---------------------------------------------------------------------------
 # Parsing (identico a scripts/consolidar_ligacoes.py)
@@ -160,9 +179,13 @@ dados_p1, dados_p2 = {}, {}
 dados_p5, dados_p6 = {}, {}
 dados_p9 = {}
 dados_p10_agg = {}  # (batch_num, cliente_id) -> dict resumo
+dados_p3, dados_p7 = {}, {}
+dados_p4_agg = {}   # (batch_num, cliente_id) -> dict (P4 ja' e' por cliente, nao precisa "agg" de verdade, mas mesma chave)
+dados_p8_agg = {}   # (batch_num, cliente_id) -> dict resumo (objecoes)
+dados_p11_agg = {}  # (batch_num, cliente_id) -> dict resumo (sinais competitivos)
 ordem_por_batch = defaultdict(lambda: defaultdict(list))  # batch_num -> cliente_id -> [segment_id em ordem]
 
-nao_resolvidos = {"p1": 0, "p2": 0, "p5": 0, "p6": 0, "p9": 0, "p10": 0}
+nao_resolvidos = {"p1": 0, "p2": 0, "p5": 0, "p6": 0, "p9": 0, "p10": 0, "p3": 0, "p7": 0, "p4": 0, "p8": 0, "p11": 0}
 
 def processar_p1_p2(path, batch_num, key_p1):
     texto = path.read_text(encoding="utf-8")
@@ -250,6 +273,72 @@ def processar_p9_p10(path, batch_num):
             "p10_risco_max": max(riscos, key=lambda r: {"baixo": 0, "medio": 1, "alto": 2, "muito_alto": 3}.get(r, 0)) if riscos else "",
         }
 
+def processar_p3_p7(path, batch_num):
+    texto = path.read_text(encoding="utf-8")
+    blocos = extrair_blocos_csv(texto, ["cliente_id,data,problemas_identificados", "cliente_id,data,duracao_s,produtos_mencionados"])
+    linhas_p3 = parse_csv_linhas(blocos.get(0, []), len(P3_COLS))
+    linhas_p7 = parse_csv_linhas(blocos.get(1, []), len(P7_COLS), n_prefixo=7, n_sufixo=0)
+
+    p3_por_cliente = agrupar_por_cliente(linhas_p3)
+    ordem_batch = ordem_por_batch.get(batch_num, {})
+
+    p3_resolvidas_por_cliente = defaultdict(list)
+    for cid, linhas_c in p3_por_cliente.items():
+        sids = ordem_batch.get(cid, [])
+        if len(sids) != len(linhas_c):
+            nao_resolvidos["p3"] += len(linhas_c)
+            continue
+        for sid, linha in zip(sids, linhas_c):
+            dados_p3[sid] = dict(zip(P3_COLS, linha))
+            p3_resolvidas_por_cliente[cid].append(sid)
+
+    p7_por_cliente = agrupar_por_cliente(linhas_p7)
+    for cid, sids in p3_resolvidas_por_cliente.items():
+        linhas_c = p7_por_cliente.get(cid, [])
+        if len(sids) != len(linhas_c):
+            nao_resolvidos["p7"] += abs(len(sids) - len(linhas_c))
+        for sid, linha in zip(sids, linhas_c):
+            dados_p7[sid] = dict(zip(P7_COLS, linha))
+
+def processar_p4_p8_p11(path, batch_num):
+    texto = path.read_text(encoding="utf-8")
+    blocos = extrair_blocos_csv(texto, ["cliente_id,total_ligacoes,volume", "cliente_id,data,tipo_objecao", "cliente_id,data,tipo_sinal"])
+    linhas_p4 = parse_csv_linhas(blocos.get(0, []), len(P4_COLS))
+    linhas_p8 = parse_csv_linhas(blocos.get(1, []), len(P8_COLS))
+    linhas_p11 = parse_csv_linhas(blocos.get(2, []), len(P11_COLS))
+
+    ordem_batch = ordem_por_batch.get(batch_num, {})
+
+    for linha in linhas_p4:
+        cid = linha[0]
+        if cid not in ordem_batch:
+            nao_resolvidos["p4"] += 1
+            continue
+        dados_p4_agg[(batch_num, cid)] = dict(zip(P4_COLS, linha))
+
+    p8_por_cliente = agrupar_por_cliente(linhas_p8)
+    for cid, linhas_c in p8_por_cliente.items():
+        if cid not in ordem_batch:
+            nao_resolvidos["p8"] += len(linhas_c)
+            continue
+        dados_p8_agg[(batch_num, cid)] = {
+            "p8_num_objecoes": str(len(linhas_c)),
+            "p8_tipos": ";".join(l[2] for l in linhas_c),
+            "p8_desfechos": ";".join(l[5] for l in linhas_c),
+        }
+
+    p11_por_cliente = agrupar_por_cliente(linhas_p11)
+    for cid, linhas_c in p11_por_cliente.items():
+        if cid not in ordem_batch:
+            nao_resolvidos["p11"] += len(linhas_c)
+            continue
+        concorrentes = sorted({l[3] for l in linhas_c if l[3] not in ("nenhum", "")})
+        dados_p11_agg[(batch_num, cid)] = {
+            "p11_num_sinais": str(len(linhas_c)),
+            "p11_tipos": ";".join(l[2] for l in linhas_c),
+            "p11_concorrentes": ";".join(concorrentes) if concorrentes else "nenhum",
+        }
+
 # ---------------------------------------------------------------------------
 # Saida 1: CSV cru por prompt (mantido para depuracao/inspecao rapida)
 # ---------------------------------------------------------------------------
@@ -292,6 +381,17 @@ FIELDS_MASTER = [
     "p9_tipo_abertura", "p9_usou_nome", "p9_tipo_fechamento", "p9_proximo_passo_claro", "p9_prazo_definido", "p9_desfecho",
     # P10 (agregado por cliente+batch)
     "p10_num_promessas", "p10_tipos", "p10_risco_max",
+    # P3
+    "p3_problemas_identificados", "p3_quem_relatou", "p3_foi_resolvido_na_ligacao", "p3_escalou_para",
+    # P7
+    "p7_produtos_mencionados", "p7_produtos_ofertados", "p7_janela_perdida", "p7_produto_janela", "p7_descricao_curta",
+    # P4 (agregado por cliente+batch — health score, mesmo valor pra todas as ligacoes desse cliente naquele batch)
+    "p4_total_ligacoes", "p4_volume", "p4_adimplencia", "p4_fidelidade", "p4_engajamento",
+    "p4_complexidade_operacional", "p4_potencial_upsell", "p4_score_total", "p4_risco_churn",
+    # P8 (agregado por cliente+batch)
+    "p8_num_objecoes", "p8_tipos", "p8_desfechos",
+    # P11 (agregado por cliente+batch)
+    "p11_num_sinais", "p11_tipos", "p11_concorrentes",
 ]
 
 def escrever_consolidado(master):
@@ -355,6 +455,45 @@ def escrever_consolidado(master):
             row["p10_tipos"] = p10["p10_tipos"]
             row["p10_risco_max"] = p10["p10_risco_max"]
 
+        if sid in dados_p3:
+            p3 = dados_p3[sid]
+            row["p3_problemas_identificados"] = p3["problemas_identificados"]
+            row["p3_quem_relatou"] = p3["quem_relatou"]
+            row["p3_foi_resolvido_na_ligacao"] = p3["foi_resolvido_na_ligacao"]
+            row["p3_escalou_para"] = p3["escalou_para"]
+
+        if sid in dados_p7:
+            p7 = dados_p7[sid]
+            row["p7_produtos_mencionados"] = p7["produtos_mencionados"]
+            row["p7_produtos_ofertados"] = p7["produtos_ofertados"]
+            row["p7_janela_perdida"] = p7["janela_perdida"]
+            row["p7_produto_janela"] = p7["produto_janela"]
+            row["p7_descricao_curta"] = p7["descricao_curta"]
+
+        if bc and bc in dados_p4_agg:
+            p4 = dados_p4_agg[bc]
+            row["p4_total_ligacoes"] = p4["total_ligacoes"]
+            row["p4_volume"] = p4["volume"]
+            row["p4_adimplencia"] = p4["adimplencia"]
+            row["p4_fidelidade"] = p4["fidelidade"]
+            row["p4_engajamento"] = p4["engajamento"]
+            row["p4_complexidade_operacional"] = p4["complexidade_operacional"]
+            row["p4_potencial_upsell"] = p4["potencial_upsell"]
+            row["p4_score_total"] = p4["score_total"]
+            row["p4_risco_churn"] = p4["risco_churn"]
+
+        if bc and bc in dados_p8_agg:
+            p8 = dados_p8_agg[bc]
+            row["p8_num_objecoes"] = p8["p8_num_objecoes"]
+            row["p8_tipos"] = p8["p8_tipos"]
+            row["p8_desfechos"] = p8["p8_desfechos"]
+
+        if bc and bc in dados_p11_agg:
+            p11 = dados_p11_agg[bc]
+            row["p11_num_sinais"] = p11["p11_num_sinais"]
+            row["p11_tipos"] = p11["p11_tipos"]
+            row["p11_concorrentes"] = p11["p11_concorrentes"]
+
         rows_out.append(row)
 
     rows_out.sort(key=lambda r: (r["cliente_id"], r["data"]))
@@ -366,7 +505,7 @@ def escrever_consolidado(master):
         writer.writerows(rows_out)
 
     print(f"\n-> {out_path.relative_to(ROOT)}: {len(rows_out)} linhas (1 por segment_id)")
-    print(f"   cobertura: P1={len(dados_p1)} P2={len(dados_p2)} P5={len(dados_p5)} P6={len(dados_p6)} P9={len(dados_p9)} P10(clientes/batch)={len(dados_p10_agg)}")
+    print(f"   cobertura: P1={len(dados_p1)} P2={len(dados_p2)} P5={len(dados_p5)} P6={len(dados_p6)} P9={len(dados_p9)} P10(clientes/batch)={len(dados_p10_agg)} P3={len(dados_p3)} P7={len(dados_p7)} P4(clientes/batch)={len(dados_p4_agg)} P8(clientes/batch)={len(dados_p8_agg)} P11(clientes/batch)={len(dados_p11_agg)}")
     print(f"   nao resolvidos (mismatch de contagem, nao inventado): {nao_resolvidos}")
 
 # ---------------------------------------------------------------------------
@@ -397,6 +536,16 @@ def main():
     for f in arquivos_validos_por_batch("P9_P10"):
         processar_p9_p10(f, batch_num_do_nome(f.name))
     print(f"P9 resolvidas: {len(dados_p9)} | P10 (agregados por cliente+batch): {len(dados_p10_agg)}")
+
+    print("\nProcessando P3_P7...")
+    for f in arquivos_validos_por_batch("P3_P7"):
+        processar_p3_p7(f, batch_num_do_nome(f.name))
+    print(f"P3 resolvidas: {len(dados_p3)} | P7 resolvidas: {len(dados_p7)}")
+
+    print("\nProcessando P4_P8_P11...")
+    for f in arquivos_validos_por_batch("P4_P8_P11"):
+        processar_p4_p8_p11(f, batch_num_do_nome(f.name))
+    print(f"P4 (clientes/batch): {len(dados_p4_agg)} | P8 (clientes/batch com objecao): {len(dados_p8_agg)} | P11 (clientes/batch com sinal): {len(dados_p11_agg)}")
 
     print("\nEscrevendo CSVs por prompt (JULHO/consolidado/)...")
     escrever_csvs_por_prompt()

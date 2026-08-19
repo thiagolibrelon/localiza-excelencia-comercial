@@ -1,0 +1,11 @@
+```csv
+cliente_id,data,duracao_s,desfecho,intencao_entrada,tentativa_comercial,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,score_comercial
+14618910,2026-06-05,1891,interessou_nao_fechou,cliente_queria,SIM,SIM,NAO,SIM,SIM,SIM,NAO,SIM,NAO,NAO,SIM,12
+14618910,2026-06-05,277,nao_era_venda,cliente_queria,NAO,NAO,NAO,NAO,SIM,NAO,NAO,NAO,NAO,NAO,NAO,2
+26638850,2026-06-03,145,nao_era_venda,vendedor_puxou,NAO,NAO,NAO,SIM,SIM,NAO,SIM,NAO,SIM,NAO,NAO,8
+07276556,2026-06-01,312,interessou_nao_fechou,cliente_queria,SIM,SIM,NAO,SIM,SIM,NAO,NAO,SIM,NAO,NAO,NAO,7
+27179271,2026-06-02,117,nao_era_venda,vendedor_puxou,SIM,SIM,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,NAO,5
+11076379,2026-06-03,113,nao_era_venda,vendedor_puxou,SIM,SIM,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,SIM,8
+07939548,2026-06-03,130,nao_era_venda,cliente_queria,NAO,NAO,NAO,SIM,NAO,NAO,NAO,SIM,NAO,NAO,NAO,3
+19092673,2026-06-03,102,interessou_nao_fechou,vendedor_puxou,SIM,NAO,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,NAO,3
+27259866,2026-06-03,3

@@ -1,0 +1,20 @@
+```csv
+cliente_id,data,tipo_sinal,concorrente_mencionado,vendedor_explorou,status_competitivo,risco_churn_competitivo
+09740754,2026-06-05,IC6,,NAO,indefinido,nenhum
+26721990,2026-06-01,IC6,,NAO,indefinido,nenhum
+26492608,2026-06-02,IC4,,SIM,tem_frota_propria,baixo
+00608392,2026-06-02,IC6,,NAO,indefinido,nenhum
+27248190,2026-06-01,IC6,,NAO,indefinido,nenhum
+27248190,2026-06-02,IC7,,SIM,indefinido,alto
+27233552,2026-06-01,IC6,,NAO,indefinido,nenhum
+27233552,2026-06-01,IC1,Movida,SIM,divide_com_concorrente,baixo
+27233552,2026-06-03,IC6,,NAO,exclusivo_localiza,nenhum
+27248100,2026-06-01,IC1,Movida,SIM,divide_com_concorrente,medio
+27248100,2026-06-02,IC6,,NAO,divide_com_concorrente,medio
+21891445,2026-06-02,IC3,Outra empresa,SIM,tem_frota_propria,alto
+05204346,2026-06-02,IC4,,SIM,tem_frota_propria,nenhum
+11377771,2026-06-05,IC6,,NAO,exclusivo_localiza,nenhum
+03096291,2026-06-03,IC6,,NAO,exclusivo_localiza,nenhum
+03096291,2026-06-03,IC6,,NAO,exclusivo_localiza,nenhum
+03096291,2026-06-05,IC5,,SIM,exclusivo_localiza,medio
+26634195

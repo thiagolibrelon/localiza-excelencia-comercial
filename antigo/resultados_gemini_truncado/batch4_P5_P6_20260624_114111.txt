@@ -1,0 +1,13 @@
+```csv
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+09740754,2026-06-05,sim,CH3,Vendedor informa que reservas antecipadas para feriados garantem disponibilidade e melhor preço. ,sem_reacao_visivel,media
+26721990,2026-06-01,sim,CH1,Vendedor aponta que o valor diário pago é o dobro do mensal, sugerindo economia.,cliente_refletiu,alta
+26492608,2026-06-02,sim,CH1,Vendedor informa que PJ tem preço mais barato e faturamento sem calção, o que o cliente não sabia para uso pessoal.,cliente_aceitou,alta
+27248190,2026-06-01,sim,CH3,Vendedor explica que reservas antecipadas (7 dias) garantem melhor preço, pois o valor aumenta perto da retirada.,cliente_aceitou,alta
+27248190,2026-06-01,sim,CH5,Vendedor conecta a necessidade de uso prolongado com a vantagem do plano mensal, que tem precificação menor.,cliente_aceitou,alta
+27233552,2026-06-01,sim,CH1,Vendedor destaca que locação PJ oferece provisionamento de caixa e isenção de preocupações com manutenção, comparado a ter carro próprio.,cliente_refletiu,alta
+27248100,2026-06-01,sim,CH3,Vendedor informa que os preços de locação serão reajustados amanhã, incentivando a reserva imediata para garantir o valor atual.,cliente_aceitou,alta
+27248100,2026-06-01,sim,CH5,Vendedor conecta a necessidade de rastreador com o serviço de telemetria da Localiza, explicando seus benefícios de controle e segurança.,cliente_aceitou,alta
+11160879,2026-06-01,sim,CH1,Vendedor explica que a cobrança acumulada de KM excedente é uma nova política para evitar surpresas no final do contrato.,cliente_refletiu,alta
+11160879,2026-06-01,sim,CH5,Vendedor sugere que optar por uma franquia de KM maior é mais vantajoso do que pagar KM excedente, que é mais caro.,cliente_refletiu,alta
+13718486,2026-06-01,sim,CH3,Vendedor aconselha o cliente a ag

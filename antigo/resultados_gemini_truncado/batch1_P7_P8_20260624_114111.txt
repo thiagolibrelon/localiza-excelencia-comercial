@@ -1,0 +1,18 @@
+```csv
+cliente_id,data,produtos_mencionados,produtos_ofertados,janelas_perdidas,receita_incremental_potencial_R$
+26468784,2026-06-02,locar veículos,PR1,Cliente não aluga com frequência,2500
+19853293,2026-06-03,locação,N/A,Cliente não tem necessidades imediatas,0
+13382750,2026-06-01,aluguel diário,PR1,Cliente compara preço com concorrente,2500
+25980241,2026-06-03,aluguel de caminhão,PR2,Cliente prefere comprar caminhão,4000
+07877379,2026-06-02,plataforma,N/A,Cliente alugou como pessoa física por problema na plataforma,0
+00044031,2026-06-01,WebCorp,N/A,N/A,0
+23214882,2026-06-01,aluguel diário,PR1,Cliente avalia aluguel mensal,2500
+08208008,2026-06-02,valor da locação,PR1,Cliente reclama de flutuação de preço diário,2500
+15504380,2026-06-01,contrato mensal,PR1,Cliente não precisa estender aluguel,2500
+21409258,2026-06-02,reserva mensal,N/A,N/A,0
+21409258,2026-06-02,picape da Chevrolet,PR5,N/A,0
+27245444,2026-06-01,locações diárias,PR1,Cliente não vê utilidade em aluguel mensal,0
+17086084,2026-06-02,TAG,PR3,N/A,0
+26470053,2026-06-02,N/A,N/A,N/A,0
+10287830,2026-06-03,N/A,N/A,N/A,0
+00128792,2026-06-01,locação mensal,PR1,Cliente não precisa de 30 dias de locação,2500

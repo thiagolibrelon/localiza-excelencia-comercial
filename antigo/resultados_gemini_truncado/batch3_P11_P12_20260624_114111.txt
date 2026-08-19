@@ -1,0 +1,21 @@
+```csv
+cliente_id,data,tipo_sinal,concorrente_mencionado,vendedor_explorou,status_competitivo,risco_churn_competitivo
+23620018,2026-06-03,IC6|IC4,Frota própria,SIM,exclusivo_localiza,baixo
+17003562,2026-06-02,,,,,indefinido,nenhum
+24660822,2026-06-01,,,,,indefinido,nenhum
+17483733,2026-06-03,IC6,Frota própria,NAO,indefinido,baixo
+08832096,2026-06-01,IC1|IC7,Outro locador,SIM,divide_com_concorrente,alto
+09713287,2026-06-01,,,,,indefinido,nenhum
+24638135,2026-06-01,,,,,indefinido,nenhum
+17973551,2026-06-01,,,,,indefinido,nenhum
+17973551,2026-06-01,,,,,indefinido,nenhum
+17973551,2026-06-01,,,,,indefinido,nenhum
+17973551,2026-06-02,,,,,indefinido,nenhum
+27162582,2026-06-03,IC4,Frota própria,SIM,tem_frota_propria,baixo
+24634109,2026-06-03,IC5,,NAO,indefinido,baixo
+01076493,2026-06-02,,,,,indefinido,nenhum
+23983325,2026-06-03,,,,,indefinido,nenhum
+02588908,2026-06-05,IC6|IC4,Frota própria,SIM,tem_frota_propria,baixo
+21878549,2026-06-05,,,,,indefinido,nenhum
+17518358,2026-06-02,,,,,indefinido,nenhum
+27227595,2026-06-03,,,,,indefinido,nenhum

@@ -1,0 +1,20 @@
+```csv
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+22770692,2026-06-03,nao,,,,,
+14488094,2026-06-02,nao,,,,,
+26508320,2026-06-03,nao,,,,,
+27163081,2026-06-02,sim,CH4,"Salesperson uses a client's experience to show that Rent a Car's 12-month plan can be cheaper than Carro Zero, challenging the assumption that Carro Zero is always more cost-effective.",cliente_aceitou,alta
+27163081,2026-06-02,sim,CH6,"Salesperson highlights that Rent a Car's monthly plan has lower contract break penalties (10% vs 15% for Carro Zero) and includes car replacement for maintenance within 4 hours, anticipating potential problems with Carro Zero.",cliente_aceitou,alta
+00913571,2026-06-03,nao,,,,,
+01700124,2026-06-03,nao,,,,,
+20817393,2026-06-02,nao,,,,,
+18557189,2026-06-01,nao,,,,,
+27234051,2026-06-01,nao,,,,,
+25706197,2026-06-05,sim,CH7,"Salesperson uncovers an undeclared need for truck rental by asking about the client's own fleet, revealing Localiza Pesados service.",cliente_refletiu,alta
+07399581,2026-06-02,nao,,,,,
+25343351,2026-06-03,nao,,,,,
+26394152,2026-06-01,sim,CH6,"Salesperson advises against changing to daily rental for a short period before a new car arrives, explaining it would be more expensive and not cost-effective, anticipating a financial problem.",cliente_aceitou,alta
+19610751,2026-06-02,nao,,,,,
+20662047,2026-06-05,nao,,,,,
+27255734,2026-06-02,nao,,,,,
+272557

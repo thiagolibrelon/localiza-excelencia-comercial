@@ -1,0 +1,14 @@
+```csv
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+26155999,2026-06-02,sim,CH6,"Explicou o impacto do crédito comprometido na futura movimentação de veículos.",cliente_refletiu,media
+16669586,2026-06-02,sim,CH7,"Identificou a posse de frota própria e ofereceu terceirização como solução futura.",cliente_refletiu,media
+21856718,2026-06-01,sim,CH1,"Explicou as diferenças entre aluguel diário, mensal flexível e mensal fixo, corrigindo a expectativa do cliente.",cliente_refletiu,alta
+27260847,2026-06-03,sim,CH1,"Explicou que alugar por 30 dias pode ser mais barato do que 15 dias se houver extensão.",cliente_aceitou,alta
+27080353,2026-06-05,sim,CH1,"Explicou a política de crédito para novos cadastros (5k, uma locação por vez) que causou o bloqueio.",cliente_aceitou,alta
+27080353,2026-06-05,sim,CH6,"Ofereceu o termo SCR para aumentar o crédito, resolvendo futuros problemas de múltiplas locações.",cliente_aceitou,alta
+04919242,2026-06-03,sim,CH1,"Comparou o custo de frota própria com terceirização, sugerindo que o custo próprio é maior.",cliente_refletiu,alta
+01811976,2026-06-02,sim,CH6,"Alertou sobre a alta temporada e a importância de reservar com antecedência para evitar aumento de tarifa e indisponibilidade.",cliente_refletiu,alta
+19233673,2026-06-01,sim,CH1,"Explicou que não há necessidade de condutor adicional em contrato mensal, evitando custo desnecessário.",cliente_aceitou,alta
+04475681,2026-06-01,sim,CH6,"Ofereceu acesso multiusuário ao WebCorp para evitar problemas de acesso na ausência de um gestor.",cliente_aceitou,alta
+04475681,2026-06-01,sim,CH5,"Conectou a dor de não receber faturas antes do vencimento com a solução do portal de faturamento.",cliente_aceitou,alta
+13924850,2026

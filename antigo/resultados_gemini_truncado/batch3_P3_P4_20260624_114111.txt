@@ -1,0 +1,21 @@
+### CSV-P3 (Problemas Recorrentes)
+cliente_id,data,problemas_identificados,quem_relatou,foi_resolvido_na_ligacao,escalou_para
+23620018,2026-06-03,P1+P10,Cliente,sim,nenhum
+17003562,2026-06-02,P2,Cliente,sim,nenhum
+24660822,2026-06-01,P1,Vendedor,sim,nenhum
+17483733,2026-06-03,nenhum,nenhum,nenhum,nenhum
+08832096,2026-06-01,P2,Cliente,nao,Diretoria
+09713287,2026-06-01,P10,Vendedor,sim,nenhum
+24638135,2026-06-01,P2,Vendedor,nao,nenhum
+17973551,2026-06-01,P6+P2,Cliente,nao,Assistência ao Cliente
+17973551,2026-06-01,P6+P2,Cliente,sim,nenhum
+17973551,2026-06-01,P6+P2,Cliente,nao,Assistência ao Cliente
+17973551,2026-06-02,P6+P2+P9,Cliente,nao,Assistência ao Cliente
+27162582,2026-06-03,nenhum,nenhum,nenhum,nenhum
+24634109,2026-06-03,P11,Cliente,nao,nenhum
+01076493,2026-06-02,nenhum,nenhum,nao,nenhum
+23983325,2026-06-03,nenhum,nenhum,nenhum,nenhum
+02588908,2026-06-05,nenhum,nenhum,nenhum,nenhum
+21878549,2026-06-05,nenhum,nenhum,nenhum,nenhum
+17518358,2026-06-02,nenhum,nenhum,nao,nenhum
+27227595,2026-06-

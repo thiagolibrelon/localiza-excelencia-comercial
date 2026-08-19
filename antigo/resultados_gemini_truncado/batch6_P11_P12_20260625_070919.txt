@@ -1,0 +1,23 @@
+```csv
+cliente_id,data,tipo_sinal,concorrente_mencionado,vendedor_explorou,status_competitivo,risco_churn_competitivo
+26155999,2026-06-02,IC4,MyFleet,SIM,tem_frota_propria|divide_com_concorrente,medio
+26155999,2026-06-03,,,,,nenhum
+16669586,2026-06-02,IC4,Localiza,SIM,tem_frota_propria,baixo
+21856718,2026-06-01,IC3,Bruna Suro|Rodrigo (Araraquara),NAO,divide_com_concorrente,medio
+18477359,2026-06-01,,,,,nenhum
+13405392,2026-06-05,,,,,nenhum
+25966050,2026-06-02,,,,,nenhum
+27260847,2026-06-03,IC4,Localiza,SIM,tem_frota_propria,baixo
+08245113,2026-06-03,,,,,nenhum
+24722106,2026-06-02,,,,,nenhum
+07852574,2026-06-03,IC3,GS,NAO,divide_com_concorrente,baixo
+01811976,2026-06-02,,,,,nenhum
+27080353,2026-06-05,,,,,nenhum
+04919242,2026-06-03,IC4,Localiza,SIM,tem_frota_propria,baixo
+13316813,2026-06-05,,,,,nenhum
+20541778,2026-06-02,,,,,nenhum
+19233673,2026-06-01,,,,,nenhum
+04475681,2026-06-01,,,,,nenhum
+13924850,2026-06-05,IC4,Localiza,SIM,tem_frota_propria,baixo
+22205081,2026-06-02,,,,,nenhum
+05104534,2026-06-

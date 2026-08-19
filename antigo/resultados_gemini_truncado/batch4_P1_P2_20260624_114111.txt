@@ -1,0 +1,11 @@
+### CSV-P1 (Conversão)
+cliente_id,data,duracao_s,desfecho,intencao_entrada,tentativa_comercial,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,score_comercial
+09740754,2026-06-05,62,interessou_nao_fechou,vendedor_puxou,SIM,NAO,NAO,NAO,SIM,NAO,SIM,NAO,SIM,NAO,NAO,6
+26721990,2026-06-01,191,interessou_nao_fechou,vendedor_puxou,SIM,NAO,SIM,NAO,SIM,NAO,NAO,SIM,NAO,NAO,7
+26492608,2026-06-02,389,interessou_nao_fechou,vendedor_puxou,SIM,NAO,NAO,NAO,NAO,NAO,NAO,SIM,NAO,SIM,6
+00608392,2026-06-02,113,interessou_nao_fechou,vendedor_puxou,NAO,NAO,SIM,NAO,NAO,NAO,NAO,SIM,NAO,NAO,3
+27248190,2026-06-01,1732,interessou_nao_fechou,vendedor_puxou,SIM,NAO,NAO,SIM,SIM,NAO,SIM,SIM,NAO,NAO,8
+27248190,2026-06-02,137,nao_era_venda,cliente_queria,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,NAO,0
+27233552,2026-06-01,272,interessou_nao_fechou,cliente_queria,SIM,NAO,NAO,NAO,SIM,NAO,NAO,NAO,NAO,NAO,4
+27233552,2026-06-01,177,interessou_nao_fechou,vendedor_puxou,SIM,NAO,SIM,NAO,SIM,NAO,NAO,SIM,NAO,NAO,7
+27233552,2

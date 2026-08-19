@@ -1,0 +1,16 @@
+```csv
+cliente_id,data,produtos_mencionados,produtos_ofertados,janelas_perdidas,receita_incremental_potencial_R$
+23620018,2026-06-03,PR1,Nenhuma,Explorar PR1 (Mensal leve) ou PR7 (Contrato anual) para converter locações PF para PJ; Explorar PR12 (Gestão de frotas) ou PR1 (Mensal leve) para demandas internas regulares.,24000
+17003562,2026-06-02,Nenhuma,Nenhuma,Nenhuma,0
+24660822,2026-06-01,Nenhuma,Nenhuma,Explorar PR1 (Mensal leve) ou PR7 (Contrato anual) para demanda recorrente; Explorar PR5 (Upgrade categoria) para tipo de veículo específico.,24000
+17483733,2026-06-03,Nenhuma,Nenhuma,Nenhuma,0
+08832096,2026-06-01,Nenhuma,Nenhuma,Explorar PR12 (Gestão de frotas) ou PR1 (Mensal leve) para necessidades baseadas em projeto.,12000
+09713287,2026-06-01,PR1;Diárias,PR1,Nenhuma,0
+24638135,2026-06-01,Nenhuma,Nenhuma,Explorar PR1 (Mensal leve) ou PR7 (Contrato anual) para futuras necessidades recorrentes.,0
+17973551,2026-06-01,PR6;PR3,Nenhuma,Nenhuma,0
+17973551,2026-06-01,Nenhuma,Nenhuma,Nenhuma,0
+17973551,2026-06-01,PR6;PR3,Nenhuma,Nenhuma,0
+17973551,2026-06-02,PR6;PR4,Nenhuma,Nenhuma,0
+27162582,2026-06-03,Diárias;Frota própria,Nenhuma,Explorar PR1 (Mensal leve) ou PR7 (Contrato anual) para eventos recorrentes ou uso pessoal; Explorar PR12 (Gestão de frotas) para equipe grande.,24000
+24634109,2026-06-03,PR1;PR7,PR1;PR7,Nenhuma,0
+01076493,2

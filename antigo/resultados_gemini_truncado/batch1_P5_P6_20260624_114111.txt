@@ -1,0 +1,14 @@
+```csv
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+13382750,2026-06-01,TRUE,"CH1,CH4,CH6","Revela custos ocultos de concorrentes (seguro 3x maior, taxa de operação 20% vs 12%), destaca rede e serviço de substituição superiores.",cliente_refletiu,alta
+15504380,2026-06-01,TRUE,CH1,"Informa que a diária cai absurdamente no contrato mensal.",sem_reacao_visivel,media
+23214882,2026-06-01,TRUE,"CH1,CH3","Aponta que preço de 30 dias é melhor que diário e tenta criar urgência para aluguel mensal para obra.",cliente_refletiu,media
+27245444,2026-06-01,TRUE,CH3,"Explica que tarifas diárias são como passagens aéreas, com preços melhores se locado com antecedência.",cliente_refletiu,alta
+14289568,2026-06-05,TRUE,CH6,"Alerta sobre a necessidade de reforçar ativação da TAG no balcão para evitar problemas.",cliente_aceitou,alta
+24940841,2026-06-02,TRUE,CH1,"Questiona se não compensaria pegar no mensal, dado que o valor diário está próximo.",cliente_refletiu,media
+00128792,2026-06-01,TRUE,CH1,"Questiona se agência ofereceu locação mensal para redução de custos.",sem_reacao_visivel,media
+06356330,2026-06-01,TRUE,CH1,"Alerta que diária está mais cara que mensal e sugere ampliar contrato para mensal.",cliente_aceitou,alta
+22776712,2026-06-01,TRUE,CH1,"Oferece valor mais baixo para retirada hoje e compara com custo de diária vs. mensal.",cliente_refletiu,media
+25516327,2026-06-01,TRUE,CH1,"Compara custo de diária alta com mensal mais barato para o mesmo período.",cliente_aceitou,alta
+27164739,2026-06-02,TRUE,CH1,"Compara aluguel mensal (mais em conta) com diário (mais caro) para julho.",cliente_aceitou,alta
+24414168,2026-06-

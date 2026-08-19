@@ -1,0 +1,34 @@
+_objecao,frase_resumo_cliente,resposta_vendedor,eficacia,desfecho_objecao
+10979198,2026-06-03,nenhuma,nenhuma,nao_aplicavel,nao_aplicavel,nao_aplicavel
+
+---
+**LIGACAO | Cliente:25704409 | Data:2026-06-05 | Dur:48s | Sent:POSITIVE**
+
+*   **Issue:** Routine check-in, client has no demand.
+*   **Products mentioned:** PR1 (locações).
+*   **Products offered:** None.
+*   **Objections:** None.
+*   **Cross-sell/Upsell:** None.
+*   **Revenue:** 0
+
+**CSV-P7 for 25704409:**
+cliente_id,data,produtos_mencionados,produtos_ofertados,janelas_perdidas,receita_incremental_potencial_R$
+25704409,2026-06-05,PR1,Nenhuma,Nenhuma,0
+
+**CSV-P8 for 25704409:**
+cliente_id,data,tipo_objecao,frase_resumo_cliente,resposta_vendedor,eficacia,desfecho_objecao
+25704409,2026-06-05,nenhuma,nenhuma,nao_aplicavel,nao_aplicavel,nao_aplicavel
+
+---
+**LIGACAO | Cliente:23600526 | Data:2026-06-03 | Dur:114s | Sent:POSITIVE**
+
+*   **Issue:** Client has a question about a credit card charge, needs to talk to finance.
+*   **Products mentioned:** PR1 (locações).
+*   **Products offered:** None.
+*   **Objections:**
+    *   C: "Eu só não consigo conversar com você agora. A gente pode, com você, teria algum outro horário que você pudesse ligar? Eu sou médico e eu estou atendendo..." (OB2 - Prazo/adiamento).
+    *   A's response: "Pode, meio dia, meio dia e meio, assim?" (R1 - Validou+explorou).
+    *   Efficacy: Alta.
+    *   Desfecho: Superada (agrees to call back).
+    *   C: "eu tenho até uma dúvida a respeito e eu acho que teria que estar falando com o financeiro de vocês, porque tem uma cobrança no meu cartão de crédito e eu só estava querendo entender por que dessa cobrança de 800 reais, cinco parcelas de 800." (OB5 - Problema não resolvido).
+    *

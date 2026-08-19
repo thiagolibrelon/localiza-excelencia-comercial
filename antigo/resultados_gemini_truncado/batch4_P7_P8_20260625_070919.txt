@@ -1,0 +1,12 @@
+```csv
+cliente_id,data,produtos_mencionados,produtos_ofertados,janelas_perdidas,receita_incremental_potencial_R$
+09740754,2026-06-05,Locação diária,Locação diária (reserva antecipada),Mensal leve (PR1),0.00
+26721990,2026-06-01,Contrato diário; Mensal leve (PR1),Mensal leve (PR1),Nenhuma,0.00
+26492608,2026-06-02,Locação diária PJ; Locação mensal (PR1); Gestão de frotas (PR12); Caminhões (PR2); Carro por assinatura (PR10),Locação diária PJ; Carro por assinatura (PR10); Caminhões (PR2),Proteção (PR4) para frota própria; Telemetria (PR3) para frota própria; Gestão de frotas (PR12) com cotação futura,0.00
+00608392,2026-06-02,Cadastro de filial,N/A,Nenhuma,0.00
+27248190,2026-06-01,Locação diária; Locação mensal (PR1); Proteção total (PR4); Limpeza do carro; Neutraliza; WebCorp; Portal de faturamento,Locação diária; Locação mensal (PR1); Proteção total (PR4); Limpeza do carro; Neutraliza; Portal de faturamento,Nenhuma,0.00
+27248190,2026-06-02,Locação diária (sedan); Van,Locação diária (outra localidade); Locação diária (outra categoria),Nenhuma,0.00
+27233552,2026-06-01,Mensal leve (PR1 - Strada); Contrato anual (PR7 - 3 meses),Mensal leve (PR1 - Strada); Contrato anual (PR7 - 3 meses); Proteção (PR4),Nenhuma,0.00
+27233552,2026-06-01,Locação mensal (PR1); Contrato anual (PR7 - 12 meses); Localiza Internacional,Contrato anual (PR7 - 12 meses); Localiza Internacional,Nenhuma,0.00
+27233552,2026-06-03,Km adicional (PR6),Km adicional (PR6),Nenhuma,0.00
+27248100,2026-06-01,Locação diária

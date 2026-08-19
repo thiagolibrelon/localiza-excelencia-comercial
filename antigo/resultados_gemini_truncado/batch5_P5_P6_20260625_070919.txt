@@ -1,0 +1,15 @@
+```csv
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+14618910,2026-06-05,sim,CH6;CH1,Seller explains the risks of basic protection (multas, avarias) and recommends total protection to avoid future costs and headaches,cliente_refletiu,alta
+14618910,2026-06-05,sim,CH1;CH6,Seller contrasts basic vs. total protection, highlighting hidden costs and peace of mind of total protection,cliente_refletiu,alta
+27259866,2026-06-03,sim,CH5;CH7,Seller offers monthly flexible rental as a "test drive" to evaluate service before committing to longer-term contracts,cliente_aceitou,media
+27259866,2026-06-03,sim,CH1;CH6,Seller highlights flexibility of monthly contract to adjust KM, avoiding higher costs of excedente KM,cliente_aceitou,alta
+27259866,2026-06-03,sim,CH7,Seller highlights free additional drivers for monthly contracts,cliente_aceitou,alta
+21291852,2026-06-05,sim,CH6,Seller proactively informs about potential penalty for early termination of 12-month contract,cliente_aceitou,alta
+20922321,2026-06-03,sim,CH1;CH7,Seller highlights that monthly rental is cheaper for 10+ days and includes free additional drivers,cliente_refletiu,alta
+27252344,2026-06-02,sim,CH6,Seller anticipates future credit limit constraints and proactively offers a solution (credit increase),cliente_aceitou,alta
+27225851,2026-06-02,sim,CH3,Seller explains dynamic pricing and links it to high demand (São João) to create urgency for booking,cliente_refletiu,alta
+27225851,2026-06-02,sim,CH1,Seller clarifies mandatory costs (basic protection, inter-city fee) and explains their purpose,cliente_aceitou,alta
+27225851,2026-06-02,sim,CH6,Seller explains benefits of total protection to avoid future costs/headaches,cliente_aceitou,alta
+22809769,2026-06-01,sim,CH1,Seller identifies cost inefficiency of daily prorogation becoming more expensive than monthly rental,cliente_aceitou,alta
+228

@@ -1,0 +1,11 @@
+### CSV-P13 (Padrões Emergentes)
+categoria,codigo,descricao,frequencia_estimada,impacto_potencial,evidencias
+S1,Proatividade na reativação de clientes inativos,Vendedores ligam para clientes com cadastro ativo mas sem uso para entender demandas e reativar.,alta,alto,"Cliente:23620018, Cliente:08832096, Cliente:24634109"
+S2,Cliente com cadastro PJ ativo, mas sem login/senha, e fazendo locações como PF,Clientes com cadastro PJ ativo não utilizam a plataforma PJ por falta de login/senha ou preferência por PF.,alta,alto,"Cliente:23620018, Cliente:26621049, Cliente:27243741"
+S2,Cliente busca parcelamento para locações PJ, mas a opção faturada é parcela única,Clientes questionam sobre parcelamento de locações PJ, mas a política da empresa é boleto único para faturamento.,media,medio,"Cliente:23620018"
+S1,Vendedor promete isenção de multa por atraso, mas cliente é cobrado,Vendedor informa que não haverá multa por atraso, mas o cliente é cobrado, gerando insatisfação.,baixa,alto,"Cliente:17003562"
+S2,Cliente contesta multa por atraso e busca solução para crédito futuro,Cliente contesta cobrança de multa por atraso e busca formas de compensação ou crédito para futuras locações.,baixa,medio,"Cliente:17003562"
+S1,Vendedor proativo na atualização de dados de contato e acesso,Vendedores ligam para atualizar dados de contato (e-mail, telefone) e acesso à plataforma (login/senha) de clientes.,alta,medio,"Cliente:24660822, Cliente:04199141, Cliente:10343137, Cliente:00310434, Cliente:11220472"
+S1,Oferta de suporte ativo para primeiro acesso e reservas,Vendedores oferecem ajuda para o primeiro acesso à plataforma e para a realização das primeiras reservas.,alta,alto,"Cliente:24660822, Cliente:27162582, Cliente:27248564, Cliente:22888409"
+S2,Cliente com demanda imediata de locação,Clientes expressam necessidade de locação para a semana atual ou dias próximos.,media,medio,"Cliente:24660822, Cliente:27227595, Cliente:25874356"
+S1,Vendedor liga para solicitar preenchimento de pesquisa de satisfação,Vendedores ligam para pedir que clientes respond

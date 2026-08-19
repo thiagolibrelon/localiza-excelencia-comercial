@@ -1,0 +1,12 @@
+### CSV-P13 (Padroes Emergentes)
+categoria,codigo,descricao,frequencia_estimada,impacto_potencial,evidencias
+S2,S2.1,Cliente usa cadastro PJ para necessidade pessoal/emergencial (PF).,Baixa,Médio,"Cliente:14618910 (Elisívia) - precisa de carro para ajudar pessoa que bateu no carro dela."
+S2,S2.2,Cliente busca parcelamento para locações de curto prazo.,Média,Alto,"Cliente:14618910 (Elisívia) - pergunta sobre parcelamento para locação de 1 semana."
+S1,S1.1,Vendedor reativa cadastro PJ inativo e aprova crédito rapidamente para demanda emergencial.,Baixa,Alto,"Cliente:14618910 (Flávia) - reativa CNPJ inativo e aprova 10k de crédito em minutos."
+S1,S1.2,Vendedor orienta proativamente sobre opções de seguro e responsabilidade (multas/avarias) para evitar problemas futuros, mesmo que signifique custo maior.,Média,Alto,"Cliente:14618910 (Flávia) - sugere proteção total de avaria para evitar dor de cabeça futura."
+S4,S4.1,Cliente apresenta cotação de concorrente (ou outra modalidade Localiza) com condições de pagamento (parcelamento) que o vendedor PJ não consegue igualar.,Média,Alto,"Cliente:14618910 (Elisívia) - cotação de Localiza PF com parcelamento em 6x."
+S2,S2.3,Cliente (parceiro) não tem visibilidade sobre faturas em atraso ou limite de crédito.,Média,Médio,"Cliente:26638850 (parceiro do Ronaldo) - surpreso com faturas em atraso."
+S3,S3.1,Faturas em atraso impactando novas reservas.,Alta,Alto,"Cliente:26638850 (Lucas) - reserva pendente por faturas em atraso."
+S2,S2.4,Cliente (agência) atua como intermediário para PJ final, buscando cotações e reativação de cadastro.,Média,Médio,"Cliente:07276556 (Miriam) - busca cotação para cliente PJ e reativação de cadastro."
+S3,S3.2,Cadastro PJ inativo/sem crédito, exigindo análise manual/fundamentalista.,Alta,Alto,"Cliente:07276556 (Flávia) - CNPJ inativo, crédito não aprovado, sugere análise fundamentalista."
+S3,S3.3,Cliente já utiliza outro serviço da Localiza (Gestão de Frotas) e é contatado por Rentacar.,Alta,Baixo,"Cliente:2717927

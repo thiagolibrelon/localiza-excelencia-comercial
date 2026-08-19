@@ -1,0 +1,13 @@
+### CSV-P5 (Comportamentos Challenger)
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+08832096,2026-06-01,sim,CH3,Vendedor explica que prazo maior de pagamento exige volume, mas oferece datas fixas como alternativa.,cliente_refletiu,alta
+08832096,2026-06-01,sim,CH5,Conecta a dor do prazo de pagamento curto com a política da Localiza e oferece datas fixas.,cliente_refletiu,alta
+24638135,2026-06-01,sim,CH6,Vendedor alerta sobre bloqueio iminente do carro e orienta sobre o procedimento de devolução para evitar problemas.,cliente_aceitou,alta
+17973551,2026-06-01,sim,CH6,Vendedora identifica inconsistência em cobrança de KM excedente e orienta cliente a contestar.,cliente_aceitou,alta
+17973551,2026-06-01,sim,CH6,Vendedora usa histórico de uso para contestar cobrança de KM excedente, sugerindo evidências.,cliente_aceitou,alta
+17973551,2026-06-02,sim,CH1,Vendedora explica que cobrança de KM excedente pode ser por opção de faturamento "final de contrato", revelando custo oculto.,cliente_refletiu,alta
+17973551,2026-06-02,sim,CH6,Vendedora esclarece que dano no para-brisa não é coberto por proteção básica, indicando custo futuro.,cliente_aceitou,alta
+27227595,2026-06-03,sim,CH1,Vendedora alerta que devolução antecipada de contrato mensal reverte para tarifa diária, que é mais cara.,cliente_aceitou,alta
+27227595,2026-06-03,sim,CH6,Antecipa problema de custo com devolução antecipada e sugere modalidade de diária.,cliente_aceitou,alta
+27227595,2026-06-03,sim,CH1,Vendedora explica que adicionais opcionais aumentam o custo e podem ser desmarcados, revelando como otimizar o preço.,cliente_aceitou,alta
+27227595,2026-06-03,sim,CH3,Vendedora alerta sobre tarifa flutuante e a necessidade de fechar a reserva logo para garantir o preço.,cliente_ref

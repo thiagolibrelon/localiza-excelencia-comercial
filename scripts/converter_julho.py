@@ -7,7 +7,18 @@ cd_contato_master vem corrompido (Excel converteu pra notacao cientifica, ex "7,
 colapsa milhares de IDs distintos em 1-2 valores por arquivo). NAO USAR essa coluna.
 Usar cd_segmento (uuid, unico por linha) como segment_id e CLIENTE como identificador do cliente.
 
-Idempotente: sempre reprocessa os 4 brutos do zero e regrava o JSON combinado.
+Dois formatos de entrada:
+1. ARQUIVOS (formato antigo, 01-21/07): export de 37 colunas, 1 arquivo por bloco de dias.
+2. PASTAS_FORMATO_NOVO (formato novo, padrao a partir de 22/07/2026): 1 arquivo por dia
+   (nome = dia do mes, sem extensao), so 10 colunas. NAO tem data_hora_fim (logo, sem
+   duracao de ligacao - decisao do usuario em 04/08/2026: seguir sem esse campo, nao
+   pedir no export) nem status_transcricao (redundante - validado que status="success"
+   equivale 100% a transcricao_limpa nao-vazio no formato antigo). Em troca, traz
+   direcao/nome_agente_1/time_agente_1, que o formato antigo tambem tem mas nunca foram
+   extraidos aqui - capturados agora pra eventualmente preencher o gap de "quem vendeu"
+   (ver nota H10 na memoria do projeto).
+
+Idempotente: sempre reprocessa tudo do zero e regrava o JSON combinado.
 """
 import csv
 import json
@@ -20,6 +31,11 @@ ARQUIVOS = [
     "arq1 (1).2",
     "arq2 (1).txt",
     "arq2 (1).2",
+]
+# Pastas com arquivos diarios no formato novo (10 colunas) - adicionar novas pastas
+# aqui conforme forem chegando (ex: proximo mes, proximo range de dias).
+PASTAS_FORMATO_NOVO = [
+    JULHO_DIR / "Ligações_22_31",
 ]
 OUT_PATH = JULHO_DIR / "dados_convertidos" / "julho_completo.json"
 
@@ -50,9 +66,74 @@ def transcricao_para_conversa(texto):
     return turnos
 
 
+def processar_arquivo_formato_novo(caminho, dados, stats):
+    n_usadas = 0
+    with open(caminho, encoding="utf-8", errors="replace", newline="") as fh:
+        reader = csv.DictReader(fh, delimiter=";")
+        for row in reader:
+            stats["linhas"] += 1
+            transcricao = row["transcricao_limpa"].strip()
+            # sem status_transcricao neste formato - texto vazio e equivalente
+            # (validado contra o formato antigo: status=success <=> texto nao-vazio)
+            if not transcricao:
+                stats["sem_transcricao"] += 1
+                continue
+
+            cliente_raw = row["Cliente"].strip()
+            segment_id = row["cd_segmento"].strip()
+
+            if cliente_raw in ("", "0"):
+                stats["sem_cliente"] += 1
+                continue
+
+            # Cliente so numerico = ID real. Qualquer outra coisa (ex: "Sem
+            # Codigo", que vem corrompido na fonte) e placeholder sem vinculo
+            # confiavel - mesma logica do "Sem Informacao" do formato antigo:
+            # mantem a ligacao com chave sintetica propria, sem agrupar todas
+            # sob a mesma chave (evita "cliente" fantasma gigante).
+            if not cliente_raw.isdigit():
+                cliente = f"SEMINFO_{segment_id}"
+                stats["sem_info_mantida"] = stats.get("sem_info_mantida", 0) + 1
+            else:
+                cliente = cliente_raw.zfill(8)
+
+            try:
+                dt_ini = parse_dt(row["data_hora_inicio"])
+            except Exception:
+                dt_ini = None
+
+            conversa = transcricao_para_conversa(transcricao)
+            if not conversa:
+                stats["sem_transcricao"] += 1
+                continue
+
+            registro = {
+                "segment_id": segment_id,
+                "data": (dt_ini.isoformat() + "Z") if dt_ini else None,
+                "duracao": None,  # formato novo nao tem data_hora_fim
+                "sentimento": "",
+                "conversa": conversa,
+                "direcao": row.get("direcao", "").strip(),
+                "agente_id": row.get("nome_agente_1", "").strip(),
+                "time_agente": row.get("time_agente_1", "").strip(),
+            }
+            dados.setdefault(cliente, []).append(registro)
+            stats["usadas"] += 1
+            n_usadas += 1
+    stats["por_arquivo"][caminho.name] = n_usadas
+
+
 def main():
     dados = {}
     stats = {"linhas": 0, "sem_transcricao": 0, "sem_cliente": 0, "sem_info_mantida": 0, "usadas": 0, "por_arquivo": {}}
+
+    for pasta in PASTAS_FORMATO_NOVO:
+        if not pasta.exists():
+            continue
+        for caminho in sorted(pasta.iterdir()):
+            if not caminho.is_file():
+                continue
+            processar_arquivo_formato_novo(caminho, dados, stats)
 
     for nome_arquivo in ARQUIVOS:
         caminho = JULHO_DIR / nome_arquivo

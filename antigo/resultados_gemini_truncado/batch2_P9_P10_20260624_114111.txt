@@ -1,0 +1,12 @@
+```csv
+cliente_id,data,tipo_abertura,usou_nome,tipo_fechamento,proximo_passo_claro,prazo_definido,desfecho
+22770692,2026-06-03,AB1=Contextualizada,SIM,FC3=Convite genérico("se precisar me chama"),NAO,NAO,Cliente não precisa de nada, vendedor se coloca à disposição.
+14488094,2026-06-02,AB2=Relacional,SIM,FC3=Convite genérico("se precisar me chama"),NAO,NAO,Cliente não tem demanda, cadastro ativo, vendedor se coloca à disposição.
+26508320,2026-06-03,AB1=Contextualizada,SIM,FC2=Próximo passo só do vendedor,SIM,NAO,Cliente já fechou com concorrente, vendedor envia contatos para futuras demandas avulsas.
+27163081,2026-06-02,AB1=Contextualizada,SIM,FC3=Convite genérico("se precisar me chama"),SIM,NAO,Cliente já tem cotação com concorrente, vendedor oferece nova cotação para 12 meses e envia por WhatsApp.
+00913571,2026-06-03,AB4=Reativa,SIM,FC2=Próximo passo só do vendedor,SIM,NAO,Cliente quer reservar carro com desconto e aumentar limite de crédito. Vendedor vai verificar sistema e tentar aumento de limite.
+01700124,2026-06-03,AB4=Reativa,NAO,FC2=Próximo passo só do vendedor,SIM,NAO,Cliente ligou para falar com Graziele, vendedor encaminha o pedido.
+20817393,2026-06-02,AB3=Genérica,SIM,FC4=Aberto(nada definido),NAO,NAO,Ligação interrompida.
+18557189,2026-06-01,AB1=Contextualizada,SIM,FC3=Convite genérico("se precisar me chama"),SIM,SIM,Cliente com problema de acesso, vendedor vai ligar de volta e pedir screenshot.
+27234051,2026-06-01,AB1=Contextualizada,SIM,FC2=Próximo passo só do vendedor,SIM,SIM,Cliente com cadastro concluído, vendedor se apresenta e envia contato por WhatsApp.
+25706197,2026-06-05,AB1=Contextualizada,SIM,FC3=Convite genérico("se precisar me chama"),NAO,

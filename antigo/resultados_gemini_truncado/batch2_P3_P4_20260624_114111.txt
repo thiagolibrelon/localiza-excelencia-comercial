@@ -1,0 +1,341 @@
+```csv
+cliente_id,data,problemas_identificados,quem_relatou,foi_resolvido_na_ligacao,escalou_para
+22770692,2026-06-03,nenhum,Vendedor,sim,Nenhum
+14488094,2026-06-02,P11,Cliente,não,Nenhum
+26508320,2026-06-03,P10+P11,Cliente,não,Nenhum
+27163081,2026-06-02,nenhum,Cliente,sim,Nenhum
+00913571,2026-06-03,P1+P2,Cliente,não,Vendedor
+01700124,2026-06-03,nenhum,Vendedor,sim,Nenhum
+20817393,2026-06-02,nenhum,Vendedor,sim,Nenhum
+18557189,2026-06-01,P1,Cliente,não,Vendedor
+27234051,2026-06-01,nenhum,Vendedor,sim,Nenhum
+25706197,2026-06-05,nenhum,Vendedor,sim,Nenhum
+07399581,2026-06-02,nenhum,Vendedor,sim,Nenhum
+25343351,2026-06-03,nenhum,Vendedor,sim,Nenhum
+26394152,2026-06-01,P2+P10,Cliente,sim,Nenhum
+19610751,2026-06-02,nenhum,Vendedor,sim,Nenhum
+20662047,2026-06-05,P10,Cliente,sim,Nenhum
+27255734,2026-06-02,P11,Vendedor,não,Vendedor
+27255734,2026-06-03,P1,Cliente,não,TI
+08928706,2026-06-01,P10,Cliente,sim,Nenhum
+25360635,2026-06-05,P10,Cliente,sim,Nenhum
+01678344,2026-06-01,P10,Cliente,sim,Vendedor
+01354366,2026-06-02,nenhum,Vendedor,sim,Nenhum
+11720469,2026-06-02,nenhum,Cliente,sim,Nenhum
+10500578,2026-06-03,nenhum,Vendedor,sim,Nenhum
+24440620,2026-06-01,P2,Cliente,sim,Vendedor
+13432724,2026-06-02,nenhum,Vendedor,sim,Nenhum
+01177065,2026-06-01,nenhum,Vendedor,sim,Nenhum
+27253223,2026-06-05,P1,Cliente,sim,Nenhum
+27253223,2026-06-05,nenhum,Vendedor,sim,Nenhum
+24638777,2026-06-03,nenhum,Vendedor,sim,Nenhum
+21997381,2026-06-05,nenhum,Vendedor,sim,Nenhum
+25778429,2026-06-01,nenhum,Vendedor,sim,Nenhum
+05754021,2026-06-02,nenhum,Vendedor,sim,Nenhum
+01433093,2026-06-02,P7,Vendedor,sim,Nenhum
+13443509,2026-06-02,P1,Cliente,não,Vendedor
+20404781,2026-06-03,nenhum,Vendedor,sim,Nenhum
+01946427,2026-06-01,P10+P7,Cliente,não,Agência
+05767917,2026-06-02,nenhum,Vendedor,sim,Nenhum
+05018875,2026-06-03,P7,Vendedor,sim,Nenhum
+26501211,2026-06-03,nenhum,Vendedor,sim,Nenhum
+26765330,2026-06-02,P1+P11,Cliente,não,Vendedor
+23601994,2026-06-01,P11,Cliente,não,Vendedor
+27168516,2026-06-05,nenhum,Vendedor,sim,Nenhum
+27234051,2026-06-01,nenhum,Vendedor,sim,Nenhum
+27248239,2026-06-01,P11,Cliente,não,Nenhum
+27248239,2026-06-01,nenhum,Vendedor,sim,Nenhum
+10358305,2026-06-01,P9+P10,Cliente,sim,Nenhum
+04996114,2026-06-03,P11,Vendedor,não,Vendedor
+13891826,2026-06-01,P5,Cliente,não,Agência
+27173231,2026-06-03,P1+P2,Cliente,não,TI
+16957895,2026-06-01,nenhum,Vendedor,sim,Nenhum
+25658694,2026-06-02,nenhum,Vendedor,sim,Nenhum
+27261524,2026-06-03,nenhum,Vendedor,sim,Nenhum
+17085874,2026-06-02,P1,Cliente,não,Vendedor
+17085874,2026-06-02,P1,Cliente,não,Vendedor
+02504940,2026-06-03,nenhum,Vendedor,sim,Nenhum
+02504940,2026-06-03,nenhum,Vendedor,sim,Nenhum
+02504940,2026-06-03,P1,Cliente,não,TI
+21172803,2026-06-02,nenhum,Vendedor,sim,Nenhum
+27174570,2026-06-01,P5+P11,Cliente,não,Nenhum
+07430303,2026-06-01,nenhum,Vendedor,sim,Nenhum
+08206653,2026-06-05,P11,Cliente,não,Nenhum
+13152548,2026-06-01,P7+P11,Vendedor,não,Nenhum
+13152548,2026-06-01,P7+P10,Cliente,não,Vendedor
+13152548,2026-06-05,P11,Cliente,não,Nenhum
+06676592,2026-06-02,P7,Cliente,não,Vendedor
+24552894,2026-06-03,P11,Cliente,não,Nenhum
+24657499,2026-06-03,P1,Cliente,não,Nenhum
+21788793,2026-06-01,nenhum,Vendedor,sim,Nenhum
+21788793,2026-06-02,nenhum,Vendedor,sim,Nenhum
+07248015,2026-06-01,nenhum,Vendedor,sim,Nenhum
+07248015,2026-06-02,P1,Cliente,não,TI
+07905901,2026-06-01,P10+P11,Cliente,não,Nenhum
+07905901,2026-06-02,P5,Cliente,sim,Nenhum
+01936349,2026-06-03,nenhum,Vendedor,sim,Nenhum
+19843241,2026-06-01,nenhum,Cliente,sim,Nenhum
+00409189,2026-06-01,nenhum,Vendedor,sim,Nenhum
+27260761,2026-06-05,P1,Cliente,não,Vendedor
+19500600,2026-06-02,P2,Cliente,sim,Nenhum
+27065829,2026-06-02,P2,Cliente,não,Vendedor
+16436846,2026-06-02,P10+P11,Cliente,não,Nenhum
+14392318,2026-06-01,P2,Cliente,sim,Nenhum
+14217841,2026-06-01,P4,Cliente,sim,Nenhum
+14217841,2026-06-03,P11,Cliente,não,Nenhum
+24985694,2026-06-02,P6,Cliente,não,Suporte ao Cliente
+24985694,2026-06-05,P6,Vendedor,não,Suporte ao Cliente
+09698270,2026-06-03,P1,Cliente,sim,Nenhum
+26447944,2026-06-03,nenhum,Vendedor,sim,Nenhum
+14683151,2026-06-03,P11,Vendedor,não,Nenhum
+27203648,2026-06-02,P2,Cliente,não,Vendedor
+10145080,2026-06-01,P6+P11,Cliente,não,Nenhum
+10145080,2026-06-01,P6+P2,Cliente,não,Vendedor
+26508253,2026-06-03,nenhum,Vendedor,sim,Nenhum
+09672812,2026-06-02,P1,Cliente,não,Nenhum
+27251609,2026-06-02,P11,Cliente,não,Nenhum
+27251609,2026-06-02,P11,Cliente,não,Nenhum
+14470291,2026-06-01,nenhum,Vendedor,sim,Nenhum
+14197605,2026-06-05,P11,Vendedor,sim,Nenhum
+14197605,2026-06-05,nenhum,Vendedor,sim,Nenhum
+14197605,2026-06-05,P5+P9,Cliente,não,Vendedor
+19045894,2026-06-02,nenhum,Vendedor,sim,Nenhum
+12695236,2026-06-02,P4+P9,Cliente,não,Suporte ao Cliente
+17086268,2026-06-03,P11,Cliente,sim,Nenhum
+24611971,2026-06-01,P2,Cliente,não,Financeiro
+18724561,2026-06-01,P10,Cliente,sim,Nenhum
+18724561,2026-06-01,nenhum,Vendedor,sim,Nenhum
+11209820,2026-06-03,nenhum,Vendedor,sim,Nenhum
+26338717,2026-06-01,nenhum,Vendedor,sim,Nenhum
+04428124,2026-06-05,nenhum,Vendedor,sim,Nenhum
+27136499,2026-06-01,P1,Vendedor,não,Vendedor
+27136499,2026-06-03,P1,Cliente,não,TI
+27136499,2026-06-05,P10,Cliente,sim,Nenhum
+07457597,2026-06-03,nenhum,Vendedor,sim,Nenhum
+06514060,2026-06-03,nenhum,Vendedor,sim,Nenhum
+08248913,2026-06-01,P11,Vendedor,sim,Nenhum
+08248913,2026-06-01,nenhum,Vendedor,sim,Nenhum
+27255403,2026-06-02,nenhum,Vendedor,sim,Nenhum
+27255403,2026-06-03,nenhum,Vendedor,sim,Nenhum
+16694824,2026-06-01,nenhum,Vendedor,sim,Nenhum
+26836118,2026-06-02,P10,Cliente,não,Vendedor
+26836118,2026-06-02,P10,Cliente,não,Vendedor
+26836118,2026-06-02,P10,Cliente,não,Vendedor
+04456187,2026-06-01,nenhum,Vendedor,sim,Nenhum
+17082729,2026-06-01,P1,Cliente,não,Vendedor
+17082729,2026-06-01,P1,Cliente,não,TI
+12600140,2026-06-03,P10,Cliente,sim,Nenhum
+20425419,2026-06-03,nenhum,Vendedor,sim,Nenhum
+21248616,2026-06-05,P11,Vendedor,não,Nenhum
+21248616,2026-06-05,P10,Vendedor,não,TI
+24043504,2026-06-01,nenhum,Vendedor,sim,Nenhum
+24043504,2026-06-01,P2+P11,Cliente,não,Suporte ao Cliente
+24043504,2026-06-01,P7+P2,Cliente,não,Vendedor
+24043504,2026-06-01,P7,Cliente,sim,Nenhum
+24043504,2026-06-01,P7,Cliente,sim,Nenhum
+19396062,2026-06-03,P1,Cliente,não,Vendedor
+19396062,2026-06-03,P1+P10,Cliente,não,TI
+26985044,2026-06-02,P2+P6,Cliente,não,Suporte ao Cliente
+04305366,2026-06-01,P2,Cliente,não,Financeiro
+04305366,2026-06-01,P2,Vendedor,não,Financeiro
+04305366,2026-06-03,P2,Cliente,não,Financeiro
+04305366,2026-06-05,P2,Cliente,não,Suporte ao Cliente
+26493358,2026-06-03,nenhum,Vendedor,sim,Nenhum
+18859744,2026-06-02,nenhum,Vendedor,sim,Nenhum
+25395912,2026-06-03,P11,Cliente,não,Vendedor
+26501967,2026-06-03,P11,Cliente,não,Nenhum
+19937066,2026-06-01,nenhum,Vendedor,sim,Nenhum
+07591424,2026-06-01,P7,Cliente,sim,Nenhum
+01739823,2026-06-03,nenhum,Vendedor,sim,Nenhum
+13328741,2026-06-03,P7,Vendedor,sim,Nenhum
+04507927,2026-06-05,P2,Cliente,não,Vendedor
+26673829,2026-06-03,P11,Cliente,não,Vendedor
+26673829,2026-06-03,P11,Cliente,não,Nenhum
+26673829,2026-06-03,P10+P11,Cliente,sim,Nenhum
+01185565,2026-06-02,P11,Vendedor,não,Nenhum
+01185565,2026-06-05,nenhum,Vendedor,sim,Nenhum
+01185565,2026-06-05,nenhum,Vendedor,sim,Nenhum
+06968822,2026-06-02,P2+P6,Cliente,não,Financeiro
+12300795,2026-06-03,nenhum,Vendedor,sim,Nenhum
+26484079,2026-06-03,P11,Cliente,não,Nenhum
+25004408,2026-06-03,P2,Cliente,não,Suporte ao Cliente
+25004408,2026-06-03,P2,Cliente,sim,Nenhum
+27204780,2026-06-01,P11,Cliente,não,Nenhum
+25700400,2026-06-03,P10,Cliente,não,Nenhum
+10062754,2026-06-01,P11,Cliente,não,Nenhum
+25344679,2026-06-02,P9,Cliente,não,Suporte ao Cliente
+08181747,2026-06-02,nenhum,Vendedor,sim,Nenhum
+09253232,2026-06-03,nenhum,Vendedor,sim,Nenhum
+22229498,2026-06-03,nenhum,Vendedor,sim,Nenhum
+00714731,2026-06-05,nenhum,Vendedor,sim,Nenhum
+00714731,2026-06-05,nenhum,Vendedor,sim,Nenhum
+27272960,2026-06-05,P1,Cliente,não,TI
+27272960,2026-06-05,P1,Cliente,não,TI
+27272960,2026-06-05,P1,Cliente,sim,Nenhum
+04082544,2026-06-01,nenhum,Vendedor,sim,Nenhum
+20317271,2026-06-01,nenhum,Vendedor,sim,Nenhum
+01813797,2026-06-01,nenhum,Vendedor,sim,Nenhum
+17380088,2026-06-02,P6,Cliente,sim,Nenhum
+05432425,2026-06-01,P6+P11,Cliente,não,Nenhum
+06979744,2026-06-01,nenhum,Vendedor,sim,Nenhum
+06979744,2026-06-03,nenhum,Vendedor,sim,Nenhum
+08687539,2026-06-03,P2+P5,Cliente,não,Vendedor
+04836169,2026-06-05,nenhum,Vendedor,sim,Nenhum
+13179545,2026-06-01,nenhum,Vendedor,sim,Nenhum
+27231380,2026-06-03,nenhum,Vendedor,sim,Nenhum
+09394140,2026-06-05,P9,Cliente,não,Suporte ao Cliente
+01513088,2026-06-05,P11,Vendedor,não,Nenhum
+09340936,2026-06-02,nenhum,Vendedor,sim,Nenhum
+26055117,2026-06-03,nenhum,Vendedor,sim,Nenhum
+```
+
+```csv
+cliente_id,data,volume,adimplencia,fidelidade,engajamento,complexidade_operacional,potencial_upsell,score_total,risco_churn,proxima_acao
+22770692,2026-06-03,1,1,1,1,1,1,6,baixo,Agendar próximo contato de rotina.
+14488094,2026-06-02,0,1,0,0,1,0,2,alto,Acompanhar demanda futura, manter contato.
+26508320,2026-06-03,0,1,0,0,1,0,2,alto,Enviar e-mail com contatos, acompanhar futuras demandas avulsas.
+27163081,2026-06-02,2,1,1,2,2,2,10,baixo,Enviar cotações de Montana e Strada CD (12 meses, 3k KM, Porto Alegre), acompanhar decisão.
+00913571,2026-06-03,2,1,2,2,2,2,11,baixo,Acompanhar ajuste de valor no sistema e aumento de limite de crédito.
+01700124,2026-06-03,1,1,1,1,1,1,6,baixo,Reagendar contato com Graziele.
+20817393,2026-06-02,1,1,1,1,1,1,6,baixo,Reagendar contato com Leandro.
+18557189,2026-06-01,1,1,2,0,2,1,7,medio,Auxiliar cliente a acessar o sistema via WhatsApp.
+27234051,2026-06-01,1,1,1,1,1,1,6,baixo,Enviar contato via WhatsApp, manter-se à disposição.
+25706197,2026-06-05,1,1,2,1,2,2,9,baixo,Manter contato para futuras demandas de veículos leves e pesados.
+07399581,2026-06-02,1,1,1,1,1,1,6,baixo,Reagendar contato com Fátima, confirmar e-mail.
+25343351,2026-06-03,1,1,2,1,1,1,7,baixo,Acompanhar demanda para junho, manter contato via WhatsApp.
+26394152,2026-06-01,2,1,2,2,2,2,11,baixo,Acompanhar chegada de carro por assinatura, manter contato para futuras demandas.
+19610751,2026-06-02,1,1,1,1,1,1,6,baixo,Reagendar contato com Alexandre.
+20662047,2026-06-05,2,1,2,2,2,1,10,baixo,Acompanhar finalização da reserva e verificar adicionais.
+27255734,2026-06-02,1,1,1,1,2,1,7,medio,Passar contato para executiva responsável, solicitar prioridade.
+27255734,2026-06-03,2,1,2,2,2,2,11,baixo,Acompanhar linkagem de CNPJs e criação de acesso, auxiliar com reserva.
+08928706,2026-06-01,2,1,2,2,2,1,10,baixo,Acompanhar cancelamento de reserva duplicada, manter contato.
+25360635,2026-06-05,2,1,2,2,2,1,10,baixo,Explicar tarifa dinâmica e recomendar reserva antecipada.
+01678344,2026-06-01,2,1,2,2,1,1,9,baixo,Revisar agência para não cancelar reserva, aguardar retirada.
+01354366,2026-06-02,1,1,1,1,1,1,6,baixo,Enviar e-mail para Ariane, retornar ligação amanhã.
+11720469,2026-06-02,0,1,2,2,2,0,7,medio,Acompanhar devolução de veículos, verificar faturamento proporcional.
+10500578,2026-06-03,1,1,1,1,1,1,6,baixo,Aguardar resposta da pesquisa de satisfação.
+24440620,2026-06-01,0,0,1,1,1,0,3,alto,Baixar e enviar fatura em atraso, verificar prorrogação de outras.
+13432724,2026-06-02,1,1,1,1,1,1,6,baixo,Retornar contato com Karina amanhã de manhã.
+01177065,2026-06-01,1,1,2,1,1,1,7,baixo,Registrar término de contrato, manter contato.
+27253223,2026-06-05,2,1,2,2,2,1,10,baixo,Auxiliar cliente a redefinir senha e acessar o sistema.
+27253223,2026-06-05,2,1,2,2,2,1,10,baixo,Manter-se à disposição para dúvidas sobre o sistema.
+24638777,2026-06-03,2,1,2,2,1,1,9,baixo,Manter-se à disposição via WhatsApp para qualquer apoio.
+21997381,2026-06-05,0,1,1,1,1,1,5,medio,Enviar e-mail com contato, manter-se à disposição via WhatsApp.
+25778429,2026-06-01,2,1,2,2,2,2,11,baixo,Migrar contrato para aluguel mensal, confirmar via WhatsApp.
+05754021,2026-06-02,1,1,2,2,1,2,9,baixo,Enviar contato via WhatsApp, acompanhar demanda futura.
+01433093,2026-06-02,2,1,2,2,2,2,11,baixo,Enviar proposta de 12 meses (4k KM, Jundiaí/Campinas), acompanhar.
+13443509,2026-06-02,2,1,2,2,2,2,11,baixo,Enviar propostas de Compass e Commander (6 meses, 1k KM, Goiânia), auxiliar na reserva.
+20404781,2026-06-03,1,1,2,1,1,1,7,baixo,Relembrar cliente sobre pesquisa de satisfação, enviar lembrete.
+01946427,2026-06-01,2,1,2,2,2,2,11,baixo,Acionar agência para confirmar reserva, acompanhar status.
+05767917,2026-06-02,1,1,1,1,1,1,6,baixo,Manter contato para futuras locações.
+05018875,2026-06-03,2,1,2,2,2,2,11,baixo,Enviar cotação de Nivus (1 ano, 2k KM, Curitiba), com proteção e cor branca.
+26501211,2026-06-03,1,1,1,1,1,1,6,baixo,Reagendar contato com José.
+26765330,2026-06-02,2,1,2,2,2,2,11,baixo,Ativar tag no cadastro, enviar informações sobre Free Flow, auxiliar com acesso a contratos.
+23601994,2026-06-01,0,1,1,1,2,1,6,medio,Solicitar inclusão de CNPJ no RAC PJ, retornar com aprovação.
+27168516,2026-06-05,1,1,2,1,1,1,7,baixo,Enviar contato via WhatsApp, manter-se à disposição para dúvidas.
+27234051,2026-06-01,1,1,1,1,1,1,6,baixo,Enviar contato via WhatsApp, manter-se à disposição.
+27248239,2026-06-01,1,1,2,2,2,2,10,baixo,Enviar contato via WhatsApp, auxiliar com futuras reservas.
+27248239,2026-06-01,1,1,2,2,2,2,10,baixo,Manter contato via WhatsApp, auxiliar com futuras reservas.
+10358305,2026-06-01,2,1,2,2,2,1,10,baixo,Acompanhar substituição de veículo, verificar status de BO e seguro.
+04996114,2026-06-03,1,1,2,0,2,1,6,medio,Enviar mensagem via WhatsApp para Eliezer.
+13891826,2026-06-01,2,1,2,2,2,1,10,baixo,Acompanhar alteração de condutor principal, alinhar com agência.
+27173231,2026-06-03,1,1,1,1,2,1,7,medio,Verificar documento de autorização de crédito com Braia, sinalizar cliente.
+16957895,2026-06-01,1,1,2,1,1,1,7,baixo,Enviar cotação de mensal (Santa Maria, RS) via WhatsApp.
+25658694,2026-06-02,0,1,1,1,1,0,4,alto,Enviar contato via WhatsApp, manter-se à disposição para futuras demandas.
+27261524,2026-06-03,1,1,2,2,2,1,9,baixo,Enviar link da WebCorp e login via WhatsApp, manter-se à disposição.
+17085874,2026-06-02,1,1,2,1,2,1,8,medio,Reagendar contato com Elizabeth, auxiliar com acesso ao portal.
+17085874,2026-06-02,1,1,2,1,2,1,8,medio,Solicitar dados da nova usuária por e-mail, agendar cadastro.
+02504940,2026-06-03,1,1,1,1,1,1,6,baixo,Reagendar contato com Ana Lúcia.
+02504940,2026-06-03,1,1,1,1,1,1,6,baixo,Reagendar contato com Ana Lúcia.
+02504940,2026-06-03,1,1,2,0,2,1,7,medio,Enviar links dos portais WebCorp e Faturamento, acionar TI se erro persistir.
+21172803,2026-06-02,1,1,2,1,1,1,7,baixo,Enviar e-mail com comparação de custos e contato via WhatsApp.
+27174570,2026-06-01,2,1,2,2,2,1,10,baixo,Enviar carta modelo para substituição de condutor, orientar sobre devolução.
+07430303,2026-06-01,1,1,2,1,1,1,7,baixo,Acompanhar demanda para Belém, reforçar reserva antecipada.
+08206653,2026-06-05,1,1,0,1,2,1,6,medio,Enviar informações sobre adicionais, reforçar importância do feedback.
+13152548,2026-06-01,2,1,2,2,2,2,11,baixo,Acompanhar decisão do cliente sobre antecipação de reserva.
+13152548,2026-06-01,2,1,2,2,2,2,11,baixo,Auxiliar cliente a fazer reserva de Spin, acompanhar confirmação.
+13152548,2026-06-05,2,1,2,2,2,2,11,baixo,Acompanhar decisão sobre substituição da Spin por caminhonete ou dois carros 1.0.
+06676592,2026-06-02,2,1,2,2,2,1,10,baixo,Formalizar indisponibilidade de veículo via WhatsApp, explicar política de modelo.
+24552894,2026-06-03,0,1,1,1,1,1,5,medio,Enviar contato via WhatsApp, aguardar disponibilidade para conversar.
+24657499,2026-06-03,1,1,1,1,2,1,7,medio,Orientar cliente a aprovar reserva via WebCorp.
+21788793,2026-06-01,1,1,1,1,1,1,6,baixo,Reagendar contato com Leonardo para a parte da tarde.
+21788793,2026-06-02,1,1,0,1,2,2,7,medio,Enviar simulação de mensal (HB20, 3k KM) via WhatsApp.
+07248015,2026-06-01,1,1,2,1,2,1,8,baixo,Enviar cotações de econômico e Virtus (Alphaville Barueri) via WhatsApp.
+07248015,2026-06-02,1,1,2,0,2,1,7,medio,Pedir ao Rodrigo para testar acesso, fazer teste de senha, abrir chamado se erro persistir.
+07905901,2026-06-01,1,1,2,1,2,2,9,baixo,Reforçar benefícios do aluguel mensal, acompanhar nova reserva.
+07905901,2026-06-02,1,1,2,2,2,1,9,baixo,Bloquear acesso de Felipe Moreira, reforçar importância da pesquisa NPS.
+01936349,2026-06-03,1,1,2,1,1,1,7,baixo,Enviar contato via WhatsApp, manter-se à disposição para futuras demandas.
+19843241,2026-06-01,1,1,2,1,1,1,7,baixo,Manter-se à disposição para migração de contrato para mensal.
+00409189,2026-06-01,1,1,1,1,1,1,6,baixo,Retornar contato em outro momento.
+27260761,2026-06-05,1,1,1,0,2,1,6,medio,Auxiliar cliente a redefinir senha e acessar o sistema.
+19500600,2026-06-02,2,1,2,2,1,1,9,baixo,Enviar faturas detalhadas via WhatsApp, acompanhar nova reserva.
+27065829,2026-06-02,1,1,1,1,2,1,7,medio,Enviar contato via WhatsApp, auxiliar com ativação de acessos.
+16436846,2026-06-02,2,1,2,2,2,2,11,baixo,Orientar cliente a fazer nova reserva para mensal fixo, acompanhar.
+14392318,2026-06-01,2,1,2,2,2,1,10,baixo,Orientar cliente a consultar faturas detalhadas no portal.
+14217841,2026-06-01,2,1,2,2,2,1,10,baixo,Orientar cliente sobre agendamento de manutenção/revisão.
+14217841,2026-06-03,2,1,2,2,2,1,10,baixo,Orientar cliente sobre encerramento de contrato e retirada em outra filial com rastreador.
+24985694,2026-06-02,2,1,2,2,2,1,10,medio,Aguardar retorno da assistência ao cliente sobre contestação de KM excedente.
+24985694,2026-06-05,2,1,2,2,2,1,10,medio,Solicitar e-mail formalizando alteração de apuração de KM.
+09698270,2026-06-03,2,1,2,2,2,1,10,baixo,Enviar e-mail para redefinição de senha, manter-se à disposição.
+26447944,2026-06-03,1,1,2,1,1,1,7,baixo,Manter contatos periódicos para evitar inatividade do cadastro.
+14683151,2026-06-03,1,1,1,1,2,1,7,medio,Enviar link de validação de segurança para reitora, auxiliar com reserva.
+27203648,2026-06-02,1,1,2,1,2,1,7,medio,Enviar contato via WhatsApp, ligar para Joyce para discutir forma de pagamento.
+10145080,2026-06-01,2,1,2,2,2,1,10,medio,Acompanhar devolução de veículo, sugerir telemetria para controle de KM.
+10145080,2026-06-01,2,1,2,2,2,1,10,medio,Encaminhar e-mail de contestação de KM excedente para área interna.
+26508253,2026-06-03,1,1,1,1,1,1,6,baixo,Reagendar contato com Vitor.
+09672812,2026-06-02,1,1,2,1,2,1,8,medio,Auxiliar Juliette a validar login, acompanhar reserva.
+27251609,2026-06-02,1,1,0,0,2,1,5,alto,Apurar promoções no PF, identificar diferencial de preço, encaminhar para diretoria.
+27251609,2026-06-02,1,1,0,0,2,1,5,alto,Manter contato para futuras cotações, acompanhar promoções.
+14470291,2026-06-01,1,1,2,1,1,1,7,baixo,Manter-se à disposição para aluguel mensal, reforçar desconto.
+14197605,2026-06-05,1,1,1,1,1,1,6,baixo,Obter contato do Matheus da Frota.
+14197605,2026-06-05,1,1,1,1,1,1,6,baixo,Obter contato do Matheus da Frota.
+14197605,2026-06-05,1,1,2,1,2,1,8,medio,Desativar acesso de Wagner, verificar quem será o novo gestor, acompanhar sinistro.
+19045894,2026-06-02,1,1,2,1,1,1,7,baixo,Enviar propostas atualizadas de mensal via WhatsApp.
+12695236,2026-06-02,2,1,2,2,2,1,10,medio,Encaminhar relato de problema no veículo para assistência ao cliente, contestar cobrança.
+17086268,2026-06-03,2,1,2,2,2,2,11,baixo,Agendar substituição de veículo após feriado, manter contato.
+24611971,2026-06-01,1,1,2,1,1,1,7,baixo,Aguardar tratativa do financeiro sobre boleto.
+18724561,2026-06-01,1,1,2,1,2,1,8,baixo,Enviar link do WebCorp via WhatsApp, orientar sobre reservas.
+18724561,2026-06-01,1,1,2,1,2,1,8,baixo,Enviar link do WebCorp via WhatsApp, orientar sobre reservas.
+11209820,2026-06-03,1,1,1,1,1,1,6,baixo,Tentar contato com Carlos Eduardo sobre portal de faturamento.
+26338717,2026-06-01,1,1,1,1,1,1,6,baixo,Tentar contato com Jefferson.
+04428124,2026-06-05,1,1,1,1,1,1,6,baixo,Tentar contato com Lilian mais tarde, enviar WhatsApp.
+27136499,2026-06-01,1,1,1,1,2,1,7,medio,Enviar contato via WhatsApp, verificar cotação, criar acesso para Grace.
+27136499,2026-06-03,1,1,2,0,2,1,7,medio,Acompanhar resolução de erro na biometria, enviar login, auxiliar com acesso.
+27136499,2026-06-05,2,1,2,2,2,2,11,baixo,Auxiliar cliente a finalizar reserva, reforçar telemetria.
+07457597,2026-06-03,1,1,2,1,1,1,7,baixo,Registrar informações no sistema, manter-se à disposição.
+06514060,2026-06-03,1,1,2,2,2,2,10,baixo,Reforçar benefícios do aluguel mensal, orientar sobre coberturas, atualizar gestores.
+08248913,2026-06-01,2,1,2,2,2,2,11,baixo,Reagendar contato para migração de contrato para mensal.
+08248913,2026-06-01,2,1,2,2,2,2,11,baixo,Migrar contrato para mensal, orientar sobre data de entrega.
+27255403,2026-06-02,1,1,2,1,2,2,9,baixo,Enviar contato via WhatsApp, acompanhar demanda para Campinas.
+27255403,2026-06-03,2,1,2,2,2,2,11,baixo,Auxiliar cliente a fazer primeira reserva, orientar sobre adicionais e pagamento.
+16694824,2026-06-01,1,1,2,1,1,1,7,baixo,Manter-se à disposição para dúvidas sobre simulações.
+26836118,2026-06-02,1,1,2,0,2,1,7,medio,Ligar para Antônio para auxiliar com aprovação de reserva.
+26836118,2026-06-02,1,1,2,0,2,1,7,medio,Enviar contato via WhatsApp, auxiliar com aprovação de reserva.
+26836118,2026-06-02,2,1,2,2,2,2,11,baixo,Auxiliar cliente a fazer reserva mensal, acionar agência para confirmação.
+04456187,2026-06-01,1,1,2,1,1,1,7,baixo,Manter-se à disposição via WhatsApp para futuras demandas.
+17082729,2026-06-01,1,1,2,0,2,1,7,medio,Obter formalização do diretor para acesso da Mayara, auxiliar com cadastro.
+17082729,2026-06-01,1,1,2,2,2,1,9,baixo,Acompanhar geração de login e senha, auxiliar com primeiro acesso.
+12600140,2026-06-03,2,1,2,2,2,1,10,baixo,Acompanhar liberação de reserva, manter contato.
+20425419,2026-06-03,1,1,1,1,1,1,6,baixo,Reagendar contato com Júnior, informar sobre recesso.
+21248616,2026-06-05,1,1,1,1,2,1,7,medio,Solicitar CNPJ e e-mail para cadastro, auxiliar com reservas.
+21248616,2026-06-05,1,1,1,0,2,1,6,medio,Acompanhar redefinição de senha, informar Paula sobre problema.
+24043504,2026-06-01,1,1,1,1,1,1,6,baixo,Ligar para Túlio no número pessoal.
+24043504,2026-06-01,1,0,2,2,2,2,9,medio,Enviar e-mail de contestação de valor, solicitar ampliação de crédito.
+24043504,2026-06-01,2,1,2,2,2,2,11,baixo,Acompanhar solicitação de crédito, chamar agência para confirmar disponibilidade.
+24043504,2026-06-01,2,1,2,2,2,2,11,baixo,Ajustar crédito, orientar cliente a fazer reserva diária para migrar para mensal.
+24043504,2026-06-01,2,1,2,2,2,2,11,baixo,Confirmar reserva de caminhonete, auxiliar com troca em outra agência.
+19396062,2026-06-03,2,1,2,0,2,2,9,medio,Acompanhar redefinição de senha, verificar disponibilidade de veículo.
+19396062,2026-06-03,2,1,2,0,2,2,9,medio,Acompanhar redefinição de senha, verificar disponibilidade de veículo.
+26985044,2026-06-02,2,1,2,2,2,1,10,medio,Encaminhar fatura detalhada via WhatsApp, verificar estorno de valor.
+04305366,2026-06-01,1,0,1,1,2,0,5,alto,Fazer contato com financeiro sobre desbloqueio emergencial.
+04305366,2026-06-01,1,0,1,1,2,0,5,alto,Aguardar retorno do cliente sobre pagamento de faturas.
+04305366,2026-06-03,1,0,1,1,2,0,5,alto,Fazer contato com financeiro sobre remoção de veículo.
+04305366,2026-06-05,1,0,1,1,2,0,5,alto,Orientar cliente a ligar para 0800 sobre limite de crédito.
+26493358,2026-06-03,1,1,1,1,1,1,6,baixo,Enviar e-mail com contato, manter-se à disposição.
+18859744,2026-06-02,2,1,2,2,2,1,10,baixo,Auxiliar cliente a fazer reserva, orientar sobre adicionais e pagamento.
+25395912,2026-06-03,0,1,0,1,2,2,6,medio,Enviar propostas de locação (12 meses, 2k KM) e indicar gestão de frotas.
+26501967,2026-06-03,0,1,0,1,1,0,3,alto,Manter-se à disposição para demandas pontuais.
+19937066,2026-06-01,1,1,2,1,1,1,7,baixo,Ligar para Leandro para discutir migração de contrato para mensal.
+07591424,2026-06-01,2,1,2,2,2,1,10,baixo,Acompanhar confirmação de reserva, orientar sobre horários de aeroporto.
+01739823,2026-06-03,1,1,2,1,2,1,8,baixo,Enviar informações sobre proteções, reforçar pesquisa de satisfação.
+13328741,2026-06-03,2,1,2,2,2,2,1

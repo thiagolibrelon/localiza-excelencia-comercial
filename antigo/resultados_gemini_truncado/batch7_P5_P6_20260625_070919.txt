@@ -1,0 +1,14 @@
+```csv
+cliente_id,data,teve_challenger,codigos_challenger,frase_resumo,resultado_imediato,qualidade
+22086526,2026-06-02,sim,"CH1,CH6","Aline explica a mudança na cobrança de KM excedente devido a reclamações anteriores e tenta antecipar o problema da cliente com opções de pagamento e reenvio de pesquisa.","cliente_refletiu",media
+01130882,2026-06-01,não,"","","sem_reacao_visivel",baixa
+27244325,2026-06-01,sim,"CH5,CH6,CH1","Vendedor conecta a necessidade de mobilidade do cliente à locação, antecipa problemas de acesso e explica seguros.","cliente_aceitou",alta
+23039370,2026-06-02,sim,"CH6","Vendedor antecipa futuras necessidades de locação e problemas de acesso ao site.","cliente_refletiu",media
+18054339,2026-06-05,não,"","","sem_reacao_visivel",baixa
+01401903,2026-06-03,sim,"CH1","Vendedora informa sobre tolerância de 3h para devolução sem cobrança, evitando um custo oculto.","cliente_aceitou",media
+09500137,2026-06-03,sim,"CH6","Vendedora antecipa problemas com o aplicativo e oferece alternativas para adicionar condutores.","cliente_refletiu",media
+08710470,2026-06-01,sim,"CH4,CH7","Vendedor identifica uso de concorrentes para locação de longo prazo e se propõe a enviar proposta para melhorar preço.","cliente_refletiu",media
+21511693,2026-06-03,sim,"CH6","Vendedor antecipa dificuldade do cliente em efetivar contrato e se oferece para fazer o primeiro acesso à plataforma junto.","cliente_aceitou",alta
+08024489,2026-06-01,sim,"CH6","Vendedora tenta antecipar necessidade do cliente oferecendo adiantar reserva.","sem_reacao_visivel",media
+15598804,2026-06-03,sim,"CH5","Vendedor reconhece a frustração da cliente com o acesso ao portal e busca solução para o envio do boleto.","cliente_aceitou",media
+26984025,2026-06-05,sim

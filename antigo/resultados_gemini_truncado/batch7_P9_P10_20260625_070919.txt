@@ -1,0 +1,15 @@
+```csv
+cliente_id,data,tipo_abertura,usou_nome,tipo_fechamento,proximo_passo_claro,prazo_definido,desfecho
+22086526,2026-06-02,AB2=Relacional,SIM,FC2=Proximo passo so do vendedor,SIM,NAO,POSITIVE
+01130882,2026-06-01,AB2=Relacional,SIM,FC3=Convite generico("se precisar me chama"),NAO,NAO,POSITIVE
+27244325,2026-06-01,AB1=Contextualizada,SIM,FC2=Proximo passo so do vendedor,SIM,SIM,POSITIVE
+23039370,2026-06-02,AB1=Contextualizada,SIM,FC3=Convite generico("se precisar me chama"),NAO,NAO,POSITIVE
+18054339,2026-06-05,AB1=Contextualizada,SIM,FC3=Convite generico("se precisar me chama"),NAO,NAO,POSITIVE
+01401903,2026-06-03,AB4=Reativa,SIM,FC3=Convite generico("se precisar me chama"),SIM,SIM,POSITIVE
+09500137,2026-06-03,AB1=Contextualizada,SIM,FC3=Convite generico("se precisar me chama"),SIM,NAO,POSITIVE
+08710470,2026-06-01,AB1=Contextualizada,SIM,FC1=Compromisso duplo(vendedor+cliente+prazo),SIM,NAO,POSITIVE
+21511693,2026-06-03,AB1=Contextualizada,SIM,FC1=Compromisso duplo(vendedor+cliente+prazo),SIM,SIM,POSITIVE
+08024489,2026-06-01,AB1=Contextualizada,SIM,FC3=Convite generico("se precisar me chama"),NAO,NAO,POSITIVE
+15598804,2026-06-03,AB4=Reativa,SIM,FC2=Proximo passo so do vendedor,SIM,SIM,POSITIVE
+26984025,2026-06-05,AB4=Reativa,SIM,FC3=Convite generico("se precisar me chama"),SIM,NAO,POSITIVE
+06592247,2026-06-03,AB1=Contextualizada,SIM,FC
