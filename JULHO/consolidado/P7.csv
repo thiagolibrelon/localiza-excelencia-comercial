@@ -6372,34 +6372,34 @@ SEMINFO_37d1bda9-05d8-4e56-9c5d-15abd18fe4a1,2026-07-21,415,nenhum,nenhum,NAO,ne
 10860729,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 17222194,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 17222194,2026-07-27,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-04788122,2026-07-22,Nones,PR1+PR10+PR12,nenhum,NAO,nenhum,nenhuma
+04788122,2026-07-22,Nones,PR1+PR10+PR12,PR1,NAO,nenhum,nenhuma
 22249546,2026-07-22,Nones,PR2,nenhum,NAO,nenhum,nenhuma
 SEMINFO_959be5c6-647d-4c55-90a5-07c2ffc30c7a,2026-07-22,Nones,PR1,PR6,NAO,nenhum,nenhuma
 12513984,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 20473215,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 20473215,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 17314345,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-17314345,2026-07-22,Nones,PR1+PR7,nenhum,NAO,nenhum,nenhuma
+17314345,2026-07-22,Nones,PR1+PR7,PR1+PR7,NAO,nenhum,nenhuma
 24325211,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 07768934,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 14197605,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-17082778,2026-07-22,Nones,PR1+PR4,PR1,SIM,PR7,cliente avaliando contrato longo
+17082778,2026-07-22,Nones,PR1+PR4,PR1+PR7,NAO,nenhum,nenhuma
 15788882,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 23217159,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 17531933,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 05532801,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 26939144,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-20933662,2026-07-22,Nones,PR1,nenhum,SIM,PR6,cliente compara preco de PF com PJ e menciona KM controlado
+20933662,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 18427278,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 18427278,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-25225439,2026-07-22,Nones,PR1,nenhum,SIM,PR12,cliente tem frota propria e aluga esporadicamente
-27019037,2026-07-22,Nones,PR1+PR12,PR1,NAO,nenhum,nenhuma
-22493998,2026-07-22,Nones,PR1+PR12,PR7,NAO,nenhum,nenhuma
+25225439,2026-07-22,Nones,PR1,nenhum,SIM,PR12,cliente tem frota propria e nao foi ofertado gestao de frotas
+27019037,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
+22493998,2026-07-22,Nones,PR1,PR7,NAO,nenhum,nenhuma
 24312448,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 11676936,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 01583859,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 12220561,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-12238090,2026-07-22,Nones,PR1,nenhum,SIM,PR6,cliente aluga apenas para vistorias proximas e menciona KM
+12238090,2026-07-22,Nones,PR1,nenhum,SIM,PR6,cliente nao aluga por causa de km minimo e nao foi ofertado km adicional
 01508597,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 11628279,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 SEMINFO_8070b872-2862-4d17-a6ec-cdedde5adeb9,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
@@ -6407,37 +6407,37 @@ SEMINFO_8070b872-2862-4d17-a6ec-cdedde5adeb9,2026-07-22,Nones,PR1,nenhum,NAO,nen
 19181665,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 19181665,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 12540928,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-25200508,2026-07-22,Nones,PR1,nenhum,SIM,PR12,cliente tem frota propria
+25200508,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 22952282,2026-07-22,Nones,PR1,PR7,NAO,nenhum,nenhuma
-27066398,2026-07-22,Nones,PR1+PR12,nenhum,SIM,PR12,cliente tem frota propria e um veiculo locado ha 1-2 anos
+27066398,2026-07-22,Nones,PR1,nenhum,SIM,PR12,cliente tem frota propria e nao foi ofertado gestao de frotas
 01727280,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
-26513821,2026-07-22,Nones,PR1,nenhum,SIM,PR3,cliente menciona pedágio e multa
-25245666,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
-26685032,2026-07-22,Nones,PR1,PR7,NAO,nenhum,nenhuma
+26513821,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
+25245666,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
+26685032,2026-07-22,Nones,PR1+PR7,nenhum,NAO,nenhum,nenhuma
 15500368,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
-15796572,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
+15796572,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 00888266,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 16591772,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 17113519,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 17113519,2026-07-23,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 11365469,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-25207079,2026-07-22,Nones,PR1,nenhum,SIM,PR12,cliente tem frota propria
+25207079,2026-07-22,Nones,PR1,nenhum,SIM,PR12,cliente tem frota propria e nao foi ofertado gestao de frotas
 25207079,2026-07-23,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
-25011487,2026-07-22,Nones,PR1+PR10+PR12,PR1+PR10,NAO,nenhum,nenhuma
+25011487,2026-07-22,Nones,PR1+PR12,PR1+PR12,NAO,nenhum,nenhuma
 07317127,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 25140726,2026-07-22,Nones,PR1,PR7,NAO,nenhum,nenhuma
-25605942,2026-07-22,Nones,PR1+PR10+PR11,PR10,NAO,nenhum,nenhuma
-05125222,2026-07-22,Nones,PR1,nenhum,SIM,PR4,cliente menciona sinistro e carro com problema
-05125222,2026-07-28,Nones,PR1,nenhum,NAO,nenhum,nenhuma
+25605942,2026-07-22,Nones,PR1+PR11,PR10+PR11,NAO,nenhum,nenhuma
+05125222,2026-07-22,Nones,PR1,nenhum,SIM,PR4,cliente tem frota propria e carro em manutencao mas nao foi ofertado protecao total
+05125222,2026-07-28,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 05206093,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 SEMINFO_1355d056-da94-407c-8ae7-750b77b0f301,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
-21297767,2026-07-22,Nones,PR1+PR4+PR6,PR4,NAO,nenhum,nenhuma
-21297767,2026-07-28,Nones,PR1,nenhum,NAO,nenhum,nenhuma
-21297767,2026-07-31,Nones,PR1,nenhum,NAO,nenhum,nenhuma
+21297767,2026-07-22,Nones,PR1+PR4,nenhum,NAO,nenhum,nenhuma
+21297767,2026-07-28,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
+21297767,2026-07-31,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 17263790,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 SEMINFO_3916a5c1-98e4-4120-9f72-9da40579b6f3,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
 20920524,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
-25446036,2026-07-22,Nones,PR1+PR6+PR10+PR11,PR10+PR11,NAO,nenhum,nenhuma
+25446036,2026-07-22,Nones,PR1+PR10+PR11,PR10+PR11,NAO,nenhum,nenhuma
 07748583,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 09752085,2026-07-22,Nones,PR1,nenhum,NAO,nenhum,nenhuma
 00840065,2026-07-22,Nones,nenhum,nenhum,NAO,nenhum,nenhuma
