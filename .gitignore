@@ -30,6 +30,22 @@ JULHO/dados_convertidos/
 JULHO/resultados_gemini/
 JULHO/log_execucao.txt
 
+# Pasta chamadas/<mes>/: brutos com PII (transcricoes reais), mesma logica
+# de "dados/" acima — nao subir
+chamadas/
+
+# Pacote RMR extraido do zip (CSV bruto de 15k ligacoes com PII + previews) —
+# nao subir
+_pacote_rmr/
+
+# experimento_gemini_gpt_amostra50/: scripts (.py) e README ficam
+# versionados, dados com transcricao/PII/derivados nao (mesma logica de
+# dados/ acima)
+experimento_gemini_gpt_amostra50/amostra_50.json
+experimento_gemini_gpt_amostra50/gemini/
+experimento_gemini_gpt_amostra50/gpt/
+experimento_gemini_gpt_amostra50/comparacao/
+
 # Amostras geradas localmente
 amostras/
 
