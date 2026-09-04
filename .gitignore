@@ -46,6 +46,10 @@ experimento_gemini_gpt_amostra50/gemini/
 experimento_gemini_gpt_amostra50/gpt/
 experimento_gemini_gpt_amostra50/comparacao/
 
+# agosto_grvin/: script (.py) fica versionado, saida com transcricao/PII/
+# derivados nao (mesma logica de dados/ acima)
+agosto_grvin/gemini/
+
 # Amostras geradas localmente
 amostras/
 
