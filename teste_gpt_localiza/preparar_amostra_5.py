@@ -1,5 +1,6 @@
 """Monta amostra_5.json: 5 ligacoes de agosto/2026 com o gabarito do Gemini pago
-(gemini-2.5-flash, agosto_grvin/gemini/CONSOLIDADO.csv) nos prompts P1, P2, P3, P5, P6 e P9.
+(gemini-2.5-flash, agosto_grvin/gemini/CONSOLIDADO.csv + P11.csv) nos prompts P1, P2, P3, P5, P6, P7, P9 e P11.
+P8, P10 e P15 nao foram rodados em agosto — sem gabarito, o teste so mede tokens neles.
 
 Roda AQUI (maquina local, onde estao chamadas/agosto/). O json gerado contem
 transcricao — nao vai pro git (ver .gitignore). Leva-se so ele + teste_gpt.py pra Localiza.
@@ -17,6 +18,7 @@ csv.field_size_limit(10**9)
 
 ROOT = Path(__file__).resolve().parent.parent
 CONSOLIDADO = ROOT / "agosto_grvin" / "gemini" / "CONSOLIDADO.csv"
+P11_CSV = ROOT / "agosto_grvin" / "gemini" / "P11.csv"  # tabela esparsa: sem linha = sem sinal competitivo
 CHAMADAS = ROOT / "chamadas" / "agosto"
 SAIDA = Path(__file__).resolve().parent / "amostra_5.json"
 
@@ -34,6 +36,7 @@ CAMPOS = {
     "P3": ["problemas_identificados", "quem_relatou", "foi_resolvido_na_ligacao", "escalou_para"],
     "P5": ["teve_challenger", "codigos_challenger", "resultado_imediato", "qualidade"],
     "P6": ["oportunidades_perdidas", "valor_potencial_R$"],
+    "P7": ["produtos_mencionados", "produtos_ofertados", "janela_perdida", "produto_janela"],
     "P9": ["tipo_abertura", "usou_nome", "tipo_fechamento", "proximo_passo_claro", "prazo_definido"],
 }
 
@@ -47,14 +50,18 @@ def carregar_transcricoes():
     return tx
 
 
-def gabarito(row):
-    return {p: {c: row[f"{p.lower()}_{c}"] for c in cols} for p, cols in CAMPOS.items()}
+def gabarito(row, sinais_p11):
+    g = {p: {c: row[f"{p.lower()}_{c}"] for c in cols} for p, cols in CAMPOS.items()}
+    g["P11"] = {"sinais": sinais_p11}
+    return g
 
 
 def main():
     with open(CONSOLIDADO, encoding="utf-8", newline="") as f:
         cons = list(csv.DictReader(f))
     tx = carregar_transcricoes()
+    with open(P11_CSV, encoding="utf-8", newline="") as f:
+        p11 = list(csv.DictReader(f))
 
     escolhidas = []
     for prefixo, perfil in FIXAS.items():
@@ -82,7 +89,9 @@ def main():
             "data": orig.get("Data", ""),
             "direcao": orig.get("direcao", ""),
             "transcricao_limpa": orig["transcricao_limpa"],
-            "gabarito_gemini": gabarito(row),
+            "gabarito_gemini": gabarito(row, [
+                {k: s[k] for k in ("tipo_sinal", "concorrente_mencionado", "vendedor_explorou")}
+                for s in p11 if s["cd_segmento"] == row["cd_segmento"]]),
         })
 
     SAIDA.write_text(json.dumps({
