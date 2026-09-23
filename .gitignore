@@ -59,3 +59,9 @@ auxiliares/
 # Cache do Python
 __pycache__/
 *.pyc
+
+# teste_gpt_localiza/: so scripts e LEIA-ME versionados; amostra (transcricao)
+# e saidas do teste ficam fora
+teste_gpt_localiza/*.json
+teste_gpt_localiza/*.jsonl
+teste_gpt_localiza/*.csv
