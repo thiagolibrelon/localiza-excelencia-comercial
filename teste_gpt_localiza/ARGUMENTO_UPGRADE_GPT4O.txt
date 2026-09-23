@@ -1,0 +1,92 @@
+PEDIDO DE LIBERAÇÃO DO GPT-4o NO LLM-GATE — ANÁLISE DE LIGAÇÕES (PROGRAMA ALETHEIA)
+====================================================================================
+CX · Programa Aletheia · setembro/2026
+
+RESUMO
+------
+Nossa chave do llm-gate só tem acesso ao gpt-4o-mini. Testamos o mini contra a classificação
+de referência de agosto (Gemini pago) e ele não entrega com qualidade justamente o que o time
+comercial mais pede: se era venda, se fechou, comportamento Challenger e problema identificado.
+Pedimos a liberação do gpt-4o — o mesmo modelo que o time já usa em produção — num formato
+otimizado que, pelas nossas contas, custa MENOS do que o uso atual do gpt-4o e cobre quase o
+dobro de análises.
+
+
+1. O PROBLEMA: O MINI NÃO DÁ CONTA DO QUE O NEGÓCIO USA
+--------------------------------------------------------
+Teste em 100 ligações de agosto (amostra aleatória do time GRVIN), gpt-4o-mini, formato otimizado.
+Concordância com a classificação de referência:
+
+  Campo                                         Concordância
+  --------------------------------------------  -------------------------------
+  Funil (desfecho + tipo + problema)            ~55%
+  Desfecho (fechou / não fechou / era venda)    80%
+  Tipo de ligação                               29%
+  Problema identificado                         55%
+  Comportamento Challenger — qualidade          7 de 32 ligações com Challenger
+  Comportamento Challenger — técnica usada      0 de 32
+  Comportamentos do vendedor (B1-B10, score)    51%
+
+  [ATUALIZAR COM O RESULTADO DAS 500 LIGAÇÕES E DA REVISÃO DAS DIVERGÊNCIAS:
+   concordância do funil = ___%   desfecho = ___%   Challenger = ___ de ___
+   nas divergências revisadas, a referência estava certa em ___% e o mini em ___%]
+
+Os erros são sistemáticos, não aleatórios: o mini praticamente não reconhece Challenger,
+subestima os comportamentos comerciais do vendedor (que alimentam o score da RMR) e erra o
+tipo de ligação na maior parte dos casos.
+
+Tentamos compensar com exemplos resolvidos no prompt (few-shot): a concordância subiu só
+1,6 ponto, o custo dobrou, e o campo mais importante (desfecho) piorou de 80% para 70%.
+É limite do modelo, não do prompt.
+
+
+2. NÃO É UM MODELO NOVO
+-----------------------
+O gpt-4o já é o modelo usado em produção pelo time (função analisa_transcricoes_llm).
+Pedimos o mesmo acesso para a análise das ligações.
+
+
+3. O CUSTO CAI EM VEZ DE SUBIR
+------------------------------
+Otimizamos o formato: 1 pedido por ligação (em vez de 4), transcrição compactada e uso do
+cache do llm-gate (confirmado no teste: ~64% dos tokens de entrada vieram do cache).
+
+  Cenário                                            Análises   Custo / 10 mil ligações*
+  -------------------------------------------------  ---------  ------------------------
+  gpt-4o como é usado hoje (4 pedidos por ligação)        6      ~US$ 145
+  gpt-4o no formato otimizado (1 pedido + cache)         11      ~US$ 105
+  gpt-4o-mini no formato otimizado (o que temos)         11      ~US$ 6
+
+  Volume do GRVIN: ~9,6 mil ligações/mês, ~7 mil com conversa efetiva
+  -> gpt-4o otimizado: ~US$ 75/mês para as 11 análises.
+
+  * Preços públicos da OpenAI (gpt-4o: US$ 2,50/M entrada, 1,25/M em cache, 10,00/M saída;
+    mini: 0,15 / 0,075 / 0,60). Tokens medidos no teste de 100 ligações. O preço interno
+    do llm-gate pode ser diferente; a proporção entre os cenários deve se manter.
+
+
+4. O PEDIDO: PEQUENO E COM CRITÉRIO DEFINIDO
+--------------------------------------------
+  - Liberar o gpt-4o para a nossa chave, inicialmente para um teste de 500 ligações
+    (custo estimado: ~US$ 5).
+  - Mesmas 500 ligações, mesmo formato: gpt-4o x gpt-4o-mini x referência.
+  - Critério de decisão combinado antes: se o gpt-4o não melhorar de forma clara os campos
+    do funil e o Challenger, seguimos no mini e devolvemos o acesso.
+  - Se aprovado, o uso contínuo fica no formato otimizado (1 pedido por ligação), para o
+    custo não subir.
+
+
+5. O RISCO DE FICAR NO MINI
+---------------------------
+A análise existe para orientar coaching, a RMR e as decisões comerciais. Com o mini, essas
+decisões passariam a se apoiar em classificações erradas justamente nos pontos que a chefia
+mais acompanha (Challenger, fechamento, problemas). O custo de uma decisão errada de coaching
+ou de produto é maior que os ~US$ 70/mês de diferença.
+
+
+OBSERVAÇÕES DE MÉTODO
+---------------------
+- "Concordância" compara com a classificação de referência do Gemini pago de agosto, que
+  também erra em alguns casos (ex.: marcou manipulação de NPS onde o vendedor só pediu
+  avaliação). Por isso a revisão manual das divergências (item 1) é o dado decisivo.
+- Scripts e resultados: teste_gpt_localiza/ (teste_gpt.py, relatorio_100.csv, relatorio_500.csv).
