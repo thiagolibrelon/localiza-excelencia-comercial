@@ -14,12 +14,16 @@ Opcoes do rodar:
   --configs C0,C3        roda so essas configuracoes (padrao: todas)
   --simular              nao chama a API; gera respostas a partir do gabarito (teste do script)
   --refazer              refaz as configs pedidas mesmo que ja tenham rodado
+  --amostra 100          usa amostra_100.json (tambem 300, 500; padrao 5) — vale para rodar e comparar
+  --workers 4            pedidos em paralelo (padrao 4)
 
 Saidas (nesta pasta): modelos_disponiveis.json, resultados.jsonl, relatorio.csv,
 relatorio_detalhe.csv. Nenhuma delas contem transcricao — sao essas que voltam.
 """
 import argparse
 import csv
+import threading
+from concurrent.futures import ThreadPoolExecutor
 import json
 import os
 import re
@@ -31,7 +35,7 @@ from pathlib import Path
 import requests
 
 AQUI = Path(__file__).resolve().parent
-AMOSTRA = AQUI / "amostra_5.json"
+AMOSTRA = AQUI / "amostra_5.json"  # trocado por --amostra
 MODELOS_JSON = AQUI / "modelos_disponiveis.json"
 RESULTADOS = AQUI / "resultados.jsonl"
 RELATORIO = AQUI / "relatorio.csv"
@@ -462,7 +466,20 @@ def chamar(url, headers, cfg, mensagens):
     return None, None, ultimo_erro
 
 
+def usar_amostra(args):
+    """--amostra 100 / 300 / 500 / 5 (padrao) ou nome de arquivo; relatorios ganham o sufixo da amostra."""
+    global AMOSTRA, RELATORIO, RELATORIO_DETALHE
+    a = str(getattr(args, "amostra", "") or "5")
+    AMOSTRA = AQUI / (a if a.endswith(".json") else f"amostra_{a}.json")
+    if not AMOSTRA.exists():
+        sys.exit(f"Nao achei {AMOSTRA.name} nesta pasta.")
+    sufixo = "" if AMOSTRA.stem == "amostra_5" else "_" + AMOSTRA.stem.replace("amostra_", "")
+    RELATORIO = AQUI / f"relatorio{sufixo}.csv"
+    RELATORIO_DETALHE = AQUI / f"relatorio_detalhe{sufixo}.csv"
+
+
 def cmd_rodar(args):
+    usar_amostra(args)
     amostra = json.loads(AMOSTRA.read_text(encoding="utf-8"))["ligacoes"]
     cfgs = todas_configs()
     if args.configs:
@@ -483,30 +500,39 @@ def cmd_rodar(args):
             if rec.get("ok") and bool(rec.get("simulado")) == bool(args.simular):
                 feitos.add((rec["config"], rec["cd_segmento"], rec["grupo"]))
 
+    tarefas = [(cfg, lig, grupo, mensagens) for cfg in cfgs for lig in amostra
+               for grupo, mensagens in pedidos(cfg, lig) if (cfg["id"], lig["cd_segmento"], grupo) not in feitos]
     total = sum(len(pedidos(c, amostra[0])) for c in cfgs) * len(amostra)
-    print(f"{len(cfgs)} configs x {len(amostra)} ligacoes = {total} pedidos ({len(feitos)} ja feitos serao pulados)")
+    print(f"{AMOSTRA.name}: {len(cfgs)} configs x {len(amostra)} ligacoes = {total} pedidos "
+          f"({total - len(tarefas)} ja feitos serao pulados), {args.workers} em paralelo")
+    trava = threading.Lock()
+    feitas = [0]
+
+    def executar(tarefa):
+        cfg, lig, grupo, mensagens = tarefa
+        if args.simular:
+            resp, uso, erro = (*resposta_simulada(lig, grupo, mensagens), None)
+        else:
+            resp, uso, erro = chamar(url, headers, cfg, mensagens)
+        rec = {"config": cfg["id"], "modelo": cfg["modelo"], "modo": cfg["modo"],
+               "transcricao": cfg["transcricao"], "cd_segmento": lig["cd_segmento"], "grupo": grupo,
+               "ok": resp is not None, "resposta": resp, "uso": uso, "erro": erro,
+               "simulado": bool(args.simular), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
+        uso = uso or {}
+        with trava:
+            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+            out.flush()
+            feitas[0] += 1
+            print(f"  [{feitas[0]}/{len(tarefas)}] {cfg['id']:<3} {cfg['modelo']:<13} {lig['cd_segmento'][:8]} {grupo:<6} "
+                  f"{'ok ' if resp is not None else 'ERRO'} in={uso.get('prompt_tokens', '-')} "
+                  f"out={uso.get('completion_tokens', '-')} cache={uso.get('cached_tokens', '-')}"
+                  + (f"  {erro[:80]}" if erro else ""))
+
     with open(RESULTADOS, "a", encoding="utf-8") as out:
-        for cfg in cfgs:
-            for lig in amostra:
-                for grupo, mensagens in pedidos(cfg, lig):
-                    if (cfg["id"], lig["cd_segmento"], grupo) in feitos:
-                        continue
-                    if args.simular:
-                        resp, uso, erro = (*resposta_simulada(lig, grupo, mensagens), None)
-                    else:
-                        resp, uso, erro = chamar(url, headers, cfg, mensagens)
-                    rec = {"config": cfg["id"], "modelo": cfg["modelo"], "modo": cfg["modo"],
-                           "transcricao": cfg["transcricao"], "cd_segmento": lig["cd_segmento"], "grupo": grupo,
-                           "ok": resp is not None, "resposta": resp, "uso": uso, "erro": erro,
-                           "simulado": bool(args.simular), "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
-                    out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                    out.flush()
-                    uso = uso or {}
-                    print(f"  {cfg['id']:<3} {cfg['modelo']:<13} {lig['cd_segmento'][:8]} {grupo:<6} "
-                          f"{'ok ' if resp is not None else 'ERRO'} in={uso.get('prompt_tokens', '-')} "
-                          f"out={uso.get('completion_tokens', '-')} cache={uso.get('cached_tokens', '-')}"
-                          + (f"  {erro[:80]}" if erro else ""))
-    print(f"\n-> {RESULTADOS.name}. Agora rode: python teste_gpt.py comparar")
+        with ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+            list(ex.map(executar, tarefas))
+    sufixo = "" if AMOSTRA.stem == "amostra_5" else f" --amostra {AMOSTRA.stem.replace('amostra_', '')}"
+    print(f"\n-> {RESULTADOS.name}. Agora rode: python teste_gpt.py comparar{sufixo}")
 
 
 # ---------------------------------------------------------------------------
@@ -527,8 +553,9 @@ NOMES_P9 = {"contextualizada": "ab1", "relacional": "ab2", "generica": "ab3", "g
             "aberto": "fc4", "diretivo": "fc5"}
 
 
-def _conj_b(v):
-    return frozenset(f"B{x}" if x.isdigit() else x for x in _conj(v))
+def _conj_b(v, prefixo="B"):
+    """Conjunto de codigos aceitando o numero puro (3 -> B3, 10 -> P10)."""
+    return frozenset(f"{prefixo}{x}" if x.isdigit() else x for x in _conj(v))
 
 
 def _norm(v):
@@ -545,7 +572,7 @@ def campos_comparados(gab, gpt):
         ("P1.intencao_entrada", _norm(g1["intencao_entrada"]), _norm(p("P1").get("intencao_entrada")), False),
         ("P1.B (conjunto)", _conj([f"B{i}" for i in range(1, 11) if g1[f"B{i}"] == "SIM"]), _conj_b(p("P1").get("B", [])), False),
         ("P2.tipo", _norm(g2["tipo"]), _norm(p("P2").get("tipo")), True),
-        ("P3.problemas (conjunto)", _conj(g3["problemas_identificados"]), _conj(p("P3").get("problemas_identificados")), True),
+        ("P3.problemas (conjunto)", _conj(g3["problemas_identificados"]), _conj_b(p("P3").get("problemas_identificados"), "P"), True),
         ("P3.foi_resolvido", _norm(g3["foi_resolvido_na_ligacao"]), _norm(p("P3").get("foi_resolvido_na_ligacao")), False),
         ("P5.teve_challenger", _norm(g5["teve_challenger"]), _norm(p("P5").get("teve_challenger")), False),
         ("P6.oportunidades (conjunto)", _conj(g6["oportunidades_perdidas"]), _conj(p("P6").get("oportunidades_perdidas")), False),
@@ -582,9 +609,11 @@ def _fmt(v):
     return "+".join(sorted(v)) or "nenhum" if isinstance(v, frozenset) else v
 
 
-def cmd_comparar(_args):
+def cmd_comparar(args):
+    usar_amostra(args)
     amostra = {l["cd_segmento"]: l for l in json.loads(AMOSTRA.read_text(encoding="utf-8"))["ligacoes"]}
-    recs = [json.loads(ln) for ln in RESULTADOS.read_text(encoding="utf-8").splitlines() if ln.strip()]
+    recs = [r for r in (json.loads(ln) for ln in RESULTADOS.read_text(encoding="utf-8").splitlines() if ln.strip())
+            if r["cd_segmento"] in amostra]
     cfg_info = {c["id"]: c for c in todas_configs()}
 
     # ultima resposta ok por (config, ligacao, grupo)
@@ -707,7 +736,10 @@ def main():
     r.add_argument("--configs", default="")
     r.add_argument("--simular", action="store_true")
     r.add_argument("--refazer", action="store_true", help="refaz as configs pedidas mesmo se ja rodaram")
-    sub.add_parser("comparar")
+    r.add_argument("--amostra", default="5", help="5 (padrao), 100, 300 ou 500")
+    r.add_argument("--workers", type=int, default=4, help="pedidos em paralelo (padrao 4)")
+    c = sub.add_parser("comparar")
+    c.add_argument("--amostra", default="5", help="5 (padrao), 100, 300 ou 500")
     args = ap.parse_args()
     {"modelos": cmd_modelos, "rodar": cmd_rodar, "comparar": cmd_comparar}[args.cmd](args)
 
