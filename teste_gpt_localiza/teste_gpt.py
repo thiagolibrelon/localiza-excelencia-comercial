@@ -42,6 +42,19 @@ RELATORIO = AQUI / "relatorio.csv"
 RELATORIO_DETALHE = AQUI / "relatorio_detalhe.csv"
 
 URL_PADRAO = "https://llm-gate-np.localiza.dev/llm-gate/v2/chat/completions"
+
+
+def _carregar_classificador():
+    """C12 usa o prompt e a normalizacao do classificar_ligacoes_diario.py (mesma pasta ou ../scripts)."""
+    for pasta in (AQUI, AQUI.parent / "scripts"):
+        if (pasta / "classificar_ligacoes_diario.py").exists():
+            sys.path.insert(0, str(pasta))
+            import classificar_ligacoes_diario as cld
+            return cld
+    return None
+
+
+CLD = _carregar_classificador()
 TIMEOUT_S = 120
 MAX_TENTATIVAS = 3
 
@@ -375,6 +388,8 @@ def configs_base():
          "transcricao": "compacta", "max_tokens": 1500},
         {"id": "C8", "descricao": "mini + 11 prompts em 1 pedido + exemplos", "modelo": "gpt-4o-mini", "modo": "tudo_exemplos",
          "transcricao": "compacta", "max_tokens": 1500},
+        {"id": "C12", "descricao": "mini + foco: venda, Challenger, problemas", "modelo": "gpt-4o-mini", "modo": "foco",
+         "transcricao": "compacta", "max_tokens": 1500},
     ]
 
 
@@ -386,6 +401,8 @@ def todas_configs():
         disponiveis = {s["modelo"] for s in dados.get("sondagem", []) if s.get("disponivel")}
     if not EXEMPLOS.exists():
         cfgs = [c for c in cfgs if c["modo"] != "tudo_exemplos"]
+    if CLD is None:
+        cfgs = [c for c in cfgs if c["modo"] != "foco"]
     for i, m in enumerate([m for m in EXTRAS_MATRIZ if m in disponiveis], start=9):
         cfgs.append({"id": f"C{i}", "descricao": f"{m} + 1 pedido + saida enxuta", "modelo": m,
                      "modo": "unico", "transcricao": "compacta", "max_tokens": 600})
@@ -397,6 +414,10 @@ def pedidos(cfg, lig):
     usuario = mensagem_usuario(lig, cfg["transcricao"])
     if cfg["modo"] == "unico":
         return [("TODOS", [{"role": "system", "content": system_unico()}, {"role": "user", "content": usuario}])]
+    if cfg["modo"] == "foco":
+        # mesma mensagem do classificador diario
+        return [("FOCO", [{"role": "system", "content": CLD.SYSTEM_FOCO},
+                          {"role": "user", "content": f"Transcricao:\n{compactar(lig['transcricao_limpa'])}"}])]
     if cfg["modo"] in ("tudo", "tudo_exemplos"):
         system = system_tudo(cfg["modo"] == "tudo_exemplos")
         return [("TUDO", [{"role": "system", "content": system}, {"role": "user", "content": usuario}])]
@@ -409,6 +430,23 @@ def pedidos(cfg, lig):
 def resposta_simulada(lig, grupo, mensagens):
     """Resposta falsa montada do gabarito — so para testar o script sem rede."""
     g = lig["gabarito_gemini"]
+    if grupo == "FOCO":
+        teve = g["P5"]["teve_challenger"] == "SIM"
+        chs = set(_conj(g["P5"]["codigos_challenger"])) if teve else set()
+        pts = {"alta": 3, "media": 2, "baixa": 1}.get(g["P5"]["qualidade"], 1) if teve else 0
+        regua = ["trouxe_dado_concreto", "conectou_a_situacao_do_cliente", "cliente_reagiu"]
+        resp = {"venda": {"evidencia": "x", "era_venda": "NAO" if g["P1"]["desfecho"] == "nao_era_venda" else "SIM",
+                          "tentativa_comercial": g["P1"]["tentativa_comercial"], "desfecho": g["P1"]["desfecho"],
+                          "tipo": g["P2"]["tipo"]},
+                "challenger": {"frase_vendedor": "x" if teve else "", "reacao_cliente": "",
+                               **{f"CH{i}": "SIM" if f"CH{i}" in chs else "NAO" for i in range(1, 8)},
+                               **{k: "SIM" if n < pts else "NAO" for n, k in enumerate(regua)}},
+                "problemas": {"lista": [{"evidencia": "x", "codigo": c} for c in sorted(_conj(g["P3"]["problemas_identificados"]))],
+                              "tem_problema": "SIM" if _conj(g["P3"]["problemas_identificados"]) else "NAO",
+                              "principal": "", "foi_resolvido_na_ligacao": g["P3"]["foi_resolvido_na_ligacao"]}}
+        n_in = sum(len(m["content"]) for m in mensagens) // 4
+        return resp, {"prompt_tokens": n_in, "completion_tokens": len(json.dumps(resp)) // 4, "cached_tokens": 0,
+                      "reasoning_tokens": 0, "custo": None, "modelo_resposta": "simulado"}
 
     def lista(s, vazio):
         itens = [x for x in re.split(r"[+;,]", s) if x and x.lower() not in ("nenhum", "nenhuma")]
@@ -589,6 +627,33 @@ def campos_comparados(gab, gpt):
     return out
 
 
+def _p11(cods):
+    """Codigos novos (P13+) nao existem no gabarito de agosto: contam como P11 (Outro) na comparacao."""
+    return frozenset(c if c in {f"P{i}" for i in range(1, 13)} else "P11" for c in cods)
+
+
+def campos_foco(gab, resp):
+    """C12: mesmas metricas do funil + as perguntas de negocio (era venda? tem problema?)."""
+    c = CLD.normalizar_foco(resp)
+    g1, g2, g3, g5 = gab["P1"], gab["P2"], gab["P3"], gab["P5"]
+    gprob = _conj(g3["problemas_identificados"])
+    out = [
+        ("era_venda", "sim" if g1["desfecho"] != "nao_era_venda" else "nao", c["P1"]["era_venda"].lower(), False),
+        ("P1.desfecho", _norm(g1["desfecho"]), _norm(c["P1"]["desfecho"]), True),
+        ("P2.tipo", _norm(g2["tipo"]), _norm(c["P2"]["tipo"]), True),
+        ("tem_problema", "sim" if gprob else "nao", c["P3"]["tem_problema"].lower(), False),
+        ("P3.problemas (conjunto)", gprob, _p11(c["P3"]["problemas_identificados"]), True),
+        ("P5.teve_challenger", _norm(g5["teve_challenger"]), c["P5"]["teve_challenger"].lower(), False),
+    ]
+    if gprob:
+        out.append(("P3.foi_resolvido", _norm(g3["foi_resolvido_na_ligacao"]), _norm(c["P3"]["foi_resolvido_na_ligacao"]), False))
+        out.append(("P3.principal no gabarito", "sim", "sim" if (_p11([c["P3"]["problema_principal"]]) & gprob) else "nao", False))
+    if _norm(g5["teve_challenger"]) == "sim":
+        out.append(("P5.qualidade", _norm(g5["qualidade"]), _norm(c["P5"]["qualidade"]), False))
+        out.append(("P5.codigos (conjunto)", _conj(g5["codigos_challenger"]), frozenset(c["P5"]["codigos_challenger"]), False))
+    return out
+
+
 def campos_extras(gab, gpt):
     """P7 e P11 (so existem nas configs de 11 prompts). Ficam fora da concordancia geral para manter C1-C4 comparaveis."""
     if "P7" not in gpt and "P11" not in gpt:
@@ -648,8 +713,13 @@ def cmd_comparar(args):
         acertos = total = acertos_funil = total_funil = acertos_extra = total_extra = 0
         preenchidos = {"P8": 0, "P10": 0, "P15": 0}
         por_campo = {}
+        tp = fp = fn = 0
         for cd, gpt in d["lig"].items():
-            for campo, vg, vp, funil in campos_comparados(amostra[cd]["gabarito_gemini"], gpt):
+            foco = "venda" in gpt
+            comparados = (campos_foco if foco else campos_comparados)(amostra[cd]["gabarito_gemini"], gpt)
+            for campo, vg, vp, funil in comparados:
+                if campo == "P3.problemas (conjunto)":
+                    tp += len(vg & vp); fp += len(vp - vg); fn += len(vg - vp)
                 bate = vg == vp
                 acertos += bate; total += 1
                 if funil:
@@ -683,6 +753,8 @@ def cmd_comparar(args):
             "concordancia_geral_pct": round(100 * acertos / total, 1) if total else "",
             "concordancia_funil_pct": round(100 * acertos_funil / total_funil, 1) if total_funil else "",
             "concordancia_P7_P11_pct": round(100 * acertos_extra / total_extra, 1) if total_extra else "",
+            "problemas_precisao_pct": round(100 * tp / (tp + fp), 1) if tp + fp else "",
+            "problemas_cobertura_pct": round(100 * tp / (tp + fn), 1) if tp + fn else "",
             "ligacoes_com_P8_objecao": preenchidos["P8"] if total_extra else "",
             "ligacoes_com_P10_promessa": preenchidos["P10"] if total_extra else "",
             "ligacoes_com_P15_evento": preenchidos["P15"] if total_extra else "",
@@ -699,12 +771,18 @@ def cmd_comparar(args):
             w.writeheader(); w.writerows(dados)
 
     print(f"{'cfg':<4}{'modelo':<14}{'modo':<15}{'transc':<9}{'lig':>4}{'entrada':>9}{'cache':>7}{'saida':>7}"
-          f"{'custo/lig':>11}{'geral%':>8}{'funil%':>8}{'P7P11%':>8}")
+          f"{'custo/lig':>11}{'geral%':>8}{'funil%':>8}{'P7P11%':>8}{'prob.prec%':>11}{'prob.cob%':>10}")
     for l in linhas:
         print(f"{l['config']:<4}{l['modelo']:<14}{l['modo']:<15}{l['transcricao']:<9}{l['ligacoes_ok']:>4}"
               f"{l['tokens_entrada_por_lig']:>9}{l['tokens_cache_por_lig']:>7}{l['tokens_saida_por_lig']:>7}"
               f"{str(l['custo_por_lig']):>11}{str(l['concordancia_geral_pct']):>8}{str(l['concordancia_funil_pct']):>8}"
-              f"{str(l['concordancia_P7_P11_pct']):>8}")
+              f"{str(l['concordancia_P7_P11_pct']):>8}{str(l['problemas_precisao_pct']):>11}{str(l['problemas_cobertura_pct']):>10}")
+    foco = [l for l in linhas if l["modo"] == "foco"]
+    for l in foco:
+        conc = lambda k: l.get(f"conc_{k}", "-")
+        print(f"  {l['config']} (foco): era venda {conc('era_venda')} | tem problema {conc('tem_problema')} | "
+              f"principal no gabarito {conc('P3.principal no gabarito')} | Challenger teve {conc('P5.teve_challenger')}, "
+              f"qualidade {conc('P5.qualidade')} (o Gemini superestima Challenger: revise as divergencias)")
     extras = [l for l in linhas if l["ligacoes_com_P8_objecao"] != ""]
     for l in extras:
         print(f"  {l['config']}: sem gabarito, so contagem — P8 objecao em {l['ligacoes_com_P8_objecao']}, "
