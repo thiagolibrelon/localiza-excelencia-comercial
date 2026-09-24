@@ -187,7 +187,8 @@ SYSTEM = (
 # Codigos de problema. Para acrescentar um codigo novo: uma linha aqui (codigo, nome, definicao/fronteira).
 PROBLEMAS = [
     ("P1", "Acesso/sistema", "portal fora do ar, senha, biometria, usuario sem acesso"),
-    ("P2", "Faturamento/cobranca", "boleto errado ou atrasado, fatura para terceiro, valor incorreto, cobranca indevida"),
+    ("P2", "Faturamento/cobranca", "boleto errado ou atrasado, fatura para terceiro, valor incorreto, cobranca indevida, "
+                                  "contestacao de cobranca (avaria, pneu, taxas de encerramento)"),
     ("P3", "Multa/infracao", "multa no condutor errado, prazo de indicacao, contestacao"),
     ("P4", "Manutencao/substituto", "carro em oficina, demora, sem carro substituto"),
     ("P5", "Condutor/cadastro", "cadastro de condutor com ERRO ou bloqueio (CPF bloqueado, habilitacao recusada, acesso de ex-funcionario). "
@@ -197,8 +198,15 @@ PROBLEMAS = [
     ("P8", "Franquia/agencia", "processo diferente ou falha em loja franqueada"),
     ("P9", "Sinistro", "acidente, avaria, franquia de dano"),
     ("P10", "Reserva/sistema", "reserva com erro no sistema: nao aparece, status errado, pendente de aprovacao, erro ao criar/editar. "
-                               "Se o problema e falta de carro, e P7; duvida de como usar o portal sem erro nao e problema"),
+                               "Inclui contrato encerrado por engano no sistema. Se o problema e falta de carro, e P7; se a reserva travou por "
+                               "limite de credito, e P13; duvida de como usar o portal sem erro nao e problema"),
     ("P12", "Manipulacao de pesquisa/NPS", "vendedor pede nota alta ou dita a nota. So pedir para o cliente avaliar o atendimento NAO e P12"),
+    ("P13", "Credito/cadastro PJ", "reserva ou locacao travada por limite de credito insuficiente/comprometido, analise ou "
+                                   "ampliacao de credito, cadastro PJ pendente, inativo ou reprovado, exigencia de documento "
+                                   "que trava o cadastro (inclui cadastro de campanha)"),
+    ("P14", "Preco/competitividade", "cliente reclama que o preco ficou acima da pessoa fisica, da cotacao ou da "
+                                     "concorrencia, ou desiste/migra por preco. So informar o preco nao e problema"),
+    ("P15", "Tag de pedagio", "FALHA da tag: inativa, nao cobra, erro ao ativar. Pedido de ativacao de rotina NAO e problema"),
     ("P11", "Outro", "problema real que nao cabe em nenhum codigo acima — obrigatorio preencher 'descricao'"),
 ]
 CODIGOS_PROBLEMA = [c for c, _, _ in PROBLEMAS]
