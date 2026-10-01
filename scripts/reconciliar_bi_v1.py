@@ -206,6 +206,37 @@ def main():
         add("W03-" + sem[:10], "2 Semana", "Horas Base KPI", sem, "Dim_Calendario[SemanaInicio]", xb["dur"].sum() / 3600, "0,0 h", 0.05, "Colunas semanais")
         add("W04-" + sem[:10], "2 Semana", "K2 Pendencias", sem, "Dim_Calendario[SemanaInicio]", int((x["gpt"] & x["prob"] & (x["p3_foi_resolvido_na_ligacao"] != "SIM")).sum()), "inteiro", 0, "Matriz semanal (inclui 23–25/09 sem duração)")
 
+    # ---- Página 9 · Meu painel (exemplo: carteira S1I05A; relatório do vendedor, v1.2)
+    cs = "S1I05A"
+    me = s[s["CARTEIRA"] == cs]
+    bm = b[b["CARTEIRA"] == cs]
+    k1m = bm.loc[bm["op"], "dur"].sum() / bm["dur"].sum()
+    gp = g[(g["CARTEIRA"] == cs) & g["prob"]]
+    pend_cli = gp[gp["cod"].notna() & (gp["p3_foi_resolvido_na_ligacao"] != "SIM")]["cod"].nunique()
+    cl_ = me[me["comp"] & me["classe"].isin(["POSITIVA", "INFORMATIVA", "DETRATORA"])]
+    aa = s[s["comp"] & s["resumo_analise"].notna() & s["cod"].notna() & (s["CARTEIRA"] == cs)]
+    dv = aa[(aa["necessidade_nova_visita_boleano_b"] == True) & aa["sug"].notna() & (aa["sug"] <= "2026-09-30") & (aa["sug"] > aa["dt"])].copy()
+    mm_ = dv.merge(s[s["cod"].notna()][["cod", "ts", "dt"]], on="cod", suffixes=("", "_n"))
+    mm_ = mm_[mm_["ts_n"] > mm_["ts"]]
+    mm_["np"] = mm_["dt_n"] <= mm_["sug"] + pd.Timedelta(days=2)
+    dv["np"] = dv["id_transcricao"].map(mm_.groupby("id_transcricao")["np"].max()).fillna(False).astype(bool)
+    oo = me[me["tipo_ligacao"].eq("Outbound") & me["cod"].notna()]
+    c2_ = oo.groupby("cod").agg(tent=("comp", "size"), ok=("comp", "max"), ult=("ts", "max"))
+    PC = f"Dim_Carteira = {cs}"
+    add("V01", "9 Meu painel", "K7 Negociacao", P, PC, bm.loc[bm["neg"], "dur"].sum() / bm["dur"].sum(), "0,0%", 0.0005, "Cartão 9.1")
+    add("V02", "9 Meu painel", "K7 Time", P, "(sem filtro de carteira)", b.loc[b["neg"], "dur"].sum() / b["dur"].sum(), "0,0%", 0.0005, "Apoio do 9.1 (Resumo_Time)")
+    add("V03", "9 Meu painel", "K1 Carga Operacional", P, PC, k1m, "0,0%", 0.0005, "Cartão 9.2")
+    add("V04", "9 Meu painel", "K1 Time", P, "(sem filtro de carteira)", b.loc[b["op"], "dur"].sum() / b["dur"].sum(), "0,0%", 0.0005, "Apoio do 9.2 (Resumo_Time)")
+    add("V05", "9 Meu painel", "Taxa Atendimento", T, PC, me["comp"].mean(), "0,0%", 0.0005, "Cartão 9.3 · período 31/08–30/09")
+    add("V06", "9 Meu painel", "Tentativas", T, PC, len(me), "inteiro", 0, "Cartão 9.3")
+    add("V07", "9 Meu painel", "K2 Pendencias", P, PC, int((gp["p3_foi_resolvido_na_ligacao"] != "SIM").sum()), "inteiro", 0, "Cartão 9.4")
+    add("V08", "9 Meu painel", "Clientes com Pendencia", P, PC, pend_cli, "inteiro", 0, "Chip do 9.9")
+    add("V09", "9 Meu painel", "Pct Conversas Detratoras", T, PC, (cl_["classe"] == "DETRATORA").mean(), "0,0%", 0.0005, "Cartão 9.5 · período 31/08–30/09")
+    sc_ = s[s["comp"] & s["classe"].isin(["POSITIVA", "INFORMATIVA", "DETRATORA"])]
+    add("V10", "9 Meu painel", "Pct Conversas Detratoras Time", T, "(sem filtro de carteira)", (sc_["classe"] == "DETRATORA").mean(), "0,0%", 0.0005, "Apoio do 9.5 (Resumo_Time)")
+    add("V11", "9 Meu painel", "Clientes Retorno Vencido", T, PC, dv.loc[~dv["np"], "cod"].nunique(), "inteiro", 0, "Chip do 9.9 · exige Retornos_Devidos")
+    add("V12", "9 Meu painel", "Clientes Sem 2a Tentativa", T, PC, int(((c2_["tent"] == 1) & (~c2_["ok"]) & (c2_["ult"] <= "2026-09-23")).sum()), "inteiro", 0, "Chip do 9.9")
+
     saida = Path(a.saida)
     saida.parent.mkdir(parents=True, exist_ok=True)
     with saida.open("w", encoding="utf-8-sig", newline="") as f:

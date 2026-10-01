@@ -1,12 +1,13 @@
 # Medidas por escopo (gerado a partir de `especificacao_visuais.md` e das dependências entre medidas em `dax/medidas.dax`)
 
-Total em medidas.dax: **147**. Criar na ordem em que aparecem no arquivo (cada medida só usa as de cima).
+Total em medidas.dax: **166**. Criar na ordem em que aparecem no arquivo (cada medida só usa as de cima).
 
 | Grupo | Medidas | Quando |
 |---|---|---|
 | Núcleo | 88 | Páginas 1–5 e 8 (só visuais v1), com as dependências. **Criar primeiro.** |
 | Reconciliação e KPIs de apoio | 14 | K1a/K1b, K8/K9, checagens do modelo (M-01), metas de piloto. Criar na sexta, junto com a reconciliação. |
 | Páginas 6 e 7 | 34 | Se houver tempo antes de 07/10; senão entram na v1.1. |
+| Página 9 · Meu painel (v1.2) | 19 | Relatório do vendedor; exige Dim_Cliente, Resumo_Time e Retornos_Devidos. |
 | v1.1 e apoio | 11 | Cliente_Contato, Tentativa_Seq, Retornos_Devidos (exigem consultas extras) e sobras. |
 
 ## Núcleo
@@ -150,6 +151,27 @@ Total em medidas.dax: **147**. Criar na ordem em que aparecem no arquivo (cada m
 - Mediana Falou com Decisor %
 - Habilidade Valor
 - Habilidade Mediana
+
+## Página 9 · Meu painel (v1.2)
+- K1 Time
+- K7 Time
+- Pct Tempo Grupo Time
+- Taxa Atendimento Time
+- Conversas Detratoras
+- Conversas com Analise
+- Pct Conversas Detratoras
+- Pct Conversas Detratoras Time
+- Dif K1 vs Time pp
+- Ultimo Contato
+- Dias sem Contato
+- Flag Pendencia
+- Flag Retorno Vencido
+- Flag Sem 2a Tentativa
+- Itens Retomar
+- Motivo Retomar
+- Clientes com Pendencia
+- Clientes Retorno Vencido
+- Clientes Sem 2a Tentativa
 
 ## v1.1 e apoio
 - Seg Total Duracao

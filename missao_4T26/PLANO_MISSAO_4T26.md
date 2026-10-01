@@ -230,6 +230,7 @@ Cada página responde a **uma decisão** (contexto → insight → evidência �
 | 6. Tempo e ritmo | Quando insistir, quando encerrar? | Semana/mês | Faixas de duração × fechamentos por hora, TMA por tipo, funil de contato, recontato e retorno vencido |
 | 7. Competências | Que habilidade falta nesta carteira? | Mês | Radar SPIN e Challenger, escada dado → conexão → reação, trechos para coaching |
 | 8. Qualidade do dado | Posso confiar no número de hoje? | Dia | Coberturas, atraso, **versão do prompt**, duas réguas lado a lado (GPT × Gemini) |
+| 9. Meu painel (relatório do vendedor, v1.2) | Como foi meu tempo e quem preciso retomar? | Dia/mês, só a própria carteira (RLS) | Tempo em negociação e carga operacional vs time, dia a dia, problemas que mais tomaram o tempo, clientes para retomar. Abre ao vendedor só após alinhamento com Gerência Operacional e RH; sugestão: junto com o piloto (16/11) |
 
 Regras: calendário único (dia, semana ISO com início na segunda, mês); medidas DAX iguais nas três granularidades; horário convertido de UTC para BRT; código de cliente com 8 dígitos;
 valores-sentinela tratados como nulo; trechos com nome de cliente só para perfil restrito.

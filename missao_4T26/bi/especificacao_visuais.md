@@ -1,7 +1,7 @@
 # Especificação dos visuais — BI v1 (Excelência Comercial · venda interna DVINT)
 
 > Cada linha é um visual do Power BI Desktop: tipo, campos, medidas (definidas em `dax/medidas.dax`), filtros de visual e observações. Os IDs (1.1, 1.2…) são os mesmos das imagens em `mockups/` (versão anotada).
-> **Escopo:** `v1` = entra na publicação de 07/10 · `v1.1` = depende de consulta ou dado extra, entra depois (já desenhado nas imagens).
+> **Escopo:** `v1` = entra na publicação de 07/10 · `v1.1` = depende de consulta ou dado extra, entra depois (já desenhado nas imagens) · `v1.2` = página 9, relatório do vendedor: só depois da conversa com a Gerência/RH e do RLS testado.
 > Todas as medidas citadas existem em `dax/medidas.dax`. Valores esperados de setembro: `reconciliacao.csv`.
 
 ## Elementos comuns a todas as páginas
@@ -148,5 +148,22 @@
 | 8.8 | Verificações da carga | Tabela | v1 | Linhas: Diagnostico_Pipeline[Verificacao] | Falhas, Base, Pct, LimitePct, Status | — | Formatação condicional por [Status]: OK, ATENCAO, CRITICO. |
 | 8.9 | Campos com valor-sentinela | Barras horizontais | v1 | Eixo: Dicionario_Colunas[coluna] | pct_sentinela | Visual: Top 7 por pct_sentinela | Campos que parecem preenchidos mas são 'sem dados necessários' (volume de frota, concorrência…). |
 
+## Página 9 · Meu painel (relatório do vendedor)
+
+**Pergunta de decisão:** Como foi meu tempo e quem preciso retomar?  
+**Quem usa:** O vendedor, só na própria carteira (RLS 'Carteira'). Relatório separado, mesmo modelo
+
+| ID | Visual | Tipo | Escopo | Eixo / campos | Medidas | Filtros do visual | Observações |
+|---|---|---|---|---|---|---|---|
+| 9.1 | Meu tempo em negociação | Cartão (valor + comparação) | v1.2 | — | [K7 Negociacao] · apoio: [K7 Time] | RLS: só a minha carteira | Comparação com o time vem de Resumo_Time (fora do RLS). |
+| 9.2 | Minha carga operacional | Cartão (valor + comparação) | v1.2 | — | [K1 Carga Operacional] · apoio: [K1 Time], [Dif K1 vs Time pp] | — | Laranja = mais carga que o time. Texto neutro: 'acima/abaixo do time', nunca 'pior'. |
+| 9.3 | Atendimento | Cartão (valor + comparação) | v1.2 | — | [Taxa Atendimento] · apoio: [Taxa Atendimento Time], [Atendidas], [Tentativas] | — | Mostra também o último dia (usar [Tentativas] e [Atendidas] com filtro de dia na tooltip). |
+| 9.4 | Problemas sem resolução | Cartão | v1.2 | — | [K2 Pendencias] · apoio: [Clientes com Pendencia] | — | Resolução 'na ligação': a medida não sabe se outra ligação resolveu depois. |
+| 9.5 | Conversas sem objetivo atingido | Cartão (valor + comparação) | v1.2 | — | [Pct Conversas Detratoras] · apoio: [Pct Conversas Detratoras Time], [Conversas Detratoras], [Conversas com Analise] | — | 'Detratora' é a classe da CONVERSA (objetivo não atingido), não um cliente detrator. Não usar a palavra 'detrator' para cliente. |
+| 9.6 | Meu dia a dia | Colunas empilhadas | v1.2 | Eixo: Dim_Calendario[Data] · Legenda: Fato_Ligacoes[GrupoTempo] | [Horas Base KPI] | Visual: [Dias Uteis com Dado] ≥ 1 | Horas de conversa por dia, por tipo de tempo. |
+| 9.7 | Para onde foi meu tempo | 2 barras 100% empilhadas (carteira e time) | v1.2 | Legenda: Fato_Ligacoes[GrupoTempo] (carteira) e Resumo_Time[GrupoTempo] (time) | [Seg Base KPI] (carteira) · [Pct Tempo Grupo Time] (time) | — | Mesmas cores da página 3. As duas barras ficam alinhadas para comparar. |
+| 9.8 | Problemas que mais tomaram meu tempo | Barras horizontais | v1.2 | Eixo: Dim_Problema[Rotulo] | [Horas com Problema] | Visual: Top 5 por [Horas com Problema], Codigo ≠ 'nenhum' | Quem resolve na origem é a Operação; o vendedor vê para saber o que reportar. |
+| 9.9 | Clientes para retomar | Tabela + 3 chips de contagem | v1.2 | Linhas: Dim_Cliente[CodigoCliente8] | [Motivo Retomar], [Ultimo Contato], [Dias sem Contato] · chips: [Clientes com Pendencia], [Clientes Retorno Vencido], [Clientes Sem 2a Tentativa] | Visual: [Itens Retomar] > 0 · Top 8 por [Itens Retomar] | O código do cliente aparece completo no BI (o vendedor o conhece pelo CRM). Quem vê é só o dono da carteira. |
+
 ---
-Total: 61 visuais v1 · 4 visuais v1.1 · 6 elementos comuns.
+Total: 61 visuais v1 · 4 visuais v1.1 · 9 visuais v1.2 (página 9) · 6 elementos comuns.

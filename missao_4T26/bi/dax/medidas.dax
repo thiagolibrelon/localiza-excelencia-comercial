@@ -722,3 +722,88 @@ SWITCH(
     "SPIN · Necessidade",     [Mediana SPIN Necessidade],
     BLANK()
 )
+
+
+// ###########################################  11 · MEU PAINEL (página do vendedor, v1.2)  ############################
+// Estas medidas servem a um relatório separado ("Meu painel") sobre o mesmo modelo, com RLS "Carteira".
+// Dependem de Dim_Cliente, Resumo_Time e Retornos_Devidos (powerquery/). "Time" = Resumo_Time, que não passa pelo RLS.
+
+// Pasta: 11 Meu painel · Formato: 0.0%   · K1 do time inteiro (todas as carteiras), mesma regra do K1
+K1 Time =
+DIVIDE(
+    CALCULATE(SUM(Resumo_Time[SegBase]), Resumo_Time[GrupoTempo] IN {"Operacional — com problema", "Operacional — sem problema"}),
+    CALCULATE(SUM(Resumo_Time[SegBase]), Resumo_Time[GrupoTempo] <> "Não classificado (GPT)")
+)
+
+// Pasta: 11 Meu painel · Formato: 0.0%
+K7 Time =
+DIVIDE(
+    CALCULATE(SUM(Resumo_Time[SegBase]), Resumo_Time[GrupoTempo] = "Negociação"),
+    CALCULATE(SUM(Resumo_Time[SegBase]), Resumo_Time[GrupoTempo] <> "Não classificado (GPT)")
+)
+
+// Pasta: 11 Meu painel · Formato: 0.0%   · fatia do tempo do time num grupo (para a barra "Time" do gráfico de alocação)
+Pct Tempo Grupo Time =
+DIVIDE(
+    SUM(Resumo_Time[SegBase]),
+    CALCULATE(SUM(Resumo_Time[SegBase]), REMOVEFILTERS(Resumo_Time[GrupoTempo]), Resumo_Time[GrupoTempo] <> "Não classificado (GPT)")
+)
+
+// Pasta: 11 Meu painel · Formato: 0.0%
+Taxa Atendimento Time = DIVIDE(SUM(Resumo_Time[Atendidas]), SUM(Resumo_Time[Tentativas]))
+
+// Pasta: 11 Meu painel · Formato: #,0   · conversas atendidas, com análise, em que o objetivo NÃO foi atingido ("detratoras"); NÃO é cliente detrator
+Conversas Detratoras = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[ClasseLigacao] = "DETRATORA")
+
+// Pasta: 11 Meu painel · Formato: #,0
+Conversas com Analise = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[ClasseLigacao] IN {"POSITIVA", "INFORMATIVA", "DETRATORA"})
+
+// Pasta: 11 Meu painel · Formato: 0.0%
+Pct Conversas Detratoras = DIVIDE([Conversas Detratoras], [Conversas com Analise])
+
+// Pasta: 11 Meu painel · Formato: 0.0%
+Pct Conversas Detratoras Time =
+DIVIDE(SUM(Resumo_Time[Detratoras]), SUM(Resumo_Time[Positivas]) + SUM(Resumo_Time[Informativas]) + SUM(Resumo_Time[Detratoras]))
+
+// Pasta: 11 Meu painel · Formato: +0.0" p.p.";-0.0" p.p."   · minha carga operacional menos a do time (positivo = mais carga que o time)
+Dif K1 vs Time pp = ([K1 Carga Operacional] - [K1 Time]) * 100
+
+// Pasta: 11 Meu painel · Formato: dd/mm/aaaa   · último dia em que a carteira ligou para o cliente (linha da tabela de clientes)
+Ultimo Contato = MAX(Fato_Ligacoes[Data])
+
+// Pasta: 11 Meu painel · Formato: 0   · dias entre o último dado do arquivo e o último contato da carteira com o cliente
+Dias sem Contato = DATEDIFF([Ultimo Contato], [Dados ate], DAY)
+
+// Pasta: 11 Meu painel · Formato: 0   · por cliente: 1 se a carteira teve problema sem resolução na ligação
+Flag Pendencia = IF([K2 Pendencias] > 0, 1, 0)
+
+// Pasta: 11 Meu painel · Formato: 0   · por cliente: 1 se há retorno pedido pelo cliente, com data vencida, sem nova ligação até o prazo + 2 dias
+Flag Retorno Vencido =
+IF(CALCULATE(COUNTROWS(Retornos_Devidos), Retornos_Devidos[RetornoNoPrazo] = FALSE()) > 0, 1, 0)
+
+// Pasta: 11 Meu painel · Formato: 0   · por cliente: 1 se a carteira ligou UMA vez, sem sucesso, e não tentou de novo há 7+ dias
+Flag Sem 2a Tentativa =
+VAR _out = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[tipo_ligacao] = "Outbound")
+VAR _ok  = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[tipo_ligacao] = "Outbound", Fato_Ligacoes[EhCompleted] = TRUE())
+VAR _ult = CALCULATE(MAX(Fato_Ligacoes[Data]), Fato_Ligacoes[tipo_ligacao] = "Outbound")
+RETURN IF(_out = 1 && _ok = 0 && _ult < [Dados ate] - LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Dias_Recontato"), 1, 0)
+
+// Pasta: 11 Meu painel · Formato: 0   · por cliente: quantos motivos para retomar (usar como filtro de visual: > 0)
+Itens Retomar = [Flag Pendencia] + [Flag Retorno Vencido] + [Flag Sem 2a Tentativa]
+
+// Pasta: 11 Meu painel · Formato: texto   · por cliente: por que retomar
+Motivo Retomar =
+VAR _txt =
+    IF([Flag Pendencia] = 1, "Problema sem resolução · ", "")
+        & IF([Flag Retorno Vencido] = 1, "Retorno vencido · ", "")
+        & IF([Flag Sem 2a Tentativa] = 1, "Sem 2ª tentativa · ", "")
+RETURN IF(LEN(_txt) = 0, BLANK(), LEFT(_txt, LEN(_txt) - 3))
+
+// Pasta: 11 Meu painel · Formato: #,0
+Clientes com Pendencia = SUMX(VALUES(Dim_Cliente[CodigoCliente8]), [Flag Pendencia])
+
+// Pasta: 11 Meu painel · Formato: #,0
+Clientes Retorno Vencido = SUMX(VALUES(Dim_Cliente[CodigoCliente8]), [Flag Retorno Vencido])
+
+// Pasta: 11 Meu painel · Formato: #,0
+Clientes Sem 2a Tentativa = SUMX(VALUES(Dim_Cliente[CodigoCliente8]), [Flag Sem 2a Tentativa])

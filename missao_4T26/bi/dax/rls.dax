@@ -31,3 +31,10 @@
 //      (as medianas respeitam o RLS). Para o vendedor ver "meu K1 contra o time", criar a tabela agregada Resumo_Time (fora do RLS) na v1.1.
 //   3. Um usuário que não está em Dim_Acesso e recebe a função "Distrital" ou "Carteira" não vê nenhuma linha (LOOKUPVALUE devolve vazio).
 // Textos livres (Textos_Restrito) e nomes (Dim_Vendedor_Restrito) NUNCA entram no modelo publicado para a empresa: só no modelo de gestão.
+
+// ---- Página do vendedor ("Meu painel", v1.2) ------------------------------------------------------------------------
+//   • Relatório separado, mesmo conjunto de dados; app com público-alvo "vendedores"; função "Carteira" atribuída a cada vendedor.
+//   • Permissão do vendedor: SÓ visualização (sem Compilar). Dim_Cliente não passa pelo RLS: sem esta restrição, quem compila sobre o
+//     conjunto de dados poderia listar códigos de cliente de outras carteiras.
+//   • "Time" na página vem de Resumo_Time (agregado do time inteiro, sem carteira), por isso não é afetado pelo RLS.
+//   • Antes de abrir: testar "Exibir como" com 2 ou 3 vendedores reais e conferir os 12 valores V01–V12 de reconciliacao.csv.

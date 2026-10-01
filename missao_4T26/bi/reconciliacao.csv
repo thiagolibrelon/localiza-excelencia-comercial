@@ -138,3 +138,15 @@ W01-2026-09-21;2 Semana;K1 Carga Operacional;2026-09-21/2026-09-27;Dim_Calendari
 W02-2026-09-21;2 Semana;K7 Negociacao;2026-09-21/2026-09-27;Dim_Calendario[SemanaInicio];0,2129;0,0%;0,0005;Colunas semanais;;
 W03-2026-09-21;2 Semana;Horas Base KPI;2026-09-21/2026-09-27;Dim_Calendario[SemanaInicio];38,7581;0,0 h;0,05;Colunas semanais;;
 W04-2026-09-21;2 Semana;K2 Pendencias;2026-09-21/2026-09-27;Dim_Calendario[SemanaInicio];328;inteiro;0;Matriz semanal (inclui 23–25/09 sem duração);;
+V01;9 Meu painel;K7 Negociacao;01/09–22/09;Dim_Carteira = S1I05A;0,3469;0,0%;0,0005;Cartão 9.1;;
+V02;9 Meu painel;K7 Time;01/09–22/09;(sem filtro de carteira);0,351;0,0%;0,0005;Apoio do 9.1 (Resumo_Time);;
+V03;9 Meu painel;K1 Carga Operacional;01/09–22/09;Dim_Carteira = S1I05A;0,4678;0,0%;0,0005;Cartão 9.2;;
+V04;9 Meu painel;K1 Time;01/09–22/09;(sem filtro de carteira);0,4318;0,0%;0,0005;Apoio do 9.2 (Resumo_Time);;
+V05;9 Meu painel;Taxa Atendimento;31/08–30/09 (todo o arquivo);Dim_Carteira = S1I05A;0,4462;0,0%;0,0005;Cartão 9.3 · período 31/08–30/09;;
+V06;9 Meu painel;Tentativas;31/08–30/09 (todo o arquivo);Dim_Carteira = S1I05A;446;inteiro;0;Cartão 9.3;;
+V07;9 Meu painel;K2 Pendencias;01/09–22/09;Dim_Carteira = S1I05A;27;inteiro;0;Cartão 9.4;;
+V08;9 Meu painel;Clientes com Pendencia;01/09–22/09;Dim_Carteira = S1I05A;24;inteiro;0;Chip do 9.9;;
+V09;9 Meu painel;Pct Conversas Detratoras;31/08–30/09 (todo o arquivo);Dim_Carteira = S1I05A;0,375;0,0%;0,0005;Cartão 9.5 · período 31/08–30/09;;
+V10;9 Meu painel;Pct Conversas Detratoras Time;31/08–30/09 (todo o arquivo);(sem filtro de carteira);0,3358;0,0%;0,0005;Apoio do 9.5 (Resumo_Time);;
+V11;9 Meu painel;Clientes Retorno Vencido;31/08–30/09 (todo o arquivo);Dim_Carteira = S1I05A;32;inteiro;0;Chip do 9.9 · exige Retornos_Devidos;;
+V12;9 Meu painel;Clientes Sem 2a Tentativa;31/08–30/09 (todo o arquivo);Dim_Carteira = S1I05A;49;inteiro;0;Chip do 9.9;;

@@ -119,6 +119,8 @@ DATATABLE(
 //   Dim_Problema[Codigo]            1 → *  Fato_Ligacoes[p3_problema_principal]
 //   Dim_TipoDemanda[p2_tipo]        1 → *  Fato_Ligacoes[p2_tipo]
 //   Dim_FaixaDuracao[Faixa]         1 → *  Fato_Ligacoes[FaixaDuracao]
+//   Dim_Calendario[Data]            1 → *  Resumo_Time[Data]               (v1.2, página "Meu painel")
+//   Dim_Cliente[CodigoCliente8]     1 → *  Fato_Ligacoes[CodigoCliente8] e Retornos_Devidos[CodigoCliente8]   (v1.2)
 //   Dim_Calendario[Data]            1 → *  Retornos_Devidos[Data]          (v1.1)
 //   Dim_Carteira[CARTEIRA]          1 → *  Retornos_Devidos[CARTEIRA]      (v1.1)
 //   Cliente_Contato[CodigoCliente8] 1 → *  Fato_Ligacoes[CodigoCliente8]   (v1.1)  — para o K5 e a página 6, nada atravessa a carteira

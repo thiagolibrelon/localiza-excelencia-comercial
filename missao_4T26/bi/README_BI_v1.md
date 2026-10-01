@@ -28,16 +28,17 @@
 | `powerquery/Diagnostico_Pipeline.m`, `Dicionario_Colunas.m` | Fonte da página 8 |
 | `powerquery/Cliente_Contato.m`, `Tentativa_Seq.m`, `Retornos_Devidos.m` | v1.1 (recontato e retorno no prazo, página 6) |
 | `powerquery/Textos_Restrito.m`, `Dim_Vendedor_Restrito.m`, `Dim_Acesso.m` | Só para modelo de gestão com RLS. **Não** entram no relatório da empresa toda |
+| `powerquery/Dim_Cliente.m`, `Resumo_Time.m` | Só para a página 9, "Meu painel" (v1.2) |
 | `dax/calendario_e_dimensoes.dax` | Tabelas calculadas (calendário, metas, parâmetros, habilidades) e a lista de relacionamentos |
-| `dax/medidas.dax` | **147 medidas**, com pasta de exibição e formato em comentário |
+| `dax/medidas.dax` | **166 medidas** (19 delas da página do vendedor), com pasta de exibição e formato em comentário |
 | `dax/medidas_por_escopo.md` | Quais medidas criar primeiro: **88 do núcleo** (páginas 1–5 e 8), +14 de reconciliação, +34 das páginas 6–7 |
 | `dax/rls.dax` | Funções de RLS (Gestão, Distrital, Carteira) e como testar |
 | `tema/Excelencia_Comercial.json` | Tema do relatório (azul = negociação, laranja = carga operacional) |
-| `mockups/png/` e `mockups/*.pdf` | Imagens das 8 páginas, versão limpa e versão anotada (ID do visual + medidas) |
+| `mockups/png/` e `mockups/*.pdf` | Imagens das 9 páginas (8 do relatório de gestão + "Meu painel"), versão limpa e anotada (ID do visual + medidas) |
 | `mockups/bi_mockups.html` | As mesmas imagens, navegáveis |
-| `especificacao_visuais.md` | 61 visuais v1 e 4 v1.1: tipo, campos, medidas, filtros, observações |
+| `especificacao_visuais.md` | 61 visuais v1, 4 v1.1 e 9 v1.2 (página 9, do vendedor): tipo, campos, medidas, filtros, observações |
 | `modelo.md` | Modelo estrela, relacionamentos, colunas a ocultar, atualização |
-| `reconciliacao.csv` | **139 valores esperados** de setembro, com período, filtro e tolerância; colunas em branco para preencher |
+| `reconciliacao.csv` | **151 valores esperados** de setembro (12 deles da página do vendedor, com a carteira S1I05A de exemplo), com período, filtro e tolerância; colunas em branco para preencher |
 | `post_lancamento.md` | Texto do comunicado, perguntas frequentes e o que não concluir dos números |
 | `../../scripts/reconciliar_bi_v1.py` | Gera `reconciliacao.csv` a partir do CSV (independente do Power BI) |
 
@@ -130,6 +131,20 @@ Valores de referência (01–22/09, janela do baseline): K1 **43,2%** · K1a 30,
 
 ---
 
-## 9. Mudanças no plano da missão
+## 9. Página do vendedor ("Meu painel", v1.2)
+
+**Faz sentido**, com três ajustes de desenho. Mockup em `mockups/png/p9_meu_painel*.png` (exemplo com a carteira S1I05A, números reais de setembro); especificação nos visuais 9.1–9.9.
+
+1. **Relatório separado, mesmo modelo.** O vendedor não deve ver as páginas de gestão. Publicar "Meu painel" como relatório próprio sobre o mesmo conjunto de dados, em um app com público-alvo "vendedores", RLS `Carteira` (`dax/rls.dax`) e **permissão só de visualização** (sem Compilar). Atenção: `Dim_Cliente` não passa pelo RLS; quem puder compilar sobre o conjunto de dados poderia listar códigos de cliente de outras carteiras.
+2. **"Clientes detratores" vira "conversas sem objetivo atingido" e "clientes para retomar".** No dado, *detratora* é a classe de uma **conversa** (objetivo não atingido), não um cliente. Chamar cliente de detrator seria impreciso (não é NPS) e pesaria contra o vendedor. O que ajuda o vendedor a agir é a lista de clientes para retomar, por três motivos que existem no dado: problema sem resolução na ligação, retorno pedido pelo cliente já vencido e uma única tentativa sem sucesso há 7+ dias. Em setembro, a carteira de exemplo tem 24, 32 e 49 clientes nessas três listas.
+3. **Comparação com o time sem expor colegas.** O time vem de `Resumo_Time` (agregado do time inteiro, fora do RLS); não há ranking nem carteira de outros. O texto é neutro ("+3,6 p.p. em relação ao time"), nunca "pior".
+
+**Quando.** Tecnicamente cabe na v1.1 (20/10). **Para o vendedor, só depois** de a Gerência Operacional e o RH/jurídico concordarem e de o RLS ser testado com 2 ou 3 vendedores. A sugestão é abrir junto com o piloto (16/11), quando as carteiras-piloto passam a ter um motivo claro para olhar o próprio tempo.
+
+**Limites desta página.** "Sem resolução" é na ligação: a medida não enxerga se outra ligação resolveu depois. O comparativo com o time só existe com duração (01–22/09). O código completo do cliente aparece para o dono da carteira.
+
+---
+
+## 10. Mudanças no plano da missão
 
 `PLANO_MISSAO_4T26.md` (v0.3.2): marco **07/10 BI v1 provisório** (E6a); **E6** (20/10) vira BI v1.1; **E7** (30/10) vira BI v2 em produção com baseline congelado e pipeline D-1; K6 passa a ser medido sobre todas as classificadas (19,1% em 01–22/09; os 18,8% anteriores eram só com duração). O gate de 16/10 passa a valer para o BI **oficial**; a v1 de 07/10 é rotulada como provisória.

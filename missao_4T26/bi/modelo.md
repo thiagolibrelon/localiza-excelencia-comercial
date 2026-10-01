@@ -29,6 +29,8 @@ Modelo em estrela: uma fato (uma linha por tentativa de ligação) e dimensões 
 | `Diagnostico_Pipeline` | M (de `Ligacoes_Base`) | 10 | Verificações de cobertura da carga |
 | `Dicionario_Colunas` | CSV do dicionário | 88 | Perfil das colunas (página 8) |
 | `Atualizacao` | M | 1 | Carimbo da última atualização |
+| `Dim_Cliente` | M (de `Fato_Ligacoes`) | ≈ 12.200 | Código de cliente. Só página 9 e K5. **Não passa pelo RLS** (ver README, seção 9) |
+| `Resumo_Time` | M (de `Fato_Ligacoes`) | ≈ 130 | Totais do time por dia e grupo de tempo, sem carteira. Só página 9 |
 | `Param_Meta` | DAX | 10 | Baseline, metas, limites de alerta |
 | `Param_MinLigacoes`, `Param_ReducaoP1`, `Param_TopPct` | DAX | — | Parâmetros de segmentação |
 | `_Medidas` | DAX | 1 | Só hospeda as medidas |
@@ -45,6 +47,8 @@ Modelo em estrela: uma fato (uma linha por tentativa de ligação) e dimensões 
 | v1.1: `Cliente_Contato[CodigoCliente8]` | `Fato_Ligacoes[CodigoCliente8]` | Única |
 | v1.1: `Tentativa_Seq[id_transcricao]` | `Fato_Ligacoes[id_transcricao]` | 1:1 |
 | v1.1: `Dim_Calendario[Data]`, `Dim_Carteira[CARTEIRA]` | `Retornos_Devidos[Data]`, `[CARTEIRA]` | Única |
+| v1.2: `Dim_Cliente[CodigoCliente8]` | `Fato_Ligacoes[CodigoCliente8]`, `Retornos_Devidos[CodigoCliente8]` | Única |
+| v1.2: `Dim_Calendario[Data]` | `Resumo_Time[Data]` | Única |
 
 Marcar `Dim_Calendario` como tabela de datas. Ordenar `MesAbrev` por `AnoMes`, `SemanaRotulo` por `SemanaInicio`, `DiaSemanaNome` por `DiaSemanaNum`, `Dim_Problema[Rotulo]` por `Ordem`, `Dim_FaixaDuracao[Faixa]` por `Ordem`.
 
