@@ -1,6 +1,6 @@
 # Missão 4T26 — Reduzir o tempo da venda interna com problemas
 
-> **Draft v0.3.1 — 01/10/2026 (refeito só com o CSV e o código M).**
+> **Draft v0.3.2 — 01/10/2026 (refeito só com o CSV e o código M; BI v1 antecipado para 07/10).**
 > **Fontes: o CSV da consulta do Power BI (19.078 ligações × 88 colunas, 31/08–30/09) e o código M que o gera.** Nada do repositório entra nos números:
 > sem junho, julho, diárias, reservas ou exemplos; a única exceção é a legenda dos códigos P1–P15 e CH1–CH7, que vem do repositório. Por isso não há tendência entre meses nem resultado real depois da ligação.
 > Reproduzível com `scripts/baseline_carga_operacional.py` e `scripts/auditoria_dados_missao.py`; auditoria completa em `AUDITORIA_DADOS_E_OPORTUNIDADES.md`; as oportunidades têm plano próprio em `PLANO_OPORTUNIDADES.md`.
@@ -31,7 +31,7 @@ moveu o ponteiro e o BI continua rodando sem depender de mim."*
 | **ENTREGA ATÉ DEZEMBRO** | (1) BI único em produção, atualizado todo dia útil até 08h (D-1), em uso pela gestão; (2) baseline congelado, régua estável e código M corrigido; (3) plano de ações priorizadas com dono e ao menos 1 piloto medido contra controle; (4) mapa de 89 oportunidades de insight com 5 dossiês entregues; (5) MVP da trilha de conhecimento do vendedor (ou especificação + protótipo, conforme a capacidade); (6) leitura final out→dez. |
 | **INDICADOR** | **Norte:** % do tempo de ligação em carga operacional (baseline congelado em 09/10 → meta dez). **Apoio:** tempo de negociação, pendências geradas por dia, horas excedentes, reincidência. **Controle:** cobertura D-1 ≥ 95% e adoção semanal. |
 | **LÍDER + TIME** | **Líder:** Thiago Librelon (Especialista de Excelência Comercial). **Piloto:** Thiago + Gerência Operacional, que também assina as horas devolvidas. **Apoios:** Gerente de Excelência Comercial (patrocínio e decisão), Gerência Comercial, Produto (problemas sistêmicos), Treinamento (trilha), Dados/TI e CX (pipeline). *Nomes a preencher.* |
-| **MARCOS** | **09/10** baseline congelado e carteiras-piloto definidas · **30/10** BI v1 em produção · **13/11** plano de ações aprovado e gate da trilha · **16/11** pilotos no ar · **17/12** leitura final e decisão para 2027. |
+| **MARCOS** | **09/10** baseline congelado e carteiras-piloto definidas · **07/10** BI v1 provisório (retrato de setembro, pacote em `bi/`) · **30/10** BI v2 em produção (pipeline D-1, régua congelada) · **13/11** plano de ações aprovado e gate da trilha · **16/11** pilotos no ar · **17/12** leitura final e decisão para 2027. |
 | **DEPENDÊNCIAS** | Duração de ligação a partir de 23/09 (hoje a série para em 22/09) · tabelas `analise_llm`, `spinselling_llm` e `categorizacao_llm` do Aletheia (BigQuery) · `F_Carteiras_Equipe` · acesso ao llm-gate e máquina na rede Localiza · gateway/workspace do Power BI · Vendas, Produto e Operações para executar ações · 9 pedidos de dado (auditoria, seção 10). |
 | **O QUE NÃO FAREMOS** | Novos prompts ou nova taxonomia · ranking punitivo de vendedores · política de cold call ou meta de ligações (é da Gerência Comercial) · correção de sistemas (entregamos evidência ao Produto) · tempo real (o corte é D-1) · horas devolvidas em R$ sem premissa de custo-hora · afirmar tendência antes do baseline congelado. |
 
@@ -93,7 +93,7 @@ Códigos (legenda do repositório): P1 acesso/sistema, P2 faturamento/cobrança,
 | K3 | Horas excedentes/mês | n_problema × (TMA_problema − TMA_sem_problema) | ≈ 50–60 h/mês | −30% no piloto |
 | K4 | Resolução na ligação | % de ligações com problema resolvidas (SIM) | 10,3% | ≥ 20% nos códigos priorizados |
 | K5 | Reincidência | % de ligações com problema de clientes com 2+ no período | 18,8% | −25% |
-| K6 | Taxa de ligações com problema | com problema ÷ classificadas | 18,8% (instável) | Só acompanhar |
+| K6 | Taxa de ligações com problema | com problema ÷ classificadas (todas as classificadas pelo GPT, com ou sem duração) | 19,1% em 01–22/09 (18,8% se restrito às que têm duração; instável) | Só acompanhar |
 | C1 | Cobertura de classificação D-1 | Completed classificadas ÷ Completed | 89,5% (01–22/09); 0% em 28–30/09 | **≥ 95%** |
 | C2 | Cobertura de duração D-1 | Completed com duração ÷ Completed | 100% até 22/09; 0% depois | **≥ 95%** |
 | C3 | Latência | BI atualizado até 08h do dia útil seguinte | manual | **≥ 95% dos dias úteis** |
@@ -123,22 +123,23 @@ Feriados considerados: 12/10, 02/11, 20/11 e 25/12. Dias úteis: out 21 · nov 1
 | Data | Entregável | Critério de aceite |
 |---|---|---|
 | 06/10 | **E1 Dicionário de KPIs v1** | K1–K7 e C1–C5 validados pelo chefe, com a carga completa |
+| 07/10 | **E6a BI v1 provisório** | Páginas 1–5 e 8 publicadas com dados de setembro e aviso de baseline provisório; reconciliação com `bi/reconciliacao.csv` sem diferença acima da tolerância; acesso restrito à gestão (ver `bi/README_BI_v1.md`). **Não é diário:** a duração só vai até 22/09 e a classificação até 25/09 |
 | 09/10 | **E2 Baseline congelado de setembro** | Setembro inteiro reprocessado com **uma** versão de prompt/modelo, versão gravada por linha; K1 pelas duas réguas (GPT e Gemini); metas calibradas. Fallback: baseline 01–22/09 |
 | 09/10 | **E3 Pedidos de dado e chamados** | Os 9 pedidos da auditoria com dono e prazo; carteiras-piloto definidas (seção 6) |
 | 13/10 | **E4 Correções do código M** | M-01 (classe "sem análise"), M-02 (chave com ano), M-05 (janela móvel), M-06 (fuso), normalização de `codigo_cliente` e valores-sentinela como nulo |
 | 16/10 | **E5 Pipeline D-1** | Classificador agendado, saída diária, refresh sem intervenção por 3 dias seguidos |
 
-**Gate 16/10:** régua congelada + código M corrigido + pipeline D-1 funcionando. Sem isso, não se publica o BI.
+**Gate 16/10:** régua congelada + código M corrigido + pipeline D-1 funcionando. Sem isso, o BI não vira oficial (v2): a v1 de 07/10 fica rotulada como provisória e sem metas calibradas.
 
 ### Fase 2 — BI v1 e primeiros dossiês (19–30/10)
 
 | Data | Entregável | Critério de aceite |
 |---|---|---|
-| 20/10 | **E6 Protótipo do BI** (Visão do dia + Qualidade do dado) | Revisado com o chefe usando dados de setembro |
+| 20/10 | **E6 BI v1.1** | Páginas 6 e 7 completas (recontato, retorno no prazo, trecho de coaching com acesso restrito), ficha da carteira, alerta de mudança de régua, RLS por distrital e carteira; revisado com o chefe |
 | 23/10 | **D1 Dossiê: carga operacional e tempo** | Mapa de alocação do tempo, Pareto de problemas, fechamentos por hora de conversa |
 | 26/10 | **Primeira leitura semanal (beta)** | Segunda 08h com Gerência Operacional e Comercial; ata com decisões |
 | 30/10 | **D2 Dossiê: recontato e retorno no prazo** | Listas de clientes sem 2ª tentativa e de retornos vencidos, com tamanho em conversas |
-| 30/10 | **E7 BI v1 em produção** | 8 páginas (seção 7); 5 dias úteis seguidos de refresh até 08h; acesso por perfil |
+| 30/10 | **E7 BI v2 em produção** | 8 páginas (seção 7) com baseline congelado e metas calibradas; 5 dias úteis seguidos de refresh até 08h; acesso por perfil |
 
 **Gate 30/10:** BI em produção e a gestão abrindo toda segunda.
 
@@ -183,7 +184,7 @@ Feriados considerados: 12/10, 02/11, 20/11 e 25/12. Dias úteis: out 21 · nov 1
 | Semana | 05/10 | 12/10 | 19/10 | 26/10 | 02/11 | 09/11 | 16/11 | 23/11 | 30/11 | 07/12 | 14/12 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Régua, código e baseline | E1 E2 E3 | E4 E5 | | | | | | | | | |
-| BI | | | E6 | E7 | | | | | | | |
+| BI | E6a | | E6 | E7 | | | | | | | |
 | Dossiês | | | D1 | D2 | D3 | | D4 | | D5 | | |
 | Ação e pilotos | | | | | E8 | E9 | E10 → | → | E11 → | E12 | E13 E14 |
 | Trilha | | | | | | Gate | | T1 | | T2 | |
@@ -214,6 +215,7 @@ Como carteira e vendedor são 1:1, o piloto é, na prática, um piloto com vende
 ## 7. BI diário — especificação mínima
 
 > Wireframe interativo com dados reais agregados: `prototipos/bi_wireframe.html`. Protótipo da trilha do vendedor: `prototipos/trilha_prototipo.html`.
+> **Pacote técnico do BI (v1 de 07/10): `bi/`** — Power Query corrigido (`bi/powerquery/`), medidas DAX e calendário (`bi/dax/`), tema, mockups das 8 páginas em PNG/PDF (`bi/mockups/`), especificação dos visuais, reconciliação com os números de setembro e roteiro de publicação (`bi/README_BI_v1.md`).
 
 Cada página responde a **uma decisão** (contexto → insight → evidência → recomendação → ação).
 **Hierarquia:** Divisional (DVINT) → Distrital (DTIN1–5) → **Carteira** (67; o vendedor aparece como atributo nominal da carteira, que é 1:1 com a matrícula).

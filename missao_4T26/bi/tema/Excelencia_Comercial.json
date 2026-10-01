@@ -1,0 +1,92 @@
+{
+  "name": "Excelência Comercial — Venda interna",
+  "dataColors": ["#2a78d6", "#eb6834", "#8fb4e8", "#898781", "#1f9e89", "#e0a21a", "#7b61c9", "#52514e"],
+  "background": "#fcfcfb",
+  "foreground": "#0b0b0b",
+  "tableAccent": "#2a78d6",
+  "good": "#2a78d6",
+  "neutral": "#898781",
+  "bad": "#eb6834",
+  "maximum": "#eb6834",
+  "center": "#f5f4ef",
+  "minimum": "#2a78d6",
+  "null": "#c3c2b7",
+  "firstLevelElements": "#0b0b0b",
+  "secondaryElements": "#52514e",
+  "thirdLevelElements": "#e1e0d9",
+  "secondaryBackground": "#f9f9f7",
+  "textClasses": {
+    "callout":  { "fontSize": 28, "fontFace": "Segoe UI Semibold", "color": "#0b0b0b" },
+    "title":    { "fontSize": 13, "fontFace": "Segoe UI Semibold", "color": "#0b0b0b" },
+    "header":   { "fontSize": 12, "fontFace": "Segoe UI Semibold", "color": "#52514e" },
+    "label":    { "fontSize": 11, "fontFace": "Segoe UI", "color": "#52514e" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title":      [{ "show": true, "fontSize": 13, "fontFamily": "Segoe UI Semibold", "fontColor": { "solid": { "color": "#0b0b0b" } }, "alignment": "left" }],
+        "subTitle":   [{ "show": true, "fontSize": 11, "fontColor": { "solid": { "color": "#52514e" } } }],
+        "background": [{ "show": true, "color": { "solid": { "color": "#fcfcfb" } }, "transparency": 0 }],
+        "border":     [{ "show": true, "color": { "solid": { "color": "#e1e0d9" } }, "radius": 8 }],
+        "dropShadow": [{ "show": false }],
+        "padding":    [{ "top": 8, "bottom": 8, "left": 10, "right": 10 }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#f9f9f7" } }, "transparency": 0 }],
+        "outspace":   [{ "color": { "solid": { "color": "#f9f9f7" } }, "transparency": 0 }]
+      }
+    },
+    "card": {
+      "*": {
+        "labels":         [{ "fontSize": 28, "fontFamily": "Segoe UI Semibold", "color": { "solid": { "color": "#0b0b0b" } } }],
+        "categoryLabels": [{ "show": true, "fontSize": 11, "color": { "solid": { "color": "#52514e" } } }]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "categoryAxis": [{ "gridlineShow": false, "labelColor": { "solid": { "color": "#52514e" } }, "fontSize": 10 }],
+        "valueAxis":    [{ "gridlineShow": true, "gridlineColor": { "solid": { "color": "#e1e0d9" } }, "labelColor": { "solid": { "color": "#52514e" } }, "fontSize": 10 }],
+        "legend":       [{ "show": true, "position": "Top", "fontSize": 10 }],
+        "lineStyles":   [{ "strokeWidth": 2.5 }]
+      }
+    },
+    "clusteredColumnChart": {
+      "*": {
+        "categoryAxis": [{ "gridlineShow": false, "fontSize": 10 }],
+        "valueAxis":    [{ "gridlineShow": true, "gridlineColor": { "solid": { "color": "#e1e0d9" } }, "fontSize": 10 }],
+        "legend":       [{ "show": true, "position": "Top", "fontSize": 10 }],
+        "labels":       [{ "show": true, "fontSize": 10, "color": { "solid": { "color": "#52514e" } } }]
+      }
+    },
+    "clusteredBarChart": {
+      "*": {
+        "categoryAxis": [{ "gridlineShow": false, "fontSize": 10 }],
+        "valueAxis":    [{ "gridlineShow": true, "gridlineColor": { "solid": { "color": "#e1e0d9" } }, "fontSize": 10 }],
+        "legend":       [{ "show": true, "position": "Top", "fontSize": 10 }],
+        "labels":       [{ "show": true, "fontSize": 10, "color": { "solid": { "color": "#52514e" } } }]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [{ "show": true, "fontSize": 11, "fontColor": { "solid": { "color": "#52514e" } } }],
+        "items":  [{ "fontSize": 11, "background": { "solid": { "color": "#fcfcfb" } } }]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "grid":         [{ "gridHorizontal": true, "gridHorizontalColor": { "solid": { "color": "#e1e0d9" } }, "gridVertical": false, "rowPadding": 4 }],
+        "columnHeaders":[{ "fontSize": 11, "fontColor": { "solid": { "color": "#52514e" } }, "backColor": { "solid": { "color": "#fcfcfb" } } }],
+        "values":       [{ "fontSize": 11 }]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "grid":         [{ "gridHorizontal": true, "gridHorizontalColor": { "solid": { "color": "#e1e0d9" } }, "gridVertical": false, "rowPadding": 4 }],
+        "columnHeaders":[{ "fontSize": 11, "fontColor": { "solid": { "color": "#52514e" } } }],
+        "values":       [{ "fontSize": 11 }]
+      }
+    }
+  }
+}

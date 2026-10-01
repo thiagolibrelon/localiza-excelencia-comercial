@@ -1,0 +1,129 @@
+// =====================================================================================================================
+// calendario_e_dimensoes.dax  —  tabelas calculadas e parâmetros do modelo (Modelagem > Nova tabela, uma por bloco)
+// Ordem de criação: _Medidas → Param_Meta → Dim_Calendario → Param_MinLigacoes → Param_ReducaoP1 → Param_TopPct → Dim_Habilidade
+// (as medidas ficam em medidas.dax e só funcionam depois destas tabelas e das consultas do Power Query)
+// =====================================================================================================================
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// _Medidas  — tabela só para guardar as medidas (Modelagem > Nova tabela). Depois de criar, OCULTE a coluna [x].
+// ---------------------------------------------------------------------------------------------------------------------
+_Medidas = ROW("x", 1)
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Param_Meta  — metas, baseline e limites num só lugar. Mudou a meta? Edite aqui; nenhuma medida precisa ser tocada.
+// BASELINE PROVISÓRIO: valores de 01–22/09 pela régua GPT. O baseline CONGELADO sai em 09/10 (entrega E2 do plano): trocar K1_Baseline,
+// K1_Meta_Geral, K1_Meta_Piloto e K7_Baseline nessa data e republicar.
+// ---------------------------------------------------------------------------------------------------------------------
+Param_Meta =
+DATATABLE(
+    "Chave", STRING,
+    "Valor", DOUBLE,
+    "Descricao", STRING,
+    {
+        {"K1_Baseline",     0.432, "K1 de setembro (01–22/09, régua GPT). PROVISÓRIO até o baseline congelado de 09/10"},
+        {"K1_Meta_Geral",   0.382, "Baseline − 5 p.p. (meta geral da missão)"},
+        {"K1_Meta_Piloto",  0.332, "Baseline − 10 p.p. (meta do piloto vs controle)"},
+        {"K7_Baseline",     0.351, "K7 (negociação) de setembro. Meta a calibrar em 09/10"},
+        {"Limite_Alerta_K1_pp", 10, "Desvio do K1 do dia contra a média de 5 dias úteis que dispara o alerta (p.p.)"},
+        {"Limite_Cobertura", 0.95, "Cobertura mínima C1/C2 (classificação e duração dos Completed)"},
+        {"Dias_Uteis_Mes",  21,   "Dias úteis de referência para projetar horas em equivalente-mês"},
+        {"Z_IC",            1.96, "z do intervalo de Wilson (95%) das taxas de fechamento"},
+        {"Dias_Recontato",  7,    "Quantos dias sem nova tentativa para contar 'cliente sem 2ª tentativa'"},
+        {"Limite_Latencia_h", 24, "Horas máximas desde a última atualização antes de alertar (C3)"}
+    }
+)
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Dim_Calendario  — de 31/08 a 31/12/2026 (a missão inteira). Marcar como tabela de datas: coluna [Data].
+// Ordenar por coluna: MesAbrev → AnoMes · SemanaRotulo → SemanaInicio · DiaSemanaNome → DiaSemanaNum.
+// Relacionamento: Dim_Calendario[Data] 1 → * Fato_Ligacoes[Data]. Depende de Dim_Feriados (Power Query).
+// ---------------------------------------------------------------------------------------------------------------------
+Dim_Calendario =
+VAR _Datas     = SELECTCOLUMNS(CALENDAR(DATE(2026, 8, 31), DATE(2026, 12, 31)), "Data", [Date])
+VAR _Feriados  = SELECTCOLUMNS(Dim_Feriados, "FData", Dim_Feriados[Data])
+VAR _Basica =
+    ADDCOLUMNS(
+        _Datas,
+        "Ano",             YEAR([Data]),
+        "MesNum",          MONTH([Data]),
+        "AnoMes",          YEAR([Data]) * 100 + MONTH([Data]),
+        "MesAbrev",        FORMAT([Data], "mmm/yy", "pt-BR"),
+        "SemanaInicio",    [Data] - WEEKDAY([Data], 2) + 1,
+        "SemanaRotulo",    FORMAT([Data] - WEEKDAY([Data], 2) + 1, "dd/mm", "pt-BR") & "–" & FORMAT([Data] - WEEKDAY([Data], 2) + 5, "dd/mm", "pt-BR"),
+        "DiaSemanaNum",    WEEKDAY([Data], 2),
+        "DiaSemanaNome",   SWITCH(WEEKDAY([Data], 2), 1, "seg", 2, "ter", 3, "qua", 4, "qui", 5, "sex", 6, "sáb", "dom"),
+        "EhFeriado",       VAR _d = [Data] RETURN COUNTROWS(FILTER(_Feriados, [FData] = _d)) > 0
+    )
+VAR _ComUtil =
+    ADDCOLUMNS(_Basica, "EhDiaUtil", [DiaSemanaNum] <= 5 && NOT [EhFeriado])
+VAR _ComSeq =
+    ADDCOLUMNS(
+        _ComUtil,
+        "DiaUtilSeq",      VAR _d = [Data] RETURN COUNTROWS(FILTER(_ComUtil, [Data] <= _d && [EhDiaUtil])),
+        "DiasUteisMes",    VAR _m = [AnoMes] RETURN COUNTROWS(FILTER(_ComUtil, [AnoMes] = _m && [EhDiaUtil]))
+    )
+RETURN _ComSeq
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Param_MinLigacoes  — mínimo de ligações classificadas para uma carteira entrar em ranking e mediana. Usar como segmentação
+// (seleção única, valor 40). Se nada estiver selecionado, a medida [Min Ligacoes Carteira] assume 40.
+// ---------------------------------------------------------------------------------------------------------------------
+Param_MinLigacoes = GENERATESERIES(0, 100, 5)
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Param_ReducaoP1  — simulador da página 3: "se reduzirmos X% das ligações P1 (acesso/sistema), quantas horas voltam ao time?"
+// Segmentação de seleção única. Valor padrão 30 quando nada estiver selecionado (ver [Simulacao Reducao P1 pct]).
+// ---------------------------------------------------------------------------------------------------------------------
+Param_ReducaoP1 = GENERATESERIES(0, 100, 10)
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Param_TopPct  — eixo das barras de concentração da página 5 (X% dos clientes concentram Y% do tempo).
+// ---------------------------------------------------------------------------------------------------------------------
+Param_TopPct =
+DATATABLE("Pct", INTEGER, {{1}, {2}, {5}, {10}, {20}, {50}, {100}})
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Dim_Habilidade  — eixo da página 7 (Challenger e SPIN). Tabela desconectada: as medidas [Habilidade Valor] e [Habilidade Mediana]
+// escolhem a medida pelo texto da linha. Grupo "Taxa" = percentual; grupo "Nota" = média de 1 a 5 (usar dois visuais, um por grupo).
+// ---------------------------------------------------------------------------------------------------------------------
+Dim_Habilidade =
+DATATABLE(
+    "Habilidade", STRING,
+    "Grupo", STRING,
+    "Ordem", INTEGER,
+    {
+        {"Teve Challenger",     "Taxa", 1},
+        {"Trouxe dado",         "Taxa", 2},
+        {"Conectou à situação", "Taxa", 3},
+        {"Cliente reagiu",      "Taxa", 4},
+        {"Falou com decisor",   "Taxa", 5},
+        {"SPIN · Situação",     "Nota", 6},
+        {"SPIN · Problema",     "Nota", 7},
+        {"SPIN · Implicação",   "Nota", 8},
+        {"SPIN · Necessidade",  "Nota", 9}
+    }
+)
+
+
+// =====================================================================================================================
+// RELACIONAMENTOS (Modo Modelo). Direção do filtro: dimensão → fato (única), salvo onde indicado.
+//   Dim_Calendario[Data]            1 → *  Fato_Ligacoes[Data]
+//   Dim_Carteira[CARTEIRA]          1 → *  Fato_Ligacoes[CARTEIRA]
+//   Dim_Problema[Codigo]            1 → *  Fato_Ligacoes[p3_problema_principal]
+//   Dim_TipoDemanda[p2_tipo]        1 → *  Fato_Ligacoes[p2_tipo]
+//   Dim_FaixaDuracao[Faixa]         1 → *  Fato_Ligacoes[FaixaDuracao]
+//   Dim_Calendario[Data]            1 → *  Retornos_Devidos[Data]          (v1.1)
+//   Dim_Carteira[CARTEIRA]          1 → *  Retornos_Devidos[CARTEIRA]      (v1.1)
+//   Cliente_Contato[CodigoCliente8] 1 → *  Fato_Ligacoes[CodigoCliente8]   (v1.1)  — para o K5 e a página 6, nada atravessa a carteira
+//   Tentativa_Seq[id_transcricao]   1 ↔ 1  Fato_Ligacoes[id_transcricao]   (v1.1)
+// Sem relacionamento (tabelas isoladas): Diagnostico_Pipeline, Atualizacao, Dicionario_Colunas, Dim_Challenger, Dim_Habilidade, Param_*, _Medidas.
+// Ocultar na visão de relatório: todas as colunas de chave (id_transcricao, segment_id, Chave, ChaveAnoMes, CodigoCliente8),
+// Classe_Legada e as colunas booleanas de apoio (as medidas as usam; ninguém precisa arrastá-las).
+// =====================================================================================================================

@@ -1,0 +1,724 @@
+// =====================================================================================================================
+// medidas.dax  —  medidas do BI "Excelência Comercial — Venda interna (DVINT)". Criar todas na tabela _Medidas
+// (Modelagem > Nova medida; uma por bloco "Nome = expressão"). Ordem: de cima para baixo (cada bloco só usa os de cima).
+//
+// Convenções
+//   • Pasta de exibição ("Pasta:") e formato ("Formato:") estão no comentário de cada medida; aplicar no painel Propriedades.
+//   • BaseKPI = ligação classificada pelo GPT COM duração. K1/K7/TMA/horas usam essa base.
+//     K2/K4/K5/K6 usam toda ligação classificada pelo GPT (EhGPT): não dependem da tabela de duração, que parou em 22/09.
+//   • Valores esperados em setembro (01–22/09) ficam em ../reconciliacao.csv — conferir cada medida contra ele antes de publicar.
+//   • Medidas de "mediana das carteiras" respeitam o RLS: quem só enxerga uma carteira terá a própria como "mediana".
+// =====================================================================================================================
+
+
+// ##################################################  00 · BASES  ####################################################
+
+// Pasta: 00 Bases · Formato: #,0
+Tentativas = COUNTROWS(Fato_Ligacoes)
+
+// Pasta: 00 Bases · Formato: #,0
+Atendidas = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhCompleted] = TRUE())
+
+// Pasta: 00 Bases · Formato: 0.0%
+Taxa Atendimento = DIVIDE([Atendidas], [Tentativas])
+
+// Pasta: 00 Bases · Formato: #,0   · classificadas pelo classificador GPT (com ou sem duração)
+Ligacoes GPT = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE())
+
+// Pasta: 00 Bases · Formato: #,0   · base do K1/K7: GPT + duração
+Ligacoes Base KPI = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[BaseKPI] = TRUE())
+
+// Pasta: 00 Bases · Formato: #,0
+Seg Base KPI = CALCULATE(SUM(Fato_Ligacoes[DuracaoSeg]), Fato_Ligacoes[BaseKPI] = TRUE())
+
+// Pasta: 00 Bases · Formato: 0.0
+Horas Base KPI = DIVIDE([Seg Base KPI], 3600)
+
+// Pasta: 00 Bases · Formato: #,0
+Seg Total Duracao = SUM(Fato_Ligacoes[DuracaoSeg])
+
+// Pasta: 00 Bases · Formato: #,0
+Dias Uteis com Dado = CALCULATE(DISTINCTCOUNT(Fato_Ligacoes[Data]), Fato_Ligacoes[BaseKPI] = TRUE())
+
+// Pasta: 00 Bases · Formato: #,0
+Dias com Classificacao = CALCULATE(DISTINCTCOUNT(Fato_Ligacoes[Data]), Fato_Ligacoes[EhGPT] = TRUE())
+
+// Pasta: 00 Bases · Formato: dd/mm/aaaa · último dia com qualquer ligação no arquivo (ignora filtros de data)
+Dados ate = CALCULATE(MAX(Fato_Ligacoes[Data]), REMOVEFILTERS(Dim_Calendario), REMOVEFILTERS(Fato_Ligacoes[Data]))
+
+// Pasta: 00 Bases · Formato: dd/mm/aaaa · último dia com duração e classificação (base do K1). Hoje: 22/09
+Ultimo Dia com Duracao =
+CALCULATE(
+    MAX(Fato_Ligacoes[Data]),
+    REMOVEFILTERS(Dim_Calendario),
+    REMOVEFILTERS(Fato_Ligacoes[Data]),
+    Fato_Ligacoes[BaseKPI] = TRUE()
+)
+
+// Pasta: 00 Bases · Formato: dd/mm/aaaa · dia de referência das páginas "Dia": o dia escolhido na segmentação ou, sem escolha, o último com duração
+Data Referencia =
+VAR _Dias = VALUES(Dim_Calendario[Data])
+RETURN IF(COUNTROWS(_Dias) = 1, MAXX(_Dias, Dim_Calendario[Data]), [Ultimo Dia com Duracao])
+
+// Pasta: 00 Bases · Formato: dd/mm/aaaa
+Dia Util Anterior =
+VAR _d   = [Data Referencia]
+VAR _seq = CALCULATE(MAX(Dim_Calendario[DiaUtilSeq]), REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+RETURN
+    CALCULATE(
+        MAX(Dim_Calendario[Data]),
+        REMOVEFILTERS(Dim_Calendario),
+        Dim_Calendario[DiaUtilSeq] = _seq - 1,
+        Dim_Calendario[EhDiaUtil] = TRUE()
+    )
+
+
+// ################################################  01 · CARGA OPERACIONAL  ##########################################
+// K1 = (ligações com problema + suporte + cobrança + pós-venda + dúvida de contrato) ÷ tempo de todas as ligações classificadas.
+// "Carga operacional completa": tudo que não é negociação (decisão da missão).
+
+// Pasta: 01 Carga operacional · Formato: #,0
+Seg Operacional = CALCULATE([Seg Base KPI], Fato_Ligacoes[EhOperacional] = TRUE())
+
+// Pasta: 01 Carga operacional · Formato: 0.0%   · NORTE DA MISSÃO
+K1 Carga Operacional = DIVIDE([Seg Operacional], [Seg Base KPI])
+
+// Pasta: 01 Carga operacional · Formato: 0.0%
+K1a Com Problema = DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[TemProblema] = TRUE()), [Seg Base KPI])
+
+// Pasta: 01 Carga operacional · Formato: 0.0%   · suporte, cobrança, pós-venda e dúvida de contrato SEM problema
+K1b Operacional Sem Problema =
+DIVIDE(
+    CALCULATE([Seg Base KPI], Fato_Ligacoes[EhOperacional] = TRUE(), Fato_Ligacoes[TemProblema] = FALSE()),
+    [Seg Base KPI]
+)
+
+// Pasta: 01 Carga operacional · Formato: 0.0%   · nova venda, upsell, renovação, retenção e misto, sem problema
+K7 Negociacao = DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[EhNegociacao] = TRUE()), [Seg Base KPI])
+
+// Pasta: 01 Carga operacional · Formato: 0.0%
+K8 Relacionamento = DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[GrupoTempo] = "Relacionamento"), [Seg Base KPI])
+
+// Pasta: 01 Carga operacional · Formato: 0.0%
+K9 Sem Conteudo = DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[GrupoTempo] = "Sem conteúdo"), [Seg Base KPI])
+
+// Pasta: 01 Carga operacional · Formato: 0.0%   · SEGUNDA RÉGUA: tempo em categoria_principal = "Suporte" (Gemini/Aletheia)
+K1 Gemini Suporte =
+DIVIDE(
+    CALCULATE(SUM(Fato_Ligacoes[DuracaoSeg]), Fato_Ligacoes[BaseGemini] = TRUE(), Fato_Ligacoes[categoria_principal] = "Suporte"),
+    CALCULATE(SUM(Fato_Ligacoes[DuracaoSeg]), Fato_Ligacoes[BaseGemini] = TRUE())
+)
+
+// Pasta: 01 Carga operacional · Formato: +0.0" p.p.";-0.0" p.p."   · distância entre as duas réguas; se a tendência divergir, a régua mudou
+Dif K1 GPT vs Gemini pp = ([K1 Carga Operacional] - [K1 Gemini Suporte]) * 100
+
+// Pasta: 01 Carga operacional · Formato: 0.0
+Horas Operacionais = DIVIDE([Seg Operacional], 3600)
+
+// Pasta: 01 Carga operacional · Formato: 0.0
+Horas Negociacao = DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[EhNegociacao] = TRUE()), 3600)
+
+
+// ###################################################  02 · METAS  ###################################################
+
+// Pasta: 02 Metas · Formato: 0.0%
+K1 Baseline = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "K1_Baseline")
+
+// Pasta: 02 Metas · Formato: 0.0%
+K1 Meta Geral = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "K1_Meta_Geral")
+
+// Pasta: 02 Metas · Formato: 0.0%
+K1 Meta Piloto = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "K1_Meta_Piloto")
+
+// Pasta: 02 Metas · Formato: 0.0%
+K7 Baseline = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "K7_Baseline")
+
+// Pasta: 02 Metas · Formato: +0.0" p.p.";-0.0" p.p."   · negativo = melhora (menos carga operacional que o baseline)
+Delta K1 vs Baseline pp = ([K1 Carga Operacional] - [K1 Baseline]) * 100
+
+// Pasta: 02 Metas · Formato: 0%   · 0% = no baseline · 100% = na meta geral (−5 p.p.) · acima de 100% = passou da meta
+Progresso da Meta = DIVIDE([K1 Baseline] - [K1 Carga Operacional], [K1 Baseline] - [K1 Meta Geral])
+
+// Pasta: 02 Metas · Formato: 0.0   · horas do período que deixaram de ser carga operacional em relação ao baseline (negativo = piorou)
+Horas Devolvidas Equiv = ([K1 Baseline] - [K1 Carga Operacional]) * [Horas Base KPI]
+
+
+// ###############################################  03 · PROBLEMAS (K2–K6)  ###########################################
+
+// Pasta: 03 Problemas · Formato: #,0
+Ligacoes Problema = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[TemProblema] = TRUE())
+
+// Pasta: 03 Problemas · Formato: 0.0%   · K6: só acompanhar (sensível à versão do classificador)
+K6 Taxa de Problema = DIVIDE([Ligacoes Problema], [Ligacoes GPT])
+
+// Pasta: 03 Problemas · Formato: #,0   · K2: problema não resolvido na ligação (resolução diferente de SIM)
+K2 Pendencias = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[Pendencia] = TRUE())
+
+// Pasta: 03 Problemas · Formato: 0.0
+K2 por Dia Util = DIVIDE([K2 Pendencias], [Dias com Classificacao])
+
+// Pasta: 03 Problemas · Formato: 0.0%   · K4
+K4 Resolucao na Ligacao =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[TemProblema] = TRUE(), Fato_Ligacoes[p3_foi_resolvido_na_ligacao] = "SIM"),
+    [Ligacoes Problema]
+)
+
+// Pasta: 03 Problemas · Formato: 0.0%   · K5: % das ligações com problema que são de clientes com 2+ ligações com problema no período
+K5 Reincidencia =
+VAR _PorCliente =
+    ADDCOLUMNS(
+        FILTER(VALUES(Fato_Ligacoes[CodigoCliente8]), NOT ISBLANK(Fato_Ligacoes[CodigoCliente8])),
+        "@n", CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[TemProblema] = TRUE())
+    )
+VAR _ComProblema = FILTER(_PorCliente, [@n] > 0)
+VAR _Total       = SUMX(_ComProblema, [@n])
+VAR _Reinc       = SUMX(FILTER(_ComProblema, [@n] >= 2), [@n])
+RETURN DIVIDE(_Reinc, _Total)
+
+// Pasta: 03 Problemas · Formato: #,0
+Ligacoes Problema Base KPI = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[BaseKPI] = TRUE(), Fato_Ligacoes[TemProblema] = TRUE())
+
+// Pasta: 03 Problemas · Formato: 0.0%   · taxa de problema na base com duração (usada no gráfico por origem inbound/outbound)
+K6 Base Duracao = DIVIDE([Ligacoes Problema Base KPI], [Ligacoes Base KPI])
+
+// Pasta: 03 Problemas · Formato: 0.0%   · % dos problemas (base com duração) que nascem em ligação ativa
+Pct Problemas Outbound =
+DIVIDE(CALCULATE([Ligacoes Problema Base KPI], Fato_Ligacoes[tipo_ligacao] = "Outbound"), [Ligacoes Problema Base KPI])
+
+// Pasta: 03 Problemas · Formato: 0   · tempo médio de atendimento (TMA) em segundos
+TMA Problema (s) =
+DIVIDE(CALCULATE(SUM(Fato_Ligacoes[DuracaoSeg]), Fato_Ligacoes[BaseKPI] = TRUE(), Fato_Ligacoes[TemProblema] = TRUE()), [Ligacoes Problema Base KPI])
+
+// Pasta: 03 Problemas · Formato: 0
+TMA Sem Problema (s) =
+DIVIDE(
+    CALCULATE(SUM(Fato_Ligacoes[DuracaoSeg]), Fato_Ligacoes[BaseKPI] = TRUE(), Fato_Ligacoes[TemProblema] = FALSE()),
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[BaseKPI] = TRUE(), Fato_Ligacoes[TemProblema] = FALSE())
+)
+
+// Pasta: 03 Problemas · Formato: 0.0"x"
+Razao TMA = DIVIDE([TMA Problema (s)], [TMA Sem Problema (s)])
+
+// Pasta: 03 Problemas · Formato: 0.0   · K3: horas que o problema "custa" a mais que uma ligação sem problema
+K3 Horas Excedentes = [Ligacoes Problema Base KPI] * ([TMA Problema (s)] - [TMA Sem Problema (s)]) / 3600
+
+// Pasta: 03 Problemas · Formato: 0.0   · K3 projetado para um mês de 21 dias úteis (compara períodos de tamanhos diferentes)
+K3 Horas Excedentes Mes Equiv =
+DIVIDE([K3 Horas Excedentes], [Dias Uteis com Dado]) * LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Dias_Uteis_Mes")
+
+// Pasta: 03 Problemas · Formato: 0.0
+Horas com Problema = DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[TemProblema] = TRUE()), 3600)
+
+// Pasta: 03 Problemas · Formato: 0.0%   · fatia do código no tempo total de problema (eixo: Dim_Problema)
+Share Codigo no Problema =
+DIVIDE([Horas com Problema], CALCULATE([Horas com Problema], ALLSELECTED(Dim_Problema)))
+
+// Pasta: 03 Problemas · Formato: 0.0%   · linha acumulada do Pareto (ordenar o eixo por [Horas com Problema] decrescente)
+Pareto Acumulado =
+VAR _Atual = [Horas com Problema]
+VAR _Tab   = ADDCOLUMNS(ALLSELECTED(Dim_Problema[Codigo]), "@h", [Horas com Problema])
+VAR _Acum  = SUMX(FILTER(_Tab, [@h] >= _Atual), [@h])
+VAR _Total = SUMX(_Tab, [@h])
+RETURN IF(ISBLANK(_Atual), BLANK(), DIVIDE(_Acum, _Total))
+
+// Pasta: 03 Problemas · Formato: 0%   · valor escolhido na segmentação Param_ReducaoP1 (padrão 30%)
+Simulacao Reducao P1 pct = SELECTEDVALUE(Param_ReducaoP1[Value], 30) / 100
+
+// Pasta: 03 Problemas · Formato: 0.0
+Horas P1 = CALCULATE([Horas com Problema], Dim_Problema[Codigo] = "P1")
+
+// Pasta: 03 Problemas · Formato: 0.0   · horas por mês que voltariam ao time se a redução escolhida de P1 acontecesse
+Simulacao Horas Devolvidas P1 Mes =
+DIVIDE([Horas P1], [Dias Uteis com Dado]) * LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Dias_Uteis_Mes") * [Simulacao Reducao P1 pct]
+
+// Pasta: 03 Problemas · Formato: +0.0" p.p.";-0.0" p.p."   · efeito da simulação no K1: as horas devolvidas saem da carga operacional e o tempo total do time não muda
+Simulacao Efeito no K1 pp = -DIVIDE([Horas P1] * [Simulacao Reducao P1 pct], [Horas Base KPI]) * 100
+
+
+// #################################################  04 · CARTEIRAS  ##################################################
+
+// Pasta: 04 Carteiras · Formato: 0
+Min Ligacoes Carteira = SELECTEDVALUE(Param_MinLigacoes[Value], 40)
+
+// Pasta: 04 Carteiras · Formato: 0   · 1 = carteira com ligações classificadas suficientes para ranking e mediana; usar como filtro do visual
+Carteira Elegivel = IF([Ligacoes GPT] >= [Min Ligacoes Carteira], 1, BLANK())
+
+// Pasta: 04 Carteiras · Formato: 0.0%
+K1 Mediana Carteiras =
+MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [K1 Carga Operacional])
+
+// Pasta: 04 Carteiras · Formato: 0.0%
+K7 Mediana Carteiras =
+MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [K7 Negociacao])
+
+// Pasta: 04 Carteiras · Formato: 0.0%
+K6 Mediana Carteiras =
+MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [K6 Taxa de Problema])
+
+// Pasta: 04 Carteiras · Formato: #,0
+Carteiras Elegiveis =
+COUNTROWS(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1))
+
+// Pasta: 04 Carteiras · Formato: 0   · posição da carteira (1 = maior carga operacional) entre as elegíveis
+Posicao K1 Carteira =
+IF(
+    [Carteira Elegivel] = 1,
+    RANKX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [K1 Carga Operacional], , DESC, DENSE)
+)
+
+// Pasta: 04 Carteiras · Formato: texto (cor hex)   · cor da barra por carteira: laranja = 5 p.p. ou mais acima da mediana
+Cor K1 Carteira =
+VAR _Dif = [K1 Carga Operacional] - [K1 Mediana Carteiras]
+RETURN SWITCH(TRUE(), ISBLANK(_Dif), "#9aa1a9", _Dif >= 0.05, "#d95926", _Dif <= -0.05, "#2a78d6", "#8fb4e8")
+
+// Pasta: 04 Carteiras · Formato: 0.0%   · fatia do tempo total de ligação que os X% de clientes que mais ocupam o time consomem
+// (eixo: Param_TopPct[Pct]; cada barra mostra X% dos clientes → Y% do tempo)
+Pct Tempo Top N Clientes =
+VAR _Pct = SELECTEDVALUE(Param_TopPct[Pct], 10)
+VAR _Tab =
+    ADDCOLUMNS(
+        FILTER(VALUES(Fato_Ligacoes[CodigoCliente8]), NOT ISBLANK(Fato_Ligacoes[CodigoCliente8])),
+        "@seg", CALCULATE(SUM(Fato_Ligacoes[DuracaoSeg]))
+    )
+VAR _N   = COUNTROWS(_Tab)
+VAR _K   = MAX(1, INT(_N * _Pct / 100))
+VAR _Top = TOPN(_K, _Tab, [@seg], DESC)
+RETURN DIVIDE(SUMX(_Top, [@seg]), SUMX(_Tab, [@seg]))
+
+// Pasta: 04 Carteiras · Formato: #,0
+Clientes com Codigo = CALCULATE(DISTINCTCOUNT(Fato_Ligacoes[CodigoCliente8]), NOT ISBLANK(Fato_Ligacoes[CodigoCliente8]))
+
+
+// ################################################  05 · TEMPO E RITMO  ###############################################
+
+// Pasta: 05 Tempo · Formato: #,0   · ligações de negociação (tipo nova venda, upsell, renovação, retenção, misto — com ou sem problema) com duração
+Ligacoes Negociacao = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[BaseKPI] = TRUE(), Fato_Ligacoes[EhTipoNegociacao] = TRUE())
+
+// Pasta: 05 Tempo · Formato: #,0   · fechamento = GPT "fechou_*" OU Gemini `venda`; a concordância entre as duas réguas é só moderada (kappa 0,46)
+Fechamentos =
+CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[BaseKPI] = TRUE(), Fato_Ligacoes[EhTipoNegociacao] = TRUE(), Fato_Ligacoes[FechouOuVenda] = TRUE())
+
+// Pasta: 05 Tempo · Formato: 0.0%
+Taxa de Fechamento = DIVIDE([Fechamentos], [Ligacoes Negociacao])
+
+// Pasta: 05 Tempo · Formato: 0.0%   · limite inferior do intervalo de Wilson (barra de erro)
+Taxa Fechamento IC Inferior =
+VAR _n = [Ligacoes Negociacao]
+VAR _p = [Taxa de Fechamento]
+VAR _z = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Z_IC")
+RETURN IF(_n = 0, BLANK(), (_p + _z ^ 2 / (2 * _n) - _z * SQRT(_p * (1 - _p) / _n + _z ^ 2 / (4 * _n ^ 2))) / (1 + _z ^ 2 / _n))
+
+// Pasta: 05 Tempo · Formato: 0.0%   · limite superior do intervalo de Wilson (barra de erro)
+Taxa Fechamento IC Superior =
+VAR _n = [Ligacoes Negociacao]
+VAR _p = [Taxa de Fechamento]
+VAR _z = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Z_IC")
+RETURN IF(_n = 0, BLANK(), (_p + _z ^ 2 / (2 * _n) + _z * SQRT(_p * (1 - _p) / _n + _z ^ 2 / (4 * _n ^ 2))) / (1 + _z ^ 2 / _n))
+
+// Pasta: 05 Tempo · Formato: 0.00   · fechamentos por hora de telefone gasta nas ligações de negociação da faixa
+Fechamentos por Hora =
+DIVIDE([Fechamentos], DIVIDE(CALCULATE([Seg Base KPI], Fato_Ligacoes[EhTipoNegociacao] = TRUE()), 3600))
+
+// Pasta: 05 Tempo · Formato: 0.0%   · fatia do tempo de negociação que está nesta faixa (eixo: Dim_FaixaDuracao)
+Pct Tempo na Faixa =
+DIVIDE(
+    CALCULATE([Seg Base KPI], Fato_Ligacoes[EhTipoNegociacao] = TRUE()),
+    CALCULATE([Seg Base KPI], Fato_Ligacoes[EhTipoNegociacao] = TRUE(), ALLSELECTED(Dim_FaixaDuracao))
+)
+
+// Pasta: 05 Tempo · Formato: 0.0%   · fatia dos fechamentos que está nesta faixa
+Pct Fechamentos na Faixa = DIVIDE([Fechamentos], CALCULATE([Fechamentos], ALLSELECTED(Dim_FaixaDuracao)))
+
+// Pasta: 05 Tempo · Formato: #,0   · "vendedor-dia" = carteira que fez ao menos uma tentativa no dia
+Vendedor Dias = COUNTROWS(SUMMARIZE(Fato_Ligacoes, Fato_Ligacoes[CARTEIRA], Fato_Ligacoes[Data]))
+
+// Pasta: 05 Tempo · Formato: 0.0   · eixo: Dim_Calendario[DiaSemanaNome]
+Tentativas por Vendedor por Dia = DIVIDE([Tentativas], [Vendedor Dias])
+
+// Pasta: 05 Tempo · Formato: 0.0
+Atendidas por Vendedor por Dia = DIVIDE([Atendidas], [Vendedor Dias])
+
+// -------- v1.1 (exigem Cliente_Contato, Tentativa_Seq e Retornos_Devidos) --------------------------------------------
+
+// Pasta: 05 Tempo v1.1 · Formato: #,0
+Clientes Outbound = COUNTROWS(Cliente_Contato)
+
+// Pasta: 05 Tempo v1.1 · Formato: #,0   · clientes com uma única tentativa, sem atendimento, e nenhuma nova tentativa há pelo menos 7 dias
+Clientes Uma Tentativa Sem Sucesso =
+VAR _Corte = [Dados ate] - LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Dias_Recontato")
+RETURN
+    CALCULATE(
+        COUNTROWS(Cliente_Contato),
+        Cliente_Contato[UmaTentativaSemSucesso] = TRUE(),
+        Cliente_Contato[UltimaTentativa] < _Corte
+    )
+
+// Pasta: 05 Tempo v1.1 · Formato: 0.0%   · taxa de atendimento da 2ª tentativa (todas as carteiras, ignora filtros de carteira)
+Taxa Atendimento 2a Tentativa =
+CALCULATE([Taxa Atendimento], Tentativa_Seq[TentativaSeq] = 2, REMOVEFILTERS(Dim_Carteira))
+
+// Pasta: 05 Tempo v1.1 · Formato: #,0   · conversas que existiriam se a 2ª tentativa fosse feita nesses clientes
+Conversas Potenciais 2a Tentativa = [Clientes Uma Tentativa Sem Sucesso] * [Taxa Atendimento 2a Tentativa]
+
+// Pasta: 05 Tempo v1.1 · Formato: #,0
+Retornos Devidos = COUNTROWS(Retornos_Devidos)
+
+// Pasta: 05 Tempo v1.1 · Formato: 0.0%
+Retorno no Prazo % = DIVIDE(CALCULATE(COUNTROWS(Retornos_Devidos), Retornos_Devidos[RetornoNoPrazo] = TRUE()), [Retornos Devidos])
+
+
+// ###############################################  06 · COMPETÊNCIAS  #################################################
+// Challenger (escada: trouxe dado → conectou à situação → cliente reagiu) e SPIN (notas de 1 a 5 do Aletheia/Gemini).
+
+// Pasta: 06 Competencias · Formato: 0.0%   · % das ligações classificadas com técnica Challenger
+Taxa Challenger = DIVIDE(CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[TeveChallenger] = TRUE()), [Ligacoes GPT])
+
+// Pasta: 06 Competencias · Formato: 0.0%
+Taxa Trouxe Dado =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[TrouxeDado] = TRUE()),
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), NOT ISBLANK(Fato_Ligacoes[p5_trouxe_dado]))
+)
+
+// Pasta: 06 Competencias · Formato: 0.0%
+Taxa Conectou Situacao =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[ConectouSituacao] = TRUE()),
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), NOT ISBLANK(Fato_Ligacoes[p5_conectou_situacao]))
+)
+
+// Pasta: 06 Competencias · Formato: 0.0%
+Taxa Cliente Reagiu =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), Fato_Ligacoes[ClienteReagiu] = TRUE()),
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhGPT] = TRUE(), NOT ISBLANK(Fato_Ligacoes[p5_cliente_reagiu]))
+)
+
+// Pasta: 06 Competencias · Formato: 0.00   · nota média 1–5 (S = situação)
+SPIN Situacao = AVERAGE(Fato_Ligacoes[nota_spin_situacao])
+
+// Pasta: 06 Competencias · Formato: 0.00
+SPIN Problema = AVERAGE(Fato_Ligacoes[nota_spin_problema])
+
+// Pasta: 06 Competencias · Formato: 0.00   · a competência mais fraca do time em setembro
+SPIN Implicacao = AVERAGE(Fato_Ligacoes[nota_spin_implicacao])
+
+// Pasta: 06 Competencias · Formato: 0.00
+SPIN Necessidade = AVERAGE(Fato_Ligacoes[nota_spin_necessidade_solucao])
+
+// Pasta: 06 Competencias · Formato: 0.0%   · % das análises com nota 1 em Implicação (1 = não explorou)
+SPIN Implicacao Nota 1 % =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[nota_spin_implicacao] = 1),
+    CALCULATE(COUNTROWS(Fato_Ligacoes), NOT ISBLANK(Fato_Ligacoes[nota_spin_implicacao]))
+)
+
+// Pasta: 06 Competencias · Formato: 0.0%
+Falou com Decisor % =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[falou_tomador_decisao] = TRUE()),
+    CALCULATE(COUNTROWS(Fato_Ligacoes), NOT ISBLANK(Fato_Ligacoes[falou_tomador_decisao]))
+)
+
+// Medianas das carteiras elegíveis (linha de referência do gráfico "carteira vs mediana")
+// Pasta: 06 Competencias · Formato: 0.0%
+Mediana Taxa Challenger = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [Taxa Challenger])
+// Pasta: 06 Competencias · Formato: 0.0%
+Mediana Taxa Trouxe Dado = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [Taxa Trouxe Dado])
+// Pasta: 06 Competencias · Formato: 0.0%
+Mediana Taxa Conectou Situacao = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [Taxa Conectou Situacao])
+// Pasta: 06 Competencias · Formato: 0.0%
+Mediana Taxa Cliente Reagiu = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [Taxa Cliente Reagiu])
+// Pasta: 06 Competencias · Formato: 0.00
+Mediana SPIN Situacao = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [SPIN Situacao])
+// Pasta: 06 Competencias · Formato: 0.00
+Mediana SPIN Problema = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [SPIN Problema])
+// Pasta: 06 Competencias · Formato: 0.00
+Mediana SPIN Implicacao = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [SPIN Implicacao])
+// Pasta: 06 Competencias · Formato: 0.00
+Mediana SPIN Necessidade = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [SPIN Necessidade])
+// Pasta: 06 Competencias · Formato: 0.0%
+Mediana Falou com Decisor % = MEDIANX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [Falou com Decisor %])
+
+
+// ###########################################  07 · DIA E SEMANA (GESTÃO ATIVA)  ######################################
+
+// Pasta: 07 Dia e semana · Formato: 0.0%   · K1 em janela móvel de 5 dias úteis terminando no dia do eixo (pondera por duração)
+K1 MM5 =
+VAR _seq = MAX(Dim_Calendario[DiaUtilSeq])
+RETURN
+    CALCULATE(
+        [K1 Carga Operacional],
+        REMOVEFILTERS(Dim_Calendario),
+        Dim_Calendario[DiaUtilSeq] > _seq - 5,
+        Dim_Calendario[DiaUtilSeq] <= _seq,
+        Dim_Calendario[EhDiaUtil] = TRUE()
+    )
+
+// Pasta: 07 Dia e semana · Formato: 0.0%   · K1 do dia de referência (cartão da página 1; ignora a segmentação de data)
+K1 D-1 =
+VAR _d = [Data Referencia]
+RETURN CALCULATE([K1 Carga Operacional], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 07 Dia e semana · Formato: 0.0%
+K1 Dia Anterior =
+VAR _d = [Dia Util Anterior]
+RETURN CALCULATE([K1 Carga Operacional], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 07 Dia e semana · Formato: 0.0%
+K7 D-1 =
+VAR _d = [Data Referencia]
+RETURN CALCULATE([K7 Negociacao], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 07 Dia e semana · Formato: #,0
+K2 D-1 =
+VAR _d = [Data Referencia]
+RETURN CALCULATE([K2 Pendencias], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 07 Dia e semana · Formato: 0.0
+Horas D-1 =
+VAR _d = [Data Referencia]
+RETURN CALCULATE([Horas Base KPI], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 07 Dia e semana · Formato: 0.0%   · K1 do dia menos a média móvel de 5 dias úteis que termina nesse dia
+K1 MM5 D-1 =
+VAR _d   = [Data Referencia]
+VAR _seq = CALCULATE(MAX(Dim_Calendario[DiaUtilSeq]), REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+RETURN
+    CALCULATE(
+        [K1 Carga Operacional],
+        REMOVEFILTERS(Dim_Calendario),
+        Dim_Calendario[DiaUtilSeq] > _seq - 5,
+        Dim_Calendario[DiaUtilSeq] <= _seq,
+        Dim_Calendario[EhDiaUtil] = TRUE()
+    )
+
+// Pasta: 07 Dia e semana · Formato: +0.0" p.p.";-0.0" p.p."
+Desvio K1 vs MM5 pp = ([K1 D-1] - [K1 MM5 D-1]) * 100
+
+// Pasta: 07 Dia e semana · Formato: texto   · alerta do dia: o K1 de ontem fugiu da média dos últimos 5 dias úteis?
+Alerta K1 =
+VAR _Dev = [Desvio K1 vs MM5 pp]
+VAR _Lim = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Limite_Alerta_K1_pp")
+RETURN
+    IF(
+        ISBLANK(_Dev), "— sem dado",
+        IF(_Dev >= _Lim, "▲ carga acima da média de 5 dias",
+        IF(_Dev <= -_Lim, "▼ carga abaixo da média de 5 dias", "● dentro do normal"))
+    )
+
+// Pasta: 07 Dia e semana · Formato: 0.0%   · K1 da semana anterior (usar com o eixo Dim_Calendario[SemanaRotulo])
+K1 Semana Anterior =
+VAR _ini = MAX(Dim_Calendario[SemanaInicio])
+RETURN CALCULATE([K1 Carga Operacional], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini - 7)
+
+// Pasta: 07 Dia e semana · Formato: +0.0" p.p.";-0.0" p.p."
+Delta K1 vs Semana Anterior pp = ([K1 Carga Operacional] - [K1 Semana Anterior]) * 100
+
+// Pasta: 07 Dia e semana · Formato: 0.0%
+K7 Semana Anterior =
+VAR _ini = MAX(Dim_Calendario[SemanaInicio])
+RETURN CALCULATE([K7 Negociacao], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini - 7)
+
+// Pasta: 07 Dia e semana · Formato: +0.0" p.p.";-0.0" p.p."
+Delta K7 vs Semana Anterior pp = ([K7 Negociacao] - [K7 Semana Anterior]) * 100
+
+// Pasta: 07 Dia e semana · Formato: texto (cor hex)   · semáforo do K1: azul = na meta, cinza = entre meta e baseline, laranja = pior que o baseline
+Cor K1 Meta =
+SWITCH(TRUE(),
+    ISBLANK([K1 Carga Operacional]), "#9aa1a9",
+    [K1 Carga Operacional] <= [K1 Meta Geral], "#2a78d6",
+    [K1 Carga Operacional] <= [K1 Baseline], "#9aa1a9",
+    "#d95926")
+
+
+// #############################################  08 · QUALIDADE DO DADO (C1–C3)  ######################################
+
+// Pasta: 08 Qualidade · Formato: 0.0%   · C1: Completed com classificação do GPT ÷ Completed (meta ≥ 95%)
+C1 Cobertura Classificacao =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhCompleted] = TRUE(), NOT ISBLANK(Fato_Ligacoes[fonte_classificacao])),
+    [Atendidas]
+)
+
+// Pasta: 08 Qualidade · Formato: 0.0%   · C2: Completed com duração ÷ Completed (meta ≥ 95%)
+C2 Cobertura Duracao =
+DIVIDE(
+    CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhCompleted] = TRUE(), NOT ISBLANK(Fato_Ligacoes[DuracaoSeg])),
+    [Atendidas]
+)
+
+// Pasta: 08 Qualidade · Formato: #,0
+Completed sem GPT = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhCompleted] = TRUE(), ISBLANK(Fato_Ligacoes[fonte_classificacao]))
+
+// Pasta: 08 Qualidade · Formato: #,0
+Completed sem Gemini = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[EhCompleted] = TRUE(), Fato_Ligacoes[TemAnaliseGemini] = FALSE())
+
+// Pasta: 08 Qualidade · Formato: #,0   · M-01: eram "DETRATORA" na consulta antiga
+Linhas SEM ANALISE = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[ClasseLigacao] = "SEM ANALISE")
+
+// Pasta: 08 Qualidade · Formato: #,0   · "DETRATORA" da consulta antiga (para reconciliar)
+Linhas Detratora Legada = CALCULATE(COUNTROWS(Fato_Ligacoes), Fato_Ligacoes[Classe_Legada] = "DETRATORA")
+
+// Pasta: 08 Qualidade · Formato: dd/mm/aaaa hh:mm
+Ultima Atualizacao = MAX(Atualizacao[Quando])
+
+// Pasta: 08 Qualidade · Formato: 0.0   · C3: horas desde a última atualização do modelo (UTCNOW − 3h = horário de Brasília, igual ao carimbo de Atualizacao)
+Horas desde Atualizacao = DATEDIFF([Ultima Atualizacao], UTCNOW() - 3 / 24, MINUTE) / 60
+
+// Pasta: 08 Qualidade · Formato: texto   · cabeçalho de todas as páginas
+Texto Cabecalho =
+"Dados até " & FORMAT([Dados ate], "dd/mm/yyyy", "pt-BR") & " · duração até " & FORMAT([Ultimo Dia com Duracao], "dd/mm/yyyy", "pt-BR")
+    & " · atualizado em " & FORMAT([Ultima Atualizacao], "dd/mm hh:mm", "pt-BR")
+
+// Pasta: 08 Qualidade · Formato: texto   · aviso de baseline provisório: remover depois do baseline congelado (E2, 09/10)
+Texto Baseline = "Baseline provisório (setembro 01–22/09, régua GPT) — congelamento em 09/10"
+
+// Pasta: 08 Qualidade · Formato: texto   · resumo C1/C2 para o cartão de alerta da página 1
+Alerta Cobertura =
+VAR _lim = LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Limite_Cobertura")
+VAR _c1  = [C1 Cobertura Classificacao]
+VAR _c2  = [C2 Cobertura Duracao]
+RETURN
+    IF(_c1 < _lim, "⚠ classificação " & FORMAT(_c1, "0%") & " dos atendimentos (meta " & FORMAT(_lim, "0%") & ")", "")
+        & IF(_c1 < _lim && _c2 < _lim, " · ", "")
+        & IF(_c2 < _lim, "⚠ duração " & FORMAT(_c2, "0%") & " (meta " & FORMAT(_lim, "0%") & ")", "")
+
+
+// ###########################################  09 · CARTÕES DE REFERÊNCIA (DIA E SEMANA)  #############################
+// Cartões que mostram "o último dia" e "a última semana" com dado, sem depender de segmentação de data.
+
+// Pasta: 09 Referencia · Formato: 0.0%   · K1 Gemini do dia de referência
+K1 Gemini D-1 =
+VAR _d = [Data Referencia]
+RETURN CALCULATE([K1 Gemini Suporte], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 09 Referencia · Formato: #,0   · ligações classificadas com duração no dia de referência (base mínima para olhar uma carteira)
+Ligacoes D-1 =
+VAR _d = [Data Referencia]
+RETURN CALCULATE([Ligacoes Base KPI], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+
+// Pasta: 09 Referencia · Formato: +0.0" p.p.";-0.0" p.p."
+Delta K1 D-1 vs Dia Anterior pp = ([K1 D-1] - [K1 Dia Anterior]) * 100
+
+// Pasta: 09 Referencia · Formato: texto   · alerta de pendências: o dia de referência gerou 25% ou mais que a média dos 5 dias úteis anteriores?
+Alerta Pendencias =
+VAR _d     = [Data Referencia]
+VAR _seq   = CALCULATE(MAX(Dim_Calendario[DiaUtilSeq]), REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = _d)
+VAR _media =
+    CALCULATE(
+        [K2 Pendencias],
+        REMOVEFILTERS(Dim_Calendario),
+        Dim_Calendario[DiaUtilSeq] >= _seq - 5,
+        Dim_Calendario[DiaUtilSeq] <= _seq - 1,
+        Dim_Calendario[EhDiaUtil] = TRUE()
+    ) / 5
+VAR _hoje  = [K2 D-1]
+RETURN
+    IF(
+        ISBLANK(_hoje), "— sem dado",
+        IF(_hoje >= 1.25 * _media, "▲ " & _hoje & " pendências vs média de " & FORMAT(_media, "0") & " nos 5 dias úteis anteriores", "● pendências dentro do normal (" & _hoje & ")")
+    )
+
+// Pasta: 09 Referencia · Formato: 0   · 1 = a linha da data está entre os 7 últimos dias úteis com duração (filtro de visual da tabela "Últimos 7 dias úteis")
+Ultimos 7 Uteis =
+VAR _seq = CALCULATE(MAX(Dim_Calendario[DiaUtilSeq]), REMOVEFILTERS(Dim_Calendario), Dim_Calendario[Data] = [Ultimo Dia com Duracao])
+VAR _atual = MAX(Dim_Calendario[DiaUtilSeq])
+RETURN IF(SELECTEDVALUE(Dim_Calendario[EhDiaUtil]) = TRUE() && _atual > _seq - 7 && _atual <= _seq, 1)
+
+// Pasta: 09 Referencia · Formato: dd/mm/aaaa   · segunda-feira da semana do dia de referência
+Semana Referencia = [Data Referencia] - WEEKDAY([Data Referencia], 2) + 1
+
+// Pasta: 09 Referencia · Formato: 0.0%
+K1 Semana Ref =
+VAR _ini = [Semana Referencia]
+RETURN CALCULATE([K1 Carga Operacional], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+// Pasta: 09 Referencia · Formato: 0.0%
+K1 Semana Ref Anterior =
+VAR _ini = [Semana Referencia] - 7
+RETURN CALCULATE([K1 Carga Operacional], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+// Pasta: 09 Referencia · Formato: +0.0" p.p.";-0.0" p.p."
+Delta K1 Semana Ref pp = ([K1 Semana Ref] - [K1 Semana Ref Anterior]) * 100
+
+// Pasta: 09 Referencia · Formato: 0.0%
+K7 Semana Ref =
+VAR _ini = [Semana Referencia]
+RETURN CALCULATE([K7 Negociacao], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+// Pasta: 09 Referencia · Formato: 0.0%
+K7 Semana Ref Anterior =
+VAR _ini = [Semana Referencia] - 7
+RETURN CALCULATE([K7 Negociacao], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+// Pasta: 09 Referencia · Formato: +0.0" p.p.";-0.0" p.p."
+Delta K7 Semana Ref pp = ([K7 Semana Ref] - [K7 Semana Ref Anterior]) * 100
+
+// Pasta: 09 Referencia · Formato: 0.0
+K2 por Dia Semana Ref =
+VAR _ini = [Semana Referencia]
+RETURN CALCULATE([K2 por Dia Util], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+// Pasta: 09 Referencia · Formato: 0.0
+Horas Semana Ref =
+VAR _ini = [Semana Referencia]
+RETURN CALCULATE([Horas Base KPI], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+// Pasta: 09 Referencia · Formato: #,0   · dias úteis com duração na semana de referência (avisa quando a semana está incompleta)
+Dias Uteis Semana Ref =
+VAR _ini = [Semana Referencia]
+RETURN CALCULATE([Dias Uteis com Dado], REMOVEFILTERS(Dim_Calendario), Dim_Calendario[SemanaInicio] = _ini)
+
+
+// ##############################################  10 · APOIO A TABELAS E PÁGINA 3  ####################################
+
+// Pasta: 10 Apoio · Formato: 0.0%   · fatia do tempo do grupo (eixo: Fato_Ligacoes[GrupoTempo])
+Pct Tempo do Grupo = DIVIDE([Seg Base KPI], CALCULATE([Seg Base KPI], ALLSELECTED(Fato_Ligacoes[GrupoTempo])))
+
+// Pasta: 10 Apoio · Formato: 0   · tempo médio de uma ligação, em segundos
+TMA Geral (s) = DIVIDE([Seg Base KPI], [Ligacoes Base KPI])
+
+// Pasta: 10 Apoio · Formato: #,0
+Ligacoes P1 = CALCULATE([Ligacoes Problema], Dim_Problema[Codigo] = "P1")
+
+// Pasta: 10 Apoio · Formato: 0.0   · horas de P1 projetadas para um mês de 21 dias úteis
+Horas P1 Mes Equiv = DIVIDE([Horas P1], [Dias Uteis com Dado]) * LOOKUPVALUE(Param_Meta[Valor], Param_Meta[Chave], "Dias_Uteis_Mes")
+
+// Pasta: 10 Apoio · Formato: 0.0%   · menor e maior K1 entre as carteiras elegíveis (amplitude da página 5)
+K1 Min Carteira = MINX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [K1 Carga Operacional])
+// Pasta: 10 Apoio · Formato: 0.0%
+K1 Max Carteira = MAXX(FILTER(ALLSELECTED(Dim_Carteira[CARTEIRA]), [Carteira Elegivel] = 1), [K1 Carga Operacional])
+
+// Pasta: 10 Apoio · Formato: 0.0   · valor da habilidade escolhida no eixo Dim_Habilidade (taxa em % ou nota 1–5) para a carteira/período em contexto
+Habilidade Valor =
+SWITCH(
+    SELECTEDVALUE(Dim_Habilidade[Habilidade]),
+    "Teve Challenger",        [Taxa Challenger],
+    "Trouxe dado",            [Taxa Trouxe Dado],
+    "Conectou à situação",    [Taxa Conectou Situacao],
+    "Cliente reagiu",         [Taxa Cliente Reagiu],
+    "Falou com decisor",      [Falou com Decisor %],
+    "SPIN · Situação",        [SPIN Situacao],
+    "SPIN · Problema",        [SPIN Problema],
+    "SPIN · Implicação",      [SPIN Implicacao],
+    "SPIN · Necessidade",     [SPIN Necessidade],
+    BLANK()
+)
+
+// Pasta: 10 Apoio · Formato: 0.0   · mediana das carteiras elegíveis para a mesma habilidade (linha de comparação)
+Habilidade Mediana =
+SWITCH(
+    SELECTEDVALUE(Dim_Habilidade[Habilidade]),
+    "Teve Challenger",        [Mediana Taxa Challenger],
+    "Trouxe dado",            [Mediana Taxa Trouxe Dado],
+    "Conectou à situação",    [Mediana Taxa Conectou Situacao],
+    "Cliente reagiu",         [Mediana Taxa Cliente Reagiu],
+    "Falou com decisor",      [Mediana Falou com Decisor %],
+    "SPIN · Situação",        [Mediana SPIN Situacao],
+    "SPIN · Problema",        [Mediana SPIN Problema],
+    "SPIN · Implicação",      [Mediana SPIN Implicacao],
+    "SPIN · Necessidade",     [Mediana SPIN Necessidade],
+    BLANK()
+)

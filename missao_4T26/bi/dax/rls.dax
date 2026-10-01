@@ -1,0 +1,33 @@
+// =====================================================================================================================
+// rls.dax  —  segurança em nível de linha (RLS) do BI. Modelagem > Gerenciar funções.
+//
+// DECISÃO PENDENTE ANTES DE PUBLICAR PARA A EMPRESA (ver README_BI_v1.md, seção "Antes de publicar"): quem enxerga o quê.
+// A missão decidiu mostrar o vendedor pela CARTEIRA (código), não pelo nome. Mesmo assim o código da carteira identifica a pessoa
+// para quem é do time. A recomendação desta v1 é publicar o relatório para GESTÃO (Excelência Comercial, Gerência Operacional,
+// Gerência Comercial, distritais) e só abrir para os vendedores, com a função "Carteira", depois da validação com RH/jurídico.
+//
+// Tabela de acesso: Dim_Acesso (Power Query: lista do SharePoint ou planilha mantida pela Excelência Comercial), uma linha por usuário:
+//   Email · Papel (Gestao | Distrital | Carteira) · DISTRITAL · CARTEIRA
+// Dim_Acesso NÃO tem relacionamento com nada (é só consulta pelas funções abaixo). Ocultar a tabela.
+// =====================================================================================================================
+
+// ---- Função "Gestao" ------------------------------------------------------------------------------------------------
+// Sem filtro. Quem tem esta função vê tudo (todas as carteiras). Atribuir só a quem precisa.
+
+
+// ---- Função "Distrital" ---------------------------------------------------------------------------------------------
+// Tabela: Dim_Carteira · Expressão DAX de filtro:
+[DISTRITAL] = LOOKUPVALUE(Dim_Acesso[DISTRITAL], Dim_Acesso[Email], USERPRINCIPALNAME(), Dim_Acesso[Papel], "Distrital")
+
+
+// ---- Função "Carteira" ----------------------------------------------------------------------------------------------
+// Tabela: Dim_Carteira · Expressão DAX de filtro (cada vendedor enxerga só a própria carteira):
+[CARTEIRA] = LOOKUPVALUE(Dim_Acesso[CARTEIRA], Dim_Acesso[Email], USERPRINCIPALNAME(), Dim_Acesso[Papel], "Carteira")
+
+
+// ---- Como testar (Modelagem > Exibir como) --------------------------------------------------------------------------
+//   1. Exibir como "Distrital" + "Outro usuário" = um e-mail que esteja em Dim_Acesso → só as carteiras do distrital aparecem.
+//   2. Mesma coisa para "Carteira": o K1 da página 3 deve ser o K1 da carteira (e não o do time), e [K1 Mediana Carteiras] vira o próprio valor
+//      (as medianas respeitam o RLS). Para o vendedor ver "meu K1 contra o time", criar a tabela agregada Resumo_Time (fora do RLS) na v1.1.
+//   3. Um usuário que não está em Dim_Acesso e recebe a função "Distrital" ou "Carteira" não vê nenhuma linha (LOOKUPVALUE devolve vazio).
+// Textos livres (Textos_Restrito) e nomes (Dim_Vendedor_Restrito) NUNCA entram no modelo publicado para a empresa: só no modelo de gestão.
