@@ -1,0 +1,89 @@
+﻿bloco,coluna,descricao,base_aplicavel,linhas_base,preenchido,pct_do_total,pct_da_base,valores_distintos,valor_mais_comum,pct_valor_mais_comum,pct_sentinela,minimo,media,maximo,alerta,uso_recomendado,observacao
+A. Identificadores e chaves,id_transcricao,ID da ligação no CRM (chave da junção com Tempo_de_ligação),todas as linhas,19078,19078,1.0,1.0,19078,00TU500000h7GVoMAM,0.0001,0.0,,,,,Usar,
+A. Identificadores e chaves,segment_id,ID do segmento de transcrição (chave das tabelas Aletheia),todas as linhas,19078,19078,1.0,1.0,19078,4abe6ca2-a5fb-475e-9c4c-ae1988bf0f7d,0.0001,0.0,,,,,Usar,
+A. Identificadores e chaves,cd_segmento,"Mesmo ID, vindo da tabela Ligações Classificadas",todas as linhas,19078,6232,0.3267,0.3267,6232,95bd61c6-3c82-4173-84d8-35b051bc7580,0.0002,0.0,,,,,Usar,
+A. Identificadores e chaves,codigo_cliente,Código do cliente (perde zero à esquerda),todas as linhas,19078,17587,0.9218,0.9218,12206,2869710,0.001,0.0,,,,,Usar com ressalva,"normalizar para 8 dígitos; 7,8% nulos"
+A. Identificadores e chaves,codigo_cliente_analise,Código do cliente dentro da tabela de análise,todas as linhas,19078,5839,0.3061,0.3061,5101,2869710,0.0021,0.0,,,,,Não usar,duplica codigo_cliente
+A. Identificadores e chaves,matricula_ev_createdby,Matrícula do vendedor que registrou,todas as linhas,19078,19078,1.0,1.0,67,151210,0.0317,0.0,,,,,Usar,
+A. Identificadores e chaves,matricula_ev,Matrícula do vendedor na análise,todas as linhas,19078,5839,0.3061,0.3061,63,151210,0.0442,0.0,,,,,Não usar,duplica matricula_ev_createdby
+A. Identificadores e chaves,nome_createdby,Nome do vendedor,todas as linhas,19078,19078,1.0,1.0,67,Tatiane Araujo,0.0317,0.0,,,,,Usar,
+B. CRM e telefonia,data_visita_ev,"Data e hora da ligação (serial Excel, UTC)",todas as linhas,19078,19078,1.0,1.0,18774,"46289,79692",0.0002,0.0,,,,,Usar com ressalva,UTC: subtrair 3h
+B. CRM e telefonia,status,"Status no CRM (Completed, Sem Sucesso, Open)",todas as linhas,19078,19078,1.0,1.0,3,Sem Sucesso,0.5732,0.0,,,,,Usar com ressalva,613 conversas GPT estão fora de Completed
+B. CRM e telefonia,tipo_ligacao,Inbound ou Outbound,todas as linhas,19078,19078,1.0,1.0,2,Outbound,0.9524,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,
+B. CRM e telefonia,tipo_interacao,Remota: procurei o cliente / cliente nos procurou,todas as linhas,19078,19078,1.0,1.0,2,Remota - Procurei o cliente,0.9524,0.0,,,,saturado (≥ 90% no mesmo valor),Não usar,redundante com tipo_ligacao
+B. CRM e telefonia,DIVISIONAL,Divisional (filtro DVINT),todas as linhas,19078,19078,1.0,1.0,1,DVINT,1.0,0.0,,,,constante,Usar com ressalva,
+B. CRM e telefonia,DISTRITAL,Distrital (DTIN1–5),todas as linhas,19078,19078,1.0,1.0,5,DTIN1,0.217,0.0,,,,,Usar,
+B. CRM e telefonia,CARTEIRA,Carteira do vendedor,todas as linhas,19078,19078,1.0,1.0,67,KPI07A,0.0317,0.0,,,,,Usar,
+B. CRM e telefonia,Data,Dia da ligação derivado no Power Query,todas as linhas,19078,19078,1.0,1.0,22,46293,0.0604,0.0,,,,,Usar,
+B. CRM e telefonia,Chave,Carteira + número do mês (chave para metas),todas as linhas,19078,19078,1.0,1.0,126,KPI07A09,0.0305,0.0,,,,,Usar com ressalva,linhas de 31/08 recebem mês 08
+B. CRM e telefonia,CallDurationInSeconds,Duração da ligação em segundos (tabela Tempo_de_ligação),Completed,6496,4561,0.2391,0.6986,859,51,0.0075,0.0,5.0,246.884,3631.0,,Usar com ressalva,só Completed e só até 22/09
+C. Regra do Power Query,Classificação tipo de ligação,POSITIVA / INFORMATIVA / DETRATORA / IGNORAR (regra do Power Query),todas as linhas,19078,19078,1.0,1.0,4,IGNORAR,0.6762,0.0,,,,,Usar com ressalva,DETRATORA inclui 657 Completed sem análise
+D. Aletheia (Gemini) — análise da ligação,resumo_analise,Resumo narrativo da ligação,com análise Gemini,5839,5839,0.3061,1.0,5837,"A ligação foi direcionada para o correio de voz, p",0.0005,0.0,,,,,Usar com ressalva,contém nomes de pessoas
+D. Aletheia (Gemini) — análise da ligação,objetivo,Objetivo da ligação (texto),com análise Gemini,5839,5839,0.3061,1.0,4536,Realizar vendas de aluguéis de veículos.,0.0659,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,objetivo_atingido,Objetivo foi atingido?,com análise Gemini,5839,5839,0.3061,1.0,2,VERDADEIRO,0.6371,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,oportunidades,Oportunidades identificadas (texto),com análise Gemini,5839,5839,0.3061,1.0,5195,sem dados necessários,0.0265,0.0265,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,oportunidades_boleano,Há oportunidade?,com análise Gemini,5839,5839,0.3061,1.0,2,VERDADEIRO,0.9166,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,VERDADEIRO em 92%
+D. Aletheia (Gemini) — análise da ligação,nota_oportunidades,Nota da oportunidade (0–10),com análise Gemini,5839,5839,0.3061,1.0,9,7,0.2494,0.0,0.0,5.8693,9.0,,Usar,
+D. Aletheia (Gemini) — análise da ligação,demanda_venda_eminente,Demanda de venda iminente (texto),com análise Gemini,5839,5839,0.3061,1.0,2648,Sem dados necessários,0.1558,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,demanda_venda_eminente_boleano,Há demanda de venda iminente?,com análise Gemini,5839,5839,0.3061,1.0,2,FALSO,0.6289,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,nota_demanda_venda,Nota da demanda de venda (0–10),com análise Gemini,5839,5839,0.3061,1.0,11,0,0.5467,0.0,0.0,2.9961,10.0,,Usar,
+D. Aletheia (Gemini) — análise da ligação,venda,Venda realizada na ligação?,com análise Gemini,5839,5839,0.3061,1.0,2,False,0.9747,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,"concorda só em parte com p1_desfecho (kappa 0,46)"
+D. Aletheia (Gemini) — análise da ligação,demanda_de_atendimento,Demanda de atendimento (texto),com análise Gemini,5839,5839,0.3061,1.0,4567,Não há demanda de atendimento identificada.,0.0706,0.0361,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,demanda_de_atendimento_boleano,Há demanda de atendimento?,com análise Gemini,5839,5839,0.3061,1.0,2,VERDADEIRO,0.8109,0.0,,,,,Usar com ressalva,VERDADEIRO em 81%
+D. Aletheia (Gemini) — análise da ligação,nota_demanda_atendimento,Nota da demanda de atendimento,com análise Gemini,5839,5839,0.3061,1.0,1,0,1.0,0.0,0.0,0.0,0.0,constante,Não usar,constante (0 em 100%)
+D. Aletheia (Gemini) — análise da ligação,necessidade_nova_visita,Necessidade de nova visita (texto),com análise Gemini,5839,5839,0.3061,1.0,4540,Não há necessidade de nova visita identificada.,0.0534,0.018,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,necessidade_nova_visita_boleano,Precisa de nova visita?,com análise Gemini,5839,5839,0.3061,1.0,2,VERDADEIRO,0.7861,0.0,,,,,Usar com ressalva,VERDADEIRO em 79%
+D. Aletheia (Gemini) — análise da ligação,urgencia_nova_visita,Urgência da nova visita (1–10),com análise Gemini,5839,5839,0.3061,1.0,10,5,0.316,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,motivo_nova_visita,Motivo da nova visita (texto),com análise Gemini,5839,5839,0.3061,1.0,4089,sem dados necessários,0.2125,0.2125,,,,valor-sentinela frequente,Usar com ressalva,
+D. Aletheia (Gemini) — análise da ligação,data_sugerida_nova_visita,Data sugerida para a nova visita (dd/mm/aaaa),com análise Gemini,5839,5839,0.3061,1.0,131,sem dados necessários,0.2238,0.2238,,,,valor-sentinela frequente,Usar com ressalva,
+D. Aletheia (Gemini) — análise da ligação,falou_tomador_decisao,Falou com o tomador de decisão?,com análise Gemini,5839,5839,0.3061,1.0,2,VERDADEIRO,0.7155,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,falou_secretaria_eletronica,Caiu em secretária eletrônica?,com análise Gemini,5839,5839,0.3061,1.0,2,FALSO,0.9455,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,
+D. Aletheia (Gemini) — análise da ligação,frota_propria,Frota própria (texto),com análise Gemini,5839,5839,0.3061,1.0,524,sem dados necessários,0.8606,0.8606,,,,valor-sentinela frequente,Usar com ressalva,
+D. Aletheia (Gemini) — análise da ligação,frota_propria_boleano,Cliente tem frota própria?,com análise Gemini,5839,5839,0.3061,1.0,2,FALSO,0.8806,0.0,,,,,Usar,
+D. Aletheia (Gemini) — análise da ligação,volume_frota_propria,Volume da frota própria,com análise Gemini,5839,5839,0.3061,1.0,108,sem dados necessários,0.952,0.952,,,,valor-sentinela frequente,Não usar,95% é 'sem dados necessários'
+D. Aletheia (Gemini) — análise da ligação,aluguel_concorrencia,Aluguel com concorrente (texto),com análise Gemini,5839,5839,0.3061,1.0,418,sem dados necessários,0.8683,0.8683,,,,valor-sentinela frequente,Usar com ressalva,
+D. Aletheia (Gemini) — análise da ligação,aluguel_concorrencia_boleano,Aluga de concorrente?,com análise Gemini,5839,5839,0.3061,1.0,2,FALSO,0.9356,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,
+D. Aletheia (Gemini) — análise da ligação,volume_aluguel_concorrencia,Volume alugado do concorrente,com análise Gemini,5839,5839,0.3061,1.0,41,sem dados necessários,0.992,0.992,,,,valor-sentinela frequente,Não usar,99% é 'sem dados necessários'
+E. Aletheia (Gemini) — SPIN Selling,resumo_spin,Resumo da ligação sob a ótica SPIN,com análise Gemini,5839,5840,0.3061,1.0,5839,"A ligação foi realizada por Vitor da Localiza, mas",0.0003,0.0,,,,,Usar com ressalva,contém nomes de pessoas
+E. Aletheia (Gemini) — SPIN Selling,spin_situacao,Evidência SPIN — Situação (texto),com análise Gemini,5839,5840,0.3061,1.0,5737,sem dados necessários,0.0132,0.0132,,,,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,nota_spin_situacao,Nota SPIN Situação (1–5),com análise Gemini,5839,5840,0.3061,1.0,4,3,0.4935,0.0,1.0,3.094,4.0,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,spin_problema,Evidência SPIN — Problema (texto),com análise Gemini,5839,5840,0.3061,1.0,4700,sem dados necessários,0.1432,0.1432,,,,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,nota_spin_problema,Nota SPIN Problema (1–5),com análise Gemini,5839,5840,0.3061,1.0,5,3,0.2818,0.0,1.0,2.592,5.0,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,spin_implicacao,Evidência SPIN — Implicação (texto),com análise Gemini,5839,5840,0.3061,1.0,3568,sem dados necessários,0.3322,0.3322,,,,valor-sentinela frequente,Usar com ressalva,
+E. Aletheia (Gemini) — SPIN Selling,nota_spin_implicacao,Nota SPIN Implicação (1–5),com análise Gemini,5839,5840,0.3061,1.0,5,1,0.5072,0.0,1.0,2.0091,5.0,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,spin_necessidade_solucao,Evidência SPIN — Necessidade de solução (texto),com análise Gemini,5839,5840,0.3061,1.0,4890,sem dados necessários,0.1418,0.1418,,,,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,nota_spin_necessidade_solucao,Nota SPIN Necessidade (1–5),com análise Gemini,5839,5840,0.3061,1.0,5,3,0.3442,0.0,1.0,2.6548,5.0,,Usar,
+E. Aletheia (Gemini) — SPIN Selling,nota_final_spin,Nota final SPIN (1–5),com análise Gemini,5839,5840,0.3061,1.0,5,3,0.3231,0.0,1.0,2.7072,5.0,,Usar,
+F. Aletheia (Gemini) — categorização,categoria_principal,"Categoria da ligação (Suporte, Comercial, Consultivo, Tentativa de contato comercial)",com análise Gemini,5839,19078,1.0,1.0,5,Sem Classificação,0.6938,0.6938,,,,valor-sentinela frequente,Usar com ressalva,'Sem Classificação' = ligação sem análise
+F. Aletheia (Gemini) — categorização,score_consultivo,Score consultivo (0–1),com análise Gemini,5839,5841,0.3062,1.0,7,"0,1",0.4206,0.0,0.0,0.1803,0.7,,Usar,
+F. Aletheia (Gemini) — categorização,score_tentativa_de_contato_comercial,Score de tentativa de contato comercial (0–1),com análise Gemini,5839,5841,0.3062,1.0,10,0,0.4016,0.0,0.0,0.2759,1.0,,Usar,
+F. Aletheia (Gemini) — categorização,score_suporte,Score de suporte (0–1),com análise Gemini,5839,5841,0.3062,1.0,12,0,0.321,0.0,0.0,0.2969,1.0,,Usar,
+F. Aletheia (Gemini) — categorização,score_comercial,Score comercial (0–1),com análise Gemini,5839,5841,0.3062,1.0,12,"0,2",0.265,0.0,0.0,0.2469,1.0,,Usar,
+G. Classificador GPT — venda,fonte_classificacao,"Origem da classificação (gpt, auto_curta)",com classificação GPT,6232,6232,0.3267,1.0,2,gpt,0.7614,0.0,,,,,Usar,
+G. Classificador GPT — venda,era_venda,Era uma ligação de venda?,com classificação GPT,6232,5962,0.3125,0.9567,2,NAO,0.7085,0.0,,,,,Usar,
+G. Classificador GPT — venda,p1_desfecho,"Desfecho comercial (fechou, interessou, não era venda…)",com classificação GPT,6232,6232,0.3267,1.0,5,nao_era_venda,0.715,0.0,,,,,Usar com ressalva,versão do classificador muda no mês
+G. Classificador GPT — venda,p2_tipo,"Tipo da ligação (nova venda, suporte, cobrança…)",com classificação GPT,6232,6232,0.3267,1.0,14,relacionamento_sem_demanda,0.3038,0.0,,,,,Usar com ressalva,versão do classificador muda no mês
+G. Classificador GPT — venda,p1_tentativa_comercial,Houve tentativa comercial?,com classificação GPT,6232,6232,0.3267,1.0,2,NAO,0.5185,0.0,,,,,Usar,
+G. Classificador GPT — venda,evidencia_venda,Evidência da venda (texto curto),linhas aplicáveis,1738,4526,0.2372,1.0,4272,cliente não tem demanda de locação no momento,0.0091,0.0,,,,,Usar,
+G. Classificador GPT — venda,p1_trecho_venda,Trecho literal da venda,linhas aplicáveis,1738,2028,0.1063,0.4194,2028,"A: Oi Marco Antônio, aqui é Rosiane e eu falo da L",0.0005,0.0,,,,,Usar,
+G. Classificador GPT — venda,p1_desfecho_original,Desfecho original (antes de ajuste de regra),com classificação GPT,6232,3,0.0002,0.0005,3,cliente vai fazer reserva com novo usuário,0.3333,0.0,,,,esparso (< 10% da base aplicável),Não usar,3 valores em toda a base
+G. Classificador GPT — venda,p2_tipo_original,Tipo original (antes de ajuste de regra),com classificação GPT,6232,1,0.0001,0.0002,1,supporte_operacional,1.0,0.0,,,,constante; esparso (< 10% da base aplicável),Não usar,1 valor em toda a base
+H. Classificador GPT — problemas,tem_problema,A ligação tem problema?,com classificação GPT,6232,5962,0.3125,0.9567,2,NAO,0.8385,0.0,,,,,Usar com ressalva,"taxa 13,6% → 27,4% em 15/09"
+H. Classificador GPT — problemas,p3_problemas_identificados,Códigos dos problemas (P1…P15),com classificação GPT,6232,6232,0.3267,1.0,73,nenhum,0.8333,0.8333,,,,valor-sentinela frequente,Usar com ressalva,
+H. Classificador GPT — problemas,p3_problema_principal,Problema principal,com classificação GPT,6232,5962,0.3125,0.9567,16,nenhum,0.8385,0.8385,,,,valor-sentinela frequente,Usar com ressalva,taxa muda em 15/09
+H. Classificador GPT — problemas,p3_foi_resolvido_na_ligacao,"Problema resolvido na ligação (SIM, PARCIAL, NAO)",com classificação GPT,6232,6232,0.3267,1.0,4,NENHUM,0.832,0.832,,,,valor-sentinela frequente,Usar com ressalva,
+H. Classificador GPT — problemas,p3_evidencias,Evidência do problema (texto),linhas aplicáveis,963,963,0.0505,1.0,960,P13: reserva está pendente de crédito,0.0021,0.0,,,,,Usar,
+H. Classificador GPT — problemas,p3_trechos,Trecho literal do problema,linhas aplicáveis,963,770,0.0404,0.7996,770,"P1: C: As duas a gente tem, mas se não me engano, ",0.0013,0.0,,,,,Usar,
+H. Classificador GPT — problemas,p3_trechos_status,Status da busca do trecho,linhas aplicáveis,963,781,0.0409,0.811,93,P1: encontrado,0.251,0.0,,,,,Usar,
+H. Classificador GPT — problemas,p3_outro_descricao,"Descrição quando o problema é ""Outro""",linhas aplicáveis,963,56,0.0029,0.0582,56,email cadastral incorreto,0.0179,0.0,,,,esparso (< 10% da base aplicável),Usar com ressalva,
+I. Classificador GPT — Challenger,p5_teve_challenger,Teve Challenger?,com classificação GPT,6232,6232,0.3267,1.0,2,NAO,0.931,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,
+I. Classificador GPT — Challenger,p5_codigos_challenger,Códigos Challenger (CH1–CH7),com classificação GPT,6232,6232,0.3267,1.0,41,nenhum,0.931,0.931,,,,valor-sentinela frequente,Usar com ressalva,
+I. Classificador GPT — Challenger,p5_qualidade,"Qualidade do Challenger (alta, media, baixa)",com classificação GPT,6232,6232,0.3267,1.0,4,nenhum,0.931,0.931,,,,saturado (≥ 90% no mesmo valor); valor-sentinela frequente,Usar com ressalva,83% 'alta' (sem variância)
+I. Classificador GPT — Challenger,p5_trouxe_dado,Trouxe dado concreto?,com classificação GPT,6232,5962,0.3125,0.9567,2,NAO,0.8937,0.0,,,,,Usar,
+I. Classificador GPT — Challenger,p5_conectou_situacao,Conectou à situação do cliente?,com classificação GPT,6232,5962,0.3125,0.9567,2,NAO,0.847,0.0,,,,,Usar,
+I. Classificador GPT — Challenger,p5_cliente_reagiu,Cliente reagiu?,com classificação GPT,6232,5962,0.3125,0.9567,2,NAO,0.8323,0.0,,,,,Usar,
+I. Classificador GPT — Challenger,p5_frase_vendedor,Frase do vendedor,linhas aplicáveis,430,500,0.0262,0.9628,500,A questão da quilometragem é importante ao devolve,0.002,0.0,,,,,Usar,
+I. Classificador GPT — Challenger,p5_reacao_cliente,Reação do cliente,linhas aplicáveis,430,333,0.0175,0.5791,241,Entendi.,0.1201,0.0,,,,,Usar,
+I. Classificador GPT — Challenger,p5_challenger_sem_dado,Challenger sem dado concreto?,com classificação GPT,6232,5962,0.3125,0.9567,2,NAO,0.9856,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,
+I. Classificador GPT — Challenger,p5_trecho_challenger,Trecho literal do Challenger,linhas aplicáveis,430,295,0.0155,0.686,295,"C: dia. / A: tá, só para eu poder te explicar, tá?",0.0034,0.0,,,,,Usar,
+I. Classificador GPT — Challenger,p5_trecho_status,Status da busca do trecho,linhas aplicáveis,430,298,0.0156,0.693,3,encontrado,0.906,0.0,,,,saturado (≥ 90% no mesmo valor),Usar com ressalva,
