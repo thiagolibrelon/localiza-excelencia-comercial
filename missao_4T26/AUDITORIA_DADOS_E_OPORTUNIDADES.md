@@ -2,8 +2,8 @@
 
 > **Draft v0.2 — 01/10/2026 (refeito).** Complementa `PLANO_MISSAO_4T26.md`.
 > **Fontes: somente o CSV da consulta do Power BI (19.078 linhas × 88 colunas) e o código M que o gera.** Nada do repositório entra
-> nos números: sem junho, julho, diárias, reservas, exemplos ou documentos anteriores. Sem prompts novos.
-> Números reproduzíveis com `scripts/auditoria_dados_missao.py`; dicionário das 88 colunas em `anexos/dicionario_dados_setembro.csv`;
+> nos números: sem junho, julho, diárias, reservas, exemplos ou documentos anteriores. **Única exceção: a legenda dos códigos P1–P15 e CH1–CH7, que vem do repositório.** Sem prompts novos.
+> As oportunidades têm plano próprio em `PLANO_OPORTUNIDADES.md`. Números reproduzíveis com `scripts/auditoria_dados_missao.py`; dicionário das 88 colunas em `anexos/dicionario_dados_setembro.csv`;
 > catálogo completo em `anexos/catalogo_oportunidades.csv`.
 
 ---
@@ -19,8 +19,8 @@
 6. **Challenger SIM/NÃO não serve como meta.** Com duração controlada, o fechamento é igual com e sem Challenger. A escada *dado concreto → conexão → reação* (14,0% → 20,1% → 22,1%) e o elo fraco do SPIN (Implicação, nota 1 em 50,7%) apontam o que treinar (seção 8.1).
 7. **Contato e cadência:** 2.985 clientes ficaram com uma única tentativa falha (≈ 900 conversas/mês com uma 2ª tentativa); só **27,1%** dos retornos devidos tiveram nova tentativa no prazo; a sexta-feira rende 29% menos tentativas por vendedor.
 8. **1% dos clientes concentra 20,1% do tempo de ligação** (≈ 120 clientes).
-9. **Mapeei 89 oportunidades em 8 eixos** (seção 7): 64 com dado pronto, 16 parciais e 9 que dependem de dado que não temos.
-10. **As lacunas que mais pesam:** resultado real, base de treinamento, legenda oficial dos códigos e duração a partir de 23/09 (seção 10).
+9. **Mapeei 89 oportunidades em 8 eixos** (seção 7): 65 com dado pronto, 16 parciais e 8 que dependem de dado que não temos.
+10. **As lacunas que mais pesam:** resultado real, base de treinamento, meses anteriores e duração a partir de 23/09 (seção 10).
 
 ---
 
@@ -36,9 +36,28 @@
 | Negociação | Nova venda, upsell, renovação, retenção e misto, sem problema |
 | Fechamento | "Fechou" (GPT) **ou** "venda" (Gemini); as duas fontes concordam pouco (seção 4) |
 
-**Legenda dos códigos (†):** o CSV traz só os códigos. Os rótulos abaixo vêm do material de apoio e precisam de confirmação oficial.
-P1 acesso/sistema† · P2 faturamento/cobrança† · P10 reserva/sistema† · P13 crédito/cadastro PJ† · CH1 custo oculto† · CH2 ROI† · CH3 urgência por regra real† ·
-CH4 concorrente superado com dado† · CH5 dor conectada ao produto† · CH6 antecipação de problema† · CH7 necessidade não declarada†.
+**Legenda dos códigos** (do repositório: `scripts/classificar_ligacoes_diario.py` e `prompts/prompts_nivel1_por_ligacao.md`; o CSV traz só o código):
+
+| Problema (`p3_*`) | Significado | Problema (`p3_*`) | Significado |
+|---|---|---|---|
+| P1 | Acesso/sistema (portal fora do ar, senha, biometria) | P9 | Sinistro (acidente, avaria, franquia de dano) |
+| P2 | Faturamento/cobrança (boleto, fatura, valor incorreto) | P10 | Reserva/sistema (reserva com erro no sistema) |
+| P3 | Multa/infração | P11 | Outro (com descrição) |
+| P4 | Manutenção/substituto | P12 | Manipulação de pesquisa/NPS |
+| P5 | Condutor/cadastro (erro ou bloqueio) | P13 | Crédito/cadastro PJ (limite, cadastro pendente) |
+| P6 | Km excedente | P14 | Preço/competitividade |
+| P7 | Disponibilidade (sem carro na data ou loja) | P15 | Tag de pedágio (falha) |
+| P8 | Franquia/agência | | |
+
+| Challenger (`p5_codigos_challenger`) | Significado |
+|---|---|
+| CH1 | Custo oculto revelado |
+| CH2 | ROI calculado |
+| CH3 | Urgência por regra real |
+| CH4 | Concorrente ou alternativa superada com dado |
+| CH5 | Dor revelada → produto conectado |
+| CH6 | Antecipação de problema |
+| CH7 | Descoberta de necessidade não declarada |
 
 ---
 
@@ -104,7 +123,6 @@ CH4 concorrente superado com dado† · CH5 dor conectada ao produto† · CH6 a
 | F-13 | Médio | Status Open sem significado conhecido | 1.647 (8,6%), todos sem análise Gemini; 292 classificados pelo GPT | Desconhecido | Investigar |
 | F-14 | Médio | Carteira e vendedor são 1:1 | 67 carteiras = 67 matrículas; 75 clientes em mais de uma carteira | "Por carteira" equivale a "por vendedor" | Uso não punitivo; comparar por pares |
 | F-15 | Baixo | Duração extrema | Máx. 3.631 s; 2,5% < 30 s | Distorce médias | Mediana e P90 |
-| F-16 | Baixo | Legenda dos códigos ausente | P1–P15 e CH1–CH7 só como códigos | Dependência de material externo | Legenda oficial (seção 10) |
 
 ---
 
@@ -202,7 +220,7 @@ Alocação pelo Gemini (mesmo período): Suporte 47,6% · Comercial 30,3% · Ten
 ## 7. Catálogo de oportunidades
 
 89 oportunidades. **Prontidão:** *Pronto* = o dado existe no CSV; *Parcial* = precisa de ajuste; *Lacuna* = depende de dado que não temos. **Onda:** 1 = out–nov; 2 = nov–dez; 3 = depende de lacuna ou fica para 2027.
-**Persona:** DAD = auditoria, OPE = operacional, COM = comercial, APR = aprendizagem. Campos completos (pergunta, dados, esforço, entrega) em `anexos/catalogo_oportunidades.csv`.
+**Persona:** DAD = auditoria, OPE = operacional, COM = comercial, APR = aprendizagem. Campos completos (pergunta, dados, esforço, entrega, pacote) em `anexos/catalogo_oportunidades.csv`; o agrupamento em 12 pacotes e o calendário estão em `PLANO_OPORTUNIDADES.md`.
 
 ### E1 · Carga operacional e capacidade
 
@@ -318,7 +336,7 @@ Alocação pelo Gemini (mesmo período): Suporte 47,6% · Comercial 30,3% · Ten
 | O-78 | Cobertura de classificação | 2.016 Completed sem GPT (28–30/09: 1.035) e 657 sem Gemini | Pronto | Alto | DAD | 1 |
 | O-79 | Status Open | 1.647 (8,6%), todas sem análise Gemini; 292 foram classificadas pelo GPT | Parcial | Médio | DAD | 3 |
 | O-80 | Rótulos e formatos | 'supporte_operacional' (1 linha); 'venda' usa True/False e as demais VERDADEIRO/FALSO; versões originais quase vazias (1 e 3 linhas) | Pronto | Baixo | DAD | 3 |
-| O-81 | Dicionário oficial de colunas e códigos | O CSV traz só os códigos; as legendas usadas aqui vêm do material de apoio (†) | Lacuna | Médio | DAD | 1 |
+| O-81 | Legenda oficial dos códigos no dicionário do BI | As legendas existem no repositório (classificador e prompts); o CSV traz só o código. Falta publicá-las no BI | Pronto | Médio | DAD | 1 |
 
 ### E8 · Gestão e BI
 
@@ -457,7 +475,7 @@ As ondas dizem **quando o dado permite**, não **o que será feito**: só vira e
 | O-71 | Valores-sentinela | Médio | P | DAD | Tratar como nulo |
 | O-73 | Chave carteira + mês | Médio | P | DAD | Corrigir no Power Query |
 | O-74 | Corte de data fixo | Médio | P | DAD | Parametrizar |
-| O-81 | Dicionário oficial de colunas e códigos | Médio | P | DAD | Pedir legenda oficial |
+| O-81 | Legenda oficial dos códigos no dicionário do BI | Médio | P | DAD | Dicionário no BI |
 | O-75 | Timestamp e calendário | Baixo | P | DAD | Subtrair 3h |
 
 ### Onda 2 — novembro a dezembro (precisa de baseline, ajuste ou dado complementar) (29 itens)
@@ -519,13 +537,12 @@ As ondas dizem **quando o dado permite**, não **o que será feito**: só vira e
 | 1 | Duração das ligações a partir de 23/09 | Fechar a série de tempo (F-02) | Dados/TI |
 | 2 | Resultado real depois da ligação (reservas, contratos, diárias) | Provar conversão e ROI (O-65) | Dados/Comercial |
 | 3 | Base de treinamento (notas, presença, trilha cursada) | Trilha e curva de aprendizado (O-48) | T&D/RH |
-| 4 | Legenda oficial das colunas e dos códigos P1–P15 e CH1–CH7 | Remover as marcas † | Aletheia |
-| 5 | Meses anteriores no mesmo formato | Tendência e sazonalidade | Aletheia |
-| 6 | Custo-hora do vendedor | Horas devolvidas em R$ (O-13) | Finanças/RH |
-| 7 | Diário de tempo de 8–10 vendedores por 1 semana | Carga fora do telefone (O-12) | Gerência Operacional |
-| 8 | Log de telefonia (motivo da falha, tentativas) | O-37 | Telefonia |
-| 9 | Perfil da carteira (porte, segmento, clientes ativos), escala e senioridade | Metas por perfil (O-84) | Comercial |
-| 10 | Significado do status Open | F-13 | CRM |
+| 4 | Meses anteriores no mesmo formato | Tendência e sazonalidade | Aletheia |
+| 5 | Custo-hora do vendedor | Horas devolvidas em R$ (O-13) | Finanças/RH |
+| 6 | Diário de tempo de 8–10 vendedores por 1 semana | Carga fora do telefone (O-12) | Gerência Operacional |
+| 7 | Log de telefonia (motivo da falha, tentativas) | O-37 | Telefonia |
+| 8 | Perfil da carteira (porte, segmento, clientes ativos), escala e senioridade | Metas por perfil (O-84) | Comercial |
+| 9 | Significado do status Open | F-13 | CRM |
 
 ---
 
@@ -535,6 +552,9 @@ As ondas dizem **quando o dado permite**, não **o que será feito**: só vira e
 |---|---|
 | `scripts/auditoria_dados_missao.py` | Recalcula todos os números desta auditoria a partir do CSV e escreve os anexos |
 | `scripts/baseline_carga_operacional.py` | Baseline do KPI de problema |
+| `scripts/gerar_dados_prototipos.py` | Gera os agregados que alimentam os dois protótipos |
+| `missao_4T26/prototipos/bi_wireframe.html` | Wireframe interativo das 8 páginas do BI, com dados reais agregados |
+| `missao_4T26/prototipos/trilha_prototipo.html` | Protótipo da trilha do vendedor: diagnóstico por carteira e 12 lições com trechos mascarados |
 | `missao_4T26/anexos/dicionario_dados_setembro.csv` | Perfil das 88 colunas (bloco, preenchimento, domínio, saturação, uso recomendado) |
 | `missao_4T26/anexos/serie_diaria_set_2026.csv` | Assinatura diária do classificador (para o drift) |
 | `missao_4T26/anexos/carteira_set_2026.csv` | Métricas por carteira (≥ 40 ligações classificadas; sem nome de vendedor) |

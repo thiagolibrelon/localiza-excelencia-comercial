@@ -1,0 +1,471 @@
+<title>Painel de Carga Operacional</title>
+<style>
+/* Layout: cabeçalho fixo + filtros em uma linha + abas; cada página = pergunta de decisão, grade de cards e painel de anotações do wireframe. */
+:root{
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s1-wash:rgba(42,120,214,.10); --track:#cde2fb;
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b; --good-text:#006300;
+  --note:#fff7e0; --note-ink:#5a4300; --note-border:#e8c766;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s1-wash:rgba(57,135,229,.14); --track:#184f95; --good-text:#0ca30c;
+  --note:#2a2412; --note-ink:#f1d98a; --note-border:#6b5614; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s1-wash:rgba(57,135,229,.14); --track:#184f95; --good-text:#0ca30c;
+  --note:#2a2412; --note-ink:#f1d98a; --note-border:#6b5614; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font:14px/1.45 var(--font);margin:0;padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1240px;margin:0 auto}
+header{padding-block:18px 10px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+h1{font-size:20px;margin:0;font-weight:650;letter-spacing:-.01em}
+.sub{color:var(--ink2);font-size:13px}
+.tag{display:inline-block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;border:1px dashed var(--muted);color:var(--ink2);border-radius:4px;padding:2px 7px}
+.filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:10px 0;border-block:1px solid var(--grid)}
+.filters label{font-size:12px;color:var(--ink2);display:flex;gap:6px;align-items:center}
+select,button{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--axis);border-radius:6px;padding:5px 8px;min-height:32px}
+button{cursor:pointer}
+button:hover{border-color:var(--muted)}
+:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--axis);border-radius:6px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:transparent;padding:5px 10px}
+.seg button[aria-pressed="true"]{background:var(--s1);color:#fff}
+.hint{font-size:12px;color:var(--muted);margin-left:auto}
+nav{display:flex;gap:4px;overflow-x:auto;padding-block:12px 0;scrollbar-width:thin}
+nav button{white-space:nowrap;border-color:transparent;background:transparent;color:var(--ink2);padding:7px 12px;border-radius:6px 6px 0 0;border-bottom:2px solid transparent}
+nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--s1);font-weight:600;background:var(--surface)}
+.page{display:none;padding-block:18px}
+.page.on{display:block}
+.qrow{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+h2{font-size:18px;margin:0;font-weight:650;letter-spacing:-.01em;text-wrap:balance}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;align-items:start}
+.layout.noannot{grid-template-columns:minmax(0,1fr)}
+.layout.noannot aside{display:none}
+@media(max-width:980px){.layout{grid-template-columns:minmax(0,1fr)}}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(12,minmax(0,1fr))}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+@media(max-width:1100px){.c3{grid-column:span 6}.c4,.c5{grid-column:span 6}.c7,.c8{grid-column:span 12}}
+@media(max-width:640px){.c3,.c4,.c5,.c6,.c7,.c8{grid-column:span 12}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;min-width:0}
+.card h3{font-size:13px;margin:0 0 2px;font-weight:600}
+.card .csub{font-size:12px;color:var(--ink2);margin:0 0 10px}
+.card .head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.tbtn{font-size:11px;padding:2px 8px;min-height:24px;color:var(--ink2)}
+.tile .lab{font-size:12px;color:var(--ink2)}
+.tile .val{font-size:28px;font-weight:650;letter-spacing:-.02em;line-height:1.15;margin:2px 0}
+.tile .delta{font-size:12px;color:var(--ink2)}
+.hero{font-size:56px;font-weight:650;letter-spacing:-.03em;line-height:1}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--font);fill:var(--ink2);font-size:11px}
+svg .t-ink{fill:var(--ink)}
+svg .grid{stroke:var(--grid);stroke-width:1}
+svg .axis{stroke:var(--axis);stroke-width:1}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink2);margin-bottom:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{color:var(--ink2);font-weight:600;font-size:12px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+.sev{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--grid);font-size:13px}
+.sev:last-child{border-bottom:0}
+.sev b{font-weight:600}
+.ico{flex:0 0 auto;width:18px;height:18px}
+aside .note{background:var(--note);color:var(--note-ink);border:1px dashed var(--note-border);border-radius:8px;padding:12px 14px;font-size:12.5px}
+aside h4{font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+aside dl{margin:0}aside dt{font-weight:600;margin-top:8px}aside dd{margin:2px 0 0}
+.excerpt{border-left:3px solid var(--axis);padding:4px 0 4px 12px;color:var(--ink);font-size:13px;margin:8px 0}
+.excerpt p{margin:4px 0}
+.badge{display:inline-block;font-size:11px;border:1px solid var(--axis);border-radius:999px;padding:1px 8px;color:var(--ink2)}
+.bar-track{height:10px;border-radius:5px;background:var(--grid);position:relative}
+.tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12px;padding:6px 9px;border-radius:6px;max-width:260px;display:none;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.skill{display:grid;grid-template-columns:150px minmax(0,1fr) 70px;gap:10px;align-items:center;margin:9px 0;font-size:13px}
+@media(max-width:520px){.skill{grid-template-columns:110px minmax(0,1fr) 56px}}
+.skill .v{text-align:right;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div>
+    <h1>Painel de Carga Operacional</h1>
+    <div class="sub">Venda interna · DVINT · wireframe das 8 páginas com dados reais de setembro (agregados)</div>
+  </div>
+  <div><span class="tag">Wireframe v0.1</span> <button id="annbtn" aria-pressed="true" class="tbtn">Anotações: ligadas</button></div>
+</header>
+
+<div class="filters" role="group" aria-label="Filtros do painel">
+  <label>Distrital <select id="fDist"><option value="">Todos</option></select></label>
+  <label>Carteira <select id="fCart"><option value="">Todas</option></select></label>
+  <label>Régua da carga
+    <span class="seg" id="fReg"><button aria-pressed="false" data-v="gpt">GPT</button><button aria-pressed="false" data-v="gem">Gemini</button><button aria-pressed="true" data-v="both">Ambas</button></span></label>
+  <span class="hint">No protótipo, a régua vale para as páginas Dia, Semana e Mês; distrital e carteira valem para Carteiras e Competências.</span>
+</div>
+
+<nav role="tablist" aria-label="Páginas do painel" id="nav"></nav>
+<div id="pages"></div>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const D = {"meta":{"janela":["2026-08-31","2026-09-30"],"duracao_ate":"2026-09-22","linhas":19078,"colunas":88},"diario":[{"d":"2026-08-31","tent":934,"comp":279,"gpt":0,"c1":0.0,"c2":0.9964,"k1_gpt":null,"k1_gem":0.496,"k7":null,"pend":0,"prob":null,"p1":null,"ch":null,"horas":null},{"d":"2026-09-01","tent":684,"comp":227,"gpt":215,"c1":0.7709,"c2":1.0,"k1_gpt":0.4656,"k1_gem":0.558,"k7":0.5101,"pend":0,"prob":0.0,"p1":0.0,"ch":0.0744,"horas":16.03},{"d":"2026-09-02","tent":771,"comp":290,"gpt":280,"c1":0.8966,"c2":0.9966,"k1_gpt":0.3653,"k1_gem":0.4773,"k7":0.5224,"pend":36,"prob":0.1464,"p1":0.0357,"ch":0.0786,"horas":21.67},{"d":"2026-09-03","tent":921,"comp":305,"gpt":283,"c1":0.8721,"c2":1.0,"k1_gpt":0.2966,"k1_gem":0.4488,"k7":0.4811,"pend":29,"prob":0.1131,"p1":0.0601,"ch":0.0742,"horas":18.25},{"d":"2026-09-04","tent":558,"comp":195,"gpt":201,"c1":0.9077,"c2":1.0,"k1_gpt":0.3709,"k1_gem":0.5371,"k7":0.464,"pend":31,"prob":0.1791,"p1":0.0448,"ch":0.0846,"horas":13.29},{"d":"2026-09-08","tent":862,"comp":334,"gpt":310,"c1":0.8832,"c2":1.0,"k1_gpt":0.3906,"k1_gem":0.5171,"k7":0.3327,"pend":33,"prob":0.1129,"p1":0.0258,"ch":0.071,"horas":17.41},{"d":"2026-09-09","tent":776,"comp":290,"gpt":270,"c1":0.8759,"c2":1.0,"k1_gpt":0.3875,"k1_gem":0.4885,"k7":0.3525,"pend":37,"prob":0.1407,"p1":0.0481,"ch":0.1259,"horas":18.14},{"d":"2026-09-10","tent":851,"comp":292,"gpt":279,"c1":0.9178,"c2":1.0,"k1_gpt":0.3468,"k1_gem":0.5289,"k7":0.3834,"pend":46,"prob":0.1685,"p1":0.0538,"ch":0.0681,"horas":18.95},{"d":"2026-09-11","tent":605,"comp":213,"gpt":212,"c1":0.9249,"c2":1.0,"k1_gpt":0.2557,"k1_gem":0.4106,"k7":0.4675,"pend":24,"prob":0.1179,"p1":0.0236,"ch":0.0896,"horas":14.25},{"d":"2026-09-14","tent":1013,"comp":341,"gpt":324,"c1":0.8944,"c2":1.0,"k1_gpt":0.3073,"k1_gem":0.3962,"k7":0.3993,"pend":36,"prob":0.1204,"p1":0.0309,"ch":0.0802,"horas":17.83},{"d":"2026-09-15","tent":795,"comp":275,"gpt":272,"c1":0.9273,"c2":1.0,"k1_gpt":0.5052,"k1_gem":0.5106,"k7":0.2887,"pend":75,"prob":0.3125,"p1":0.1066,"ch":0.0882,"horas":18.17},{"d":"2026-09-16","tent":743,"comp":265,"gpt":237,"c1":0.9057,"c2":1.0,"k1_gpt":0.4598,"k1_gem":0.4105,"k7":0.3173,"pend":48,"prob":0.2363,"p1":0.1055,"ch":0.0717,"horas":16.12},{"d":"2026-09-17","tent":982,"comp":328,"gpt":310,"c1":0.9055,"c2":1.0,"k1_gpt":0.5507,"k1_gem":0.4607,"k7":0.1606,"pend":72,"prob":0.2516,"p1":0.0645,"ch":0.0806,"horas":19.74},{"d":"2026-09-18","tent":754,"comp":236,"gpt":243,"c1":0.8771,"c2":1.0,"k1_gpt":0.6243,"k1_gem":0.5324,"k7":0.2234,"pend":74,"prob":0.3498,"p1":0.0864,"ch":0.2675,"horas":17.27},{"d":"2026-09-21","tent":968,"comp":332,"gpt":310,"c1":0.9217,"c2":1.0,"k1_gpt":0.5203,"k1_gem":0.3684,"k7":0.2294,"pend":73,"prob":0.2806,"p1":0.0871,"ch":0.1032,"horas":17.29},{"d":"2026-09-22","tent":954,"comp":338,"gpt":328,"c1":0.926,"c2":1.0,"k1_gpt":0.5743,"k1_gem":0.4818,"k7":0.1995,"pend":84,"prob":0.2866,"p1":0.1098,"ch":0.0701,"horas":21.47},{"d":"2026-09-23","tent":1084,"comp":354,"gpt":320,"c1":0.904,"c2":0.0,"k1_gpt":null,"k1_gem":null,"k7":null,"pend":82,"prob":0.2719,"p1":0.0813,"ch":0.0688,"horas":null},{"d":"2026-09-24","tent":932,"comp":294,"gpt":94,"c1":0.3129,"c2":0.0,"k1_gpt":null,"k1_gem":null,"k7":null,"pend":26,"prob":0.3085,"p1":0.0957,"ch":0.1383,"horas":null},{"d":"2026-09-25","tent":852,"comp":273,"gpt":257,"c1":0.9267,"c2":0.0,"k1_gpt":null,"k1_gem":null,"k7":null,"pend":63,"prob":0.2685,"p1":0.0973,"ch":0.0506,"horas":null},{"d":"2026-09-28","tent":1153,"comp":393,"gpt":0,"c1":0.0,"c2":0.0,"k1_gpt":null,"k1_gem":null,"k7":null,"pend":0,"prob":null,"p1":null,"ch":null,"horas":null},{"d":"2026-09-29","tent":940,"comp":310,"gpt":0,"c1":0.0,"c2":0.0,"k1_gpt":null,"k1_gem":null,"k7":null,"pend":0,"prob":null,"p1":null,"ch":null,"horas":null},{"d":"2026-09-30","tent":946,"comp":332,"gpt":0,"c1":0.0,"c2":0.0,"k1_gpt":null,"k1_gem":null,"k7":null,"pend":0,"prob":null,"p1":null,"ch":null,"horas":null}],"semanal":[{"sem":"2026-08-31/2026-09-06","h":69.2,"k1_gpt":0.3715,"k1_gem":0.5022,"k7":0.4975,"prob":0.1113,"pend":96,"dias":4},{"sem":"2026-09-07/2026-09-13","h":68.8,"k1_gpt":0.3497,"k1_gem":0.4909,"k7":0.3798,"prob":0.1354,"pend":140,"dias":4},{"sem":"2026-09-14/2026-09-20","h":89.1,"k1_gpt":0.4906,"k1_gem":0.4628,"k7":0.275,"prob":0.2475,"pend":305,"dias":5},{"sem":"2026-09-21/2026-09-27","h":38.8,"k1_gpt":0.5503,"k1_gem":0.4307,"k7":0.2129,"prob":0.2796,"pend":328,"dias":2}],"mensal":{"horas":265.9,"ligacoes":3546,"operacional":0.4318,"com_problema":0.3004,"negociacao":0.351,"relacionamento":0.206,"sem_conteudo":0.0112,"gem":{"Comercial":0.3028,"Consultivo":0.1059,"Suporte":0.4759,"Tentativa de contato comercial":0.1154},"tma_prob":432.0,"tma_sem":232.0},"pareto":[{"cod":"P1","nome":"Acesso/sistema","n":208,"h":29.4,"pct":0.3681},{"cod":"P2","nome":"Faturamento/cobrança","n":132,"h":13.8,"pct":0.1725},{"cod":"P13","nome":"Crédito/cadastro PJ","n":110,"h":10.8,"pct":0.1348},{"cod":"P10","nome":"Reserva/sistema","n":45,"h":5.6,"pct":0.0704},{"cod":"P7","nome":"Disponibilidade","n":37,"h":4.4,"pct":0.0556},{"cod":"P11","nome":"Outro","n":34,"h":3.6,"pct":0.045},{"cod":"P4","nome":"Manutenção/substituto","n":21,"h":3.4,"pct":0.0429},{"cod":"P14","nome":"Preço/competitividade","n":32,"h":2.7,"pct":0.0335}],"resolucao":{"PARCIAL":0.4576,"NAO":0.4383,"SIM":0.1028,"NENHUM":0.0013},"origem":{"inbound":0.3609,"outbound":0.1678,"outbound_do_total_com_problema":0.803},"reincidencia":0.1877,"carteiras":[{"c":"COI01A","dist":"DTIN2","n":74.0,"h":5.6828,"k1":0.3405,"k7":0.4279,"prob":0.1622,"ch":0.1216,"dado":0.1351,"conecta":0.1486,"reage":0.2027,"spin_s":3.1159,"spin_p":2.5507,"spin_i":2.1159,"spin_n":2.8551,"decisor":0.8551,"tma":309.9697,"tent":200.0,"atend":0.415},{"c":"COI03A","dist":"DTIN2","n":47.0,"h":2.5333,"k1":0.3919,"k7":0.4613,"prob":0.1915,"ch":0.1064,"dado":0.1489,"conecta":0.1915,"reage":0.3191,"spin_s":3.1163,"spin_p":2.3953,"spin_i":1.6744,"spin_n":2.6279,"decisor":0.8372,"tma":260.5714,"tent":228.0,"atend":0.3114},{"c":"COI04A","dist":"DTIN2","n":43.0,"h":2.0794,"k1":0.2199,"k7":0.4625,"prob":0.1395,"ch":0.0465,"dado":0.0698,"conecta":0.2093,"reage":0.3023,"spin_s":2.7755,"spin_p":2.5102,"spin_i":1.8571,"spin_n":2.3878,"decisor":0.7551,"tma":182.5854,"tent":180.0,"atend":0.4},{"c":"KPI01A","dist":"DTIN4","n":102.0,"h":3.6639,"k1":0.2582,"k7":0.1711,"prob":0.0882,"ch":0.0196,"dado":0.049,"conecta":0.0686,"reage":0.0686,"spin_s":2.7518,"spin_p":1.8248,"spin_i":1.2993,"spin_n":1.8978,"decisor":0.5474,"tma":129.3137,"tent":458.0,"atend":0.4694},{"c":"KPI02A","dist":"DTIN4","n":58.0,"h":2.2569,"k1":0.3324,"k7":0.2478,"prob":0.069,"ch":0.069,"dado":0.0862,"conecta":0.2069,"reage":0.2414,"spin_s":2.5217,"spin_p":1.7826,"spin_i":1.7246,"spin_n":2.2174,"decisor":0.5652,"tma":150.463,"tent":329.0,"atend":0.386},{"c":"KPI03A","dist":"DTIN4","n":74.0,"h":3.615,"k1":0.272,"k7":0.3555,"prob":0.1216,"ch":0.0541,"dado":0.1216,"conecta":0.1351,"reage":0.1757,"spin_s":2.7843,"spin_p":2.0784,"spin_i":1.4804,"spin_n":1.9608,"decisor":0.6176,"tma":175.8649,"tent":199.0,"atend":0.608},{"c":"KPI05A","dist":"DTIN4","n":101.0,"h":6.5308,"k1":0.5333,"k7":0.2132,"prob":0.1683,"ch":0.0594,"dado":0.099,"conecta":0.1188,"reage":0.1683,"spin_s":2.7398,"spin_p":2.0163,"spin_i":1.5935,"spin_n":2.0488,"decisor":0.626,"tma":250.117,"tent":568.0,"atend":0.3838},{"c":"KPI06A","dist":"DTIN4","n":59.0,"h":2.7817,"k1":0.2508,"k7":0.2936,"prob":0.1525,"ch":0.0339,"dado":0.0339,"conecta":0.1017,"reage":0.0847,"spin_s":3.1,"spin_p":2.5333,"spin_i":1.65,"spin_n":2.3833,"decisor":0.7167,"tma":185.4444,"tent":261.0,"atend":0.3103},{"c":"KPI07A","dist":"DTIN4","n":169.0,"h":6.9644,"k1":0.2312,"k7":0.1862,"prob":0.0651,"ch":0.0296,"dado":0.0947,"conecta":0.1006,"reage":0.1361,"spin_s":2.6349,"spin_p":1.8095,"spin_i":1.5397,"spin_n":1.9206,"decisor":0.4074,"tma":156.7,"tent":605.0,"atend":0.4281},{"c":"KPI08A","dist":"DTIN5","n":67.0,"h":2.9678,"k1":0.157,"k7":0.4798,"prob":0.0597,"ch":0.0746,"dado":0.0597,"conecta":0.1045,"reage":0.1493,"spin_s":2.7841,"spin_p":2.1818,"spin_i":1.5682,"spin_n":2.0682,"decisor":0.5568,"tma":175.1475,"tent":242.0,"atend":0.4008},{"c":"MLI01A","dist":"DTIN3","n":49.0,"h":3.2078,"k1":0.4015,"k7":0.495,"prob":0.2245,"ch":0.2041,"dado":0.1837,"conecta":0.3061,"reage":0.2653,"spin_s":3.1739,"spin_p":3.0652,"spin_i":2.7391,"spin_n":3.0217,"decisor":0.7609,"tma":320.7778,"tent":342.0,"atend":0.2836},{"c":"MLI02A","dist":"DTIN3","n":81.0,"h":4.1883,"k1":0.3603,"k7":0.4199,"prob":0.2469,"ch":0.0617,"dado":0.1235,"conecta":0.0988,"reage":0.2222,"spin_s":2.4019,"spin_p":2.1215,"spin_i":1.5514,"spin_n":2.0187,"decisor":0.5888,"tma":228.4545,"tent":427.0,"atend":0.5878},{"c":"MLI03A","dist":"DTIN3","n":124.0,"h":7.4742,"k1":0.527,"k7":0.3234,"prob":0.2258,"ch":0.1532,"dado":0.1855,"conecta":0.25,"reage":0.2661,"spin_s":3.3187,"spin_p":3.1209,"spin_i":2.4725,"spin_n":2.978,"decisor":0.8791,"tma":295.6813,"tent":386.0,"atend":0.3497},{"c":"MLI08A","dist":"DTIN3","n":67.0,"h":3.9222,"k1":0.4303,"k7":0.5002,"prob":0.194,"ch":0.1343,"dado":0.1642,"conecta":0.2836,"reage":0.2836,"spin_s":3.3065,"spin_p":2.8226,"spin_i":2.0,"spin_n":2.9194,"decisor":0.9032,"tma":261.4815,"tent":277.0,"atend":0.3466},{"c":"MOI01A","dist":"DTIN3","n":60.0,"h":2.71,"k1":0.1975,"k7":0.4531,"prob":0.1333,"ch":0.0333,"dado":0.0833,"conecta":0.0833,"reage":0.15,"spin_s":3.322,"spin_p":2.5932,"spin_i":1.7288,"spin_n":2.6949,"decisor":0.8305,"tma":180.6667,"tent":253.0,"atend":0.3439},{"c":"MOI03A","dist":"DTIN3","n":68.0,"h":2.8731,"k1":0.3936,"k7":0.2925,"prob":0.1765,"ch":0.0441,"dado":0.0735,"conecta":0.1029,"reage":0.1765,"spin_s":3.2917,"spin_p":2.7222,"spin_i":1.7361,"spin_n":2.5,"decisor":0.8056,"tma":166.8226,"tent":325.0,"atend":0.2677},{"c":"NLI01A","dist":"DTIN1","n":49.0,"h":2.9231,"k1":0.3309,"k7":0.4107,"prob":0.1633,"ch":0.0816,"dado":0.1633,"conecta":0.1837,"reage":0.1633,"spin_s":3.5,"spin_p":3.0,"spin_i":2.2955,"spin_n":3.1591,"decisor":0.7045,"tma":256.6585,"tent":232.0,"atend":0.2457},{"c":"NLI02A","dist":"DTIN1","n":72.0,"h":6.3319,"k1":0.4304,"k7":0.4485,"prob":0.2361,"ch":0.1111,"dado":0.1667,"conecta":0.25,"reage":0.2639,"spin_s":3.2879,"spin_p":3.0455,"spin_i":2.5758,"spin_n":3.1212,"decisor":0.8788,"tma":393.0172,"tent":290.0,"atend":0.3345},{"c":"NLI04A","dist":"DTIN1","n":46.0,"h":5.4508,"k1":0.4235,"k7":0.4546,"prob":0.2391,"ch":0.2174,"dado":0.2174,"conecta":0.3478,"reage":0.3696,"spin_s":3.375,"spin_p":3.1667,"spin_i":2.75,"spin_n":3.4792,"decisor":0.7708,"tma":445.9773,"tent":291.0,"atend":0.2577},{"c":"NOR04A","dist":"DTIN5","n":60.0,"h":4.38,"k1":0.4225,"k7":0.5116,"prob":0.1667,"ch":0.0667,"dado":0.15,"conecta":0.2833,"reage":0.2167,"spin_s":3.1702,"spin_p":2.9574,"spin_i":2.5106,"spin_n":3.1702,"decisor":0.8511,"tma":358.3636,"tent":259.0,"atend":0.2471},{"c":"NOR05A","dist":"DTIN5","n":54.0,"h":1.9792,"k1":0.2358,"k7":0.384,"prob":0.1111,"ch":0.0185,"dado":0.0556,"conecta":0.0741,"reage":0.0926,"spin_s":3.1852,"spin_p":2.3148,"spin_i":1.4074,"spin_n":2.5556,"decisor":0.9444,"tma":145.4082,"tent":483.0,"atend":0.1573},{"c":"NSI03A","dist":"DTIN1","n":70.0,"h":3.9133,"k1":0.5579,"k7":0.3098,"prob":0.2143,"ch":0.0714,"dado":0.1,"conecta":0.2429,"reage":0.2714,"spin_s":2.96,"spin_p":2.7733,"spin_i":2.1867,"spin_n":2.6933,"decisor":0.88,"tma":210.2687,"tent":443.0,"atend":0.2483},{"c":"PSI01A","dist":"DTIN2","n":75.0,"h":4.5006,"k1":0.2975,"k7":0.5123,"prob":0.16,"ch":0.12,"dado":0.1867,"conecta":0.2667,"reage":0.2667,"spin_s":3.4286,"spin_p":3.1429,"spin_i":2.5893,"spin_n":3.0357,"decisor":0.7679,"tma":311.5769,"tent":305.0,"atend":0.2689},{"c":"PSI03A","dist":"DTIN2","n":45.0,"h":3.7981,"k1":0.4641,"k7":0.3879,"prob":0.2667,"ch":0.1111,"dado":0.1333,"conecta":0.1778,"reage":0.2,"spin_s":3.3488,"spin_p":3.0233,"spin_i":2.0465,"spin_n":2.9302,"decisor":0.7209,"tma":341.825,"tent":164.0,"atend":0.372},{"c":"PSI07A","dist":"DTIN5","n":77.0,"h":8.4347,"k1":0.5951,"k7":0.2579,"prob":0.2987,"ch":0.1558,"dado":0.2208,"conecta":0.3506,"reage":0.3636,"spin_s":3.3846,"spin_p":3.0,"spin_i":2.4872,"spin_n":3.1923,"decisor":0.8333,"tma":427.6761,"tent":320.0,"atend":0.325},{"c":"PSI10A","dist":"DTIN2","n":102.0,"h":10.3225,"k1":0.6074,"k7":0.3415,"prob":0.3333,"ch":0.1471,"dado":0.2353,"conecta":0.3039,"reage":0.3039,"spin_s":3.2874,"spin_p":3.2759,"spin_i":2.6667,"spin_n":3.1724,"decisor":0.7586,"tma":442.3929,"tent":405.0,"atend":0.3432},{"c":"PSI11A","dist":"DTIN5","n":52.0,"h":4.6564,"k1":0.4751,"k7":0.4119,"prob":0.1923,"ch":0.1923,"dado":0.2692,"conecta":0.25,"reage":0.2692,"spin_s":2.9322,"spin_p":2.4915,"spin_i":1.9831,"spin_n":2.661,"decisor":0.661,"tma":349.2292,"tent":315.0,"atend":0.2952},{"c":"PSI12A","dist":"DTIN5","n":48.0,"h":2.8633,"k1":0.3476,"k7":0.3752,"prob":0.1667,"ch":0.0625,"dado":0.0833,"conecta":0.1458,"reage":0.1875,"spin_s":3.1364,"spin_p":2.5455,"spin_i":1.75,"spin_n":2.8636,"decisor":0.8182,"tma":239.7209,"tent":233.0,"atend":0.3176},{"c":"REI01A","dist":"DTIN3","n":55.0,"h":2.4003,"k1":0.5121,"k7":0.0706,"prob":0.1818,"ch":0.0545,"dado":0.1273,"conecta":0.2182,"reage":0.2909,"spin_s":3.3962,"spin_p":2.9811,"spin_i":1.717,"spin_n":2.8113,"decisor":0.8302,"tma":192.0222,"tent":233.0,"atend":0.3305},{"c":"REI02A","dist":"DTIN3","n":74.0,"h":4.4444,"k1":0.4025,"k7":0.3401,"prob":0.2027,"ch":0.0405,"dado":0.1351,"conecta":0.1757,"reage":0.2568,"spin_s":3.6885,"spin_p":2.9836,"spin_i":2.2295,"spin_n":3.2951,"decisor":0.9344,"tma":266.6667,"tent":363.0,"atend":0.2231},{"c":"RJI01A","dist":"DTIN3","n":82.0,"h":8.145,"k1":0.5883,"k7":0.2331,"prob":0.3415,"ch":0.061,"dado":0.0854,"conecta":0.1951,"reage":0.1585,"spin_s":3.443,"spin_p":3.2152,"spin_i":2.443,"spin_n":3.1392,"decisor":0.7848,"tma":412.9859,"tent":352.0,"atend":0.3381},{"c":"RJI03A","dist":"DTIN3","n":70.0,"h":5.1197,"k1":0.3771,"k7":0.5752,"prob":0.2857,"ch":0.1857,"dado":0.2286,"conecta":0.3286,"reage":0.4,"spin_s":3.0597,"spin_p":3.1343,"spin_i":2.3582,"spin_n":2.8209,"decisor":0.7015,"tma":317.7759,"tent":270.0,"atend":0.4481},{"c":"RJI05A","dist":"DTIN3","n":136.0,"h":10.7992,"k1":0.4967,"k7":0.3575,"prob":0.2647,"ch":0.0809,"dado":0.1471,"conecta":0.2426,"reage":0.25,"spin_s":3.4,"spin_p":3.0357,"spin_i":2.4857,"spin_n":3.1286,"decisor":0.8071,"tma":316.0732,"tent":517.0,"atend":0.3636},{"c":"RSI02A","dist":"DTIN5","n":53.0,"h":5.4347,"k1":0.725,"k7":0.2438,"prob":0.3396,"ch":0.1509,"dado":0.2075,"conecta":0.3208,"reage":0.3774,"spin_s":3.275,"spin_p":3.3,"spin_i":2.775,"spin_n":3.0,"decisor":0.775,"tma":575.4412,"tent":243.0,"atend":0.2798},{"c":"RSI07A","dist":"DTIN5","n":59.0,"h":3.6611,"k1":0.4316,"k7":0.2552,"prob":0.2203,"ch":0.0847,"dado":0.1356,"conecta":0.1695,"reage":0.2373,"spin_s":2.8889,"spin_p":2.3016,"spin_i":1.8571,"spin_n":2.3333,"decisor":0.5238,"tma":235.3571,"tent":237.0,"atend":0.384},{"c":"S1I03A","dist":"DTIN2","n":91.0,"h":7.8253,"k1":0.5046,"k7":0.3704,"prob":0.2308,"ch":0.0659,"dado":0.1099,"conecta":0.2418,"reage":0.3077,"spin_s":3.1176,"spin_p":3.0,"spin_i":2.3647,"spin_n":2.8824,"decisor":0.7176,"tma":391.2639,"tent":351.0,"atend":0.339},{"c":"S1I05A","dist":"DTIN2","n":147.0,"h":12.4964,"k1":0.4678,"k7":0.3469,"prob":0.2313,"ch":0.1429,"dado":0.1905,"conecta":0.2993,"reage":0.3129,"spin_s":2.9574,"spin_p":2.6454,"spin_i":2.2624,"spin_n":2.6525,"decisor":0.695,"tma":343.4122,"tent":446.0,"atend":0.4462},{"c":"S1I06A","dist":"DTIN2","n":61.0,"h":6.5089,"k1":0.4668,"k7":0.4046,"prob":0.2623,"ch":0.1311,"dado":0.1967,"conecta":0.3279,"reage":0.3443,"spin_s":3.1167,"spin_p":3.1167,"spin_i":2.5833,"spin_n":3.1167,"decisor":0.7167,"tma":411.0877,"tent":251.0,"atend":0.3944},{"c":"S2I01A","dist":"DTIN1","n":80.0,"h":3.2864,"k1":0.3579,"k7":0.1658,"prob":0.15,"ch":0.025,"dado":0.05,"conecta":0.1125,"reage":0.1125,"spin_s":3.284,"spin_p":2.6667,"spin_i":1.7531,"spin_n":2.5556,"decisor":0.716,"tma":153.6494,"tent":302.0,"atend":0.3311},{"c":"S2I02A","dist":"DTIN1","n":73.0,"h":4.3478,"k1":0.3088,"k7":0.3911,"prob":0.137,"ch":0.0822,"dado":0.137,"conecta":0.2192,"reage":0.1507,"spin_s":3.5192,"spin_p":2.9038,"spin_i":1.9038,"spin_n":2.8462,"decisor":0.8077,"tma":256.5902,"tent":385.0,"atend":0.2416},{"c":"S2I03A","dist":"DTIN1","n":91.0,"h":6.2239,"k1":0.4048,"k7":0.4609,"prob":0.1648,"ch":0.1319,"dado":0.2088,"conecta":0.3407,"reage":0.3297,"spin_s":3.525,"spin_p":2.875,"spin_i":2.4375,"spin_n":3.25,"decisor":0.8625,"tma":302.7838,"tent":360.0,"atend":0.3278},{"c":"S2I06A","dist":"DTIN1","n":118.0,"h":12.2992,"k1":0.5212,"k7":0.211,"prob":0.2034,"ch":0.1017,"dado":0.161,"conecta":0.2034,"reage":0.178,"spin_s":3.2131,"spin_p":2.5902,"spin_i":2.4098,"spin_n":2.8115,"decisor":0.623,"tma":395.3304,"tent":407.0,"atend":0.5135},{"c":"S3I01A","dist":"DTIN5","n":116.0,"h":8.3956,"k1":0.3953,"k7":0.3821,"prob":0.2672,"ch":0.181,"dado":0.2241,"conecta":0.2845,"reage":0.3276,"spin_s":3.1143,"spin_p":3.0,"spin_i":2.419,"spin_n":3.1143,"decisor":0.8476,"tma":305.2929,"tent":421.0,"atend":0.4014},{"c":"S3I04A","dist":"DTIN1","n":76.0,"h":4.8603,"k1":0.3202,"k7":0.4349,"prob":0.1447,"ch":0.1053,"dado":0.1711,"conecta":0.2237,"reage":0.1974,"spin_s":3.4177,"spin_p":2.8987,"spin_i":2.1392,"spin_n":2.8481,"decisor":0.7848,"tma":243.0139,"tent":356.0,"atend":0.2893},{"c":"SPI01A","dist":"DTIN4","n":77.0,"h":4.4878,"k1":0.3578,"k7":0.3716,"prob":0.1688,"ch":0.1429,"dado":0.1818,"conecta":0.2468,"reage":0.2857,"spin_s":3.0964,"spin_p":2.5301,"spin_i":2.0482,"spin_n":2.6506,"decisor":0.6627,"tma":212.5789,"tent":262.0,"atend":0.4809},{"c":"SPI03A","dist":"DTIN4","n":124.0,"h":4.6519,"k1":0.1781,"k7":0.2417,"prob":0.0887,"ch":0.0081,"dado":0.0484,"conecta":0.0726,"reage":0.129,"spin_s":2.9562,"spin_p":2.1971,"spin_i":1.562,"spin_n":2.1825,"decisor":0.5766,"tma":145.6261,"tent":570.0,"atend":0.3333},{"c":"SPI05A","dist":"DTIN4","n":79.0,"h":3.3244,"k1":0.3084,"k7":0.4371,"prob":0.1646,"ch":0.0633,"dado":0.0759,"conecta":0.2025,"reage":0.2405,"spin_s":3.0759,"spin_p":2.3924,"spin_i":1.9241,"spin_n":2.5823,"decisor":0.7595,"tma":184.1231,"tent":259.0,"atend":0.4363},{"c":"SPI06A","dist":"DTIN2","n":96.0,"h":4.1731,"k1":0.3232,"k7":0.3703,"prob":0.1042,"ch":0.0938,"dado":0.1042,"conecta":0.1354,"reage":0.125,"spin_s":3.1649,"spin_p":2.3505,"spin_i":1.567,"spin_n":2.6186,"decisor":0.8247,"tma":181.0,"tent":496.0,"atend":0.254}],"mediana_carteira":{"n":73.5,"h":4.4122,"k1":0.3945,"k7":0.3734,"prob":0.1791,"ch":0.0819,"dado":0.1354,"conecta":0.2081,"reage":0.2409,"spin_s":3.1676,"spin_p":2.7478,"spin_i":2.0474,"spin_n":2.8162,"decisor":0.7644,"tma":258.615,"tent":317.5,"atend":0.3385},"distritais":[{"d":"DTIN1","n":749,"k1":0.4293,"prob":0.1816},{"d":"DTIN2","n":870,"k1":0.4685,"prob":0.2299},{"d":"DTIN3","n":930,"k1":0.4564,"prob":0.228},{"d":"DTIN4","n":843,"k1":0.3117,"prob":0.1139},{"d":"DTIN5","n":682,"k1":0.4491,"prob":0.1965}],"clientes":{"total":12206,"curva":[{"pct_clientes":1,"pct_tempo":0.2007},{"pct_clientes":2,"pct_tempo":0.3115},{"pct_clientes":5,"pct_tempo":0.517},{"pct_clientes":10,"pct_tempo":0.7065},{"pct_clientes":20,"pct_tempo":0.8948},{"pct_clientes":50,"pct_tempo":1.0},{"pct_clientes":100,"pct_tempo":1.0}],"top10":[{"rank":1,"h":1.1,"pct":0.0035,"ligacoes":3,"problemas":0},{"rank":2,"h":1.1,"pct":0.0035,"ligacoes":5,"problemas":0},{"rank":3,"h":1.0,"pct":0.0032,"ligacoes":1,"problemas":0},{"rank":4,"h":1.0,"pct":0.0032,"ligacoes":2,"problemas":0},{"rank":5,"h":1.0,"pct":0.0032,"ligacoes":4,"problemas":1},{"rank":6,"h":1.0,"pct":0.0031,"ligacoes":5,"problemas":0},{"rank":7,"h":0.9,"pct":0.0028,"ligacoes":13,"problemas":3},{"rank":8,"h":0.9,"pct":0.0028,"ligacoes":8,"problemas":0},{"rank":9,"h":0.8,"pct":0.0026,"ligacoes":3,"problemas":0},{"rank":10,"h":0.8,"pct":0.0026,"ligacoes":3,"problemas":3}]},"faixas":[{"faixa":"< 2 min","n":135,"k":10,"taxa":0.0741,"lo":0.0407,"hi":0.131,"h":3.5,"fph":2.87},{"faixa":"2–5 min","n":472,"k":23,"taxa":0.0487,"lo":0.0327,"hi":0.0721,"h":26.4,"fph":0.87},{"faixa":"5–8 min","n":237,"k":29,"taxa":0.1224,"lo":0.0866,"hi":0.1702,"h":24.9,"fph":1.16},{"faixa":"8–12 min","n":142,"k":27,"taxa":0.1901,"lo":0.1341,"hi":0.2625,"h":23.1,"fph":1.17},{"faixa":"> 12 min","n":153,"k":49,"taxa":0.3203,"lo":0.2515,"hi":0.3978,"h":48.9,"fph":1.0}],"status":{"Sem Sucesso":10935,"Completed":6496,"Open":1647},"recontato":{"clientes":11855,"nunca":6622,"uma_tentativa":4766,"uma_ate_23_09":2985,"cadencia":{"1":0.365,"2":0.3052,"3":0.3354,"4":0.328}},"hora":[{"h":8,"n":605,"atend":0.3091},{"h":9,"n":2068,"atend":0.3254},{"h":10,"n":2680,"atend":0.3403},{"h":11,"n":2315,"atend":0.3654},{"h":12,"n":584,"atend":0.3664},{"h":13,"n":606,"atend":0.302},{"h":14,"n":2603,"atend":0.3219},{"h":15,"n":3144,"atend":0.34},{"h":16,"n":2041,"atend":0.3376},{"h":17,"n":2152,"atend":0.3606},{"h":18,"n":267,"atend":0.4045}],"capacidade_dow":[{"dow":0,"tent":16.7,"atend":5.5},{"dow":1,"tent":14.0,"atend":4.9},{"dow":2,"tent":14.7,"atend":5.2},{"dow":3,"tent":15.6,"atend":5.2},{"dow":4,"tent":11.9,"atend":3.9}],"retorno":{"devidos":1634,"no_prazo":0.2711,"por_urgencia":[{"u":"1–3","n":31,"taxa":0.2258},{"u":"4–6","n":744,"taxa":0.2608},{"u":"7–10","n":859,"taxa":0.2817}]},"competencias":{"ch_completo":0.0906,"dado":0.14,"conecta":0.2013,"reage":0.2208,"spin":{"Situação":{"media":3.09,"nota1":0.0396},"Problema":{"media":2.59,"nota1":0.2723},"Implicação":{"media":2.01,"nota1":0.5072},"Necessidade":{"media":2.65,"nota1":0.2104}},"decisor":0.7155},"qualidade":{"colunas":{"usar":46,"ressalva":34,"nao_usar":8},"sentinelas":[{"campo":"volume_aluguel_concorrencia","pct":0.992},{"campo":"volume_frota_propria","pct":0.952},{"campo":"aluguel_concorrencia","pct":0.868},{"campo":"frota_propria","pct":0.861},{"campo":"spin_implicacao","pct":0.332},{"campo":"data_sugerida_nova_visita","pct":0.224},{"campo":"motivo_nova_visita","pct":0.213}],"m_code":{"detratora_sem_analise":657,"detratora_total":2511,"chave_31_08":934,"completed_sem_gpt":2016}}};
+</script>
+<script>
+/* ---------- utilidades ---------- */
+const $ = (s, r=document) => r.querySelector(s);
+const NS = 'http://www.w3.org/2000/svg';
+const pct = (x, d=1) => x==null ? '–' : (x*100).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%';
+const num = (x, d=0) => x==null ? '–' : x.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pp = (x) => (x>=0?'+':'−')+Math.abs(x*100).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+' p.p.';
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const dshort = s => { const [y,m,d]=s.split('-'); return d+'/'+m; };
+const sem = s => { const [a,b]=s.split('/'); return dshort(a)+'–'+dshort(b); };
+function h(tag, attrs={}, kids=[]) {
+  const e = document.createElement(tag);
+  for (const [k,v] of Object.entries(attrs)) { if (k==='html') e.innerHTML=v; else if (k==='class') e.className=v; else if (k.startsWith('on')) e.addEventListener(k.slice(2),v); else e.setAttribute(k,v); }
+  (Array.isArray(kids)?kids:[kids]).forEach(c => c!=null && e.append(c.nodeType?c:document.createTextNode(c)));
+  return e;
+}
+function s(tag, attrs={}, kids=[]) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k,v);
+  (Array.isArray(kids)?kids:[kids]).forEach(c => c!=null && e.append(c.nodeType?c:document.createTextNode(c)));
+  return e;
+}
+const tip = $('#tip');
+function showTip(ev, html) { tip.innerHTML = html; tip.style.display='block'; const w=tip.offsetWidth; let x=ev.clientX+14, y=ev.clientY+14; if (x+w>innerWidth-8) x=ev.clientX-w-14; tip.style.left=x+'px'; tip.style.top=y+'px'; }
+function hideTip(){ tip.style.display='none'; }
+function mount(host, draw) { // redesenha no tamanho real do contêiner
+  const run = () => { host.replaceChildren(); const w = Math.max(220, Math.floor(host.clientWidth)); draw(w); };
+  run(); new ResizeObserver(() => { if (Math.abs(host.__w - host.clientWidth) > 2) { host.__w = host.clientWidth; run(); } }).observe(host); host.__w = host.clientWidth;
+  window.addEventListener('themechange', run);
+}
+function niceMax(v, steps=4) { const raw=v/steps; const p=Math.pow(10,Math.floor(Math.log10(raw))); const f=raw/p; const n=f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10; return n*p*steps; }
+const COL = () => ({s1:css('--s1'), s2:css('--s2'), grid:css('--grid'), axis:css('--axis'), surface:css('--surface'), ink:css('--ink')});
+
+/* ---------- gráficos ---------- */
+function lineChart(host, {labels, series, yFmt=pct, yMax, yMin=0, height=220, refLines=[], ariaLabel, ticks=4}) {
+  mount(host, W => {
+    const c = COL(), m = {l:44,r:18,t:12,b:26}, H = height, iw = W-m.l-m.r, ih = H-m.t-m.b;
+    const all = series.flatMap(x=>x.data).filter(v=>v!=null);
+    const ymax = yMax ?? niceMax(Math.max(...all, ...refLines.map(r=>r.y)));
+    const X = i => m.l + (labels.length===1?iw/2: i*iw/(labels.length-1)), Y = v => m.t + ih - (v-yMin)/(ymax-yMin)*ih;
+    const svg = s('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':ariaLabel||'Gráfico de linhas'});
+    for (let k=0;k<=ticks;k++){ const v=yMin+(ymax-yMin)*k/ticks, y=Y(v); svg.append(s('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,class:k===0?'axis':'grid'})); svg.append(s('text',{x:m.l-6,y:y+4,'text-anchor':'end'},yFmt(v,0))); }
+    const step = Math.ceil(labels.length/ (W<480?5:8));
+    labels.forEach((t,i)=>{ if(i%step===0) svg.append(s('text',{x:X(i),y:H-6,'text-anchor':'middle'},t)); });
+    refLines.forEach(r=>{ const y=Y(r.y); svg.append(s('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,stroke:r.color||c.axis,'stroke-width':1.5,'stroke-dasharray':'0'})); svg.append(s('text',{x:W-m.r,y:y-5,'text-anchor':'end',class:'t-ink'},r.label)); });
+    series.forEach(sr=>{
+      let d='', open=false, last=null;
+      sr.data.forEach((v,i)=>{ if(v==null){open=false;return;} d+=(open?'L':'M')+X(i)+' '+Y(v); open=true; last=i; });
+      svg.append(s('path',{d,fill:'none',stroke:sr.color,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+      if(last!=null){ svg.append(s('circle',{cx:X(last),cy:Y(sr.data[last]),r:4,fill:sr.color,stroke:c.surface,'stroke-width':2})); }
+    });
+    const cross = s('line',{y1:m.t,y2:m.t+ih,stroke:c.axis,'stroke-width':1,visibility:'hidden'}); svg.append(cross);
+    const hit = s('rect',{x:m.l,y:m.t,width:iw,height:ih,fill:'transparent'});
+    const move = ev => { const r=svg.getBoundingClientRect(); const px=(ev.clientX-r.left)*(W/r.width); const i=Math.max(0,Math.min(labels.length-1,Math.round((px-m.l)/iw*(labels.length-1)))); cross.setAttribute('x1',X(i)); cross.setAttribute('x2',X(i)); cross.setAttribute('visibility','visible');
+      showTip(ev, `<b>${labels[i]}</b><br>`+series.map(sr=>`${sr.name}: ${sr.data[i]==null?'sem dado':yFmt(sr.data[i],1)}`).join('<br>')); };
+    hit.addEventListener('pointermove',move); hit.addEventListener('pointerleave',()=>{hideTip();cross.setAttribute('visibility','hidden');});
+    svg.append(hit); host.append(svg);
+  });
+}
+function colChart(host, {items, valueKey='v', fmt=pct, color, height=190, yMax, whisker, ariaLabel, labelEvery=true, highlight, tipFn, ticks=4}) {
+  mount(host, W => {
+    const c=COL(), m={l:40,r:10,t:16,b:30}, H=height, iw=W-m.l-m.r, ih=H-m.t-m.b;
+    const vals=items.map(i=>i[valueKey]), hi=whisker?items.map(i=>i.hi):[];
+    const ymax=yMax ?? niceMax(Math.max(...vals,...hi)*1.05);
+    const Y=v=>m.t+ih-v/ymax*ih, band=iw/items.length, bw=Math.min(24,band*0.62);
+    const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':ariaLabel||'Gráfico de colunas'});
+    for(let k=0;k<=ticks;k++){const v=ymax*k/ticks,y=Y(v);svg.append(s('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,class:k===0?'axis':'grid'}));svg.append(s('text',{x:m.l-6,y:y+4,'text-anchor':'end'},fmt(v,0)));}
+    items.forEach((it,i)=>{
+      const cx=m.l+band*(i+.5), v=it[valueKey], y=Y(v), fill=(it.color)||(highlight&&highlight(it)?c.s2:(color||c.s1));
+      const r=Math.min(4,bw/2), x=cx-bw/2, top=y, bot=Y(0);
+      if (bot-top>0.5) svg.append(s('path',{d:`M${x} ${bot}V${top+r}Q${x} ${top} ${x+r} ${top}H${x+bw-r}Q${x+bw} ${top} ${x+bw} ${top+r}V${bot}Z`,fill}));
+      if(whisker){ const yl=Y(it.lo), yh=Y(it.hi); svg.append(s('line',{x1:cx,x2:cx,y1:yl,y2:yh,stroke:c.ink,'stroke-width':1.5})); svg.append(s('line',{x1:cx-4,x2:cx+4,y1:yl,y2:yl,stroke:c.ink,'stroke-width':1.5})); svg.append(s('line',{x1:cx-4,x2:cx+4,y1:yh,y2:yh,stroke:c.ink,'stroke-width':1.5})); }
+      if(band>=34||it.color||(highlight&&highlight(it))) svg.append(s('text',{x:cx,y:(whisker?Y(it.hi):y)-5,'text-anchor':'middle',class:'t-ink'},fmt(v,1)));
+      if(labelEvery&&(band>=30||i%2===0)) svg.append(s('text',{x:cx,y:H-10,'text-anchor':'middle'},it.label));
+      const hit=s('rect',{x:cx-band/2,y:m.t,width:band,height:ih+m.b-8,fill:'transparent'});
+      hit.addEventListener('pointermove',ev=>showTip(ev,tipFn?tipFn(it):`<b>${it.label}</b><br>${fmt(v,1)}`)); hit.addEventListener('pointerleave',hideTip); svg.append(hit);
+    });
+    host.append(svg);
+  });
+}
+function groupChart(host, {groups, fmt=pct, yMax, ticks=4, height=230, ariaLabel}) { // colunas agrupadas (2 séries)
+  mount(host, W => {
+    const c=COL(), m={l:40,r:10,t:18,b:30}, H=height, iw=W-m.l-m.r, ih=H-m.t-m.b, Y=v=>m.t+ih-v/yMax*ih, band=iw/groups.length;
+    const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':ariaLabel||'Colunas agrupadas'});
+    for(let k=0;k<=ticks;k++){const v=yMax*k/ticks,y=Y(v);svg.append(s('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,class:k===0?'axis':'grid'}));svg.append(s('text',{x:m.l-6,y:y+4,'text-anchor':'end'},fmt(v,0)));}
+    groups.forEach((g,i)=>{ const n=g.vals.length, bw=Math.min(24,band*0.7/n), gap=2, tw=n*bw+(n-1)*gap, x0=m.l+band*(i+.5)-tw/2;
+      g.vals.forEach((it,j)=>{ const x=x0+j*(bw+gap), y=Y(it.v), r=Math.min(4,bw/2), bot=Y(0);
+        svg.append(s('path',{d:`M${x} ${bot}V${y+r}Q${x} ${y} ${x+r} ${y}H${x+bw-r}Q${x+bw} ${y} ${x+bw} ${y+r}V${bot}Z`,fill:it.color}));
+        svg.append(s('text',{x:x+bw/2,y:y-5,'text-anchor':'middle',class:'t-ink'},fmt(it.v,0))); });
+      svg.append(s('text',{x:m.l+band*(i+.5),y:H-10,'text-anchor':'middle'},g.label));
+      const hit=s('rect',{x:m.l+band*i,y:m.t,width:band,height:ih+m.b-8,fill:'transparent'}); hit.addEventListener('pointermove',ev=>showTip(ev,`<b>${g.label}</b><br>`+g.vals.map(v=>`${v.name}: ${fmt(v.v,1)}`).join('<br>'))); hit.addEventListener('pointerleave',hideTip); svg.append(hit); });
+    host.append(svg);
+  });
+}
+function hbars(host, {items, fmt=pct, color, rowH=26, max, ariaLabel, labelW=150, valueLabel}) {
+  mount(host, W => {
+    const c=COL(), lw=Math.min(labelW,W*0.38), m={l:lw,r:64,t:4,b:4}, H=items.length*rowH+m.t+m.b, iw=W-m.l-m.r;
+    const mx=max ?? Math.max(...items.map(i=>i.v)); const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':ariaLabel||'Gráfico de barras'});
+    items.forEach((it,i)=>{ const y=m.t+i*rowH, bw=Math.max(1,it.v/mx*iw), bh=14;
+      svg.append(s('text',{x:lw-8,y:y+rowH/2+4,'text-anchor':'end',class:'t-ink'},it.label));
+      svg.append(s('path',{d:`M${m.l} ${y+(rowH-bh)/2}H${m.l+bw-4}Q${m.l+bw} ${y+(rowH-bh)/2} ${m.l+bw} ${y+(rowH-bh)/2+4}V${y+(rowH+bh)/2-4}Q${m.l+bw} ${y+(rowH+bh)/2} ${m.l+bw-4} ${y+(rowH+bh)/2}H${m.l}Z`,fill:it.color||color||c.s1}));
+      svg.append(s('text',{x:m.l+bw+6,y:y+rowH/2+4,class:'t-ink'},valueLabel?valueLabel(it):fmt(it.v,1)));
+      const hit=s('rect',{x:0,y,width:W,height:rowH,fill:'transparent'}); hit.addEventListener('pointermove',ev=>showTip(ev,it.tip||`<b>${it.label}</b><br>${fmt(it.v,1)}`)); hit.addEventListener('pointerleave',hideTip); svg.append(hit);
+    });
+    host.append(svg);
+  });
+}
+function stacked(host, {parts, fmt=pct, ariaLabel, height=44}) { // barra horizontal empilhada com 2px de vão
+  mount(host, W => {
+    const c=COL(); const svg=s('svg',{viewBox:`0 0 ${W} ${height+22}`,role:'img','aria-label':ariaLabel||'Barra empilhada'});
+    const tot=parts.reduce((a,p)=>a+p.v,0); let x=0;
+    parts.forEach(p=>{ const w=p.v/tot*W; const bw=Math.max(0,w-2);
+      svg.append(s('rect',{x,y:0,width:bw,height,rx:3,fill:p.color}));
+      const label=fmt(p.v,1);
+      if(bw>58) svg.append(s('text',{x:x+8,y:height/2+4,fill:p.text||'#fff',style:'fill:'+(p.text||'#fff')+';font-weight:600'},label));
+      const hit=s('rect',{x,y:0,width:w,height,fill:'transparent'}); hit.addEventListener('pointermove',ev=>showTip(ev,`<b>${p.label}</b><br>${label}`)); hit.addEventListener('pointerleave',hideTip); svg.append(hit);
+      x+=w; });
+    host.append(svg);
+  });
+}
+function legend(items){ return h('div',{class:'legend'},items.map(i=>h('span',{},[h('i',{style:`background:${i.color}`}),i.label]))); }
+function spark(vals, color) { const W=120,H=28; const v=vals.filter(x=>x!=null); if(!v.length) return h('span'); const mn=Math.min(...v), mx=Math.max(...v), r=(mx-mn)||1;
+  const X=i=>2+i*(W-8)/(vals.length-1), Y=x=>H-3-(x-mn)/r*(H-8); let d='',open=false,last=0; vals.forEach((x,i)=>{ if(x==null){open=false;return;} d+=(open?'L':'M')+X(i)+' '+Y(x); open=true; last=i; });
+  const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,style:'width:120px;height:28px',role:'img','aria-label':'Tendência dos últimos dias'}); svg.append(s('path',{d,fill:'none',stroke:'var(--muted)','stroke-width':1.5})); svg.append(s('circle',{cx:X(last),cy:Y(vals[last]),r:3.5,fill:color,stroke:'var(--surface)','stroke-width':2})); return svg; }
+function sev(level, title, text) {
+  const map={crit:['var(--crit)','Crítico','M9 1.5 17 16H1Z M9 6.5v5 M9 13.2v.1'],warn:['var(--warn)','Atenção','M9 1.5 17 16H1Z M9 6.5v5 M9 13.2v.1'],ok:['var(--good)','Ok','M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1Z M5.5 9.2l2.5 2.5 4.5-5'],info:['var(--s1)','Info','M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1Z M9 8v5 M9 5.2v.1']}[level];
+  const ic=s('svg',{viewBox:'0 0 18 18',class:'ico','aria-hidden':'true'}); ic.append(s('path',{d:map[2],fill:level==='ok'||level==='info'?'none':'none',stroke:map[0],'stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round'}));
+  return h('div',{class:'sev'},[ic,h('div',{},[h('b',{},map[1]+': '+title),h('div',{class:'sub'},text)])]);
+}
+function card(cls, title, sub, body, rows) { // rows = {head:[...], body:[[...]]} habilita a visão em tabela
+  const c=h('div',{class:'card '+cls}); const head=h('div',{class:'head'},[h('div',{},[h('h3',{},title),sub?h('p',{class:'csub'},sub):null])]);
+  const view=h('div',{}); view.append(body); let showT=false;
+  if(rows){ const t=h('div',{class:'scroll',hidden:''}); const tb=h('table',{},[h('thead',{},h('tr',{},rows.head.map((x,i)=>h('th',{class:i?'n':''},x)))),h('tbody',{},rows.body.map(r=>h('tr',{},r.map((x,i)=>h('td',{class:i?'n':''},x)))))]); t.append(tb);
+    const b=h('button',{class:'tbtn','aria-pressed':'false',onclick:()=>{showT=!showT; body.hidden=showT; t.hidden=!showT; b.textContent=showT?'Gráfico':'Tabela'; b.setAttribute('aria-pressed',showT);}},'Tabela'); head.append(b); view.append(t); }
+  c.append(head,view); return c;
+}
+function tile(cls, label, value, delta, vals, color, sub) { const t=h('div',{class:'card tile '+cls},[h('div',{class:'lab'},label),h('div',{class:'val'},value),delta?h('div',{class:'delta'},delta):null,vals?spark(vals,color):null,sub?h('div',{class:'delta'},sub):null]); return t; }
+function annotation(o) { return h('aside',{},h('div',{class:'note'},[h('h4',{},'Anotações do wireframe'),h('dl',{},[
+  h('dt',{},'Decisão que habilita'),h('dd',{},o.decisao),h('dt',{},'Quem usa'),h('dd',{},o.quem),h('dt',{},'Medidas'),h('dd',{},o.medidas),h('dt',{},'Colunas do CSV'),h('dd',{},o.colunas),h('dt',{},'Ressalva'),h('dd',{},o.ressalva)])])); }
+
+/* ---------- estado e dados derivados ---------- */
+const reg = {v:'both'};
+const dias = D.diario, comD = dias.filter(d=>d.k1_gpt!=null);
+const lastD = comD[comD.length-1];
+const w7 = comD.slice(-7);
+const mean = a => a.reduce((x,y)=>x+y,0)/a.length;
+const labelsAll = dias.map(d=>dshort(d.d)), labelsDur = comD.map(d=>dshort(d.d));
+function regSeries(gptKey, gemKey, data) { const out=[]; if(reg.v!=='gem') out.push({name:'GPT',color:css('--s1'),data:data.map(d=>d[gptKey]),key:gptKey}); if(reg.v!=='gpt') out.push({name:'Gemini (Suporte)',color:css('--s2'),data:data.map(d=>d[gemKey]),key:gemKey}); return out; }
+const P = {}; // páginas
+const pages = [
+  ['dia','Dia'],['semana','Semana'],['mes','Mês'],['problemas','Problemas'],['carteiras','Carteiras'],['tempo','Tempo e ritmo'],['comp','Competências'],['qualidade','Qualidade do dado']];
+
+/* ---------- página: Dia ---------- */
+P.dia = () => {
+  const root=h('div'); const g=h('div',{class:'grid'});
+  const k1=w7.map(d=>d.k1_gpt), k1m=comD.slice(-15).map(d=>d.k1_gpt);
+  g.append(tile('c3','Carga operacional · GPT',pct(lastD.k1_gpt),`vs média 7d ${pct(mean(w7.map(d=>d.k1_gpt)))}`,comD.slice(-15).map(d=>d.k1_gpt),css('--s1'),`Dia ${dshort(lastD.d)}`));
+  g.append(tile('c3','Carga operacional · Gemini',pct(lastD.k1_gem),`vs média 7d ${pct(mean(w7.map(d=>d.k1_gem)))}`,comD.slice(-15).map(d=>d.k1_gem),css('--s2'),'Categoria Suporte'));
+  g.append(tile('c3','Tempo de negociação',pct(lastD.k7),`vs média 7d ${pct(mean(w7.map(d=>d.k7)))}`,comD.slice(-15).map(d=>d.k7),css('--s1'),'Nova venda, upsell, renovação, retenção, misto'));
+  g.append(tile('c3','Pendências geradas',num(lastD.pend),`média 7d ${num(mean(w7.map(d=>d.pend)),0)}/dia`,comD.slice(-15).map(d=>d.pend),css('--s1'),'Problema não resolvido na ligação'));
+  const ch=h('div'); const body=h('div'); body.append(legend([]));
+  const lg=h('div'); const draw=()=>{ lg.replaceChildren(legend(regSeries('k1_gpt','k1_gem',comD).map(x=>({label:x.name,color:x.color})))); };
+  draw(); const chart=h('div'); body.replaceChildren(lg,chart);
+  lineChart(chart,{labels:labelsDur,series:regSeries('k1_gpt','k1_gem',comD),yMax:0.7,ticks:7,ariaLabel:'Carga operacional por dia nas duas réguas'});
+  P.dia.redraw=()=>{ draw(); chart.replaceChildren(); lineChart(chart,{labels:labelsDur,series:regSeries('k1_gpt','k1_gem',comD),yMax:0.7,ticks:7,ariaLabel:'Carga operacional por dia nas duas réguas'}); };
+  g.append(card('c8','Carga operacional por dia','% do tempo de ligação em carga operacional, 01–22/09. A régua escolhida no filtro aparece aqui.',body,{head:['Dia','GPT','Gemini'],body:comD.map(d=>[dshort(d.d),pct(d.k1_gpt),pct(d.k1_gem)])}));
+  const wm=(a,b)=>{const x=dias.filter(d=>d.d>=a&&d.d<=b&&d.prob!=null);return x.reduce((s,d)=>s+d.prob*d.gpt,0)/x.reduce((s,d)=>s+d.gpt,0);};
+  const mBefore=wm('2026-09-02','2026-09-14'), mAfter=wm('2026-09-15','2026-09-22');
+  const p1=comD.map(d=>d.p1), mu=mean(p1), sd=Math.sqrt(mean(p1.map(x=>(x-mu)**2))); const hi=comD.filter(d=>d.p1>mu+2*sd);
+  const al=h('div',{});
+  al.append(sev('crit','Duração ausente',`0% das ligações concluídas têm duração de 23/09 a 30/09 (${dias.filter(d=>d.d>'2026-09-22'&&d.comp>0).length} dias úteis). A carga só é calculada até 22/09.`));
+  al.append(sev('warn','Régua GPT mudou de nível',`Taxa de problema ${pct(mBefore)} (02–14/09) → ${pct(mAfter)} (15–22/09). A tendência do GPT não é confiável até o baseline.`));
+  al.append(sev('warn','Sem classificação GPT',`0 ligações classificadas em 28–30/09; 24/09 parcial (${dias.find(d=>d.d==='2026-09-24').gpt} de ${dias.find(d=>d.d==='2026-09-24').comp} concluídas).`));
+  al.append(hi.length?sev('info','Pico de P1',`P1 acima de média + 2 desvios em ${hi.map(d=>dshort(d.d)).join(', ')} (${pct(hi[0].p1)} vs média ${pct(mu)}).`):sev('ok','P1 dentro do esperado','Nenhum dia acima de média + 2 desvios.'));
+  g.append(card('c4','Alertas do dia','Limites por desvio, não por variação de um dia só.',al));
+  g.append(tile('c3','Cobertura de duração (C2)',pct(lastD.c2,0),'Completed com duração, no dia',dias.map(d=>d.c2),css('--s1'),'Cai para 0% após 22/09'));
+  g.append(tile('c3','Cobertura de classificação (C1)',pct(lastD.c1,0),'Completed classificadas, no dia',dias.map(d=>d.c1),css('--s1'),'Meta ≥ 95%'));
+  g.append(tile('c3','Taxa de problema (K6)',pct(lastD.prob),`média 7d ${pct(mean(w7.map(d=>d.prob)))}`,comD.slice(-15).map(d=>d.prob),css('--s1'),'Instável: ver Qualidade do dado'));
+  g.append(tile('c3','Horas de conversa no dia',num(lastD.horas,1)+' h',`${num(lastD.gpt)} ligações classificadas`,comD.slice(-15).map(d=>d.horas),css('--s1'),'Base da carga do dia'));
+  root.append(g); return root; };
+/* ---------- página: Semana ---------- */
+P.semana = () => {
+  const root=h('div'), g=h('div',{class:'grid'}); const S=D.semanal;
+  const lg=h('div'), chart=h('div');
+  const draw=()=>{ lg.replaceChildren(legend([...(reg.v!=='gem'?[{label:'GPT',color:css('--s1')}]:[]),...(reg.v!=='gpt'?[{label:'Gemini (Suporte)',color:css('--s2')}]:[])]));
+    chart.replaceChildren(); const groups=S.map(x=>({label:sem(x.sem),vals:[...(reg.v!=='gem'?[{name:'GPT',v:x.k1_gpt,color:css('--s1')}]:[]),...(reg.v!=='gpt'?[{name:'Gemini',v:x.k1_gem,color:css('--s2')}]:[])]}));
+    groupChart(chart,{groups,yMax:0.7,ticks:7,height:230,ariaLabel:'Carga operacional por semana nas duas réguas'}); };
+  P.semana.redraw=draw; draw();
+  const body=h('div',{},[lg,chart]);
+  g.append(card('c7','Carga operacional por semana','Semana de segunda a sexta; a última tem só 2 dias úteis com duração.',body,{head:['Semana','GPT','Gemini','Horas (GPT)','Dias'],body:S.map(x=>[sem(x.sem),pct(x.k1_gpt),pct(x.k1_gem),num(x.h,1),x.dias])}));
+  const al=h('div');
+  S.forEach((x,i)=>{ if(i===0) return; const p=S[i-1]; al.append(h('div',{class:'sev'},[h('div',{},[h('b',{},sem(x.sem)),h('div',{class:'sub'},`GPT ${pp(x.k1_gpt-p.k1_gpt)} · Gemini ${pp(x.k1_gem-p.k1_gem)} vs semana anterior`)])])); });
+  g.append(card('c5','Variação semanal','Em pontos percentuais. As duas réguas apontam para lados opostos.',al));
+  const rows=S.map(x=>[sem(x.sem),pct(x.k1_gpt),pct(x.k7),num(x.pend),pct(x.prob),num(x.h,1)+' h']);
+  const t=h('div',{class:'scroll'},h('table',{},[h('thead',{},h('tr',{},['Semana','Carga (GPT)','Negociação (K7)','Pendências (K2)','Problema (K6)','Horas'].map((x,i)=>h('th',{class:i?'n':''},x)))),h('tbody',{},rows.map(r=>h('tr',{},r.map((x,i)=>h('td',{class:i?'n':''},x)))))]));
+  g.append(card('c12','Indicadores da semana','K1, K7, K2 e K6 com a mesma definição das visões diária e mensal.',t));
+  root.append(g); return root; };
+/* ---------- página: Mês ---------- */
+P.mes = () => {
+  const root=h('div'), g=h('div',{class:'grid'}), M=D.mensal;
+  const base=M.operacional, meta=base-0.05, piloto=base-0.10;
+  const hero=h('div',{class:'card c5'},[h('h3',{},'Carga operacional · setembro'),h('p',{class:'csub'},'01–22/09, ligações classificadas com duração'),h('div',{class:'hero'},pct(base)),
+    h('div',{class:'delta sub'},`Baseline provisório (GPT). Gemini: ${pct(M.gem.Suporte)}.`)]);
+  const track=h('div',{style:'margin-top:16px'}); mount(track,W=>{ const c=COL(),H=62,m={l:8,r:8}; const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Baseline, meta geral e meta do piloto'});
+    const X=v=>m.l+(v-0.30)/(0.50-0.30)*(W-m.l-m.r); svg.append(s('rect',{x:m.l,y:24,width:W-m.l-m.r,height:10,rx:5,fill:'var(--grid)'}));
+    svg.append(s('rect',{x:X(piloto),y:24,width:X(base)-X(piloto),height:10,rx:5,fill:'var(--track)'}));
+    [[base,'Base',c.ink],[meta,'Meta',c.s1],[piloto,'Piloto',c.s1]].forEach(([v,l,col],i)=>{ svg.append(s('circle',{cx:X(v),cy:29,r:6,fill:col,stroke:c.surface,'stroke-width':2})); svg.append(s('text',{x:X(v),y:16,'text-anchor':'middle',class:'t-ink'},l)); svg.append(s('text',{x:X(v),y:52,'text-anchor':'middle',class:'t-ink'},pct(v))); });
+    track.append(svg); });
+  hero.append(track);
+  g.append(hero);
+  g.append(tile('c3','Tempo de negociação',pct(M.negociacao),'35,1% do tempo; relacionamento sem demanda '+pct(M.relacionamento),null,null,'Meta a calibrar em 09/10'));
+  g.append(tile('c4','Horas excedentes por problema','≈ 37 h',`TMA ${num(M.tma_prob)} s vs ${num(M.tma_sem)} s (1,9×)`,null,null,'≈ 50–60 h/mês'));
+  const sbody=h('div'); const parts=[{label:'Negociação',v:M.negociacao,color:css('--s1')},{label:'Carga operacional · com problema',v:M.com_problema,color:css('--s2'),text:'#0b0b0b'},{label:'Carga operacional · sem problema',v:M.operacional-M.com_problema,color:'#f2a183',text:'#0b0b0b'},{label:'Relacionamento sem demanda',v:M.relacionamento,color:'#86b6ef',text:'#0b0b0b'},{label:'Sem conteúdo',v:M.sem_conteudo,color:'#c3c2b7',text:'#0b0b0b'}];
+  sbody.append(legend(parts.map(p=>({label:p.label+' '+pct(p.v),color:p.color})))); const sb=h('div'); stacked(sb,{parts,ariaLabel:'Alocação do tempo de ligação'}); sbody.append(sb);
+  g.append(card('c12','Para onde vai o tempo do vendedor ao telefone','265,9 h de conversa em 15 dias úteis. Só 35% é negociação.',sbody,{head:['Grupo','% do tempo'],body:parts.map(p=>[p.label,pct(p.v)])}));
+  const sim=h('div',{},[h('div',{class:'lab sub'},'Simulador de capacidade'),h('div',{class:'sub'},'Se P1 (acesso/sistema, 29,4 h em 15 dias úteis) cair:'),(()=>{const w=h('div',{style:'display:flex;gap:10px;align-items:center;margin:8px 0'});const r=h('input',{type:'range',min:'0',max:'60',value:'30',id:'simr','aria-label':'Redução de P1 em porcentagem'});const o=h('b',{id:'simo'},'');w.append(r,o);const up=()=>{const f=+r.value/100;o.textContent=`−${r.value}% → ${num(29.4*f,1)} h por 15 d.u. (≈ ${num(29.4*f*21/15,1)} h/mês)`;};r.addEventListener('input',up);up();return w;})()]);
+  g.append(card('c6','Simulador','Quanto vale resolver o problema que mais pesa.',sim));
+  g.append(card('c6','Meta e piloto','Mantidas da v0.3 do plano.',h('div',{class:'sub',html:'Meta geral: <b>−5 p.p.</b> em K1 até dezembro. Piloto contra controle: <b>−10 p.p.</b>. As metas são confirmadas em 09/10, depois do baseline congelado.'})));
+  root.append(g); return root; };
+/* ---------- página: Problemas ---------- */
+P.problemas = () => {
+  const root=h('div'), g=h('div',{class:'grid'}), PA=D.pareto;
+  const hb=h('div'); hbars(hb,{items:PA.map(p=>({label:p.cod+' '+p.nome,v:p.h,tip:`<b>${p.cod} ${p.nome}</b><br>${num(p.h,1)} h · ${p.n} ligações · ${pct(p.pct)} do tempo com problema`})),fmt:(v)=>num(v,1)+' h',labelW:190,ariaLabel:'Horas por problema'});
+  g.append(card('c7','Pareto do tempo por problema','Horas de conversa, 01–22/09. P1, P2 e P13 somam 67,5%.',hb,{head:['Código','Problema','Horas','Ligações','% do tempo'],body:PA.map(p=>[p.cod,p.nome,num(p.h,1),p.n,pct(p.pct)])}));
+  const R=D.resolucao, rb=h('div'); const parts=[{label:'Resolvido',v:R.SIM,color:css('--good')},{label:'Parcial',v:R.PARCIAL,color:css('--warn'),text:'#0b0b0b'},{label:'Não resolvido',v:R.NAO,color:css('--crit')}];
+  rb.append(legend(parts.map(p=>({label:p.label+' '+pct(p.v),color:p.color})))); const rbc=h('div'); stacked(rbc,{parts,ariaLabel:'Resolução do problema na ligação'}); rb.append(rbc);
+  g.append(card('c5','Resolução na própria ligação','Só ~10% se resolve; o resto vira pendência fora do telefone.',rb));
+  g.append(tile('c3','Reincidência',pct(D.reincidencia),'das ligações com problema são de clientes com 2+',null,null,'Lista ativa para a Operação'));
+  g.append(tile('c3','Pendências',num(698),'de 778 ligações com problema (89,7%)',null,null,'≈ 47 por dia útil'));
+  const ob=h('div'); colChart(ob,{items:[{label:'Inbound',v:D.origem.inbound},{label:'Outbound',v:D.origem.outbound}],height:150,yMax:0.5,ticks:5,ariaLabel:'Taxa de problema por origem'});
+  g.append(card('c3','Origem','Taxa de problema por tipo de ligação',ob));
+  g.append(tile('c3','Nascem de ligação ativa',pct(D.origem.outbound_do_total_com_problema,0),'das ligações com problema são outbound',null,null,'Sugere triagem antes de ligar'));
+  const ex=h('div',{},[h('div',{class:'badge'},'P2 · Faturamento/cobrança · não resolvido · 132 s · acesso restrito'),
+    h('div',{class:'excerpt'},[h('p',{},[h('b',{},'Cliente: '),'“…E o problema do cliente não é resolvido. Eu tô pagando diária lá na alocação que já venceu, tá ruim, tá muito ruim.”']),h('p',{class:'sub'},'Trecho literal da ligação, nome do vendedor e do cliente mascarados.')]),
+    h('div',{class:'sub'},'Drill: do Pareto até o trecho que sustenta o número. Texto com nomes só aparece para o perfil restrito.')]);
+  g.append(card('c12','Evidência','Cada número do Pareto precisa levar a uma ligação real.',ex));
+  root.append(g); return root; };
+/* ---------- página: Carteiras ---------- */
+P.carteiras = () => {
+  const root=h('div'), g=h('div',{class:'grid'});
+  const sb=h('div'); const dist=[...new Set(D.carteiras.map(c=>c.dist))].sort();
+  const draw=()=>{ sb.replaceChildren(); const fd=$('#fDist').value, fc=$('#fCart').value; mount(sb,W=>{ const c=COL(),m={l:56,r:16,t:8,b:30},rowH=46,H=dist.length*rowH+m.t+m.b,iw=W-m.l-m.r; const X=v=>m.l+(v-0.1)/(0.8-0.1)*iw;
+      const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Carga operacional por carteira, agrupada por distrital'});
+      for(let v=0.1;v<=0.801;v+=0.1){ svg.append(s('line',{x1:X(v),x2:X(v),y1:m.t,y2:H-m.b,class:'grid'})); svg.append(s('text',{x:X(v),y:H-10,'text-anchor':'middle'},pct(v,0))); }
+      const med=D.mediana_carteira.k1; svg.append(s('line',{x1:X(med),x2:X(med),y1:m.t,y2:H-m.b,stroke:c.ink,'stroke-width':1.5})); svg.append(s('text',{x:X(med)+4,y:m.t+10,class:'t-ink'},'mediana '+pct(med)));
+      dist.forEach((d,i)=>{ const y=m.t+i*rowH+rowH/2; svg.append(s('text',{x:m.l-8,y:y+4,'text-anchor':'end',class:'t-ink'},d)); svg.append(s('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,class:'axis'}));
+        const cs=D.carteiras.filter(x=>x.dist===d).sort((a,b)=>a.k1-b.k1); cs.forEach((x,j)=>{ const dy=((j%3)-1)*9; const on=(!fd||fd===d)&&(!fc||fc===x.c), sel=fc===x.c;
+          const circ=s('circle',{cx:X(x.k1),cy:y+dy,r:sel?7:5,fill:sel?c.s2:c.s1,'fill-opacity':on?1:.18,stroke:c.surface,'stroke-width':2}); circ.addEventListener('pointermove',ev=>showTip(ev,`<b>${x.c}</b> · ${d}<br>Carga ${pct(x.k1)} · negociação ${pct(x.k7)}<br>Problema ${pct(x.prob)} · ${num(x.n)} ligações`)); circ.addEventListener('pointerleave',hideTip); svg.append(circ); }); });
+      sb.append(svg); }); };
+  P.carteiras.redraw=draw; draw();
+  g.append(card('c8','Carga operacional por carteira','Cada ponto é uma carteira com 40+ ligações classificadas. Compare com a mediana, não entre pessoas.',sb,{head:['Carteira','Distrital','Carga','Negociação','Problema','Ligações'],body:[...D.carteiras].sort((a,b)=>b.k1-a.k1).map(x=>[x.c,x.dist,pct(x.k1),pct(x.k7),pct(x.prob),num(x.n)])}));
+  const db=h('div'); hbars(db,{items:D.distritais.map(d=>({label:d.d,v:d.k1,tip:`<b>${d.d}</b><br>Carga ${pct(d.k1)} · problema ${pct(d.prob)}`})),max:0.6,fmt:pct,labelW:60,ariaLabel:'Carga por distrital'});
+  g.append(card('c4','Distritais','DTIN4 tem outro perfil: 31% de carga contra 43–47% nos demais.',db));
+  const cv=h('div'); const pts=D.clientes.curva.filter(c=>c.pct_clientes<=20);
+  hbars(cv,{items:pts.map(p=>({label:'Top '+p.pct_clientes+'% dos clientes',v:p.pct_tempo,tip:`<b>Top ${p.pct_clientes}% dos clientes</b><br>${pct(p.pct_tempo)} do tempo de ligação`})),max:1,fmt:(v)=>pct(v,1),labelW:140,ariaLabel:'Parcela do tempo concentrada nos clientes de maior consumo'});
+  g.append(card('c6','Concentração do tempo nos clientes','1% dos clientes (≈ 120) concentra 20,1% do tempo; 10% concentra 70,7%.',cv,{head:['Clientes (maior consumo)','% do tempo'],body:pts.map(c=>['Top '+c.pct_clientes+'%',pct(c.pct_tempo)])}));
+  const tt=h('div',{class:'scroll'},h('table',{},[h('thead',{},h('tr',{},['Conta','Horas','% do tempo','Ligações','Com problema'].map((x,i)=>h('th',{class:i?'n':''},x)))),h('tbody',{},D.clientes.top10.map(c=>h('tr',{},[`Conta ${c.rank}`,num(c.h,1),pct(c.pct,2),num(c.ligacoes),num(c.problemas)].map((x,i)=>h('td',{class:i?'n':''},x)))))]));
+  g.append(card('c6','Contas de alto consumo','Código do cliente fica no BI restrito; aqui as contas aparecem numeradas.',tt));
+  root.append(g); return root; };
+/* ---------- página: Tempo e ritmo ---------- */
+P.tempo = () => {
+  const root=h('div'), g=h('div',{class:'grid'});
+  const f1=h('div'); colChart(f1,{items:D.faixas.map(f=>({label:f.faixa,v:f.taxa,lo:f.lo,hi:f.hi,k:f.k,n:f.n})),whisker:true,height:230,yMax:0.4,tipFn:f=>`<b>${f.label}</b><br>${f.k} fechamentos em ${f.n} ligações<br>${pct(f.v)} (IC 95%: ${pct(f.lo)}–${pct(f.hi)})`,ariaLabel:'Taxa de fechamento por faixa de duração'});
+  g.append(card('c6','Taxa de fechamento por duração','Ligações de negociação (fechou ou venda), com intervalo de confiança de 95%. Descritivo: quem vai fechar tende a conversar mais.',f1,{head:['Faixa','Ligações','Fechamentos','Taxa','IC 95%'],body:D.faixas.map(f=>[f.faixa,f.n,f.k,pct(f.taxa),pct(f.lo)+'–'+pct(f.hi)])}));
+  const f2=h('div'); colChart(f2,{items:D.faixas.map(f=>({label:f.faixa,v:f.fph})),fmt:(v,d)=>num(v,d===0?0:2),height:230,yMax:4,highlight:f=>f.label==='2–5 min',tipFn:f=>`<b>${f.label}</b><br>${num(f.v,2)} fechamentos por hora de conversa`,ariaLabel:'Fechamentos por hora de conversa'});
+  g.append(card('c6','Fechamentos por hora de conversa','Plano a partir de 5 min (≈ 1,0–1,2). A faixa de 2–5 min (laranja) rende menos: 0,87.',f2,{head:['Faixa','Horas','Fechamentos/h'],body:D.faixas.map(f=>[f.faixa,num(f.h,1),num(f.fph,2)])}));
+  const st=D.status, tot=st.Completed+st['Sem Sucesso']+st.Open; const fb=h('div'); const parts=[{label:'Concluída',v:st.Completed/tot,color:css('--s1')},{label:'Sem sucesso',v:st['Sem Sucesso']/tot,color:'#c3c2b7',text:'#0b0b0b'},{label:'Open',v:st.Open/tot,color:'#86b6ef',text:'#0b0b0b'}];
+  fb.append(legend(parts.map(p=>({label:p.label+' '+pct(p.v),color:p.color})))); const fbc=h('div'); stacked(fbc,{parts,ariaLabel:'Funil de contato'}); fb.append(fbc);
+  g.append(card('c6','Funil de contato',`${num(tot)} tentativas em setembro. 57% terminam sem sucesso.`,fb));
+  g.append(tile('c3','Recontato',num(D.recontato.uma_ate_23_09),'clientes com 1 tentativa falha e sem 2ª (até 23/09)',null,null,`2ª tentativa atende ${pct(D.recontato.cadencia['2'])} → ≈ 900 conversas/mês`));
+  g.append(tile('c3','Retorno no prazo',pct(D.retorno.no_prazo),`de ${num(D.retorno.devidos)} retornos devidos até 30/09`,null,null,'Urgência quase não muda: '+D.retorno.por_urgencia.map(u=>u.u+': '+pct(u.taxa,0)).join(' · ')));
+  const cd=h('div'); colChart(cd,{items:Object.entries(D.recontato.cadencia).map(([k,v])=>({label:k+'ª',v})),height:170,yMax:0.5,ticks:5,ariaLabel:'Atendimento por número da tentativa'});
+  g.append(card('c4','Cadência','% atendida por número da tentativa no mesmo cliente',cd));
+  const hr=h('div'); colChart(hr,{items:D.hora.map(x=>({label:x.h+'h',v:x.atend,n:x.n})),height:170,yMax:0.5,ticks:5,tipFn:x=>`<b>${x.label}</b><br>${pct(x.v)} atendidas · ${num(x.n)} tentativas`,highlight:x=>x.label==='13h',ariaLabel:'Atendimento por hora'});
+  g.append(card('c4','Atendimento por hora (BRT)','Diferença de até 6 p.p.; 13h é a pior (laranja)',hr));
+  const dw=['Seg','Ter','Qua','Qui','Sex'], cp=h('div'); colChart(cp,{items:D.capacidade_dow.map(x=>({label:dw[x.dow],v:x.tent,at:x.atend})),fmt:(v,d)=>num(v,d===0?0:1),height:170,yMax:20,highlight:x=>x.label==='Sex',tipFn:x=>`<b>${x.label}</b><br>${num(x.v,1)} tentativas · ${num(x.at,1)} atendidas por vendedor`,ariaLabel:'Tentativas por vendedor e dia da semana'});
+  g.append(card('c4','Capacidade por dia da semana','Tentativas por vendedor: sexta rende 29% menos que segunda',cp));
+  root.append(g); return root; };
+/* ---------- página: Competências ---------- */
+P.comp = () => {
+  const root=h('div'), g=h('div',{class:'grid'}), C=D.competencias, med=D.mediana_carteira;
+  const body=h('div'); const info=h('div',{class:'sub',style:'margin-bottom:8px'});
+  const draw=()=>{ body.replaceChildren(); const fc=$('#fCart').value, car=D.carteiras.find(x=>x.c===fc);
+    info.textContent=car?`Carteira ${car.c} (${car.dist}) comparada com a mediana das carteiras.`:'Selecione uma carteira no filtro para comparar com a mediana. Sem seleção, mostra a mediana.';
+    const skills=[['SPIN · Situação','spin_s',5],['SPIN · Problema','spin_p',5],['SPIN · Implicação','spin_i',5],['SPIN · Necessidade','spin_n',5],['Challenger · dado concreto','dado',1],['Challenger · conecta à situação','conecta',1],['Challenger · cliente reage','reage',1],['Chegou ao decisor','decisor',1]];
+    skills.forEach(([lab,k,mx])=>{ const v=car?car[k]:med[k], m=med[k], fm=mx===5?(x=>num(x,2)):(x=>pct(x));
+      const tr=h('div',{class:'bar-track',style:'position:relative'}); const w=Math.min(100,v/mx*100), mp=Math.min(100,m/mx*100);
+      tr.append(h('div',{style:`position:absolute;left:0;top:0;bottom:0;width:${w}%;background:var(--s1);border-radius:5px`}),h('div',{style:`position:absolute;left:${mp}%;top:-4px;bottom:-4px;width:2px;background:var(--ink)`,title:'mediana'}));
+      body.append(h('div',{class:'skill'},[h('span',{},lab),tr,h('span',{class:'v'},fm(v))])); });
+    body.append(h('div',{class:'sub'},'Barra = valor da carteira · risco preto = mediana. SPIN em nota de 1 a 5; demais em % das ligações.')); };
+  P.comp.redraw=draw; draw();
+  g.append(card('c7','Mapa de competências',' ',h('div',{},[info,body])));
+  const lad=h('div'); colChart(lad,{items:[{label:'Dado',v:C.dado},{label:'Conecta',v:C.conecta},{label:'Reação',v:C.reage},{label:'Completo',v:C.ch_completo}],height:200,yMax:0.4,ariaLabel:'Escada do Challenger'});
+  g.append(card('c5','Escada do Challenger','Traz dado → conecta à situação → cliente reage. Challenger completo em 9,1% das ligações.',lad,{head:['Degrau','% das ligações'],body:[['Trouxe dado',pct(C.dado)],['Conectou à situação',pct(C.conecta)],['Cliente reagiu',pct(C.reage)],['Challenger completo',pct(C.ch_completo)]]}));
+  const spinItems=Object.entries(C.spin).map(([k,v])=>({label:k,v:v.nota1})); const sp=h('div'); colChart(sp,{items:spinItems,height:200,yMax:0.6,ticks:6,highlight:x=>x.label==='Implicação',tipFn:x=>`<b>${x.label}</b><br>${pct(x.v)} das ligações com nota 1 · média ${num(C.spin[x.label].media,2)}`,ariaLabel:'SPIN: participação da nota 1'});
+  g.append(card('c5','SPIN: onde falta','% das ligações com nota 1. Implicação é o elo fraco (50,7%).',sp,{head:['Dimensão','Nota média','% nota 1'],body:Object.entries(C.spin).map(([k,v])=>[k,num(v.media,2),pct(v.nota1)])}));
+  const co=h('div',{},[h('div',{class:'badge'},'Sugestão de 1:1 · rascunho para o Treinamento'),
+    h('div',{class:'excerpt'},[h('p',{},[h('b',{},'Problema: '),'[Cliente] mencionou dificuldades com o sistema de reservas online.']),h('p',{},[h('b',{},'Implicação (nota 4): '),'o agente destacou que, na alta temporada, os preços podem subir e que reservar tarde custa mais.']),h('p',{},[h('b',{},'Necessidade: '),'sugeriu reservar com antecedência para garantir preço melhor.'])]),
+    h('div',{class:'sub'},'Use um exemplo de Implicação bem feita e peça ao vendedor que refaça a pergunta numa ligação sua. Texto resumido pela análise SPIN, nomes mascarados.')]);
+  g.append(card('c7','Trecho para coaching','Evidência literal ligada à habilidade mais fraca.',co));
+  root.append(g); return root; };
+/* ---------- página: Qualidade do dado ---------- */
+P.qualidade = () => {
+  const root=h('div'), g=h('div',{class:'grid'});
+  const cv=h('div'), lg=legend([{label:'Concluídas com duração (C2)',color:css('--s1')},{label:'Concluídas classificadas (C1)',color:css('--s2')}]);
+  lineChart(cv,{labels:labelsAll,series:[{name:'C2 · com duração',color:css('--s1'),data:dias.map(d=>d.c2)},{name:'C1 · classificadas',color:css('--s2'),data:dias.map(d=>d.c1)}],yMax:1,ticks:5,ariaLabel:'Cobertura de duração e de classificação por dia'});
+  g.append(card('c7','Cobertura por dia','Meta ≥ 95% nas duas. A duração cai a 0% depois de 22/09; a classificação, depois de 25/09.',h('div',{},[lg,cv]),{head:['Dia','C1 classificação','C2 duração'],body:dias.map(d=>[dshort(d.d),pct(d.c1,0),pct(d.c2,0)])}));
+  const sg=h('div'); const dd=dias.filter(d=>d.prob!=null&&d.gpt>=90); lineChart(sg,{labels:dd.map(d=>dshort(d.d)),series:[{name:'Taxa de problema (GPT)',color:css('--s1'),data:dd.map(d=>d.prob)}],yMax:0.5,ticks:5,height:200,ariaLabel:'Taxa de problema por dia'});
+  g.append(card('c5','Assinatura do classificador','Taxa de problema por dia. O salto em 15/09 indica mudança de versão, não do negócio.',sg,{head:['Dia','Taxa de problema'],body:dd.map(d=>[dshort(d.d),pct(d.prob)])}));
+  const sen=h('div'); hbars(sen,{items:D.qualidade.sentinelas.map(x=>({label:x.campo,v:x.pct})),fmt:(v)=>pct(v,0),max:1,labelW:200,ariaLabel:'Valores-sentinela por campo'});
+  g.append(card('c6','Valores-sentinela','% de “sem dados necessários” no campo. Converter para nulo antes de medir.',sen));
+  const M=D.qualidade.m_code, mc=h('div');
+  mc.append(sev('crit','M-01 · DETRATORA sem análise',`${num(M.detratora_sem_analise)} de ${num(M.detratora_total)} DETRATORA (${pct(M.detratora_sem_analise/M.detratora_total,0)}) são ligações concluídas sem análise.`));
+  mc.append(sev('crit','M-02 · Chave carteira + mês',`${num(M.chave_31_08)} ligações de 31/08 recebem o mês 08 e não casam com as metas de setembro.`));
+  mc.append(sev('warn','M-03 · Ramo morto na regra','“nota ≥ 8, sem decisor e A = 0” nunca ocorre; DETRATORA = objetivo não atingido.'));
+  mc.append(sev('warn','Cobertura GPT',`${num(M.completed_sem_gpt)} ligações concluídas sem classificação GPT.`));
+  g.append(card('c6','Alertas do código M','Do código do Power Query, com o número que cada falha afeta.',mc));
+  const cols=D.qualidade.colunas, ct=h('div',{},[h('div',{class:'sub'},'Dicionário das 88 colunas'),h('div',{style:'display:flex;gap:24px;margin-top:6px;flex-wrap:wrap'},[['Usar',cols.usar,'var(--good)'],['Com ressalva',cols.ressalva,'var(--warn)'],['Não usar',cols.nao_usar,'var(--crit)']].map(([l,v,c])=>h('div',{},[h('div',{class:'val',style:'font-size:24px;font-weight:650'},String(v)),h('div',{class:'sub'},l)])))]);
+  g.append(card('c6','Colunas por uso recomendado','Ver anexos/dicionario_dados_setembro.csv. Colunas “não usar”: duplicadas, constantes ou 95%+ de sentinela.',ct));
+  root.append(g); return root; };
+
+/* ---------- anotações por página ---------- */
+const ANN = {
+ dia:{decisao:'O que mudou ontem e exige ação hoje?',quem:'Gerência Operacional (diário) e Excelência Comercial.',medidas:'K1 nas duas réguas, K7, K2, K6, C1 e C2; alertas por média móvel de 7 dias ± 2 desvios.',colunas:'status, CallDurationInSeconds, tem_problema, p2_tipo, categoria_principal, p3_foi_resolvido_na_ligacao.',ressalva:'O “dia” é 22/09, último com duração.'},
+ semana:{decisao:'A tendência piora ou melhora?',quem:'Gerência Operacional e Comercial na leitura de segunda, 08h.',medidas:'K1–K7 por semana ISO (segunda a sexta) com variação vs semana anterior.',colunas:'As mesmas do dia, agregadas.',ressalva:'Última semana com 2 dias úteis; as duas réguas divergem.'},
+ mes:{decisao:'Estamos no caminho da meta?',quem:'Gerente de Excelência Comercial e Diretoria.',medidas:'K1 vs baseline e meta, alocação do tempo, horas excedentes, simulador.',colunas:'p2_tipo, tem_problema, categoria_principal, duração.',ressalva:'Baseline provisório até a versão congelada (09/10).'},
+ problemas:{decisao:'Qual problema atacar primeiro?',quem:'Gerência Operacional e Produto.',medidas:'Pareto de tempo por código, resolução, reincidência, origem, pendências.',colunas:'p3_problema_principal, p3_foi_resolvido_na_ligacao, tipo_ligacao, p3_trechos.',ressalva:'Trechos têm nomes: perfil restrito.'},
+ carteiras:{decisao:'Onde a carga se concentra e em quem agir?',quem:'Gerência Operacional e Comercial.',medidas:'Distribuição por carteira vs mediana, distritais, contas de alto consumo.',colunas:'CARTEIRA, DISTRITAL, codigo_cliente, duração.',ressalva:'Carteira e vendedor são 1:1: comparar por perfil, sem ranking nominal.'},
+ tempo:{decisao:'Quando insistir, quando encerrar e a quem retornar?',quem:'Gerência Comercial.',medidas:'Fechamento por faixa, fechamentos/h, funil, recontato, retorno no prazo, capacidade por dia.',colunas:'duração, p1_desfecho, venda, status, necessidade_nova_visita, data_sugerida_nova_visita.',ressalva:'Um mês e 138 fechamentos: leitura descritiva.'},
+ comp:{decisao:'Que habilidade falta nesta carteira?',quem:'Treinamento e Gerência Comercial.',medidas:'Radar de SPIN e Challenger vs mediana, escada do Challenger, trechos para coaching.',colunas:'nota_spin_*, p5_trouxe_dado, p5_conectou_situacao, p5_cliente_reagiu, falou_tomador_decisao.',ressalva:'Qualidade do Challenger sem variância (83% “alta”): usar as sub-flags.'},
+ qualidade:{decisao:'Posso confiar no número de hoje?',quem:'Excelência Comercial e Dados/TI.',medidas:'C1, C2, versão do classificador, duas réguas, sentinelas, alertas do código M.',colunas:'fonte_classificacao, resumo_analise, CallDurationInSeconds, Classificação tipo de ligação, Chave.',ressalva:'Mostra o que está quebrado hoje, de propósito.'}
+};
+const QUESTION = {dia:'O que mudou ontem e exige ação hoje?',semana:'A tendência piora ou melhora?',mes:'Estamos no caminho da meta?',problemas:'Qual problema atacar primeiro?',carteiras:'Onde a carga se concentra?',tempo:'Quando insistir e quando encerrar?',comp:'Que habilidade falta nesta carteira?',qualidade:'Posso confiar no número de hoje?'};
+
+/* ---------- montagem ---------- */
+const nav=$('#nav'), host=$('#pages'); const built={};
+pages.forEach(([k,label],i)=>{
+  const b=h('button',{role:'tab','aria-selected':i===0?'true':'false','aria-controls':'p-'+k,id:'t-'+k},label); b.addEventListener('click',()=>go(k)); nav.append(b);
+  const sec=h('section',{class:'page'+(i===0?' on':''),id:'p-'+k,role:'tabpanel','aria-labelledby':'t-'+k});
+  host.append(sec);
+});
+function go(k){ pages.forEach(([kk])=>{ $('#t-'+kk).setAttribute('aria-selected',kk===k?'true':'false'); $('#p-'+kk).classList.toggle('on',kk===k); });
+  if(!built[k]){ built[k]=true; const sec=$('#p-'+k); sec.append(h('div',{class:'qrow'},[h('h2',{},QUESTION[k])]),(()=>{const l=h('div',{class:'layout'+(annOn?'':' noannot')});l.append(P[k](),annotation(ANN[k]));return l;})()); }
+  try{ history.replaceState(null,'','#'+k);}catch(e){} }
+let annOn=true;
+$('#annbtn').addEventListener('click',e=>{ annOn=!annOn; e.target.textContent='Anotações: '+(annOn?'ligadas':'desligadas'); e.target.setAttribute('aria-pressed',annOn); document.querySelectorAll('.layout').forEach(l=>l.classList.toggle('noannot',!annOn)); });
+/* filtros */
+const dsel=$('#fDist'), csel=$('#fCart'); [...new Set(D.carteiras.map(c=>c.dist))].sort().forEach(d=>dsel.append(h('option',{value:d},d)));
+const fillC=()=>{ const cur=csel.value; csel.replaceChildren(h('option',{value:''},'Todas')); D.carteiras.filter(c=>!dsel.value||c.dist===dsel.value).sort((a,b)=>a.c.localeCompare(b.c)).forEach(c=>csel.append(h('option',{value:c.c},c.c))); if([...csel.options].some(o=>o.value===cur)) csel.value=cur; };
+fillC(); dsel.addEventListener('change',()=>{ fillC(); redraw(); }); csel.addEventListener('change',redraw);
+document.querySelectorAll('#fReg button').forEach(b=>b.addEventListener('click',()=>{ reg.v=b.dataset.v; document.querySelectorAll('#fReg button').forEach(x=>x.setAttribute('aria-pressed',x===b)); redraw(); }));
+function redraw(){ ['dia','semana','carteiras','comp'].forEach(k=>{ if(built[k]&&P[k].redraw) P[k].redraw(); }); }
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>window.dispatchEvent(new Event('themechange')));
+new MutationObserver(()=>window.dispatchEvent(new Event('themechange'))).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+const start=(location.hash||'#dia').slice(1); go(pages.some(p=>p[0]===start)?start:'dia');
+if(start!=='dia'){ document.querySelectorAll('#nav button').forEach(b=>b.setAttribute('aria-selected',b.id==='t-'+start)); }
+</script>

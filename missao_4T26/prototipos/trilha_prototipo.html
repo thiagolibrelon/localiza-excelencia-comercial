@@ -1,0 +1,274 @@
+<title>Trilha do Vendedor</title>
+<style>
+/* Conceito: aplicativo de prática diária, uma coluna estreita (cabe no celular). Cada lição = trecho real mascarado + uma pergunta + explicação. */
+:root{
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --line:#e1e0d9; --axis:#c3c2b7;
+  --brand:#2a78d6; --brand-ink:#ffffff; --brand-wash:#e6f0fc; --accent:#eb6834; --ok:#0b7a0b; --ok-wash:#e5f4e5; --bad:#b53030; --bad-wash:#fbe9e9;
+  --mark:#fff0b8; --track:#e1e0d9;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --line:#2c2c2a; --axis:#383835;
+  --brand:#3987e5; --brand-ink:#0b0b0b; --brand-wash:#14283f; --accent:#d95926; --ok:#4cc24c; --ok-wash:#12301a; --bad:#ff8585; --bad-wash:#3a1717; --mark:#5a4a10; --track:#2c2c2a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --line:#2c2c2a; --axis:#383835;
+  --brand:#3987e5; --brand-ink:#0b0b0b; --brand-wash:#14283f; --accent:#d95926; --ok:#4cc24c; --ok-wash:#12301a; --bad:#ff8585; --bad-wash:#3a1717; --mark:#5a4a10; --track:#2c2c2a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font:16px/1.5 var(--font);margin:0;padding-inline:16px;padding-block:0 56px}
+.app{max-width:720px;margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--page);z-index:5;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;letter-spacing:-.01em}
+.stats{display:flex;gap:14px;font-size:14px;color:var(--ink2);align-items:center}
+.stats b{color:var(--ink);font-variant-numeric:tabular-nums}
+h1{font-size:24px;line-height:1.2;margin:20px 0 6px;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:18px;margin:0 0 8px;letter-spacing:-.01em}
+.lead{color:var(--ink2);margin:0 0 16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;min-width:0}
+button,select{font:inherit;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:12px;border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);font-weight:650;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn.block{display:flex;width:100%}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+select{min-height:44px;border:1px solid var(--axis);border-radius:10px;background:var(--surface);padding:0 10px;max-width:100%}
+.row{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.pill{display:inline-block;font-size:12px;border:1px solid var(--axis);border-radius:999px;padding:1px 10px;color:var(--ink2)}
+.bar{height:10px;border-radius:5px;background:var(--track);overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--brand);border-radius:5px}
+.path{display:flex;flex-direction:column;gap:0;margin:8px 0}
+.node{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;position:relative;padding-bottom:14px}
+.node:not(:last-child)::before{content:"";position:absolute;left:21px;top:44px;bottom:-2px;width:2px;background:var(--line)}
+.dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;border:2px solid var(--brand);color:var(--brand);background:var(--surface)}
+.dot.done{background:var(--brand);color:var(--brand-ink)}
+.dot.lock{border-color:var(--axis);color:var(--muted)}
+.node .body{min-width:0}
+.node h3{margin:0;font-size:16px}
+.node .meta{font-size:13px;color:var(--ink2);margin:2px 0 8px}
+.skillrow{display:grid;grid-template-columns:minmax(0,1fr) 64px;gap:10px;align-items:center;font-size:14px;margin:8px 0}
+.skillrow .v{text-align:right;font-variant-numeric:tabular-nums}
+.track2{position:relative;height:10px;border-radius:5px;background:var(--track)}
+.track2 i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--brand)}
+.track2 u{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.excerpt{border-left:4px solid var(--axis);padding:6px 0 6px 14px;margin:12px 0;font-size:16px}
+.excerpt p{margin:6px 0}
+.excerpt .who{font-weight:650;color:var(--ink2);margin-right:6px}
+mark{background:var(--mark);color:inherit;padding:0 2px;border-radius:3px}
+.opt{display:flex;gap:12px;align-items:flex-start;border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;cursor:pointer;background:var(--surface);min-height:52px}
+.opt input{margin-top:5px;width:18px;height:18px;accent-color:var(--brand)}
+.opt:hover{border-color:var(--axis)}
+.opt.sel{border-color:var(--brand);background:var(--brand-wash)}
+.opt.right{border-color:var(--ok);background:var(--ok-wash)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-wash)}
+.fb{border-radius:12px;padding:12px 14px;margin:14px 0}
+.fb.ok{background:var(--ok-wash);border:1px solid var(--ok)}
+.fb.no{background:var(--bad-wash);border:1px solid var(--bad)}
+.fb h3{margin:0 0 4px;font-size:16px}
+.src{font-size:13px;color:var(--ink2);margin-top:10px}
+.src code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:var(--line);padding:1px 5px;border-radius:4px}
+.draft{font-size:13px;color:var(--ink2);border:1px dashed var(--axis);border-radius:10px;padding:10px 12px;margin:16px 0}
+.big{font-size:44px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.xp{animation:pop .5s ease-out both}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.xp{animation:none}}
+.close{background:none;border:0;color:var(--ink2);font-size:14px;cursor:pointer;min-height:40px;padding:0 6px}
+.note{font-size:13px;color:var(--ink2)}
+</style>
+
+<div class="app" id="app"></div>
+
+<script>
+const D = {"carteiras":[{"c":"COI01A","dist":"DTIN2","n":74.0,"spin_s":3.1159,"spin_p":2.5507,"spin_i":2.1159,"spin_n":2.8551,"dado":0.1351,"conecta":0.1486,"reage":0.2027,"ch":0.1216,"decisor":0.8551,"k1":0.3405,"prob":0.1622},{"c":"COI03A","dist":"DTIN2","n":47.0,"spin_s":3.1163,"spin_p":2.3953,"spin_i":1.6744,"spin_n":2.6279,"dado":0.1489,"conecta":0.1915,"reage":0.3191,"ch":0.1064,"decisor":0.8372,"k1":0.3919,"prob":0.1915},{"c":"COI04A","dist":"DTIN2","n":43.0,"spin_s":2.7755,"spin_p":2.5102,"spin_i":1.8571,"spin_n":2.3878,"dado":0.0698,"conecta":0.2093,"reage":0.3023,"ch":0.0465,"decisor":0.7551,"k1":0.2199,"prob":0.1395},{"c":"KPI01A","dist":"DTIN4","n":102.0,"spin_s":2.7518,"spin_p":1.8248,"spin_i":1.2993,"spin_n":1.8978,"dado":0.049,"conecta":0.0686,"reage":0.0686,"ch":0.0196,"decisor":0.5474,"k1":0.2582,"prob":0.0882},{"c":"KPI02A","dist":"DTIN4","n":58.0,"spin_s":2.5217,"spin_p":1.7826,"spin_i":1.7246,"spin_n":2.2174,"dado":0.0862,"conecta":0.2069,"reage":0.2414,"ch":0.069,"decisor":0.5652,"k1":0.3324,"prob":0.069},{"c":"KPI03A","dist":"DTIN4","n":74.0,"spin_s":2.7843,"spin_p":2.0784,"spin_i":1.4804,"spin_n":1.9608,"dado":0.1216,"conecta":0.1351,"reage":0.1757,"ch":0.0541,"decisor":0.6176,"k1":0.272,"prob":0.1216},{"c":"KPI05A","dist":"DTIN4","n":101.0,"spin_s":2.7398,"spin_p":2.0163,"spin_i":1.5935,"spin_n":2.0488,"dado":0.099,"conecta":0.1188,"reage":0.1683,"ch":0.0594,"decisor":0.626,"k1":0.5333,"prob":0.1683},{"c":"KPI06A","dist":"DTIN4","n":59.0,"spin_s":3.1,"spin_p":2.5333,"spin_i":1.65,"spin_n":2.3833,"dado":0.0339,"conecta":0.1017,"reage":0.0847,"ch":0.0339,"decisor":0.7167,"k1":0.2508,"prob":0.1525},{"c":"KPI07A","dist":"DTIN4","n":169.0,"spin_s":2.6349,"spin_p":1.8095,"spin_i":1.5397,"spin_n":1.9206,"dado":0.0947,"conecta":0.1006,"reage":0.1361,"ch":0.0296,"decisor":0.4074,"k1":0.2312,"prob":0.0651},{"c":"KPI08A","dist":"DTIN5","n":67.0,"spin_s":2.7841,"spin_p":2.1818,"spin_i":1.5682,"spin_n":2.0682,"dado":0.0597,"conecta":0.1045,"reage":0.1493,"ch":0.0746,"decisor":0.5568,"k1":0.157,"prob":0.0597},{"c":"MLI01A","dist":"DTIN3","n":49.0,"spin_s":3.1739,"spin_p":3.0652,"spin_i":2.7391,"spin_n":3.0217,"dado":0.1837,"conecta":0.3061,"reage":0.2653,"ch":0.2041,"decisor":0.7609,"k1":0.4015,"prob":0.2245},{"c":"MLI02A","dist":"DTIN3","n":81.0,"spin_s":2.4019,"spin_p":2.1215,"spin_i":1.5514,"spin_n":2.0187,"dado":0.1235,"conecta":0.0988,"reage":0.2222,"ch":0.0617,"decisor":0.5888,"k1":0.3603,"prob":0.2469},{"c":"MLI03A","dist":"DTIN3","n":124.0,"spin_s":3.3187,"spin_p":3.1209,"spin_i":2.4725,"spin_n":2.978,"dado":0.1855,"conecta":0.25,"reage":0.2661,"ch":0.1532,"decisor":0.8791,"k1":0.527,"prob":0.2258},{"c":"MLI08A","dist":"DTIN3","n":67.0,"spin_s":3.3065,"spin_p":2.8226,"spin_i":2.0,"spin_n":2.9194,"dado":0.1642,"conecta":0.2836,"reage":0.2836,"ch":0.1343,"decisor":0.9032,"k1":0.4303,"prob":0.194},{"c":"MOI01A","dist":"DTIN3","n":60.0,"spin_s":3.322,"spin_p":2.5932,"spin_i":1.7288,"spin_n":2.6949,"dado":0.0833,"conecta":0.0833,"reage":0.15,"ch":0.0333,"decisor":0.8305,"k1":0.1975,"prob":0.1333},{"c":"MOI03A","dist":"DTIN3","n":68.0,"spin_s":3.2917,"spin_p":2.7222,"spin_i":1.7361,"spin_n":2.5,"dado":0.0735,"conecta":0.1029,"reage":0.1765,"ch":0.0441,"decisor":0.8056,"k1":0.3936,"prob":0.1765},{"c":"NLI01A","dist":"DTIN1","n":49.0,"spin_s":3.5,"spin_p":3.0,"spin_i":2.2955,"spin_n":3.1591,"dado":0.1633,"conecta":0.1837,"reage":0.1633,"ch":0.0816,"decisor":0.7045,"k1":0.3309,"prob":0.1633},{"c":"NLI02A","dist":"DTIN1","n":72.0,"spin_s":3.2879,"spin_p":3.0455,"spin_i":2.5758,"spin_n":3.1212,"dado":0.1667,"conecta":0.25,"reage":0.2639,"ch":0.1111,"decisor":0.8788,"k1":0.4304,"prob":0.2361},{"c":"NLI04A","dist":"DTIN1","n":46.0,"spin_s":3.375,"spin_p":3.1667,"spin_i":2.75,"spin_n":3.4792,"dado":0.2174,"conecta":0.3478,"reage":0.3696,"ch":0.2174,"decisor":0.7708,"k1":0.4235,"prob":0.2391},{"c":"NOR04A","dist":"DTIN5","n":60.0,"spin_s":3.1702,"spin_p":2.9574,"spin_i":2.5106,"spin_n":3.1702,"dado":0.15,"conecta":0.2833,"reage":0.2167,"ch":0.0667,"decisor":0.8511,"k1":0.4225,"prob":0.1667},{"c":"NOR05A","dist":"DTIN5","n":54.0,"spin_s":3.1852,"spin_p":2.3148,"spin_i":1.4074,"spin_n":2.5556,"dado":0.0556,"conecta":0.0741,"reage":0.0926,"ch":0.0185,"decisor":0.9444,"k1":0.2358,"prob":0.1111},{"c":"NSI03A","dist":"DTIN1","n":70.0,"spin_s":2.96,"spin_p":2.7733,"spin_i":2.1867,"spin_n":2.6933,"dado":0.1,"conecta":0.2429,"reage":0.2714,"ch":0.0714,"decisor":0.88,"k1":0.5579,"prob":0.2143},{"c":"PSI01A","dist":"DTIN2","n":75.0,"spin_s":3.4286,"spin_p":3.1429,"spin_i":2.5893,"spin_n":3.0357,"dado":0.1867,"conecta":0.2667,"reage":0.2667,"ch":0.12,"decisor":0.7679,"k1":0.2975,"prob":0.16},{"c":"PSI03A","dist":"DTIN2","n":45.0,"spin_s":3.3488,"spin_p":3.0233,"spin_i":2.0465,"spin_n":2.9302,"dado":0.1333,"conecta":0.1778,"reage":0.2,"ch":0.1111,"decisor":0.7209,"k1":0.4641,"prob":0.2667},{"c":"PSI07A","dist":"DTIN5","n":77.0,"spin_s":3.3846,"spin_p":3.0,"spin_i":2.4872,"spin_n":3.1923,"dado":0.2208,"conecta":0.3506,"reage":0.3636,"ch":0.1558,"decisor":0.8333,"k1":0.5951,"prob":0.2987},{"c":"PSI10A","dist":"DTIN2","n":102.0,"spin_s":3.2874,"spin_p":3.2759,"spin_i":2.6667,"spin_n":3.1724,"dado":0.2353,"conecta":0.3039,"reage":0.3039,"ch":0.1471,"decisor":0.7586,"k1":0.6074,"prob":0.3333},{"c":"PSI11A","dist":"DTIN5","n":52.0,"spin_s":2.9322,"spin_p":2.4915,"spin_i":1.9831,"spin_n":2.661,"dado":0.2692,"conecta":0.25,"reage":0.2692,"ch":0.1923,"decisor":0.661,"k1":0.4751,"prob":0.1923},{"c":"PSI12A","dist":"DTIN5","n":48.0,"spin_s":3.1364,"spin_p":2.5455,"spin_i":1.75,"spin_n":2.8636,"dado":0.0833,"conecta":0.1458,"reage":0.1875,"ch":0.0625,"decisor":0.8182,"k1":0.3476,"prob":0.1667},{"c":"REI01A","dist":"DTIN3","n":55.0,"spin_s":3.3962,"spin_p":2.9811,"spin_i":1.717,"spin_n":2.8113,"dado":0.1273,"conecta":0.2182,"reage":0.2909,"ch":0.0545,"decisor":0.8302,"k1":0.5121,"prob":0.1818},{"c":"REI02A","dist":"DTIN3","n":74.0,"spin_s":3.6885,"spin_p":2.9836,"spin_i":2.2295,"spin_n":3.2951,"dado":0.1351,"conecta":0.1757,"reage":0.2568,"ch":0.0405,"decisor":0.9344,"k1":0.4025,"prob":0.2027},{"c":"RJI01A","dist":"DTIN3","n":82.0,"spin_s":3.443,"spin_p":3.2152,"spin_i":2.443,"spin_n":3.1392,"dado":0.0854,"conecta":0.1951,"reage":0.1585,"ch":0.061,"decisor":0.7848,"k1":0.5883,"prob":0.3415},{"c":"RJI03A","dist":"DTIN3","n":70.0,"spin_s":3.0597,"spin_p":3.1343,"spin_i":2.3582,"spin_n":2.8209,"dado":0.2286,"conecta":0.3286,"reage":0.4,"ch":0.1857,"decisor":0.7015,"k1":0.3771,"prob":0.2857},{"c":"RJI05A","dist":"DTIN3","n":136.0,"spin_s":3.4,"spin_p":3.0357,"spin_i":2.4857,"spin_n":3.1286,"dado":0.1471,"conecta":0.2426,"reage":0.25,"ch":0.0809,"decisor":0.8071,"k1":0.4967,"prob":0.2647},{"c":"RSI02A","dist":"DTIN5","n":53.0,"spin_s":3.275,"spin_p":3.3,"spin_i":2.775,"spin_n":3.0,"dado":0.2075,"conecta":0.3208,"reage":0.3774,"ch":0.1509,"decisor":0.775,"k1":0.725,"prob":0.3396},{"c":"RSI07A","dist":"DTIN5","n":59.0,"spin_s":2.8889,"spin_p":2.3016,"spin_i":1.8571,"spin_n":2.3333,"dado":0.1356,"conecta":0.1695,"reage":0.2373,"ch":0.0847,"decisor":0.5238,"k1":0.4316,"prob":0.2203},{"c":"S1I03A","dist":"DTIN2","n":91.0,"spin_s":3.1176,"spin_p":3.0,"spin_i":2.3647,"spin_n":2.8824,"dado":0.1099,"conecta":0.2418,"reage":0.3077,"ch":0.0659,"decisor":0.7176,"k1":0.5046,"prob":0.2308},{"c":"S1I05A","dist":"DTIN2","n":147.0,"spin_s":2.9574,"spin_p":2.6454,"spin_i":2.2624,"spin_n":2.6525,"dado":0.1905,"conecta":0.2993,"reage":0.3129,"ch":0.1429,"decisor":0.695,"k1":0.4678,"prob":0.2313},{"c":"S1I06A","dist":"DTIN2","n":61.0,"spin_s":3.1167,"spin_p":3.1167,"spin_i":2.5833,"spin_n":3.1167,"dado":0.1967,"conecta":0.3279,"reage":0.3443,"ch":0.1311,"decisor":0.7167,"k1":0.4668,"prob":0.2623},{"c":"S2I01A","dist":"DTIN1","n":80.0,"spin_s":3.284,"spin_p":2.6667,"spin_i":1.7531,"spin_n":2.5556,"dado":0.05,"conecta":0.1125,"reage":0.1125,"ch":0.025,"decisor":0.716,"k1":0.3579,"prob":0.15},{"c":"S2I02A","dist":"DTIN1","n":73.0,"spin_s":3.5192,"spin_p":2.9038,"spin_i":1.9038,"spin_n":2.8462,"dado":0.137,"conecta":0.2192,"reage":0.1507,"ch":0.0822,"decisor":0.8077,"k1":0.3088,"prob":0.137},{"c":"S2I03A","dist":"DTIN1","n":91.0,"spin_s":3.525,"spin_p":2.875,"spin_i":2.4375,"spin_n":3.25,"dado":0.2088,"conecta":0.3407,"reage":0.3297,"ch":0.1319,"decisor":0.8625,"k1":0.4048,"prob":0.1648},{"c":"S2I06A","dist":"DTIN1","n":118.0,"spin_s":3.2131,"spin_p":2.5902,"spin_i":2.4098,"spin_n":2.8115,"dado":0.161,"conecta":0.2034,"reage":0.178,"ch":0.1017,"decisor":0.623,"k1":0.5212,"prob":0.2034},{"c":"S3I01A","dist":"DTIN5","n":116.0,"spin_s":3.1143,"spin_p":3.0,"spin_i":2.419,"spin_n":3.1143,"dado":0.2241,"conecta":0.2845,"reage":0.3276,"ch":0.181,"decisor":0.8476,"k1":0.3953,"prob":0.2672},{"c":"S3I04A","dist":"DTIN1","n":76.0,"spin_s":3.4177,"spin_p":2.8987,"spin_i":2.1392,"spin_n":2.8481,"dado":0.1711,"conecta":0.2237,"reage":0.1974,"ch":0.1053,"decisor":0.7848,"k1":0.3202,"prob":0.1447},{"c":"SPI01A","dist":"DTIN4","n":77.0,"spin_s":3.0964,"spin_p":2.5301,"spin_i":2.0482,"spin_n":2.6506,"dado":0.1818,"conecta":0.2468,"reage":0.2857,"ch":0.1429,"decisor":0.6627,"k1":0.3578,"prob":0.1688},{"c":"SPI03A","dist":"DTIN4","n":124.0,"spin_s":2.9562,"spin_p":2.1971,"spin_i":1.562,"spin_n":2.1825,"dado":0.0484,"conecta":0.0726,"reage":0.129,"ch":0.0081,"decisor":0.5766,"k1":0.1781,"prob":0.0887},{"c":"SPI05A","dist":"DTIN4","n":79.0,"spin_s":3.0759,"spin_p":2.3924,"spin_i":1.9241,"spin_n":2.5823,"dado":0.0759,"conecta":0.2025,"reage":0.2405,"ch":0.0633,"decisor":0.7595,"k1":0.3084,"prob":0.1646},{"c":"SPI06A","dist":"DTIN2","n":96.0,"spin_s":3.1649,"spin_p":2.3505,"spin_i":1.567,"spin_n":2.6186,"dado":0.1042,"conecta":0.1354,"reage":0.125,"ch":0.0938,"decisor":0.8247,"k1":0.3232,"prob":0.1042}],"mediana":{"n":73.5,"spin_s":3.1676,"spin_p":2.7478,"spin_i":2.0474,"spin_n":2.8162,"dado":0.1354,"conecta":0.2081,"reage":0.2409,"ch":0.0819,"decisor":0.7644,"k1":0.3945,"prob":0.1791},"global":{"ch_completo":0.0906,"dado":0.14,"conecta":0.2013,"reage":0.2208,"spin":{"Situação":{"media":3.09,"nota1":0.0396},"Problema":{"media":2.59,"nota1":0.2723},"Implicação":{"media":2.01,"nota1":0.5072},"Necessidade":{"media":2.65,"nota1":0.2104}},"decisor":0.7155},"pareto":[{"cod":"P1","nome":"Acesso/sistema","n":208,"h":29.4,"pct":0.3681},{"cod":"P2","nome":"Faturamento/cobrança","n":132,"h":13.8,"pct":0.1725},{"cod":"P13","nome":"Crédito/cadastro PJ","n":110,"h":10.8,"pct":0.1348}],"resolucao":{"PARCIAL":0.4576,"NAO":0.4383,"SIM":0.1028,"NENHUM":0.0013}};
+</script>
+<script>
+/* ---------- utilidades ---------- */
+const $ = (s, r=document) => r.querySelector(s);
+const pct = (x,d=1) => (x*100).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%';
+const num = (x,d=2) => x.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+function h(tag, attrs={}, kids=[]) { const e=document.createElement(tag);
+  for (const [k,v] of Object.entries(attrs)) { if(k==='html') e.innerHTML=v; else if(k==='class') e.className=v; else if(k.startsWith('on')) e.addEventListener(k.slice(2),v); else if(v===true) e.setAttribute(k,''); else if(v!==false&&v!=null) e.setAttribute(k,v); }
+  (Array.isArray(kids)?kids:[kids]).forEach(c=>c!=null&&e.append(c.nodeType?c:document.createTextNode(c))); return e; }
+const KEY='trilha_vendedor_v1';
+let store={xp:0,done:{},days:[]};
+try{ const raw=localStorage.getItem(KEY); if(raw) store=Object.assign(store,JSON.parse(raw)); }catch(e){}
+const save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){} };
+function streak(){ const set=new Set(store.days), d=new Date(); let k=d.toISOString().slice(0,10); if(!set.has(k)){ d.setDate(d.getDate()-1); k=d.toISOString().slice(0,10); } let n=0; while(set.has(k)){ n++; d.setDate(d.getDate()-1); k=d.toISOString().slice(0,10); } return n; }
+function seeded(id){ let s=0; for(const c of id) s=(s*31+c.charCodeAt(0))>>>0; return ()=>{ s=(s*1664525+1013904223)>>>0; return s/4294967296; }; }
+function shuffle(arr,id){ const r=seeded(id), a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* ---------- conteúdo (trechos reais do CSV de setembro, com nomes mascarados) ---------- */
+const CH = {CH1:'Custo oculto revelado',CH2:'ROI calculado',CH3:'Urgência por regra real',CH4:'Concorrente ou alternativa superada com dado',CH5:'Dor revelada, produto conectado',CH6:'Antecipação de problema',CH7:'Necessidade não declarada descoberta'};
+const TRILHAS = [
+  {id:'T1',nome:'Diagnóstico SPIN',sub:'Situação, Problema, Implicação, Necessidade',dado:'Implicação: nota 1 em 50,7% das ligações',lic:4},
+  {id:'T2',nome:'Challenger: dado concreto',sub:'Trazer dado, conectar à situação, provocar reação',dado:'Dado 14,0% · conecta 20,1% · reação 22,1% · completo 9,1%',lic:4},
+  {id:'T3',nome:'Decisor e contato',sub:'Chegar ao decisor e manter o contato atualizado',dado:'Decisor em 71,6% das ligações; fecha 8,4% vs 2,6% sem decisor',lic:0},
+  {id:'T4',nome:'Próximo passo e retorno',sub:'Fechar com data e voltar no prazo',dado:'Só 27,1% dos retornos devidos têm nova tentativa no prazo',lic:0},
+  {id:'T5',nome:'Resolver rápido',sub:'Resolver ou encaminhar problemas em poucos minutos',dado:'P1, P2 e P13 = 67,5% do tempo com problema; 10,3% resolvidos',lic:4},
+  {id:'T6',nome:'Conduzir o tempo da ligação',sub:'Aprofundar com demanda, encerrar sem demanda',dado:'Faixa de 2–5 min: 0,87 fechamentos/h vs ≈ 1,1 nas outras',lic:0}
+];
+const LICOES = [
+ /* T1: reconheça a Implicação (frases reais do resumo SPIN de ligações com nota 4) */
+ {id:'S1',t:'T1',tipo:'spin',titulo:'Qual frase é a Implicação?',contexto:'Ligação de 24 min em que o cliente tinha dificuldade para reservar online.',
+  itens:{P:'[Cliente] mencionou dificuldades com o sistema de reservas online, incluindo problemas para redefinir a senha e completar a reserva.',
+         I:'O agente destacou que, devido à alta temporada, os preços podem aumentar, implicando que a falta de uma reserva antecipada poderia resultar em custos mais altos.',
+         N:'O agente sugeriu que [cliente] fizesse reservas com antecedência para garantir um preço melhor, mostrando o valor de resolver o problema de reservas tardias.'},
+  fonte:['spin_problema','spin_implicacao','spin_necessidade_solucao','nota_spin_implicacao'],alvo:'Depois de ouvir um problema, pergunte o que ele custa em preço, prazo ou risco antes de oferecer a solução.',medida:'Nota SPIN de Implicação ≥ 3 nas suas ligações.'},
+ {id:'S2',t:'T1',tipo:'spin',titulo:'Qual frase é a Implicação?',contexto:'Cliente reclamando do preço e pensando em comprar um carro.',
+  itens:{P:'[Cliente] menciona que os valores estão muito altos, que não quer pagar tanto e considera até a compra de um carro.',
+         I:'[Cliente] expressa que os altos valores podem levá-lo a procurar outras opções, como a compra de um carro, o que implica uma possível perda de negócio para a Localiza.',
+         N:'O agente sugere que [cliente] pode ser indicado para a gestão de frotas para tentar obter uma tarifa melhor, mostrando que há uma solução potencial para o problema de custo.'},
+  fonte:['spin_problema','spin_implicacao','spin_necessidade_solucao'],alvo:'Quando o cliente fala de preço, explore o que acontece se ele sair (compra, concorrente) e só então apresente a alternativa.',medida:'Nota SPIN de Implicação ≥ 3.'},
+ {id:'S3',t:'T1',tipo:'spin',titulo:'Qual frase é a Implicação?',contexto:'Contrato com devolução fora da data original.',
+  itens:{P:'O agente identifica que a cliente enfrenta problemas com a estimativa de custos devido à não devolução do carro na data original.',
+         I:'O agente explica que a não devolução na data correta afeta a estimativa de custos e que a prorrogação do contrato é necessária para evitar cobranças adicionais.',
+         N:'O agente sugere a prorrogação do contrato e destaca as vantagens de um aluguel mensal, mostrando que isso pode ser uma solução mais econômica.'},
+  fonte:['spin_problema','spin_implicacao','spin_necessidade_solucao'],alvo:'Traduza o problema em consequência de custo ou de prazo para o cliente.',medida:'Nota SPIN de Implicação ≥ 3.'},
+ {id:'S4',t:'T1',tipo:'escolha',titulo:'O que faltou nesta ligação?',contexto:'Ligação de 2 min. O cliente contou que teve um problema com a tag na primeira locação, já resolvido. A análise SPIN deu nota 1 para Implicação: “não houve exploração das implicações do problema mencionado”.',
+  pergunta:'Qual pergunta o vendedor deveria ter feito?',
+  opcoes:[{t:'Esse problema da tag já aconteceu mais de uma vez? Quanto tempo ou dinheiro ele custou para vocês?',ok:true,fb:'É uma pergunta de Implicação: investiga recorrência e custo antes de falar de solução.'},
+          {t:'Posso te oferecer uma tag nova?',ok:false,fb:'Pula direto para a solução (Necessidade) sem explorar a consequência.'},
+          {t:'Que bom que resolveu! Precisa de mais alguma coisa?',ok:false,fb:'Encerra o assunto. Quando o problema já foi resolvido, ainda vale perguntar se pode voltar a acontecer.'}],
+  fonte:['spin_implicacao','nota_spin_implicacao','spin_problema'],alvo:'Mesmo com o problema resolvido, pergunte se pode se repetir e quanto custou.',medida:'Nota SPIN de Implicação ≥ 3.',autoral:true},
+ /* T2: reconheça a técnica Challenger (trecho literal; a técnica vem de p5_codigos_challenger) */
+ {id:'C1',t:'T2',tipo:'tecnica',titulo:'Que técnica Challenger aparece aqui?',codigo:'CH1',tempo:'208 s',
+  turnos:[['C','E quilometragem que é possível rodar no período e quais opções em categorias de veículos e valores, né?'],['A','Sim, ó, mensal vale muito mais a pena do que diário. Diário é que é uma metragem livre, então {{a diária fica o dobro do mensal}}. O mensal…']],
+  opcoes:['CH1','CH2','CH4','CH6'],reacao:null,fonte:['p5_trecho_challenger','p5_codigos_challenger','p5_frase_vendedor'],alvo:'Traga 1 custo concreto que o cliente não via (diária, franquia, multa).',medida:'p5_trouxe_dado = SIM em 3 ligações da semana.'},
+ {id:'C2',t:'T2',tipo:'tecnica',titulo:'Que técnica Challenger aparece aqui?',codigo:'CH4',tempo:'não informado',
+  turnos:[['C','Brasil.'],['A','é porque todas as locadoras vão ter reajuste. A localiza como ela é a maior, é a pioneira, ela já teve esse reajuste em março, em julho e agosto, está cobrando agora. {{As outras locadoras vêm agora setembro, outubro e novembro que elas mudam.}} Então eu estou te falando isso porque todo ano eu sei, tem cliente que fala assim ah concorrente está mais barato vai para concorrente e depois volta porqu…'],['C','É para ficar…']],
+  opcoes:['CH3','CH4','CH5','CH7'],reacao:null,fonte:['p5_trecho_challenger','p5_codigos_challenger'],alvo:'Quando o cliente citar o concorrente, responda com um fato verificável, não com opinião.',medida:'p5_trouxe_dado = SIM em 3 ligações da semana.'},
+ {id:'C3',t:'T2',tipo:'tecnica',titulo:'Que técnica Challenger aparece aqui?',codigo:'CH3',tempo:'204 s',
+  turnos:[['C','Isso, uhum?'],['A','Só uma dica, até uma observação para que você verifique valide para poder fazer essa reserva o quanto antes. {{A gente está passando ele por algumas alterações de tarifa.}} Então, atualmente, na localiza a gente está com as melhores condições se você conseguir fazer essa efetivação o quanto antes para poder garantir. Claro que você não paga agora, porque é…'],['C','Uhum.']],
+  opcoes:['CH1','CH3','CH6','CH7'],reacao:'Não, tranquilo. Eu já vou ver então',fonte:['p5_trecho_challenger','p5_codigos_challenger','p5_reacao_cliente'],alvo:'Use urgência só com um fato verificável (mudança de tarifa, vencimento).',medida:'p5_cliente_reagiu = SIM em 3 ligações da semana.'},
+ {id:'C4',t:'T2',tipo:'tecnica',titulo:'Que técnica Challenger aparece aqui?',codigo:'CH6',tempo:'1.521 s',
+  turnos:[['A','[…] a gente sempre aconselha pelo menos {{antecipar essa demanda com sete dias}} para a gente ter essa possibilidade de atender com um número de veículos com opção maior para você e também garantir de gente conseguir o atendimento dessas reservas aí principalmente se for nesses períodos de feriados onde a demanda é muito grande']],
+  opcoes:['CH2','CH5','CH6','CH7'],reacao:null,fonte:['p5_trecho_challenger','p5_codigos_challenger','p5_frase_vendedor'],alvo:'Antecipe o problema de prazo ou de disponibilidade antes que o cliente o encontre.',medida:'p5_conectou_situacao = SIM em 3 ligações da semana.'},
+ /* T5: resolver rápido (trechos de ligações com problema; desfecho de p3_foi_resolvido_na_ligacao) */
+ {id:'R1',t:'T5',tipo:'escolha',titulo:'O que esta abertura faz pela ligação?',contexto:'P1 · acesso/sistema · resolvido na ligação · 416 s',
+  turnos:[['A','Ah, maravilha! Que bom poder ajudar aí [NOME]! Bom,'],['C','Correto.'],['A','{{recebi aqui um recado, o pessoal me repassou que você está tentando fazer o acesso no Abcorp e não está conseguindo, correto?}} Deixa eu confirmar com você aqui algumas informações. A gente reestabeleceu…']],
+  pergunta:'O que esta abertura faz pela ligação?',
+  opcoes:[{t:'Mostra que o vendedor já conhece o caso e vai direto a confirmar os dados, sem o cliente repetir a história.',ok:true,fb:'Abrir com o contexto do recado encurta a ligação e leva à ação. Esta ligação foi resolvida na própria chamada, o que acontece em só 10,3% dos problemas.'},
+          {t:'Dá tempo para o cliente explicar o problema desde o começo.',ok:false,fb:'O oposto: o vendedor já chegou com o caso em mãos.'},
+          {t:'Prepara a venda de um produto novo.',ok:false,fb:'Aqui o foco é o acesso. Misturar venda antes de resolver tende a alongar a ligação.'}],
+  fonte:['p3_trechos','p3_foi_resolvido_na_ligacao','CallDurationInSeconds'],alvo:'Quando houver recado ou chamado aberto, abra a ligação com o contexto dele.',medida:'TMA das ligações com problema abaixo de 432 s.',autoral:true},
+ {id:'R2',t:'T5',tipo:'escolha',titulo:'Crédito não liberado: e agora?',contexto:'P13 · crédito/cadastro PJ · resolvido parcialmente',
+  turnos:[['C','negócio para nós?'],['A','Sim, sim. Aí eu tentei até conseguir aumentar o crédito seu, mas eu não consegui. {{Aí eu sugeri até para o [NOME] vocês pegarem o carro no diário e depois mudar para o mensal.}}']],
+  pergunta:'O limite não foi ampliado. Qual movimento mantém a locação andando?',
+  opcoes:[{t:'Oferecer um caminho alternativo, como pegar no diário agora e migrar para o mensal depois.',ok:true,fb:'É o que o vendedor fez: não resolveu o crédito, mas manteve a locação. Em P13, 96 de 161 ligações (60%) terminam “parcial” e só 3 são resolvidas na ligação.'},
+          {t:'Pedir que o cliente espere até o crédito ser liberado, sem prazo.',ok:false,fb:'Deixa a pendência com o cliente e arrisca a locação.'},
+          {t:'Informar que não é possível e encerrar.',ok:false,fb:'Encerra sem alternativa; o cliente tende a ligar de novo ou ir à concorrência.'}],
+  fonte:['p3_trechos','p3_foi_resolvido_na_ligacao','p3_problema_principal'],alvo:'Quando o sistema bloquear, apresente sempre uma alternativa antes de encerrar.',medida:'p3_foi_resolvido_na_ligacao = SIM ou PARCIAL.',autoral:true},
+ {id:'R3',t:'T5',tipo:'escolha',titulo:'Sem solução: como encerrar?',contexto:'P2 · faturamento/cobrança · não resolvido · 132 s',
+  turnos:[['C','Pois é, aí teve um aumento semana passada, vocês me cozinharam aí por conta desse aumento e agora tem outra notícia, amanhã é outra coisa, tá muito ruim. Entendeu?'],['A','Sim.'],['C','{{E o problema do cliente não é resolvido. Eu tô pagando diária lá na alocação que já venceu}}, tá ruim, tá muito ruim. Sinceramente,']],
+  pergunta:'O problema não será resolvido agora. Que fechamento reduz o retrabalho?',
+  opcoes:[{t:'Registrar o caso, dizer quem trata e em que prazo, e confirmar o contato de retorno.',ok:true,fb:'Cerca de 90% dos problemas não se resolvem na ligação. Quando não dá, responsável e prazo evitam que o cliente ligue de novo.'},
+          {t:'Explicar a política de reajuste.',ok:false,fb:'Explica, mas não encaminha: o cliente continua pagando a diária e sem saber quem resolve.'},
+          {t:'Pedir que o cliente ligue para a central.',ok:false,fb:'Devolve o problema ao cliente e cria uma nova ligação.'}],
+  fonte:['p3_trechos','p3_evidencias','p3_foi_resolvido_na_ligacao'],alvo:'Toda ligação sem solução termina com responsável, prazo e contato de retorno.',medida:'Menos reincidência: clientes com 2+ ligações com problema.',autoral:true},
+ {id:'R4',t:'T5',tipo:'escolha',titulo:'O que levar do cliente para encaminhar?',contexto:'P2 · faturamento/cobrança · não resolvido · 89 s',
+  turnos:[['C','ontem teve uma fatura da Localiza no DDA que a gente efetou o pagamento e a hora que eu fui pegar o comprovante {{não gerou o comprovante}}. E eu entrei no site da Localiza, inclusive até agora está lá em processamento, sabe?'],['A','Uhum.']],
+  pergunta:'Que informações o vendedor precisa levar para encaminhar sem uma nova ligação?',
+  opcoes:[{t:'Número da fatura, data e forma do pagamento e um contato direto do cliente.',ok:true,fb:'Com esses dados o time de cobrança consegue tratar sem voltar a perguntar.'},
+          {t:'Só o nome da empresa.',ok:false,fb:'Não identifica a fatura nem o pagamento.'},
+          {t:'Nada: o financeiro liga depois.',ok:false,fb:'Sem dados, o financeiro precisa ligar para perguntar, e o cliente espera mais.'}],
+  fonte:['p3_trechos','p3_evidencias','p3_foi_resolvido_na_ligacao'],alvo:'Anote fatura, data, forma de pagamento e contato antes de encaminhar.',medida:'Menos ligações de retorno sobre o mesmo assunto.',autoral:true}
+];
+
+/* ---------- diagnóstico por carteira (dados reais agregados) ---------- */
+const med = D.mediana, cart = D.carteiras;
+function diag(c) { // c = carteira ou null (mediana)
+  const v = c || med;
+  const t1 = Math.min(v.spin_s,v.spin_p,v.spin_i,v.spin_n), t1k = ({spin_s:'Situação',spin_p:'Problema',spin_i:'Implicação',spin_n:'Necessidade'})[['spin_s','spin_p','spin_i','spin_n'].find(k=>v[k]===t1)];
+  const ladder = {dado:'Trazer dado',conecta:'Conectar à situação',reage:'Provocar reação'}; const lk = Object.keys(ladder).reduce((a,b)=>v[a]<v[b]?a:b);
+  const rel = {T1:(v.spin_i-med.spin_i)/med.spin_i, T2:(Math.min(v.dado,v.conecta,v.reage)-Math.min(med.dado,med.conecta,med.reage))/Math.min(med.dado,med.conecta,med.reage)}; // só trilhas com lições
+  const worst = Object.entries(rel).sort((a,b)=>a[1]-b[1])[0][0];
+  return {v, t1k, lk:ladder[lk], rel, worst};
+}
+/* ---------- estado de tela ---------- */
+const S = {view:'home', lic:null, step:0, sel:null, checked:false, acertos:0, carteira:''};
+const app = $('#app');
+const trilhaDe = id => TRILHAS.find(t=>t.id===id);
+const licDe = id => LICOES.filter(l=>l.t===id);
+function topbar() { const sk=streak(); return h('div',{class:'top'},[h('div',{class:'brand'},'Trilha do Vendedor'),h('div',{class:'stats','aria-label':'Seu progresso'},[h('span',{},['Sequência ',h('b',{},String(sk)+' d')]),h('span',{},['XP ',h('b',{},String(store.xp))])])]); }
+function skillRow(label, v, m, max, fmt) { const w=Math.min(100,v/max*100), mp=Math.min(100,m/max*100); const tr=h('div',{class:'track2'},[h('i',{style:`width:${w}%`}),h('u',{style:`left:${mp}%`,title:'mediana'})]); return h('div',{class:'skillrow'},[h('div',{},[h('div',{},label),tr]),h('div',{class:'v'},fmt(v))]); }
+
+/* ---------- home ---------- */
+function home() {
+  app.replaceChildren(topbar());
+  const c = cart.find(x=>x.c===S.carteira) || null, dg = diag(c), v = dg.v;
+  app.append(h('h1',{},'Pratique com ligações reais, 5 minutos por dia'),
+    h('p',{class:'lead'},'Cada lição usa um trecho de ligação de setembro, como está no CSV (transcrição automática, sem revisão), com nomes mascarados. O ponto de partida vem do que a sua carteira fez ao telefone.'));
+  const sel = h('select',{id:'selc','aria-label':'Carteira para o diagnóstico'},[h('option',{value:''},'Mediana das carteiras'),...cart.slice().sort((a,b)=>a.c.localeCompare(b.c)).map(x=>h('option',{value:x.c},x.c+' · '+x.dist))]); sel.value=S.carteira;
+  sel.addEventListener('change',()=>{ S.carteira=sel.value; home(); });
+  const worstT = trilhaDe(dg.worst);
+  const diagCard = h('div',{class:'card'},[h('h2',{},'Seu ponto de partida'),h('div',{class:'row',style:'margin-bottom:6px'},[h('label',{for:'selc',class:'note'},'Carteira'),sel]),
+    skillRow('SPIN · Implicação (nota 1–5)',v.spin_i,med.spin_i,5,x=>num(x)),
+    skillRow('Challenger · dado concreto',v.dado,med.dado,0.5,pct),
+    skillRow('Challenger · conecta à situação',v.conecta,med.conecta,0.5,pct),
+    skillRow('Challenger · cliente reage',v.reage,med.reage,0.5,pct),
+    skillRow('Chegou ao decisor',v.decisor,med.decisor,1,pct),
+    h('p',{class:'note'},'Barra = sua carteira · risco preto = mediana das carteiras. Dados de 01–22/09.'),
+    h('div',{class:'fb ok',style:'margin-bottom:0'},[h('h3',{},'Recomendado agora: '+worstT.id+' · '+worstT.nome),h('div',{style:'margin-bottom:10px'},c?`Na carteira ${c.c}, entre as trilhas com lições, a mais distante da mediana é “${worstT.nome}”.`:'Sem carteira selecionada, mostra a trilha com mais espaço para melhorar na mediana.'),h('button',{class:'btn',style:'min-height:40px;padding:0 14px',onclick:()=>start(licDe(worstT.id).find(l=>!store.done[l.id])?.id||licDe(worstT.id)[0].id)},'Começar '+worstT.id)])]);
+  app.append(diagCard);
+  const mis = h('div',{class:'card'},[h('h2',{},'Missão da semana'),h('div',{},'Traga 1 dado concreto em 3 ligações.'),h('div',{class:'bar',style:'margin:10px 0 6px'},h('i',{style:'width:33%'})),h('div',{class:'note'},'Exemplo: 1 de 3. A verificação sairia da coluna p5_trouxe_dado das suas ligações da semana, sem autodeclaração.')]);
+  app.append(mis);
+  app.append(h('h2',{style:'margin-top:22px'},'Trilhas'));
+  const path = h('div',{class:'path'});
+  TRILHAS.forEach(t=>{ const ls=licDe(t.id), done=ls.filter(l=>store.done[l.id]).length, lock=ls.length===0;
+    const dot=h('div',{class:'dot'+(lock?' lock':(done===ls.length?' done':''))},t.id);
+    const body=h('div',{class:'body'},[h('h3',{},t.nome),h('div',{class:'meta'},t.sub),
+      h('div',{class:'note',style:'margin-bottom:8px'},'Base: '+t.dado),
+      lock?h('span',{class:'pill'},'Em breve: lições a escrever com o Treinamento'):h('div',{},[h('div',{class:'bar',style:'margin-bottom:6px'},h('i',{style:`width:${done/ls.length*100}%`})),h('div',{class:'row'},[h('span',{class:'note'},`${done} de ${ls.length} lições`),h('button',{class:'btn',style:'min-height:40px;padding:0 14px',onclick:()=>{ const next=ls.find(l=>!store.done[l.id])||ls[0]; start(next.id); }},done===ls.length?'Rever':(done?'Continuar':'Começar'))])])]);
+    path.append(h('div',{class:'node'},[dot,body])); });
+  app.append(path);
+  app.append(h('div',{class:'draft'},[h('b',{},'Rascunho para curadoria do Treinamento. '),'Os trechos, os códigos de técnica e os desfechos vêm do CSV de setembro (rótulos do classificador, que podem errar). As perguntas, as opções e as explicações foram escritas para este protótipo e precisam de validação antes de uso com vendedores.']));
+  app.append(h('div',{class:'card'},[h('h2',{},'Como isso ajuda a missão'),h('div',{},'A trilha “Resolver rápido” ataca o tempo gasto com problemas (P1, P2 e P13 somam 67,5% dele) e a “Challenger” mede a qualidade da conversa comercial, sempre pelo comportamento nas ligações e nunca por SIM ou NÃO. A medição é: lição → comportamento nas ligações em 14 dias → TMA, desfecho e carga operacional.')]));
+  const rs = h('button',{class:'close',onclick:()=>{ store={xp:0,done:{},days:[]}; save(); home(); }},'Zerar progresso deste protótipo'); app.append(rs);
+}
+/* ---------- lição ---------- */
+function start(id) { S.view='lic'; S.lic=LICOES.find(l=>l.id===id); S.sel=null; S.checked=false; S.opts=null; scrollTo(0,0); lesson(); }
+function ctx(l) { const box=h('div',{});
+  if(l.contexto) box.append(h('p',{class:'note',style:'margin:4px 0 8px'},l.contexto));
+  if(l.turnos){ const ex=h('div',{class:'excerpt',role:'group','aria-label':'Trecho real da ligação, mascarado'}); l.turnos.forEach(([w,tx])=>{ const p=h('p',{}); p.append(h('span',{class:'who'},w==='A'?'Vendedor':'Cliente')); const parts=tx.split(/\{\{|\}\}/); parts.forEach((s,i)=>{ if(!s) return; p.append(i%2?h('mark',{},s):document.createTextNode(s)); }); ex.append(p); }); box.append(ex); }
+  return box; }
+function lesson() {
+  const l=S.lic, T=trilhaDe(l.t), idx=licDe(l.t).indexOf(l)+1, n=licDe(l.t).length;
+  app.replaceChildren(h('div',{class:'top'},[h('button',{class:'close',onclick:()=>{S.view='home';home();},'aria-label':'Voltar às trilhas'},'← Trilhas'),h('div',{class:'stats'},[h('span',{},[T.id+' · lição ',h('b',{},`${idx}/${n}`)])])]));
+  app.append(h('div',{class:'bar',style:'margin:14px 0 6px'},h('i',{style:`width:${(idx-1)/n*100+(S.checked?100/n:0)}%`})));
+  app.append(h('h1',{style:'font-size:22px'},l.titulo));
+  const card=h('div',{class:'card'}); card.append(ctx(l)); app.append(card);
+  let optsEl;
+  if(l.tipo==='spin'){
+    const raw=[{k:'P',t:l.itens.P,ok:false,fb:'Esta frase descreve o Problema: o que o cliente relatou. A Implicação é a consequência dele.'},{k:'I',t:l.itens.I,ok:true,fb:'Esta é a Implicação: mostra o que o problema causa em custo, prazo ou risco.'},{k:'N',t:l.itens.N,ok:false,fb:'Esta frase descreve a Necessidade de solução: o valor de resolver. A Implicação vem antes dela.'}];
+    S.opts=S.opts||shuffle(raw,l.id); optsEl=options(S.opts,'Qual frase descreve a Implicação do problema?');
+  } else if(l.tipo==='tecnica'){
+    const raw=l.opcoes.map(c=>({t:c+' · '+CH[c],ok:c===l.codigo,fb:c===l.codigo?'':'Esta é outra técnica: '+CH[c]+' ('+c+'). Compare com a parte destacada.'}));
+    S.opts=S.opts||shuffle(raw,l.id); optsEl=options(S.opts,'Qual técnica Challenger o vendedor usa na parte destacada?');
+  } else { S.opts=S.opts||shuffle(l.opcoes,l.id); optsEl=options(S.opts,l.pergunta); }
+  app.append(optsEl);
+  const act=h('div',{id:'act'}); app.append(act); renderAct();
+}
+function options(opts,q) { const fs=h('fieldset',{style:'border:0;padding:0;margin:0;min-width:0'},[h('legend',{style:'font-weight:650;margin:12px 0 4px;padding:0'},q)]);
+  opts.forEach((o,i)=>{ const id='o'+i; const inp=h('input',{type:'radio',name:'opt',id,value:String(i),disabled:S.checked}); if(S.sel===i) inp.checked=true;
+    const lab=h('label',{class:'opt'+(S.checked?(o.ok?' right':(S.sel===i?' wrong':'')):(S.sel===i?' sel':'')),for:id},[inp,h('span',{},o.t)]);
+    inp.addEventListener('change',()=>{ S.sel=i; document.querySelectorAll('.opt').forEach((x,j)=>x.classList.toggle('sel',j===i)); renderAct(); }); fs.append(lab); }); return fs; }
+function renderAct() { const l=S.lic, act=$('#act'); act.replaceChildren();
+  if(!S.checked){ act.append(h('button',{class:'btn block',disabled:S.sel==null,onclick:check},'Verificar')); return; }
+  const o=S.opts[S.sel], right=S.opts.find(x=>x.ok);
+  const okFlag=o.ok;
+  act.append(h('div',{class:'fb '+(okFlag?'ok':'no'),role:'status'},[h('h3',{},okFlag?'Correto':'Ainda não'),h('div',{},okFlag?(o.fb||'Isso mesmo.'):o.fb),!okFlag?h('div',{style:'margin-top:6px'},[h('b',{},'Resposta: '),right.t]):null,
+    l.tipo==='tecnica'&&l.reacao?h('div',{style:'margin-top:6px'},['Reação do cliente no CSV: “'+l.reacao+'”.']):null,
+    h('div',{class:'src'},['Origem no CSV: ',...l.fonte.flatMap((f,i)=>[i?', ':'',h('code',{},f)]),'. ',l.tipo==='tecnica'?`O código ${l.codigo} é o rótulo do classificador.`:'',l.autoral?' Pergunta e opções escritas para o protótipo.':''])]));
+  act.append(h('div',{class:'card'},[h('b',{},'Para a próxima ligação: '),l.alvo,h('div',{class:'note',style:'margin-top:6px'},'Como medimos: '+l.medida)]));
+  const list=licDe(l.t), i=list.indexOf(l), last=i===list.length-1;
+  act.append(h('button',{class:'btn block',onclick:()=>{ if(last) finish(); else start(list[i+1].id); }},last?'Concluir trilha':'Próxima lição'));
+}
+function check() { const l=S.lic, o=S.opts[S.sel]; S.checked=true; if(o.ok){ S.acertos++; }
+  if(!store.done[l.id]){ store.done[l.id]=true; store.xp+= o.ok?10:5; const k=new Date().toISOString().slice(0,10); if(!store.days.includes(k)) store.days.push(k); save(); }
+  lesson(); }
+function finish() { const l=S.lic, T=trilhaDe(l.t), list=licDe(l.t), feitas=list.filter(x=>store.done[x.id]).length;
+  app.replaceChildren(topbar());
+  app.append(h('h1',{},T.nome+' · trilha concluída'),h('div',{class:'card'},[h('div',{class:'big xp'},'+'+(list.length*10)+' XP'),h('p',{class:'lead',style:'margin-top:8px'},`${feitas} de ${list.length} lições feitas. XP total: ${store.xp}.`),
+    h('p',{},'Em produção, o próximo passo seria uma missão de comportamento (ex.: trazer 1 dado concreto em 3 ligações), verificada nas colunas do CSV 14 dias depois.')]),
+    h('button',{class:'btn block',onclick:()=>{S.view='home';home();}},'Voltar às trilhas')); scrollTo(0,0); }
+home();
+</script>
