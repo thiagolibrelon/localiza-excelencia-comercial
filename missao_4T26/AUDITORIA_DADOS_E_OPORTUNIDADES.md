@@ -85,6 +85,146 @@
 "Saturado" nem sempre é defeito: eventos raros, como `venda` (2,5% verdadeiro), são naturalmente concentrados em um valor. O defeito é a saturação de campos que deveriam discriminar
 (`oportunidades_boleano` 92%, `demanda_de_atendimento_boleano` 81%, `necessidade_nova_visita_boleano` 79%).
 
+### 2.1 Colunas por bloco
+
+**Uso:** *Usar* = confiável para análise · *Ressalva* = usar com o cuidado indicado · *Não usar* = duplicada, constante ou sem informação. **Preenchida** = % da base do bloco (tabela acima) com valor. Fonte: `anexos/dicionario_dados_setembro.csv`, que traz também mínimo, média, máximo e valor mais comum.
+
+#### A. Identificadores e chaves — 8 colunas: 5 usar · 1 ressalva · 2 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `id_transcricao` | ID da ligação no CRM (chave da junção com Tempo_de_ligação) | 100% | 19.078 | Usar | — |
+| `segment_id` | ID do segmento de transcrição (chave das tabelas Aletheia) | 100% | 19.078 | Usar | — |
+| `cd_segmento` | Mesmo ID, vindo da tabela Ligações Classificadas | 32,7% | 6.232 | Usar | — |
+| `codigo_cliente` | Código do cliente (perde zero à esquerda) | 92,2% | 12.206 | Ressalva | normalizar para 8 dígitos; 7,8% nulos |
+| `codigo_cliente_analise` | Código do cliente dentro da tabela de análise | 30,6% | 5.101 | **Não usar** | duplica codigo_cliente |
+| `matricula_ev_createdby` | Matrícula do vendedor que registrou | 100% | 67 | Usar | — |
+| `matricula_ev` | Matrícula do vendedor na análise | 30,6% | 63 | **Não usar** | duplica matricula_ev_createdby |
+| `nome_createdby` | Nome do vendedor | 100% | 67 | Usar | — |
+
+**Notas.** (1) `cd_segmento` é o mesmo valor de `segment_id` em todas as 6.232 linhas em que aparece (só as classificadas pelo GPT); ficou em *Usar* porque é a chave da junção com `Ligações Classificadas` e sua ausência indica ligação sem classificação GPT. Pelo critério dos outros dois duplicados (que repetem uma coluna mais completa) poderia ser *Usar com ressalva*. (2) `nome_createdby` é *Usar* quanto à qualidade do dado (1:1 com a matrícula, 67 nomes); no BI o nome fica **fora** do modelo publicado (ver `bi/README_BI_v1.md`, seção 6).
+
+#### B. CRM e telefonia — 10 colunas: 3 usar · 6 ressalva · 1 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `data_visita_ev` | Data e hora da ligação (serial Excel, UTC) | 100% | 18.774 | Ressalva | UTC: subtrair 3h |
+| `status` | Status no CRM (Completed, Sem Sucesso, Open) | 100% | 3 | Ressalva | 613 conversas GPT estão fora de Completed |
+| `tipo_ligacao` | Inbound ou Outbound | 100% | 2 | Ressalva | saturado (≥ 90% no mesmo valor) |
+| `tipo_interacao` | Remota: procurei o cliente / cliente nos procurou | 100% | 2 | **Não usar** | saturado (≥ 90% no mesmo valor); redundante com tipo_ligacao |
+| `DIVISIONAL` | Divisional (filtro DVINT) | 100% | 1 | Ressalva | constante |
+| `DISTRITAL` | Distrital (DTIN1–5) | 100% | 5 | Usar | — |
+| `CARTEIRA` | Carteira do vendedor | 100% | 67 | Usar | — |
+| `Data` | Dia da ligação derivado no Power Query | 100% | 22 | Usar | — |
+| `Chave` | Carteira + número do mês (chave para metas) | 100% | 126 | Ressalva | linhas de 31/08 recebem mês 08 |
+| `CallDurationInSeconds` | Duração da ligação em segundos (tabela Tempo_de_ligação) | 69,9% | 859 | Ressalva | só Completed e só até 22/09 |
+
+#### C. Regra do Power Query — 1 coluna: 0 usar · 1 ressalva · 0 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `Classificação tipo de ligação` | POSITIVA / INFORMATIVA / DETRATORA / IGNORAR (regra do Power Query) | 100% | 4 | Ressalva | DETRATORA inclui 657 Completed sem análise |
+
+#### D. Aletheia (Gemini) — análise da ligação — 26 colunas: 12 usar · 11 ressalva · 3 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `resumo_analise` | Resumo narrativo da ligação | 100% | 5.837 | Ressalva | contém nomes de pessoas |
+| `objetivo` | Objetivo da ligação (texto) | 100% | 4.536 | Usar | — |
+| `objetivo_atingido` | Objetivo foi atingido? | 100% | 2 | Usar | — |
+| `oportunidades` | Oportunidades identificadas (texto) | 100% | 5.195 | Usar | — |
+| `oportunidades_boleano` | Há oportunidade? | 100% | 2 | Ressalva | saturado (≥ 90% no mesmo valor); VERDADEIRO em 92% |
+| `nota_oportunidades` | Nota da oportunidade (0–10) | 100% | 9 | Usar | — |
+| `demanda_venda_eminente` | Demanda de venda iminente (texto) | 100% | 2.648 | Usar | — |
+| `demanda_venda_eminente_boleano` | Há demanda de venda iminente? | 100% | 2 | Usar | — |
+| `nota_demanda_venda` | Nota da demanda de venda (0–10) | 100% | 11 | Usar | — |
+| `venda` | Venda realizada na ligação? | 100% | 2 | Ressalva | saturado (≥ 90% no mesmo valor); concorda só em parte com p1_desfecho (kappa 0,46) |
+| `demanda_de_atendimento` | Demanda de atendimento (texto) | 100% | 4.567 | Usar | — |
+| `demanda_de_atendimento_boleano` | Há demanda de atendimento? | 100% | 2 | Ressalva | VERDADEIRO em 81% |
+| `nota_demanda_atendimento` | Nota da demanda de atendimento | 100% | 1 | **Não usar** | constante; constante (0 em 100%) |
+| `necessidade_nova_visita` | Necessidade de nova visita (texto) | 100% | 4.540 | Usar | — |
+| `necessidade_nova_visita_boleano` | Precisa de nova visita? | 100% | 2 | Ressalva | VERDADEIRO em 79% |
+| `urgencia_nova_visita` | Urgência da nova visita (1–10) | 100% | 10 | Usar | — |
+| `motivo_nova_visita` | Motivo da nova visita (texto) | 100% | 4.089 | Ressalva | valor-sentinela frequente |
+| `data_sugerida_nova_visita` | Data sugerida para a nova visita (dd/mm/aaaa) | 100% | 131 | Ressalva | valor-sentinela frequente |
+| `falou_tomador_decisao` | Falou com o tomador de decisão? | 100% | 2 | Usar | — |
+| `falou_secretaria_eletronica` | Caiu em secretária eletrônica? | 100% | 2 | Ressalva | saturado (≥ 90% no mesmo valor) |
+| `frota_propria` | Frota própria (texto) | 100% | 524 | Ressalva | valor-sentinela frequente |
+| `frota_propria_boleano` | Cliente tem frota própria? | 100% | 2 | Usar | — |
+| `volume_frota_propria` | Volume da frota própria | 100% | 108 | **Não usar** | valor-sentinela frequente; 95% é 'sem dados necessários' |
+| `aluguel_concorrencia` | Aluguel com concorrente (texto) | 100% | 418 | Ressalva | valor-sentinela frequente |
+| `aluguel_concorrencia_boleano` | Aluga de concorrente? | 100% | 2 | Ressalva | saturado (≥ 90% no mesmo valor) |
+| `volume_aluguel_concorrencia` | Volume alugado do concorrente | 100% | 41 | **Não usar** | valor-sentinela frequente; 99% é 'sem dados necessários' |
+
+#### E. Aletheia (Gemini) — SPIN Selling — 10 colunas: 8 usar · 2 ressalva · 0 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `resumo_spin` | Resumo da ligação sob a ótica SPIN | 100% | 5.839 | Ressalva | contém nomes de pessoas |
+| `spin_situacao` | Evidência SPIN — Situação (texto) | 100% | 5.737 | Usar | — |
+| `nota_spin_situacao` | Nota SPIN Situação (1–5) | 100% | 4 | Usar | — |
+| `spin_problema` | Evidência SPIN — Problema (texto) | 100% | 4.700 | Usar | — |
+| `nota_spin_problema` | Nota SPIN Problema (1–5) | 100% | 5 | Usar | — |
+| `spin_implicacao` | Evidência SPIN — Implicação (texto) | 100% | 3.568 | Ressalva | valor-sentinela frequente |
+| `nota_spin_implicacao` | Nota SPIN Implicação (1–5) | 100% | 5 | Usar | — |
+| `spin_necessidade_solucao` | Evidência SPIN — Necessidade de solução (texto) | 100% | 4.890 | Usar | — |
+| `nota_spin_necessidade_solucao` | Nota SPIN Necessidade (1–5) | 100% | 5 | Usar | — |
+| `nota_final_spin` | Nota final SPIN (1–5) | 100% | 5 | Usar | — |
+
+#### F. Aletheia (Gemini) — categorização — 5 colunas: 4 usar · 1 ressalva · 0 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `categoria_principal` | Categoria da ligação (Suporte, Comercial, Consultivo, Tentativa de contato comercial) | 100% | 5 | Ressalva | valor-sentinela frequente; 'Sem Classificação' = ligação sem análise |
+| `score_consultivo` | Score consultivo (0–1) | 100% | 7 | Usar | — |
+| `score_tentativa_de_contato_comercial` | Score de tentativa de contato comercial (0–1) | 100% | 10 | Usar | — |
+| `score_suporte` | Score de suporte (0–1) | 100% | 12 | Usar | — |
+| `score_comercial` | Score comercial (0–1) | 100% | 12 | Usar | — |
+
+#### G. Classificador GPT — venda — 9 colunas: 5 usar · 2 ressalva · 2 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `fonte_classificacao` | Origem da classificação (gpt, auto_curta) | 100% | 2 | Usar | — |
+| `era_venda` | Era uma ligação de venda? | 95,7% | 2 | Usar | — |
+| `p1_desfecho` | Desfecho comercial (fechou, interessou, não era venda…) | 100% | 5 | Ressalva | versão do classificador muda no mês |
+| `p2_tipo` | Tipo da ligação (nova venda, suporte, cobrança…) | 100% | 14 | Ressalva | versão do classificador muda no mês |
+| `p1_tentativa_comercial` | Houve tentativa comercial? | 100% | 2 | Usar | — |
+| `evidencia_venda` | Evidência da venda (texto curto) | 100% | 4.272 | Usar | — |
+| `p1_trecho_venda` | Trecho literal da venda | 41,9% | 2.028 | Usar | — |
+| `p1_desfecho_original` | Desfecho original (antes de ajuste de regra) | 0,1% | 3 | **Não usar** | esparso (< 10% da base aplicável); 3 valores em toda a base |
+| `p2_tipo_original` | Tipo original (antes de ajuste de regra) | 0,0% | 1 | **Não usar** | constante; esparso (< 10% da base aplicável); 1 valor em toda a base |
+
+#### H. Classificador GPT — problemas — 8 colunas: 3 usar · 5 ressalva · 0 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `tem_problema` | A ligação tem problema? | 95,7% | 2 | Ressalva | taxa 13,6% → 27,4% em 15/09 |
+| `p3_problemas_identificados` | Códigos dos problemas (P1…P15) | 100% | 73 | Ressalva | valor-sentinela frequente |
+| `p3_problema_principal` | Problema principal | 95,7% | 16 | Ressalva | valor-sentinela frequente; taxa muda em 15/09 |
+| `p3_foi_resolvido_na_ligacao` | Problema resolvido na ligação (SIM, PARCIAL, NAO) | 100% | 4 | Ressalva | valor-sentinela frequente |
+| `p3_evidencias` | Evidência do problema (texto) | 100% | 960 | Usar | — |
+| `p3_trechos` | Trecho literal do problema | 80,0% | 770 | Usar | — |
+| `p3_trechos_status` | Status da busca do trecho | 81,1% | 93 | Usar | — |
+| `p3_outro_descricao` | Descrição quando o problema é "Outro" | 5,8% | 56 | Ressalva | esparso (< 10% da base aplicável) |
+
+#### I. Classificador GPT — Challenger — 11 colunas: 6 usar · 5 ressalva · 0 não usar
+
+| Coluna | O que é | Preenchida | Valores distintos | Uso | Observação |
+|---|---|---:|---:|---|---|
+| `p5_teve_challenger` | Teve Challenger? | 100% | 2 | Ressalva | saturado (≥ 90% no mesmo valor) |
+| `p5_codigos_challenger` | Códigos Challenger (CH1–CH7) | 100% | 41 | Ressalva | valor-sentinela frequente |
+| `p5_qualidade` | Qualidade do Challenger (alta, media, baixa) | 100% | 4 | Ressalva | saturado (≥ 90% no mesmo valor); valor-sentinela frequente; 83% 'alta' (sem variância) |
+| `p5_trouxe_dado` | Trouxe dado concreto? | 95,7% | 2 | Usar | — |
+| `p5_conectou_situacao` | Conectou à situação do cliente? | 95,7% | 2 | Usar | — |
+| `p5_cliente_reagiu` | Cliente reagiu? | 95,7% | 2 | Usar | — |
+| `p5_frase_vendedor` | Frase do vendedor | 96,3% | 500 | Usar | — |
+| `p5_reacao_cliente` | Reação do cliente | 57,9% | 241 | Usar | — |
+| `p5_challenger_sem_dado` | Challenger sem dado concreto? | 95,7% | 2 | Ressalva | saturado (≥ 90% no mesmo valor) |
+| `p5_trecho_challenger` | Trecho literal do Challenger | 68,6% | 295 | Usar | — |
+| `p5_trecho_status` | Status da busca do trecho | 69,3% | 3 | Ressalva | saturado (≥ 90% no mesmo valor) |
+
+
 ---
 
 ## 3. Auditoria do código M
