@@ -35,6 +35,21 @@ moveu o ponteiro e o BI continua rodando sem depender de mim."*
 | **DEPENDÊNCIAS** | Duração de ligação a partir de 23/09 (hoje a série para em 22/09) · tabelas `analise_llm`, `spinselling_llm` e `categorizacao_llm` do Aletheia (BigQuery) · `F_Carteiras_Equipe` · acesso ao llm-gate e máquina na rede Localiza · gateway/workspace do Power BI · Vendas, Produto e Operações para executar ações · 9 pedidos de dado (auditoria, seção 10). |
 | **O QUE NÃO FAREMOS** | Novos prompts ou nova taxonomia · ranking punitivo de vendedores · política de cold call ou meta de ligações (é da Gerência Comercial) · correção de sistemas (entregamos evidência ao Produto) · tempo real (o corte é D-1) · horas devolvidas em R$ sem premissa de custo-hora · afirmar tendência antes do baseline congelado. |
 
+### 2.1 Versão compacta para o slide (cabe nas caixas do Canvas)
+
+Cada texto tem até ~165 caracteres, o que cabe em 3 linhas da caixa. Se o baseline congelado de 09/10 mudar os números, atualizar **Por que agora**, **Entrega** e **Indicador**.
+
+| Campo | Texto |
+|---|---|
+| **MISSÃO** | Reduzir a carga operacional sobre a força de vendas, usando o Aletheia em visões diária, semanal e mensal para devolver tempo a atividades produtivas. |
+| **POR QUE AGORA?** | Em setembro, 43% do tempo de ligação foi carga operacional e só 35% negociação; ligação com problema dura 1,9× mais. O Aletheia já mede: falta virar rotina. |
+| **ENTREGA ATÉ DEZEMBRO** | Carga operacional de 43% para 38% (−5 p.p.; −10 p.p. no piloto), BI diário em uso pela gestão e plano de ações com dono. |
+| **INDICADOR** | % do tempo de ligação em carga operacional (43,2% em setembro, a confirmar em 09/10). Apoio: tempo de negociação e horas devolvidas. |
+| **LÍDER + TIME** | Líder: Thiago Librelon. Piloto: Gerência Operacional (assina as horas devolvidas). Apoios: Gerência Comercial, Produto, Treinamento e Dados/TI. |
+| **MARCOS** | 09/10 baseline congelado · 30/10 BI diário em produção · 13/11 plano de ações aprovado · 16/11 pilotos no ar · 17/12 leitura final e decisão para 2027. |
+| **DEPENDÊNCIAS** | Duração das ligações após 22/09 e classificação diária do Aletheia (Dados/TI); Power BI; Operações e Produto para executar as ações. |
+| **O QUE NÃO FAREMOS** | Ranking punitivo de vendedores, novos prompts, meta de ligações e correção de sistemas (entregamos a evidência ao Produto). |
+
 ---
 
 ## 3. Onde estamos — o que o CSV de setembro diz
