@@ -105,6 +105,15 @@ Por linha de comando (para agendar no Agendador de Tarefas, por exemplo):
   - Os rankings de carteira continuam mostrando todas as carteiras e destacam a escolhida.
 - **Limpar filtros** volta ao padrão.
 - Cada computador lembra a última página e os filtros.
+- **Cores:** paleta oficial do LDS (Localiza Design System), a mesma de `Color_Code.md` na raiz do repositório, e fonte
+  Inter embutida no arquivo, para abrir igual em qualquer computador, mesmo sem internet.
+
+  | Cor | Significado |
+  |---|---|
+  | Verde `#018444` e verde-limão `#78DE1F` | Negociação, o que melhorou, resolvido |
+  | Vermelho `#D92020` | Carga operacional, problema, o que piorou |
+  | Cinza | Referências: baseline, Gemini, mediana |
+  | Verde-noite `#003418` | Menu lateral |
 
 ## Validação antes de divulgar
 
