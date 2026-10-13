@@ -1,0 +1,33 @@
+// Teste da aba Configurações (baseline pessoal e arquivo para tornar oficial). Uso: node testes/configuracoes.js <pasta> <pasta-imagens>
+const { chromium } = (() => { try { return require('playwright'); } catch (e) { return require('/opt/node22/lib/node_modules/playwright'); } })();
+const abrir = () => chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
+const fs = require('fs');
+const dir = process.argv[2], out = process.argv[3];
+(async () => {
+  const b = await abrir(); const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, acceptDownloads: true }); const p = await ctx.newPage();
+  const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+  await p.goto('file://' + dir + '/painel.html'); await p.waitForTimeout(600);
+  const chips = async () => (await p.locator('#chips').innerText()).replace(/\s+/g, ' ');
+  const deltaProb = async () => { await p.click('[data-pag="geral"]'); await p.waitForTimeout(500); return (await p.locator('#kd-prob').innerText()) + ' | ' + (await p.locator('#kd-k1').innerText()); };
+  console.log('0 oficial →', await chips(), '| Δ problemas/carga:', await deltaProb());
+  await p.click('[data-ir-config]'); await p.waitForTimeout(500);
+  console.log('1 chip leva à página:', await p.locator('.menu .on').innerText());
+  console.log('  meses:', (await p.locator('#h-cfgmeses tbody').innerText()).split('\n').map(l => l.split('\t').slice(0, 2).join(' ') + ' ' + l.split('\t').slice(-1)).join(' / '));
+  await p.screenshot({ path: out + '/config.png', fullPage: true });
+  await p.fill('[data-cfg="fim"]', '2026-09-14'); await p.dispatchEvent('[data-cfg="fim"]', 'change'); await p.waitForTimeout(400);
+  console.log('2 rascunho:', await p.inputValue('[data-cfg="rotulo"]'), '|', (await p.locator('#h-cfgbase .nota').first().innerText()).replace(/\s+/g, ' ').slice(0, 170));
+  await p.click('[data-cfg-acao="aplicar"]'); await p.waitForTimeout(400);
+  console.log('3 aplicada →', await chips());
+  console.log('  Δ problemas/carga contra 01–14/09:', await deltaProb());
+  await p.click('[data-pag="config"]'); await p.waitForTimeout(400);
+  const [dl] = await Promise.all([p.waitForEvent('download'), p.click('[data-cfg-acao="baixar"]')]);
+  const arq = out + '/painel_config.json'; await dl.saveAs(arq); console.log('4 baixado:', dl.suggestedFilename(), fs.readFileSync(arq, 'utf8').replace(/\s+/g, ' '));
+  await p.fill('[data-cfg="min_ligacoes"]', '50'); await p.dispatchEvent('[data-cfg="min_ligacoes"]', 'change'); await p.waitForTimeout(300);
+  await p.click('[data-pag="carteiras"]'); await p.waitForTimeout(400); console.log('5 mínimo 50:', (await p.locator('#card-tabcart .card-cab p').innerText()));
+  await p.click('[data-pag="config"]'); await p.waitForTimeout(300); await p.click('[data-cfg-acao="paroficial"]'); await p.waitForTimeout(300);
+  await p.click('[data-cfg-acao="oficial"]'); await p.waitForTimeout(300); console.log('6 voltar à oficial →', await chips());
+  await p.locator('#h-cfgmeses tr[data-tab-linha="2026-08"]').click(); await p.waitForTimeout(300);
+  console.log('7 clique em agosto preenche:', await p.inputValue('[data-cfg="inicio"]'), await p.inputValue('[data-cfg="fim"]'), await p.inputValue('[data-cfg="rotulo"]'), '| aviso:', (await p.locator('#h-cfgbase .nota').first().innerText()).replace(/\s+/g, ' ').slice(-120));
+  console.log(errs.length ? 'ERROS: ' + errs.join(' | ') : 'sem erros');
+  await b.close();
+})();

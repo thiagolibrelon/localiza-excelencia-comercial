@@ -44,7 +44,18 @@ const SEQ = ['#F3FAF5', '#CDEBD7', '#8FD0A6', '#4DAE76', '#018444', '#004F27'];
 const FONTE = getComputedStyle(document.body).fontFamily;
 
 /* ---------------- dados ---------------- */
-const CFG = D.config, DIAS = D.dias, ND = DIAS.length, CART = D.carteiras, COLA = D.colA;
+const DIAS = D.dias, ND = DIAS.length, CART = D.carteiras, COLA = D.colA;
+/* configuração: a oficial vem do dados.js (painel_config.json do script); cada leitor pode ter ajustes pessoais (localStorage) */
+const CFG_OFICIAL = Object.assign({}, D.config);
+const CHAVE_CFG = 'painel_dvint_cfg', AJUSTAVEIS = ['baseline_inicio', 'baseline_fim', 'baseline_rotulo', 'min_ligacoes', 'min_n_taxa', 'limite_cobertura'];
+let CFG_PESSOAL = {};
+try { const g = JSON.parse(localStorage.getItem(CHAVE_CFG) || 'null'); if (g && typeof g === 'object') AJUSTAVEIS.forEach(k => { if (k in g) CFG_PESSOAL[k] = g[k]; }); } catch (e) { /* sem armazenamento */ }
+const CFG = Object.assign({}, CFG_OFICIAL, CFG_PESSOAL);
+function aplicaCfg(novo) {
+  CFG_PESSOAL = novo; AJUSTAVEIS.forEach(k => { CFG[k] = k in novo ? novo[k] : CFG_OFICIAL[k]; });
+  try { if (Object.keys(novo).length) localStorage.setItem(CHAVE_CFG, JSON.stringify(novo)); else localStorage.removeItem(CHAVE_CFG); } catch (e) { /* sem armazenamento */ }
+}
+const basePessoal = () => CFG.baseline_inicio !== CFG_OFICIAL.baseline_inicio || CFG.baseline_fim !== CFG_OFICIAL.baseline_fim;
 const IA = {}; COLA.forEach((c, i) => IA[c] = i + 2);
 const DIST = [...new Set(CART.map(c => c.d).filter(Boolean))].sort();
 const DOWI = DIAS.map(d => new Date(d + 'T12:00:00').getDay());
@@ -99,7 +110,7 @@ try { const g = JSON.parse(localStorage.getItem(CHAVE) || 'null'); if (g && type
 function salvar() { try { localStorage.setItem(CHAVE, JSON.stringify(S)); } catch (e) { /* sem armazenamento */ } }
 const idxDe = s => { const i = DIAS.findIndex(d => d >= s); return i < 0 ? ND : i; };
 const idxAte = s => { let i = ND - 1; while (i >= 0 && DIAS[i] > s) i--; return i; };
-const PRESETS = [['mes', 'Mês do último dado'], ['mesAnt', 'Mês anterior'], ['d7', 'Últimos 7 dias'], ['d30', 'Últimos 30 dias'], ['base', 'Baseline (' + CFG.baseline_rotulo + ')'], ['tudo', 'Tudo'], ['pers', 'Personalizado']];
+const presets = () => [['mes', 'Mês do último dado'], ['mesAnt', 'Mês anterior'], ['d7', 'Últimos 7 dias'], ['d30', 'Últimos 30 dias'], ['base', 'Baseline (' + CFG.baseline_rotulo + ')'], ['tudo', 'Tudo'], ['pers', 'Personalizado']];
 function aplicaPreset(p) {
   const ult = DIAS[ND - 1];
   if (p === 'tudo') { S.d0 = 0; S.d1 = ND - 1; }
@@ -166,7 +177,7 @@ function k3(t) { const a = div(t.seg_prob, t.n_prob_base), b = div(t.seg_base - 
 
 /* ---------------- comparação (baseline ou período anterior) ---------------- */
 function janelaComp() {
-  if (S.comp === 'base') { const a = idxDe(CFG.baseline_inicio), b = idxAte(CFG.baseline_fim); return a <= b && a < ND ? { r0: a, r1: b, rot: 'baseline (' + CFG.baseline_rotulo + ')', curto: 'baseline' } : null; }
+  if (S.comp === 'base') { const a = idxDe(CFG.baseline_inicio), b = idxAte(CFG.baseline_fim); return a <= b && a < ND ? { r0: a, r1: b, rot: 'baseline (' + CFG.baseline_rotulo + (basePessoal() ? ', pessoal' : '') + ')', curto: 'baseline' } : null; }
   if (S.comp === 'ant') { const n = diasEntre(DIAS[S.d0], DIAS[S.d1]) + 1; const fim = dataMais(DIAS[S.d0], -1), ini = dataMais(fim, -(n - 1)); const a = idxDe(ini), b = idxAte(fim); return a <= b && a < ND && b >= 0 ? { r0: a, r1: b, rot: 'período anterior (' + dd(DIAS[a]) + '–' + dd(DIAS[b]) + ')', curto: 'anterior' } : null; }
   return null;
 }
@@ -272,7 +283,7 @@ function tabela(el, o) {
   const fmt = (c, l) => { const v = l[c.k]; const t = c.f ? c.f(v, l) : esc(v == null ? '–' : v); if (c.barra && v != null && isFinite(v)) { const mx = c.barra === true ? Math.max(1e-9, ...linhas.map(x => x[c.k] || 0)) : c.barra; return `<span class="barra-cel"><span>${t}</span><i style="width:${Math.max(2, Math.min(60, v / mx * 60))}px;background:${c.cor || COR.verde}"></i></span>`; } return t; };
   el.innerHTML = `<div class="tab-barra">${o.busca !== false ? `<input type="search" placeholder="${esc(o.placeholder || 'Buscar')}" value="${esc(st.busca)}" data-tab-busca aria-label="Buscar na tabela">` : ''}${o.botoes || ''}<span class="cont">${nf(linhas.length)} ${o.unidade || 'linhas'}${linhas.length > vis.length ? ` · mostrando ${nf(vis.length)}` : ''}</span><button type="button" class="pilula" data-tab-csv>Baixar CSV</button></div>
   <div class="tab-wrap" style="max-height:${o.altura || 520}px"><table class="tb"><thead><tr>${o.colunas.map(c => `<th class="${c.txt ? 'txt' : ''}" data-tab-ord="${c.k}" title="${esc(c.dica || 'Ordenar')}">${esc(c.t)}${st.ord === c.k ? `<span class="seta">${st.asc ? '▲' : '▼'}</span>` : ''}</th>`).join('')}</tr></thead>
-  <tbody>${vis.map(l => `<tr class="${o.clique ? 'clic' : ''} ${o.sel && o.sel(l) ? 'sel' : ''} ${o.fraco && o.fraco(l) ? 'fraco' : ''}" ${o.clique ? `data-tab-linha="${esc(l[o.chave])}" tabindex="0"` : ''}>${o.colunas.map(c => `<td class="${c.txt ? 'txt' : ''}">${fmt(c, l)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+  <tbody>${vis.map(l => `<tr class="${o.clique ? 'clic' : ''} ${o.sel && o.sel(l) ? 'sel' : ''} ${o.fraco && o.fraco(l) ? 'fraco' : ''}" ${o.clique ? `data-tab-linha="${esc(l[o.chave])}" tabindex="0"` : ''}>${o.colunas.map(c => `<td class="${c.txt ? 'txt' : ''}"${c.quebra ? ' style="white-space:normal;min-width:150px"' : ''}>${fmt(c, l)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
   ${linhas.length > vis.length ? `<button type="button" class="mais" data-tab-mais>Mostrar mais ${nf(Math.min(100, linhas.length - vis.length))}</button>` : ''}`;
   el.__linhas = linhas;
   if (!el.__ligado) {
@@ -949,6 +960,113 @@ PAG.qualidade = {
   },
 };
 
+/* ---------------- 10 · Configurações ---------------- */
+const NOMES_MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+const rotMes = m => NOMES_MES[+m.slice(5, 7) - 1] + '/' + m.slice(0, 4);
+const fimMes = m => { const d = new Date(m + '-01T12:00:00'); d.setMonth(d.getMonth() + 1); d.setDate(0); return d.toISOString().slice(0, 10); };
+const diasUteis = (a, b) => { let n = 0; for (let s = a; s <= b; s = dataMais(s, 1)) { const w = new Date(s + 'T12:00:00').getDay(); if (w && w < 6) n++; } return n; };
+let RASC = null; /* rascunho da baseline em edição */
+const rotJanela = c => { const datas = `${ddmmaa(c.baseline_inicio)} a ${ddmmaa(c.baseline_fim)}`; return c.baseline_rotulo === datas ? datas : `${c.baseline_rotulo} (${datas})`; };
+function resumoJanela(ini, fim) {
+  const r0 = idxDe(ini), r1 = idxAte(fim);
+  const rows = r0 <= r1 && r0 < ND ? D.A.filter(r => r[0] >= r0 && r[0] <= r1) : [];
+  const t = somaA(rows);
+  const avisos = [];
+  if (!rows.length) avisos.push('sem dados nesse período');
+  else {
+    const uteis = diasUteis(ini < DIAS[0] ? DIAS[0] : ini, fim > DIAS[ND - 1] ? DIAS[ND - 1] : fim);
+    if (ini < DIAS[0] || fim > DIAS[ND - 1]) avisos.push('parte do período está fora dos dados');
+    if (t._dias < Math.max(5, uteis * .8)) avisos.push(`só ${t._dias} dias com dado`);
+    if (tx(t, 'c1') != null && tx(t, 'c1') < CFG.limite_cobertura) avisos.push(`classificação cobre ${pc(tx(t, 'c1'), 0)} das atendidas`);
+    if (tx(t, 'c2') != null && tx(t, 'c2') < CFG.limite_cobertura) avisos.push(`duração cobre ${pc(tx(t, 'c2'), 0)} das atendidas`);
+  }
+  return { t, avisos, dias: t._dias };
+}
+PAG.config = {
+  esqueleto: () => `<div class="grade">${cardHtml('cfgbase', 'c7', 'Baseline', 'O período que serve de referência nas comparações')}
+    ${cardHtml('cfgpar', 'c5', 'Parâmetros de análise', 'Valem para rankings, medianas e avisos de amostra')}
+    ${cardHtml('cfgmeses', 'c12', 'Meses disponíveis nos dados', 'Para escolher a baseline: prefira um mês completo, com cobertura alta e volume normal · clique numa linha para usar o mês')}
+    ${cardHtml('cfgofic', 'c12', 'Tornar oficial para todos', 'A baseline oficial é a mesma para todos os leitores e vem do arquivo painel_config.json')}</div>`,
+  atualizar() {
+    if (!RASC) RASC = { inicio: CFG.baseline_inicio, fim: CFG.baseline_fim, rotulo: CFG.baseline_rotulo, rotManual: false };
+    const pessoal = basePessoal();
+    const meses = [...new Set(DIAS.map(d => d.slice(0, 7)))].sort().reverse();
+    const r = resumoJanela(RASC.inicio, RASC.fim);
+    const mesSel = meses.find(m => RASC.inicio === m + '-01' && RASC.fim === fimMes(m)) || '';
+    const igualAtual = RASC.inicio === CFG.baseline_inicio && RASC.fim === CFG.baseline_fim && RASC.rotulo === CFG.baseline_rotulo;
+    html('h-cfgbase', `<div class="faixa-info texto" style="margin-bottom:10px">${pessoal
+      ? `Você está usando uma <b>baseline pessoal</b>: ${esc(rotJanela(CFG))}. A oficial é ${esc(rotJanela(CFG_OFICIAL))}. Só você vê esta escolha. <button type="button" data-cfg-acao="oficial">voltar à oficial</button>`
+      : `Em uso: <b>baseline oficial ${esc(rotJanela(CFG))}</b>, a mesma para todos os leitores.`}</div>
+      <div class="form-cfg">
+        <label>Mês<select data-cfg="mes"><option value="">Período personalizado</option>${meses.map(m => `<option value="${m}"${m === mesSel ? ' selected' : ''}>${esc(rotMes(m))}</option>`).join('')}</select></label>
+        <label>De<input type="date" data-cfg="inicio" value="${RASC.inicio}"></label>
+        <label>Até<input type="date" data-cfg="fim" value="${RASC.fim}"></label>
+        <label class="largo">Nome que aparece no painel<input type="text" data-cfg="rotulo" value="${esc(RASC.rotulo)}" maxlength="40"></label>
+      </div>
+      <div class="nota" style="margin:8px 0">${r.dias ? `No período escolhido: <b>${nf(r.dias)}</b> dias com dado · ${nf(r.t.an)} ligações analisadas · ${nf(r.t.conv)} conversas · fechamento ${pc(tx(r.t, 'fech'))} · problema ${pc(tx(r.t, 'prob'))} · carga operacional ${pc(tx(r.t, 'k1'))}.` : ''}
+        ${r.avisos.length ? `<br><span class="tag r">atenção</span> ${esc(r.avisos.join(' · '))}.` : r.dias ? ' <span class="tag v">período bom para baseline</span>' : ''}</div>
+      <div class="controles"><button type="button" class="pilula on" data-cfg-acao="aplicar"${igualAtual || !r.dias ? ' disabled' : ''}>Usar esta baseline (só para mim)</button>${pessoal ? '<button type="button" class="pilula" data-cfg-acao="oficial">Voltar à baseline oficial</button>' : ''}</div>`);
+    html('n-cfgbase', 'A baseline entra nos cartões ("Comparar com: Baseline"), nas linhas tracejadas e no período "Baseline" do topo. Cada carteira e distrital é comparada com o próprio desempenho nesse período.');
+    /* parâmetros */
+    html('h-cfgpar', `<div class="form-cfg">
+        <label>Mínimo de conversas por carteira<input type="number" min="5" max="500" step="5" data-cfg="min_ligacoes" value="${CFG.min_ligacoes}"></label>
+        <label>Amostra mínima de uma taxa<input type="number" min="5" max="500" step="5" data-cfg="min_n_taxa" value="${CFG.min_n_taxa}"></label>
+        <label>Meta de cobertura (%)<input type="number" min="50" max="100" step="1" data-cfg="limite_cobertura" value="${Math.round(CFG.limite_cobertura * 100)}"></label>
+      </div>
+      <div class="nota">Oficial: ${CFG_OFICIAL.min_ligacoes} conversas · amostra ${CFG_OFICIAL.min_n_taxa} · cobertura ${pc(CFG_OFICIAL.limite_cobertura, 0)}. Mudanças aqui valem só para você e na hora.${['min_ligacoes', 'min_n_taxa', 'limite_cobertura'].some(k => k in CFG_PESSOAL) ? ' <button type="button" class="link" data-cfg-acao="paroficial">Voltar aos parâmetros oficiais</button>' : ''}</div>`);
+    /* meses */
+    const porMes = agrupa(D.A, r_ => DIAS[r_[0]].slice(0, 7));
+    const linhas = meses.map(m => { const t = somaA(porMes.get(m) || []); const fim = fimMes(m); const uteis = diasUteis(m + '-01', fim);
+      const inc = fim > DIAS[ND - 1] || (m + '-01') < DIAS[0] || t._dias < uteis * .8;
+      const c1 = tx(t, 'c1'), c2 = tx(t, 'c2');
+      return { m, nome: rotMes(m), dias: t._dias, tent: t.tent, an: t.an, conv: t.conv, fech: tx(t, 'fech'), prob: tx(t, 'prob'), res: tx(t, 'res'), k1: tx(t, 'k1'), c1, c2,
+        inc, baixa: (c1 != null && c1 < CFG.limite_cobertura) || (c2 != null && c2 < CFG.limite_cobertura),
+        atual: CFG.baseline_inicio === m + '-01' && CFG.baseline_fim === fim, oficial: CFG_OFICIAL.baseline_inicio === m + '-01' && CFG_OFICIAL.baseline_fim === fim };
+    });
+    tabela(document.getElementById('h-cfgmeses'), { id: 'meses', linhas, chave: 'm', unidade: 'meses', busca: false, ord: 'm', asc: false, altura: 420,
+      sel: l => l.m === mesSel, clique: m => { RASC = { inicio: m + '-01', fim: fimMes(m), rotulo: rotMes(m), rotManual: false }; atualizar(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      colunas: [{ k: 'm', t: 'Mês', txt: true, f: (v, l) => esc(l.nome), csv: (v, l) => l.nome }, { k: 'dias', t: 'Dias com dado' }, { k: 'tent', t: 'Ligações', f: v => nf(v) }, { k: 'an', t: 'Analisadas', f: v => nf(v) }, { k: 'conv', t: 'Conversas', f: v => nf(v) },
+        { k: 'fech', t: 'Fechamento', f: v => pc(v), csv: v => pc(v) }, { k: 'prob', t: '% problema', f: v => pc(v), csv: v => pc(v) }, { k: 'res', t: 'Resolvidos', f: v => pc(v), csv: v => pc(v) },
+        { k: 'k1', t: 'Carga op.', f: v => pc(v), csv: v => pc(v) }, { k: 'c1', t: 'Cob. classificação', f: v => pc(v, 0), csv: v => pc(v) }, { k: 'c2', t: 'Cob. duração', f: v => pc(v, 0), csv: v => pc(v) },
+        { k: 'sit', t: 'Situação', txt: true, quebra: true, f: (v, l) => (l.oficial ? '<span class="tag v">oficial</span>' : '') + (l.atual && !l.oficial ? '<span class="tag a">em uso (pessoal)</span>' : '') + (l.inc ? '<span class="tag a">mês incompleto</span>' : '') + (l.baixa ? '<span class="tag r">cobertura baixa</span>' : ''),
+          csv: (v, l) => [l.oficial ? 'oficial' : '', l.inc ? 'mês incompleto' : '', l.baixa ? 'cobertura baixa' : ''].filter(Boolean).join(' | ') }] });
+    html('n-cfgmeses', `Indicadores do mês inteiro, todas as carteiras. "Mês incompleto" = menos de 80% dos dias úteis com dado. "Cobertura baixa" = classificação ou duração abaixo de ${pc(CFG.limite_cobertura, 0)} das atendidas. O painel só compara com meses que estão no dados.js: não apague da pasta de CSVs os arquivos do mês da baseline.`);
+    /* oficial */
+    const json = JSON.stringify({ baseline_inicio: CFG.baseline_inicio, baseline_fim: CFG.baseline_fim, baseline_rotulo: CFG.baseline_rotulo, min_ligacoes: CFG.min_ligacoes, min_n_taxa: CFG.min_n_taxa, limite_cobertura: CFG.limite_cobertura }, null, 1);
+    html('h-cfgofic', `<div class="duas-col"><div><ol class="passos">
+        <li>Escolha a baseline e os parâmetros acima e confira os números no painel.</li>
+        <li>Clique em <b>Baixar painel_config.json</b>.</li>
+        <li>Salve o arquivo <b>na sua pasta local</b>, ao lado do <code>atualizar_painel.py</code> (não na pasta compartilhada). Se já existir, substitua.</li>
+        <li>Rode o <b>Atualizar painel.bat</b>. Ele mostra os números da nova baseline para você conferir, e todos os leitores passam a ver a nova baseline oficial.</li></ol>
+        <div class="controles"><button type="button" class="pilula on" data-cfg-acao="baixar">Baixar painel_config.json</button></div></div>
+      <div><div class="nota" style="margin-top:0">Conteúdo do arquivo (escolhas em uso agora):</div><pre class="json">${esc(json)}</pre></div></div>`);
+    html('n-cfgofic', 'Só quem roda a atualização muda a baseline oficial. Quem escolher uma baseline pessoal continua vendo a pessoal até clicar em "voltar à oficial".');
+  },
+};
+function acaoConfig(acao) {
+  if (acao === 'aplicar') { aplicaCfg(Object.assign({}, CFG_PESSOAL, { baseline_inicio: RASC.inicio, baseline_fim: RASC.fim, baseline_rotulo: RASC.rotulo.trim() || rotMes(RASC.inicio.slice(0, 7)) })); }
+  else if (acao === 'oficial') { const n = Object.assign({}, CFG_PESSOAL); delete n.baseline_inicio; delete n.baseline_fim; delete n.baseline_rotulo; aplicaCfg(n); RASC = null; }
+  else if (acao === 'paroficial') { const n = Object.assign({}, CFG_PESSOAL); ['min_ligacoes', 'min_n_taxa', 'limite_cobertura'].forEach(k => delete n[k]); aplicaCfg(n); }
+  else if (acao === 'baixar') {
+    const json = JSON.stringify({ baseline_inicio: CFG.baseline_inicio, baseline_fim: CFG.baseline_fim, baseline_rotulo: CFG.baseline_rotulo, min_ligacoes: CFG.min_ligacoes, min_n_taxa: CFG.min_n_taxa, limite_cobertura: CFG.limite_cobertura }, null, 1);
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([json + '\n'], { type: 'application/json' })); a.download = 'painel_config.json'; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); return;
+  }
+  if (S.preset === 'base') aplicaPreset('base');
+  atualizar();
+}
+function mudaConfig(campo, valor) {
+  if (!RASC) RASC = { inicio: CFG.baseline_inicio, fim: CFG.baseline_fim, rotulo: CFG.baseline_rotulo, rotManual: false };
+  if (campo === 'mes') { if (valor) RASC = { inicio: valor + '-01', fim: fimMes(valor), rotulo: rotMes(valor), rotManual: false }; }
+  else if (campo === 'inicio' || campo === 'fim') { if (!/^\d{4}-\d\d-\d\d$/.test(valor)) return; RASC[campo] = valor; if (RASC.inicio > RASC.fim) [RASC.inicio, RASC.fim] = [RASC.fim, RASC.inicio]; if (!RASC.rotManual) RASC.rotulo = RASC.inicio.slice(0, 7) === RASC.fim.slice(0, 7) && RASC.inicio.endsWith('-01') && RASC.fim === fimMes(RASC.inicio.slice(0, 7)) ? rotMes(RASC.inicio.slice(0, 7)) : `${ddmmaa(RASC.inicio)} a ${ddmmaa(RASC.fim)}`; }
+  else if (campo === 'rotulo') { RASC.rotulo = valor.slice(0, 40); RASC.rotManual = true; }
+  else if (['min_ligacoes', 'min_n_taxa', 'limite_cobertura'].includes(campo)) {
+    let v = Number(valor); if (!isFinite(v)) return;
+    if (campo === 'limite_cobertura') v = Math.max(.5, Math.min(1, v / 100)); else v = Math.max(5, Math.min(500, Math.round(v)));
+    const n = Object.assign({}, CFG_PESSOAL, { [campo]: v }); if (v === CFG_OFICIAL[campo]) delete n[campo]; aplicaCfg(n);
+  }
+  atualizar();
+}
+
 /* =====================================================================================================================
    MOLDURA: menu, filtros, chips, navegação
    ===================================================================================================================== */
@@ -962,10 +1080,11 @@ const IC = {
   contato: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
   carteiras: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/>',
   qualidade: '<path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  config: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
 };
 const PAGINAS = [['geral', 'Visão geral', 'Como o time trabalhou no período?'], ['tempo', 'Tempo', 'Para onde vai o tempo do time?'], ['vendas', 'Vendas', 'Quanto convertemos e o que acompanha o fechamento?'],
   ['problemas', 'Problemas', 'Onde estão as fricções e o que fica pendente?'], ['competencias', 'Challenger e SPIN', 'Como o time conduz a conversa?'], ['clientes', 'Clientes', 'Quem são os clientes que demandam o time?'],
-  ['contato', 'Contato e cadência', 'Quando e como o time consegue falar com o cliente?'], ['carteiras', 'Carteiras', 'Como cada carteira está?'], ['qualidade', 'Qualidade do dado', 'Posso confiar nos números de hoje?']];
+  ['contato', 'Contato e cadência', 'Quando e como o time consegue falar com o cliente?'], ['carteiras', 'Carteiras', 'Como cada carteira está?'], ['qualidade', 'Qualidade do dado', 'Posso confiar nos números de hoje?'], ['config', 'Configurações', 'Qual período é a baseline e quais parâmetros usar?']];
 const AJUDAS = {
   geral: 'Os cartões mostram o período escolhido no topo e a variação contra a comparação escolhida (baseline ou período anterior). Verde = melhorou, vermelho = piorou, cinza com "≈" = diferença dentro da margem de erro. Clique num cartão para ir à página do tema.',
   tempo: 'A carga operacional é a parte do tempo de ligação gasta com problema, suporte, cobrança, pós-venda e dúvida de contrato. Só entram ligações classificadas pelo GPT e com duração.',
@@ -975,6 +1094,7 @@ const AJUDAS = {
   clientes: 'A tabela lista os clientes (código PJ) do período. Use os botões para achar quem tem pendência, quem trouxe 2+ problemas, quem ficou sem 2ª tentativa ou com retorno vencido. Baixe o CSV para distribuir às carteiras.',
   contato: 'Taxa de atendimento = tentativas atendidas ÷ tentativas. O mapa mostra os melhores horários para ligar; a cadência mostra o ganho de insistir.',
   carteiras: 'Cada carteira corresponde a um vendedor. Compare sempre com a mediana e olhe o volume: carteira com poucas conversas oscila muito.',
+  config: 'A baseline oficial é a mesma para todos e vem do painel_config.json que o responsável salva ao lado do script. Aqui você pode testar outra baseline só para você (por exemplo, janeiro/2026) e, se for o caso, baixar o arquivo para torná-la oficial.',
   qualidade: 'Se a cobertura cair abaixo de 95%, os indicadores do dia podem estar incompletos. As definições estão no dicionário no fim da página.',
 };
 const menu = document.getElementById('menu');
@@ -983,12 +1103,11 @@ menu.innerHTML = PAGINAS.map(([id, nome]) => `<button type="button" data-pag="${
 
 /* ---------------- filtros do topo ---------------- */
 const $ = id => document.getElementById(id);
-$('fPreset').innerHTML = PRESETS.map(([v, t]) => `<option value="${v}">${esc(t)}</option>`).join('');
 $('fComp').innerHTML = [['base', 'Baseline'], ['ant', 'Anterior'], ['nada', 'Nada']].map(([v, t]) => `<button type="button" data-comp="${v}">${t}</button>`).join('');
 $('fGran').innerHTML = [['dia', 'Dia'], ['semana', 'Semana'], ['mes', 'Mês']].map(([v, t]) => `<button type="button" data-gran="${v}">${t}</button>`).join('');
 $('fD0').min = $('fD1').min = DIAS[0]; $('fD0').max = $('fD1').max = DIAS[ND - 1];
 function sincronizaControles() {
-  $('fPreset').value = S.preset; $('fD0').value = DIAS[S.d0]; $('fD1').value = DIAS[S.d1];
+  $('fPreset').innerHTML = presets().map(([v, t]) => `<option value="${v}">${esc(t)}</option>`).join(''); $('fPreset').value = S.preset; $('fD0').value = DIAS[S.d0]; $('fD1').value = DIAS[S.d1];
   document.querySelectorAll('[data-comp]').forEach(b => { b.classList.toggle('on', b.dataset.comp === S.comp); b.setAttribute('aria-pressed', b.dataset.comp === S.comp); });
   document.querySelectorAll('[data-gran]').forEach(b => { b.classList.toggle('on', b.dataset.gran === S.gran); b.setAttribute('aria-pressed', b.dataset.gran === S.gran); });
   $('fDist').innerHTML = `<option value="">Todas</option>` + DIST.map(d => `<option${d === S.dist ? ' selected' : ''}>${esc(d)}</option>`).join('');
@@ -1002,7 +1121,8 @@ function chips() {
   if (S.dist) c.push(`<span class="chip">Distrital ${esc(S.dist)}<button type="button" data-tira="dist" aria-label="Tirar filtro de distrital">×</button></span>`);
   if (S.cart) c.push(`<span class="chip">Carteira ${esc(S.cart)}<button type="button" data-tira="cart" aria-label="Tirar filtro de carteira">×</button></span>`);
   if (S.cod && S.pag === 'problemas') c.push(`<span class="chip">Código ${esc(S.cod)}<button type="button" data-tira="cod" aria-label="Tirar destaque do código">×</button></span>`);
-  const jc = janelaComp(); c.push(`<span class="chip neutro">${jc ? 'comparando com ' + esc(jc.rot) : 'sem comparação'}</span>`);
+  const jc = janelaComp(); const pes = S.comp === 'base' && basePessoal();
+  c.push(`<button type="button" class="chip neutro bot${pes ? ' pessoal' : ''}" data-ir-config title="Escolher a baseline">${jc ? 'comparando com ' + esc(jc.rot) : S.comp === 'base' ? 'baseline fora dos dados' : 'sem comparação'} ⚙</button>`);
   const atraso = []; if (D.meta.duracao_ate && D.meta.duracao_ate < D.meta.dados_ate) atraso.push('duração até ' + dd(D.meta.duracao_ate)); if (D.meta.classif_ate && D.meta.classif_ate < D.meta.dados_ate) atraso.push('classificação até ' + dd(D.meta.classif_ate));
   c.push(`<span class="status-dados">${atraso.length ? `<span class="alerta">${esc(atraso.join(' · '))}</span>` : ''}<span>Dados até ${dd(D.meta.dados_ate)} · atualizado em ${dd(D.meta.gerado_em.slice(0, 10))} ${esc(D.meta.gerado_em.slice(11))}</span></span>`);
   $('chips').innerHTML = c.join('');
@@ -1022,7 +1142,7 @@ function atualizar(novaPagina) {
   normaliza(); C = contexto(); sincronizaControles(); chips();
   const escopo = S.cart ? 'Carteira ' + S.cart : S.dist ? 'Distrital ' + S.dist : 'Todas as carteiras';
   html('escopo', `${esc(escopo)}<br>${ddmmaa(DIAS[S.d0])} a ${ddmmaa(DIAS[S.d1])} · ${nf(C.t._dias)} dias com dado`);
-  html('aviso', faixaAviso());
+  html('aviso', S.pag === 'config' ? '' : faixaAviso());
   try { PAG[S.pag].atualizar(); }
   catch (e) { console.error(e); html('aviso', `<div class="faixa-info">Não foi possível calcular parte desta página com os filtros atuais (${esc(e.message)}). Tente "Limpar filtros".</div>`); }
   salvar();
@@ -1040,7 +1160,7 @@ $('fGran').addEventListener('click', ev => { const b = ev.target.closest('[data-
 $('fDist').addEventListener('change', ev => { S.dist = ev.target.value; if (S.cart && S.dist && (CART.find(x => x.c === S.cart) || {}).d !== S.dist) S.cart = ''; atualizar(); });
 $('fCart').addEventListener('change', ev => { const v = ev.target.value.trim().toUpperCase(); if (!v) { S.cart = ''; atualizar(); return; } const k = CART.find(x => x.c.toUpperCase() === v); if (k) setFiltro({ cart: k.c }); else ev.target.value = S.cart; });
 $('fLimpar').addEventListener('click', () => { Object.assign(S, { preset: 'mes', dist: '', cart: '', cod: '', comp: 'base' }); aplicaPreset('mes'); atualizar(); });
-$('chips').addEventListener('click', ev => { const b = ev.target.closest('[data-tira]'); if (b) { S[b.dataset.tira] = ''; atualizar(); } });
+$('chips').addEventListener('click', ev => { const b = ev.target.closest('[data-tira]'); if (b) { S[b.dataset.tira] = ''; atualizar(); return; } if (ev.target.closest('[data-ir-config]')) irPara('config'); });
 raiz.addEventListener('click', ev => {
   const pil = ev.target.closest('[data-pil]');
   if (pil) { const grupo = pil.dataset.pil; S[grupo] = isNaN(+pil.dataset.v) || grupo === 'metrica' || grupo === 'pareto' || grupo === 'filtroCli' || grupo === 'metCart' ? pil.dataset.v : +pil.dataset.v; marcaPilulas(grupo, S[grupo]); if (grupo === 'filtroCli' && TAB.clientes) TAB.clientes.lim = 100; atualizar(); return; }
@@ -1057,14 +1177,16 @@ raiz.addEventListener('click', ev => {
   if (ev.target.closest('[data-tira-cod]')) { S.cod = ''; atualizar(); return; }
   if (ev.target.closest('[data-tira-cart]')) { S.cart = ''; atualizar(); return; }
   const cl = ev.target.closest('[data-cart-link]'); if (cl) { ev.preventDefault(); setFiltro({ cart: cl.dataset.cartLink }); return; }
+  const ca = ev.target.closest('[data-cfg-acao]'); if (ca) { if (!ca.disabled) acaoConfig(ca.dataset.cfgAcao); return; }
   const ic = ev.target.closest('[data-ir-cli]'); if (ic) { ev.preventDefault(); S.filtroCli = ic.dataset.irCli; irPara('clientes'); return; }
 });
 raiz.addEventListener('change', ev => {
-  const s = ev.target.closest('[data-sim]'); if (s) { if (s.dataset.sim === 'cod') S.simCod = s.value; atualizar(); }
+  const s = ev.target.closest('[data-sim]'); if (s) { if (s.dataset.sim === 'cod') S.simCod = s.value; atualizar(); return; }
+  const cf = ev.target.closest('[data-cfg]'); if (cf) mudaConfig(cf.dataset.cfg, cf.value);
 });
 raiz.addEventListener('input', ev => { const s = ev.target.closest('[data-sim="pct"]'); if (s) { S.simPct = +s.value; atualizar(); } });
 raiz.addEventListener('keydown', ev => { const kp = ev.target.closest('[data-ir]'); if (kp && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); irPara(kp.dataset.ir); } });
-document.addEventListener('keydown', ev => { if (/INPUT|SELECT|TEXTAREA/.test(ev.target.tagName) || ev.ctrlKey || ev.metaKey || ev.altKey) return; const n = parseInt(ev.key, 10); if (n >= 1 && n <= PAGINAS.length) irPara(PAGINAS[n - 1][0]); });
+document.addEventListener('keydown', ev => { if (/INPUT|SELECT|TEXTAREA/.test(ev.target.tagName) || ev.ctrlKey || ev.metaKey || ev.altKey) return; const n = parseInt(ev.key, 10); if (n >= 1 && n <= 9) irPara(PAGINAS[n - 1][0]); else if (n === 0) irPara('config'); });
 const ajustaTopo = () => document.documentElement.style.setProperty('--topo-h', $('topo').offsetHeight + 'px');
 new ResizeObserver(ajustaTopo).observe($('topo')); ajustaTopo();
 

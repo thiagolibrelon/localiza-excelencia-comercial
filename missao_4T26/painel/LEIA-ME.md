@@ -1,9 +1,10 @@
 # Painel DVINT · venda interna (HTML + SharePoint + .bat)
 
-Versão 2.0 · 13/10/2026 · responsável: Thiago Librelon (Excelência Comercial, venda interna DVINT)
+Versão 2.1 · 13/10/2026 · responsável: Thiago Librelon (Excelência Comercial, venda interna DVINT)
 
-O painel mostra para a Gerência Operacional como o time trabalha. São 9 seções: visão geral, tempo, vendas, problemas,
-Challenger e SPIN, clientes, contato e cadência, carteiras e qualidade do dado.
+O painel mostra para a Gerência Operacional como o time trabalha. São 9 seções de análise: visão geral, tempo,
+vendas, problemas, Challenger e SPIN, clientes, contato e cadência, carteiras e qualidade do dado. Há também uma seção
+de configurações, onde se escolhe a baseline.
 
 - **Como funciona:** é um site que abre no navegador a partir de uma pasta do SharePoint. Os gráficos são interativos:
   - mostram o valor ao passar o mouse;
@@ -35,7 +36,7 @@ Challenger e SPIN, clientes, contato e cadência, carteiras e qualidade do dado.
 | `Abrir painel.bat` | pasta `Gestao` | Grava uma linha em `logs\<usuario>.csv` e abre o painel no navegador padrão. |
 | `logs/` | pasta `Gestao` | Um arquivo por pessoa, para evitar conflito de sincronização. O painel mostra só contagens. |
 | `atualizar_painel.py` e `Atualizar painel.bat` | **só no computador do Thiago** | Leem o CSV, gravam o `dados.js` e copiam para `Gestao` a versão mais nova de `painel.html`, `app.js`, `vendor/` e `Abrir painel.bat`. |
-| `painel_config.json` (opcional) | ao lado do script | Muda o baseline, as metas e os limites sem editar o código. Veja "Configuração". |
+| `painel_config.json` (opcional) | ao lado do script | Baseline oficial e parâmetros. Baixe-o pronto na seção Configurações do painel. |
 | `testes/` | repositório | Testes automáticos de números, telas e cliques (para quem mexe no código). |
 
 **Por que não um localhost?**
@@ -117,7 +118,7 @@ Por linha de comando (para agendar no Agendador de Tarefas):
   - Clique numa barra de distrital ou de carteira, num ponto ou numa linha de tabela para filtrar o painel.
   - Os filtros ativos aparecem como etiquetas abaixo do topo; o **×** tira o filtro.
 - **Botões de cada gráfico:** **Tabela** mostra os números do gráfico, **CSV** baixa os números e **PNG** baixa a imagem.
-- **Atalhos:** as teclas 1 a 9 trocam de seção. Cada computador lembra a última seção e os filtros.
+- **Atalhos:** as teclas 1 a 9 trocam de seção; a tecla 0 abre as Configurações. Cada computador lembra a última seção e os filtros.
 
 **Cores**
 - **Paleta:** derivada do LDS (Localiza Design System, `Color_Code.md`) e conferida com o validador de daltonismo.
@@ -147,17 +148,39 @@ Por linha de comando (para agendar no Agendador de Tarefas):
 
 A lista completa, com as colunas do CSV, está na seção 9 do painel.
 
-## Configuração (`painel_config.json`, opcional, ao lado do script)
+## Configurações: baseline e parâmetros
 
-```json
-{ "baseline_inicio": "2026-09-01", "baseline_fim": "2026-09-30", "baseline_rotulo": "setembro/2026",
-  "min_ligacoes": 30, "min_n_taxa": 30, "limite_cobertura": 0.95 }
-```
+A seção **10 · Configurações** do painel tem os ajustes. A etiqueta "comparando com baseline ⚙", abaixo do topo, também
+leva até ela.
 
-- **Baseline:** é **calculado dos dados** desse período com os mesmos filtros da tela. Assim, cada carteira e cada
-  distrital é comparada com o próprio setembro.
-- **`min_ligacoes`:** mínimo de conversas no período para uma carteira entrar em rankings e medianas.
-- **`min_n_taxa`:** abaixo dessa amostra, a barra aparece em cinza com o aviso "amostra pequena".
+- **Baseline oficial:** a mesma para todos os leitores. Hoje é setembro/2026. Vem do arquivo `painel_config.json` que fica
+  **ao lado do `atualizar_painel.py`, na sua pasta local**. Sem o arquivo, vale setembro/2026.
+- **Baseline pessoal:** qualquer leitor pode testar outra baseline (um mês ou um período qualquer). Ela vale só no
+  computador dele e na hora.
+  - A etiqueta do topo fica azul com a palavra **pessoal**, para ninguém confundir com a oficial.
+  - O botão **voltar à oficial** desfaz a escolha.
+- **Ajuda para escolher:** a tabela **Meses disponíveis** mostra, para cada mês, dias com dado, volume, fechamento,
+  problema, carga operacional e cobertura. Ela marca **mês incompleto** e **cobertura baixa**, para você evitar uma
+  baseline ruim. Clique num mês para preencher o formulário.
+- **Parâmetros:** mínimo de conversas por carteira (rankings e medianas), amostra mínima de uma taxa (aviso de "amostra
+  pequena") e meta de cobertura. Os ajustes também são pessoais.
+
+**Para trocar a baseline oficial** (exemplo: passar a usar janeiro/2026):
+1. Na seção Configurações, escolha **janeiro/2026**, clique em **Usar esta baseline (só para mim)** e confira os números
+   no painel.
+2. Clique em **Baixar painel_config.json**.
+3. Salve o arquivo **na sua pasta local**, ao lado do `atualizar_painel.py` (não na pasta compartilhada). Se já existir,
+   substitua.
+4. Rode o **Atualizar painel.bat**. Ele confirma "Configuração de painel_config.json: baseline janeiro/2026" e imprime os
+   números da nova baseline. Todos os leitores passam a ver janeiro/2026 como baseline oficial.
+
+**Requisitos e regras**
+- O painel só compara com períodos que estão nos dados. Para usar janeiro/2026, os CSVs de janeiro precisam continuar na
+  pasta de CSVs.
+- O baseline é **calculado dos dados** do período escolhido, com os mesmos filtros da tela. Assim, cada carteira e cada
+  distrital é comparada com o próprio desempenho naquele período.
+- O arquivo pode ser editado à mão. Chaves aceitas: `baseline_inicio`, `baseline_fim` (aaaa-mm-dd), `baseline_rotulo`,
+  `min_ligacoes`, `min_n_taxa` e `limite_cobertura`. Datas inválidas fazem o script ignorar o arquivo e avisar.
 
 ## Validação
 

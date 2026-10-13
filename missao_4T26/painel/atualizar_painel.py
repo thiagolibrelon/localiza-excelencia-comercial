@@ -35,7 +35,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-VERSAO = "2.0"
+VERSAO = "2.1"
 FUSO_H = -3
 OPERACIONAIS = ["suporte_operacional", "supporte_operacional", "cobranca", "pos_venda_manutencao", "pos_venda_sinistro",
                 "duvida_contrato"]
@@ -53,7 +53,7 @@ CONFIG_PAINEL = {
     "min_n_taxa": 30,        # abaixo disso a taxa aparece com aviso de amostra pequena
     "dias_recontato": 7,
 }
-CONFIG_EXTRA = Path(__file__).with_name("painel_config.json")   # opcional: sobrescreve chaves de CONFIG_PAINEL
+CONFIG_EXTRA = Path(__file__).with_name("painel_config.json")   # opcional: baixado da aba "Configurações" do painel
 OBRIGATORIAS = ["id_transcricao", "data_visita_ev", "status", "tipo_ligacao", "codigo_cliente", "DISTRITAL", "CARTEIRA",
                 "CallDurationInSeconds", "fonte_classificacao", "p1_desfecho", "p2_tipo", "tem_problema",
                 "p3_problema_principal", "p3_foi_resolvido_na_ligacao", "p5_teve_challenger", "segment_id"]
@@ -542,11 +542,20 @@ def main():
         except (OSError, ValueError):
             cfg = {}
     config = dict(CONFIG_PAINEL)
-    if CONFIG_EXTRA.exists():
+    if CONFIG_EXTRA.exists():   # baixado da aba "Configurações" do painel
         try:
-            config.update(json.loads(CONFIG_EXTRA.read_text(encoding="utf-8")))
-        except (OSError, ValueError) as e:
-            print(f"  ATENÇÃO: {CONFIG_EXTRA.name} ignorado ({e})")
+            extra = json.loads(CONFIG_EXTRA.read_text(encoding="utf-8"))
+            aceitas = {k: v for k, v in extra.items() if k in CONFIG_PAINEL}
+            for k in ("baseline_inicio", "baseline_fim"):
+                if k in aceitas:
+                    datetime.strptime(aceitas[k], "%Y-%m-%d")
+            config.update(aceitas)
+            print(f"Configuração de {CONFIG_EXTRA.name}: baseline {config['baseline_rotulo']} "
+                  f"({config['baseline_inicio']} a {config['baseline_fim']})")
+            if set(extra) - set(aceitas):
+                print("  chaves desconhecidas ignoradas: " + ", ".join(sorted(set(extra) - set(aceitas))))
+        except (OSError, ValueError, TypeError) as e:
+            print(f"  ATENÇÃO: {CONFIG_EXTRA.name} ignorado ({e}); valendo a baseline padrão {CONFIG_PAINEL['baseline_rotulo']}")
     entrada, saida = (a.entrada, a.saida) if a.entrada and a.saida else escolher(cfg)
     print(f"Lendo {entrada}")
     df = carregar(entrada)
@@ -569,7 +578,7 @@ def main():
         res = (bl["prob"] & bl["res"].eq("SIM")).sum()
         print(f"  baseline ({config['baseline_rotulo']}): {br(an)} analisadas · {br(conv)} conversas · {br(opp)} oportunidades · "
               f"{br(fe)} fechamentos ({pct(fe, opp)}) · {br(pr)} com problema ({pct(pr, conv)}) · {br(res)} resolvidos ({pct(res, pr)})")
-        print("  confira esses números com o memo da RMR antes de divulgar (devem ser iguais).")
+        print("  confira esses números antes de divulgar (com a baseline de setembro/2026, têm de ser iguais aos do memo da RMR).")
     else:
         print(f"  ATENÇÃO: o arquivo não tem dados do período do baseline ({config['baseline_inicio']} a {config['baseline_fim']})")
     if len(comp):
