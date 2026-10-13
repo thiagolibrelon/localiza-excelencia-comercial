@@ -1,19 +1,27 @@
-# Painel de carga operacional · MVP em HTML (SharePoint + .bat)
+# Painel DVINT · venda interna (HTML + SharePoint + .bat)
 
-Versão 1.0 · 13/10/2026 · responsável: Thiago Librelon (Excelência Comercial, venda interna DVINT)
+Versão 2.0 · 13/10/2026 · responsável: Thiago Librelon (Excelência Comercial, venda interna DVINT)
 
-O painel tem as mesmas 8 páginas do modelo aprovado para o BI (`missao_4T26/bi/mockups/`). Ele roda no navegador e
-calcula tudo de acordo com os filtros de período, distrital e carteira. Não é preciso Power BI, servidor nem instalar
-nada no computador de quem lê. Antes de investir no BI, o MVP serve para medir se a Gerência Operacional abre o painel
-todos os dias.
+O painel mostra para a Gerência Operacional como o time trabalha. São 9 seções: visão geral, tempo, vendas, problemas,
+Challenger e SPIN, clientes, contato e cadência, carteiras e qualidade do dado.
+
+- **Como funciona:** é um site que abre no navegador a partir de uma pasta do SharePoint. Os gráficos são interativos:
+  - mostram o valor ao passar o mouse;
+  - um clique filtra o painel;
+  - têm tabela equivalente e baixam em CSV ou PNG.
+- **Filtros:** valem para todas as páginas. São período, comparação (baseline ou período anterior), granularidade (dia,
+  semana ou mês), distrital e carteira.
+- **O que não precisa:** Power BI, servidor ou instalar nada no computador de quem lê.
+- **Definições:** as mesmas do memo da RMR. Setembro/2026 é o baseline.
 
 ```
  computador do Thiago                         pasta no SharePoint (sincronizada pelo OneDrive)
  ─────────────────────                        ─────────────────────────────────────────────────
  CSVs exportados da consulta                  Gestao/
-        │                                       ├─ painel.html          ← as 8 páginas
-        ▼                                       ├─ dados.js             ← números do dia (agregados)
- Atualizar painel.bat ──► atualizar_painel.py ──►├─ Abrir painel.bat     ← quem lê dá dois cliques aqui
+        │                                       ├─ painel.html, app.js  ← o site
+        ▼                                       ├─ vendor/              ← biblioteca de gráficos (ECharts)
+ Atualizar painel.bat ──► atualizar_painel.py ──►├─ dados.js             ← números do dia
+                                                ├─ Abrir painel.bat     ← quem lê dá dois cliques aqui
                                                 └─ logs/<usuario>.csv   ← um registro por abertura
 ```
 
@@ -21,153 +29,172 @@ todos os dias.
 
 | Arquivo | Onde fica | Para quê |
 |---|---|---|
-| `painel.html` | pasta `Gestao` no SharePoint | O painel. Lê o `dados.js` da mesma pasta. |
-| `dados.js` | pasta `Gestao` (gerado todo dia) | Só números agregados por dia e carteira, cerca de 0,5 MB por mês de dados. Não tem nome de vendedor, texto de ligação nem código de cliente. |
+| `painel.html` + `app.js` | pasta `Gestao` | O site. A fonte Inter vai embutida, então abre igual sem internet. |
+| `vendor/` | pasta `Gestao` | Apache ECharts 5 (licença Apache 2.0, em `LICENSE-echarts.txt`) e o idioma pt-BR. Não depende de internet nem de CDN. |
+| `dados.js` | pasta `Gestao` (gerado todo dia) | Números agregados por dia e carteira, mais uma tabela por **código de cliente PJ** (sem nome nem telefone). Cerca de 1,4 MB por mês de dados. Não tem nome de vendedor (a carteira identifica) nem texto de ligação. |
 | `Abrir painel.bat` | pasta `Gestao` | Grava uma linha em `logs\<usuario>.csv` e abre o painel no navegador padrão. |
 | `logs/` | pasta `Gestao` | Um arquivo por pessoa, para evitar conflito de sincronização. O painel mostra só contagens. |
-| `atualizar_painel.py` e `Atualizar painel.bat` | **só no computador do Thiago** | Leem o CSV, gravam o `dados.js` e copiam para a pasta `Gestao` a versão mais nova do `painel.html` e do `Abrir painel.bat`. |
+| `atualizar_painel.py` e `Atualizar painel.bat` | **só no computador do Thiago** | Leem o CSV, gravam o `dados.js` e copiam para `Gestao` a versão mais nova de `painel.html`, `app.js`, `vendor/` e `Abrir painel.bat`. |
+| `painel_config.json` (opcional) | ao lado do script | Muda o baseline, as metas e os limites sem editar o código. Veja "Configuração". |
+| `testes/` | repositório | Testes automáticos de números, telas e cliques (para quem mexe no código). |
 
-**Por que não um localhost?** Um servidor local esbarraria em porta bloqueada, antivírus e firewall, e precisaria ficar
-ligado. Além disso, o CSV bruto ficaria acessível. Aqui o navegador abre um arquivo local (`file://`) e carrega
-`dados.js` com uma tag `<script>`, que funciona sem servidor no Chrome e no Edge. Os dados brutos ficam com o Thiago e
-só o agregado vai para a pasta compartilhada.
+**Por que não um localhost?**
+- Um servidor local esbarra em porta bloqueada, antivírus e firewall, e precisa ficar ligado.
+- O navegador abre arquivos locais (`file://`) e carrega `dados.js` e `app.js` com tags `<script>`, o que funciona sem
+  servidor no Chrome e no Edge.
+- O CSV bruto fica com o Thiago; só os números agregados vão para a pasta compartilhada.
 
 ## Montagem (uma vez)
 
 ### 1. Pasta e permissões no SharePoint
-1. Num site ou biblioteca da equipe, crie a pasta `Painel Carga Operacional` e, dentro dela, a pasta `Gestao`.
-2. Permissões. No SharePoint, abra a pasta → **⋯ → Gerenciar acesso**:
+1. Num site ou biblioteca da equipe, crie a pasta `Painel DVINT` e, dentro dela, a pasta `Gestao`.
+2. Permissões (no SharePoint, abra a pasta → **⋯ → Gerenciar acesso**):
    - `Gestao`: **Pode exibir** para a Gerência Operacional e **Pode editar** para o Thiago.
    - `Gestao/logs` (crie a pasta vazia): **Pode editar** para as mesmas pessoas da gerência. Sem isso o `.bat` abre o
-     painel, mas não consegue registrar o acesso.
-3. A permissão da pasta é o controle de acesso do painel: quem vê a pasta vê todas as carteiras (por código).
+     painel, mas não registra o acesso.
+3. A permissão da pasta é o controle de acesso. Quem vê a pasta vê:
+   - todas as carteiras, por código;
+   - os códigos de cliente.
 
 ### 2. Computador do Thiago (quem atualiza)
-1. Instale o Python 3.9 ou mais novo (python.org, marcando **Add python.exe to PATH**). Depois, no Prompt de Comando:
-   `pip install pandas`.
-2. Copie `atualizar_painel.py`, `Atualizar painel.bat`, `painel.html` e `Abrir painel.bat` desta pasta do repositório
+1. Instale o Python 3.9 ou mais novo (python.org, marcando **Add python.exe to PATH**). Depois, no Prompt de Comando,
+   rode `pip install pandas`.
+2. Copie esta pasta do repositório inteira (`painel.html`, `app.js`, `vendor/`, `atualizar_painel.py`, os dois `.bat`)
    para uma pasta local, por exemplo `Documentos\painel_dvint\`. Essa pasta **não** é a pasta compartilhada.
 3. Sincronize a pasta `Gestao` (passo 3) e dê dois cliques em `Atualizar painel.bat`. Na primeira vez:
    - abre uma janela para escolher o CSV. Se você **cancelar**, ela pede uma **pasta** de CSVs;
-   - depois, outra janela para escolher a pasta `Gestao` sincronizada.
+   - depois, outra janela para escolher a pasta `Gestao`.
 
-   O script grava o `dados.js`, copia `painel.html` e `Abrir painel.bat` para a pasta e guarda as escolhas para os
-   próximos dias.
+   O script grava o `dados.js`, copia o site para a pasta e guarda as escolhas para os próximos dias.
 
 ### 3. Computador de cada leitor (Gerência Operacional)
-1. Abra a pasta `Painel Carga Operacional` no navegador → **Sincronizar** (ou **Adicionar atalho a Meus arquivos**).
-2. No Explorador de Arquivos, clique com o botão direito na pasta `Gestao` → **Sempre manter neste dispositivo**. Sem isso
-   o `dados.js` pode ficar só na nuvem e o painel não o encontra.
+1. Abra a pasta `Painel DVINT` no navegador → **Sincronizar** (ou **Adicionar atalho a Meus arquivos**).
+2. No Explorador de Arquivos, clique com o botão direito na pasta `Gestao` → **Sempre manter neste dispositivo**.
 3. Botão direito em `Abrir painel.bat` → **Enviar para → Área de trabalho (criar atalho)**. Renomeie o atalho para
    "Painel DVINT".
-4. Navegador: Chrome ou Edge atualizados. O painel se ajusta a telas menores; em tela cheia (F11) fica melhor.
+4. Navegador: Chrome ou Edge atualizados. O site se ajusta a telas de 1366 a 2560 px.
 
 ## Rotina diária (Thiago, cerca de 2 minutos)
 
-1. **Exporte o CSV da consulta** no mesmo formato do arquivo de setembro: as 88 colunas da consulta do Power BI/Excel,
-   separador `;`. Guarde **todos** os CSVs na mesma pasta (por exemplo `Documentos\painel_dvint\csv\`), com o de setembro
-   como base e um arquivo por dia (`2026-10-13.csv` e assim por diante). O script lê a pasta inteira e junta as linhas.
-   Se a mesma ligação (`id_transcricao`) aparecer em dois arquivos, vale a do arquivo mais novo.
-   - Por que manter o histórico: reincidência (K5), clientes sem 2ª tentativa, retornos no prazo e o número da
-     tentativa dependem dos dias anteriores. Com só o CSV de ontem, esses números ficam errados.
-   - Um único CSV acumulado também serve. Nesse caso, escolha o arquivo em vez da pasta.
-2. Dois cliques em **Atualizar painel.bat** e confirme a pasta. Confira o resumo que aparece na tela:
-   - as datas: dados até, duração até e classificação GPT até;
-   - o K1 do arquivo;
-   - os avisos **ATENÇÃO**, que aparecem quando a duração ou a classificação do último dia não chegaram.
-3. O OneDrive envia o `dados.js` em segundos. Quem abrir o painel (ou apertar F5) vê o dia novo. A data e a hora da
-   atualização aparecem no rodapé e na página 8.
+1. **Exporte o CSV** da análise do dia anterior, no mesmo formato de colunas de sempre, e guarde **todos** os CSVs na
+   mesma pasta (por exemplo `Documentos\painel_dvint\csv\`).
+   - O script lê a pasta inteira. Se a mesma ligação (`id_transcricao`) estiver em dois arquivos, vale a do mais novo.
+   - **Mantenha o histórico desde setembro.** Baseline, reincidência, clientes sem 2ª tentativa, retornos no prazo e o
+     número da tentativa dependem dos dias anteriores.
+2. Dois cliques em **Atualizar painel.bat**. Confira o resumo na tela:
+   - as datas: dados até, duração até e classificação até;
+   - os números do baseline: analisadas, conversas, oportunidades, fechamentos, problemas e resolvidos. Eles têm de ser
+     **iguais aos do memo da RMR** (8.008 analisadas, 5.887 conversas, 2.252 oportunidades, 192 fechamentos,
+     1.342 problemas e 126 resolvidos). Se não forem, a pasta de CSVs não tem setembro completo;
+   - os avisos **ATENÇÃO**.
+3. O OneDrive envia os arquivos em segundos. Quem abrir o painel (ou apertar F5) vê o dia novo. A data da atualização
+   fica no topo e na página "Qualidade do dado".
 
-Por linha de comando (para agendar no Agendador de Tarefas, por exemplo):
-`python atualizar_painel.py --entrada "C:\...\csv" --saida "C:\...\Painel Carga Operacional\Gestao"`
+Por linha de comando (para agendar no Agendador de Tarefas):
+`python atualizar_painel.py --entrada "C:\...\csv" --saida "C:\...\Painel DVINT\Gestao"`
 
 ## Como usar o painel
 
-- **Páginas** (botões à esquerda, ou teclas 1 a 8):
+| Seção | Pergunta | O que tem |
+|---|---|---|
+| 1 · Visão geral | Como o time trabalhou no período? | 8 cartões com minigráfico e variação; evolução de qualquer indicador; "o que mudou" (só o que passou da margem de erro); funil do contato ao fechamento; distritais |
+| 2 · Tempo | Para onde vai o tempo do time? | Carga operacional nas duas réguas (GPT e Gemini); composição do tempo; horas por tipo de ligação e por código de problema; mapa de calor dia × hora; duração × fechamento; simulador |
+| 3 · Vendas | Quanto convertemos e o que acompanha o fechamento? | Funil comercial; taxa de fechamento no tempo; **fechamento por fator** (12 fatores: qualidade do Challenger, SPIN, decisor, tipo, origem, duração, horário…), com intervalo de confiança; fechamentos por tipo; carteiras |
+| 4 · Problemas | Onde estão as fricções e o que fica pendente? | Pareto por código (ligações, horas ou todos os citados); resolução de **todos** os códigos; problemas por 100 conversas por carteira; origem; detalhe do código clicado |
+| 5 · Challenger e SPIN | Como o time conduz a conversa? | Escada da conversa; qualidade do Challenger no tempo; códigos CH1–CH7; distribuição das notas SPIN; Challenger e SPIN × fechamento; mapa de competências por carteira |
+| 6 · Clientes | Quem são os clientes que demandam o time? | Concentração do tempo; tentativas por cliente; sinais (frota própria, concorrente, decisor); **lista de clientes** com filtros (pendência, 2+ problemas, sem 2ª tentativa, retorno vencido, fecharam) e CSV |
+| 7 · Contato e cadência | Quando e como o time consegue falar com o cliente? | Mapa de calor do atendimento; volume por hora; atendimento por nº da tentativa; status; tentativas por vendedor-dia; 2ª tentativa e retornos |
+| 8 · Carteiras | Como cada carteira está? | Dispersão volume × indicador; distritais; tabela de todas as carteiras com variação; **ficha da carteira** contra a mediana |
+| 9 · Qualidade do dado | Posso confiar nos números de hoje? | Cobertura por dia; verificações da carga; valores-sentinela; uso do painel; **dicionário dos indicadores** |
 
-  | Página | Pergunta | O que mostra |
-  |---|---|---|
-  | 1 · Dia | O que mudou ontem? | Cartões K1, Gemini, K7, pendências e horas; 4 alertas; carteiras do dia |
-  | 2 · Semana | A tendência piora ou melhora? | Semana fechada, matriz das 8 últimas semanas e roteiro da reunião de segunda |
-  | 3 · Período | Estamos no caminho da meta? | Medidor, composição do tempo e simulador de P1 |
-  | 4 · Problemas | Onde o tempo se perde? | Pareto, resolução por código, origem e carteiras |
-  | 5 · Carteiras | Quais carteiras concentram a carga? | Ranking com mediana, distritais, concentração de clientes e mínimo de ligações |
-  | 6 · Tempo e ritmo | Que duração e que cadência rendem mais? | Fechamento por duração, funil, horário, 2ª tentativa e retornos |
-  | 7 · Competências | Onde treinar? | Challenger, SPIN, carteira contra a mediana e as 6 carteiras com mais oportunidade |
-  | 8 · Qualidade do dado | Posso confiar nos números de hoje? | Cobertura, verificações da carga, valores-sentinela e uso do painel |
+**Como ler os cartões e os gráficos**
+- **Variação:** cada cartão mostra a variação contra a comparação escolhida no topo.
+  - Verde ▲▼ = melhorou; vermelho = piorou.
+  - Cinza com **≈** = a diferença está dentro da margem de erro (teste de duas proporções, 95%): não é mudança.
+  - Volumes (ligações, conversas…) são comparados pela média por dia.
+- **Interagir:**
+  - Passe o mouse em qualquer gráfico para ver valores, tamanho da amostra e intervalo de confiança.
+  - Clique numa barra de distrital ou de carteira, num ponto ou numa linha de tabela para filtrar o painel.
+  - Os filtros ativos aparecem como etiquetas abaixo do topo; o **×** tira o filtro.
+- **Botões de cada gráfico:** **Tabela** mostra os números do gráfico, **CSV** baixa os números e **PNG** baixa a imagem.
+- **Atalhos:** as teclas 1 a 9 trocam de seção. Cada computador lembra a última seção e os filtros.
 
-- **Período**:
-  - O padrão é **Mês do último dado**. Também há Tudo, Últimos 30 dias, Últimos 7 dias e Personalizado.
-  - Mexer nas datas muda o período para Personalizado.
-  - Se o período não tiver ligações com duração, as páginas 1 a 3 oferecem um botão para ir ao último mês com duração.
-- **Distrital e carteira**:
-  - Clicar numa carteira em qualquer tabela ou no ranking da página 5 aplica o filtro. Um segundo clique tira o filtro.
-  - Os rankings de carteira continuam mostrando todas as carteiras e destacam a escolhida.
-- **Limpar filtros** volta ao padrão.
-- Cada computador lembra a última página e os filtros.
-- **Cores:** paleta oficial do LDS (Localiza Design System), a mesma de `Color_Code.md` na raiz do repositório, e fonte
-  Inter embutida no arquivo, para abrir igual em qualquer computador, mesmo sem internet.
+**Cores**
+- **Paleta:** derivada do LDS (Localiza Design System, `Color_Code.md`) e conferida com o validador de daltonismo.
 
   | Cor | Significado |
   |---|---|
-  | Verde `#018444` e verde-limão `#78DE1F` | Negociação, o que melhorou, resolvido |
+  | Verde `#018444` | Vendas, o que melhorou, resolvido |
   | Vermelho `#D92020` | Carga operacional, problema, o que piorou |
-  | Cinza | Referências: baseline, Gemini, mediana |
-  | Verde-noite `#003418` | Menu lateral |
+  | Azul `#3A7FC1` | Séries neutras (relacionamento, parcial, renovação) |
+  | Cinza | Referências: baseline, mediana, sem conteúdo |
 
-## Validação antes de divulgar
+- **Ordem:** a escala de verdes vai do claro ao escuro, na ordem das notas.
+- **Topo e menu:** verde-noite `#003418` com destaque em verde-limão `#78DE1F`.
 
-Na página 3, escolha **Personalizado de 01/09/2026 a 22/09/2026** e confira:
+## Definições (iguais às do memo)
 
-| Onde | Valor esperado |
+| Indicador | Definição |
 |---|---|
-| Página 3: K1 do período · horas classificadas · horas operacionais · K3 | 43,2% · 265,9 h · 114,8 h · 36,9 h |
-| Página 3: composição do tempo | negociação 35,1% · relacionamento 20,6% · operacional sem problema 13,1% · com problema 30,0% |
-| Página 4: K6 · K2 · K4 · K5 | 19,1% · 698 · 10,3% · 18,8% |
-| Página 4: Pareto | P1 + P2 + P13 = 67,5% do tempo em problema (o rótulo arredonda para 68%) |
-| Página 5 (mínimo 40) | 48 carteiras elegíveis · mediana 39,4% |
-| Página 8: C1 · C2 | 89,5% · 100,0% |
-| Página 3 com a carteira S1I05A | K1 46,8% · K7 34,7% |
+| Ligações analisadas | Têm fonte de classificação |
+| Conversas | Analisadas com tipo diferente de "sem conteúdo" |
+| Oportunidades de venda | Desfecho diferente de "não era venda" ("interações classificadas como venda" no memo) |
+| Taxa de fechamento | Fechamentos (desfecho "fechou …") ÷ oportunidades. É o fechamento **identificado na conversa**, não o do CRM |
+| Conversas com problema | Problemas ÷ conversas |
+| Resolvidos na ligação | Problemas resolvidos totalmente ÷ problemas |
+| Challenger de alta qualidade | Campo de qualidade do Challenger = alta |
+| Carga operacional (tempo) | Tempo em problema, suporte, cobrança, pós-venda e dúvida de contrato ÷ tempo das ligações classificadas pelo GPT com duração |
 
-Esta versão foi conferida automaticamente contra `missao_4T26/bi/reconciliacao.csv`: **135 de 135 valores batem**. A
-planilha tem 151 itens; os outros 16 não aparecem no painel. São a classe legada (M06–M08), contagens de clientes e o
-"Meu painel" do vendedor (página 9, segunda fase).
+A lista completa, com as colunas do CSV, está na seção 9 do painel.
+
+## Configuração (`painel_config.json`, opcional, ao lado do script)
+
+```json
+{ "baseline_inicio": "2026-09-01", "baseline_fim": "2026-09-30", "baseline_rotulo": "setembro/2026",
+  "min_ligacoes": 30, "min_n_taxa": 30, "limite_cobertura": 0.95 }
+```
+
+- **Baseline:** é **calculado dos dados** desse período com os mesmos filtros da tela. Assim, cada carteira e cada
+  distrital é comparada com o próprio setembro.
+- **`min_ligacoes`:** mínimo de conversas no período para uma carteira entrar em rankings e medianas.
+- **`min_n_taxa`:** abaixo dessa amostra, a barra aparece em cinza com o aviso "amostra pequena".
+
+## Validação
+
+- **Antes de divulgar:** os números do baseline impressos pelo `Atualizar painel.bat` têm de bater com o memo
+  (rotina diária, passo 2).
+- **Nesta versão:** os testes automáticos (`testes/`) conferiram 69 de 69 indicadores do navegador contra o
+  recálculo em pandas, em três recortes. Não houve erro de console nas 9 seções em telas de 1366, 1440 e 1920 px.
+  Os cliques que filtram, as tabelas, as exportações e o simulador foram testados.
 
 ## Registro de acesso
 
-- **O que é gravado:** a cada abertura pelo `Abrir painel.bat`, uma linha com data, hora, usuário do Windows e nome do
-  computador, em `logs\<usuario>.csv`. Abrir o `painel.html` direto não gera registro.
-- **O que o painel mostra:** na página 8, só contagens: pessoas e acessos nos últimos 7 dias e pessoas desde o início.
-  As contagens entram no painel na atualização seguinte.
-- **Transparência:** avise as pessoas. Sugestão de texto: *"O atalho do painel registra data, hora e usuário de cada
-  abertura, só para medirmos o uso do MVP antes de decidir pelo Power BI."*
-- **Critério sugerido para decidir o BI:** depois de 4 semanas, ver quantos gerentes abrem o painel 3 ou mais vezes
-  por semana e quantas decisões da reunião de segunda saíram dele.
+- **O que é gravado:** a cada abertura pelo `Abrir painel.bat`, uma linha com data, hora, usuário do Windows e
+  computador, em `logs\<usuario>.csv`.
+- **O que o painel mostra:** só contagens, na seção 9. A contagem do dia entra na atualização seguinte.
+- **Transparência:** avise as pessoas. Sugestão: *"O atalho do painel registra data, hora e usuário de cada abertura, só
+  para medirmos o uso antes de decidir pelo Power BI."*
 
 ## Problemas comuns
 
 | Sintoma | Causa provável | O que fazer |
 |---|---|---|
-| "Não encontrei os dados do painel" | `dados.js` só na nuvem ou ainda sincronizando | Botão direito na pasta `Gestao` → **Sempre manter neste dispositivo**; espere o ícone verde. |
-| Números de dias atrás | OneDrive pausado ou sem sincronizar | Veja a data no rodapé. Retome a sincronização no ícone da nuvem, perto do relógio. |
-| O `.bat` mostra "Não encontrei o painel.html" | O `.bat` foi copiado para fora da pasta | Use um **atalho** para o `.bat` em vez de uma cópia, ou edite a linha `set "PASTA=..."` no início do arquivo. |
-| O acesso não aparece na página 8 | O leitor não tem permissão de edição em `logs`, ou a atualização ainda não rodou | Ajuste a permissão de `Gestao/logs`. A contagem entra na próxima atualização. |
-| A empresa bloqueia `.bat` no SharePoint | Política de TI | Deixe o `Abrir painel.bat` na área de trabalho de cada leitor, com a linha `set "PASTA=..."` apontando para a pasta sincronizada. |
-| Página 1 vazia ("Sem ligações com duração") | O período escolhido não tem duração | Clique no botão que leva ao último mês com duração. A página 8 mostra até quando há duração. |
-| Erro "O CSV não tem as colunas esperadas" ao atualizar | O CSV não veio da consulta completa | Exporte da mesma consulta do arquivo de setembro (88 colunas). |
-| "python não é reconhecido" | Python fora do PATH | Reinstale marcando **Add python.exe to PATH**, ou use `py -3`; o `.bat` já tenta os dois. |
+| "Não encontrei os dados do painel" ou "Não encontrei a biblioteca de gráficos" | `dados.js` ou `vendor/` só na nuvem, ou ainda sincronizando | Botão direito na pasta `Gestao` → **Sempre manter neste dispositivo**; espere o ícone verde. |
+| "Os dados são de uma versão antiga do painel" | O `dados.js` foi gerado pelo script 1.0 | Copie o `atualizar_painel.py` 2.0 para a sua pasta local e rode a atualização. |
+| Números de dias atrás | OneDrive pausado | Veja a data no topo; retome a sincronização no ícone da nuvem. |
+| O baseline não bate com o memo | A pasta de CSVs não tem setembro completo | Coloque o CSV completo de setembro na pasta e rode de novo. |
+| O `.bat` mostra "Não encontrei o painel.html" | O `.bat` foi copiado para fora da pasta | Use um **atalho** em vez de uma cópia, ou edite a linha `set "PASTA=..."` no início do arquivo. |
+| O acesso não aparece na seção 9 | Sem permissão de edição em `logs`, ou a atualização ainda não rodou | Ajuste a permissão de `Gestao/logs`. |
+| A empresa bloqueia `.bat` no SharePoint | Política de TI | Deixe o `Abrir painel.bat` na área de trabalho de cada leitor, com `set "PASTA=..."` apontando para a pasta sincronizada. |
+| "python não é reconhecido" | Python fora do PATH | Reinstale marcando **Add python.exe to PATH**; o `.bat` também tenta `py -3`. |
 
-## Limites do MVP (de propósito)
+## Limites desta versão (de propósito)
 
-- **Sem segurança por linha:** quem acessa a pasta vê todas as carteiras, identificadas por código. Os vendedores ficam
-  para a segunda fase. Uma opção é uma pasta por vendedor com o próprio `dados.js`, filtrado pela carteira dele.
-- **Baseline provisório:**
-  - K1 43,2%, meta 38,2%, piloto 33,2%.
-  - Setembro mistura versões do GPT, e a duração só existe até 22/09.
-  - Os valores ficam em `CONFIG_PAINEL`, no início do `atualizar_painel.py`. Quando o baseline for congelado, mude-os
-    ali e rode a atualização.
-- **Fora do painel:**
-  - o trecho para coaching, porque o texto livre pode ter nome e telefone de contato do cliente (LGPD);
-  - a página 9 "Meu painel", que fica para a fase dos vendedores.
-- **Regras de negócio:** as mesmas do plano da missão e de `missao_4T26/bi/`. A carga operacional (K1) conta problema,
-  suporte, cobrança, pós-venda e dúvida de contrato, sobre a base classificada pelo GPT com duração; o fuso é −3 h.
+- **Segurança por linha:** não há. Quem acessa a pasta vê todas as carteiras e clientes. A fase dos vendedores exige uma
+  pasta por carteira.
+- **Fora do painel:** trechos de ligação e frases para coaching, porque o texto livre pode ter nome e telefone de
+  contato (LGPD).
+- **Associação, não causa:** os gráficos de "fator × fechamento" mostram associação. Use-os para escolher hipóteses e
+  teste no piloto contra o grupo de controle.
+- **Troca de versão do classificador:** muda o nível de vários indicadores ao mesmo tempo. Quando muitos indicadores
+  mudarem juntos, confira a seção 9 antes de concluir.

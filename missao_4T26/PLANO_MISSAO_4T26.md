@@ -307,6 +307,10 @@ piloto conduzido por Thiago + Gerência Operacional, que assina as horas · BI n
 **Tomadas em 13/10:** MVP do painel em **HTML via pasta do SharePoint + `.bat`** no lugar do BI v1, para medir a adoção antes de investir no Power BI ·
 audiência inicial **Gerência Operacional, diária** (o diretor não usa o painel; a página dos vendedores fica para a segunda fase) · fonte diária = **CSV que o Thiago já exporta** da análise do dia anterior · **as 8 páginas do modelo aprovado**.
 
+**Tomadas em 13/10 (painel v2):** setembro/2026 é a baseline oficial, com os números auditados do memo da RMR · o painel usa as definições do memo ·
+foco da 1ª fase: a Gerência Operacional entender como o time trabalha (tempo, Challenger, problemas, clientes, SPIN) para "encantar o Elvio" ·
+site interativo com ECharts local (`painel/`, versão 2.0) · o memo continua sendo feito no Codex e o painel não vai à RMR.
+
 **Em aberto (fechar até 09/10):**
 
 1. Lista final de carteiras do piloto e do controle (seção 6) com a Gerência Operacional.

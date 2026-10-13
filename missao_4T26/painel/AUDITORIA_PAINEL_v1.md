@@ -286,3 +286,22 @@ Esforço: P = até meio dia · M = 1 a 2 dias · G = 3 a 5 dias.
 5. **Arquitetura da v2.** As 9 seções da 2.4 servem? Algo sai ou entra?
 6. **Prioridades no painel.** As prioridades do memo viram um acompanhamento com dono e meta? Mande o memo inteiro.
 7. **Data da RMR.** Ela define o que entra na onda 0 e se o painel vai ou não para a reunião.
+
+---
+
+## 9. Respostas de 13/10 e o que entrou na v2
+
+| # | Decisão | Consequência na v2 |
+|---|---|---|
+| 1 e 2 | O CSV da sessão é incompleto e serve só para mostrar a estrutura. **Os números do memo estão atualizados e auditados, e setembro é a baseline** | O painel usa as definições do memo. O baseline é **calculado dos dados** do período configurado (setembro/2026), com os mesmos filtros da tela. O script imprime os números do baseline para conferir com o memo |
+| 3 | "Encantar o Elvio": analisar todos os dados. Primeiro a Gerência Operacional, para entender como o time trabalha (tempo, Challenger, problemas, clientes, SPIN, tudo) | 9 seções que cobrem tempo, vendas, problemas, Challenger e SPIN, clientes, contato, carteiras e qualidade |
+| 4 | Seguir o recomendado em tudo | Site responsivo, ECharts local, filtros globais com etiquetas, clique que filtra, tabela/CSV/PNG em todo gráfico, comparação com significância, testes no repositório |
+| 5 | Verificar se as seções atendem; tirar e pôr o que for preciso | **Saíram:** "Resultado do mês" e "Prioridades" (o memo é feito no Codex), modo apresentação (o painel não vai à RMR) e a página "Semana" (virou a granularidade "Ver por"). **Entraram:** Clientes (lista acionável), fechamento por fator, ficha da carteira, mapa de competências por carteira |
+| 6 | O memo é feito por prompt no Codex | Ignorado no painel |
+| 7 | O painel não será aberto na RMR | Sem onda 0 |
+
+**Validação da v2 com o CSV de setembro (incompleto):**
+- 69 de 69 indicadores do navegador iguais ao recálculo em pandas, em três recortes;
+- as taxas batem com o memo (fechamento 8,4%, problema 20,9%, resolvidos 9,8%, Challenger alta 10,2% contra 8,1% sem
+  Challenger);
+- a confirmação dos volumes depende do CSV completo.
