@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Painel · Carga operacional da venda interna (DVINT)</title>
+<style>
+:root{
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7; --line:#e1e0d9;
+  --blue:#2a78d6; --blue2:#8fb4e8; --orange:#eb6834; --orange2:#f5b296;
+  --font:"Segoe UI","Liberation Sans",Arial,Helvetica,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#e9e8e2;font-family:var(--font);color:var(--ink)}
+#wrap{width:1280px;margin:0 auto}
+.canvas{position:relative;width:1280px;height:720px;background:var(--page);overflow:hidden;font-size:12px;line-height:1.3}
+/* painel esquerdo */
+.rail{position:absolute;left:0;top:0;bottom:0;width:168px;background:#12202e;color:#e8edf3;padding:12px 12px;display:flex;flex-direction:column;gap:4px}
+.rail .brand{font-size:13px;font-weight:650;line-height:1.25}
+.rail .brand small{display:block;font-weight:400;color:#9fb0c2;font-size:11px;margin-top:2px}
+.rail button.navb{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;color:#c9d5e2;font-size:12px;white-space:nowrap}
+.rail button.navb i{display:inline-flex;width:18px;height:18px;border-radius:50%;background:#26394d;color:#9fb0c2;font-style:normal;font-size:10px;align-items:center;justify-content:center;flex:none}
+.rail button.navb:hover{background:#1b2f43}
+.rail button.navb:focus-visible{outline:2px solid #8fb4e8}
+.rail button.navb.on{background:#2a78d6;color:#fff;font-weight:600} .rail button.navb.on i{background:#fff;color:#2a78d6}
+.rail h6{margin:9px 0 2px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#7f93a8;font-weight:600}
+.rail label{font-size:10px;color:#8aa0b6;display:block;margin-top:2px}
+.rail select,.rail input{width:100%;font:inherit;font-size:11px;color:#dfe8f1;background:#1b2f43;border:1px solid #2c445c;border-radius:5px;padding:3px 6px;color-scheme:dark}
+.rail .dt{display:grid;grid-template-columns:1fr;gap:3px}
+.rail .limpar{all:unset;cursor:pointer;font-size:10.5px;color:#8fb4e8;margin-top:4px}
+.rail .stat{margin-top:auto;display:flex;flex-direction:column;gap:5px}
+.chipx{font-size:10px;border-radius:4px;padding:3px 6px;line-height:1.3}
+.chipx.a{background:#3a2a14;color:#ffd48a;border:1px solid #6b4d1c}
+.chipx.b{background:#1b2f43;color:#c9d5e2;border:1px solid #2c445c}
+/* área principal */
+.hd{position:absolute;left:182px;top:12px;width:1084px;height:40px;display:flex;justify-content:space-between;align-items:flex-start}
+.hd h2{margin:0;font-size:19px;font-weight:650;letter-spacing:-.01em}
+.hd h2 span{color:var(--muted);font-weight:500}
+.hd .rt{font-size:11px;color:var(--ink2);text-align:right;padding-top:4px}
+.main{position:absolute;left:182px;top:58px;width:1084px;height:648px}
+.foot{position:absolute;left:182px;right:14px;bottom:3px;display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted)}
+.v{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.v .t{position:absolute;left:12px;top:9px;right:12px;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v .s{position:absolute;left:12px;top:26px;right:12px;font-size:10.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v .b{position:absolute;left:12px;right:12px;bottom:8px}
+.v.v11{border:1.5px dashed #c58a2b}
+.v .tag11{position:absolute;right:8px;top:7px;background:#fff1cc;color:#7a4e00;border:1px solid #e8c766;border-radius:4px;font-size:9.5px;font-weight:600;padding:1px 6px;z-index:2}
+.kpi .lab{position:absolute;left:12px;top:9px;right:10px;font-size:11.5px;color:var(--ink2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .val{position:absolute;left:12px;top:26px;font-size:28px;font-weight:650;letter-spacing:-.02em;line-height:1.1}
+.kpi .sub{position:absolute;left:12px;right:10px;bottom:20px;font-size:10.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .sub2{position:absolute;left:12px;right:10px;bottom:6px;font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.up{color:#c4481a} .dn{color:#1f62b8}
+.legend{display:flex;gap:4px 14px;flex-wrap:wrap;font-size:10.5px;color:var(--ink2);margin-bottom:2px}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.legend i.sq{height:9px;width:9px;border-radius:2px;vertical-align:-1px}
+svg{display:block;overflow:visible} svg text{font-family:var(--font);font-size:10px;fill:var(--ink2)} svg .k{fill:var(--ink)} svg .bold{font-weight:600}
+table.tb{border-collapse:collapse;width:100%;font-size:11px}
+table.tb th{font-weight:600;color:var(--ink2);text-align:right;padding:3px 6px;border-bottom:1px solid var(--axis);font-size:10.5px;white-space:nowrap;background:var(--surface);position:sticky;top:0}
+table.tb th:first-child,table.tb td:first-child{text-align:left}
+table.tb td{padding:2.5px 6px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.tb tr:last-child td{border-bottom:0}
+table.tb tr.clic{cursor:pointer} table.tb tr.clic:hover td{background:#f1f0ea}
+table.tb tr.sel td{background:#e3eefb}
+.dbar{position:relative;display:inline-block;min-width:92px;height:15px;text-align:right;vertical-align:middle}
+.dbar i{position:absolute;left:0;top:1px;bottom:1px;border-radius:2px;opacity:.28}
+.dbar span{position:relative;padding-right:3px}
+.ico{display:inline-block;width:13px;height:13px;vertical-align:-2px;margin-right:4px}
+.al{display:flex;gap:9px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--grid)}
+.al:last-child{border-bottom:0}
+.al b{font-size:11.5px;display:block}
+.al div{font-size:10.5px;color:var(--ink2);line-height:1.35}
+.al .m{color:var(--muted);font-size:9.5px;margin-top:2px}
+.note{font-size:11px;color:var(--ink2);line-height:1.45}
+.note b{color:var(--ink)}
+.pill{display:inline-block;border-radius:10px;padding:1px 7px;font-size:10px;font-weight:600}
+.pill.ok{background:#e3eefb;color:#1f62b8}.pill.at{background:#fdebd0;color:#8a540a}.pill.cr{background:#fbe0d3;color:#b23d12}.pill.in{background:#eceae3;color:#6b6a65}
+.seg{display:flex;border:1px solid var(--axis);border-radius:6px;overflow:hidden;font-size:11px}
+.seg button{all:unset;cursor:pointer;flex:1;text-align:center;padding:5px 0;border-right:1px solid var(--axis);color:var(--ink2)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--blue);color:#fff;font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.vazio{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:12px;text-align:center;padding:10px}
+.scroll{overflow:auto}
+.erro{max-width:640px;margin:80px auto;background:#fff;border:1px solid #e1e0d9;border-radius:10px;padding:24px 28px;font-size:14px;line-height:1.5}
+.erro h1{font-size:18px;margin:0 0 10px}
+.erro code{background:#f1f0ea;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<div id="wrap"></div>
+<script src="dados.js"></script>
+<script>
+"use strict";
+/* ===================================================================================================================
+   Painel de carga operacional (MVP). Lê window.PAINEL_DADOS (dados.js, gerado por atualizar_painel.py) e calcula tudo
+   no navegador conforme os filtros. Mesmas regras de missao_4T26/bi/ (K1 = carga operacional completa sobre a base
+   classificada pelo GPT com duração).
+   =================================================================================================================== */
+const wrap = document.getElementById('wrap');
+const D = window.PAINEL_DADOS;
+if (!D) {
+  wrap.innerHTML = `<div class="erro"><h1>Não encontrei os dados do painel</h1>
+  <p>O arquivo <code>dados.js</code> não está na mesma pasta deste <code>painel.html</code>, ou ainda não terminou de sincronizar.</p>
+  <ol><li>Abra a pasta do painel no Explorador de Arquivos e veja se <code>dados.js</code> está lá.</li>
+  <li>Se o ícone do arquivo for uma nuvem, clique com o botão direito na pasta → <b>Sempre manter neste dispositivo</b>.</li>
+  <li>Se o arquivo não existir, avise o responsável pela atualização diária.</li></ol></div>`;
+  throw new Error('dados.js ausente');
+}
+
+/* ---------------- formatos ---------------- */
+const nf=(x,d=0)=>x==null||!isFinite(x)?'–':Number(x).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pc=(x,d=1)=>x==null||!isFinite(x)?'–':nf(x*100,d)+'%';
+const pp=(x,d=1)=>x==null||!isFinite(x)?'–':(x>=0?'+':'−')+nf(Math.abs(x),d)+' p.p.';
+const dd=s=>s.slice(8,10)+'/'+s.slice(5,7);
+const ddmmaa=s=>s?s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4):'–';
+const DOWN=['dom','seg','ter','qua','qui','sex','sáb'];
+const dw=s=>DOWN[new Date(s+'T12:00:00').getDay()];
+const mmss=s=>s==null||!isFinite(s)?'–':Math.floor(s/60)+':'+String(Math.round(s%60)).padStart(2,'0');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const mean=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:null;
+const median=a=>{if(!a.length)return null;const b=[...a].sort((x,y)=>x-y),m=b.length>>1;return b.length%2?b[m]:(b[m-1]+b[m])/2};
+const C={blue:'#2a78d6',blue2:'#8fb4e8',orange:'#eb6834',orange2:'#f5b296',gray:'#898781',ink:'#0b0b0b',ink2:'#52514e',grid:'#e1e0d9',axis:'#c3c2b7',dark:'#52514e',light:'#b8b6ac'};
+const IC={
+ warn:'<svg class="ico" viewBox="0 0 18 18"><path d="M9 1.8 17 16H1Z" fill="#fdebd0" stroke="#d08a1e" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 7v4M9 13.2v.1" stroke="#a8650d" stroke-width="1.6" stroke-linecap="round"/></svg>',
+ crit:'<svg class="ico" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#fbe0d3" stroke="#d95926" stroke-width="1.5"/><path d="M9 4.8v5M9 12.5v.1" stroke="#b23d12" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ ok:'<svg class="ico" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#e3eefb" stroke="#2a78d6" stroke-width="1.5"/><path d="M5.3 9.3l2.4 2.4 5-5.2" fill="none" stroke="#1f62b8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ info:'<svg class="ico" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#eceae3" stroke="#898781" stroke-width="1.5"/><path d="M9 8v5M9 5.2v.1" stroke="#6b6a65" stroke-width="1.7" stroke-linecap="round"/></svg>'};
+
+/* ---------------- gráficos (SVG em texto, tamanho fixo) ---------------- */
+function niceMax(v,steps){if(!(v>0))return steps;const raw=v/steps;const p=Math.pow(10,Math.floor(Math.log10(raw)));const f=raw/p;const n=f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10;return n*p*steps}
+function grid(w,h,m,ymax,ticks,fmt,ymin=0){let o='';for(let k=0;k<=ticks;k++){const v=ymin+(ymax-ymin)*k/ticks,y=m.t+(h-m.t-m.b)-(v-ymin)/(ymax-ymin)*(h-m.t-m.b);o+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y}" y2="${y}" stroke="${k===0?C.axis:C.grid}"/><text x="${m.l-6}" y="${y+3.5}" text-anchor="end">${fmt(v)}</text>`}return o}
+function lineSVG({w,h,labels,series,yMax,yMin=0,ticks=4,fmt=v=>pc(v,0),refs=[],every=1,notes=[]}){
+  const m={l:38,r:refs.length?78:12,t:8,b:22},iw=w-m.l-m.r,ih=h-m.t-m.b,n=labels.length;
+  const X=i=>m.l+(n===1?iw/2:i*iw/(n-1)),Y=v=>m.t+ih-(v-yMin)/(yMax-yMin)*ih;
+  let o=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`+grid(w,h,m,yMax,ticks,fmt,yMin);
+  labels.forEach((t,i)=>{if(i===n-1||i%every===0&&n-1-i>=Math.max(1,every*.6))o+=`<text x="${X(i)}" y="${h-6}" text-anchor="middle">${t}</text>`});
+  refs.forEach(r=>{const y=Y(r.y);o+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y}" y2="${y}" stroke="${r.color}" stroke-width="1.4" stroke-dasharray="${r.dash||'5 4'}"/><text x="${w-m.r+4}" y="${y+3.5}" style="fill:${r.color};font-weight:600">${r.label}</text>`});
+  series.forEach(s=>{let d='',open=false,last=null;s.data.forEach((v,i)=>{if(v==null||!isFinite(v)){open=false;return}d+=(open?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1);open=true;last=i});
+    o+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.width||2.2}" stroke-linejoin="round" stroke-linecap="round" ${s.dash?`stroke-dasharray="${s.dash}"`:''}/>`;
+    if(n<=31)s.data.forEach((v,i)=>{if(v!=null&&isFinite(v)&&s.dots)o+=`<circle cx="${X(i)}" cy="${Y(v)}" r="2.4" fill="${s.color}"/>`});
+    if(last!=null&&s.endLabel)o+=`<circle cx="${X(last)}" cy="${Y(s.data[last])}" r="3.6" fill="${s.color}" stroke="#fff" stroke-width="1.5"/><text x="${X(last)-2}" y="${Y(s.data[last])-8}" text-anchor="end" class="k bold">${s.endLabel}</text>`});
+  notes.forEach(nt=>{if(nt.i<0)return;const x=X(nt.i);o+=`<line x1="${x}" x2="${x}" y1="${m.t}" y2="${m.t+ih}" stroke="${C.gray}" stroke-dasharray="2 3"/><text x="${nt.end?x-4:x+4}" y="${m.t+(nt.dy||10)}" text-anchor="${nt.end?'end':'start'}" style="fill:${C.ink2}">${nt.text}</text>`});
+  return o+'</svg>'}
+function colsSVG({w,h,items,yMax,ticks=4,fmt=v=>pc(v,0),lab=v=>pc(v,1),whisker=false,m0}){
+  const m=m0||{l:38,r:8,t:16,b:24},iw=w-m.l-m.r,ih=h-m.t-m.b,band=iw/Math.max(1,items.length),bw=Math.min(40,band*.58),Y=v=>m.t+ih-Math.min(v,yMax)/yMax*ih;
+  let o=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`+grid(w,h,m,yMax,ticks,fmt);
+  items.forEach((it,i)=>{const cx=m.l+band*(i+.5);o+=`<text x="${cx}" y="${h-7}" text-anchor="middle">${it.label}</text>`;if(it.v==null||!isFinite(it.v))return;const y=Y(it.v),x=cx-bw/2,r=Math.min(3,bw/2);
+    if(Y(0)-y>.5)o+=`<path d="M${x} ${Y(0)}V${y+r}Q${x} ${y} ${x+r} ${y}H${x+bw-r}Q${x+bw} ${y} ${x+bw} ${y+r}V${Y(0)}Z" fill="${it.color||C.blue}"/>`;
+    if(whisker&&it.lo!=null){const a=Y(it.lo),b=Y(it.hi);o+=`<line x1="${cx}" x2="${cx}" y1="${a}" y2="${b}" stroke="${C.ink}" stroke-width="1.4"/><line x1="${cx-4}" x2="${cx+4}" y1="${a}" y2="${a}" stroke="${C.ink}" stroke-width="1.4"/><line x1="${cx-4}" x2="${cx+4}" y1="${b}" y2="${b}" stroke="${C.ink}" stroke-width="1.4"/>`}
+    o+=`<text x="${cx}" y="${(whisker&&it.hi!=null?Y(it.hi):y)-5}" text-anchor="middle" class="k bold">${lab(it.v,it)}</text>`});
+  return o+'</svg>'}
+function groupSVG({w,h,groups,yMax,ticks=4,fmt=v=>pc(v,0),lab=v=>pc(v,0),refs=[]}){
+  const m={l:38,r:refs.length?78:8,t:16,b:24},iw=w-m.l-m.r,ih=h-m.t-m.b,band=iw/Math.max(1,groups.length),Y=v=>m.t+ih-Math.min(v,yMax)/yMax*ih;
+  let o=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`+grid(w,h,m,yMax,ticks,fmt);
+  groups.forEach((g,i)=>{const nn=g.vals.length,bw=Math.min(30,band*.72/nn),gap=2,tw=nn*bw+(nn-1)*gap,x0=m.l+band*(i+.5)-tw/2;
+    g.vals.forEach((it,j)=>{if(it.v==null||!isFinite(it.v))return;const x=x0+j*(bw+gap),y=Y(it.v),r=Math.min(3,bw/2);
+      o+=`<path d="M${x} ${Y(0)}V${y+r}Q${x} ${y} ${x+r} ${y}H${x+bw-r}Q${x+bw} ${y} ${x+bw} ${y+r}V${Y(0)}Z" fill="${it.color}"/><text x="${x+bw/2}" y="${y-4}" text-anchor="middle" class="k" style="font-size:9.5px">${lab(it.v)}</text>`});
+    o+=`<text x="${m.l+band*(i+.5)}" y="${h-7}" text-anchor="middle">${g.label}</text>`});
+  refs.forEach(r=>{const y=Y(r.y);o+=`<line x1="${m.l}" x2="${w-m.r}" y1="${y}" y2="${y}" stroke="${r.color}" stroke-width="1.4" stroke-dasharray="5 4"/><text x="${w-m.r+4}" y="${y+3.5}" style="fill:${r.color};font-weight:600">${r.label}</text>`});
+  return o+'</svg>'}
+function hbarsSVG({w,h,items,max,fmt=v=>pc(v,1),labelW=96,median,rowGap=.28,valW=48,rowH,onClick}){
+  const pt=median?14:0,rh=rowH||((h-pt)/Math.max(1,items.length)),H=rowH?items.length*rowH+pt:h,bh=Math.max(5,rh*(1-rowGap)),iw=w-labelW-valW;
+  let o=`<svg width="${w}" height="${H}" viewBox="0 0 ${w} ${H}">`;const mx=max||Math.max(...items.map(i=>i.v||0),1e-9);
+  if(median!=null){const x=labelW+median.v/mx*iw;o+=`<line x1="${x}" x2="${x}" y1="9" y2="${H}" stroke="${C.ink}" stroke-width="1.3" stroke-dasharray="4 3"/><text x="${x}" y="7" text-anchor="middle" class="k bold" style="font-size:9.5px">${median.label}</text>`}
+  items.forEach((it,i)=>{const y=pt+i*rh+(rh-bh)/2,bw=Math.max(1,(it.v||0)/mx*iw);
+    o+=`<g ${onClick&&it.key?`data-cart="${esc(it.key)}" style="cursor:pointer"`:''}><rect x="0" y="${pt+i*rh}" width="${w}" height="${rh}" fill="${it.sel?'#e3eefb':'transparent'}"/><text x="${labelW-6}" y="${y+bh/2+3.5}" text-anchor="end" class="${it.sel?'k bold':''}">${esc(it.label)}</text><rect x="${labelW}" y="${y}" width="${bw}" height="${bh}" rx="2" fill="${it.color||C.blue}"/><text x="${labelW+bw+5}" y="${y+bh/2+3.5}" class="k" style="font-size:${rh<14?9:10}px">${it.lab||fmt(it.v)}</text></g>`});
+  return o+'</svg>'}
+function stackSVG({w,h,parts,fmt=v=>pc(v,1)}){const tot=parts.reduce((a,p)=>a+(p.v||0),0);if(!(tot>0))return '';let x=0,o=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  parts.forEach(p=>{const pw=(p.v||0)/tot*w,bw=Math.max(0,pw-2);if(pw<=0)return;o+=`<rect x="${x}" y="0" width="${bw}" height="${h}" rx="3" fill="${p.color}"/>`;
+    if(bw>46)o+=`<text x="${x+7}" y="${h/2+4}" style="fill:${p.text||'#fff'};font-weight:600;font-size:11px">${p.lab||fmt(p.v/tot)}</text>`;x+=pw});return o+'</svg>'}
+function gaugeSVG({w,h,value,min,max,target,baseline,fmtv}){
+  const cx=w/2,cy=h-34,r=Math.min(w/2-34,h-70),th=24,cl=v=>Math.max(min,Math.min(max,v)),ang=v=>Math.PI-(cl(v)-min)/(max-min)*Math.PI,pt=(v,rr)=>[cx+rr*Math.cos(ang(v)),cy-rr*Math.sin(ang(v))];
+  const arc=(v0,v1,rr)=>{const a=pt(v0,rr),b=pt(v1,rr);return `M${a[0]} ${a[1]}A${rr} ${rr} 0 0 1 ${b[0]} ${b[1]}`};
+  let o=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><path d="${arc(min,max,r)}" fill="none" stroke="#e8e6df" stroke-width="${th}"/>`;
+  if(value!=null)o+=`<path d="${arc(min,value,r)}" fill="none" stroke="${C.orange}" stroke-width="${th}"/>`;
+  [[target,C.blue,'Meta'],[baseline,C.dark,'Baseline']].forEach(([v,c,t])=>{const a=pt(v,r-th/2-4),b=pt(v,r+th/2+6),l=pt(v,r+th/2+18);o+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="2.4"/><text x="${l[0]}" y="${l[1]+3}" text-anchor="${t==='Meta'?'end':'start'}" style="fill:${c};font-weight:600;font-size:10.5px">${t} ${fmtv(v)}</text>`});
+  o+=`<text x="${cx}" y="${cy-6}" text-anchor="middle" style="font-size:36px;font-weight:650;fill:${C.ink}">${fmtv(value)}</text><text x="${cx-r}" y="${cy+18}" text-anchor="middle">${fmtv(min)}</text><text x="${cx+r}" y="${cy+18}" text-anchor="middle">${fmtv(max)}</text>`;
+  return o+'</svg>'}
+function comboSVG({w,h,items,yMax,y2Max=1}){
+  const m={l:38,r:40,t:16,b:30},iw=w-m.l-m.r,ih=h-m.t-m.b,band=iw/Math.max(1,items.length),bw=Math.min(38,band*.6),Y=v=>m.t+ih-v/yMax*ih,Y2=v=>m.t+ih-v/y2Max*ih;
+  let o=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`+grid(w,h,m,yMax,4,v=>nf(v,yMax<4?1:0));
+  for(let k=0;k<=4;k++)o+=`<text x="${w-m.r+6}" y="${Y2(y2Max*k/4)+3.5}">${pc(k/4*y2Max,0)}</text>`;
+  let d='';items.forEach((it,i)=>{const cx=m.l+band*(i+.5),y=Y(it.v),x=cx-bw/2,r=3;
+    o+=`<path d="M${x} ${Y(0)}V${y+r}Q${x} ${y} ${x+r} ${y}H${x+bw-r}Q${x+bw} ${y} ${x+bw} ${y+r}V${Y(0)}Z" fill="${C.orange}"/><text x="${cx}" y="${y-5}" text-anchor="middle" class="k bold" style="font-size:9.5px">${nf(it.v,1)}</text>`;
+    o+=`<text x="${cx}" y="${h-16}" text-anchor="middle" class="k bold">${it.cod}</text><text x="${cx}" y="${h-5}" text-anchor="middle" style="font-size:9px">${it.nome}</text>`;d+=(i?'L':'M')+cx+' '+Y2(it.cum)});
+  o+=`<path d="${d}" fill="none" stroke="${C.dark}" stroke-width="2"/>`;items.forEach((it,i)=>{const cx=m.l+band*(i+.5);o+=`<circle cx="${cx}" cy="${Y2(it.cum)}" r="3" fill="${C.dark}" stroke="#fff" stroke-width="1.2"/>`;if(i===2||i===items.length-1||i===0)o+=`<text x="${cx+(i===0?22:0)}" y="${Y2(it.cum)-7}" text-anchor="middle" class="k bold" style="font-size:9.5px;paint-order:stroke;stroke:#fff;stroke-width:3px">${pc(it.cum,0)}</text>`});
+  return o+'</svg>'}
+const legend=(it)=>`<div class="legend">${it.map(i=>`<span><i class="${i.sq?'sq':''}" style="background:${i.c}"></i>${i.t}</span>`).join('')}</div>`;
+const dbar=(v,max,txt,c)=>`<span class="dbar"><i style="width:${Math.max(0,Math.min(100,(v||0)/max*100))}%;background:${c}"></i><span>${txt}</span></span>`;
+const vazio=(txt)=>`<div class="vazio">${txt}</div>`;
+const vazioBase=()=>`<div class="vazio" style="flex-direction:column;gap:10px"><div>O período escolhido não tem ligações com duração. A duração existe até ${ddmmaa(D.meta.duracao_ate)}.</div><div class="seg" style="width:280px"><button data-ultimo="1">Ver o mês do último dia com duração</button></div></div>`;
+
+/* ---------------- moldura de visual ---------------- */
+function V(x,y,w,h,title,sub,body,opt={}){
+  const bt=title?(sub?44:30):10,bw=w-24,bh=h-bt-8;const inner=typeof body==='function'?body(bw,bh):body;
+  return `<div class="v${opt.v11?' v11':''}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">${opt.v11?`<span class="tag11">${opt.v11}</span>`:''}${title?`<div class="t">${title}</div>`:''}${sub?`<div class="s">${sub}</div>`:''}<div class="b ${opt.scroll?'scroll':''}" style="top:${bt}px">${inner}</div></div>`}
+function K(x,y,w,h,label,value,sub,sub2,opt={}){
+  return `<div class="v kpi" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><div class="lab">${label}</div><div class="val" style="color:${opt.color||C.ink}">${value}</div><div class="sub">${sub||''}</div><div class="sub2">${sub2||''}</div></div>`}
+
+/* ---------------- dados e estado ---------------- */
+const CFG=D.config, DIAS=D.dias, CART=D.carteiras, NCOL=D.colA.length;
+const NOMES_P={P1:'Acesso/sistema',P2:'Faturamento/cobrança',P3:'Multa/infração',P4:'Manutenção/substituto',P5:'Condutor/cadastro',P6:'Km excedente',P7:'Disponibilidade',P8:'Franquia/agência',P9:'Sinistro',P10:'Reserva/sistema',P11:'Outro',P12:'Manipulação de pesquisa/NPS',P13:'Crédito/cadastro PJ',P14:'Preço/competitividade',P15:'Tag de pedágio',nenhum:'Sem código'};
+const CURTO_P={P1:'Acesso',P2:'Faturamento',P3:'Multa',P4:'Manutenção',P5:'Cadastro',P6:'Km exced.',P7:'Disponib.',P8:'Franquia',P9:'Sinistro',P10:'Reserva',P11:'Outro',P12:'NPS',P13:'Crédito PJ',P14:'Preço',P15:'Tag pedágio',nenhum:'—'};
+const FAIXAS=['< 2 min','2–5 min','5–8 min','8–12 min','> 12 min'];
+const DISTRITAIS=[...new Set(CART.map(c=>c.d).filter(Boolean))].sort();
+const di0=DIAS.length-1, ultimoMes=DIAS[di0].slice(0,7);
+const PRESETS={mes:'Mês do último dado',tudo:'Tudo',d30:'Últimos 30 dias',d7:'Últimos 7 dias',pers:'Personalizado'};
+function idxDia(s){let i=DIAS.findIndex(d=>d>=s);return i<0?di0:i}
+function aplicaPreset(p){
+  if(p==='tudo'){S.d0=0;S.d1=di0}
+  else if(p==='mes'){S.d0=idxDia(ultimoMes+'-01');S.d1=di0}
+  else if(p==='d30'||p==='d7'){const n=p==='d30'?30:7;const lim=new Date(DIAS[di0]+'T12:00:00');lim.setDate(lim.getDate()-(n-1));S.d0=idxDia(lim.toISOString().slice(0,10));S.d1=di0}
+}
+let S={page:1,preset:'mes',d0:0,d1:di0,dist:'',cart:'',minLig:CFG.min_ligacoes,redP1:30};
+try{const g=JSON.parse(localStorage.getItem('painel_carga_estado')||'null');if(g&&typeof g==='object'){S={...S,...g};}}catch(e){}
+if(S.preset!=='pers')aplicaPreset(S.preset);
+S.d0=Math.max(0,Math.min(di0,S.d0|0));S.d1=Math.max(S.d0,Math.min(di0,S.d1|0));
+if(S.cart&&!CART.some(c=>c.c===S.cart))S.cart='';
+if(S.dist&&!DISTRITAIS.includes(S.dist))S.dist='';
+function salvar(){try{localStorage.setItem('painel_carga_estado',JSON.stringify(S))}catch(e){}}
+
+function okCart(ci,ignorarCarteira){const c=CART[ci];if(S.dist&&c.d!==S.dist)return false;if(!ignorarCarteira&&S.cart&&c.c!==S.cart)return false;return true}
+function filtra(rows,o={}){return rows.filter(r=>r[0]>=S.d0&&r[0]<=S.d1&&okCart(r[1],o.ignorarCarteira))}
+function soma(rows){const t=new Array(NCOL).fill(0);for(const r of rows)for(let i=0;i<NCOL;i++)t[i]+=r[i+2];const o={};D.colA.forEach((c,i)=>o[c]=t[i]);return o}
+const div=(a,b)=>b>0?a/b:null;
+function M(t){const tmaP=div(t.seg_prob,t.n_prob_base),tmaS=div(t.seg_base-t.seg_prob,t.base_n-t.n_prob_base);
+  return {t,k1:div(t.seg_op,t.seg_base),k1a:div(t.seg_prob,t.seg_base),k1b:div(t.seg_op-t.seg_prob,t.seg_base),k7:div(t.seg_neg,t.seg_base),
+   rel:div(t.seg_rel,t.seg_base),sc:div(t.seg_sc,t.seg_base),gem:div(t.gem_sup,t.gem_seg),horas:t.seg_base/3600,horasOp:t.seg_op/3600,
+   k6:div(t.prob_gpt,t.gpt),k2:t.pend,k4:div(t.res_sim,t.prob_gpt),tmaP,tmaS,k3:(tmaP!=null&&tmaS!=null)?t.n_prob_base*(tmaP-tmaS)/3600:null,
+   c1:div(t.comp_cls,t.atend),c2:div(t.comp_dur,t.atend),semGem:t.atend-t.comp_gem,taxaAt:div(t.atend,t.tent),
+   ch:div(t.ch,t.gpt),dado:div(t.dado_s,t.dado_n),con:div(t.con_s,t.con_n),rea:div(t.rea_s,t.rea_n),
+   ss:div(t.ss_sum,t.ss_n),sp:div(t.sp_sum,t.sp_n),si:div(t.si_sum,t.si_n),sn:div(t.sn_sum,t.sn_n),si1:div(t.si_1,t.si_n),dec:div(t.dec_s,t.dec_n)}}
+function agrupa(rows,keyFn){const m=new Map();for(const r of rows){const k=keyFn(r);if(!m.has(k))m.set(k,[]);m.get(k).push(r)}return m}
+const somaCols=(rows,cols)=>{const t=new Array(cols.length).fill(0);for(const r of rows)cols.forEach((c,i)=>t[i]+=r[c]);return t};
+function semana(s){const d=new Date(s+'T12:00:00');const w=(d.getDay()+6)%7;d.setDate(d.getDate()-w);return d.toISOString().slice(0,10)}
+function maisDias(s,n){const d=new Date(s+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+const BASEL=CFG.k1_baseline, META=CFG.k1_meta;
+function periodoTxt(){return ddmmaa(DIAS[S.d0])+' – '+ddmmaa(DIAS[S.d1])}
+function escopoTxt(){return S.cart?('carteira '+S.cart):S.dist?('distrital '+S.dist):'todas as carteiras'}
+function diasComBase(rows){const s=new Set();for(const r of rows)if(r[2+D.colA.indexOf('base_n')]>0)s.add(r[0]);return [...s].sort((a,b)=>a-b)}
+function intervaloTxt(dis){return dis.length?dd(DIAS[dis[0]])+'–'+dd(DIAS[dis.at(-1)]):'sem dias com duração'}
+
+/* ---------------- páginas ---------------- */
+const P={};
+const kw=208,kg=11,kx=i=>i*(kw+kg);
+
+P[1]=()=>{
+  const rows=filtra(D.A),porDia=agrupa(rows,r=>r[0]),bd=diasComBase(rows);let o='';
+  if(!bd.length)return [o+V(0,0,1084,648,'Sem ligações com duração no período',null,vazioBase()),'—'];
+  const ref=bd.at(-1),prev=bd.length>1?bd.at(-2):null,refS=DIAS[ref];
+  const mRef=M(soma(porDia.get(ref))),mPrev=prev!=null?M(soma(porDia.get(prev))):null;
+  const ult5=bd.slice(-5),mm5=M(soma(ult5.flatMap(d=>porDia.get(d))));
+  const mPer=M(soma(rows));
+  const dk=mPrev&&mPrev.k1!=null&&mRef.k1!=null?(mRef.k1-mPrev.k1)*100:null,devmm=mRef.k1!=null&&mm5.k1!=null?(mRef.k1-mm5.k1)*100:null;
+  o+=K(kx(0),0,kw,96,'Carga operacional (K1) · GPT',pc(mRef.k1),dk==null?'':`<span class="${dk>0?'up':'dn'}">${dk>0?'▲':'▼'} ${pp(dk)}</span> vs ${dd(DIAS[prev])} (${pc(mPrev.k1)})`,`média 5 dias ${pc(mm5.k1)} · baseline ${pc(BASEL)}`,{color:C.orange});
+  o+=K(kx(1),0,kw,96,'Carga operacional · Gemini',pc(mRef.gem),'régua Aletheia (categoria Suporte)',mRef.gem!=null&&mRef.k1!=null?`diferença para o GPT ${pp((mRef.k1-mRef.gem)*100)}`:'',{color:C.dark});
+  const d7=mRef.k7!=null?(mRef.k7-CFG.k7_baseline)*100:null;
+  o+=K(kx(2),0,kw,96,'Negociação (K7)',pc(mRef.k7),d7==null?'':`<span class="${d7<0?'up':'dn'}">${d7<0?'▼':'▲'} ${nf(Math.abs(d7),1)} p.p. ${d7<0?'abaixo':'acima'} do baseline</span>`,`baseline ${pc(CFG.k7_baseline)}`,{color:C.blue});
+  const pendDias=bd.map(d=>soma(porDia.get(d)).pend);
+  o+=K(kx(3),0,kw,96,'Pendências geradas (K2)',nf(mRef.k2),'problema não resolvido na ligação',mRef.k2>=Math.max(...pendDias)?'maior valor entre os dias do período':`média do período ${nf(mean(pendDias),1)} por dia`,{color:C.ink});
+  o+=K(kx(4),0,kw,96,'Horas de conversa',nf(mRef.horas,1)+' h',`${nf(mRef.t.base_n)} ligações classificadas`,`dia de referência ${dd(refS)} (${dw(refS)})`,{color:C.ink});
+  const serie=bd.slice(-31).map(d=>{const i=bd.indexOf(d),w=bd.slice(Math.max(0,i-4),i+1),m=M(soma(porDia.get(d)));return {d:DIAS[d],k1:m.k1,gem:m.gem,mm:M(soma(w.flatMap(x=>porDia.get(x)))).k1}});
+  const yMax=Math.max(.7,niceMax(Math.max(...serie.flatMap(s=>[s.k1||0,s.gem||0])),7));
+  o+=V(0,106,700,304,'Carga operacional por dia — duas réguas',`% do tempo de ligação · ${intervaloTxt(bd.slice(-31))} · tracejada = média de 5 dias com dado`,(w,h)=>legend([{c:C.orange,t:'K1 GPT'},{c:C.dark,t:'K1 Gemini (Suporte)'},{c:C.orange,t:'K1 média 5 dias'},{c:C.gray,t:'Baseline '+pc(BASEL)},{c:C.blue,t:'Meta '+pc(META)}])+lineSVG({w,h:h-18,labels:serie.map(s=>dd(s.d)),every:Math.ceil(serie.length/16),yMax,ticks:7,series:[
+    {data:serie.map(s=>s.gem),color:C.dark,width:1.8},{data:serie.map(s=>s.mm),color:C.orange,dash:'4 3',width:1.6},{data:serie.map(s=>s.k1),color:C.orange,width:2.6,endLabel:pc(mRef.k1)}],refs:[{y:BASEL,color:C.gray,label:'Baseline '+pc(BASEL),dash:'2 3'},{y:META,color:C.blue,label:'Meta '+pc(META)}]}));
+  const prev5=bd.slice(-6,-1).map(d=>soma(porDia.get(d)).pend),m5=mean(prev5),lim=CFG.limite_cobertura;
+  const alK1=devmm!=null&&Math.abs(devmm)>=CFG.alerta_k1_pp,alPend=m5!=null&&mRef.k2>=1.25*m5;
+  const cobOk=(mPer.c1==null||mPer.c1>=lim)&&(mPer.c2==null||mPer.c2>=lim);
+  const def=[];if(D.meta.duracao_ate<D.meta.dados_ate)def.push('duração até '+ddmmaa(D.meta.duracao_ate));if(D.meta.gpt_ate<D.meta.dados_ate)def.push('classificação GPT até '+ddmmaa(D.meta.gpt_ate));
+  o+=V(710,106,374,304,'Alertas do dia','Regras simples · limites nas configurações do painel',()=>
+    `<div class="al">${alK1?IC.warn:IC.ok}<div><b>${alK1?(devmm>0?'▲ carga acima da média de 5 dias':'▼ carga abaixo da média de 5 dias'):'● carga dentro do normal'}</b>K1 ${pc(mRef.k1)} vs média ${pc(mm5.k1)} (${pp(devmm)}; limite ±${CFG.alerta_k1_pp} p.p.)<div class="m">dia ${ddmmaa(refS)}</div></div></div>`+
+    `<div class="al">${cobOk?IC.ok:IC.crit}<div><b>${cobOk?'● cobertura dentro da meta':'⚠ classificação '+pc(mPer.c1,0)+' · duração '+pc(mPer.c2,0)+' dos atendimentos'}</b>Meta ≥ ${pc(lim,0)} dos atendimentos com classificação e com duração.<div class="m">período ${periodoTxt()}</div></div></div>`+
+    `<div class="al">${alPend?IC.warn:IC.ok}<div><b>${alPend?'▲':'●'} pendências ${alPend?'acima do normal':'dentro do normal'} (${nf(mRef.k2)})</b>${m5==null?'Sem dias anteriores no período para comparar.':`Média dos 5 dias anteriores: ${nf(m5,0)} (alerta a partir de ${nf(1.25*m5,0)}).`}<div class="m">dia ${ddmmaa(refS)}</div></div></div>`+
+    `<div class="al">${def.length?IC.warn:IC.ok}<div><b>${def.length?'⚠ dados atrasados':'● dados em dia'}</b>${def.length?`Ligações até ${ddmmaa(D.meta.dados_ate)}, mas ${def.join(' e ')}. Os indicadores param nessas datas.`:`Todas as fontes até ${ddmmaa(D.meta.dados_ate)}.`}<div class="m">arquivo gerado em ${D.meta.gerado_em.slice(8,10)}/${D.meta.gerado_em.slice(5,7)} ${D.meta.gerado_em.slice(11)}</div></div></div>`);
+  const t7=bd.slice(-7).map(d=>{const m=M(soma(porDia.get(d)));return {d:DIAS[d],m}});
+  o+=V(0,420,534,228,'Últimos 7 dias com dado',t7.some(r=>r.m.c1!=null&&r.m.c1<lim)?`C1 (classificação) abaixo de ${pc(lim,0)} em ${t7.filter(r=>r.m.c1!=null&&r.m.c1<lim).length} dos ${t7.length} dias`:'Cobertura dentro da meta',()=>`<table class="tb"><thead><tr><th>Dia</th><th>K1</th><th>K7</th><th>Pend.</th><th>Horas</th><th>C1</th><th>C2</th></tr></thead><tbody>`+
+    t7.map(r=>`<tr><td>${dd(r.d)} ${dw(r.d)}</td><td>${dbar(r.m.k1,.8,pc(r.m.k1),C.orange)}</td><td>${pc(r.m.k7)}</td><td>${dbar(r.m.k2,Math.max(...t7.map(x=>x.m.k2),1),nf(r.m.k2),C.orange)}</td><td>${nf(r.m.horas,1)}</td><td>${r.m.c1!=null&&r.m.c1<lim?IC.warn:''}${pc(r.m.c1,0)}</td><td>${r.m.c2!=null&&r.m.c2<lim?IC.warn:''}${pc(r.m.c2,0)}</td></tr>`).join('')+`</tbody></table>`);
+  // carteiras no dia de referência (universo ignora o filtro de carteira)
+  const uni=filtra(D.A,{ignorarCarteira:true}),porC=agrupa(uni.filter(r=>r[0]===ref),r=>r[1]),porC5=agrupa(uni.filter(r=>ult5.includes(r[0])),r=>r[1]);
+  const lin=[];porC.forEach((rs,ci)=>{const m=M(soma(rs));if(m.t.base_n>=8){const m5c=M(soma(porC5.get(ci)||[]));lin.push({ci,c:CART[ci].c,n:m.t.base_n,pend:m.k2,k1:m.k1,mm:m5c.k1,dev:m.k1!=null&&m5c.k1!=null?m.k1-m5c.k1:null})}});
+  lin.sort((a,b)=>b.pend-a.pend||(b.dev||0)-(a.dev||0));
+  o+=V(544,420,540,228,'Carteiras com mais pendências no dia',`${dd(refS)} · mínimo de 8 ligações classificadas no dia (${lin.length} carteiras atendem) · clique para filtrar`,()=>lin.length?`<table class="tb"><thead><tr><th>Carteira</th><th>Lig.</th><th>Pend.</th><th>K1 dia</th><th>K1 5 dias</th><th>Desvio</th></tr></thead><tbody>`+
+    lin.slice(0,6).map(r=>`<tr class="clic${S.cart===r.c?' sel':''}" data-cart="${esc(r.c)}"><td><b>${esc(r.c)}</b></td><td>${r.n}</td><td>${dbar(r.pend,Math.max(8,...lin.map(x=>x.pend)),nf(r.pend),C.orange)}</td><td>${pc(r.k1,0)}</td><td>${pc(r.mm,0)}</td><td class="${r.dev>=.1?'up':r.dev<=-.1?'dn':''}">${r.dev==null?'–':(r.dev>=.1?'▲ ':r.dev<=-.1?'▼ ':'')+pp(r.dev*100,0)}</td></tr>`).join('')+`</tbody></table><div class="note" style="margin-top:6px">K1 diário de carteira com poucas ligações oscila muito; use junto com a página 5.</div>`:vazio('Nenhuma carteira com 8 ou mais ligações classificadas no dia.'));
+  return [o,'Dia de referência: '+ddmmaa(refS)];
+};
+
+P[2]=()=>{
+  const rows=filtra(D.A),porSem=agrupa(rows,r=>semana(DIAS[r[0]]));let o='';
+  const weeks=[...porSem.keys()].sort().map(ws=>{const rs=porSem.get(ws),m=M(soma(rs)),dset=new Set(rs.filter(r=>r[2+D.colA.indexOf('base_n')]>0).map(r=>r[0])),gset=new Set(rs.filter(r=>r[2+D.colA.indexOf('gpt')]>0).map(r=>r[0]));return {ws,lab:dd(ws)+'–'+dd(maisDias(ws,4)),m,dias:dset.size,gd:gset.size}}).filter(w=>w.dias>0);
+  if(!weeks.length)return [V(0,0,1084,648,'Sem semanas com duração no período',null,vazioBase()),'—'];
+  const L=weeks.at(-1),Pv=weeks.length>1?weeks.at(-2):null;const dk1=Pv&&L.m.k1!=null&&Pv.m.k1!=null?(L.m.k1-Pv.m.k1)*100:null,dk7=Pv&&L.m.k7!=null&&Pv.m.k7!=null?(L.m.k7-Pv.m.k7)*100:null;
+  const kw4=263,kx4=i=>i*(kw4+10.7);
+  o+=K(kx4(0),0,kw4,96,'K1 da semana · '+L.lab,pc(L.m.k1),dk1==null?'sem semana anterior no período':`<span class="${dk1>0?'up':'dn'}">${dk1>0?'▲':'▼'} ${pp(dk1)}</span> vs semana anterior (${pc(Pv.m.k1)})`,L.dias<5?`semana parcial: ${L.dias} de 5 dias com duração`:'semana completa',{color:C.orange});
+  o+=K(kx4(1),0,kw4,96,'K7 da semana · negociação',pc(L.m.k7),dk7==null?'':`<span class="${dk7<0?'up':'dn'}">${dk7<0?'▼':'▲'} ${pp(dk7)}</span> vs semana anterior (${pc(Pv.m.k7)})`,`baseline ${pc(CFG.k7_baseline)}`,{color:C.blue});
+  o+=K(kx4(2),0,kw4,96,'Pendências por dia',nf(div(L.m.k2,L.gd),1),`${nf(L.m.k2)} pendências em ${L.gd} dias com classificação`,Pv?`semana anterior ${nf(div(Pv.m.k2,Pv.gd),1)}`:'',{color:C.ink});
+  o+=K(kx4(3),0,kw4,96,'Horas de conversa',nf(L.m.horas,1)+' h',`${L.dias} dias com duração`,Pv?`semana anterior ${nf(Pv.m.horas,1)} h`:'',{color:C.ink});
+  const W=weeks.slice(-8);
+  o+=V(0,106,560,290,'Carga operacional por semana','GPT e Gemini · semana de segunda a sexta',(w,h)=>legend([{c:C.orange,t:'K1 GPT',sq:1},{c:C.dark,t:'K1 Gemini (Suporte)',sq:1},{c:C.gray,t:'Baseline '+pc(BASEL)},{c:C.blue,t:'Meta '+pc(META)}])+groupSVG({w,h:h-36,yMax:.7,ticks:7,groups:W.map(x=>({label:x.lab+(x.dias<5?'*':''),vals:[{v:x.m.k1,color:C.orange},{v:x.m.gem,color:C.dark}]})),refs:[{y:BASEL,color:C.gray,label:'Baseline '+pc(BASEL)},{y:META,color:C.blue,label:'Meta '+pc(META)}]})+`<div class="note">* semana com menos de 5 dias com duração</div>`);
+  o+=V(570,106,514,290,'Negociação (K7) × taxa de problema (K6)','Colunas = K7 · linha = K6 (classificadas pelo GPT)',(w,h)=>legend([{c:C.blue,t:'K7 negociação',sq:1},{c:C.orange,t:'K6 taxa de problema'}])+(()=>{
+    const H2=h-38,m={l:38,r:10,t:16,b:24},iw=w-m.l-m.r,ih=H2-m.t-m.b,band=iw/W.length,bw=Math.min(40,band*.55),ym=Math.max(.6,niceMax(Math.max(...W.map(x=>Math.max(x.m.k7||0,x.m.k6||0))),6)),Y=v=>m.t+ih-v/ym*ih;let s=`<svg width="${w}" height="${H2}" viewBox="0 0 ${w} ${H2}">`+grid(w,H2,m,ym,6,v=>pc(v,0));let d='',ini=true;
+    W.forEach((x,i)=>{const cx=m.l+band*(i+.5);if(x.m.k7!=null)s+=`<path d="M${cx-bw/2} ${Y(0)}V${Y(x.m.k7)+3}Q${cx-bw/2} ${Y(x.m.k7)} ${cx-bw/2+3} ${Y(x.m.k7)}H${cx+bw/2-3}Q${cx+bw/2} ${Y(x.m.k7)} ${cx+bw/2} ${Y(x.m.k7)+3}V${Y(0)}Z" fill="${C.blue}"/><text x="${cx}" y="${Y(0)-6}" text-anchor="middle" style="fill:#fff;font-weight:600">${pc(x.m.k7,0)}</text>`;s+=`<text x="${cx}" y="${H2-7}" text-anchor="middle">${x.lab}</text>`;if(x.m.k6!=null){d+=(ini?'M':'L')+cx+' '+Y(x.m.k6);ini=false}});
+    s+=`<path d="${d}" fill="none" stroke="${C.orange}" stroke-width="2.4"/>`;W.forEach((x,i)=>{if(x.m.k6==null)return;const cx=m.l+band*(i+.5);s+=`<circle cx="${cx}" cy="${Y(x.m.k6)}" r="3.4" fill="${C.orange}" stroke="#fff" stroke-width="1.4"/><text x="${cx+bw/2+4}" y="${Y(x.m.k6)+4}" style="fill:#c4481a;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:3px">${pc(x.m.k6,0)}</text>`});return s+'</svg>'})()+`<div class="note">Salto do K6 sem mudança no K1 Gemini = mudança de versão do GPT.</div>`);
+  o+=V(0,406,760,242,'Matriz semanal','Variação sempre contra a semana anterior',()=>`<table class="tb"><thead><tr><th>Semana</th><th>Dias</th><th>Horas</th><th>K1 GPT</th><th>Δ</th><th>K1 Gemini</th><th>K7</th><th>Δ</th><th>K6</th><th>Pend.</th><th>Pend./dia</th></tr></thead><tbody>`+
+    W.map((x,i)=>{const p=i?W[i-1]:null;const a=p&&x.m.k1!=null&&p.m.k1!=null?(x.m.k1-p.m.k1)*100:null,b=p&&x.m.k7!=null&&p.m.k7!=null?(x.m.k7-p.m.k7)*100:null;return `<tr><td><b>${x.lab}</b></td><td>${x.dias}${x.dias<5?'*':''}</td><td>${nf(x.m.horas,1)}</td><td>${pc(x.m.k1)}</td><td class="${a>0?'up':'dn'}">${a==null?'':(a>0?'▲ ':'▼ ')+pp(a)}</td><td>${pc(x.m.gem)}</td><td>${pc(x.m.k7)}</td><td class="${b<0?'up':'dn'}">${b==null?'':(b<0?'▼ ':'▲ ')+pp(b)}</td><td>${pc(x.m.k6)}</td><td>${nf(x.m.k2)}</td><td>${nf(div(x.m.k2,x.gd),1)}</td></tr>`}).join('')+`</tbody></table><div class="note" style="margin-top:8px">Laranja = piorou (K1 sobe, K7 cai) · azul = melhorou. * semana com menos de 5 dias com duração.${weeks.length>8?' Mostrando as 8 últimas semanas do período.':''}</div>`);
+  o+=V(770,406,314,242,'Leitura de segunda · 08h','Roteiro da reunião de 15 minutos',()=>`<div class="note"><p style="margin:2px 0 10px"><b>1. O que piorou?</b><br>K1, K7 e pendências desta página e a coluna de variação.</p><p style="margin:0 0 10px"><b>2. O que fazemos?</b><br>No máximo 2 ações: um código de problema (página 4) ou uma carteira (página 5).</p><p style="margin:0 0 10px"><b>3. Quem faz, até quando?</b><br>Registrar a decisão em ata. A adoção é medida pelas leituras feitas e decisões registradas.</p></div>`);
+  return [o,'Semana de referência: '+L.lab];
+};
+
+P[3]=()=>{
+  const rows=filtra(D.A),m=M(soma(rows)),bd=diasComBase(rows),t=m.t;let o='';
+  if(!bd.length)return [V(0,0,1084,648,'Sem ligações com duração no período',null,vazioBase()),'—'];
+  const prows=filtra(D.P),ip1=D.codigos.indexOf('P1');const segP1=prows.filter(r=>r[2]===ip1).reduce((a,r)=>a+r[4],0),h1=segP1/3600,hm=h1/bd.length*CFG.dias_uteis_mes;
+  const red=S.redP1/100,ef=m.horas>0?h1*red/m.horas*100:null,horasDev=m.k1!=null?(BASEL-m.k1)*m.horas:null;
+  o+=V(0,0,380,290,'K1 do período vs meta',`${intervaloTxt(bd)} · ${nf(t.base_n)} ligações · ${nf(m.horas,1)} h classificadas`,(w,h)=>gaugeSVG({w,h:h-6,value:m.k1,min:0,max:.8,target:META,baseline:BASEL,fmtv:v=>pc(v,1)})+`<div class="note" style="text-align:center;margin-top:-6px">Meta geral −5 p.p. = <b>${pc(META)}</b> · piloto −10 p.p. = <b>${pc(CFG.k1_meta_piloto)}</b></div>`);
+  o+=K(0,300,185,92,'Horas operacionais',nf(m.horasOp,1)+' h',`de ${nf(m.horas,1)} h classificadas`,'carga operacional completa',{color:C.orange});
+  o+=K(195,300,185,92,'Horas devolvidas vs baseline',horasDev==null?'–':nf(horasDev,1)+' h',horasDev!=null&&horasDev<0?'carga acima do baseline':'(baseline − K1) × horas','baseline provisório',{color:horasDev!=null&&horasDev<0?C.orange:C.blue});
+  o+=K(0,402,185,92,'Horas excedentes (K3)',m.k3==null?'–':nf(m.k3,1)+' h',m.k3==null?'':`≈ ${nf(m.k3/bd.length*CFG.dias_uteis_mes,1)} h por mês`,'problema vs ligação sem problema',{color:C.ink});
+  const gd=new Set(rows.filter(r=>r[2+D.colA.indexOf('gpt')]>0).map(r=>r[0])).size;
+  o+=K(195,402,185,92,'Pendências (K2)',nf(m.k2),`${nf(div(m.k2,gd),1)} por dia com classificação`,'não resolvidas na ligação',{color:C.ink});
+  o+=V(0,504,380,144,'Como ler este baseline',null,()=>`<div class="note"><b>${esc(CFG.baseline_texto)}.</b> Setembro foi classificado com versões diferentes do GPT (a taxa de problema muda em 15/09) e a duração só existia até 22/09. Use como ordem de grandeza até o baseline congelado.<br>Carga operacional = problema + suporte + cobrança + pós-venda + dúvida de contrato.</div>`);
+  const cm=[{g:'Negociação',n:t.n_neg,s:t.seg_neg,c:C.blue},{g:'Relacionamento',n:t.n_rel,s:t.seg_rel,c:C.blue2,tx:'#0b0b0b'},{g:'Operacional — sem problema',n:t.n_ops,s:t.seg_op-t.seg_prob,c:C.orange2,tx:'#0b0b0b'},{g:'Operacional — com problema',n:t.n_prob_base,s:t.seg_prob,c:C.orange},{g:'Sem conteúdo',n:t.n_sc,s:t.seg_sc,c:C.light,tx:'#0b0b0b'}];
+  o+=V(390,0,694,136,'Para onde vai o tempo do time',`% do tempo de ligação classificada · ${intervaloTxt(bd)} · ${escopoTxt()}`,(w,h)=>legend(cm.map(x=>({c:x.c,t:x.g,sq:1})))+stackSVG({w,h:34,parts:cm.map(x=>({v:x.s,color:x.c,text:x.tx,lab:pc(x.s/t.seg_base,1)}))})+`<div class="note" style="margin-top:6px"><b>${pc(m.k1,1)}</b> do tempo é carga operacional (laranja) — ${nf(m.horasOp,1)} h em ${bd.length} dias; negociação ocupa ${pc(m.k7,1)}.</div>`);
+  o+=V(390,146,694,196,'Composição do tempo',null,()=>`<table class="tb"><thead><tr><th>Grupo</th><th>Ligações</th><th>Horas</th><th>% do tempo</th><th>TMA</th></tr></thead><tbody>`+cm.map(x=>`<tr><td>${x.g}</td><td>${nf(x.n)}</td><td>${nf(x.s/3600,1)}</td><td>${dbar(x.s/t.seg_base,.4,pc(x.s/t.seg_base,1),x.g.startsWith('Oper')?C.orange:C.blue)}</td><td>${mmss(div(x.s,x.n))}</td></tr>`).join('')+`<tr style="font-weight:600"><td>Total</td><td>${nf(t.base_n)}</td><td>${nf(m.horas,1)}</td><td>100,0%</td><td>${mmss(div(t.seg_base,t.base_n))}</td></tr></tbody></table>`);
+  o+=V(390,352,230,296,'Simulador: reduzir ligações P1','Acesso/sistema · % de redução',()=>`<div style="display:flex;flex-direction:column;gap:5px;margin-top:2px">`+[0,10,20,30,40,50,60].map(v=>`<div class="seg"><button data-red="${v}" class="${v===S.redP1?'on':''}">${v}%</button></div>`).join('')+`</div>`);
+  o+=K(630,352,454,92,`Horas devolvidas por mês com −${S.redP1}% de P1`,nf(hm*red,1)+' h',`P1 no período: ${nf(h1,1)} h em ${bd.length} dias ≈ ${nf(hm,1)} h por mês`,'aritmética (horas de P1 × % escolhido), não previsão',{color:C.blue});
+  o+=K(630,454,222,92,'Efeito no K1',ef==null?'–':pp(-ef),m.k1!=null&&ef!=null?pc(m.k1,1)+' → '+pc(m.k1-ef/100,1):'','o tempo vira tempo disponível',{color:C.blue});
+  o+=K(862,454,222,92,'Equivalente em ligações',m.tmaP?nf(hm*red*3600/m.tmaP,0):'–',`ligações com problema de ${mmss(m.tmaP)} (TMA)`,'por mês',{color:C.ink});
+  o+=V(630,556,454,92,null,null,()=>`<div class="note" style="padding-top:4px">${IC.info}A simulação responde "quanto vale atacar P1?", não "quanto vai cair". A queda real depende do plano de ação do código (página 4) e é medida no piloto contra o grupo de controle.</div>`);
+  return [o,escopoTxt()];
+};
+
+P[4]=()=>{
+  const rows=filtra(D.A),m=M(soma(rows)),bd=diasComBase(rows),gd=new Set(rows.filter(r=>r[2+D.colA.indexOf('gpt')]>0).map(r=>r[0])).size;let o='';
+  // K5 reincidência
+  const cp=filtra(D.CP),pc_=new Map();cp.forEach(r=>pc_.set(r[2],(pc_.get(r[2])||0)+r[3]));let tot=0,re=0;pc_.forEach(n=>{tot+=n;if(n>=2)re+=n});const k5=div(re,tot);
+  o+=K(kx(0),0,kw,92,'Taxa de problema (K6)',pc(m.k6),'ligações com problema ÷ classificadas','instável: depende da versão do GPT',{color:C.ink});
+  o+=K(kx(1),0,kw,92,'Pendências (K2)',nf(m.k2),`${nf(div(m.k2,gd),1)} por dia com classificação`,`de ${nf(m.t.prob_gpt)} ligações com problema`,{color:C.orange});
+  const prow=filtra(D.P),porCod=new Map();prow.forEach(r=>{const a=porCod.get(r[2])||[0,0,0,0,0,0];for(let i=0;i<6;i++)a[i]+=r[3+i];porCod.set(r[2],a)});
+  let par_=0,nao_=0;porCod.forEach(a=>{par_+=a[4];nao_+=a[5]});
+  o+=K(kx(2),0,kw,92,'Resolução na ligação (K4)',pc(m.k4),'resolvido (SIM)',`parcial ${pc(div(par_,m.t.prob_gpt),0)} · não ${pc(div(nao_,m.t.prob_gpt),0)}`,{color:C.blue});
+  o+=K(kx(3),0,kw,92,'Reincidência (K5)',pc(k5),'problemas de clientes com 2+ ligações','no período e escopo filtrados',{color:C.ink});
+  o+=K(kx(4),0,kw,92,'Horas excedentes (K3)',m.k3==null?'–':nf(m.k3,1)+' h',m.k3==null||!bd.length?'':`≈ ${nf(m.k3/bd.length*CFG.dias_uteis_mes,1)} h por mês`,m.tmaP==null?'sem duração no período':`TMA ${mmss(m.tmaP)} vs ${mmss(m.tmaS)} (${nf(div(m.tmaP,m.tmaS),1)}×)`,{color:C.ink});
+  const totSeg=[...porCod.values()].reduce((a,x)=>a+x[1],0);let cum=0;
+  const par=[...porCod.entries()].filter(([ci_,a])=>D.codigos[ci_]!=='nenhum'&&a[1]>0).sort((a,b)=>b[1][1]-a[1][1]).slice(0,8).map(([ci_,a])=>{cum+=a[1]/totSeg;const c=D.codigos[ci_];return {cod:c,nome:CURTO_P[c]||c,v:a[1]/3600,cum}});
+  o+=V(0,102,600,290,'Pareto do tempo em problema','Horas de ligação por código de problema · linha = % acumulado do total',(w,h)=>par.length?legend([{c:C.orange,t:'Horas com problema',sq:1},{c:C.dark,t:'% acumulado'}])+comboSVG({w,h:h-18,items:par,yMax:niceMax(Math.max(...par.map(p=>p.v))*1.1,4)}):vazio('Sem ligações com problema e duração no período.'));
+  const rc=[...porCod.entries()].filter(([ci_])=>D.codigos[ci_]!=='nenhum').sort((a,b)=>b[1][0]-a[1][0]).slice(0,4).map(([ci_,a])=>({cod:D.codigos[ci_],n:a[0],SIM:a[3]/a[0],PARCIAL:a[4]/a[0],NAO:a[5]/a[0]}));
+  o+=V(610,102,474,290,'Resolução por código','Os 4 códigos com mais ligações · % das ligações com problema',(w,h)=>rc.length?legend([{c:C.blue,t:'Resolvido',sq:1},{c:C.blue2,t:'Parcial',sq:1},{c:C.orange,t:'Não resolvido',sq:1}])+rc.map(r=>`<div style="display:flex;align-items:center;gap:8px;margin:11px 0"><div style="width:96px;text-align:right;font-size:11px"><b>${r.cod}</b> <span style="color:#898781">n=${r.n}</span></div><div style="flex:1">${stackSVG({w:w-112,h:30,parts:[{v:r.SIM,color:C.blue},{v:r.PARCIAL,color:C.blue2,text:'#0b0b0b'},{v:r.NAO,color:C.orange}],fmt:v=>pc(v,0)})}</div></div>`).join('')+`<div class="note">${rc.map(r=>`${r.cod} = ${NOMES_P[r.cod]||r.cod}`).join(' · ')}</div>`:vazio('Sem ligações com problema no período.'));
+  const orr=filtra(D.O),og=[0,0,0,0];orr.forEach(r=>{og[r[2]*2]+=r[3];og[r[2]*2+1]+=r[4]});
+  o+=V(0,402,300,246,'Taxa de problema por origem','Base com duração · ligação receptiva vs ativa',(w,h)=>og[0]+og[2]===0?vazio('Sem ligações classificadas com duração no período.'):colsSVG({w,h:h-40,yMax:.5,ticks:5,items:[{label:'Receptiva (inbound)',v:div(og[1],og[0]),color:C.orange},{label:'Ativa (outbound)',v:div(og[3],og[2]),color:C.orange2}]})+`<div class="note"><b>${pc(div(og[3],og[1]+og[3]),0)}</b> dos problemas nascem em ligação ativa.</div>`);
+  const uni=filtra(D.A,{ignorarCarteira:true}),porC=agrupa(uni,r=>r[1]),p1c=new Map();filtra(D.P,{ignorarCarteira:true}).forEach(r=>{if(r[2]===D.codigos.indexOf('P1'))p1c.set(r[1],(p1c.get(r[1])||0)+r[3])});
+  const tab=[];porC.forEach((rs,ci)=>{const mm=M(soma(rs));if(mm.t.gpt>=S.minLig)tab.push({c:CART[ci].c,n:mm.t.gpt,np:mm.t.prob_gpt,k6:mm.k6,h:mm.t.seg_prob/3600,pend:mm.k2,p1:p1c.get(ci)||0})});tab.sort((a,b)=>b.h-a.h);
+  o+=V(310,402,774,246,'Carteiras com mais tempo em problema',`Top 8 por horas · carteiras com ao menos ${S.minLig} ligações classificadas (ajuste na página 5) · clique para filtrar`,()=>tab.length?`<table class="tb"><thead><tr><th>Carteira</th><th>Lig. GPT</th><th>Com problema</th><th>K6</th><th>Horas</th><th>Pendências</th><th>P1</th></tr></thead><tbody>`+tab.slice(0,8).map(r=>`<tr class="clic${S.cart===r.c?' sel':''}" data-cart="${esc(r.c)}"><td><b>${esc(r.c)}</b></td><td>${r.n}</td><td>${r.np}</td><td>${pc(r.k6,0)}</td><td>${dbar(r.h,Math.max(...tab.map(x=>x.h),1),nf(r.h,1),C.orange)}</td><td>${r.pend}</td><td>${r.p1}</td></tr>`).join('')+`</tbody></table>`:vazio(`Nenhuma carteira com ${S.minLig}+ ligações classificadas no período. Reduza o mínimo na página 5.`));
+  return [o,escopoTxt()];
+};
+
+P[5]=()=>{
+  const uni=filtra(D.A,{ignorarCarteira:true}),porC=agrupa(uni,r=>r[1]);let o='';
+  const cs=[];porC.forEach((rs,ci)=>{const m=M(soma(rs));if(m.t.gpt>=S.minLig&&m.k1!=null)cs.push({c:CART[ci].c,d:CART[ci].d,k1:m.k1,n:m.t.gpt})});cs.sort((a,b)=>b.k1-a.k1);
+  const med=median(cs.map(c=>c.k1));const col=c=>c.k1-med>=.05?C.orange:c.k1-med<=-.05?C.blue:C.blue2;
+  o+=V(0,0,650,648,'Carga operacional por carteira',`K1 · carteiras com ao menos ${S.minLig} ligações classificadas · ${periodoTxt()} · clique para filtrar`,(w,h)=>cs.length?legend([{c:C.orange,t:'5 p.p. ou mais acima da mediana',sq:1},{c:C.blue2,t:'perto da mediana',sq:1},{c:C.blue,t:'5 p.p. ou mais abaixo',sq:1}])+`<div class="scroll" style="height:${h-36}px">`+hbarsSVG({w:w-14,items:cs.map(c=>({key:c.c,label:c.c,v:c.k1,color:col(c),sel:S.cart===c.c,lab:pc(c.k1,0)+'  ·  '+nf(c.n)+' lig.'})),max:Math.max(.8,...cs.map(c=>c.k1)),labelW:60,valW:96,median:{v:med,label:'mediana '+pc(med,1)},rowH:22,onClick:true})+`</div><div class="note" style="margin-top:2px">${cs.length} carteiras · role a lista para ver todas.</div>`:vazio(`Nenhuma carteira com ${S.minLig}+ ligações classificadas no período.`));
+  const allD=agrupa(D.A.filter(r=>r[0]>=S.d0&&r[0]<=S.d1),r=>CART[r[1]].d);
+  const dist=DISTRITAIS.map(d=>({label:d,v:M(soma(allD.get(d)||[])).k1,color:S.dist===d?C.blue:C.blue2}));
+  o+=V(660,0,424,200,'Carga operacional por distrital','K1 · todas as distritais do período',(w,h)=>colsSVG({w,h,yMax:.6,ticks:3,items:dist,lab:v=>pc(v,0)}));
+  const cc=filtra(D.CC),pcli=new Map();cc.forEach(r=>pcli.set(r[2],(pcli.get(r[2])||0)+r[3]));const vals=[...pcli.values()].sort((a,b)=>b-a),tt=vals.reduce((a,b)=>a+b,0),N=vals.length;
+  const curva=[1,2,5,10,20].map(q=>{const k=Math.max(1,Math.floor(N*q/100));return {q,v:tt>0?vals.slice(0,k).reduce((a,b)=>a+b,0)/tt:null}});
+  o+=V(660,210,424,190,'X% dos clientes concentram Y% do tempo',`Tempo total de ligação por cliente · ${nf(N)} clientes · ${escopoTxt()}`,(w,h)=>tt>0?hbarsSVG({w,h:h-6,items:curva.map(c=>({label:'Top '+c.q+'% dos clientes',v:c.v,color:c.q===1?C.orange:C.blue2,lab:pc(c.v,0)+' do tempo'})),max:1,labelW:112,valW:78}):vazio('Sem duração no período.'));
+  o+=V(660,410,424,104,'Mínimo de ligações por carteira','Define quem entra no ranking, na mediana e nas tabelas',()=>`<div class="seg" style="margin-top:4px">${[0,10,20,30,40,50,60].map(v=>`<button data-min="${v}" class="${v===S.minLig?'on':''}">${v}</button>`).join('')}</div><div class="note" style="margin-top:6px">Padrão ${CFG.min_ligacoes} (pensado para um mês). Em períodos curtos, use um mínimo menor.</div>`);
+  o+=K(660,524,136,124,'Carteiras elegíveis',nf(cs.length),`com ${S.minLig}+ ligações`,'',{color:C.ink});
+  o+=K(804,524,136,124,'Mediana do K1',pc(med,1),'entre as carteiras','',{color:C.dark});
+  o+=K(948,524,136,124,'Amplitude do K1',cs.length?nf(cs.at(-1).k1*100,0)+'–'+pc(cs[0].k1,0):'–','menor e maior carteira','',{color:C.orange});
+  return [o,S.dist?'distrital '+S.dist:'todas as distritais'];
+};
+
+P[6]=()=>{
+  let o='';const fr=filtra(D.F),fa=FAIXAS.map(()=>[0,0,0]);fr.forEach(r=>{fa[r[2]][0]+=r[3];fa[r[2]][1]+=r[4];fa[r[2]][2]+=r[5]});
+  const z=1.96,F=fa.map(([n,k,seg],i)=>{const p=div(k,n);let lo=null,hi=null;if(n>0){const den=1+z*z/n,cen=p+z*z/(2*n),am=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n));lo=(cen-am)/den;hi=(cen+am)/den}return {faixa:FAIXAS[i],n,k,seg,taxa:p,lo,hi,fph:seg>0?k/(seg/3600):null}});
+  const tt=F.reduce((a,x)=>a+x.seg,0),tk=F.reduce((a,x)=>a+x.k,0);
+  o+=V(0,0,420,290,'Taxa de fechamento por duração','Ligações de negociação · barra = intervalo de confiança 95%',(w,h)=>tt>0?colsSVG({w,h:h-4,yMax:Math.max(.5,niceMax(Math.max(...F.map(x=>x.hi||0)),5)),ticks:5,whisker:true,items:F.map(x=>({label:x.faixa,v:x.taxa,lo:x.lo,hi:x.hi,color:C.blue})),lab:v=>pc(v,1)}):vazio('Sem ligações de negociação com duração no período.'));
+  o+=V(430,0,300,290,'Fechamentos por hora','Produtividade do tempo de telefone',(w,h)=>tt>0?colsSVG({w,h:h-4,yMax:Math.max(1,niceMax(Math.max(...F.map(x=>x.fph||0)),7)),ticks:7,items:F.map(x=>({label:x.faixa,v:x.fph,color:C.blue2})),fmt:v=>nf(v,1),lab:v=>nf(v,2)}):vazio('–'));
+  o+=V(740,0,344,290,'Onde está o tempo e onde estão os fechamentos','% do total das ligações de negociação',(w,h)=>tt>0&&tk>0?legend([{c:C.blue2,t:'% do tempo',sq:1},{c:C.blue,t:'% dos fechamentos',sq:1}])+groupSVG({w,h:h-22,yMax:.5,ticks:5,groups:F.map(x=>({label:x.faixa.replace(' min',''),vals:[{v:x.seg/tt,color:C.blue2},{v:x.k/tk,color:C.blue}]})),lab:v=>pc(v,0)})+`<div class="note" style="margin-top:-2px">5 min ou mais: <b>${pc(F.slice(2).reduce((a,x)=>a+x.seg,0)/tt,0)}</b> do tempo, <b>${pc(F.slice(2).reduce((a,x)=>a+x.k,0)/tk,0)}</b> dos fechamentos.</div>`:vazio('–'));
+  const t=soma(filtra(D.A));
+  o+=V(0,300,360,170,'Funil das tentativas','Todas as tentativas de ligação do período',(w,h)=>t.tent>0?legend([{c:C.blue,t:'Atendida',sq:1},{c:C.blue2,t:'Sem sucesso',sq:1},{c:C.light,t:'Em aberto',sq:1}])+stackSVG({w,h:38,parts:[{v:t.atend,color:C.blue,lab:pc(t.atend/t.tent,1)},{v:t.sem_suc,color:C.blue2,text:'#0b0b0b',lab:pc(t.sem_suc/t.tent,1)},{v:t.open,color:C.light,text:'#0b0b0b',lab:''}]})+`<div class="note" style="margin-top:6px">${nf(t.tent)} tentativas: <b>${pc(t.atend/t.tent,1)}</b> atendidas, <b>${pc(t.sem_suc/t.tent,1)}</b> sem sucesso, ${pc(t.open/t.tent,1)} em aberto.</div>`:vazio('Sem tentativas no período.'));
+  const hr=filtra(D.H),hh=new Map();hr.forEach(r=>{const a=hh.get(r[2])||[0,0];a[0]+=r[3];a[1]+=r[4];hh.set(r[2],a)});
+  const horas=[];for(let x=8;x<=18;x++){const a=hh.get(x)||[0,0];horas.push({label:x+'h',v:div(a[1],a[0]),color:(x===12||x===13)?C.light:C.blue2})}
+  o+=V(370,300,420,170,'Atendimento por hora (Brasília)','% de tentativas atendidas, das 8h às 18h',(w,h)=>colsSVG({w,h:h-4,yMax:Math.max(.5,niceMax(Math.max(...horas.map(x=>x.v||0)),5)),ticks:5,items:horas,lab:v=>pc(v,0),m0:{l:34,r:6,t:14,b:22}}));
+  const vd=new Map();filtra(D.A).forEach(r=>{const tent=r[2],at=r[3];if(tent<=0)return;const dow=new Date(DIAS[r[0]]+'T12:00:00').getDay();const a=vd.get(dow)||[0,0,0];a[0]+=tent;a[1]+=at;a[2]+=1;vd.set(dow,a)});
+  const cap=[1,2,3,4,5].map(d=>{const a=vd.get(d)||[0,0,0];return {label:DOWN[d],vals:[{v:div(a[0],a[2]),color:C.blue2},{v:div(a[1],a[2]),color:C.blue}]}});
+  o+=V(800,300,284,170,'Tentativas por vendedor por dia','Média por vendedor-dia · atendidas em azul',(w,h)=>groupSVG({w,h:h-4,yMax:Math.max(20,niceMax(Math.max(...cap.map(c=>c.vals[0].v||0)),4)),ticks:4,groups:cap,fmt:v=>nf(v,0),lab:v=>nf(v,1)}));
+  const tr=filtra(D.T),tn=new Map();tr.forEach(r=>{const a=tn.get(r[2])||[0,0];a[0]+=r[3];a[1]+=r[4];tn.set(r[2],a)});const taxaNt=k=>{const a=tn.get(k)||[0,0];return div(a[1],a[0])};
+  const s2=filtra(D.S2).reduce((a,r)=>a+r[2],0),t2=taxaNt(2);
+  o+=V(0,480,360,168,'Clientes sem 2ª tentativa',`Uma tentativa sem sucesso e nenhuma outra em ${CFG.dias_recontato}+ dias`,()=>`<div style="display:flex;gap:18px;margin-top:6px"><div><div style="font-size:28px;font-weight:650">${nf(s2)}</div><div class="note">clientes</div></div><div><div style="font-size:28px;font-weight:650;color:#1f62b8">≈ ${t2==null?'–':nf(s2*t2,0)}</div><div class="note">conversas se a 2ª tentativa for feita (${pc(t2,1)} atendem)</div></div></div>`);
+  o+=V(370,480,420,168,'Atendimento por nº da tentativa','Ligações ativas para o mesmo cliente, desde o início dos dados',(w,h)=>colsSVG({w,h:h-4,yMax:.5,ticks:5,items:[1,2,3,4].map(k=>({label:k+'ª',v:taxaNt(k),color:C.blue2})),lab:v=>pc(v,1)}));
+  const rr=filtra(D.R);let dev=0,np=0;const pu=[[0,0],[0,0],[0,0]];rr.forEach(r=>{dev+=r[3];np+=r[4];if(r[2]>=0){pu[r[2]][0]+=r[3];pu[r[2]][1]+=r[4]}});
+  o+=V(800,480,284,168,'Retornos pedidos','Pelo cliente · data sugerida já vencida',()=>`<div style="display:flex;gap:16px;margin-top:4px"><div><div style="font-size:26px;font-weight:650">${nf(dev)}</div><div class="note">devidos</div></div><div><div style="font-size:26px;font-weight:650;color:#c4481a">${pc(div(np,dev),1)}</div><div class="note">no prazo (+2 dias)</div></div></div><div class="note" style="margin-top:6px">Por urgência 1–3 / 4–6 / 7–10: <b>${pu.map(a=>pc(div(a[1],a[0]),0)).join(' / ')}</b>.</div>`);
+  return [o,escopoTxt()];
+};
+
+P[7]=()=>{
+  let o='';const m=M(soma(filtra(D.A)));
+  o+=V(0,0,520,236,'Challenger: o que acontece na conversa',`% das ligações classificadas pelo GPT · ${escopoTxt()}`,(w,h)=>hbarsSVG({w,h:h-8,items:[{label:'Teve Challenger',v:m.ch,color:C.blue},{label:'Trouxe dado',v:m.dado,color:C.blue},{label:'Conectou à situação',v:m.con,color:C.blue},{label:'Cliente reagiu',v:m.rea,color:C.blue}],max:Math.max(.4,m.rea||0,m.con||0),labelW:122,valW:56,rowGap:.4}));
+  const sp=[['Situação',m.ss,null],['Problema',m.sp,null],['Implicação',m.si,m.si1],['Necessidade',m.sn,null]];
+  o+=V(530,0,554,236,'SPIN: nota média (1 a 5)','Implicação: % das análises com nota 1 abaixo do nome',(w,h)=>colsSVG({w,h:h-4,yMax:5,ticks:5,fmt:v=>nf(v,0),lab:v=>nf(v,2),items:sp.map(([k,v,n1])=>({label:k+(n1!=null?' · nota 1: '+pc(n1,0):''),v,color:k==='Implicação'?C.orange:C.blue2})),m0:{l:38,r:8,t:16,b:24}}));
+  const uni=filtra(D.A,{ignorarCarteira:true}),porC=agrupa(uni,r=>r[1]),cm=[];porC.forEach((rs,ci)=>{const mm=M(soma(rs));if(mm.t.gpt>=S.minLig)cm.push({c:CART[ci].c,m:mm})});
+  const md=k=>median(cm.map(x=>x.m[k]).filter(v=>v!=null));
+  const alvo=S.cart?M(soma(filtra(D.A))):m,nomeAlvo=S.cart?'Carteira '+S.cart:'Seleção ('+escopoTxt()+')';
+  const rt=[['Challenger','ch'],['Trouxe dado','dado'],['Conectou','con'],['Reagiu','rea'],['Decisor','dec']];
+  o+=V(0,246,540,196,`${nomeAlvo} vs mediana das carteiras · taxas`,S.cart?'Barra azul = carteira · cinza = mediana':'Selecione uma carteira no filtro para comparar uma carteira',(w,h)=>legend([{c:C.blue,t:nomeAlvo,sq:1},{c:C.light,t:'Mediana das carteiras ('+cm.length+')',sq:1}])+groupSVG({w,h:h-18,yMax:.8,ticks:4,groups:rt.map(([l,k])=>({label:l,vals:[{v:alvo[k],color:C.blue},{v:md(k),color:C.light}]})),lab:v=>pc(v,0)}));
+  const sp2=[['Situação','ss'],['Problema','sp'],['Implicação','si'],['Necessidade','sn']];
+  o+=V(0,452,540,196,`${nomeAlvo} vs mediana das carteiras · notas SPIN`,'Nota média 1 a 5',(w,h)=>groupSVG({w,h:h-4,yMax:5,ticks:5,fmt:v=>nf(v,0),lab:v=>nf(v,1),groups:sp2.map(([l,k])=>({label:l,vals:[{v:alvo[k],color:C.blue},{v:md(k),color:C.light}]}))}));
+  const tr=cm.filter(x=>x.m.si!=null).sort((a,b)=>a.m.si-b.m.si).slice(0,6);
+  o+=V(550,246,534,260,'Carteiras com maior oportunidade de treino',`As 6 menores notas de Implicação (SPIN) · carteiras com ${S.minLig}+ ligações · clique para filtrar`,()=>tr.length?`<table class="tb"><thead><tr><th>Carteira</th><th>Implicação</th><th>% nota 1</th><th>Trouxe dado</th><th>Challenger</th><th>Lig.</th></tr></thead><tbody>`+tr.map(r=>`<tr class="clic${S.cart===r.c?' sel':''}" data-cart="${esc(r.c)}"><td><b>${esc(r.c)}</b></td><td>${dbar(5-r.m.si,5,nf(r.m.si,2),C.orange)}</td><td>${pc(r.m.si1,0)}</td><td>${pc(r.m.dado,0)}</td><td>${pc(r.m.ch,0)}</td><td>${r.m.t.gpt}</td></tr>`).join('')+`</tbody></table><div class="note" style="margin-top:6px">Mediana das carteiras: Implicação ${nf(md('si'),2)} · dado ${pc(md('dado'),0)} · Challenger ${pc(md('ch'),0)}.</div>`:vazio(`Nenhuma carteira com ${S.minLig}+ ligações no período.`));
+  o+=V(550,516,534,132,'Trecho para coaching','Frase do vendedor e reação do cliente · acesso restrito',()=>`<div class="note" style="margin-top:8px">Fica fora deste painel: o texto livre pode conter nome e telefone de contato do cliente. Entra só numa versão de acesso restrito.</div>`,{v11:'fora do MVP'});
+  return [o,escopoTxt()];
+};
+
+P[8]=()=>{
+  let o='';const rows=filtra(D.A),m=M(soma(rows)),g=D.diag,lim=CFG.limite_cobertura,u=D.uso;
+  o+=K(kx(0),0,kw,92,'Cobertura de classificação (C1)',pc(m.c1,1),`${m.c1!=null&&m.c1<lim?IC.crit:IC.ok}${nf(m.t.atend-m.t.comp_cls)} sem classificação`,`meta ≥ ${pc(lim,0)} · período`,{color:m.c1!=null&&m.c1<lim?'#b23d12':C.ink});
+  o+=K(kx(1),0,kw,92,'Cobertura de duração (C2)',pc(m.c2,1),`${m.c2!=null&&m.c2<lim?IC.crit:IC.ok}${nf(m.t.atend-m.t.comp_dur)} sem duração`,`duração até ${ddmmaa(D.meta.duracao_ate)}`,{color:m.c2!=null&&m.c2<lim?'#b23d12':C.ink});
+  o+=K(kx(2),0,kw,92,'Sem análise Gemini',nf(m.semGem),`${pc(div(m.semGem,m.t.atend),1)} dos atendimentos`,'antes: contados como "detratora"',{color:'#a8650d'});
+  o+=K(kx(3),0,kw,92,'Atualização do painel',D.meta.gerado_em.slice(8,10)+'/'+D.meta.gerado_em.slice(5,7)+' '+D.meta.gerado_em.slice(11),`dados até ${ddmmaa(D.meta.dados_ate)}`,`classificação GPT até ${ddmmaa(D.meta.gpt_ate)}`,{color:C.ink});
+  o+=K(kx(4),0,kw,92,'Uso do painel (7 dias)',u&&u.acessos_total?`${nf(u.pessoas_7d)} pessoas`:'–',u&&u.acessos_total?`${nf(u.acessos_7d)} acessos · ${nf(u.pessoas_total)} pessoas desde o início`:'nenhum acesso registrado ainda','registrado pelo "Abrir painel.bat"',{color:C.ink});
+  const porDia=agrupa(rows,r=>r[0]),ds=[...porDia.keys()].sort((a,b)=>a-b).map(d=>({d:DIAS[d],m:M(soma(porDia.get(d)))}));
+  const corte=ds.findIndex(x=>x.d>D.meta.duracao_ate);
+  o+=V(0,102,560,244,'Cobertura por dia (C1 e C2)','Atendimentos classificados / com duração ÷ atendimentos do dia',(w,h)=>ds.length?legend([{c:C.blue,t:'C1 classificação'},{c:C.orange,t:'C2 duração'},{c:C.gray,t:'Meta '+pc(lim,0)}])+lineSVG({w,h:h-18,labels:ds.map(x=>dd(x.d)),every:Math.ceil(ds.length/12),yMax:1,ticks:5,series:[{data:ds.map(x=>x.m.c1),color:C.blue,width:2.2},{data:ds.map(x=>x.m.c2),color:C.orange,width:2.2}],refs:[{y:lim,color:C.gray,label:'meta '+pc(lim,0),dash:'3 3'}],notes:corte>0?[{i:corte,text:'duração acaba em '+dd(D.meta.duracao_ate),dy:105,end:true}]:[]}):vazio('Sem dias no período.'));
+  const pd_=ds.filter(x=>x.m.t.gpt>0);
+  o+=V(570,102,514,244,'Taxa de problema por dia (GPT)','Saltos de nível sem mudança real indicam mudança de versão da régua',(w,h)=>pd_.length?lineSVG({w,h,labels:pd_.map(x=>dd(x.d)),every:Math.ceil(pd_.length/12),yMax:Math.max(.4,niceMax(Math.max(...pd_.map(x=>x.m.k6||0)),4)),ticks:4,series:[{data:pd_.map(x=>x.m.k6),color:C.orange,width:2.4}]}):vazio('Sem classificação GPT no período.'));
+  const lin=[
+   ['Linhas lidas do arquivo',g.linhas,g.linhas,'in',null],['id_transcricao duplicado',g.dup,g.linhas,g.dup>0?'cr':'ok',0],
+   ['Completed sem segment_id',g.comp_sem_seg,g.comp,g.comp_sem_seg/g.comp>.02?'cr':'ok',.02],['Completed sem análise Gemini',g.sem_gem,g.comp,g.sem_gem/g.comp>.10?'at':'ok',.10],
+   ['Completed sem classificação GPT',g.sem_gpt,g.comp,g.sem_gpt/g.comp>.05?'cr':'ok',.05],['Completed sem duração',g.sem_dur,g.comp,g.sem_dur/g.comp>.05?'cr':'ok',.05],
+   ['Linhas sem codigo_cliente',g.sem_cod,g.linhas,g.sem_cod/g.linhas>.10?'at':'ok',.10]];
+  const pill={ok:'<span class="pill ok">OK</span>',at:'<span class="pill at">ATENÇÃO</span>',cr:'<span class="pill cr">CRÍTICO</span>',in:'<span class="pill in">ℹ</span>'};
+  o+=V(0,356,660,292,'Verificações da carga',`Arquivo inteiro (${ddmmaa(D.meta.inicio)} a ${ddmmaa(D.meta.dados_ate)}) · refeito a cada atualização`,()=>`<table class="tb"><thead><tr><th>Verificação</th><th>Falhas</th><th>Base</th><th>%</th><th>Limite</th><th>Status</th></tr></thead><tbody>`+lin.map(r=>`<tr><td>${r[0]}</td><td>${nf(r[1])}</td><td>${nf(r[2])}</td><td>${pc(r[1]/r[2],1)}</td><td>${r[4]==null?'':pc(r[4],0)}</td><td>${pill[r[3]]}</td></tr>`).join('')+`</tbody></table><div class="note" style="margin-top:8px">Colunas do CSV: ${D.colunas.usar} usar · ${D.colunas.ressalva} com ressalva · ${D.colunas.nao_usar} não usar (auditoria de setembro).</div>`);
+  const sn=D.sentinelas||[];
+  o+=V(670,356,414,292,'Campos com valor-sentinela','% das linhas com "sem dados necessários" ou equivalente',(w,h)=>sn.length?hbarsSVG({w,h:h-30,items:sn.map(s=>({label:s.campo.length>26?s.campo.slice(0,25)+'…':s.campo,v:s.pct,color:s.pct>.8?C.orange:C.orange2})),max:1,labelW:170,valW:44,rowGap:.35})+`<div class="note">Campos que parecem preenchidos mas não informam nada: não usar em decisão.</div>`:vazio('–'));
+  return [o,'período '+periodoTxt()];
+};
+
+/* ---------------- moldura da página ---------------- */
+const PAGINAS=[[1,'Dia','O que mudou ontem e exige ação hoje?'],[2,'Semana','A tendência piora ou melhora?'],[3,'Período','Estamos no caminho da meta?'],[4,'Problemas','Onde o tempo se perde e o que fica pendente?'],[5,'Carteiras','Quais carteiras concentram a carga?'],[6,'Tempo e ritmo','Que duração e que cadência rendem mais?'],[7,'Competências','Onde treinar?'],[8,'Qualidade do dado','Posso confiar nos números de hoje?']];
+function opcoes(lista,sel,todos){return `<option value="">${todos}</option>`+lista.map(v=>`<option value="${esc(v)}"${v===sel?' selected':''}>${esc(v)}</option>`).join('')}
+function render(){
+  S.d0=Math.max(0,Math.min(di0,S.d0|0));S.d1=Math.max(S.d0,Math.min(di0,S.d1|0));
+  const pg=PAGINAS.find(p=>p[0]===S.page)||PAGINAS[0];let corpo='',rt='';
+  try{[corpo,rt]=P[pg[0]]()}catch(e){console.error(e);corpo=V(0,0,1084,648,'Erro ao montar a página',null,vazio('Não foi possível calcular esta página com os filtros atuais. Tente "Limpar filtros". Detalhe: '+esc(e.message)))}
+  const cartsLista=CART.filter(c=>!S.dist||c.d===S.dist).map(c=>c.c);
+  wrap.innerHTML=`<div class="canvas">
+  <div class="rail"><div class="brand">Excelência Comercial<small>Venda interna · DVINT</small></div>
+   <h6>Páginas</h6>${PAGINAS.map(p=>`<button class="navb${p[0]===S.page?' on':''}" data-page="${p[0]}"><i>${p[0]}</i>${p[1]}</button>`).join('')}
+   <h6>Filtros</h6>
+   <label for="fPreset">Período</label><select id="fPreset">${Object.entries(PRESETS).map(([k,v])=>`<option value="${k}"${k===S.preset?' selected':''}>${v}</option>`).join('')}</select>
+   <div class="dt"><input type="date" id="fD0" value="${DIAS[S.d0]}" min="${DIAS[0]}" max="${DIAS[di0]}" aria-label="Data inicial"><input type="date" id="fD1" value="${DIAS[S.d1]}" min="${DIAS[0]}" max="${DIAS[di0]}" aria-label="Data final"></div>
+   <label for="fDist">Distrital</label><select id="fDist">${opcoes(DISTRITAIS,S.dist,'Todos')}</select>
+   <label for="fCart">Carteira</label><select id="fCart">${opcoes(cartsLista,S.cart,'Todas')}</select>
+   <button class="limpar" id="fLimpar">Limpar filtros</button>
+   <div class="stat"><div class="chipx a">${esc(CFG.baseline_texto)}</div><div class="chipx b">Dados até ${dd(D.meta.dados_ate)} · duração até ${dd(D.meta.duracao_ate||D.meta.dados_ate)} · GPT até ${dd(D.meta.gpt_ate||D.meta.dados_ate)}</div></div>
+  </div>
+  <div class="hd"><div><h2>${pg[0]} · ${pg[1]} <span>— ${pg[2]}</span></h2></div><div class="rt">${esc(rt||'')}</div></div>
+  <div class="main">${corpo}</div>
+  <div class="foot"><span>Painel MVP · números agregados do CSV da consulta · carteira = código, sem nome de vendedor · regras do plano da missão 4T26</span><span>Atualizado em ${D.meta.gerado_em.slice(8,10)}/${D.meta.gerado_em.slice(5,7)} ${D.meta.gerado_em.slice(11)}</span></div>
+  </div>`;
+  salvar();ajustar();
+}
+function ajustar(){const s=Math.min(1,(document.documentElement.clientWidth-8)/1280,(window.innerHeight-8)/720);wrap.style.zoom=s<1?String(Math.max(.5,s)):'';}
+window.addEventListener('resize',ajustar);
+wrap.addEventListener('click',ev=>{
+  const b=ev.target.closest('[data-page]');if(b){S.page=+b.dataset.page;render();return}
+  const c=ev.target.closest('[data-cart]');if(c){const v=c.dataset.cart;S.cart=S.cart===v?'':v;if(S.cart){const k=CART.find(x=>x.c===S.cart);if(k&&S.dist&&k.d!==S.dist)S.dist=''}render();return}
+  const r=ev.target.closest('[data-red]');if(r){S.redP1=+r.dataset.red;render();return}
+  const mn=ev.target.closest('[data-min]');if(mn){S.minLig=+mn.dataset.min;render();return}
+  if(ev.target.closest('[data-ultimo]')){const u=idxDia(D.meta.duracao_ate);S.preset='pers';S.d1=DIAS[u]>D.meta.duracao_ate&&u>0?u-1:u;S.d0=idxDia(DIAS[S.d1].slice(0,7)+'-01');render();return}
+  if(ev.target.id==='fLimpar'){S.dist='';S.cart='';S.preset='mes';aplicaPreset('mes');S.minLig=CFG.min_ligacoes;render()}
+});
+wrap.addEventListener('change',ev=>{
+  const id=ev.target.id,v=ev.target.value;
+  if(id==='fPreset'){S.preset=v;if(v!=='pers')aplicaPreset(v)}
+  else if(id==='fD0'||id==='fD1'){const i=idxDia(v||DIAS[0]);if(id==='fD0')S.d0=i;else S.d1=Math.max(0,DIAS[i]>v&&i>0?i-1:i);if(S.d1<S.d0)[S.d0,S.d1]=[S.d1,S.d0];S.preset='pers'}
+  else if(id==='fDist'){S.dist=v;if(S.cart&&CART.find(x=>x.c===S.cart).d!==v&&v)S.cart=''}
+  else if(id==='fCart'){S.cart=v}
+  else return;
+  render();
+});
+document.addEventListener('keydown',ev=>{if(ev.target.tagName==='INPUT'||ev.target.tagName==='SELECT')return;const n=parseInt(ev.key,10);if(n>=1&&n<=8){S.page=n;render()}});
+/* para conferência automatizada (testes): métricas do filtro atual */
+window.__painel={S,render,M,soma,filtra,D};
+render();
+</script>
+</body>
+</html>

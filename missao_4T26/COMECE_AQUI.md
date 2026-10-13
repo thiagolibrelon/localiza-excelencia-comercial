@@ -20,8 +20,13 @@ Para pegar atualizações depois: `git pull`.
 
 ## 2. Ordem de leitura
 
+> **Novo (13/10): painel MVP em HTML no lugar do Power BI.** Comece por `painel/LEIA-ME.md`. Para ver o painel neste PC, rode
+> `python missao_4T26/painel/atualizar_painel.py --entrada "C:\caminho\Consulta Power Bi - Cópia.csv" --saida missao_4T26/painel` (na raiz do repositório)
+> e abra `missao_4T26/painel/painel.html` no Chrome ou Edge.
+
 | # | Abrir | Com o quê | Para quê |
 |---|---|---|---|
+| 0 | `painel/LEIA-ME.md` | VS Code / GitHub | **Painel MVP (decisão de 13/10):** HTML com as 8 páginas, pasta no SharePoint, `.bat` com registro de acesso, rotina diária |
 | 1 | `PLANO_MISSAO_4T26.md` | VS Code (Ctrl+Shift+V para visualizar) ou GitHub | O plano: canvas, baseline, KPIs, cronograma até dezembro, riscos |
 | 2 | `AUDITORIA_DADOS_E_OPORTUNIDADES.md` | idem | Mapa das 88 colunas (**seção 2.1 lista cada coluna e seu uso**), 10 achados no código M, 4 personas, 89 oportunidades |
 | 3 | `PLANO_OPORTUNIDADES.md` | idem | Os 12 pacotes de oportunidade, capacidade e calendário |
@@ -37,7 +42,7 @@ Para pegar atualizações depois: `git pull`.
 
 ## 3. Rodar os scripts (opcional)
 
-Python 3.10+ e `pip install pandas numpy`. Os scripts ficam em `scripts/` e recalculam os números a partir do **CSV da consulta** (que não está no repositório; passe o caminho dele).
+Python 3.9+ e `pip install pandas numpy`. Os scripts ficam em `scripts/` e recalculam os números a partir do **CSV da consulta** (que não está no repositório; passe o caminho dele).
 
 ```bash
 python scripts/auditoria_dados_missao.py "C:\caminho\Consulta Power Bi - Cópia.csv"      # refaz o dicionário e os anexos
@@ -49,6 +54,7 @@ python scripts/reconciliar_bi_v1.py "C:\caminho\Consulta Power Bi - Cópia.csv" 
 
 | Dá | Não dá |
 |---|---|
+| **Gerar e abrir o painel MVP** (`painel/`) com o CSV e conferir os números da seção "Validação" do LEIA-ME | Testar a sincronização do SharePoint e o registro de acesso: dependem da pasta da empresa |
 | Ler tudo, abrir os HTML e PDF, conferir o mapa de colunas | Rodar o Power Query: ele lê o BigQuery pelo DSN `lclz-dados` (ODBC), que só existe no ambiente oficial |
 | Rodar os scripts contra o CSV e comparar com `reconciliacao.csv` | Validar o DAX: precisa do modelo carregado no Power BI Desktop (só roda em Windows) |
 | Conferir se o M e o DAX fazem sentido lendo os arquivos | Testar o RLS e a publicação: dependem do workspace da empresa |
@@ -60,17 +66,19 @@ python scripts/reconciliar_bi_v1.py "C:\caminho\Consulta Power Bi - Cópia.csv" 
 - Nada aqui é dado bruto, mas há **códigos de carteira** (identificam o vendedor para quem é do time) nos mockups, em `anexos/carteira_set_2026.csv` e em `bi/reconciliacao.csv`, e **trechos de ligação mascarados** em `prototipos/trilha_prototipo.html`.
 - Decisões que ainda dependem de você (README do BI, seção 6): audiência do BI na quarta, RLS, texto livre fora do modelo.
 - O BI v1 é **retrato de setembro com baseline provisório**; os avisos estão nos mockups e no comunicado.
+- **Painel MVP:** o `dados.js` gerado tem números por carteira (código) e não deve ir para o repositório (o `.gitignore` da pasta já o exclui). Leve para a pasta do SharePoint só `painel.html` e `Abrir painel.bat`; o script e o `Atualizar painel.bat` ficam no seu computador.
 
 ## 6. Mapa de pastas
 
 ```
 missao_4T26/
   COMECE_AQUI.md                        este arquivo
-  PLANO_MISSAO_4T26.md                  plano da missão (v0.3.2)
+  PLANO_MISSAO_4T26.md                  plano da missão (v0.3.3)
   AUDITORIA_DADOS_E_OPORTUNIDADES.md    auditoria dos dados e catálogo de oportunidades
   PLANO_OPORTUNIDADES.md                plano separado das oportunidades
   anexos/                               CSVs de apoio (dicionário, série diária, carteiras, tempo ótimo, catálogo)
   prototipos/                           wireframe do BI e protótipo da trilha (HTML)
+  painel/                               MVP em HTML (decisão de 13/10): LEIA-ME, painel.html, atualizar_painel.py, .bat de abrir e de atualizar
   bi/
     README_BI_v1.md                     roteiro do BI v1
     powerquery/  dax/  tema/            código do modelo

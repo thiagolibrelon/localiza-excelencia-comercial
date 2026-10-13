@@ -1,0 +1,4 @@
+# gerados na pasta do painel (números agregados do CSV e registros de acesso): não versionar
+dados.js
+logs/
+atualizar_painel_config.json

@@ -1,6 +1,6 @@
 # Missão 4T26 — Reduzir o tempo da venda interna com problemas
 
-> **Draft v0.3.2 — 01/10/2026 (refeito só com o CSV e o código M; BI v1 antecipado para 07/10).**
+> **Draft v0.3.3 — 13/10/2026 (MVP do painel em HTML via SharePoint antes do Power BI; ver seção 7 e `painel/LEIA-ME.md`).** v0.3.2 de 01/10: refeito só com o CSV e o código M.
 > **Fontes: o CSV da consulta do Power BI (19.078 ligações × 88 colunas, 31/08–30/09) e o código M que o gera.** Nada do repositório entra nos números:
 > sem junho, julho, diárias, reservas ou exemplos; a única exceção é a legenda dos códigos P1–P15 e CH1–CH7, que vem do repositório. Por isso não há tendência entre meses nem resultado real depois da ligação.
 > Reproduzível com `scripts/baseline_carga_operacional.py` e `scripts/auditoria_dados_missao.py`; auditoria completa em `AUDITORIA_DADOS_E_OPORTUNIDADES.md`; as oportunidades têm plano próprio em `PLANO_OPORTUNIDADES.md`.
@@ -142,6 +142,7 @@ Feriados considerados: 12/10, 02/11, 20/11 e 25/12. Dias úteis: out 21 · nov 1
 | 09/10 | **E2 Baseline congelado de setembro** | Setembro inteiro reprocessado com **uma** versão de prompt/modelo, versão gravada por linha; K1 pelas duas réguas (GPT e Gemini); metas calibradas. Fallback: baseline 01–22/09 |
 | 09/10 | **E3 Pedidos de dado e chamados** | Os 9 pedidos da auditoria com dono e prazo; carteiras-piloto definidas (seção 6) |
 | 13/10 | **E4 Correções do código M** | M-01 (classe "sem análise"), M-02 (chave com ano), M-05 (janela móvel), M-06 (fuso), normalização de `codigo_cliente` e valores-sentinela como nulo |
+| 13/10 | **E6m Painel MVP em HTML** (decisão de 13/10) | 8 páginas do modelo do BI em `painel/`, calculadas no navegador com filtros de período, distrital e carteira; 135 de 135 valores de `bi/reconciliacao.csv` conferidos; pasta no SharePoint com permissão só da Gerência Operacional; `Abrir painel.bat` registra cada acesso; atualização diária pelo Thiago a partir do CSV exportado |
 | 16/10 | **E5 Pipeline D-1** | Classificador agendado, saída diária, refresh sem intervenção por 3 dias seguidos |
 
 **Gate 16/10:** régua congelada + código M corrigido + pipeline D-1 funcionando. Sem isso, o BI não vira oficial (v2): a v1 de 07/10 fica rotulada como provisória e sem metas calibradas.
@@ -154,7 +155,7 @@ Feriados considerados: 12/10, 02/11, 20/11 e 25/12. Dias úteis: out 21 · nov 1
 | 23/10 | **D1 Dossiê: carga operacional e tempo** | Mapa de alocação do tempo, Pareto de problemas, fechamentos por hora de conversa |
 | 26/10 | **Primeira leitura semanal (beta)** | Segunda 08h com Gerência Operacional e Comercial; ata com decisões |
 | 30/10 | **D2 Dossiê: recontato e retorno no prazo** | Listas de clientes sem 2ª tentativa e de retornos vencidos, com tamanho em conversas |
-| 30/10 | **E7 BI v2 em produção** | 8 páginas (seção 7) com baseline congelado e metas calibradas; 5 dias úteis seguidos de refresh até 08h; acesso por perfil |
+| 30/10 | **E7 Painel diário em produção** | 8 páginas (seção 7) com baseline congelado e metas calibradas; 5 dias úteis seguidos de atualização até 08h; acesso por perfil. **Desde 13/10 é o painel HTML (MVP);** o Power BI só entra se o uso medido justificar |
 
 **Gate 30/10:** BI em produção e a gestão abrindo toda segunda.
 
@@ -230,6 +231,7 @@ Como carteira e vendedor são 1:1, o piloto é, na prática, um piloto com vende
 ## 7. BI diário — especificação mínima
 
 > Wireframe interativo com dados reais agregados: `prototipos/bi_wireframe.html`. Protótipo da trilha do vendedor: `prototipos/trilha_prototipo.html`.
+> **Decisão de 13/10: MVP em HTML antes do Power BI (`painel/`).** As mesmas 8 páginas abertas localmente a partir de uma pasta do SharePoint: `atualizar_painel.py` transforma o CSV diário em `dados.js` (só agregados por dia e carteira), `painel.html` calcula tudo no navegador e `Abrir painel.bat` registra quem abre. Audiência: Gerência Operacional, diariamente; vendedores numa segunda fase. Critério para levar ao Power BI: uso medido pelo registro de acesso depois de 4 semanas.
 > **Pacote técnico do BI (v1 de 07/10): `bi/`** — Power Query corrigido (`bi/powerquery/`), medidas DAX e calendário (`bi/dax/`), tema, mockups das 8 páginas em PNG/PDF (`bi/mockups/`), especificação dos visuais, reconciliação com os números de setembro e roteiro de publicação (`bi/README_BI_v1.md`).
 
 Cada página responde a **uma decisão** (contexto → insight → evidência → recomendação → ação).
@@ -301,6 +303,9 @@ valores-sentinela tratados como nulo; trechos com nome de cliente só para perfi
 **Tomadas em 01/10:** carga operacional completa · metas mantidas (−5 p.p. geral, −10 p.p. piloto) · exploração ampla dos dados em paralelo ·
 piloto conduzido por Thiago + Gerência Operacional, que assina as horas · BI nominal organizado por carteira · "onde publicar a classificação" fora do caminho crítico ·
 **só o CSV e o código M são fonte de dado; a legenda dos códigos vem do repositório**.
+
+**Tomadas em 13/10:** MVP do painel em **HTML via pasta do SharePoint + `.bat`** no lugar do BI v1, para medir a adoção antes de investir no Power BI ·
+audiência inicial **Gerência Operacional, diária** (o diretor não usa o painel; a página dos vendedores fica para a segunda fase) · fonte diária = **CSV que o Thiago já exporta** da análise do dia anterior · **as 8 páginas do modelo aprovado**.
 
 **Em aberto (fechar até 09/10):**
 
